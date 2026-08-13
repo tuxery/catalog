@@ -1,0 +1,32 @@
+# Build
+dist
+dist-dev
+lib
+lib-types
+build
+tmp
+
+# Development
+node_modules
+.pnpm-store
+.env
+*.local
+
+# Cache
+.cache
+tsconfig.tsbuildinfo
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Editor
+.history
+.vscode/*
+!.vscode/launch.json
+!.vscode/*.code-snippets
+.idea
+.DS_Store

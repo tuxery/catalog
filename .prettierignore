@@ -1,0 +1,13 @@
+**/*.log
+**/.DS_Store
+.history
+node_modules
+.pnpm-store
+dist
+dist-dev
+build
+tmp
+.cache
+tsconfig.tsbuildinfo
+*.spec.ts
+pnpm-lock.yaml

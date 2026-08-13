@@ -22,7 +22,7 @@ catalog/
 └── pnpm-workspace.yaml
 ```
 
-`packages/sources` and `packages/matcher` are migrating here from `app`;
+`packages/sources` and `packages/matcher` have migrated here from `app`;
 `packages/rebuild` and `packages/store` don't exist yet.
 
 ## Development
@@ -44,7 +44,8 @@ Or scoped to one package: `pnpm --filter @tuxery/matcher test`, etc.
 
 ## Status
 
-Freshly bootstrapped — this repo is currently just scaffolding. No packages
-have landed yet; see the
-[Tuxery GitHub Project](https://github.com/orgs/tuxery/projects/1) for the
-migration and pipeline work tracked as cards.
+`packages/sources` and `packages/matcher` have landed, migrated from `app`
+with their existing tests. `packages/sources`' connectors are still stubs
+returning no results — real upstream integration, `packages/rebuild`, and
+`packages/store` are tracked as cards on the
+[Tuxery GitHub Project](https://github.com/orgs/tuxery/projects/1).

@@ -13,7 +13,7 @@ messages, issues, pull requests, and configuration. No exceptions.
 
 - `packages/sources` — normalized `SourcedPackage` type and async connectors
   per upstream source (Flathub, Snapcraft, AppImage, native). Migrated from
-  `tuxery/app`.
+  `tuxery/app`; connectors are still stubs returning no results.
 - `packages/matcher` — package deduplication/scoring engine. Pure functions,
   no I/O. Migrated from `tuxery/app`.
 - `packages/rebuild` — orchestration scripts that run the sources + matcher
@@ -68,10 +68,10 @@ chore(deps): 📌 pin oxlint to 1.76.0
 
 ## Git workflow
 
-Short-lived feature branches, merged via PR into `main`. No release-train
-model yet (see `tuxery/.dev`'s AGENTS.md) — this is an early-stage, mostly
-solo project; adopt stricter branch protection when it actually ships to
-users or gains collaborators, not preemptively.
+Push straight to `main`, no PR needed — this is an early-stage PoC, mostly
+solo project. No release-train model yet (see `tuxery/.dev`'s AGENTS.md).
+Adopt feature branches + PRs and stricter branch protection once it actually
+ships to users or gains collaborators, not preemptively.
 
 ## License
 

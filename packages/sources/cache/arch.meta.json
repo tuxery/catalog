@@ -1,0 +1,8 @@
+{
+  "source": "arch",
+  "fetchedAt": "2026-08-14T15:09:10.966Z",
+  "url": "https://geo.mirror.pkgbuild.com/{core,extra}/os/x86_64/*.db",
+  "entryCount": 15200,
+  "repos": ["core", "extra"],
+  "arch": "x86_64"
+}

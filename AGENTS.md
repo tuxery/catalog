@@ -1,8 +1,8 @@
 # AGENTS.md — Tuxery `catalog`
 
-The Tuxery data pipeline: source connectors, the matching/merge engine, the
-scripts that rebuild the dataset end to end, and the persisted store the
-`app` repo (and, later, a public API) read from.
+The Tuxery data pipeline: source connectors, the curation engine (filter +
+match/merge), the scripts that rebuild the dataset end to end, and the
+persisted store the `app` repo (and, later, a public API) read from.
 
 ## Language
 
@@ -22,10 +22,15 @@ messages, issues, pull requests, and configuration. No exceptions.
   `fetch.ts` implemented (e.g. `pnpm --filter @tuxery/sources refresh
 flathub`) — see [`docs/sources.md`](docs/sources.md) for status per
   source.
-- `packages/matcher` — package deduplication/scoring engine. Pure functions,
-  no I/O. Migrated from `tuxery/app`.
-- `packages/pipeline` — orchestration scripts that run the sources + matcher
-  pipeline end to end and produce a fresh dataset.
+- `packages/curator` — catalog curation, pure functions, no I/O. Renamed
+  from `packages/matcher` once it grew a second responsibility:
+  `filter/` decides which packages belong in the catalog at all (drops
+  libraries/dev-headers/docs/fonts — see its own rules + git-committed
+  `overrides/keep.ndjson`/`exclude.ndjson`), `match/` (the original
+  matcher — migrated from `tuxery/app`) groups what's left into unified
+  apps across sources.
+- `packages/pipeline` — orchestration scripts that run sources + curator
+  end to end and produce a fresh dataset.
 - `packages/store` — the persisted DB/cache layer (Cloudflare R2 today,
   possibly D1 later) that `app` reads from at build time.
 
@@ -63,7 +68,7 @@ similar, so it can be modified independently later.
 - Don't add a local `TODO.md`/`ROADMAP.md` — track work as cards on the
   [Tuxery GitHub Project](https://github.com/orgs/tuxery/projects/1) instead
   (per this org's bootstrap instructions).
-- Keep `packages/sources` and `packages/matcher` free of Qwik/UI dependencies
+- Keep `packages/sources` and `packages/curator` free of Qwik/UI dependencies
   — `app` and any future public API both depend on this repo, not the other
   way around.
 - Don't wire real upstream network calls into a `packages/sources` connector
@@ -84,7 +89,7 @@ Scopes live in [`scopes.json`](./scopes.json) at this repo's root:
 | Scope      | Maps to                             |
 | ---------- | ----------------------------------- |
 | `sources`  | `packages/sources`                  |
-| `matcher`  | `packages/matcher`                  |
+| `curator`  | `packages/curator`                  |
 | `pipeline` | `packages/pipeline`                 |
 | `store`    | `packages/store`, R2/D1 persistence |
 | `docs`     | `docs/`                             |

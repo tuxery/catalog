@@ -1,10 +1,10 @@
 # Tuxery — `catalog`
 
-The data side of Tuxery: source connectors, the matching/merge engine, the
-scripts that rebuild the unified dataset, and the persisted store `app`
-reads from. Split out from `app` so external contributors can add a source
-connector without touching the Qwik UI, and so the pipeline can run on its
-own schedule independent of web deploys. See
+The data side of Tuxery: source connectors, the curation engine (filter +
+match/merge), the scripts that rebuild the unified dataset, and the
+persisted store `app` reads from. Split out from `app` so external
+contributors can add a source connector without touching the Qwik UI, and
+so the pipeline can run on its own schedule independent of web deploys. See
 [`init.md`](https://github.com/tuxery/.github), [`docs/`](docs/) and the
 [Tuxery GitHub Project](https://github.com/orgs/tuxery/projects/1) for the
 product brief, reference docs, and roadmap.
@@ -20,8 +20,11 @@ catalog/
 │   │   ├── _shared/         # cross-source helpers (NDJSON read/write)
 │   │   ├── flathub/ snapcraft/ appimage/ ...
 │   │   └── search.ts       # searchAllSources() — fans out to every source
-│   ├── matcher/            # @tuxery/matcher — scoring/dedup engine
-│   ├── pipeline/           # @tuxery/pipeline — orchestrates sources + matcher into a fresh dataset
+│   ├── curator/            # @tuxery/curator — catalog curation
+│   │   ├── overrides/       # git-committed keep/exclude exceptions
+│   │   ├── filter/           # decides which packages belong in the catalog at all
+│   │   └── match/            # groups what's left into unified apps across sources
+│   ├── pipeline/           # @tuxery/pipeline — orchestrates sources + curator into a fresh dataset
 │   └── store/               # @tuxery/store — persistence layer (Cloudflare R2, later maybe D1)
 ├── tsconfig.base.json       # shared TS config for packages/*
 └── pnpm-workspace.yaml
@@ -45,18 +48,24 @@ pnpm lint
 pnpm test
 ```
 
-Or scoped to one package: `pnpm --filter @tuxery/matcher test`, etc.
+Or scoped to one package: `pnpm --filter @tuxery/curator test`, etc.
 
 ## Status
 
-`packages/sources`, `packages/matcher`, `packages/pipeline`, and
+`packages/sources`, `packages/curator`, `packages/pipeline`, and
 `packages/store` have all landed. Every source except GitHub Releases
 (deferred to roadmap) is fetching real data — Flathub (3,345 apps),
 Snapcraft (1,542 snaps), AppImage (1,104 apps, no version yet), AUR
 (117,520 packages), Arch official core+extra (15,200 packages), Debian
-(68,755 packages, stable/main/amd64 only), Ubuntu (73,219 packages,
+(68,755 packages, stable/main/amd64 only), Ubuntu (73,228 packages,
 resolute main+universe/amd64 only), and Fedora (76,354 packages, release
-44 Everything/x86_64 only) — see
-[`docs/sources.md`](docs/sources.md) and the
-[Tuxery GitHub Project](https://github.com/orgs/tuxery/projects/1) for what's
-implemented vs. tracked as roadmap cards.
+44 Everything/x86_64 only) — see [`docs/sources.md`](docs/sources.md) and
+the [Tuxery GitHub Project](https://github.com/orgs/tuxery/projects/1) for
+what's implemented vs. tracked as roadmap cards.
+
+`packages/curator`'s `filter` cuts ~54k non-app/game packages (libraries,
+dev headers, docs, fonts) before matching — effective on Debian/Ubuntu
+(~33% each), much less so on AUR/Arch (~2-3%, different naming
+conventions — see the "Filter is far less effective on AUR/Arch" card).
+`match`'s cross-source grouping algorithm hasn't been reworked yet (still
+the original bucketed-pairwise-scoring approach from `tuxery/app`).

@@ -16,6 +16,7 @@
     "@tuxery/sources": "workspace:*"
   },
   "devDependencies": {
+    "@types/node": "20.19.0",
     "oxlint": "^1.76.0",
     "typescript": "7.0.2",
     "vitest": "4.1.10"

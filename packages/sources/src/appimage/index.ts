@@ -1,13 +1,19 @@
-import type { SourcedPackage } from "./types";
+import { fileURLToPath } from "node:url";
+import { readNdjson } from "../_shared/ndjson";
+import type { SourcedPackage } from "../types";
+import { normalize } from "./normalize";
+import type { AppImageCacheEntry } from "./types";
+
+const CACHE_PATH = fileURLToPath(new URL("../../cache/appimage.ndjson", import.meta.url));
 
 /**
  * Searches known AppImage source feeds for packages matching `query`.
  *
- * Stub: not wired to a real AppImage source yet (see the "AppImage
- * connector" card on the Tuxery GitHub Project). Returns an empty list so
- * callers and tests can already depend on the real function signature.
+ * Reads the git-committed cache (see AGENTS.md's "Source cache") rather
+ * than the network — empty until `fetch.ts` is implemented (see the
+ * "AppImage connector" card on the Tuxery GitHub Project).
  */
 export async function searchAppImage(query: string): Promise<SourcedPackage[]> {
   void query;
-  return [];
+  return normalize(readNdjson<AppImageCacheEntry>(CACHE_PATH));
 }

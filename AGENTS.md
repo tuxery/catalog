@@ -26,9 +26,12 @@ flathub`) — see [`docs/sources.md`](docs/sources.md) for status per
   from `packages/matcher` once it grew a second responsibility:
   `filter/` decides which packages belong in the catalog at all (drops
   libraries/dev-headers/docs/fonts — see its own rules + git-committed
-  `overrides/keep.ndjson`/`exclude.ndjson`), `match/` (the original
-  matcher — migrated from `tuxery/app`) groups what's left into unified
-  apps across sources.
+  `overrides/keep.ndjson`/`exclude.ndjson`), `match/` groups what's left
+  into unified apps across sources using a union-find over exact-match
+  tiers (manual overrides → exact appId → exact normalized name — see
+  `match/group.ts`'s doc comment for why there's no fuzzy/scored tier on
+  top), with git-committed `overrides/manual-matches.ndjson`/
+  `deny-matches.ndjson` for the cases the auto tiers get wrong.
 - `packages/pipeline` — orchestration scripts that run sources + curator
   end to end and produce a fresh dataset.
 - `packages/store` — the persisted DB/cache layer (Cloudflare R2 today,

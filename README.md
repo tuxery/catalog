@@ -67,5 +67,8 @@ what's implemented vs. tracked as roadmap cards.
 dev headers, docs, fonts) before matching — effective on Debian/Ubuntu
 (~33% each), much less so on AUR/Arch (~2-3%, different naming
 conventions — see the "Filter is far less effective on AUR/Arch" card).
-`match`'s cross-source grouping algorithm hasn't been reworked yet (still
-the original bucketed-pairwise-scoring approach from `tuxery/app`).
+`match` groups the rest with a union-find over exact-match tiers (manual
+overrides → exact appId → exact normalized name, no fuzzy scoring),
+replacing the original bucketed-pairwise-scoring approach from
+`tuxery/app` — grouping ~303k filtered packages now takes well under a
+second.

@@ -1,4 +1,5 @@
 import { gunzipSync } from "node:zlib";
+import { parseDeb822 } from "../_shared/deb822";
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
 import type { DebianCacheEntry, DebianFetchMetadata } from "./types";
@@ -15,37 +16,18 @@ const ARCH = "amd64";
 const PACKAGES_URL = `https://deb.debian.org/debian/dists/${SUITE}/${COMPONENT}/binary-${ARCH}/Packages.gz`;
 
 /**
- * Parses a deb822 Packages file (already decompressed) into cache rows.
- * Continuation lines — deb822's way of spreading one field across several
- * lines, used for the long description, multi-line `Depends`, etc. — are
- * skipped entirely; only the first line of each field is kept, which for
- * `Description` is exactly the short summary a store would want anyway.
- * Pure — no I/O — so it's the part covered by tests.
+ * Maps deb822 stanzas (already parsed by `_shared/deb822.ts`) to cache
+ * rows. Pure — no I/O — so it's the part covered by tests.
  */
 export function parsePackages(text: string): DebianCacheEntry[] {
-  const entries: DebianCacheEntry[] = [];
-
-  for (const block of text.split(/\r?\n\r?\n+/)) {
-    const fields: Record<string, string> = {};
-
-    for (const line of block.split(/\r?\n/)) {
-      if (line === "" || /^[ \t]/.test(line)) continue;
-      const separatorIndex = line.indexOf(":");
-      if (separatorIndex === -1) continue;
-      fields[line.slice(0, separatorIndex)] = line.slice(separatorIndex + 1).trim();
-    }
-
-    if (!fields.Package) continue;
-
-    entries.push({
+  return parseDeb822(text)
+    .filter((fields): fields is typeof fields & { Package: string } => Boolean(fields.Package))
+    .map((fields) => ({
       name: fields.Package,
       description: fields.Description ?? "",
       version: fields.Version ?? "unknown",
       homepage: fields.Homepage || undefined,
-    });
-  }
-
-  return entries;
+    }));
 }
 
 /**

@@ -1,16 +1,19 @@
 import { beforeAll, describe, expect, it } from "vitest";
 import { buildDataset, type Dataset } from "./build-dataset";
 
-// Groups ~268k real cached packages (Flathub + Snapcraft + AppImage + AUR +
-// Debian + Fedora) via @tuxery/matcher's bucketed groupPackages — ~51s, up
-// from ~26s at ~192k without Fedora. Deliberately not re-tuning the
-// bucketing again here (see the "Matcher bucket sizes growing again"
-// card) — just giving the timeout enough headroom to stay green until
-// that gets a real redesign with the full source picture in view, not
-// another reactive patch per source. Building the dataset once in
+// Groups ~357k real cached packages (every source except GitHub Releases)
+// via @tuxery/matcher's bucketed groupPackages — ~111s, up from ~51s at
+// ~268k without Ubuntu/Arch. Growth is now super-linear (1.33x the
+// packages took 2.2x the time), likely Arch/AUR both being full of
+// "python-*"-style names and Debian/Ubuntu both being full of "lib*-dev"
+// ones, doubling up the collisions in those buckets. Still deliberately
+// not re-tuning the bucketing here (see the "Matcher bucket sizes growing
+// again" card) — but this is close to where "reactive timeout bump" stops
+// being a reasonable response; flagged back to the user rather than
+// bumped unilaterally past this point. Building the dataset once in
 // beforeAll (instead of per-`it`) keeps the suite from paying that cost
 // twice.
-const BUILD_TIMEOUT = 90_000;
+const BUILD_TIMEOUT = 180_000;
 
 describe("buildDataset", () => {
   let dataset: Dataset;
@@ -29,6 +32,6 @@ describe("buildDataset", () => {
 
     // Guards against the matcher silently dropping packages while grouping,
     // not an exact count — GitHub Releases isn't wired in yet.
-    expect(packageCount).toBeGreaterThan(260_000);
+    expect(packageCount).toBeGreaterThan(350_000);
   });
 });

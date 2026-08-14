@@ -50,11 +50,13 @@ Or scoped to one package: `pnpm --filter @tuxery/matcher test`, etc.
 ## Status
 
 `packages/sources`, `packages/matcher`, `packages/pipeline`, and
-`packages/store` have all landed. Every source except GitHub Releases is
-fetching real data — Flathub (3,345 apps), Snapcraft (1,542 snaps),
-AppImage (1,104 apps, no version yet), AUR (117,520 packages), Debian
-(68,755 packages, stable/main/amd64 only), and Fedora (76,354 packages,
-release 44 Everything/x86_64 only) — see
+`packages/store` have all landed. Every source except GitHub Releases
+(deferred to roadmap) is fetching real data — Flathub (3,345 apps),
+Snapcraft (1,542 snaps), AppImage (1,104 apps, no version yet), AUR
+(117,520 packages), Arch official core+extra (15,200 packages), Debian
+(68,755 packages, stable/main/amd64 only), Ubuntu (73,219 packages,
+resolute main+universe/amd64 only), and Fedora (76,354 packages, release
+44 Everything/x86_64 only) — see
 [`docs/sources.md`](docs/sources.md) and the
 [Tuxery GitHub Project](https://github.com/orgs/tuxery/projects/1) for what's
 implemented vs. tracked as roadmap cards.

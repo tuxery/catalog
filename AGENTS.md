@@ -52,7 +52,11 @@ Every `fetch.ts` also writes a `cache/<source>.meta.json` sidecar (via
 `fetchedAt`, `url`, `entryCount`, plus whatever else is relevant per source
 (Flathub's `arch`, Snapcraft's `deviceSeries`/`categoriesSwept`). Kept as a
 sibling file rather than fields on every NDJSON row, so a re-fetch's
-changed timestamp doesn't touch every data line's diff.
+changed timestamp doesn't touch every data line's diff. `_shared/deb822.ts`
+is the one format-parsing helper shared between sources (Debian and
+Ubuntu both use it, being the same upstream format) — otherwise each
+source's parsing stays local to its own folder even when structurally
+similar, so it can be modified independently later.
 
 ## Rules
 

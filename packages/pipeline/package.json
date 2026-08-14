@@ -9,6 +9,7 @@
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "start": "tsx src/main.ts",
+    "sample": "tsx src/sample-dataset.ts",
     "typecheck": "tsc --noEmit",
     "lint": "oxlint src",
     "test": "vitest run"

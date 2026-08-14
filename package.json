@@ -5,14 +5,19 @@
   "type": "module",
   "scripts": {
     "build": "pnpm -r build",
-    "typecheck": "pnpm -r typecheck",
-    "lint": "pnpm -r lint",
+    "typecheck": "tsc --noEmit && pnpm -r typecheck",
+    "lint": "oxlint scripts && pnpm -r lint",
     "test": "pnpm -r test",
     "fmt": "oxfmt .",
-    "fmt.check": "oxfmt --check ."
+    "fmt.check": "oxfmt --check .",
+    "dev": "tsx scripts/dev.ts",
+    "reset-caches": "tsx scripts/reset-caches.ts"
   },
   "devDependencies": {
+    "@types/node": "20.19.0",
     "oxfmt": "^0.63.0",
+    "oxlint": "^1.76.0",
+    "tsx": "^4.20.6",
     "typescript": "7.0.2"
   },
   "engines": {

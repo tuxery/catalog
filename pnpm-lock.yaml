@@ -8,9 +8,18 @@ importers:
 
   .:
     devDependencies:
+      '@types/node':
+        specifier: 20.19.0
+        version: 20.19.0
       oxfmt:
         specifier: ^0.63.0
         version: 0.63.0
+      oxlint:
+        specifier: ^1.76.0
+        version: 1.78.0
+      tsx:
+        specifier: ^4.20.6
+        version: 4.23.12
       typescript:
         specifier: 7.0.2
         version: 7.0.2

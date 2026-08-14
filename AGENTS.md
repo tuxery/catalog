@@ -71,6 +71,26 @@ Ubuntu both use it, being the same upstream format) — otherwise each
 source's parsing stays local to its own folder even when structurally
 similar, so it can be modified independently later.
 
+## Local dev
+
+`pnpm dev` (repo root) builds/reuses the merged dataset and launches
+`app`'s wrangler-simulated dev server (`env.CATALOG_BUCKET`) seeded with
+it — see `scripts/dev.ts`. Three tiers, cheapest first: reuse
+`packages/pipeline/dist/dataset.json` if it already exists; else rebuild
+it from the git-committed source caches (`pnpm --filter @tuxery/pipeline
+start`, no network); `pnpm dev --force` skips both and re-fetches every
+source fresh first. `pnpm reset-caches` just does that last step alone —
+refreshes `packages/sources/cache/*.ndjson` without rebuilding the
+dataset or launching anything, for periodic cache maintenance decoupled
+from wanting to dev right now.
+
+These scripts shell out to `app`'s `apps/web/scripts/dev-worker.mjs` via
+its fixed sibling path (`/workspaces/app/apps/web/...`) rather than
+importing across the workspace boundary — see that file's own comment.
+`app`'s own `pnpm dev --sample` uses the same script with a small
+committed sample instead (`pnpm --filter @tuxery/pipeline sample`
+regenerates it — a manual/occasional command, not run automatically).
+
 ## Rules
 
 - Don't add a local `TODO.md`/`ROADMAP.md` — track work as cards on the

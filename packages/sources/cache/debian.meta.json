@@ -1,0 +1,9 @@
+{
+  "source": "debian",
+  "fetchedAt": "2026-08-14T14:16:19.698Z",
+  "url": "https://deb.debian.org/debian/dists/stable/main/binary-amd64/Packages.gz",
+  "entryCount": 68755,
+  "suite": "stable",
+  "component": "main",
+  "arch": "amd64"
+}

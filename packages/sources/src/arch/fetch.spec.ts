@@ -48,24 +48,25 @@ describe("parseDesc", () => {
 });
 
 describe("mapDescFiles", () => {
-  it("maps parsed fields to a cache entry", () => {
-    expect(mapDescFiles([parseDesc(DESC_FIXTURE)])).toEqual([
+  it("maps parsed fields to a cache entry, stamping the given repo", () => {
+    expect(mapDescFiles([parseDesc(DESC_FIXTURE)], "extra")).toEqual([
       {
         name: "0ad",
         description: "Cross-platform, 3D and historically-based real-time strategy game",
         version: "0.28.0-3",
         homepage: "http://play0ad.com/",
+        repo: "extra",
       },
     ]);
   });
 
   it("drops entries with no NAME", () => {
-    expect(mapDescFiles([{ DESC: "orphaned" }])).toEqual([]);
+    expect(mapDescFiles([{ DESC: "orphaned" }], "core")).toEqual([]);
   });
 
   it("falls back gracefully when optional fields are missing", () => {
-    expect(mapDescFiles([{ NAME: "bare-pkg" }])).toEqual([
-      { name: "bare-pkg", description: "", version: "unknown", homepage: undefined },
+    expect(mapDescFiles([{ NAME: "bare-pkg" }], "core")).toEqual([
+      { name: "bare-pkg", description: "", version: "unknown", homepage: undefined, repo: "core" },
     ]);
   });
 });

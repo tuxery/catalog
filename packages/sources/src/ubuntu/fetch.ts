@@ -19,18 +19,21 @@ import type { UbuntuCacheEntry, UbuntuFetchMetadata } from "./types";
 // catalog. restricted/multiverse (mostly drivers and non-free software)
 // are skipped, same spirit as Debian's contrib/non-free.
 const SUITE = "resolute";
-const COMPONENTS = ["main", "universe"];
+const COMPONENTS = ["main", "universe"] as const;
+type UbuntuComponent = (typeof COMPONENTS)[number];
 const ARCH = "amd64";
 
-function packagesUrl(component: string): string {
+function packagesUrl(component: UbuntuComponent): string {
   return `https://archive.ubuntu.com/ubuntu/dists/${SUITE}/${component}/binary-${ARCH}/Packages.gz`;
 }
 
 /**
  * Maps deb822 stanzas (already parsed by `_shared/deb822.ts`) to cache
- * rows. Pure — no I/O — so it's the part covered by tests.
+ * rows, stamping which component they came from (a package belongs to
+ * exactly one component within a suite, never both). Pure — no I/O — so
+ * it's the part covered by tests.
  */
-export function parsePackages(text: string): UbuntuCacheEntry[] {
+export function parsePackages(text: string, component: UbuntuComponent): UbuntuCacheEntry[] {
   return parseDeb822(text)
     .filter((fields): fields is typeof fields & { Package: string } => Boolean(fields.Package))
     .map((fields) => ({
@@ -38,10 +41,11 @@ export function parsePackages(text: string): UbuntuCacheEntry[] {
       description: fields.Description ?? "",
       version: fields.Version ?? "unknown",
       homepage: fields.Homepage || undefined,
+      component,
     }));
 }
 
-async function fetchComponent(component: string): Promise<UbuntuCacheEntry[]> {
+async function fetchComponent(component: UbuntuComponent): Promise<UbuntuCacheEntry[]> {
   const url = packagesUrl(component);
   const response = await fetch(url);
   if (!response.ok) {
@@ -52,22 +56,19 @@ async function fetchComponent(component: string): Promise<UbuntuCacheEntry[]> {
 
   const compressed = Buffer.from(await response.arrayBuffer());
   const text = gunzipSync(compressed).toString("utf8");
-  return parsePackages(text);
+  return parsePackages(text, component);
 }
 
 /**
  * Downloads Ubuntu's Packages.gz for main + universe and writes the
- * merged, deduplicated, normalized entries to `cachePath` as NDJSON. See
+ * normalized entries to `cachePath` as NDJSON — each row keeps its source
+ * component (see `UbuntuCacheEntry.component`), no cross-component dedup
+ * needed since a package name only ever belongs to one. See
  * docs/sources.md.
  */
 export async function fetchUbuntu(cachePath: string): Promise<number> {
   const entriesByComponent = await Promise.all(COMPONENTS.map(fetchComponent));
-
-  const byName = new Map<string, UbuntuCacheEntry>();
-  for (const entry of entriesByComponent.flat()) {
-    byName.set(entry.name, entry);
-  }
-  const entries = [...byName.values()];
+  const entries = entriesByComponent.flat();
 
   writeNdjson(cachePath, entries);
   writeMetadata<UbuntuFetchMetadata>(cachePath, {

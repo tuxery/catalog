@@ -11,6 +11,15 @@ export interface UbuntuCacheEntry {
   description: string;
   version: string;
   homepage?: string;
+  /**
+   * Which component this package belongs to — varies per package (unlike
+   * `arch`/`suite`, the same for every row in one fetch), so it lives
+   * here rather than only in the fetch metadata. `universe` packages need
+   * that repository enabled on a default Ubuntu install; `main` is
+   * enabled out of the box — a real install-instructions difference, not
+   * just organizational.
+   */
+  component: "main" | "universe";
 }
 
 export interface UbuntuFetchMetadata extends FetchMetadata {

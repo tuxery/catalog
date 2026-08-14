@@ -9,6 +9,7 @@ describe("ubuntu normalize", () => {
       description: "Real-time strategy game of ancient warfare",
       version: "0.27.0-2+b1",
       homepage: "https://play0ad.com/",
+      component: "universe",
     };
 
     expect(normalize([entry])).toEqual([

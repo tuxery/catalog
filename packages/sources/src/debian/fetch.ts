@@ -19,7 +19,7 @@ const PACKAGES_URL = `https://deb.debian.org/debian/dists/${SUITE}/${COMPONENT}/
  * Maps deb822 stanzas (already parsed by `_shared/deb822.ts`) to cache
  * rows. Pure — no I/O — so it's the part covered by tests.
  */
-export function parsePackages(text: string): DebianCacheEntry[] {
+export function parsePackages(text: string, component: string): DebianCacheEntry[] {
   return parseDeb822(text)
     .filter((fields): fields is typeof fields & { Package: string } => Boolean(fields.Package))
     .map((fields) => ({
@@ -27,6 +27,7 @@ export function parsePackages(text: string): DebianCacheEntry[] {
       description: fields.Description ?? "",
       version: fields.Version ?? "unknown",
       homepage: fields.Homepage || undefined,
+      component,
     }));
 }
 
@@ -45,7 +46,7 @@ export async function fetchDebian(cachePath: string): Promise<number> {
 
   const compressed = Buffer.from(await response.arrayBuffer());
   const text = gunzipSync(compressed).toString("utf8");
-  const entries = parsePackages(text);
+  const entries = parsePackages(text, COMPONENT);
 
   writeNdjson(cachePath, entries);
   writeMetadata<DebianFetchMetadata>(cachePath, {

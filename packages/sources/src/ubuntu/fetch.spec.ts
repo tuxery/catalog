@@ -15,7 +15,7 @@ Description: Real-time strategy game of ancient warfare (data files)
 `;
 
 describe("parsePackages", () => {
-  const entries = parsePackages(FIXTURE);
+  const entries = parsePackages(FIXTURE, "universe");
 
   it("parses every stanza", () => {
     expect(entries.map((entry) => entry.name)).toEqual(["0ad", "0ad-data"]);
@@ -28,5 +28,15 @@ describe("parsePackages", () => {
 
   it("leaves homepage undefined when the field is absent", () => {
     expect(entries[1]?.homepage).toBeUndefined();
+  });
+
+  it("stamps every row with the given component", () => {
+    expect(entries.every((entry) => entry.component === "universe")).toBe(true);
+  });
+
+  it("stamps a different component when called for main", () => {
+    const mainEntries = parsePackages(FIXTURE, "main");
+
+    expect(mainEntries.every((entry) => entry.component === "main")).toBe(true);
   });
 });

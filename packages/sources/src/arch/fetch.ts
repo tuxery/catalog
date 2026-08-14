@@ -12,7 +12,8 @@ import type { ArchCacheEntry, ArchFetchMetadata } from "./types";
 // multilib (32-bit compat libs) is skipped, same spirit as Debian's
 // contrib/non-free not being fetched.
 const ARCH = "x86_64";
-const REPOS = ["core", "extra"];
+const REPOS = ["core", "extra"] as const;
+type ArchRepo = (typeof REPOS)[number];
 const MIRROR_BASE = "https://geo.mirror.pkgbuild.com";
 
 /**
@@ -38,10 +39,14 @@ export function parseDesc(content: string): Record<string, string> {
 }
 
 /**
- * Maps parsed `desc` field maps to cache rows. Pure — no I/O — so it's
- * covered by tests, along with `parseDesc`.
+ * Maps parsed `desc` field maps to cache rows, stamping which repo they
+ * came from (a package belongs to exactly one of core/extra, never both).
+ * Pure — no I/O — so it's covered by tests, along with `parseDesc`.
  */
-export function mapDescFiles(descFields: Record<string, string>[]): ArchCacheEntry[] {
+export function mapDescFiles(
+  descFields: Record<string, string>[],
+  repo: ArchRepo,
+): ArchCacheEntry[] {
   return descFields
     .filter((fields): fields is typeof fields & { NAME: string } => Boolean(fields.NAME))
     .map((fields) => ({
@@ -49,10 +54,11 @@ export function mapDescFiles(descFields: Record<string, string>[]): ArchCacheEnt
       description: fields.DESC ?? "",
       version: fields.VERSION ?? "unknown",
       homepage: fields.URL || undefined,
+      repo,
     }));
 }
 
-async function fetchRepoEntries(repo: string, workDir: string): Promise<ArchCacheEntry[]> {
+async function fetchRepoEntries(repo: ArchRepo, workDir: string): Promise<ArchCacheEntry[]> {
   const url = `${MIRROR_BASE}/${repo}/os/${ARCH}/${repo}.db`;
   const response = await fetch(url);
   if (!response.ok) {
@@ -79,25 +85,22 @@ async function fetchRepoEntries(repo: string, workDir: string): Promise<ArchCach
     .filter((content): content is string => content !== undefined)
     .map(parseDesc);
 
-  return mapDescFiles(descFields);
+  return mapDescFiles(descFields, repo);
 }
 
 /**
  * Downloads Arch's official "core" and "extra" repo databases, extracts
- * each package's `desc` file, and writes the merged, deduplicated,
- * normalized entries to `cachePath` as NDJSON. See docs/sources.md.
+ * each package's `desc` file, and writes the normalized entries to
+ * `cachePath` as NDJSON — each row keeps its source repo (see
+ * `ArchCacheEntry.repo`), no cross-repo dedup needed since a package name
+ * only ever belongs to one. See docs/sources.md.
  */
 export async function fetchArch(cachePath: string): Promise<number> {
   const workDir = await mkdtemp(join(tmpdir(), "arch-fetch-"));
 
   try {
     const entriesByRepo = await Promise.all(REPOS.map((repo) => fetchRepoEntries(repo, workDir)));
-
-    const byName = new Map<string, ArchCacheEntry>();
-    for (const entry of entriesByRepo.flat()) {
-      byName.set(entry.name, entry);
-    }
-    const entries = [...byName.values()];
+    const entries = entriesByRepo.flat();
 
     writeNdjson(cachePath, entries);
     writeMetadata<ArchFetchMetadata>(cachePath, {
@@ -105,7 +108,7 @@ export async function fetchArch(cachePath: string): Promise<number> {
       fetchedAt: new Date().toISOString(),
       url: `${MIRROR_BASE}/{${REPOS.join(",")}}/os/${ARCH}/*.db`,
       entryCount: entries.length,
-      repos: REPOS,
+      repos: [...REPOS],
       arch: ARCH,
     });
 

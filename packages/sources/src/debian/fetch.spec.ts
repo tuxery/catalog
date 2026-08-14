@@ -26,7 +26,7 @@ Priority: optional
 `;
 
 describe("parsePackages", () => {
-  const entries = parsePackages(FIXTURE);
+  const entries = parsePackages(FIXTURE, "main");
 
   it("parses every stanza", () => {
     expect(entries.map((entry) => entry.name)).toEqual(["0ad", "0ad-data"]);
@@ -45,7 +45,11 @@ describe("parsePackages", () => {
     expect(entries[1]?.homepage).toBeUndefined();
   });
 
+  it("stamps every row with the given component", () => {
+    expect(entries.every((entry) => entry.component === "main")).toBe(true);
+  });
+
   it("returns an empty array for text with no stanzas", () => {
-    expect(parsePackages("")).toEqual([]);
+    expect(parsePackages("", "main")).toEqual([]);
   });
 });

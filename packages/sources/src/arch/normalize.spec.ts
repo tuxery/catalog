@@ -9,6 +9,7 @@ describe("arch normalize", () => {
       description: "Cross-platform, 3D and historically-based real-time strategy game",
       version: "0.28.0-3",
       homepage: "http://play0ad.com/",
+      repo: "extra",
     };
 
     expect(normalize([entry])).toEqual([

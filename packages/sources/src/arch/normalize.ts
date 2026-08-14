@@ -10,5 +10,8 @@ export function normalize(entries: ArchCacheEntry[]): SourcedPackage[] {
     // Arch package names are unique across core+extra together.
     appId: entry.name,
     homepage: entry.homepage,
+    // entry.repo (core/extra) isn't threaded through yet — SourcedPackage
+    // has no slot for it. See the "Thread arch/channel into SourcedPackage
+    // consistently" card; it stays available in the cache row either way.
   }));
 }

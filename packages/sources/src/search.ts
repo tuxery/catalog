@@ -10,8 +10,8 @@ import { searchUbuntu } from "./ubuntu";
 
 /**
  * Queries every known source in parallel and returns the combined,
- * un-deduplicated results — pass this to `@tuxery/matcher`'s
- * `groupPackages` to get one unified app per result.
+ * un-deduplicated results — pass this to `@tuxery/curator`'s
+ * `filterPackages` then `groupPackages` to get a catalog of unified apps.
  */
 export async function searchAllSources(query: string): Promise<SourcedPackage[]> {
   const results = await Promise.all([

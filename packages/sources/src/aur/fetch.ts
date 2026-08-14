@@ -37,8 +37,8 @@ export function mapPackages(packages: RawPackage[]): AurCacheEntry[] {
  * Downloads the AUR's full metadata dump — a single gzipped JSON array,
  * regenerated every ~5 minutes, no auth, no pagination — and writes the
  * normalized entries to `cachePath` as NDJSON. ~117k packages; see
- * docs/sources.md and @tuxery/matcher's group.ts for why grouping this
- * many needs bucketed comparison, not naive pairwise scoring.
+ * docs/sources.md and @tuxery/curator's match/group.ts for why grouping
+ * this many needs bucketed comparison, not naive pairwise scoring.
  */
 export async function fetchAur(cachePath: string): Promise<number> {
   const response = await fetch(PACKAGES_URL);

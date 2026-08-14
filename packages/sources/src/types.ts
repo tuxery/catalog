@@ -13,7 +13,7 @@ export type PackageSourceId =
 
 /**
  * A single package as reported by one source, before deduplication.
- * `@tuxery/matcher` groups several `SourcedPackage`s (one per source) into
+ * `@tuxery/curator` groups several `SourcedPackage`s (one per source) into
  * one unified app.
  */
 export interface SourcedPackage {

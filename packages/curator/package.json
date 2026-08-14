@@ -1,8 +1,8 @@
 {
-  "name": "@tuxery/matcher",
+  "name": "@tuxery/curator",
   "version": "0.0.0",
   "private": true,
-  "description": "Tuxery's package deduplication engine: scores and groups packages across sources by name distance, app IDs, and icon filenames",
+  "description": "Tuxery's catalog curation: filters out non-app/game packages, then scores and groups the rest across sources by name distance, app IDs, and icon filenames",
   "type": "module",
   "main": "./src/index.ts",
   "types": "./src/index.ts",

@@ -299,7 +299,7 @@
 {"id":"com.georgefb.quickaccess","name":"QuickAccess","summary":"A global menu giving you quick access to folders and custom commands.","version":"3.2.0","iconFilename":"com.georgefb.quickaccess.png","homepage":"https://github.com/g-fb/quickaccess"}
 {"id":"com.gesturedevelop.AirSQLiteManager","name":"Air SQLite Manager","summary":"Manage your SQLite databases with ease.","version":"0.9.14","iconFilename":"com.gesturedevelop.AirSQLiteManager.png","homepage":"https://gesturedevelop.com/"}
 {"id":"com.getmailspring.Mailspring","name":"Mailspring","summary":"The best email app for people and teams at work","version":"1.23.0","iconFilename":"com.getmailspring.Mailspring.png","homepage":"https://getmailspring.com/"}
-{"id":"com.getpostman.Postman","name":"Postman","summary":"Platform for building and using APIs","version":"12.23.5","iconFilename":"com.getpostman.Postman.png","homepage":"https://www.postman.com"}
+{"id":"com.getpostman.Postman","name":"Postman","summary":"Platform for building and using APIs","version":"12.23.7","iconFilename":"com.getpostman.Postman.png","homepage":"https://www.postman.com"}
 {"id":"com.giadamusic.Giada","name":"Giada","summary":"Your hardcore loop machine","version":"1.5.0","iconFilename":"com.giadamusic.Giada.png","homepage":"https://www.giadamusic.com/"}
 {"id":"com.gitbutler.gitbutler","name":"GitButler","summary":"Git, finally designed for humans","version":"0.22.0","iconFilename":"com.gitbutler.gitbutler.png","homepage":"https://gitbutler.com"}
 {"id":"com.gitfiend.GitFiend","name":"GitFiend","summary":"A Git client designed for humans","version":"0.45.3","iconFilename":"com.gitfiend.GitFiend.png","homepage":"https://gitfiend.com"}
@@ -2227,6 +2227,7 @@
 {"id":"net.zdechov.app.TransLines","name":"TransLines","summary":"Enjoyable metro building game","version":"1.4.0","iconFilename":"net.zdechov.app.TransLines.png","homepage":"https://app.zdechov.net/translines/"}
 {"id":"net.zdechov.app.Tunneler","name":"Tunneler","summary":"Tank digging battle game","version":"1.1.1","iconFilename":"net.zdechov.app.Tunneler.png","homepage":"https://app.zdechov.net/Tunneler/"}
 {"id":"net.zdechov.app.vCardStudio","name":"vCard Studio","summary":"Contact management application","version":"1.5.0","iconFilename":"net.zdechov.app.vCardStudio.png","homepage":"https://app.zdechov.net/vcard-studio"}
+{"id":"net.zdechov.app.x2048","name":"2048","summary":"Block sliding puzzle game","version":"1.5.0","iconFilename":"net.zdechov.app.x2048.png","homepage":"https://app.zdechov.net/2048"}
 {"id":"net.zdechov.app.xTactics","name":"xTactics","summary":"Risk like turn-based strategy game","version":"1.4.0","iconFilename":"net.zdechov.app.xTactics.png","homepage":"https://app.zdechov.net/xtactics"}
 {"id":"net.zgcoder.skycheckers","name":"Sky Checkers","summary":"Blast enemies off a stage","version":"1.3.1","iconFilename":"net.zgcoder.skycheckers.png","homepage":"https://zgcoder.net/#sky-checkers"}
 {"id":"network.bisq.Bisq","name":"Bisq","summary":"A decentralized bitcoin exchange network","version":"1.10.4","iconFilename":"network.bisq.Bisq.png","homepage":"https://bisq.network/"}
@@ -2539,6 +2540,7 @@
 {"id":"org.gnome.TextEditor","name":"Text Editor","summary":"Edit text files","version":"50.1","iconFilename":"org.gnome.TextEditor.png","homepage":"https://apps.gnome.org/TextEditor/"}
 {"id":"org.gnome.Todo","name":"Endeavour","summary":"Manage your tasks","version":"43.0","iconFilename":"org.gnome.Todo.png","homepage":"https://gitlab.gnome.org/World/Endeavour"}
 {"id":"org.gnome.Totem.desktop","name":"Videos","summary":"Play movies","version":"43.2","iconFilename":"org.gnome.Totem.desktop.png","homepage":"https://apps.gnome.org/Totem/"}
+{"id":"org.gnome.TwentyFortyEight","name":"2048","summary":"Obtain the 2048 tile","version":"50.2","iconFilename":"org.gnome.TwentyFortyEight.png","homepage":"https://gitlab.gnome.org/GNOME/gnome-2048"}
 {"id":"org.gnome.Weather","name":"Weather","summary":"Show weather conditions and forecast","version":"50.0","iconFilename":"org.gnome.Weather.png","homepage":"https://apps.gnome.org/Weather/"}
 {"id":"org.gnome.World.Citations","name":"Citations","summary":"Manage your bibliography","version":"0.10.0","iconFilename":"org.gnome.World.Citations.png","homepage":"https://apps.gnome.org/Citations/"}
 {"id":"org.gnome.World.Iotas","name":"Iotas","summary":"Simple note taking","version":"2026.7","iconFilename":"org.gnome.World.Iotas.png","homepage":"https://apps.gnome.org/Iotas"}
@@ -3258,6 +3260,7 @@
 {"id":"so.libdb.dissent","name":"Dissent","summary":"Tiny native Discord app","version":"v0.0.37","iconFilename":"so.libdb.dissent.png","homepage":"https://github.com/diamondburned/dissent"}
 {"id":"so.onekey.Wallet","name":"OneKey","summary":"All-in-one crypto wallet.","version":"6.4.0","iconFilename":"so.onekey.Wallet.png","homepage":"https://onekey.so"}
 {"id":"social.whalebird.WhalebirdDesktop","name":"Whalebird","summary":"Whalebird is a Mastodon, Pleroma, and Misskey client for the desktop","version":"5.0.7","iconFilename":"social.whalebird.WhalebirdDesktop.png","homepage":"https://whalebird.social/en/desktop/contents"}
+{"id":"space.bigrat.mocktail","name":"Mocktail","summary":"Play Roblox on Linux","version":"1.0.1","iconFilename":"space.bigrat.mocktail.png","homepage":"https://github.com/komaruworld/mocktail"}
 {"id":"space.f1nn.chorus","name":"Chorus","summary":"Sing along to your music","version":"0.6.1","iconFilename":"space.f1nn.chorus.png","homepage":"https://github.com/f1nniboy/chorus"}
 {"id":"space.fips.Fips","name":"FIPS","summary":"OpenGL-based FITS image viewer","version":"3.5.0","iconFilename":"space.fips.Fips.png","homepage":"https://fips.space"}
 {"id":"space.gaiasky.GaiaSky","name":"Gaia Sky","summary":"Explore the universe in 3D","version":"3.8.0","iconFilename":"space.gaiasky.GaiaSky.png","homepage":"https://gaiasky.space"}

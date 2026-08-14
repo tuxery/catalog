@@ -81,6 +81,13 @@ export function parseAppstream(xml: string): FlathubCacheEntry[] {
     attributeNamePrefix: "@_",
     textNodeName: "#text",
     isArray: (name) => ["component", "icon", "url", "release", "name", "summary"].includes(name),
+    // Without this, fast-xml-parser silently turns purely-numeric text
+    // into a JS number — bit Fedora's fetcher for real (a package named
+    // "65535" came back as the number 65535). Every field here is meant
+    // to stay a string; no known case in Flathub's data today, but the
+    // failure mode is silent, so defend against it here too.
+    parseTagValue: false,
+    parseAttributeValue: false,
   });
 
   const parsed = parser.parse(xml) as { components?: { component?: RawComponent[] } };

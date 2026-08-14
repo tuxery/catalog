@@ -4,11 +4,12 @@ import { buildDataset, type Dataset } from "./build-dataset";
 // Groups ~303k real cached packages (357k raw, minus ~54k filtered out by
 // @tuxery/curator's filterPackages — mostly -dev/-dbg/-doc/lib-soname
 // packages from Debian/Ubuntu, much less effective on AUR/Arch, see the
-// "Filter is far less effective on AUR/Arch" card) — ~35s, down from
-// ~111s on the unfiltered 357k. Filtering first, before any matcher
-// rework, already bought a real speedup on its own. Building the dataset
-// once in beforeAll (instead of per-`it`) keeps the suite from paying
-// that cost twice.
+// "Filter is far less effective on AUR/Arch" card). Filtering alone
+// brought this from ~111s (unfiltered 357k) to ~35s; replacing the old
+// bucketed pairwise-Levenshtein matcher with union-find + exact-key
+// tiers (no scoring, no pairwise comparison at all) brought it under 1s.
+// Building the dataset once in beforeAll (instead of per-`it`) keeps the
+// suite from paying that cost twice.
 const BUILD_TIMEOUT = 60_000;
 
 describe("buildDataset", () => {

@@ -2,7 +2,7 @@
   "name": "@tuxery/curator",
   "version": "0.0.0",
   "private": true,
-  "description": "Tuxery's catalog curation: filters out non-app/game packages, then scores and groups the rest across sources by name distance, app IDs, and icon filenames",
+  "description": "Tuxery's catalog curation: filters out non-app/game packages, then groups the rest across sources by exact app ID or exact normalized name",
   "type": "module",
   "main": "./src/index.ts",
   "types": "./src/index.ts",

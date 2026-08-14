@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import type { SourcedPackage } from "@tuxery/sources";
 import { groupPackages } from "./group";
+import type { MatchOverrides } from "./overrides";
 
 function pkg(overrides: Partial<SourcedPackage>): SourcedPackage {
   return {
@@ -12,14 +13,16 @@ function pkg(overrides: Partial<SourcedPackage>): SourcedPackage {
   };
 }
 
+const NO_OVERRIDES: MatchOverrides = { manual: [], denyPairs: new Set() };
+
 describe("groupPackages", () => {
-  it("groups packages with the same appId across sources", () => {
+  it("groups packages with the same appId across sources (tier 1: exact appId)", () => {
     const packages = [
       pkg({ source: "flathub", name: "Discord", appId: "com.discordapp.Discord" }),
       pkg({ source: "snapcraft", name: "Discord", appId: "com.discordapp.Discord" }),
     ];
 
-    const groups = groupPackages(packages);
+    const groups = groupPackages(packages, NO_OVERRIDES);
 
     expect(groups).toHaveLength(1);
     expect(groups[0]?.packages).toHaveLength(2);
@@ -31,33 +34,73 @@ describe("groupPackages", () => {
       pkg({ source: "flathub", name: "Spotify", appId: "com.spotify.Client" }),
     ];
 
-    const groups = groupPackages(packages);
-
-    expect(groups).toHaveLength(2);
+    expect(groupPackages(packages, NO_OVERRIDES)).toHaveLength(2);
   });
 
-  it("still buckets together (and matches) when names differ in case/punctuation", () => {
+  it("groups packages with the same normalized name but different/no appId (tier 2: exact name)", () => {
     const packages = [
       pkg({ source: "flathub", name: "GIMP", appId: "org.gimp.GIMP" }),
-      pkg({ source: "snapcraft", name: "gimp", appId: "org.gimp.GIMP" }),
+      pkg({ source: "aur", name: "gimp", appId: undefined }),
     ];
 
-    // Same appId alone isn't enough to clear the threshold (0.35 of 0.75) —
-    // this only passes if bucketKey() also normalizes case, so both land in
-    // bucket "gi" and get compared at all.
-    expect(groupPackages(packages)).toHaveLength(1);
+    expect(groupPackages(packages, NO_OVERRIDES)).toHaveLength(1);
   });
 
-  it("never compares packages across buckets, even if they'd otherwise match — the known trade-off for tractability at scale", () => {
+  it("unions on appId even when names are completely different — appId is a stronger signal than name similarity", () => {
     const packages = [
-      // Same underlying app, named differently enough that the 2-char
-      // normalized prefix ("vs" vs "vi") puts them in different buckets.
       pkg({ source: "flathub", name: "vscode", appId: "com.visualstudio.code" }),
       pkg({ source: "snapcraft", name: "visual-studio-code", appId: "com.visualstudio.code" }),
     ];
 
-    // Would be 1 group with a naive full pairwise scan (matching appId) —
-    // documenting the miss, not asserting it's desirable.
-    expect(groupPackages(packages)).toHaveLength(2);
+    expect(groupPackages(packages, NO_OVERRIDES)).toHaveLength(1);
+  });
+
+  it("does not merge packages with neither a shared appId nor a shared normalized name", () => {
+    const packages = [
+      pkg({ source: "flathub", name: "vscode", appId: "com.visualstudio.code" }),
+      pkg({ source: "snapcraft", name: "visual-studio-code", appId: "different-app-id" }),
+    ];
+
+    // No fuzzy/scored fallback — see group.ts's doc comment for why a
+    // scored tier could never fire here anyway given the current weights.
+    expect(groupPackages(packages, NO_OVERRIDES)).toHaveLength(2);
+  });
+
+  it("tier 0: manual overrides force a union regardless of appId/name", () => {
+    const packages = [
+      pkg({ source: "flathub", name: "Totally Different Name", appId: "org.example.a" }),
+      pkg({ source: "aur", name: "unrelated-looking-name", appId: "unrelated-looking-name" }),
+    ];
+    const overrides: MatchOverrides = {
+      manual: [
+        {
+          a: { source: "flathub", appId: "org.example.a" },
+          b: { source: "aur", appId: "unrelated-looking-name" },
+          reason: "test: manually confirmed same app under very different names",
+        },
+      ],
+      denyPairs: new Set(),
+    };
+
+    expect(groupPackages(packages, overrides)).toHaveLength(1);
+  });
+
+  it("deny overrides block an otherwise-exact appId match", () => {
+    const packages = [
+      pkg({ source: "flathub", name: "Ambiguous", appId: "shared-id" }),
+      pkg({ source: "aur", name: "Ambiguous", appId: "shared-id" }),
+    ];
+    const overrides: MatchOverrides = {
+      manual: [],
+      denyPairs: new Set(["aur:shared-id|flathub:shared-id"]),
+    };
+
+    expect(groupPackages(packages, overrides)).toHaveLength(2);
+  });
+
+  it("uses the real (currently empty) override files when none are passed", () => {
+    const packages = [pkg({ source: "flathub", name: "Solo", appId: "org.example.solo" })];
+
+    expect(groupPackages(packages)).toHaveLength(1);
   });
 });

@@ -1,0 +1,84 @@
+import { gunzipSync } from "node:zlib";
+import { parseDeb822 } from "../_shared/deb822";
+import { writeMetadata } from "../_shared/metadata";
+import { writeNdjson } from "../_shared/ndjson";
+import type { UbuntuCacheEntry, UbuntuFetchMetadata } from "./types";
+
+// Ubuntu publishes one Packages file per suite/component/arch, same deb822
+// mechanism as Debian (unsurprising — Ubuntu's archive is a Debian
+// derivative) but its own codename-based suites, not "stable" — resolute
+// is the current release as of writing, verified via the real archive's
+// dists/ listing and each candidate's Release file date, not assumed.
+//
+// Unlike Debian, "main" alone is badly incomplete here: Ubuntu's
+// main/universe split is by *support tier* (Canonical-supported vs.
+// community-maintained), not license status like Debian's main/contrib/
+// non-free — most desktop apps live in universe. Verified against the
+// real archive: main/binary-amd64/Packages.gz alone yielded 6,487
+// packages; universe's is ~20MB compressed, clearly the bulk of the
+// catalog. restricted/multiverse (mostly drivers and non-free software)
+// are skipped, same spirit as Debian's contrib/non-free.
+const SUITE = "resolute";
+const COMPONENTS = ["main", "universe"];
+const ARCH = "amd64";
+
+function packagesUrl(component: string): string {
+  return `https://archive.ubuntu.com/ubuntu/dists/${SUITE}/${component}/binary-${ARCH}/Packages.gz`;
+}
+
+/**
+ * Maps deb822 stanzas (already parsed by `_shared/deb822.ts`) to cache
+ * rows. Pure — no I/O — so it's the part covered by tests.
+ */
+export function parsePackages(text: string): UbuntuCacheEntry[] {
+  return parseDeb822(text)
+    .filter((fields): fields is typeof fields & { Package: string } => Boolean(fields.Package))
+    .map((fields) => ({
+      name: fields.Package,
+      description: fields.Description ?? "",
+      version: fields.Version ?? "unknown",
+      homepage: fields.Homepage || undefined,
+    }));
+}
+
+async function fetchComponent(component: string): Promise<UbuntuCacheEntry[]> {
+  const url = packagesUrl(component);
+  const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error(
+      `Failed to fetch Ubuntu component "${component}": ${response.status} ${response.statusText}`,
+    );
+  }
+
+  const compressed = Buffer.from(await response.arrayBuffer());
+  const text = gunzipSync(compressed).toString("utf8");
+  return parsePackages(text);
+}
+
+/**
+ * Downloads Ubuntu's Packages.gz for main + universe and writes the
+ * merged, deduplicated, normalized entries to `cachePath` as NDJSON. See
+ * docs/sources.md.
+ */
+export async function fetchUbuntu(cachePath: string): Promise<number> {
+  const entriesByComponent = await Promise.all(COMPONENTS.map(fetchComponent));
+
+  const byName = new Map<string, UbuntuCacheEntry>();
+  for (const entry of entriesByComponent.flat()) {
+    byName.set(entry.name, entry);
+  }
+  const entries = [...byName.values()];
+
+  writeNdjson(cachePath, entries);
+  writeMetadata<UbuntuFetchMetadata>(cachePath, {
+    source: "ubuntu",
+    fetchedAt: new Date().toISOString(),
+    url: COMPONENTS.map(packagesUrl).join(", "),
+    entryCount: entries.length,
+    suite: SUITE,
+    component: COMPONENTS.join("+"),
+    arch: ARCH,
+  });
+
+  return entries.length;
+}

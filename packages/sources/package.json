@@ -14,7 +14,8 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "fast-xml-parser": "^5.10.1"
+    "fast-xml-parser": "^5.10.1",
+    "tar": "^7.5.22"
   },
   "devDependencies": {
     "@types/node": "20.19.0",

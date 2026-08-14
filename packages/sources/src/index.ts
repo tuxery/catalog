@@ -4,4 +4,5 @@ export { searchSnapcraft } from "./snapcraft";
 export { searchAppImage } from "./appimage";
 export { searchAur } from "./aur";
 export { searchDebian } from "./debian";
+export { searchFedora } from "./fedora";
 export { searchAllSources } from "./search";

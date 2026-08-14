@@ -1,6 +1,7 @@
 import { searchAppImage } from "./appimage";
 import { searchAur } from "./aur";
 import { searchDebian } from "./debian";
+import { searchFedora } from "./fedora";
 import { searchFlathub } from "./flathub";
 import { searchSnapcraft } from "./snapcraft";
 import type { SourcedPackage } from "./types";
@@ -17,6 +18,7 @@ export async function searchAllSources(query: string): Promise<SourcedPackage[]>
     searchAppImage(query),
     searchAur(query),
     searchDebian(query),
+    searchFedora(query),
   ]);
 
   return results.flat();

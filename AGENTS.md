@@ -18,9 +18,9 @@ messages, issues, pull requests, and configuration. No exceptions.
   its own cache row type (`types.ts`), `normalize.ts`, and `fetch.ts`.
   `_shared/` holds cross-source helpers (NDJSON read/write). `cache/`
   holds the git-committed NDJSON snapshot per source — see "Source cache"
-  below. Flathub and Snapcraft's `fetch.ts` are implemented (e.g. `pnpm
---filter @tuxery/sources refresh flathub`); AppImage still reads an empty
-  cache — see [`docs/sources.md`](docs/sources.md) for status per source.
+  below. Flathub, Snapcraft, and AppImage's `fetch.ts` are all implemented
+  (e.g. `pnpm --filter @tuxery/sources refresh flathub`) — see
+  [`docs/sources.md`](docs/sources.md) for status per source.
 - `packages/matcher` — package deduplication/scoring engine. Pure functions,
   no I/O. Migrated from `tuxery/app`.
 - `packages/pipeline` — orchestration scripts that run the sources + matcher

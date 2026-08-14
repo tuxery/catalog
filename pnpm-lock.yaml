@@ -15,7 +15,7 @@ importers:
         specifier: 7.0.2
         version: 7.0.2
 
-  packages/matcher:
+  packages/curator:
     dependencies:
       '@tuxery/sources':
         specifier: workspace:*
@@ -36,9 +36,9 @@ importers:
 
   packages/pipeline:
     dependencies:
-      '@tuxery/matcher':
+      '@tuxery/curator':
         specifier: workspace:*
-        version: link:../matcher
+        version: link:../curator
       '@tuxery/sources':
         specifier: workspace:*
         version: link:../sources

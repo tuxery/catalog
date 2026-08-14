@@ -8,8 +8,8 @@ export interface Dataset {
 
 /**
  * Runs the sources + matcher pipeline end to end. Flathub, Snapcraft,
- * AppImage, and AUR all read real cached data (see `@tuxery/sources`);
- * GitHub Releases, Debian, and Fedora aren't wired in yet — see
+ * AppImage, AUR, and Debian all read real cached data (see
+ * `@tuxery/sources`); GitHub Releases and Fedora aren't wired in yet — see
  * docs/sources.md in tuxery/catalog for status per source.
  */
 export async function buildDataset(): Promise<Dataset> {

@@ -51,8 +51,9 @@ Or scoped to one package: `pnpm --filter @tuxery/matcher test`, etc.
 
 `packages/sources`, `packages/matcher`, `packages/pipeline`, and
 `packages/store` have all landed. Flathub (3,342 apps), Snapcraft (1,542
-snaps), AppImage (1,104 apps, no version yet), and AUR (117,520 packages)
-are fetching real data — see
+snaps), AppImage (1,104 apps, no version yet), AUR (117,520 packages), and
+Debian (68,755 packages, stable/main/amd64 only) are fetching real data —
+see
 [`docs/sources.md`](docs/sources.md) and the
 [Tuxery GitHub Project](https://github.com/orgs/tuxery/projects/1) for what's
 implemented vs. tracked as roadmap cards.

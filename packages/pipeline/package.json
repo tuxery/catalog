@@ -1,5 +1,5 @@
 {
-  "name": "@tuxery/rebuild",
+  "name": "@tuxery/pipeline",
   "version": "0.0.0",
   "private": true,
   "description": "Orchestrates @tuxery/sources and @tuxery/matcher end to end and publishes the resulting dataset to @tuxery/store",

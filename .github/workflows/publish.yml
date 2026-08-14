@@ -30,9 +30,9 @@ jobs:
       - name: Test
         run: pnpm -r test
 
-      # @tuxery/rebuild falls back to a local dry-run write when the R2_*
+      # @tuxery/pipeline falls back to a local dry-run write when the R2_*
       # secrets/vars above aren't set — no-ops safely until they're
       # configured on this repository, same precedent as
       # CLOUDFLARE_API_TOKEN in tuxery/app's deploy.yml.
       - name: Rebuild & publish dataset
-        run: pnpm --filter @tuxery/rebuild start
+        run: pnpm --filter @tuxery/pipeline start

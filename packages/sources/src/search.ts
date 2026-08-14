@@ -1,4 +1,5 @@
 import { searchAppImage } from "./appimage";
+import { searchAur } from "./aur";
 import { searchFlathub } from "./flathub";
 import { searchSnapcraft } from "./snapcraft";
 import type { SourcedPackage } from "./types";
@@ -13,6 +14,7 @@ export async function searchAllSources(query: string): Promise<SourcedPackage[]>
     searchFlathub(query),
     searchSnapcraft(query),
     searchAppImage(query),
+    searchAur(query),
   ]);
 
   return results.flat();

@@ -7,9 +7,10 @@ export interface Dataset {
 }
 
 /**
- * Runs the sources + matcher pipeline end to end. Flathub reads real cached
- * data (see `@tuxery/sources`); Snapcraft and AppImage still read an empty
- * cache, so every app currently groups to a single Flathub package.
+ * Runs the sources + matcher pipeline end to end. Flathub, Snapcraft,
+ * AppImage, and AUR all read real cached data (see `@tuxery/sources`);
+ * GitHub Releases, Debian, and Fedora aren't wired in yet — see
+ * docs/sources.md in tuxery/catalog for status per source.
  */
 export async function buildDataset(): Promise<Dataset> {
   const packages = await searchAllSources("");

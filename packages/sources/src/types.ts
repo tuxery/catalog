@@ -1,4 +1,7 @@
-export type PackageSourceId = "flathub" | "snapcraft" | "appimage" | "native";
+// One id per connector folder under packages/sources/src/ — not a generic
+// "native" bucket, so e.g. an AUR package and a Debian package (once that
+// connector lands) stay distinguishable by source, not just by appId shape.
+export type PackageSourceId = "flathub" | "snapcraft" | "appimage" | "aur";
 
 /**
  * A single package as reported by one source, before deduplication.

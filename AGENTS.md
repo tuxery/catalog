@@ -14,13 +14,13 @@ messages, issues, pull requests, and configuration. No exceptions.
 - `docs` — wiki-style reference docs (one Markdown file per topic), e.g.
   [`docs/sources.md`](docs/sources.md)'s exhaustive source support matrix.
 - `packages/sources` — normalized `SourcedPackage` type, one subfolder per
-  upstream source (`flathub/`, `snapcraft/`, `appimage/`, ...) each owning
-  its own cache row type (`types.ts`), `normalize.ts`, and `fetch.ts`.
-  `_shared/` holds cross-source helpers (NDJSON read/write). `cache/`
-  holds the git-committed NDJSON snapshot per source — see "Source cache"
-  below. Flathub, Snapcraft, and AppImage's `fetch.ts` are all implemented
-  (e.g. `pnpm --filter @tuxery/sources refresh flathub`) — see
-  [`docs/sources.md`](docs/sources.md) for status per source.
+  upstream source (`flathub/`, `snapcraft/`, `appimage/`, `aur/`, ...) each
+  owning its own cache row type (`types.ts`), `normalize.ts`, and
+  `fetch.ts`. `_shared/` holds cross-source helpers (NDJSON read/write).
+  `cache/` holds the git-committed NDJSON snapshot per source — see
+  "Source cache" below. Flathub, Snapcraft, AppImage, and AUR's `fetch.ts`
+  are all implemented (e.g. `pnpm --filter @tuxery/sources refresh flathub`)
+  — see [`docs/sources.md`](docs/sources.md) for status per source.
 - `packages/matcher` — package deduplication/scoring engine. Pure functions,
   no I/O. Migrated from `tuxery/app`.
 - `packages/pipeline` — orchestration scripts that run the sources + matcher

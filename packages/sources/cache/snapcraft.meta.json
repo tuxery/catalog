@@ -1,0 +1,29 @@
+{
+  "source": "snapcraft",
+  "fetchedAt": "2026-08-14T13:34:23.835Z",
+  "url": "https://api.snapcraft.io/v2/snaps/find",
+  "entryCount": 1542,
+  "deviceSeries": "16",
+  "categoriesSwept": [
+    "art-and-design",
+    "books-and-reference",
+    "development",
+    "devices-and-iot",
+    "education",
+    "entertainment",
+    "featured",
+    "finance",
+    "games",
+    "health-and-fitness",
+    "music-and-audio",
+    "news-and-weather",
+    "personalisation",
+    "photo-and-video",
+    "productivity",
+    "science",
+    "security",
+    "server-and-cloud",
+    "social",
+    "utilities"
+  ]
+}

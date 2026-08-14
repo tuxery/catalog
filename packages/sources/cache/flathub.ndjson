@@ -1236,7 +1236,7 @@
 {"id":"io.github.babaissarkar.ssplot","name":"SSPlot","summary":"Simple plotting utility and numerical simulator","version":"2.3.4","iconFilename":"io.github.babaissarkar.ssplot.png","homepage":"https://babaissarkar.github.io/"}
 {"id":"io.github.basshift.Recall","name":"Recall","summary":"Train memory under pressure","version":"1.0.0","iconFilename":"io.github.basshift.Recall.png","homepage":"https://github.com/basshift/Recall"}
 {"id":"io.github.bcpierce00.unison","name":"Unison","summary":"File Synchronizer","version":"2.54.0","iconFilename":"io.github.bcpierce00.unison.png","homepage":"https://github.com/bcpierce00/unison"}
-{"id":"io.github.bendik.Zodia","name":"Zodia","summary":"Natal charts, transits & synastry","version":"0.12.0","iconFilename":"io.github.bendik.Zodia.png","homepage":"https://github.com/bendik/zodia"}
+{"id":"io.github.bendik.Zodia","name":"Zodia","summary":"Natal charts, transits & synastry","version":"0.13.1","iconFilename":"io.github.bendik.Zodia.png","homepage":"https://github.com/bendik/zodia"}
 {"id":"io.github.benini.scid","name":"SCID","summary":"A chess database application","version":"5.2.202603","iconFilename":"io.github.benini.scid.png","homepage":"https://scid.sourceforge.net/"}
 {"id":"io.github.benjamimgois.goverlay","name":"Goverlay","summary":"Easily configure MangoHud, vkBasalt and OptiScaler","version":"1.8.10","iconFilename":"io.github.benjamimgois.goverlay.png","homepage":"https://github.com/benjamimgois/goverlay"}
 {"id":"io.github.berarma.Oversteer","name":"Oversteer","summary":"A steering wheel manager","version":"0.8.3","iconFilename":"io.github.berarma.Oversteer.png","homepage":"https://github.com/berarma/oversteer"}
@@ -1560,7 +1560,7 @@
 {"id":"io.github.mukonqi.nottodbox","name":"Nottodbox","summary":"Organize notes, to-dos and diaries","version":"v0.2.1","iconFilename":"io.github.mukonqi.nottodbox.png","homepage":"https://github.com/mukonqi/nottodbox"}
 {"id":"io.github.muse_sequencer.Muse","name":"MusE","summary":"Digital Audio Workstation","version":"4.2.1","iconFilename":"io.github.muse_sequencer.Muse.png","homepage":"https://muse-sequencer.github.io/"}
 {"id":"io.github.myst6re.makoureactor","name":"Makou Reactor","summary":"A Field Editor for Final Fantasy VII","version":"2.1.0","iconFilename":"io.github.myst6re.makoureactor.png","homepage":"https://github.com/myst6re/makoureactor"}
-{"id":"io.github.nacho.mecalin","name":"Mecalin","summary":"Learn touch typing","version":"1.1.2","iconFilename":"io.github.nacho.mecalin.png","homepage":"https://github.com/nacho/mecalin"}
+{"id":"io.github.nacho.mecalin","name":"Mecalin","summary":"Learn touch typing","version":"1.2.0","iconFilename":"io.github.nacho.mecalin.png","homepage":"https://github.com/nacho/mecalin"}
 {"id":"io.github.nacho.mundi","name":"Mundi","summary":"Learn geography","version":"0.13.0","iconFilename":"io.github.nacho.mundi.png","homepage":"https://github.com/nacho/mundi"}
 {"id":"io.github.naikari.Naikari","name":"Naikari: Eye of Chaos","summary":"2-D freeform space mystery game","version":"0.12.0","iconFilename":"io.github.naikari.Naikari.png","homepage":"https://naikari.github.io"}
 {"id":"io.github.najepaliya.kleaner","name":"Kleaner","summary":"An Image Metadata Cleaner","version":"1.0","iconFilename":"io.github.najepaliya.kleaner.png","homepage":"https://github.com/najepaliya/kleaner"}
@@ -2844,6 +2844,7 @@
 {"id":"org.libsdl.Maelstrom","name":"Maelstrom","summary":"High Quality Asteroids Clone","version":"4.0.1","iconFilename":"org.libsdl.Maelstrom.png","homepage":"https://github.com/libsdl-org/Maelstrom"}
 {"id":"org.libvips.nip4","name":"nip4","summary":"Image processing spreadsheet","version":"9.1.5","iconFilename":"org.libvips.nip4.png","homepage":"https://github.com/jcupitt/nip4"}
 {"id":"org.libvips.vipsdisp","name":"Vipsdisp","summary":"Image viewer","version":"4.1.4","iconFilename":"org.libvips.vipsdisp.png","homepage":"https://github.com/libvips/vipsdisp"}
+{"id":"org.linux_hardware.hw-probe","name":"Hardware Probe","summary":"Check operability of computer hardware and find drivers","version":"1.6.6","iconFilename":"org.linux_hardware.hw-probe.png","homepage":"https://github.com/linuxhw/hw-probe"}
 {"id":"org.linuxshowplayer.LinuxShowPlayer","name":"Linux Show Player","summary":"Cue player designed for stage productions","version":"0.6.5","iconFilename":"org.linuxshowplayer.LinuxShowPlayer.png","homepage":"https://www.linux-show-player.org/"}
 {"id":"org.localsend.localsend_app","name":"LocalSend","summary":"Share files to nearby devices","version":"1.18.0","iconFilename":"org.localsend.localsend_app.png","homepage":"https://localsend.org/"}
 {"id":"org.love2d.love2d","name":"LÖVE","summary":"LÖVE is an awesome 2D game framework for Lua.","version":"11.5","iconFilename":"org.love2d.love2d.png","homepage":"https://love2d.org/"}
@@ -3166,7 +3167,7 @@
 {"id":"page.codeberg.JakobDev.jdSimpleAutostart","name":"jdSimpleAutostart","summary":"Edit autostart entries","version":"1.6","iconFilename":"page.codeberg.JakobDev.jdSimpleAutostart.png","homepage":"https://jakobdev.codeberg.page/work/app/jdSimpleAutostart"}
 {"id":"page.codeberg.JakobDev.jdSystemMonitor","name":"jdSystemMonitor","summary":"Monitor your system","version":"2.0","iconFilename":"page.codeberg.JakobDev.jdSystemMonitor.png","homepage":"https://jakobdev.codeberg.page/work/app/jdSystemMonitor"}
 {"id":"page.codeberg.JakobDev.jdTextEdit","name":"jdTextEdit","summary":"An advanced text editor","version":"11.3","iconFilename":"page.codeberg.JakobDev.jdTextEdit.png","homepage":"https://codeberg.org/JakobDev/jdTextEdit"}
-{"id":"page.codeberg.M23Snezhok.Vinyl","name":"Vinyl","summary":"Elegant music player","version":"1.5.0","iconFilename":"page.codeberg.M23Snezhok.Vinyl.png","homepage":"https://codeberg.org/M23Snezhok/Vinyl"}
+{"id":"page.codeberg.M23Snezhok.Vinyl","name":"Vinyl","summary":"Elegant music player","version":"1.6.0","iconFilename":"page.codeberg.M23Snezhok.Vinyl.png","homepage":"https://codeberg.org/M23Snezhok/Vinyl"}
 {"id":"page.codeberg.bjawebos.Filmbook","name":"Filmbook","summary":"Track analog film usage in cameras","version":"0.3.3","iconFilename":"page.codeberg.bjawebos.Filmbook.png","homepage":"https://codeberg.org/bjawebos/filmbook"}
 {"id":"page.codeberg.censor.Censor","name":"Censor","summary":"Redact PDF documents","version":"0.10.1","iconFilename":"page.codeberg.censor.Censor.png","homepage":"https://codeberg.org/censor/Censor"}
 {"id":"page.codeberg.cozyowl.OpaqueFiles","name":"OpaqueFiles","summary":"File encryption software for cloud storage","version":"0.9.11.0","iconFilename":"page.codeberg.cozyowl.OpaqueFiles.png","homepage":"https://codeberg.org/cozyOwl/OpaqueFiles"}

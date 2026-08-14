@@ -50,8 +50,8 @@ Or scoped to one package: `pnpm --filter @tuxery/matcher test`, etc.
 ## Status
 
 `packages/sources`, `packages/matcher`, `packages/pipeline`, and
-`packages/store` have all landed. Every source connector still reads an
-empty cache (no real upstream fetch wired up yet) — see
+`packages/store` have all landed. Flathub's connector is fetching real data
+(3,341 apps cached); Snapcraft and AppImage still read an empty cache — see
 [`docs/sources.md`](docs/sources.md) and the
 [Tuxery GitHub Project](https://github.com/orgs/tuxery/projects/1) for what's
 implemented vs. tracked as roadmap cards.

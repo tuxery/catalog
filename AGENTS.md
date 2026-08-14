@@ -15,11 +15,12 @@ messages, issues, pull requests, and configuration. No exceptions.
   [`docs/sources.md`](docs/sources.md)'s exhaustive source support matrix.
 - `packages/sources` — normalized `SourcedPackage` type, one subfolder per
   upstream source (`flathub/`, `snapcraft/`, `appimage/`, ...) each owning
-  its own cache row type (`types.ts`), `normalize.ts`, and `fetch.ts` once
-  implemented. `_shared/` holds cross-source helpers (NDJSON read/write).
-  `cache/` holds the git-committed NDJSON snapshot per source — see
-  "Source cache" below. Migrated from `tuxery/app`; connectors still read
-  an empty cache (no real fetch wired up yet).
+  its own cache row type (`types.ts`), `normalize.ts`, and `fetch.ts`.
+  `_shared/` holds cross-source helpers (NDJSON read/write). `cache/`
+  holds the git-committed NDJSON snapshot per source — see "Source cache"
+  below. Flathub's `fetch.ts` is implemented (`pnpm --filter @tuxery/sources
+refresh flathub`); Snapcraft and AppImage still read an empty cache — see
+  [`docs/sources.md`](docs/sources.md) for status per source.
 - `packages/matcher` — package deduplication/scoring engine. Pure functions,
   no I/O. Migrated from `tuxery/app`.
 - `packages/pipeline` — orchestration scripts that run the sources + matcher
@@ -53,9 +54,10 @@ every rebuild.
 - Keep `packages/sources` and `packages/matcher` free of Qwik/UI dependencies
   — `app` and any future public API both depend on this repo, not the other
   way around.
-- Don't wire real upstream network calls into `packages/sources`' connectors
+- Don't wire real upstream network calls into a `packages/sources` connector
   as a side effect of unrelated work — per-source rate limits, caching, and
-  error handling need deliberate design, not an incidental implementation.
+  error handling need deliberate design (see `flathub/fetch.ts` for the
+  established shape), not an incidental implementation.
 
 ## Commit conventions
 

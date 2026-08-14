@@ -1,10 +1,12 @@
 import { fileURLToPath } from "node:url";
 import { fetchFlathub } from "./flathub/fetch";
+import { fetchSnapcraft } from "./snapcraft/fetch";
 
-// One entry per source with a real fetch.ts — snapcraft/appimage stay
-// cache-only (empty) until their own connector cards land.
+// One entry per source with a real fetch.ts — appimage stays cache-only
+// (empty) until its own connector card lands.
 const REFRESHERS: Record<string, (cachePath: string) => Promise<number>> = {
   flathub: fetchFlathub,
+  snapcraft: fetchSnapcraft,
 };
 
 async function main() {

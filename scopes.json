@@ -1,1 +1,1 @@
-["sources", "matcher", "rebuild", "store", "ci", "deps"]
+["sources", "matcher", "pipeline", "store", "docs", "ci", "deps"]

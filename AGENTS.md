@@ -11,20 +11,39 @@ messages, issues, pull requests, and configuration. No exceptions.
 
 ## Scope
 
-- `packages/sources` — normalized `SourcedPackage` type and async connectors
-  per upstream source (Flathub, Snapcraft, AppImage, native). Migrated from
-  `tuxery/app`; connectors are still stubs returning no results.
+- `docs` — wiki-style reference docs (one Markdown file per topic), e.g.
+  [`docs/sources.md`](docs/sources.md)'s exhaustive source support matrix.
+- `packages/sources` — normalized `SourcedPackage` type, one subfolder per
+  upstream source (`flathub/`, `snapcraft/`, `appimage/`, ...) each owning
+  its own cache row type (`types.ts`), `normalize.ts`, and `fetch.ts` once
+  implemented. `_shared/` holds cross-source helpers (NDJSON read/write).
+  `cache/` holds the git-committed NDJSON snapshot per source — see
+  "Source cache" below. Migrated from `tuxery/app`; connectors still read
+  an empty cache (no real fetch wired up yet).
 - `packages/matcher` — package deduplication/scoring engine. Pure functions,
   no I/O. Migrated from `tuxery/app`.
-- `packages/rebuild` — orchestration scripts that run the sources + matcher
-  pipeline end to end and produce a fresh dataset. Not yet created.
+- `packages/pipeline` — orchestration scripts that run the sources + matcher
+  pipeline end to end and produce a fresh dataset.
 - `packages/store` — the persisted DB/cache layer (Cloudflare R2 today,
-  possibly D1 later) that `app` reads from at build time. Not yet created.
+  possibly D1 later) that `app` reads from at build time.
 
 This repo has no Qwik/UI code — that stays in `tuxery/app`. Keeping the two
 separated is deliberate: contributors adding a source connector shouldn't
 need to touch the web app, and the pipeline can have its own release/rebuild
 cadence (e.g. a scheduled rebuild) independent of when the site deploys.
+
+## Source cache
+
+`packages/sources/cache/<source>.ndjson` is a git-committed snapshot of each
+upstream source's raw data (one JSON object per line, typed per source in
+that source's own `types.ts` — deliberately _not_ a single shared schema,
+since upstream shapes differ). Each source's `index.ts` reads this cache by
+default (no network, works offline, safe to run on every push); only a
+separate `fetch.ts` (once implemented) hits the real upstream and rewrites
+the cache file, run on a schedule rather than per-push — see the "Wire
+scheduled source refresh" card on the Tuxery GitHub Project. Committing the
+cache means CI/dev never starts from zero and upstream APIs aren't hit on
+every rebuild.
 
 ## Rules
 
@@ -48,21 +67,22 @@ Format: `type(scope): <emoji> description`.
 
 Scopes live in [`scopes.json`](./scopes.json) at this repo's root:
 
-| Scope     | Maps to                             |
-| --------- | ----------------------------------- |
-| `sources` | `packages/sources`                  |
-| `matcher` | `packages/matcher`                  |
-| `rebuild` | `packages/rebuild`                  |
-| `store`   | `packages/store`, R2/D1 persistence |
-| `ci`      | `.github/workflows/`                |
-| `deps`    | Dependency bumps                    |
+| Scope      | Maps to                             |
+| ---------- | ----------------------------------- |
+| `sources`  | `packages/sources`                  |
+| `matcher`  | `packages/matcher`                  |
+| `pipeline` | `packages/pipeline`                 |
+| `store`    | `packages/store`, R2/D1 persistence |
+| `docs`     | `docs/`                             |
+| `ci`       | `.github/workflows/`                |
+| `deps`     | Dependency bumps                    |
 
 **Do not use a scope outside this list.** If a new top-level concern is
 added, update `scopes.json` (and this table) together.
 
 ```text
 feat(sources): ✨ wire up the real Flathub search API
-feat(rebuild): ✨ add scheduled dataset rebuild script
+feat(pipeline): ✨ add scheduled dataset rebuild script
 chore(deps): 📌 pin oxlint to 1.76.0
 ```
 

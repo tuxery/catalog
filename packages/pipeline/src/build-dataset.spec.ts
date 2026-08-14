@@ -33,4 +33,15 @@ describe("buildDataset", () => {
     // an exact count, GitHub Releases isn't wired in yet.
     expect(packageCount).toBeGreaterThan(280_000);
   });
+
+  it("enriches every app with a display-ready id and name", () => {
+    for (const app of dataset.apps) {
+      expect(app.id).toBeTruthy();
+      expect(app.name).toBeTruthy();
+      // Not toBeTruthy(): some single-source AppImage entries genuinely
+      // have no upstream description at all (see enrichApps's
+      // pickDescription) — "" is the correct value there, not a bug.
+      expect(typeof app.shortDescription).toBe("string");
+    }
+  });
 });

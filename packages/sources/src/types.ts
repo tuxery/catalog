@@ -49,4 +49,11 @@ export interface SourcedPackage {
    */
   arch?: string;
   homepage?: string;
+  /**
+   * Upstream last-modified/last-released date, when the source exposes
+   * one. Not populated by any connector yet — none of the current
+   * fetch.ts implementations capture it, tracked alongside the rest of
+   * `CatalogApp`'s unpopulated fields on the Tuxery GitHub Project.
+   */
+  lastUpdated?: string;
 }

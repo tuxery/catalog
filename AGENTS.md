@@ -40,11 +40,18 @@ upstream source's raw data (one JSON object per line, typed per source in
 that source's own `types.ts` — deliberately _not_ a single shared schema,
 since upstream shapes differ). Each source's `index.ts` reads this cache by
 default (no network, works offline, safe to run on every push); only a
-separate `fetch.ts` (once implemented) hits the real upstream and rewrites
-the cache file, run on a schedule rather than per-push — see the "Wire
-scheduled source refresh" card on the Tuxery GitHub Project. Committing the
-cache means CI/dev never starts from zero and upstream APIs aren't hit on
-every rebuild.
+separate `fetch.ts` hits the real upstream and rewrites the cache file, run
+on a schedule rather than per-push — see the "Wire scheduled source
+refresh" card on the Tuxery GitHub Project. Committing the cache means
+CI/dev never starts from zero and upstream APIs aren't hit on every
+rebuild.
+
+Every `fetch.ts` also writes a `cache/<source>.meta.json` sidecar (via
+`_shared/metadata.ts`) recording when and from where the data was fetched —
+`fetchedAt`, `url`, `entryCount`, plus whatever else is relevant per source
+(Flathub's `arch`, Snapcraft's `deviceSeries`/`categoriesSwept`). Kept as a
+sibling file rather than fields on every NDJSON row, so a re-fetch's
+changed timestamp doesn't touch every data line's diff.
 
 ## Rules
 

@@ -1,9 +1,14 @@
 import { gunzipSync } from "node:zlib";
 import { XMLParser } from "fast-xml-parser";
+import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
-import type { FlathubCacheEntry } from "./types";
+import type { FlathubCacheEntry, FlathubFetchMetadata } from "./types";
 
-const APPSTREAM_URL = "https://dl.flathub.org/repo/appstream/x86_64/appstream.xml.gz";
+// Flathub publishes one appstream file per arch — this is the one most
+// desktop Linux installs actually run on. aarch64 is available at the same
+// path with the arch swapped, if/when Tuxery needs it.
+const ARCH = "x86_64";
+const APPSTREAM_URL = `https://dl.flathub.org/repo/appstream/${ARCH}/appstream.xml.gz`;
 
 // AppStream also lists "addon"/"runtime"/"localization"/"generic" components
 // (extensions, Flatpak runtimes, translation packs, ...) — not apps a user
@@ -113,5 +118,13 @@ export async function fetchFlathub(cachePath: string): Promise<number> {
   const entries = parseAppstream(xml);
 
   writeNdjson(cachePath, entries);
+  writeMetadata<FlathubFetchMetadata>(cachePath, {
+    source: "flathub",
+    fetchedAt: new Date().toISOString(),
+    url: APPSTREAM_URL,
+    entryCount: entries.length,
+    arch: ARCH,
+  });
+
   return entries.length;
 }

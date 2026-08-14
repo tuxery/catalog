@@ -1,8 +1,10 @@
+import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
-import type { SnapcraftCacheEntry } from "./types";
+import type { SnapcraftCacheEntry, SnapcraftFetchMetadata } from "./types";
 
 const FIND_URL = "https://api.snapcraft.io/v2/snaps/find";
 const FIELDS = "title,summary,version,channel,media,links";
+const DEVICE_SERIES = "16";
 
 // Snapcraft has no single full-catalog dump (unlike Flathub's appstream.xml.gz).
 // The v1 API's /api/v1/snaps/sections lists the store's browse categories;
@@ -68,7 +70,7 @@ export function mapResults(results: RawResult[]): SnapcraftCacheEntry[] {
 
 async function findByCategory(category: string): Promise<RawResult[]> {
   const url = `${FIND_URL}?category=${category}&fields=${FIELDS}`;
-  const response = await fetch(url, { headers: { "Snap-Device-Series": "16" } });
+  const response = await fetch(url, { headers: { "Snap-Device-Series": DEVICE_SERIES } });
 
   if (!response.ok) {
     throw new Error(
@@ -97,5 +99,14 @@ export async function fetchSnapcraft(cachePath: string): Promise<number> {
 
   const entries = [...byName.values()];
   writeNdjson(cachePath, entries);
+  writeMetadata<SnapcraftFetchMetadata>(cachePath, {
+    source: "snapcraft",
+    fetchedAt: new Date().toISOString(),
+    url: FIND_URL,
+    entryCount: entries.length,
+    deviceSeries: DEVICE_SERIES,
+    categoriesSwept: CATEGORIES,
+  });
+
   return entries.length;
 }

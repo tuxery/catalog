@@ -16,6 +16,9 @@ node_modules
 .cache
 tsconfig.tsbuildinfo
 
+# Local libSQL dev database (see scripts/seed.ts) — never lives under `app`
+.turso-state
+
 # Logs
 logs
 *.log

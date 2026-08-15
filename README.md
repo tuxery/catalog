@@ -25,7 +25,7 @@ catalog/
 │   │   ├── filter/           # decides which packages belong in the catalog at all
 │   │   └── match/            # groups what's left into unified apps across sources
 │   ├── pipeline/           # @tuxery/pipeline — orchestrates sources + curator into a fresh dataset
-│   └── store/               # @tuxery/store — persistence layer (Cloudflare R2, later maybe D1)
+│   └── store/               # @tuxery/store — persistence layer (Turso/libSQL)
 ├── tsconfig.base.json       # shared TS config for packages/*
 └── pnpm-workspace.yaml
 ```
@@ -39,6 +39,19 @@ matrix (implemented vs. roadmap).
 pnpm install
 pnpm build
 ```
+
+To run the site locally against real data, three terminals:
+
+```shell
+pnpm seed             # here: builds/reuses the dataset, writes a local libSQL database
+pnpm serve             # here: serves that database (this repo owns the data, not app)
+# then, in tuxery/app:
+pnpm dev              # there: builds + launches the actual Worker, queries that database
+```
+
+The database file lives at `.turso-state/` in this repo (gitignored) —
+never under `app`. See [`AGENTS.md`](AGENTS.md)'s "Local dev" section for
+how the two repos' scripts hand off to each other.
 
 ## Checks
 

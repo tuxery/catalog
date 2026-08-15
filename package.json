@@ -10,8 +10,12 @@
     "test": "pnpm -r test",
     "fmt": "oxfmt .",
     "fmt.check": "oxfmt --check .",
-    "dev": "tsx scripts/dev.ts",
+    "seed": "tsx scripts/seed.ts",
+    "serve": "tsx scripts/serve.ts",
     "reset-caches": "tsx scripts/reset-caches.ts"
+  },
+  "dependencies": {
+    "@tuxery/store": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "20.19.0",

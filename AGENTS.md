@@ -39,8 +39,8 @@ flathub`) — see [`docs/sources.md`](docs/sources.md) for status per
   card on the Tuxery GitHub Project.
 - `packages/pipeline` — orchestration scripts that run sources + curator
   end to end and produce a fresh dataset.
-- `packages/store` — the persisted DB/cache layer (Cloudflare R2 today,
-  possibly D1 later) that `app` reads from at build time.
+- `packages/store` — the persisted DB layer (Turso/libSQL) that `app`
+  queries at request time via SQL, not a static file fetched at build time.
 
 This repo has no Qwik/UI code — that stays in `tuxery/app`. Keeping the two
 separated is deliberate: contributors adding a source connector shouldn't
@@ -73,23 +73,49 @@ similar, so it can be modified independently later.
 
 ## Local dev
 
-`pnpm dev` (repo root) builds/reuses the merged dataset and launches
-`app`'s wrangler-simulated dev server (`env.CATALOG_BUCKET`) seeded with
-it — see `scripts/dev.ts`. Three tiers, cheapest first: reuse
-`packages/pipeline/dist/dataset.json` if it already exists; else rebuild
-it from the git-committed source caches (`pnpm --filter @tuxery/pipeline
-start`, no network); `pnpm dev --force` skips both and re-fetches every
-source fresh first. `pnpm reset-caches` just does that last step alone —
-refreshes `packages/sources/cache/*.ndjson` without rebuilding the
-dataset or launching anything, for periodic cache maintenance decoupled
-from wanting to dev right now.
+Three commands, three terminals, mirroring prod (this repo populates and
+serves the DB, `app`'s Worker only ever queries it — `app` never starts
+database infrastructure itself, the same way you wouldn't start a Spring
+Boot server from an Angular CLI command). Two modes, picked independently
+by passing `--remote` or not:
 
-These scripts shell out to `app`'s `apps/web/scripts/dev-worker.mjs` via
-its fixed sibling path (`/workspaces/app/apps/web/...`) rather than
-importing across the workspace boundary — see that file's own comment.
-`app`'s own `pnpm dev --sample` uses the same script with a small
-committed sample instead (`pnpm --filter @tuxery/pipeline sample`
-regenerates it — a manual/occasional command, not run automatically).
+- **Local (default)**:
+  1. `pnpm seed` (this repo) builds/reuses the dataset and writes it into
+     a local libSQL database file. One-shot — writes and exits, no side
+     effects beyond that file. Three tiers, cheapest first: reuse
+     `packages/pipeline/dist/dataset.json` if it already exists; else
+     rebuild it from the git-committed source caches (`pnpm --filter
+     @tuxery/pipeline start`, no network); `pnpm seed --force` skips both
+     and re-fetches every source fresh first.
+  2. `pnpm serve` (this repo) runs a local `turso dev` server (part of
+     the Turso CLI) in front of that file — foreground, blocking, its own
+     terminal. A Workers isolate can't open a SQLite file directly, so
+     this repo (owning the data) is the one that fronts it with a server,
+     speaking the same libSQL HTTP protocol `catalog.ts` uses against the
+     real hosted DB in prod.
+  3. `app`'s `pnpm dev` connects to that server. Unlimited reads/writes,
+     no network, for fast iteration.
+- **Remote**: `pnpm seed --remote` publishes straight to the real hosted
+  Turso dev DB instead (no `pnpm serve` needed — Turso already serves
+  it); `app`'s `pnpm dev --remote` points the Worker at it directly. Real
+  network latency, real quotas — closer to how prod actually behaves.
+  Credentials come from `/workspaces/.dev/.env`
+  (`TURSO_DB_URL`/`TURSO_DB_AUTH_TOKEN`), shared with `app`'s side rather
+  than duplicated per repo.
+
+`pnpm reset-caches` refreshes `packages/sources/cache/*.ndjson` alone,
+without rebuilding the dataset or seeding anything, for periodic cache
+maintenance decoupled from wanting to dev right now.
+
+In local mode, the database file lives at this repo's `.turso-state/`
+(gitignored) — never under `app`, so no dataset bytes touch that repo's
+filesystem, even transiently. Publishing to Turso (`packages/store`'s `createTursoClient`)
+writes into a fresh `apps_next` table and atomically renames it over
+`apps` (`ALTER TABLE ... RENAME`), so a rebuild in progress — inserting
+226k rows takes about a minute — never leaves readers seeing an empty or
+half-populated table. Re-running `pnpm seed` while `pnpm serve` is
+already running is safe: the swap happens on the file `pnpm serve` is
+reading live, no restart needed.
 
 ## Rules
 
@@ -119,7 +145,7 @@ Scopes live in [`scopes.json`](./scopes.json) at this repo's root:
 | `sources`  | `packages/sources`                  |
 | `curator`  | `packages/curator`                  |
 | `pipeline` | `packages/pipeline`                 |
-| `store`    | `packages/store`, R2/D1 persistence |
+| `store`    | `packages/store`, Turso persistence |
 | `docs`     | `docs/`                             |
 | `ci`       | `.github/workflows/`                |
 | `deps`     | Dependency bumps                    |

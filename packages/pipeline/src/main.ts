@@ -1,32 +1,30 @@
 import { mkdir, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
-import { createR2Client } from "@tuxery/store";
+import { createTursoClient } from "@tuxery/store";
 import { buildDataset } from "./build-dataset";
 
 const OUT_PATH = join(process.cwd(), "dist", "dataset.json");
 
+/**
+ * Always writes the build artifact (`dist/dataset.json`) — that's what
+ * `scripts/seed.ts`'s reuse tier checks for, independent of whether a
+ * publish target is configured. Publishing to Turso is an additive step
+ * on top, only when `TURSO_DB_URL` is set (unset when just testing the
+ * pipeline itself, e.g. `pnpm --filter @tuxery/pipeline test`).
+ */
 async function main() {
   const dataset = await buildDataset();
-  const json = JSON.stringify(dataset, null, 2);
-
-  const { CLOUDFLARE_ACCOUNT_ID, R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY, R2_BUCKET_NAME } =
-    process.env;
-
-  if (CLOUDFLARE_ACCOUNT_ID && R2_ACCESS_KEY_ID && R2_SECRET_ACCESS_KEY && R2_BUCKET_NAME) {
-    const client = createR2Client({
-      accountId: CLOUDFLARE_ACCOUNT_ID,
-      accessKeyId: R2_ACCESS_KEY_ID,
-      secretAccessKey: R2_SECRET_ACCESS_KEY,
-      bucketName: R2_BUCKET_NAME,
-    });
-    await client.publish("dataset.json", json);
-    console.log("Published dataset.json to R2.");
-    return;
-  }
 
   await mkdir(dirname(OUT_PATH), { recursive: true });
-  await writeFile(OUT_PATH, json);
-  console.log(`R2 credentials not set — wrote dry-run dataset to ${OUT_PATH}`);
+  await writeFile(OUT_PATH, JSON.stringify(dataset, null, 2));
+  console.log(`Wrote ${dataset.apps.length} apps to ${OUT_PATH}.`);
+
+  const { TURSO_DB_URL, TURSO_DB_AUTH_TOKEN } = process.env;
+  if (TURSO_DB_URL) {
+    const client = createTursoClient({ url: TURSO_DB_URL, authToken: TURSO_DB_AUTH_TOKEN });
+    await client.publish(dataset);
+    console.log(`Published ${dataset.apps.length} apps to ${TURSO_DB_URL}.`);
+  }
 }
 
 main().catch((error: unknown) => {

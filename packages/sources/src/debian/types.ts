@@ -11,12 +11,14 @@ export interface DebianCacheEntry {
   version: string;
   homepage?: string;
   /**
-   * Which component this package belongs to — always "main" today (see
-   * fetch.ts), but kept as a per-row field rather than only in fetch
-   * metadata so it starts varying correctly the day contrib/non-free are
-   * added too, same reasoning as Ubuntu's `component` and Arch's `repo`.
+   * Which component this package belongs to (main/contrib/non-free/
+   * non-free-firmware — see fetch.ts) — kept as a per-row field rather
+   * than only in fetch metadata, same reasoning as Ubuntu's `component`
+   * and Arch's `repo`.
    */
   component: string;
+  /** Debian's `Section` field, e.g. "libs", "games", "doc" — see SourcedPackage.section. */
+  section?: string;
 }
 
 export interface DebianFetchMetadata extends FetchMetadata {

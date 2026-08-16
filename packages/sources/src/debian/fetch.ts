@@ -36,6 +36,7 @@ export function parsePackages(text: string, component: string): DebianCacheEntry
       version: fields.Version ?? "unknown",
       homepage: fields.Homepage || undefined,
       component,
+      section: fields.Section || undefined,
     }));
 }
 

@@ -49,6 +49,15 @@ describe("parsePackages", () => {
     expect(entries.every((entry) => entry.component === "main")).toBe(true);
   });
 
+  it("extracts the Section field", () => {
+    expect(entries[0]?.section).toBe("games");
+  });
+
+  it("leaves section undefined when the field is absent", () => {
+    const noSection = parsePackages("Package: bare\nVersion: 1\n", "main");
+    expect(noSection[0]?.section).toBeUndefined();
+  });
+
   it("returns an empty array for text with no stanzas", () => {
     expect(parsePackages("", "main")).toEqual([]);
   });

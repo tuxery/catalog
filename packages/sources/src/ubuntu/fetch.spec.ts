@@ -7,6 +7,7 @@ Architecture: amd64
 Description: Real-time strategy game of ancient warfare
  Longer description on a continuation line.
 Homepage: https://play0ad.com/
+Section: universe/games
 
 Package: 0ad-data
 Version: 0.27.0-1
@@ -38,5 +39,16 @@ describe("parsePackages", () => {
     const mainEntries = parsePackages(FIXTURE, "main");
 
     expect(mainEntries.every((entry) => entry.component === "main")).toBe(true);
+  });
+
+  it("captures the raw Section field, still component-prefixed", () => {
+    // normalize.ts is the one that strips the "universe/" prefix — the
+    // cache row stays close to the upstream value, per this file's own
+    // header comment.
+    expect(entries[0]?.section).toBe("universe/games");
+  });
+
+  it("leaves section undefined when the field is absent", () => {
+    expect(entries[1]?.section).toBeUndefined();
   });
 });

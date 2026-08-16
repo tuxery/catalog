@@ -85,7 +85,7 @@ by passing `--remote` or not:
      effects beyond that file. Three tiers, cheapest first: reuse
      `packages/pipeline/dist/dataset.json` if it already exists; else
      rebuild it from the git-committed source caches (`pnpm --filter
-     @tuxery/pipeline start`, no network); `pnpm seed --force` skips both
+@tuxery/pipeline start`, no network); `pnpm seed --force` skips both
      and re-fetches every source fresh first.
   2. `pnpm serve` (this repo) runs a local `turso dev` server (part of
      the Turso CLI) in front of that file — foreground, blocking, its own

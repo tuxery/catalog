@@ -97,7 +97,11 @@ describe("enrichApps", () => {
         id: "appimage:Dygmalab/Bazecor",
         packages: [
           pkg({ source: "appimage", name: "Bazecor", description: "" }),
-          pkg({ source: "aur", name: "bazecor", description: "Graphical configurator for Dygma keyboards" }),
+          pkg({
+            source: "aur",
+            name: "bazecor",
+            description: "Graphical configurator for Dygma keyboards",
+          }),
         ],
       },
     ];
@@ -112,7 +116,10 @@ describe("enrichApps", () => {
 
   it("uses an empty description when no package in the group has one", () => {
     const matched: MatchedApp[] = [
-      { id: "appimage:example", packages: [pkg({ source: "appimage", name: "Example", description: "" })] },
+      {
+        id: "appimage:example",
+        packages: [pkg({ source: "appimage", name: "Example", description: "" })],
+      },
     ];
 
     const [app] = enrichApps(matched);

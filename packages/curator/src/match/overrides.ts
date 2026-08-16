@@ -3,7 +3,9 @@ import { readNdjson } from "../_shared/ndjson";
 import { pairKey, refKey } from "./keys";
 import type { MatchOverrideEntry } from "./types";
 
-const MANUAL_PATH = fileURLToPath(new URL("../../overrides/manual-matches.ndjson", import.meta.url));
+const MANUAL_PATH = fileURLToPath(
+  new URL("../../overrides/manual-matches.ndjson", import.meta.url),
+);
 const DENY_PATH = fileURLToPath(new URL("../../overrides/deny-matches.ndjson", import.meta.url));
 
 export interface MatchOverrides {

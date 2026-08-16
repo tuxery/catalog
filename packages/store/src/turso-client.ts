@@ -195,8 +195,12 @@ export function createTursoClient(config: TursoConfig, client?: Client): TursoCl
         );
       }
 
-      await db.execute(`CREATE TABLE IF NOT EXISTS meta (key TEXT PRIMARY KEY, value TEXT NOT NULL)`);
-      const existing = await db.execute(`SELECT name FROM sqlite_master WHERE type='table' AND name='apps'`);
+      await db.execute(
+        `CREATE TABLE IF NOT EXISTS meta (key TEXT PRIMARY KEY, value TEXT NOT NULL)`,
+      );
+      const existing = await db.execute(
+        `SELECT name FROM sqlite_master WHERE type='table' AND name='apps'`,
+      );
 
       await db.batch(
         [

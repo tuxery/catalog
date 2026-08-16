@@ -39,7 +39,9 @@ describe("createTursoClient", () => {
     const swapBatch = batch.mock.calls[1]?.[0] as { sql: string }[];
     // First run: no existing `apps` table, so no rename-to-old step
     expect(swapBatch.map((s) => s.sql)).not.toContain("ALTER TABLE apps RENAME TO apps_old");
-    expect(swapBatch.some((s) => s.sql.includes("ALTER TABLE apps_next RENAME TO apps"))).toBe(true);
+    expect(swapBatch.some((s) => s.sql.includes("ALTER TABLE apps_next RENAME TO apps"))).toBe(
+      true,
+    );
     expect(swapBatch.some((s) => s.sql.includes("INSERT INTO meta"))).toBe(true);
   });
 

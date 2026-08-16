@@ -5,7 +5,9 @@ import { fileURLToPath } from "node:url";
 import { createTursoClient, type TursoDataset } from "@tuxery/store";
 import { refreshSources } from "./_refresh-sources";
 
-const DATASET_PATH = fileURLToPath(new URL("../packages/pipeline/dist/dataset.json", import.meta.url));
+const DATASET_PATH = fileURLToPath(
+  new URL("../packages/pipeline/dist/dataset.json", import.meta.url),
+);
 
 // Local libSQL file — lives here, never under `app`, so no dataset bytes
 // touch that repo's filesystem even transiently.
@@ -61,5 +63,7 @@ if (remote) {
   mkdirSync(dirname(LOCAL_DB_PATH), { recursive: true });
   const client = createTursoClient({ url: `file:${LOCAL_DB_PATH}` });
   await client.publish(dataset);
-  console.log(`\n${dataset.apps.length} apps seeded at ${LOCAL_DB_PATH}. Run \`pnpm serve\` to start the local server.`);
+  console.log(
+    `\n${dataset.apps.length} apps seeded at ${LOCAL_DB_PATH}. Run \`pnpm serve\` to start the local server.`,
+  );
 }

@@ -38,3 +38,7 @@
 {"source":"aur","name":"librevna-gui","reason":"Real standalone app: GUI for the LibreVNA hardware device"}
 {"source":"aur","name":"librevna-gui-bin","reason":"Real standalone app: GUI for the LibreVNA hardware device"}
 {"source":"aur","name":"librewands","reason":"Real standalone app: map editor for an ncurses RPG"}
+{"source":"debian","name":"r-base","reason":"Real standalone app despite the gnu-r noise section — the R language interpreter itself, not an r-cran-* library package"}
+{"source":"ubuntu","name":"r-base","reason":"Real standalone app despite the gnu-r noise section — the R language interpreter itself, not an r-cran-* library package"}
+{"source":"debian","name":"littler","reason":"Real standalone app despite the gnu-r noise section — a command-line front-end for R scripts"}
+{"source":"ubuntu","name":"littler","reason":"Real standalone app despite the gnu-r noise section — a command-line front-end for R scripts"}

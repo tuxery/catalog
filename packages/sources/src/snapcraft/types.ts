@@ -22,4 +22,6 @@ export interface SnapcraftFetchMetadata extends FetchMetadata {
   deviceSeries: string;
   /** Store categories swept to build this cache — see fetch.ts. */
   categoriesSwept: string[];
+  /** Single-character `q=` search queries swept to build this cache — see fetch.ts. */
+  queryCharsSwept: string[];
 }

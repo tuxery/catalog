@@ -161,10 +161,9 @@ chore(deps): 📌 pin oxlint to 1.76.0
 
 ## Git workflow
 
-Push straight to `main`, no PR needed — this is an early-stage PoC, mostly
-solo project. No release-train model yet (see `tuxery/.dev`'s AGENTS.md).
-Adopt feature branches + PRs and stricter branch protection once it actually
-ships to users or gains collaborators, not preemptively.
+PoC phase is over — `main` is branch-protected. All work goes through a
+feature branch + PR; branch naming is unrestricted. Integrate PRs by
+**rebase only** — never a merge commit, never squash.
 
 ## License
 

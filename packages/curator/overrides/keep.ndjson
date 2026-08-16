@@ -1,0 +1,43 @@
+{"source":"debian","name":"libreoffice","reason":"Real standalone app despite the lib* noise prefix — see filter/rules.ts's header comment on the libre* trap"}
+{"source":"debian","name":"libreoffice-base","reason":"Real standalone app despite the lib* noise prefix — see filter/rules.ts's header comment on the libre* trap"}
+{"source":"debian","name":"libreoffice-calc","reason":"Real standalone app despite the lib* noise prefix — see filter/rules.ts's header comment on the libre* trap"}
+{"source":"debian","name":"libreoffice-draw","reason":"Real standalone app despite the lib* noise prefix — see filter/rules.ts's header comment on the libre* trap"}
+{"source":"debian","name":"libreoffice-impress","reason":"Real standalone app despite the lib* noise prefix — see filter/rules.ts's header comment on the libre* trap"}
+{"source":"debian","name":"libreoffice-writer","reason":"Real standalone app despite the lib* noise prefix — see filter/rules.ts's header comment on the libre* trap"}
+{"source":"debian","name":"librecad","reason":"Real standalone app despite the lib* noise prefix — see filter/rules.ts's header comment on the libre* trap"}
+{"source":"ubuntu","name":"libreoffice","reason":"Real standalone app despite the lib* noise prefix — see filter/rules.ts's header comment on the libre* trap"}
+{"source":"ubuntu","name":"libreoffice-base","reason":"Real standalone app despite the lib* noise prefix — see filter/rules.ts's header comment on the libre* trap"}
+{"source":"ubuntu","name":"libreoffice-calc","reason":"Real standalone app despite the lib* noise prefix — see filter/rules.ts's header comment on the libre* trap"}
+{"source":"ubuntu","name":"libreoffice-draw","reason":"Real standalone app despite the lib* noise prefix — see filter/rules.ts's header comment on the libre* trap"}
+{"source":"ubuntu","name":"libreoffice-impress","reason":"Real standalone app despite the lib* noise prefix — see filter/rules.ts's header comment on the libre* trap"}
+{"source":"ubuntu","name":"libreoffice-writer","reason":"Real standalone app despite the lib* noise prefix — see filter/rules.ts's header comment on the libre* trap"}
+{"source":"ubuntu","name":"librecad","reason":"Real standalone app despite the lib* noise prefix — see filter/rules.ts's header comment on the libre* trap"}
+{"source":"fedora","name":"libreoffice","reason":"Real standalone app despite the lib* noise prefix — see filter/rules.ts's header comment on the libre* trap"}
+{"source":"fedora","name":"libreoffice-base","reason":"Real standalone app despite the lib* noise prefix — see filter/rules.ts's header comment on the libre* trap"}
+{"source":"fedora","name":"libreoffice-calc","reason":"Real standalone app despite the lib* noise prefix — see filter/rules.ts's header comment on the libre* trap"}
+{"source":"fedora","name":"libreoffice-draw","reason":"Real standalone app despite the lib* noise prefix — see filter/rules.ts's header comment on the libre* trap"}
+{"source":"fedora","name":"libreoffice-impress","reason":"Real standalone app despite the lib* noise prefix — see filter/rules.ts's header comment on the libre* trap"}
+{"source":"fedora","name":"libreoffice-writer","reason":"Real standalone app despite the lib* noise prefix — see filter/rules.ts's header comment on the libre* trap"}
+{"source":"fedora","name":"librecad","reason":"Real standalone app despite the lib* noise prefix — see filter/rules.ts's header comment on the libre* trap"}
+{"source":"arch","name":"libreoffice-fresh","reason":"Real standalone app despite the lib* noise prefix — Arch's single install-everything LibreOffice meta package"}
+{"source":"arch","name":"librecad","reason":"Real standalone app despite the lib* noise prefix — see filter/rules.ts's header comment on the libre* trap"}
+{"source":"aur","name":"libre-commander-bin","reason":"Real standalone app despite the lib* noise prefix — see filter/rules.ts's header comment on the libre* trap"}
+{"source":"aur","name":"libre-menu-editor","reason":"Real standalone app despite the lib* noise prefix — see filter/rules.ts's header comment on the libre* trap"}
+{"source":"aur","name":"libre-trainsim-bin","reason":"Real standalone app despite the lib* noise prefix — see filter/rules.ts's header comment on the libre* trap"}
+{"source":"debian","name":"libreoffice-texmaths","reason":"TexMaths, a real LaTeX-equation-editor extension for LibreOffice a user could search for directly"}
+{"source":"ubuntu","name":"libreoffice-texmaths","reason":"TexMaths, a real LaTeX-equation-editor extension for LibreOffice a user could search for directly"}
+{"source":"arch","name":"libreoffice-extension-texmaths","reason":"TexMaths, a real LaTeX-equation-editor extension for LibreOffice a user could search for directly"}
+{"source":"arch","name":"libredefender","reason":"Real standalone app: lightweight antivirus scanner for Linux"}
+{"source":"aur","name":"libredefender-git","reason":"Real standalone app: lightweight antivirus scanner for Linux"}
+{"source":"aur","name":"libreddit","reason":"Real standalone app: alternative private front-end to Reddit"}
+{"source":"aur","name":"libreelec-usb-sd-creator-git","reason":"Real standalone app: GUI for creating LibreELEC USB/SD install media"}
+{"source":"aur","name":"librefancontrol-bin","reason":"Real standalone app: fan control by temperature"}
+{"source":"aur","name":"librefang-desktop-git","reason":"Real standalone app: desktop client for the LibreFang Agent OS"}
+{"source":"aur","name":"librelinkupdesktop-bin","reason":"Real standalone app: desktop client fetching blood sugar data from LibreLinkUp"}
+{"source":"aur","name":"librem5-flash-image","reason":"Real standalone app: image flashing tool for Librem 5 devices"}
+{"source":"aur","name":"librem5-flash-image-git","reason":"Real standalone app: image flashing tool for Librem 5 devices"}
+{"source":"aur","name":"libremines","reason":"Real standalone app: FLOSS Qt-based Minesweeper game"}
+{"source":"aur","name":"librescc","reason":"Real standalone app: MIDI to SCC chiptune player with a GTK4 GUI"}
+{"source":"aur","name":"librevna-gui","reason":"Real standalone app: GUI for the LibreVNA hardware device"}
+{"source":"aur","name":"librevna-gui-bin","reason":"Real standalone app: GUI for the LibreVNA hardware device"}
+{"source":"aur","name":"librewands","reason":"Real standalone app: map editor for an ncurses RPG"}

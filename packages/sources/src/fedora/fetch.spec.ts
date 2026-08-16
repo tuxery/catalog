@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { extractPrimaryLocation, parsePrimary } from "./fetch";
+import { extractPrimaryLocation, mergeByName, parsePrimary } from "./fetch";
 
 const REPOMD_FIXTURE = `<?xml version="1.0" encoding="UTF-8"?>
 <repomd xmlns="http://linux.duke.edu/metadata/repo">
@@ -72,5 +72,25 @@ describe("parsePrimary", () => {
       version: "0.28.0",
       homepage: undefined,
     });
+  });
+});
+
+describe("mergeByName", () => {
+  it("keeps entries unique to either repo", () => {
+    const everything = [{ name: "a", summary: "", version: "1", homepage: undefined }];
+    const updates = [{ name: "b", summary: "", version: "1", homepage: undefined }];
+
+    expect(new Set(mergeByName([everything, updates]).map((e) => e.name))).toEqual(
+      new Set(["a", "b"]),
+    );
+  });
+
+  it("a later repo's entry wins for the same name", () => {
+    const everything = [{ name: "a", summary: "old", version: "1.0", homepage: undefined }];
+    const updates = [{ name: "a", summary: "new", version: "1.1", homepage: undefined }];
+
+    expect(mergeByName([everything, updates])).toEqual([
+      { name: "a", summary: "new", version: "1.1", homepage: undefined },
+    ]);
   });
 });

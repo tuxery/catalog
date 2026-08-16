@@ -5,15 +5,23 @@ import { writeNdjson } from "../_shared/ndjson";
 import type { DebianCacheEntry, DebianFetchMetadata } from "./types";
 
 // Debian publishes one Packages file per suite/component/arch — this
-// fetches just one combination for now (stable/main/amd64, the most
-// common). Extending to other suites/components/archs is a straight
-// repeat of this same shape, not a different mechanism.
+// fetches stable/{main,contrib,non-free,non-free-firmware}/amd64. main is
+// enabled out of the box; the other three (all license-restricted in some
+// way — non-DFSG-free software, or software that depends on non-free
+// software, or non-free firmware blobs split out of non-free in 2023)
+// need enabling first, same organizing principle as Ubuntu's
+// main/universe/restricted/multiverse. Extending to other suites/archs is
+// a straight repeat of this same shape, not a different mechanism.
 const SUITE = "stable";
-const COMPONENT = "main";
+const COMPONENTS = ["main", "contrib", "non-free", "non-free-firmware"] as const;
+type DebianComponent = (typeof COMPONENTS)[number];
 const ARCH = "amd64";
-// .gz, not the .xz the archive defaults to — Node's built-in zlib can
-// gunzip without an extra dependency; deb.debian.org still publishes both.
-const PACKAGES_URL = `https://deb.debian.org/debian/dists/${SUITE}/${COMPONENT}/binary-${ARCH}/Packages.gz`;
+
+function packagesUrl(component: DebianComponent): string {
+  // .gz, not the .xz the archive defaults to — Node's built-in zlib can
+  // gunzip without an extra dependency; deb.debian.org still publishes both.
+  return `https://deb.debian.org/debian/dists/${SUITE}/${component}/binary-${ARCH}/Packages.gz`;
+}
 
 /**
  * Maps deb822 stanzas (already parsed by `_shared/deb822.ts`) to cache
@@ -31,31 +39,37 @@ export function parsePackages(text: string, component: string): DebianCacheEntry
     }));
 }
 
-/**
- * Downloads Debian's Packages.gz for one suite/component/arch — the same
- * repodata `apt` itself reads — and writes the normalized entries to
- * `cachePath` as NDJSON. See docs/sources.md.
- */
-export async function fetchDebian(cachePath: string): Promise<number> {
-  const response = await fetch(PACKAGES_URL);
+async function fetchComponent(component: DebianComponent): Promise<DebianCacheEntry[]> {
+  const url = packagesUrl(component);
+  const response = await fetch(url);
   if (!response.ok) {
     throw new Error(
-      `Failed to fetch Debian Packages file: ${response.status} ${response.statusText}`,
+      `Failed to fetch Debian component "${component}": ${response.status} ${response.statusText}`,
     );
   }
 
   const compressed = Buffer.from(await response.arrayBuffer());
   const text = gunzipSync(compressed).toString("utf8");
-  const entries = parsePackages(text, COMPONENT);
+  return parsePackages(text, component);
+}
+
+/**
+ * Downloads Debian's Packages.gz for main + contrib + non-free +
+ * non-free-firmware — the same repodata `apt` itself reads — and writes
+ * the normalized entries to `cachePath` as NDJSON. See docs/sources.md.
+ */
+export async function fetchDebian(cachePath: string): Promise<number> {
+  const entriesByComponent = await Promise.all(COMPONENTS.map(fetchComponent));
+  const entries = entriesByComponent.flat();
 
   writeNdjson(cachePath, entries);
   writeMetadata<DebianFetchMetadata>(cachePath, {
     source: "debian",
     fetchedAt: new Date().toISOString(),
-    url: PACKAGES_URL,
+    url: COMPONENTS.map(packagesUrl).join(", "),
     entryCount: entries.length,
     suite: SUITE,
-    component: COMPONENT,
+    component: COMPONENTS.join("+"),
     arch: ARCH,
   });
 

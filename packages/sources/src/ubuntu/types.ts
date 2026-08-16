@@ -20,6 +20,13 @@ export interface UbuntuCacheEntry {
    * install-instructions difference, not just organizational.
    */
   component: "main" | "universe" | "restricted" | "multiverse";
+  /**
+   * Ubuntu's `Section` field, e.g. "libs", "games", "doc" — raw upstream
+   * value, still carrying the `<component>/` prefix non-main components
+   * get (e.g. "universe/games"); `normalize.ts` strips that so it's
+   * directly comparable to Debian's bare value. See SourcedPackage.section.
+   */
+  section?: string;
 }
 
 export interface UbuntuFetchMetadata extends FetchMetadata {

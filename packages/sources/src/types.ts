@@ -56,4 +56,16 @@ export interface SourcedPackage {
    * `CatalogApp`'s unpopulated fields on the Tuxery GitHub Project.
    */
   lastUpdated?: string;
+  /**
+   * Upstream package-category classification, when the source exposes
+   * one — Debian/Ubuntu's `Section` field (e.g. `libs`, `games`, `doc`),
+   * normalized to strip Ubuntu's component prefix (`universe/games` ->
+   * `games`) so it's directly comparable to Debian's bare value. Used by
+   * `@tuxery/curator`'s filter as an additional noise signal alongside
+   * name patterns — see `filter/rules.ts`'s `looksLikeSupportSection`.
+   * Only Debian/Ubuntu populate this today; Fedora's RPM Group field is
+   * effectively unused upstream ("Unspecified" on real data), and Arch's
+   * `desc` format has no equivalent field at all.
+   */
+  section?: string;
 }

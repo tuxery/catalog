@@ -10,9 +10,9 @@ export function normalize(entries: DebianCacheEntry[]): SourcedPackage[] {
     // Debian package names are unique within a suite/component/arch.
     appId: entry.name,
     homepage: entry.homepage,
-    // entry.component ("main" today) isn't threaded through yet —
-    // SourcedPackage has no slot for it. See the "Thread arch/channel
-    // into SourcedPackage consistently" card; it stays available in the
-    // cache row either way.
+    section: entry.section,
+    // entry.component isn't threaded through yet — SourcedPackage has no
+    // slot for it. See the "Thread arch/channel into SourcedPackage
+    // consistently" card; it stays available in the cache row either way.
   }));
 }

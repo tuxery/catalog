@@ -23,4 +23,28 @@ describe("ubuntu normalize", () => {
       },
     ]);
   });
+
+  it("strips the component prefix from a non-main Section value", () => {
+    const entry: UbuntuCacheEntry = {
+      name: "0ad",
+      description: "",
+      version: "1",
+      component: "universe",
+      section: "universe/games",
+    };
+
+    expect(normalize([entry])[0]?.section).toBe("games");
+  });
+
+  it("leaves a main-component Section value (no prefix) untouched", () => {
+    const entry: UbuntuCacheEntry = {
+      name: "curl",
+      description: "",
+      version: "1",
+      component: "main",
+      section: "utils",
+    };
+
+    expect(normalize([entry])[0]?.section).toBe("utils");
+  });
 });

@@ -43,6 +43,7 @@ export function parsePackages(text: string, component: UbuntuComponent): UbuntuC
       version: fields.Version ?? "unknown",
       homepage: fields.Homepage || undefined,
       component,
+      section: fields.Section || undefined,
     }));
 }
 

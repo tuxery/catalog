@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { looksLikeSupportPackage } from "./rules";
+import { looksLikeSupportPackage, looksLikeSupportSection } from "./rules";
 
 describe("looksLikeSupportPackage", () => {
   it("flags dev/debug/doc suffixes", () => {
@@ -62,5 +62,37 @@ describe("looksLikeSupportPackage", () => {
     expect(looksLikeSupportPackage("gimp")).toBe(false);
     expect(looksLikeSupportPackage("ripgrep")).toBe(false);
     expect(looksLikeSupportPackage("0ad")).toBe(false);
+  });
+});
+
+describe("looksLikeSupportSection", () => {
+  it("flags Debian/Ubuntu's library/doc/debug sections", () => {
+    expect(looksLikeSupportSection("libs")).toBe(true);
+    expect(looksLikeSupportSection("libdevel")).toBe(true);
+    expect(looksLikeSupportSection("oldlibs")).toBe(true);
+    expect(looksLikeSupportSection("doc")).toBe(true);
+    expect(looksLikeSupportSection("debug")).toBe(true);
+    expect(looksLikeSupportSection("introspection")).toBe(true);
+    expect(looksLikeSupportSection("gnu-r")).toBe(true);
+  });
+
+  it("does not flag language-ecosystem sections that mix in real standalone tools", () => {
+    // Verified against real cache data (filter/rules.ts's header comment
+    // on NOISE_SECTIONS) — these sections aren't purely libraries the way
+    // libs/libdevel/doc/debug/introspection/gnu-r are.
+    expect(looksLikeSupportSection("python")).toBe(false);
+    expect(looksLikeSupportSection("perl")).toBe(false);
+    expect(looksLikeSupportSection("golang")).toBe(false);
+    expect(looksLikeSupportSection("devel")).toBe(false);
+  });
+
+  it("does not flag ordinary app/game sections", () => {
+    expect(looksLikeSupportSection("games")).toBe(false);
+    expect(looksLikeSupportSection("graphics")).toBe(false);
+    expect(looksLikeSupportSection("web")).toBe(false);
+  });
+
+  it("does not flag an absent section", () => {
+    expect(looksLikeSupportSection(undefined)).toBe(false);
   });
 });

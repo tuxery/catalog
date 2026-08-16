@@ -49,4 +49,22 @@ describe("filterPackages", () => {
 
     expect(filterPackages(packages, overrides)).toHaveLength(0);
   });
+
+  it("drops a package via Section even when its name looks fine", () => {
+    // The exact kind of gap the Section signal exists for — a name-pattern
+    // check alone would never catch this.
+    const packages = [pkg({ name: "r-cran-abind", section: "gnu-r" }), pkg({ name: "firefox" })];
+
+    expect(filterPackages(packages).map((p) => p.name)).toEqual(["firefox"]);
+  });
+
+  it("keep overrides win over the Section signal too", () => {
+    const packages = [pkg({ source: "debian", name: "r-base", section: "gnu-r" })];
+    const overrides = {
+      keep: new Set(["debian:r-base"]),
+      exclude: new Set<string>(),
+    };
+
+    expect(filterPackages(packages, overrides)).toHaveLength(1);
+  });
 });

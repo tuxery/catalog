@@ -16,10 +16,11 @@ import type { UbuntuCacheEntry, UbuntuFetchMetadata } from "./types";
 // non-free — most desktop apps live in universe. Verified against the
 // real archive: main/binary-amd64/Packages.gz alone yielded 6,487
 // packages; universe's is ~20MB compressed, clearly the bulk of the
-// catalog. restricted/multiverse (mostly drivers and non-free software)
-// are skipped, same spirit as Debian's contrib/non-free.
+// catalog. restricted (binary/proprietary drivers) and multiverse
+// (copyright/legal-restricted software — codecs, some games) round out
+// the four components, same spirit as Debian's contrib/non-free.
 const SUITE = "resolute";
-const COMPONENTS = ["main", "universe"] as const;
+const COMPONENTS = ["main", "universe", "restricted", "multiverse"] as const;
 type UbuntuComponent = (typeof COMPONENTS)[number];
 const ARCH = "amd64";
 

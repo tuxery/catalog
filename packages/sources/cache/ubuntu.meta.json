@@ -1,9 +1,9 @@
 {
   "source": "ubuntu",
-  "fetchedAt": "2026-08-14T15:43:35.787Z",
-  "url": "https://archive.ubuntu.com/ubuntu/dists/resolute/main/binary-amd64/Packages.gz, https://archive.ubuntu.com/ubuntu/dists/resolute/universe/binary-amd64/Packages.gz",
-  "entryCount": 73228,
+  "fetchedAt": "2026-08-16T19:47:34.321Z",
+  "url": "https://archive.ubuntu.com/ubuntu/dists/resolute/main/binary-amd64/Packages.gz, https://archive.ubuntu.com/ubuntu/dists/resolute/universe/binary-amd64/Packages.gz, https://archive.ubuntu.com/ubuntu/dists/resolute/restricted/binary-amd64/Packages.gz, https://archive.ubuntu.com/ubuntu/dists/resolute/multiverse/binary-amd64/Packages.gz",
+  "entryCount": 75328,
   "suite": "resolute",
-  "component": "main+universe",
+  "component": "main+universe+restricted+multiverse",
   "arch": "amd64"
 }

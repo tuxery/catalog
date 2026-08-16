@@ -14,18 +14,18 @@ export interface UbuntuCacheEntry {
   /**
    * Which component this package belongs to — varies per package (unlike
    * `arch`/`suite`, the same for every row in one fetch), so it lives
-   * here rather than only in the fetch metadata. `universe` packages need
-   * that repository enabled on a default Ubuntu install; `main` is
-   * enabled out of the box — a real install-instructions difference, not
-   * just organizational.
+   * here rather than only in the fetch metadata. `main` is enabled out of
+   * the box on a default Ubuntu install; `universe`/`restricted`/
+   * `multiverse` all need their repository enabled first — a real
+   * install-instructions difference, not just organizational.
    */
-  component: "main" | "universe";
+  component: "main" | "universe" | "restricted" | "multiverse";
 }
 
 export interface UbuntuFetchMetadata extends FetchMetadata {
   /** Suite fetched, e.g. "resolute" — Ubuntu uses codenames, not "stable" like Debian. */
   suite: string;
-  /** Components merged, e.g. "main+universe" — see fetch.ts for why both are needed here. */
+  /** Components merged, e.g. "main+universe+restricted+multiverse" — see fetch.ts for why all four are needed here. */
   component: string;
   arch: string;
 }

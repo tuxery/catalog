@@ -24,9 +24,6 @@
 {"source":"aur","name":"libre-commander-bin","reason":"Real standalone app despite the lib* noise prefix — see filter/rules.ts's header comment on the libre* trap"}
 {"source":"aur","name":"libre-menu-editor","reason":"Real standalone app despite the lib* noise prefix — see filter/rules.ts's header comment on the libre* trap"}
 {"source":"aur","name":"libre-trainsim-bin","reason":"Real standalone app despite the lib* noise prefix — see filter/rules.ts's header comment on the libre* trap"}
-{"source":"debian","name":"libreoffice-texmaths","reason":"TexMaths, a real LaTeX-equation-editor extension for LibreOffice a user could search for directly"}
-{"source":"ubuntu","name":"libreoffice-texmaths","reason":"TexMaths, a real LaTeX-equation-editor extension for LibreOffice a user could search for directly"}
-{"source":"arch","name":"libreoffice-extension-texmaths","reason":"TexMaths, a real LaTeX-equation-editor extension for LibreOffice a user could search for directly"}
 {"source":"arch","name":"libredefender","reason":"Real standalone app: lightweight antivirus scanner for Linux"}
 {"source":"aur","name":"libredefender-git","reason":"Real standalone app: lightweight antivirus scanner for Linux"}
 {"source":"aur","name":"libreddit","reason":"Real standalone app: alternative private front-end to Reddit"}

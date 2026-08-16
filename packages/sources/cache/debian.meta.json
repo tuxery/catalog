@@ -1,9 +1,9 @@
 {
   "source": "debian",
-  "fetchedAt": "2026-08-14T15:43:36.941Z",
-  "url": "https://deb.debian.org/debian/dists/stable/main/binary-amd64/Packages.gz",
-  "entryCount": 68755,
+  "fetchedAt": "2026-08-16T19:48:21.855Z",
+  "url": "https://deb.debian.org/debian/dists/stable/main/binary-amd64/Packages.gz, https://deb.debian.org/debian/dists/stable/contrib/binary-amd64/Packages.gz, https://deb.debian.org/debian/dists/stable/non-free/binary-amd64/Packages.gz, https://deb.debian.org/debian/dists/stable/non-free-firmware/binary-amd64/Packages.gz",
+  "entryCount": 69843,
   "suite": "stable",
-  "component": "main",
+  "component": "main+contrib+non-free+non-free-firmware",
   "arch": "amd64"
 }

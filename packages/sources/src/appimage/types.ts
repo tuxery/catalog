@@ -1,10 +1,10 @@
 import type { FetchMetadata } from "../_shared/metadata";
 
 /**
- * One entry derived from AppImageHub's community feed
- * (`appimage.github.io/feed.json`), the shape cached after fetching.
- * Deliberately close to the upstream feed fields rather than the
- * normalized `SourcedPackage` — see `normalize.ts`.
+ * One entry derived from `appimage.github.io/feed.json`'s community feed
+ * (not to be confused with the separate AppImageHub.com), the shape
+ * cached after fetching. Deliberately close to the upstream feed fields
+ * rather than the normalized `SourcedPackage` — see `normalize.ts`.
  */
 export interface AppImageCacheEntry {
   name: string;
@@ -22,4 +22,6 @@ export interface AppImageFetchMetadata extends FetchMetadata {
   totalFeedItems: number;
   /** How many entries got a real version from GitHub Releases — 0 when GITHUB_TOKEN wasn't set, see fetch.ts. */
   versionsResolved: number;
+  /** How many entries were dropped for pointing at a repo confirmed gone (404) — 0 when GITHUB_TOKEN wasn't set, see fetch.ts. */
+  deadReposDropped: number;
 }

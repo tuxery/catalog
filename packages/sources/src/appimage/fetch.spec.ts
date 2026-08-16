@@ -1,5 +1,6 @@
 import { describe, expect, it, vi } from "vitest";
-import { mapItems, resolveVersions } from "./fetch";
+import { mapItems, resolveEntries } from "./fetch";
+import type { RepoLookupResult } from "./fetch";
 import type { AppImageCacheEntry } from "./types";
 
 describe("mapItems", () => {
@@ -63,45 +64,58 @@ function entry(overrides: Partial<AppImageCacheEntry>): AppImageCacheEntry {
   return { name: "example", description: "", repo: "owner/example", ...overrides };
 }
 
-describe("resolveVersions", () => {
+describe("resolveEntries", () => {
   it("attaches each entry's resolved version", async () => {
     const entries = [entry({ repo: "a/a" }), entry({ repo: "b/b" })];
-    const fetchVersion = vi.fn<(repo: string) => Promise<string | undefined>>(
-      async (repo) => `${repo}-v1`,
-    );
+    const lookup = vi.fn<(repo: string) => Promise<RepoLookupResult>>(async (repo) => ({
+      exists: true,
+      version: `${repo}-v1`,
+    }));
 
-    const resolved = await resolveVersions(entries, fetchVersion, 2);
+    const resolved = await resolveEntries(entries, lookup, 2);
 
     expect(resolved.map((e) => e.version)).toEqual(["a/a-v1", "b/b-v1"]);
   });
 
-  it("leaves version undefined when the lookup fails for one entry", async () => {
+  it("leaves version undefined when a repo exists but has no releases", async () => {
     const entries = [entry({ repo: "has-releases" }), entry({ repo: "no-releases" })];
-    const fetchVersion = vi.fn<(repo: string) => Promise<string | undefined>>(async (repo) =>
-      repo === "no-releases" ? undefined : "v2.0.0",
-    );
+    const lookup = vi.fn<(repo: string) => Promise<RepoLookupResult>>(async (repo) => ({
+      exists: true,
+      version: repo === "no-releases" ? undefined : "v2.0.0",
+    }));
 
-    const resolved = await resolveVersions(entries, fetchVersion, 2);
+    const resolved = await resolveEntries(entries, lookup, 2);
 
     expect(resolved.find((e) => e.repo === "has-releases")?.version).toBe("v2.0.0");
     expect(resolved.find((e) => e.repo === "no-releases")?.version).toBeUndefined();
+  });
+
+  it("drops entries whose repo is confirmed gone", async () => {
+    const entries = [entry({ repo: "still-here" }), entry({ repo: "deleted-or-renamed" })];
+    const lookup = vi.fn<(repo: string) => Promise<RepoLookupResult>>(async (repo) => ({
+      exists: repo !== "deleted-or-renamed",
+    }));
+
+    const resolved = await resolveEntries(entries, lookup, 2);
+
+    expect(resolved.map((e) => e.repo)).toEqual(["still-here"]);
   });
 
   it("respects a concurrency cap smaller than the entry count", async () => {
     const entries = Array.from({ length: 10 }, (_, i) => entry({ repo: `owner/repo-${i}` }));
     let inFlight = 0;
     let maxInFlight = 0;
-    const fetchVersion = vi.fn<(repo: string) => Promise<string | undefined>>(async () => {
+    const lookup = vi.fn<(repo: string) => Promise<RepoLookupResult>>(async () => {
       inFlight++;
       maxInFlight = Math.max(maxInFlight, inFlight);
       await new Promise((resolve) => setTimeout(resolve, 1));
       inFlight--;
-      return "v1";
+      return { exists: true, version: "v1" };
     });
 
-    await resolveVersions(entries, fetchVersion, 3);
+    await resolveEntries(entries, lookup, 3);
 
-    expect(fetchVersion).toHaveBeenCalledTimes(10);
+    expect(lookup).toHaveBeenCalledTimes(10);
     expect(maxInFlight).toBeLessThanOrEqual(3);
   });
 });

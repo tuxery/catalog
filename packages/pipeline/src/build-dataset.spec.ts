@@ -1,10 +1,10 @@
 import { beforeAll, describe, expect, it } from "vitest";
 import { buildDataset, type Dataset } from "./build-dataset";
 
-// Groups ~303k real cached packages (357k raw, minus ~54k filtered out by
-// @tuxery/curator's filterPackages — mostly -dev/-dbg/-doc/lib-soname
-// packages from Debian/Ubuntu, much less effective on AUR/Arch, see the
-// "Filter is far less effective on AUR/Arch" card). Filtering alone
+// Groups ~233k real cached packages after @tuxery/curator's filterPackages
+// (raw cache is ~357k across all sources — the gap grew a lot once the
+// lib* noise prefix was inverted to catch-by-default instead of soname-
+// versioned-only, see filter/rules.ts's header comment). Filtering alone
 // brought this from ~111s (unfiltered 357k) to ~35s; replacing the old
 // bucketed pairwise-Levenshtein matcher with union-find + exact-key
 // tiers (no scoring, no pairwise comparison at all) brought it under 1s.
@@ -30,8 +30,10 @@ describe("buildDataset", () => {
     // Guards against the curator silently dropping packages while
     // grouping (filterPackages dropping some is expected and correct;
     // this checks groupPackages doesn't lose any on top of that) — not
-    // an exact count, GitHub Releases isn't wired in yet.
-    expect(packageCount).toBeGreaterThan(280_000);
+    // an exact count, GitHub Releases isn't wired in yet. ~233k as of the
+    // lib*-inversion filter change; leaves headroom below that for cache
+    // churn without being so loose it'd miss a real grouping regression.
+    expect(packageCount).toBeGreaterThan(220_000);
   });
 
   it("enriches every app with a display-ready id and name", () => {

@@ -6,13 +6,13 @@ import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
 import type { ArchCacheEntry, ArchFetchMetadata } from "./types";
 
-// Arch's official, pre-built package set is "core" + "extra" together —
-// a different thing from AUR (packages/sources/aur/), which is a
-// separate community repo of build recipes, not pre-built binaries.
-// multilib (32-bit compat libs) is skipped, same spirit as Debian's
-// contrib/non-free not being fetched.
+// Arch's official, pre-built package set is "core" + "extra" + "multilib"
+// together — a different thing from AUR (packages/sources/aur/), which is
+// a separate community repo of build recipes, not pre-built binaries.
+// multilib (32-bit compat libs/tools for 64-bit systems, e.g. Steam,
+// Wine) lives under the same x86_64 tree, same .db mechanism as core/extra.
 const ARCH = "x86_64";
-const REPOS = ["core", "extra"] as const;
+const REPOS = ["core", "extra", "multilib"] as const;
 type ArchRepo = (typeof REPOS)[number];
 const MIRROR_BASE = "https://geo.mirror.pkgbuild.com";
 

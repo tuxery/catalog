@@ -19,11 +19,11 @@ export interface ArchCacheEntry {
    * enable), but websites/tooling built on this data may still want to
    * know, and this is cheap to keep.
    */
-  repo: "core" | "extra";
+  repo: "core" | "extra" | "multilib";
 }
 
 export interface ArchFetchMetadata extends FetchMetadata {
-  /** Repos fetched and merged — "core" and "extra", not AUR (a separate source) or multilib. */
+  /** Repos fetched and merged — "core", "extra", and "multilib" — not AUR (a separate source). */
   repos: string[];
   arch: string;
 }

@@ -10,6 +10,7 @@ import { searchOpenSuse } from "./opensuse";
 import { searchSnapcraft } from "./snapcraft";
 import type { SourcedPackage } from "./types";
 import { searchUbuntu } from "./ubuntu";
+import { searchVoid } from "./void";
 
 /**
  * Queries every known source in parallel and returns the combined,
@@ -29,6 +30,7 @@ export async function searchAllSources(query: string): Promise<SourcedPackage[]>
     searchNixpkgs(query),
     searchOpenSuse(query),
     searchAlpine(query),
+    searchVoid(query),
   ]);
 
   return results.flat();

@@ -10,6 +10,7 @@ import { fetchNixpkgs } from "./nixpkgs/fetch";
 import { fetchOpenSuse } from "./opensuse/fetch";
 import { fetchSnapcraft } from "./snapcraft/fetch";
 import { fetchUbuntu } from "./ubuntu/fetch";
+import { fetchVoid } from "./void/fetch";
 
 const REFRESHERS: Record<string, (cachePath: string) => Promise<number>> = {
   flathub: fetchFlathub,
@@ -23,6 +24,7 @@ const REFRESHERS: Record<string, (cachePath: string) => Promise<number>> = {
   nixpkgs: fetchNixpkgs,
   opensuse: fetchOpenSuse,
   alpine: fetchAlpine,
+  void: fetchVoid,
 };
 
 async function main() {

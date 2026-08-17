@@ -12,7 +12,8 @@ export type PackageSourceId =
   | "arch"
   | "nixpkgs"
   | "opensuse"
-  | "alpine";
+  | "alpine"
+  | "void";
 
 /**
  * A single package as reported by one source, before deduplication.
@@ -74,10 +75,13 @@ export interface SourcedPackage {
    * but the same underlying purpose. Used by `@tuxery/curator`'s filter
    * as an additional noise signal alongside name patterns — see
    * `filter/rules.ts`'s `looksLikeSupportSection`. Fedora and Arch's
-   * `desc` format don't populate this, and Alpine's `APKINDEX` format has
-   * no equivalent field at all (verified against its real schema —
-   * P/V/A/S/I/T/U/L/o/m/t/c/D/p/i/k only, no category/group field of any
-   * kind).
+   * `desc` format don't populate this, and neither Alpine's `APKINDEX`
+   * format nor Void's `index.plist` have an equivalent field at all
+   * (verified against their real schemas — Alpine:
+   * P/V/A/S/I/T/U/L/o/m/t/c/D/p/i/k only; Void: architecture, homepage,
+   * license, maintainer, pkgver, provides, run_depends, shlib-requires,
+   * short_desc, source-revisions, sourcepkg only — no category/group
+   * field in either).
    */
   section?: string;
 }

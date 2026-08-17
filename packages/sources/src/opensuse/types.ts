@@ -16,6 +16,8 @@ export interface OpenSuseCacheEntry {
   repo: "oss" | "non-oss";
   /** RPM `<rpm:group>` value, e.g. "Development/Libraries/C and C++" — see SourcedPackage.section. Absent or "Unspecified" on real data for roughly a third of packages. */
   group?: string;
+  /** Whether this package's RPM provides list includes a synthetic `application(*.desktop)` entry — see `SourcedPackage.hasDesktopFile`. */
+  hasDesktopFile: boolean;
 }
 
 export interface OpenSuseFetchMetadata extends FetchMetadata {

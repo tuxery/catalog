@@ -35,14 +35,17 @@ const REPO_BASES = [
  * Fedora's `<rpm:group>` is unused upstream in practice ("Unspecified" on
  * real data), so it's dropped here rather than threaded into
  * `FedoraCacheEntry` — see `_shared/rpm-repodata.ts`'s `parsePrimaryXml`,
- * shared with openSUSE, which does populate it. Pure — no I/O.
+ * shared with openSUSE, which does populate it. `hasDesktopFile` (a
+ * genuine, if low-coverage, GUI-app signal — see `parsePrimaryXml`'s own
+ * comment) is kept. Pure — no I/O.
  */
 export function parsePrimary(xml: string): FedoraCacheEntry[] {
-  return parsePrimaryXml(xml).map(({ name, summary, version, homepage }) => ({
+  return parsePrimaryXml(xml).map(({ name, summary, version, homepage, hasDesktopFile }) => ({
     name,
     summary,
     version,
     homepage,
+    hasDesktopFile,
   }));
 }
 

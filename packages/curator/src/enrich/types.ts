@@ -21,6 +21,20 @@ export interface CatalogApp {
   homepage?: string;
   /** Every `SourcedPackage` that was grouped into this app — has its own version/channel/arch per source. */
   packages: SourcedPackage[];
+  /**
+   * "gui" when at least one member package carries positive evidence of
+   * a launchable GUI app (currently: `SourcedPackage.hasDesktopFile`,
+   * only populated by Fedora/openSUSE) — `undefined` otherwise,
+   * deliberately not "cli" by default: absence of the signal doesn't
+   * mean "not a GUI app", most real GUI apps just don't happen to
+   * trigger the specific upstream convention this is derived from (only
+   * ~3% coverage on real Fedora/openSUSE data, though 100% precise where
+   * present). See the "GUI vs CLI classification" GitHub Project card
+   * for the broader plan — a weaker Debian/Ubuntu Section-based
+   * heuristic, Flatpak/Snap/AppImage source presence, ... — not yet
+   * implemented; this is the first, narrowest, most-verified signal.
+   */
+  kind?: "gui";
 
   /**
    * Not resolved yet — sources only carry a bare filename

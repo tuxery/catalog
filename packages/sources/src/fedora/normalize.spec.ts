@@ -9,6 +9,7 @@ describe("fedora normalize", () => {
       summary: "Cross-Platform RTS Game of Ancient Warfare",
       version: "0.28.0",
       homepage: "http://play0ad.com",
+      hasDesktopFile: true,
     };
 
     expect(normalize([entry])).toEqual([
@@ -19,6 +20,7 @@ describe("fedora normalize", () => {
         version: "0.28.0",
         appId: "0ad",
         homepage: "http://play0ad.com",
+        hasDesktopFile: true,
       },
     ]);
   });

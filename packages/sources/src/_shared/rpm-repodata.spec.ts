@@ -30,6 +30,12 @@ const PRIMARY_FIXTURE = `<?xml version="1.0" encoding="UTF-8"?>
   <url>https://play0ad.com/</url>
   <format>
     <rpm:group>Amusements/Games/Strategy/Real Time</rpm:group>
+    <rpm:provides>
+      <rpm:entry name="0ad" flags="EQ" epoch="0" ver="0.28.0" rel="1.5"/>
+      <rpm:entry name="application()"/>
+      <rpm:entry name="application(0ad.desktop)"/>
+      <rpm:entry name="metainfo(0ad.appdata.xml)"/>
+    </rpm:provides>
   </format>
 </package>
 <package type="rpm">
@@ -65,6 +71,7 @@ describe("parsePrimaryXml", () => {
       version: "0.28.0",
       homepage: "https://play0ad.com/",
       group: "Amusements/Games/Strategy/Real Time",
+      hasDesktopFile: true,
     });
   });
 
@@ -75,6 +82,25 @@ describe("parsePrimaryXml", () => {
       version: "0.28.0",
       homepage: undefined,
       group: undefined,
+      hasDesktopFile: false,
     });
+  });
+
+  it("does not flag a bare application()/metainfo() marker without a .desktop file name as hasDesktopFile", () => {
+    const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<metadata xmlns="http://linux.duke.edu/metadata/common" xmlns:rpm="http://linux.duke.edu/metadata/rpm" packages="1">
+<package type="rpm">
+  <name>no-desktop-file</name>
+  <version epoch="0" ver="1.0" rel="1"/>
+  <format>
+    <rpm:provides>
+      <rpm:entry name="application()"/>
+      <rpm:entry name="metainfo()"/>
+    </rpm:provides>
+  </format>
+</package>
+</metadata>
+`;
+    expect(parsePrimaryXml(xml)[0]?.hasDesktopFile).toBe(false);
   });
 });

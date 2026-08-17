@@ -1,10 +1,6 @@
-import { fileURLToPath } from "node:url";
-import { readNdjson } from "../_shared/ndjson";
-import type { SourcedPackage } from "../types";
+import { makeCacheSearch } from "../_shared/search";
 import { normalize } from "./normalize";
 import type { AurCacheEntry } from "./types";
-
-const CACHE_PATH = fileURLToPath(new URL("../../cache/pacman-aur.ndjson", import.meta.url));
 
 /**
  * Searches the AUR for packages matching `query`.
@@ -12,7 +8,4 @@ const CACHE_PATH = fileURLToPath(new URL("../../cache/pacman-aur.ndjson", import
  * Reads the git-committed cache (see AGENTS.md's "Source cache") rather
  * than the network.
  */
-export async function searchAur(query: string): Promise<SourcedPackage[]> {
-  void query;
-  return normalize(readNdjson<AurCacheEntry>(CACHE_PATH));
-}
+export const searchAur = makeCacheSearch<AurCacheEntry>("pacman-aur", normalize);

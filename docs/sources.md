@@ -53,7 +53,7 @@ because a paragraph per cell made the table unreadable.
 1. **Flathub** — `dl.flathub.org/repo/appstream/x86_64/appstream.xml.gz`,
    the appstream repodata Flatpak clients themselves consume. Single
    gzipped XML file, no auth, no pagination. The canonical catalog —
-   exhaustive by construction. `packages/sources/flathub/fetch.ts`.
+   exhaustive by construction. `packages/sources/flatpak-flathub/fetch.ts`.
 2. **Other Flatpak remotes** (GNOME nightly, KDE `kdeapps`, Fedora's own
    flatpak remote, ...) — same appstream.xml.gz mechanism per remote,
    different host. Not investigated yet; mostly nightly/testing builds,
@@ -67,7 +67,7 @@ because a paragraph per cell made the table unreadable.
    and `q=` for every letter/digit — verified neither sweep subsumes the
    other (1,542 vs. 2,919 unique snaps, only 809 overlapping; union
    3,652). Still an approximation, not a dump — no known way to actually
-   enumerate the full store. `packages/sources/snapcraft/fetch.ts`.
+   enumerate the full store. `packages/sources/snap-snapcraft/fetch.ts`.
 4. **AppImage** — [`appimage.github.io/feed.json`](https://appimage.github.io/feed.json)
    (community-curated — not to be confused with the separate,
    bot-gated AppImageHub.com, investigated as a second source and found
@@ -93,41 +93,46 @@ because a paragraph per cell made the table unreadable.
 6. **AUR** (Arch, community) — `aur.archlinux.org/packages-meta-ext-v1.json.gz`,
    a full metadata dump regenerated every ~5 min, single file, no auth.
    Full dump — the easiest native source to be exhaustive on.
-   `packages/sources/aur/fetch.ts`.
+   `packages/sources/pacman-aur/fetch.ts`.
 7. **Arch official** (core + extra + multilib) —
    `geo.mirror.pkgbuild.com/{repo}/os/x86_64/{repo}.db`, gzipped tar
    archives, one `desc` file per package (`%FIELD%\nvalue\n\n` format,
    not deb822/XML/JSON), extracted via the `tar` npm package. Distinct
    from AUR — pre-built, Arch-team-maintained packages, not community
    build recipes. Exhaustive per repo/arch combination; x86_64 only.
-   `packages/sources/arch/fetch.ts`.
+   `packages/sources/pacman-arch/fetch.ts`.
 8. **Debian** (main + contrib + non-free + non-free-firmware) —
    `deb.debian.org/debian/dists/stable/{component}/binary-amd64/Packages.gz`
    — `.gz`, not the archive's default `.xz` (Node's built-in zlib
    gunzips without a new dependency; Debian publishes both). deb822
    stanza format. Exhaustive per suite/component/arch combination;
    stable/amd64 only — other suites/archs not fetched.
-   `packages/sources/debian/fetch.ts`.
+   `packages/sources/deb-debian/fetch.ts`.
 9. **Ubuntu** (main + universe + restricted + multiverse) — same deb822
-   mechanism as Debian (it's a derivative), resolute (26.04)/amd64
-   only. All four components needed, not `main` alone — verified
-   against the real archive: `main` alone yielded 6,487 packages,
-   adding `universe` brought it to 73,219. Ubuntu's component split is
-   by _support tier_ (Canonical vs. community) and legal status, unlike
-   Debian's purely license-based split, so most desktop apps live in
-   universe. `packages/sources/ubuntu/fetch.ts`.
+   mechanism as Debian (it's a derivative), amd64 only, current stable
+   suite only (resolute/26.04 as of writing — resolved live via
+   Launchpad's series API rather than hardcoded, see the "Fedora/Ubuntu
+   release freshness" cross-cutting note below). All four components
+   needed, not `main` alone — verified against the real archive: `main`
+   alone yielded 6,487 packages, adding `universe` brought it to 73,219.
+   Ubuntu's component split is by _support tier_ (Canonical vs.
+   community) and legal status, unlike Debian's purely license-based
+   split, so most desktop apps live in universe.
+   `packages/sources/deb-ubuntu/fetch.ts`.
 10. **Fedora** (Everything + updates, merged by name) — two-step per
     repo: `repodata/repomd.xml` first (to find the current
     content-hashed `primary.xml.zst` path — RPM repos don't use a fixed
     filename like Debian's `Packages.gz`), then that file,
     Zstandard-compressed (Node 24's built-in zlib decodes it, no new
-    dependency). Fetches both release 44's Everything repo (the frozen
-    release-day snapshot) and its updates overlay, merged by name
-    (updates wins ties — matches real dnf/yum behavior); x86_64 only,
-    other releases not fetched. Merged & deduped by name — Everything
-    alone has 76,354 raw rows but only 67,430 unique names (arch/
-    subpackage variants sharing a name); updates then adds 1,560
-    genuinely new names on top. `packages/sources/fedora/fetch.ts`.
+    dependency). Fetches both the current release's Everything repo (the
+    frozen release-day snapshot, release number resolved live via
+    Bodhi's API rather than hardcoded — see the "Fedora/Ubuntu release
+    freshness" cross-cutting note below) and its updates overlay, merged
+    by name (updates wins ties — matches real dnf/yum behavior); x86_64
+    only, other releases not fetched. Merged & deduped by name —
+    Everything alone has 76,354 raw rows but only 67,430 unique names
+    (arch/subpackage variants sharing a name); updates then adds 1,560
+    genuinely new names on top. `packages/sources/rpm-fedora/fetch.ts`.
 11. **openSUSE** (Tumbleweed, oss + non-oss) — the identical repomd.xml ->
     content-hashed primary.xml[.zst] repodata schema as Fedora (parsing
     shared via `_shared/rpm-repodata.ts`, also used to refactor Fedora's
@@ -144,7 +149,7 @@ because a paragraph per cell made the table unreadable.
     hierarchical values (e.g. `Development/Libraries/C and C++`) — a
     stronger, richer filter signal than Debian's flat Section vocabulary,
     reused via the same `SourcedPackage.section` slot.
-    `packages/sources/opensuse/fetch.ts`.
+    `packages/sources/rpm-opensuse/fetch.ts`.
 12. **Alpine** (main + community) — a custom text format
     (`APKINDEX.tar.gz`, extracted the same way as Arch's `.db` archives
     via the `tar` npm package), single-letter field prefixes (`P:name`,
@@ -160,7 +165,7 @@ because a paragraph per cell made the table unreadable.
     equivalent field at all (full real-schema scan:
     `P/V/A/S/I/T/U/L/o/m/t/c/D/p/i/k` only) — filtering is name-pattern
     only here, same situation as AUR/Arch's `desc` format.
-    `packages/sources/alpine/fetch.ts`.
+    `packages/sources/apk-alpine/fetch.ts`.
 13. **Void** (main + nonfree + multilib) — a genuinely different repodata
     shape from every other native source here: `<arch>-repodata` is a
     Zstandard-compressed tar (no file extension hints either fact)
@@ -180,7 +185,7 @@ because a paragraph per cell made the table unreadable.
     `pkgver`, `provides`, `run_depends`, `shlib-requires`, `short_desc`,
     `source-revisions`, `sourcepkg` only) — filtering is name-pattern
     only here, same situation as Alpine/AUR/Arch.
-    `packages/sources/void/fetch.ts`.
+    `packages/sources/xbps-void/fetch.ts`.
 14. **Slackware** — `PACKAGES.TXT`, a single plain-text file (no
     compression, no repo/arch split — the simplest native source here),
     1,887 packages. Blocks are `KEY: value` header lines followed by a
@@ -200,7 +205,7 @@ LOCATION`, e.g. `l` for libraries, `kde`, `y` for games) is a real
     (verified always listed newest-first). `PartOf`, a dotted
     hierarchical grouping (e.g. `games.strategy`, `programming.library`,
     115 distinct values), serves the same Section-equivalent role.
-    `packages/sources/solus/fetch.ts`.
+    `packages/sources/eopkg-solus/fetch.ts`.
 16. **Gentoo** — source-based (ebuilds compiled locally via `emerge`,
     conceptually closer to AUR's build-recipe model than a binary repo),
     and its own official binary package host
@@ -218,7 +223,7 @@ LOCATION`, e.g. `l` for libraries, `kde`, `y` for games) is a real
     (not full Package Manager Specification) version comparator, which
     explicitly excludes live (`9999`) ebuilds unless they're a package's
     only version, since Portage treats `9999` as always-highest by
-    design. `packages/sources/gentoo/fetch.ts`.
+    design. `packages/sources/ebuild-gentoo/fetch.ts`.
     Clear Linux was investigated as the other remaining "Other native"
     candidate and dropped: its CDN (`cdn.download.clearlinux.org`) no
     longer resolves at all (Intel discontinued the distro) — the
@@ -245,7 +250,7 @@ LOCATION`, e.g. `l` for libraries, `kde`, `y` for games) is a real
     isn't unique (the same library exists under several attribute paths —
     different language-version package sets, mainly: 20,700 of 114,016
     unique `pname`s are used more than once) — the full attribute path is
-    the real identifier. `packages/sources/nixpkgs/fetch.ts`.
+    the real identifier. `packages/sources/nix-nixpkgs/fetch.ts`.
 
 Row 7 is a different category from everything above: not a general-purpose
 package manager, but a derivative distro's own curated app store/repo of
@@ -276,7 +281,7 @@ research writeup.
     (correctly merged by the existing exact-appId matching tier) — the
     other 115 are exclusive to AppCenter, a genuinely distinct channel
     rather than a reskinned Flathub subset.
-    `packages/sources/appcenter/fetch.ts`.
+    `packages/sources/flatpak-appcenter/fetch.ts`.
 19. **Linux Mint** — deb822 format (same parser as Debian/Ubuntu — Mint
     is a derivative), scoped deliberately to the `main` component only:
     108 packages, all genuinely Mint-authored (mintinstall, Warpinator,
@@ -292,7 +297,7 @@ research writeup.
     host also failed to connect during development, consistent with it
     genuinely not being the supported scheme. Reuses Debian's exact
     `Section` vocabulary verbatim — no separate filter signal needed.
-    `packages/sources/mint/fetch.ts`.
+    `packages/sources/deb-mint/fetch.ts`.
 20. **Pop!\_OS** — deb822 format, one `main` component covering the whole
     647-package archive (unlike Mint, no separate own-software
     component) — narrowed to genuinely System76-authored packages by
@@ -309,7 +314,7 @@ research writeup.
     outside these prefixes (`popsicle`, `firmware-manager`, `tensorman`)
     but are deliberately left out rather than hand-picked in — the
     prefix rule is simple and explainable.
-    `packages/sources/popos/fetch.ts`.
+    `packages/sources/deb-popos/fetch.ts`.
 21. **Deepin** — deb822 format, one `main` component covering the whole
     distro archive, narrowed to genuinely Deepin-authored packages by
     name prefix (`dde-`/`deepin-`), same approach as Pop!_OS — 255
@@ -321,7 +326,7 @@ research writeup.
     newest-first (168 multi-version packages checked, zero out of
     order), so the first stanza per name is kept, same "releases are
     newest-first" assumption Flathub's connector already relies on.
-    `packages/sources/deepin/fetch.ts`.
+    `packages/sources/deb-deepin/fetch.ts`.
 22. **MX Linux** — deb822 format (Debian derivative, using Debian's own
     release codenames rather than a distro-specific naming scheme like
     Mint's), one `main` component covering the whole 861-package
@@ -334,7 +339,7 @@ research writeup.
     `mx-docs-*`/`mx-faq-*`/`mxfb-docs-*` documentation packages, already
     caught by the existing `NOISE_SECTIONS` filter (`Section: doc` on
     real data) — no new signal needed.
-    `packages/sources/mxlinux/fetch.ts`.
+    `packages/sources/deb-mxlinux/fetch.ts`.
 
 ## Cross-cutting notes
 
@@ -344,3 +349,4 @@ research writeup.
 - **Scheduled refresh**: `.github/workflows/refresh-sources.yml` runs every `fetch.ts` weekly (Saturday 4am UTC — weekend timing on purpose, see the workflow's own comment — or on demand via `workflow_dispatch` for a single source), opening a PR with any cache diff rather than pushing straight to main (branch-protected, PR + rebase only) — one source failing doesn't block the others, it's just left at its last successful cache state.
 - **GUI vs CLI classification**: `@tuxery/curator`'s enrich stage (`hasGuiEvidence` in `enrich/index.ts`) sets `CatalogApp.kind = "gui"` when any member package carries positive evidence, from two signals. `SourcedPackage.hasDesktopFile` (Fedora/openSUSE only, parsed from `<rpm:provides>`'s synthetic `application(*.desktop)` entry — RPM tooling generates this for any package shipping a `.desktop` file) is the first, narrowest, 100%-precise-where-present but low-coverage (~3%) signal. `filter/rules.ts`'s `looksLikeGuiPackage` is the second, weaker Debian/Ubuntu-only signal — no equivalent synthetic desktop-file marker exists in `Packages.gz`, so it leans on `Section` instead, verified by cross-tabulating every real Section value against apps already known to be GUI via the Fedora/openSUSE signal (228k-app merged catalog, 8,342 apps had both a Debian/Ubuntu section and a Fedora/openSUSE package to check against, 18.4% baseline gui rate in that population): `sound`/`editors`/`video`/`graphics`/`math`/`science`/`hamradio`/`games`/`contrib-games` came back well above baseline (42-75%) _and_ sampled clean on manual inspection; `x11`/`gnome`/`kde`/`xfce` had comparably high raw rates but were rejected after sampling turned up real desktop-environment theme/icon/plugin packages Section alone can't tell apart from real apps (`adwaita-icon-theme`, `breeze-icon-theme`, `arc-kde`, Numix icon themes, ...) — same "_look at real samples, not just the percentage_" trap as the noise-filter Section sets below. A further exclusion list (`-data`/`-common`/`-plugin(s)`/`-server`/`-icon(s)` suffixes) filters out companion packages riding along under the same safe Section as their real app (`0ad-data` next to `0ad`, `ardour-lv2-plugins` next to `ardour`) — none of these suffixes are caught by the noise filter's own `NOISE_PATTERNS`, which is scoped to dev/debug/doc/lib/font/language-module naming, not this. Both signals stay deliberately one-directional — absence never sets `"cli"`. Combined, 7,895 of 228,076 apps in the real merged catalog are classified `"gui"` (up from 3,029 with the Fedora/openSUSE signal alone). Still not checked: an Arch/AUR signal, and Flatpak/Snap/AppImage source presence as a weaker fallback — see the "GUI vs CLI classification" card.
 - **Catalog filtering**: `@tuxery/curator`'s `filter/` drops packages that look like libraries/dev-headers/docs/fonts/language-ecosystem-modules rather than apps/games, two independent signals: name patterns (`looksLikeSupportPackage`) and the upstream `Section`-equivalent field, when the source has one (`looksLikeSupportSection`, `SourcedPackage.section`) — both verified against real cache data before landing. The `^lib` name prefix has real exceptions (LibreOffice, LibreCAD, Libreddit, ...) rescued by exact name via `overrides/keep.ndjson` rather than by pattern (a `libre*`-prefix allowlist was considered and rejected: 1,208 unique `libre*` names exist, only 25 are real). Debian/Ubuntu's Section signal is deliberately narrow — `libs`/`libdevel`/`oldlibs`/`doc`/`debug`/`introspection`/`gnu-r` only; tempting-looking sections like `python`/`perl`/`golang`/`devel`/`kernel` were checked and rejected, since real standalone tools (black, composer, cliphist, cosign, ...) show up in them too densely to blanket-exclude. Nixpkgs reuses the same `section` slot for its attribute-path namespace prefix (`kdePackages.akregator` -> `kdePackages`) — same discipline applied: verified language/toolchain package sets (R, Haskell, Python, Perl, OCaml, Lua, Ruby, TeX Live, Typst, Qt6, Wine, Godot, PostgreSQL) plus a general `*Plugins`/`*Extensions` suffix pattern (verified safe across ~10 different host-app namespaces), but _not_ a blanket `*Packages` suffix — `kdePackages` and `php83Packages`/`phpPackages` were checked and rejected for the same "real tools mixed in" reason (composer, psalm, akregator, ark). openSUSE reuses the same slot again for its hierarchical `<rpm:group>` value — six exact-match groups (`System/Libraries`, `Documentation/HTML`, `Documentation/Other`, `System/X11/Fonts`, `System/Localization`, `Metapackages`) verified safe (15-60 sampled entries each, one real exception found and allowlisted by name — `seidl`, a monitoring client, not an install-time metapackage); `Development/Libraries/*`/`Development/Languages/*` hit the exact same trap as Debian's devel/python/perl/golang sections (clisp, love, act, typescript, codespell, ... mixed in) and were rejected the same way. Slackware reuses the slot again for its package "series" — only two of its 15 values are safe (`l`/libraries, `f`/FAQs-docs; one real exception, `glade`, allowlisted); Solus reuses it for its dotted `PartOf` grouping (115 distinct values) — seven safe after sampling (`debug`, `programming.library`/`desktop.library`/`multimedia.library`, `programming.docs`, `desktop.theme`, `emul32`; one real exception, `dcraw`, allowlisted), and even `programming.devel` (2,070 packages, 98.6% already `-devel`-suffixed and so already caught by name pattern) was rejected once its un-suffixed 1.4% tail turned up real tools (gcc-13, dpkg, mingw-w64) for zero marginal catch. Effective on Debian (~54.3%), Ubuntu (~48.9%), Fedora (~54.7%), openSUSE (~43.3%), Solus (~67.6%, the second-largest single-source cut), and Nixpkgs (~80.0%, by far the largest — the language-ecosystem long tail dominates nixpkgs even more than Debian); much less so on AUR (~7.4%), Arch official (~17.6%), Alpine (~39.4%), Void (~32.3%), Slackware (~33.0%), and Gentoo (~5.0%, the lowest of any source) — Alpine/Void verified to have no Section-equivalent field at all (Alpine's APKINDEX, Void's index.plist), so filtering there is name-pattern only, same situation as AUR/Arch; Slackware has a real signal but its own packaging convention doesn't split `-dev`/`-doc`/`-static` subpackages out the way Debian/Fedora do, so the name-pattern half of the filter has far less to catch regardless; Gentoo reuses the slot for its top-level category — most categories mix real tools with libraries like everywhere else, but `acct-group`/`acct-user` (900 packages, pure system-account definitions) and `virtual` (134, Portage's own provider-selection abstractions) are unambiguous and excluded; found via a data-quality pass on the merged catalog, not proactively — these were surviving the filter and polluting cross-source name matches (e.g. `acct-group/clock` merging into the real Clock app group, before `@tuxery/curator`'s match tier also got a `GENERIC_NAME_BLOCKLIST` fix for exactly that class of bug — see `match/group.ts`). Gentoo otherwise, like Slackware, doesn't split dev-file subpackages out by naming convention. Mint, Pop!_OS, Deepin, and MX Linux all reuse Debian's exact Section vocabulary verbatim (each is a Debian/Ubuntu derivative publishing the identical deb822 format) — no new signal needed for any of them; effective at ~0.9% (Mint), ~50.6% (Deepin), and ~47.2% (MX Linux) — Deepin/MX Linux mix in far more libraries/dev-files/localized-docs than Mint's small, deliberately-curated `main` component does; Pop!_OS not separately measured given its small size (77 entries) after the connector's own name-prefix scoping already does most of the narrowing. A reverse-dependency-graph signal and AUR's self-declared Keywords field were both investigated as a further AUR/Arch-specific improvement and found not viable (see the "Filter is far less effective on AUR/Arch" card for the full research writeup) — the ticket stays open for a genuinely new idea. `overrides/keep.ndjson` and `exclude.ndjson` (in `packages/curator/overrides/`) are the manual escape hatch on either side; see that directory's `README.md` for the "would a user launch this on its own" litmus test used to decide `keep.ndjson` entries.
+- **Fedora/Ubuntu release freshness**: both `fetch.ts`s used to hardcode a release constant (`RELEASE = "44"`, `SUITE = "resolute"`) that would silently go stale every ~6 months as new distro versions shipped — unlike Debian's `dists/stable/` alias, which always resolves server-side to whatever the current release actually is with no code change needed. Neither Fedora nor Ubuntu has an equivalent URL-path alias (checked: `releases/stable/` 404s on Fedora's mirror; Ubuntu's archive only ever uses codenames), but both have a live API that serves the same purpose. Fedora: Bodhi's `/releases/` endpoint marks the currently-supported releases (not EPEL/ELN, which share the same endpoint) `state: "current"` — typically two at once during the post-release overlap window, so `rpm-fedora/fetch.ts`'s `resolveCurrentRelease` takes the higher version number, matching what a fresh install gets. Ubuntu: Launchpad's `/ubuntu/series` endpoint marks exactly one series `status: "Current Stable Release"` at a time (LTS releases stay `"Supported"` long after they stop being current, so that status alone isn't enough) — `deb-ubuntu/fetch.ts`'s `resolveCurrentSuite` reads it directly. Both resolved live at the start of every fetch now, verified against real data (2026-08-17: Fedora 44, Ubuntu resolute/26.04 — both matching the values that used to be hardcoded).

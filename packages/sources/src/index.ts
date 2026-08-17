@@ -1,4 +1,5 @@
 export type { SourcedPackage, PackageSourceId } from "./types";
+export { searchAlpine } from "./alpine";
 export { searchFlathub } from "./flathub";
 export { searchSnapcraft } from "./snapcraft";
 export { searchAppImage } from "./appimage";

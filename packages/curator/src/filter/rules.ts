@@ -104,7 +104,79 @@ const NOISE_SECTIONS = new Set([
   "gnu-r",
 ]);
 
-/** Best-effort guess from Debian/Ubuntu's `Section` field, alongside `looksLikeSupportPackage`'s name-based guess — see this file's comment on `NOISE_SECTIONS` for which sections are safe. */
+// Nixpkgs reuses the same `section` slot for its attribute-path namespace
+// prefix (e.g. `kdePackages.akregator` -> `kdePackages`), a differently-
+// shaped value than Debian's fixed vocabulary — version-numbered variants
+// are common (python313Packages, lua54Packages, rubyPackages_3_3,
+// chickenPackages_5, ...), so a plain Set can't match them; patterns can.
+// Same verification discipline as NOISE_SECTIONS above — checked real
+// samples per prefix before including one, including the exact trap that
+// caught Debian's "devel"/"kernel" sections: kdePackages was checked and
+// *rejected* despite being tempting (same "distro packaging namespace"
+// framing) — it mixes real standalone apps (akregator, ark, arianna) with
+// libraries (akonadi-contacts, accounts-qt) at too high a rate, same
+// reasoning as Debian's "devel" section.
+// "*Packages" is NOT a safe general suffix — checked and rejected as one:
+// kdePackages mixes real apps (akregator, ark, arianna) with libraries,
+// and php83Packages/phpPackages contain real standalone tools (composer,
+// psalm, phpmd, php-cs-fixer) alongside phpXXExtensions being pure PECL
+// extensions right next to it. Every entry below is individually
+// verified, not inferred from the suffix alone.
+const NIX_NOISE_PREFIX_PATTERNS: RegExp[] = [
+  // Language/ecosystem package sets verified as overwhelmingly modules,
+  // not standalone tools (sampled 4-6 entries per prefix, all libraries,
+  // for every prefix below): R (CRAN mirror), Haskell (Hackage mirror),
+  // Python (PyPI mirror, any interpreter version), Perl (CPAN mirror),
+  // OCaml (opam mirror), Common Lisp (SBCL/Chicken/Akku package sets),
+  // Lua, Ruby (any version), TeX Live (LaTeX packages), Typst (template/
+  // library packages) — none of these are apps.
+  /^rPackages$/,
+  /^haskellPackages$/,
+  /^py(thon|py)\d*Packages$/,
+  /^perl5?Packages$/,
+  /^ocamlPackages(_\w+)?$/,
+  /^sbclPackages$/,
+  /^chickenPackages(_\d+)?$/,
+  /^akkuPackages$/,
+  /^lua\d*Packages$/,
+  /^rubyPackages(_\d+_\d+)?$/,
+  /^texlivePackages$/,
+  /^typstPackages$/,
+  // Toolchain/library component sets verified individually (unlike the
+  // "*Packages" suffix in general, see this const's header comment):
+  // Qt6 bindings (unlike kdePackages, no real apps mixed in), Wine build
+  // components, Godot export templates, and PostgreSQL extensions (any
+  // major-version-numbered variant).
+  /^qt6Packages$/,
+  /^wine(64|WoW64)?Packages$/,
+  /^godotPackages(_[\w.]+)?$/,
+  /^postgresql\d*Packages$/,
+  // Plugins/extensions for a host app the user needs already installed —
+  // not independently launchable, same "would a user launch this on its
+  // own" litmus test as overrides/README.md's keep.ndjson guidance
+  // (mirrors the libretro-core/browser-extension exclusions decided
+  // there for AppImageHub-derived names). Verified as a safe *general*
+  // pattern across ~10 different host-app namespaces (fish, tmux, vim,
+  // obs-studio, netbox, roundcube, gimp, elasticsearch, grafana, ...) —
+  // every single one sampled was a plugin, none a standalone app.
+  /plugins?$/i,
+  /extensions?$/i,
+  // Not applications at all, by construction: editor package sets
+  // (emacs' own package ecosystem, itself plugin-shaped even without
+  // matching the pattern above), syntax-highlighting grammars, kernel
+  // builds/modules (any variant — xanmod/zen/latest/...), Android SDK/
+  // build-environment components, dictionaries, and Terraform provider
+  // plugins.
+  /^emacsPackages$/,
+  /^tree-sitter-grammars$/,
+  /^linux(Kernel|Packages(_[\w.]+)?)$/,
+  /^androidenv$/,
+  /^(hyphen|hunspell)Dicts$/,
+  /^terraform-providers$/,
+];
+
+/** Best-effort guess from Debian/Ubuntu's `Section` field or nixpkgs' attribute-path prefix, alongside `looksLikeSupportPackage`'s name-based guess — see this file's comments on `NOISE_SECTIONS`/`NIX_NOISE_PREFIX_PATTERNS` for which values are safe. */
 export function looksLikeSupportSection(section: string | undefined): boolean {
-  return section !== undefined && NOISE_SECTIONS.has(section);
+  if (section === undefined) return false;
+  return NOISE_SECTIONS.has(section) || NIX_NOISE_PREFIX_PATTERNS.some((p) => p.test(section));
 }

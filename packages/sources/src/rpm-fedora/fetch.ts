@@ -1,10 +1,8 @@
-import { zstdDecompressSync } from "node:zlib";
+import { fetchOrThrow } from "../_shared/http";
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
-import { extractPrimaryLocation, parsePrimaryXml } from "../_shared/rpm-repodata";
+import { fetchPrimaryXml, parsePrimaryXml } from "../_shared/rpm-repodata";
 import type { FedoraCacheEntry, FedoraFetchMetadata } from "./types";
-
-export { extractPrimaryLocation };
 
 // Fedora publishes one repodata set per release/repo/arch. This fetches
 // two repos for the current release/arch: "Everything" (the frozen
@@ -65,11 +63,10 @@ export function resolveCurrentRelease(releases: BodhiRelease[]): string {
 }
 
 async function fetchCurrentRelease(): Promise<string> {
-  const response = await fetch("https://bodhi.fedoraproject.org/releases/?rows_per_page=100");
-  if (!response.ok) {
-    throw new Error(`Failed to fetch Bodhi releases: ${response.status} ${response.statusText}`);
-  }
-
+  const response = await fetchOrThrow(
+    "https://bodhi.fedoraproject.org/releases/?rows_per_page=100",
+    "Bodhi releases",
+  );
   const { releases } = (await response.json()) as { releases: BodhiRelease[] };
   return resolveCurrentRelease(releases);
 }
@@ -94,35 +91,12 @@ export function parsePrimary(xml: string): FedoraCacheEntry[] {
 }
 
 /**
- * Downloads one repo's repodata — repomd.xml first to find the current
- * content-hashed primary metadata path, then that file itself
- * (Zstandard-compressed; Node's built-in zlib decodes it without a new
- * dependency) — and parses it into cache rows.
+ * Downloads one repo's repodata (see `_shared/rpm-repodata.ts`'s
+ * `fetchPrimaryXml` for the repomd.xml -> primary.xml.zst mechanics,
+ * shared with openSUSE) and parses it into cache rows.
  */
 async function fetchRepo(repoBase: string): Promise<FedoraCacheEntry[]> {
-  const repomdResponse = await fetch(`${repoBase}/repodata/repomd.xml`);
-  if (!repomdResponse.ok) {
-    throw new Error(
-      `Failed to fetch Fedora repomd.xml at ${repoBase}: ${repomdResponse.status} ${repomdResponse.statusText}`,
-    );
-  }
-
-  const repomdXml = await repomdResponse.text();
-  const primaryLocation = extractPrimaryLocation(repomdXml);
-  if (!primaryLocation) {
-    throw new Error(`Fedora repomd.xml at ${repoBase} has no primary data location`);
-  }
-
-  const primaryUrl = `${repoBase}/${primaryLocation}`;
-  const primaryResponse = await fetch(primaryUrl);
-  if (!primaryResponse.ok) {
-    throw new Error(
-      `Failed to fetch Fedora primary metadata at ${primaryUrl}: ${primaryResponse.status} ${primaryResponse.statusText}`,
-    );
-  }
-
-  const compressed = Buffer.from(await primaryResponse.arrayBuffer());
-  const xml = zstdDecompressSync(compressed).toString("utf8");
+  const xml = await fetchPrimaryXml(repoBase, "Fedora");
   return parsePrimary(xml);
 }
 

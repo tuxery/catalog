@@ -1,5 +1,6 @@
-import { describe, expect, it } from "vitest";
-import { extractPrimaryLocation, parsePrimaryXml } from "./rpm-repodata";
+import { zstdCompressSync } from "node:zlib";
+import { afterEach, describe, expect, it, vi } from "vitest";
+import { extractPrimaryLocation, fetchPrimaryXml, parsePrimaryXml } from "./rpm-repodata";
 
 const REPOMD_FIXTURE = `<?xml version="1.0" encoding="UTF-8"?>
 <repomd xmlns="http://linux.duke.edu/metadata/repo">
@@ -102,5 +103,56 @@ describe("parsePrimaryXml", () => {
 </metadata>
 `;
     expect(parsePrimaryXml(xml)[0]?.hasDesktopFile).toBe(false);
+  });
+});
+
+describe("fetchPrimaryXml", () => {
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
+  it("chains repomd.xml -> extractPrimaryLocation -> the zstd-compressed primary.xml, decompressed", async () => {
+    const compressedPrimary = zstdCompressSync(Buffer.from(PRIMARY_FIXTURE, "utf8"));
+    const fetchMock = vi.fn<typeof fetch>((url) => {
+      const href = url.toString();
+      if (href === "https://example.com/repo/repodata/repomd.xml") {
+        return Promise.resolve(new Response(REPOMD_FIXTURE, { status: 200 }));
+      }
+      if (href === "https://example.com/repo/repodata/c48e475-primary.xml.zst") {
+        return Promise.resolve(new Response(compressedPrimary, { status: 200 }));
+      }
+      throw new Error(`unexpected URL in test: ${href}`);
+    });
+    vi.stubGlobal("fetch", fetchMock);
+
+    const xml = await fetchPrimaryXml("https://example.com/repo", "Example");
+
+    expect(xml).toBe(PRIMARY_FIXTURE);
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+  });
+
+  it("throws a source-labeled error when repomd.xml itself fails to fetch", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn<typeof fetch>(() =>
+        Promise.resolve(new Response("nope", { status: 500, statusText: "Server Error" })),
+      ),
+    );
+
+    await expect(fetchPrimaryXml("https://example.com/repo", "Example")).rejects.toThrow(
+      "Failed to fetch Example repomd.xml at https://example.com/repo: 500 Server Error",
+    );
+  });
+
+  it("throws when repomd.xml has no primary data location, without attempting a second fetch", async () => {
+    const fetchMock = vi.fn<typeof fetch>(() =>
+      Promise.resolve(new Response("<repomd></repomd>", { status: 200 })),
+    );
+    vi.stubGlobal("fetch", fetchMock);
+
+    await expect(fetchPrimaryXml("https://example.com/repo", "Example")).rejects.toThrow(
+      "Example repomd.xml at https://example.com/repo has no primary data location",
+    );
+    expect(fetchMock).toHaveBeenCalledTimes(1);
   });
 });

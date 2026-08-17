@@ -2,6 +2,7 @@ import { mkdir, mkdtemp, readdir, readFile, rm, writeFile } from "node:fs/promis
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import * as tar from "tar";
+import { fetchOrThrow } from "../_shared/http";
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
 import type { ArchCacheEntry, ArchFetchMetadata } from "./types";
@@ -60,12 +61,7 @@ export function mapDescFiles(
 
 async function fetchRepoEntries(repo: ArchRepo, workDir: string): Promise<ArchCacheEntry[]> {
   const url = `${MIRROR_BASE}/${repo}/os/${ARCH}/${repo}.db`;
-  const response = await fetch(url);
-  if (!response.ok) {
-    throw new Error(
-      `Failed to fetch Arch repo "${repo}": ${response.status} ${response.statusText}`,
-    );
-  }
+  const response = await fetchOrThrow(url, `Arch repo "${repo}"`);
 
   const repoDir = join(workDir, repo);
   await mkdir(repoDir, { recursive: true });

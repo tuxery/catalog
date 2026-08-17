@@ -1,5 +1,5 @@
-import { gunzipSync } from "node:zlib";
 import { parseDeb822 } from "../_shared/deb822";
+import { fetchGunzippedText, fetchOrThrow } from "../_shared/http";
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
 import type { UbuntuCacheEntry, UbuntuFetchMetadata } from "./types";
@@ -55,13 +55,10 @@ export function resolveCurrentSuite(series: LaunchpadSeries[]): string {
 }
 
 async function fetchCurrentSuite(): Promise<string> {
-  const response = await fetch("https://api.launchpad.net/devel/ubuntu/series");
-  if (!response.ok) {
-    throw new Error(
-      `Failed to fetch Launchpad Ubuntu series: ${response.status} ${response.statusText}`,
-    );
-  }
-
+  const response = await fetchOrThrow(
+    "https://api.launchpad.net/devel/ubuntu/series",
+    "Launchpad Ubuntu series",
+  );
   const { entries } = (await response.json()) as { entries: LaunchpadSeries[] };
   return resolveCurrentSuite(entries);
 }
@@ -89,16 +86,10 @@ async function fetchComponent(
   suite: string,
   component: UbuntuComponent,
 ): Promise<UbuntuCacheEntry[]> {
-  const url = packagesUrl(suite, component);
-  const response = await fetch(url);
-  if (!response.ok) {
-    throw new Error(
-      `Failed to fetch Ubuntu component "${component}": ${response.status} ${response.statusText}`,
-    );
-  }
-
-  const compressed = Buffer.from(await response.arrayBuffer());
-  const text = gunzipSync(compressed).toString("utf8");
+  const text = await fetchGunzippedText(
+    packagesUrl(suite, component),
+    `Ubuntu component "${component}"`,
+  );
   return parsePackages(text, component);
 }
 

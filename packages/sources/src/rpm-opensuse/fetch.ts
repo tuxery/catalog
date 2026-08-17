@@ -1,10 +1,7 @@
-import { zstdDecompressSync } from "node:zlib";
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
-import { extractPrimaryLocation, parsePrimaryXml } from "../_shared/rpm-repodata";
+import { fetchPrimaryXml, parsePrimaryXml } from "../_shared/rpm-repodata";
 import type { OpenSuseCacheEntry, OpenSuseFetchMetadata } from "./types";
-
-export { extractPrimaryLocation };
 
 // openSUSE Tumbleweed (the rolling release, so there's no version number to
 // pin the way Fedora pins a release) publishes the same repomd.xml ->
@@ -44,37 +41,15 @@ export function parsePrimary(xml: string, repo: OpenSuseCacheEntry["repo"]): Ope
 }
 
 /**
- * Downloads one repo's repodata — repomd.xml first to find the current
- * content-hashed primary metadata path, then that file itself
- * (Zstandard-compressed; Node's built-in zlib decodes it without a new
- * dependency) — and parses it into cache rows. `download.opensuse.org`
- * 302-redirects to the actual mirror; Node's `fetch()` follows that
- * transparently, same as a browser, so no special handling is needed.
+ * Downloads one repo's repodata (see `_shared/rpm-repodata.ts`'s
+ * `fetchPrimaryXml` for the repomd.xml -> primary.xml.zst mechanics,
+ * shared with Fedora) and parses it into cache rows.
+ * `download.opensuse.org` 302-redirects to the actual mirror; Node's
+ * `fetch()` follows that transparently, same as a browser, so no
+ * special handling is needed.
  */
 async function fetchRepo(repo: (typeof REPOS)[number]): Promise<OpenSuseCacheEntry[]> {
-  const repomdResponse = await fetch(`${repo.base}/repodata/repomd.xml`);
-  if (!repomdResponse.ok) {
-    throw new Error(
-      `Failed to fetch openSUSE repomd.xml at ${repo.base}: ${repomdResponse.status} ${repomdResponse.statusText}`,
-    );
-  }
-
-  const repomdXml = await repomdResponse.text();
-  const primaryLocation = extractPrimaryLocation(repomdXml);
-  if (!primaryLocation) {
-    throw new Error(`openSUSE repomd.xml at ${repo.base} has no primary data location`);
-  }
-
-  const primaryUrl = `${repo.base}/${primaryLocation}`;
-  const primaryResponse = await fetch(primaryUrl);
-  if (!primaryResponse.ok) {
-    throw new Error(
-      `Failed to fetch openSUSE primary metadata at ${primaryUrl}: ${primaryResponse.status} ${primaryResponse.statusText}`,
-    );
-  }
-
-  const compressed = Buffer.from(await primaryResponse.arrayBuffer());
-  const xml = zstdDecompressSync(compressed).toString("utf8");
+  const xml = await fetchPrimaryXml(repo.base, "openSUSE");
   return parsePrimary(xml, repo.id);
 }
 

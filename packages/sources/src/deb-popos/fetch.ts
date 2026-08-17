@@ -1,5 +1,5 @@
-import { gunzipSync } from "node:zlib";
 import { parseDeb822 } from "../_shared/deb822";
+import { fetchGunzippedText } from "../_shared/http";
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
 import type { PopOsCacheEntry, PopOsFetchMetadata } from "./types";
@@ -59,13 +59,7 @@ export function parsePackages(text: string): PopOsCacheEntry[] {
  * normalized entries to `cachePath` as NDJSON. See docs/sources.md.
  */
 export async function fetchPopOs(cachePath: string): Promise<number> {
-  const response = await fetch(PACKAGES_URL);
-  if (!response.ok) {
-    throw new Error(`Failed to fetch Pop!_OS Packages: ${response.status} ${response.statusText}`);
-  }
-
-  const compressed = Buffer.from(await response.arrayBuffer());
-  const text = gunzipSync(compressed).toString("utf8");
+  const text = await fetchGunzippedText(PACKAGES_URL, "Pop!_OS Packages");
   const entries = parsePackages(text);
 
   writeNdjson(cachePath, entries);

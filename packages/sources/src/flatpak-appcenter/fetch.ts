@@ -1,5 +1,5 @@
-import { gunzipSync } from "node:zlib";
 import { parseAppstreamXml } from "../_shared/appstream";
+import { fetchGunzippedText } from "../_shared/http";
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
 import type { AppCenterCacheEntry, AppCenterFetchMetadata } from "./types";
@@ -30,15 +30,7 @@ export function parseAppstream(xml: string): AppCenterCacheEntry[] {
  * no auth, no pagination — see docs/sources.md.
  */
 export async function fetchAppCenter(cachePath: string): Promise<number> {
-  const response = await fetch(APPSTREAM_URL);
-  if (!response.ok) {
-    throw new Error(
-      `Failed to fetch elementary AppCenter appstream: ${response.status} ${response.statusText}`,
-    );
-  }
-
-  const compressed = Buffer.from(await response.arrayBuffer());
-  const xml = gunzipSync(compressed).toString("utf8");
+  const xml = await fetchGunzippedText(APPSTREAM_URL, "elementary AppCenter appstream");
   const entries = parseAppstream(xml);
 
   writeNdjson(cachePath, entries);

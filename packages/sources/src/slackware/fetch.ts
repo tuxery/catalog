@@ -1,3 +1,4 @@
+import { fetchText } from "../_shared/http";
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
 import type { SlackwareCacheEntry, SlackwareFetchMetadata } from "./types";
@@ -65,14 +66,7 @@ export function parsePackagesTxt(text: string): SlackwareCacheEntry[] {
  * `cachePath` as NDJSON. See docs/sources.md.
  */
 export async function fetchSlackware(cachePath: string): Promise<number> {
-  const response = await fetch(URL);
-  if (!response.ok) {
-    throw new Error(
-      `Failed to fetch Slackware PACKAGES.TXT: ${response.status} ${response.statusText}`,
-    );
-  }
-
-  const text = await response.text();
+  const text = await fetchText(URL, "Slackware PACKAGES.TXT");
   const entries = parsePackagesTxt(text);
 
   writeNdjson(cachePath, entries);

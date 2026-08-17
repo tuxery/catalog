@@ -731,7 +731,7 @@
 {"name":"augeas-devel","short_desc":"Configuration file editing tool - development files","pkgver":"augeas-devel-1.12.0_1","homepage":"http://augeas.net","repo":"main"}
 {"name":"aurorae","short_desc":"Themeable window decoration for KWin","pkgver":"aurorae-6.7.4_1","homepage":"https://invent.kde.org/plasma/aurorae","repo":"main"}
 {"name":"auto-auto-complete","short_desc":"Autogenerate shell auto-completion scripts","pkgver":"auto-auto-complete-7.2.3_1","homepage":"https://codeberg.org/maandree/auto-auto-complete","repo":"main"}
-{"name":"autoconf","short_desc":"Generates automatic source code configuration scripts","pkgver":"autoconf-2.72_1","homepage":"http://www.gnu.org/software/autoconf","repo":"main"}
+{"name":"autoconf","short_desc":"Generates automatic source code configuration scripts","pkgver":"autoconf-2.73_1","homepage":"http://www.gnu.org/software/autoconf","repo":"main"}
 {"name":"autoconf-archive","short_desc":"Collection of freely re-usable Autoconf macros","pkgver":"autoconf-archive-2023.02.20_2","homepage":"https://www.gnu.org/software/autoconf-archive/","repo":"main"}
 {"name":"autoconf213","short_desc":"Generates automatic source code configuration scripts (2.13 version)","pkgver":"autoconf213-2.13_4","homepage":"http://www.gnu.org/software/autoconf","repo":"main"}
 {"name":"autocutsel","short_desc":"Synchronize the two copy/paste buffers used by X applications","pkgver":"autocutsel-0.10.1_1","homepage":"https://github.com/sigmike/autocutsel","repo":"main"}
@@ -1832,7 +1832,7 @@
 {"name":"db","short_desc":"Berkeley DB embedded database system","pkgver":"db-5.3.28_8","homepage":"http://www.oracle.com/technetwork/products/berkeleydb/overview/index.html","repo":"main"}
 {"name":"db-devel","short_desc":"Berkeley DB embedded database system - development files","pkgver":"db-devel-5.3.28_8","homepage":"http://www.oracle.com/technetwork/products/berkeleydb/overview/index.html","repo":"main"}
 {"name":"db-doc","short_desc":"Berkeley DB embedded database system - documentation files","pkgver":"db-doc-5.3.28_8","homepage":"http://www.oracle.com/technetwork/products/berkeleydb/overview/index.html","repo":"main"}
-{"name":"dbeaver","short_desc":"Free Universal Database Tool","pkgver":"dbeaver-26.1.4_1","homepage":"https://dbeaver.io","repo":"main"}
+{"name":"dbeaver","short_desc":"Free Universal Database Tool","pkgver":"dbeaver-26.1.5_1","homepage":"https://dbeaver.io","repo":"main"}
 {"name":"dbus","short_desc":"Message bus system","pkgver":"dbus-1.16.2_2","homepage":"https://dbus.freedesktop.org/","repo":"main"}
 {"name":"dbus-devel","short_desc":"Message bus system - development files","pkgver":"dbus-devel-1.16.2_2","homepage":"https://dbus.freedesktop.org/","repo":"main"}
 {"name":"dbus-elogind","short_desc":"Message bus system (transitional dummy package)","pkgver":"dbus-elogind-1.16.2_2","homepage":"https://dbus.freedesktop.org/","repo":"main"}
@@ -6131,7 +6131,7 @@
 {"name":"libliftoff-devel","short_desc":"Lightweight KMS plane library - development files","pkgver":"libliftoff-devel-0.5.0_1","homepage":"https://gitlab.freedesktop.org/emersion/libliftoff","repo":"main"}
 {"name":"liblightdm-gobject","short_desc":"Light Display Manager - GObject support library","pkgver":"liblightdm-gobject-1.32.0_8","homepage":"https://github.com/CanonicalLtd/lightdm","repo":"main"}
 {"name":"liblightdm-qt5","short_desc":"Light Display Manager - QT 5.x support library","pkgver":"liblightdm-qt5-1.32.0_8","homepage":"https://github.com/CanonicalLtd/lightdm","repo":"main"}
-{"name":"liblilv","short_desc":"Simple yet powerful C API for using LV2 plugins - Runtime library","pkgver":"liblilv-0.24.26_3","homepage":"https://gitlab.com/lv2/lilv","repo":"main"}
+{"name":"liblilv","short_desc":"Simple yet powerful C API for using LV2 plugins - Runtime library","pkgver":"liblilv-0.28.0_1","homepage":"https://gitlab.com/lv2/lilv","repo":"main"}
 {"name":"liblldb18","short_desc":"LLVM Compiler Infrastructure Project - Version 18 - LLDB debugger - runtime library","pkgver":"liblldb18-18.1.8_6","homepage":"https://www.llvm.org","repo":"main"}
 {"name":"liblldb19","short_desc":"LLVM Compiler Infrastructure Project - Version 19 - LLDB debugger - runtime library","pkgver":"liblldb19-19.1.4_8","homepage":"https://www.llvm.org","repo":"main"}
 {"name":"liblldb21","short_desc":"LLVM Compiler Infrastructure Project - Version 21 - LLDB debugger - runtime library","pkgver":"liblldb21-21.1.7_1","homepage":"https://www.llvm.org","repo":"main"}
@@ -7381,9 +7381,9 @@
 {"name":"lighttpd","short_desc":"Secure, fast, compliant and very flexible web-server","pkgver":"lighttpd-1.4.85_1","homepage":"https://lighttpd.net","repo":"main"}
 {"name":"lightzone","short_desc":"Professional-level digital darkroom and photo editor","pkgver":"lightzone-4.2.2_3","homepage":"http://www.lightzoneproject.org/","repo":"main"}
 {"name":"lilo","short_desc":"Standard Linux boot loader","pkgver":"lilo-24.2_3","homepage":"http://www.joonet.de/lilo","repo":"main"}
-{"name":"lilv","short_desc":"Simple yet powerful C API for using LV2 plugins","pkgver":"lilv-0.24.26_3","homepage":"https://gitlab.com/lv2/lilv","repo":"main"}
-{"name":"lilv-bash-completion","short_desc":"Simple yet powerful C API for using LV2 plugins - Bash completion for Lilv","pkgver":"lilv-bash-completion-0.24.26_3","homepage":"https://gitlab.com/lv2/lilv","repo":"main"}
-{"name":"lilv-devel","short_desc":"Simple yet powerful C API for using LV2 plugins - Development files","pkgver":"lilv-devel-0.24.26_3","homepage":"https://gitlab.com/lv2/lilv","repo":"main"}
+{"name":"lilv","short_desc":"Simple yet powerful C API for using LV2 plugins","pkgver":"lilv-0.28.0_1","homepage":"https://gitlab.com/lv2/lilv","repo":"main"}
+{"name":"lilv-bash-completion","short_desc":"Simple yet powerful C API for using LV2 plugins - Bash completion for Lilv","pkgver":"lilv-bash-completion-0.28.0_1","homepage":"https://gitlab.com/lv2/lilv","repo":"main"}
+{"name":"lilv-devel","short_desc":"Simple yet powerful C API for using LV2 plugins - Development files","pkgver":"lilv-devel-0.28.0_1","homepage":"https://gitlab.com/lv2/lilv","repo":"main"}
 {"name":"lily","short_desc":"Interpreted language with a focus on expressiveness and type safety","pkgver":"lily-2.5_1","homepage":"https://gitlab.com/FascinatedBox/lily","repo":"main"}
 {"name":"lily-devel","short_desc":"Interpreted language with a focus on expressiveness and type safety - development files","pkgver":"lily-devel-2.5_1","homepage":"https://gitlab.com/FascinatedBox/lily","repo":"main"}
 {"name":"lilypond","short_desc":"Music engraving program","pkgver":"lilypond-2.26.0_1","homepage":"https://lilypond.org/","repo":"main"}
@@ -13707,7 +13707,7 @@
 {"name":"urh","short_desc":"Universal Radio Hacker: investigate unknown wireless protocols","pkgver":"urh-2.10.0_1","homepage":"https://github.com/jopohl/urh","repo":"main"}
 {"name":"uriparser","short_desc":"RFC 3986 compliant URI parsing and handling library","pkgver":"uriparser-1.0.2_1","homepage":"https://uriparser.github.io/","repo":"main"}
 {"name":"uriparser-devel","short_desc":"RFC 3986 compliant URI parsing and handling library - development files","pkgver":"uriparser-devel-1.0.2_1","homepage":"https://uriparser.github.io/","repo":"main"}
-{"name":"urlscan","short_desc":"View/select the URLs in an email message or file","pkgver":"urlscan-1.0.9_1","homepage":"https://github.com/firecat53/urlscan","repo":"main"}
+{"name":"urlscan","short_desc":"View/select the URLs in an email message or file","pkgver":"urlscan-1.1.2_1","homepage":"https://github.com/firecat53/urlscan","repo":"main"}
 {"name":"urlview","short_desc":"Extract URLs from a text file and allow the user to select via a menu","pkgver":"urlview-0.9_2","homepage":"https://github.com/sigpipe/urlview","repo":"main"}
 {"name":"urlwatch","short_desc":"Tool for monitoring webpages for updates","pkgver":"urlwatch-2.29_2","homepage":"https://thp.io/2008/urlwatch/","repo":"main"}
 {"name":"urusai","short_desc":"Go implementation of noisy HTTP/DNS traffic generator","pkgver":"urusai-1.1.0_1","homepage":"https://github.com/calpa/urusai","repo":"main"}
@@ -13731,7 +13731,7 @@
 {"name":"usql","short_desc":"Universal command-line interface for SQL databases","pkgver":"usql-0.20.8_1","homepage":"https://github.com/xo/usql","repo":"main"}
 {"name":"usrsctp","short_desc":"Portable SCTP userland stack","pkgver":"usrsctp-0.9.5.0_1","homepage":"https://github.com/SergiusTheBest/plog","repo":"main"}
 {"name":"utfcpp","short_desc":"Generic library that handles UTF-8 encoded strings","pkgver":"utfcpp-4.1.1_1","homepage":"https://github.com/nemtrif/utfcpp","repo":"main"}
-{"name":"uthash","short_desc":"Hash table for C structures","pkgver":"uthash-2.3.0_1","homepage":"http://troydhanson.github.com/uthash/","repo":"main"}
+{"name":"uthash","short_desc":"Hash table for C structures","pkgver":"uthash-2.4.0_1","homepage":"https://troydhanson.github.io/uthash/","repo":"main"}
 {"name":"util-linux","short_desc":"Miscellaneous linux utilities","pkgver":"util-linux-2.41.4_1","homepage":"https://www.kernel.org/pub/linux/utils/util-linux/","repo":"main"}
 {"name":"util-linux-common","short_desc":"Miscellaneous linux utilities - common files","pkgver":"util-linux-common-2.41.4_1","homepage":"https://www.kernel.org/pub/linux/utils/util-linux/","repo":"main"}
 {"name":"util-linux-libs","short_desc":"Miscellaneous linux utilities - common files - meta libraries","pkgver":"util-linux-libs-2.41.4_1","homepage":"https://www.kernel.org/pub/linux/utils/util-linux/","repo":"main"}
@@ -13739,7 +13739,7 @@
 {"name":"uucp","short_desc":"Taylor UUCP is a free implementation of UUCP","pkgver":"uucp-1.07_2","homepage":"https://www.gnu.org/software/uucp/uucp.html","repo":"main"}
 {"name":"uv","short_desc":"Extremely fast Python package installer and resolver","pkgver":"uv-0.11.28_1","homepage":"https://github.com/astral-sh/uv","repo":"main"}
 {"name":"uv-build","short_desc":"Extremely fast Python package installer and resolver - PEP517 build backend","pkgver":"uv-build-0.11.28_1","homepage":"https://github.com/astral-sh/uv","repo":"main"}
-{"name":"uwm","short_desc":"The ultimate window manager","pkgver":"uwm-0.2.11a_2","homepage":"http://udeproject.sourceforge.net","repo":"main"}
+{"name":"uwm","short_desc":"Ultimate window manager","pkgver":"uwm-0.2.11b_1","homepage":"http://udeproject.sourceforge.net","repo":"main"}
 {"name":"uwsgi","short_desc":"Fast, self-healing application container server","pkgver":"uwsgi-2.0.31_2","homepage":"https://uwsgi-docs.readthedocs.io/en/latest/","repo":"main"}
 {"name":"uwsgi-cgi","short_desc":"Fast, self-healing application container server (CGI plugin)","pkgver":"uwsgi-cgi-2.0.31_2","homepage":"https://uwsgi-docs.readthedocs.io/en/latest/","repo":"main"}
 {"name":"uwsgi-python3","short_desc":"Fast, self-healing application container server (Python3 plugin)","pkgver":"uwsgi-python3-2.0.31_2","homepage":"https://uwsgi-docs.readthedocs.io/en/latest/","repo":"main"}
@@ -17653,7 +17653,7 @@
 {"name":"libliftoff-devel-32bit","short_desc":"Lightweight KMS plane library - development files (32bit)","pkgver":"libliftoff-devel-32bit-0.5.0_1","homepage":"https://gitlab.freedesktop.org/emersion/libliftoff","repo":"multilib"}
 {"name":"liblightdm-gobject-32bit","short_desc":"Light Display Manager - GObject support library (32bit)","pkgver":"liblightdm-gobject-32bit-1.32.0_8","homepage":"https://github.com/CanonicalLtd/lightdm","repo":"multilib"}
 {"name":"liblightdm-qt5-32bit","short_desc":"Light Display Manager - QT 5.x support library (32bit)","pkgver":"liblightdm-qt5-32bit-1.32.0_8","homepage":"https://github.com/CanonicalLtd/lightdm","repo":"multilib"}
-{"name":"liblilv-32bit","short_desc":"Simple yet powerful C API for using LV2 plugins - Runtime library (32bit)","pkgver":"liblilv-32bit-0.24.26_3","homepage":"https://gitlab.com/lv2/lilv","repo":"multilib"}
+{"name":"liblilv-32bit","short_desc":"Simple yet powerful C API for using LV2 plugins - Runtime library (32bit)","pkgver":"liblilv-32bit-0.28.0_1","homepage":"https://gitlab.com/lv2/lilv","repo":"multilib"}
 {"name":"libllvm18-32bit","short_desc":"LLVM Compiler Infrastructure Project - Version 18 - library (32bit)","pkgver":"libllvm18-32bit-18.1.8_6","homepage":"https://www.llvm.org","repo":"multilib"}
 {"name":"libllvm19-32bit","short_desc":"LLVM Compiler Infrastructure Project - Version 19 - library (32bit)","pkgver":"libllvm19-32bit-19.1.4_8","homepage":"https://www.llvm.org","repo":"multilib"}
 {"name":"libllvm21-32bit","short_desc":"LLVM Compiler Infrastructure Project - Version 21 - library (32bit)","pkgver":"libllvm21-32bit-21.1.7_1","homepage":"https://www.llvm.org","repo":"multilib"}
@@ -18682,7 +18682,7 @@
 {"name":"lightdm-devel-32bit","short_desc":"Light Display Manager - development files (32bit)","pkgver":"lightdm-devel-32bit-1.32.0_8","homepage":"https://github.com/CanonicalLtd/lightdm","repo":"multilib"}
 {"name":"lightdm-webkit2-greeter-32bit","short_desc":"Light Display Manager Webkit2 Greeter (32bit)","pkgver":"lightdm-webkit2-greeter-32bit-2.2.5_6","homepage":"https://github.com/Antergos/web-greeter","repo":"multilib"}
 {"name":"lightzone-32bit","short_desc":"Professional-level digital darkroom and photo editor (32bit)","pkgver":"lightzone-32bit-4.2.2_3","homepage":"http://www.lightzoneproject.org/","repo":"multilib"}
-{"name":"lilv-devel-32bit","short_desc":"Simple yet powerful C API for using LV2 plugins - Development files (32bit)","pkgver":"lilv-devel-32bit-0.24.26_3","homepage":"https://gitlab.com/lv2/lilv","repo":"multilib"}
+{"name":"lilv-devel-32bit","short_desc":"Simple yet powerful C API for using LV2 plugins - Development files (32bit)","pkgver":"lilv-devel-32bit-0.28.0_1","homepage":"https://gitlab.com/lv2/lilv","repo":"multilib"}
 {"name":"lily-devel-32bit","short_desc":"Interpreted language with a focus on expressiveness and type safety - development files (32bit)","pkgver":"lily-devel-32bit-2.5_1","homepage":"https://gitlab.com/FascinatedBox/lily","repo":"multilib"}
 {"name":"linbox-32bit","short_desc":"C++ library for exact, high-performance linear algebra (32bit)","pkgver":"linbox-32bit-1.7.1_1","homepage":"https://linalg.org","repo":"multilib"}
 {"name":"linbox-devel-32bit","short_desc":"C++ library for exact, high-performance linear algebra - development files (32bit)","pkgver":"linbox-devel-32bit-1.7.1_1","homepage":"https://linalg.org","repo":"multilib"}

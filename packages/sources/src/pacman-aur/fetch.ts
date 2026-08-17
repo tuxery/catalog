@@ -1,4 +1,4 @@
-import { gunzipSync } from "node:zlib";
+import { fetchGunzippedText } from "../_shared/http";
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
 import type { AurCacheEntry, AurFetchMetadata } from "./types";
@@ -41,13 +41,7 @@ export function mapPackages(packages: RawPackage[]): AurCacheEntry[] {
  * this many needs bucketed comparison, not naive pairwise scoring.
  */
 export async function fetchAur(cachePath: string): Promise<number> {
-  const response = await fetch(PACKAGES_URL);
-  if (!response.ok) {
-    throw new Error(`Failed to fetch AUR metadata dump: ${response.status} ${response.statusText}`);
-  }
-
-  const compressed = Buffer.from(await response.arrayBuffer());
-  const json = gunzipSync(compressed).toString("utf8");
+  const json = await fetchGunzippedText(PACKAGES_URL, "AUR metadata dump");
   const packages = JSON.parse(json) as RawPackage[];
   const entries = mapPackages(packages);
 

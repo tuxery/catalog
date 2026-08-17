@@ -10,6 +10,7 @@ import * as tar from "tar";
 // detect `XzReadableStream` as a named export from that shape, so it's
 // pulled off the default (whole `module.exports`) import instead.
 import xzDecompress from "xz-decompress";
+import { fetchOrThrow } from "../_shared/http";
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
 import type { GentooCacheEntry, GentooFetchMetadata } from "./types";
@@ -157,11 +158,9 @@ export function pickLatestPerPackage(entries: GentooCacheEntry[]): GentooCacheEn
  * only the md5-cache tree into `workDir`.
  */
 async function fetchAndExtractMd5Cache(workDir: string): Promise<string> {
-  const response = await fetch(URL);
-  if (!response.ok || !response.body) {
-    throw new Error(
-      `Failed to fetch Gentoo Portage snapshot: ${response.status} ${response.statusText}`,
-    );
+  const response = await fetchOrThrow(URL, "Gentoo Portage snapshot");
+  if (!response.body) {
+    throw new Error("Failed to fetch Gentoo Portage snapshot: response had no body");
   }
 
   const tarPath = join(workDir, "portage.tar");

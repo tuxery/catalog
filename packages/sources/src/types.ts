@@ -103,4 +103,20 @@ export interface SourcedPackage {
    * hierarchical as openSUSE's RPM Group path.
    */
   section?: string;
+  /**
+   * Whether this package's RPM provides list includes a synthetic
+   * `application(*.desktop)` entry — RPM tooling generates this
+   * automatically for any package that ships a `.desktop` file, a
+   * near-direct "this installs a launchable GUI app" signal. Only
+   * Fedora and openSUSE currently populate this (both parsed via
+   * `_shared/rpm-repodata.ts`) — verified real but low-coverage on both
+   * (~3% of packages), since most GUI apps just don't happen to trigger
+   * this particular synthetic-provides convention; absence isn't
+   * evidence of "not a GUI app", only `true` is meaningful. Used by
+   * `@tuxery/curator`'s enrich stage to set `CatalogApp.kind` — see the
+   * "GUI vs CLI classification" card for the broader (not yet
+   * implemented) plan, including a weaker Debian/Ubuntu Section-based
+   * heuristic.
+   */
+  hasDesktopFile?: boolean;
 }

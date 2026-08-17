@@ -127,6 +127,31 @@ describe("enrichApps", () => {
     expect(app?.shortDescription).toBe("");
   });
 
+  it("sets kind to gui when any member package has hasDesktopFile", () => {
+    const matched: MatchedApp[] = [
+      {
+        id: "fedora:0ad",
+        packages: [
+          pkg({ source: "aur", name: "0ad" }),
+          pkg({ source: "fedora", name: "0ad", hasDesktopFile: true }),
+        ],
+      },
+    ];
+
+    expect(enrichApps(matched)[0]?.kind).toBe("gui");
+  });
+
+  it("leaves kind undefined when no member package has hasDesktopFile evidence", () => {
+    const matched: MatchedApp[] = [
+      {
+        id: "aur:example",
+        packages: [pkg({ source: "aur", name: "example" })],
+      },
+    ];
+
+    expect(enrichApps(matched)[0]?.kind).toBeUndefined();
+  });
+
   it("carries the full packages array through unchanged", () => {
     const packages = [
       pkg({ source: "flathub", appId: "org.example.a" }),

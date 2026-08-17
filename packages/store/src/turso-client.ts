@@ -12,6 +12,8 @@ export interface AppRecord {
   shortDescription: string;
   longDescription?: string;
   homepage?: string;
+  /** "gui" when at least one source package has positive evidence of a launchable GUI app — see `CatalogApp.kind`'s doc comment for how narrow this signal still is. */
+  kind?: "gui";
   category?: string;
   developer?: string;
   publisher?: string;
@@ -58,6 +60,7 @@ const INSERT_COLUMNS = [
   "short_description",
   "long_description",
   "homepage",
+  "kind",
   "category",
   "developer",
   "publisher",
@@ -91,6 +94,7 @@ function appsTableSql(tableName: string): string {
       short_description TEXT NOT NULL,
       long_description TEXT,
       homepage TEXT,
+      kind TEXT,
       category TEXT,
       developer TEXT,
       publisher TEXT,
@@ -133,6 +137,7 @@ function toRow(app: AppRecord): unknown[] {
     app.shortDescription,
     app.longDescription ?? null,
     app.homepage ?? null,
+    app.kind ?? null,
     app.category ?? null,
     app.developer ?? null,
     app.publisher ?? null,

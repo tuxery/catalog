@@ -1,6 +1,6 @@
 {
   "source": "opensuse",
-  "fetchedAt": "2026-08-17T10:32:48.304Z",
+  "fetchedAt": "2026-08-17T17:28:48.301Z",
   "url": "https://download.opensuse.org/tumbleweed/repo/oss, https://download.opensuse.org/tumbleweed/repo/non-oss",
   "entryCount": 52524,
   "reposFetched": ["oss", "non-oss"]

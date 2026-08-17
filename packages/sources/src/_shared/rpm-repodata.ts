@@ -1,11 +1,18 @@
 import { XMLParser } from "fast-xml-parser";
 
+interface RawRpmProvidesEntry {
+  "@_name"?: string;
+}
+
 interface RawRpmPackage {
   name?: string;
   summary?: string;
   version?: { "@_ver"?: string };
   url?: string;
-  format?: { "rpm:group"?: string };
+  format?: {
+    "rpm:group"?: string;
+    "rpm:provides"?: { "rpm:entry"?: RawRpmProvidesEntry[] };
+  };
 }
 
 /**
@@ -19,7 +26,21 @@ export interface RpmPrimaryEntry {
   homepage?: string;
   /** RPM `<rpm:group>` value, e.g. "Development/Libraries/C and C++" — "Unspecified" on real data when the packager didn't set one (always Unspecified on Fedora in practice, ~31% of the time on openSUSE). */
   group?: string;
+  /**
+   * Whether this package's `<rpm:provides>` includes a synthetic
+   * `application(*.desktop)` entry — RPM tooling generates this
+   * automatically for any package that ships a `.desktop` file, a
+   * near-direct "this installs a launchable GUI app" signal (verified on
+   * real data: 0ad correctly flagged on both Fedora and openSUSE). Low
+   * coverage (~3% of packages on both real Fedora and openSUSE data) but
+   * 100% precise where present — most GUI apps just don't happen to
+   * trigger this particular synthetic-provides convention, so absence
+   * isn't evidence of "not a GUI app", only presence is meaningful.
+   */
+  hasDesktopFile: boolean;
 }
+
+const DESKTOP_PROVIDES_PATTERN = /^application\(.*\.desktop\)$/;
 
 /**
  * Finds the current primary metadata's location from `repomd.xml`. RPM
@@ -45,7 +66,7 @@ export function parsePrimaryXml(xml: string): RpmPrimaryEntry[] {
     ignoreAttributes: false,
     attributeNamePrefix: "@_",
     textNodeName: "#text",
-    isArray: (name) => name === "package",
+    isArray: (name) => name === "package" || name === "rpm:entry",
     // Without this, fast-xml-parser silently turns purely-numeric text
     // into a JS number — real bug hit on the actual data: a package
     // literally named "65535" came back as the number 65535, not the
@@ -59,11 +80,17 @@ export function parsePrimaryXml(xml: string): RpmPrimaryEntry[] {
 
   return packages
     .filter((pkg) => pkg.name)
-    .map((pkg) => ({
-      name: pkg.name ?? "",
-      summary: pkg.summary ?? "",
-      version: pkg.version?.["@_ver"] ?? "unknown",
-      homepage: pkg.url || undefined,
-      group: pkg.format?.["rpm:group"] || undefined,
-    }));
+    .map((pkg) => {
+      const provides = pkg.format?.["rpm:provides"]?.["rpm:entry"] ?? [];
+      return {
+        name: pkg.name ?? "",
+        summary: pkg.summary ?? "",
+        version: pkg.version?.["@_ver"] ?? "unknown",
+        homepage: pkg.url || undefined,
+        group: pkg.format?.["rpm:group"] || undefined,
+        hasDesktopFile: provides.some((entry) =>
+          DESKTOP_PROVIDES_PATTERN.test(entry["@_name"] ?? ""),
+        ),
+      };
+    });
 }

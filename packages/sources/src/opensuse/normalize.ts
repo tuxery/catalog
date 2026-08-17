@@ -13,5 +13,6 @@ export function normalize(entries: OpenSuseCacheEntry[]): SourcedPackage[] {
     appId: entry.name,
     homepage: entry.homepage,
     section: entry.group,
+    hasDesktopFile: entry.hasDesktopFile,
   }));
 }

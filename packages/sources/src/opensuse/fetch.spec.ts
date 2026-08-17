@@ -26,6 +26,9 @@ const PRIMARY_FIXTURE = `<?xml version="1.0" encoding="UTF-8"?>
   <url>https://play0ad.com/</url>
   <format>
     <rpm:group>Amusements/Games/Strategy/Real Time</rpm:group>
+    <rpm:provides>
+      <rpm:entry name="application(0ad.desktop)"/>
+    </rpm:provides>
   </format>
 </package>
 <package type="rpm">
@@ -51,7 +54,7 @@ describe("parsePrimary", () => {
     expect(entries.every((entry) => entry.repo === "oss")).toBe(true);
   });
 
-  it("extracts summary, version, homepage, and group", () => {
+  it("extracts summary, version, homepage, group, and hasDesktopFile", () => {
     expect(entries[0]).toEqual({
       name: "0ad",
       summary: "Cross-Platform RTS Game of Ancient Warfare",
@@ -59,6 +62,7 @@ describe("parsePrimary", () => {
       homepage: "https://play0ad.com/",
       repo: "oss",
       group: "Amusements/Games/Strategy/Real Time",
+      hasDesktopFile: true,
     });
   });
 
@@ -70,6 +74,7 @@ describe("parsePrimary", () => {
       homepage: undefined,
       repo: "oss",
       group: undefined,
+      hasDesktopFile: false,
     });
   });
 });

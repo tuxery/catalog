@@ -4,6 +4,7 @@ import { searchAur } from "./aur";
 import { searchDebian } from "./debian";
 import { searchFedora } from "./fedora";
 import { searchFlathub } from "./flathub";
+import { searchNixpkgs } from "./nixpkgs";
 import { searchSnapcraft } from "./snapcraft";
 import type { SourcedPackage } from "./types";
 import { searchUbuntu } from "./ubuntu";
@@ -23,6 +24,7 @@ export async function searchAllSources(query: string): Promise<SourcedPackage[]>
     searchUbuntu(query),
     searchFedora(query),
     searchArch(query),
+    searchNixpkgs(query),
   ]);
 
   return results.flat();

@@ -4,6 +4,7 @@ import { searchAppImage } from "./appimage";
 import { searchArch } from "./arch";
 import { searchAur } from "./aur";
 import { searchDebian } from "./debian";
+import { searchDeepin } from "./deepin";
 import { searchFedora } from "./fedora";
 import { searchFlathub } from "./flathub";
 import { searchGentoo } from "./gentoo";
@@ -43,6 +44,7 @@ export async function searchAllSources(query: string): Promise<SourcedPackage[]>
     searchGentoo(query),
     searchMint(query),
     searchPopOs(query),
+    searchDeepin(query),
   ]);
 
   return results.flat();

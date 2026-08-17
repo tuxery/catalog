@@ -19,7 +19,8 @@ export type PackageSourceId =
   | "solus"
   | "gentoo"
   | "mint"
-  | "popos";
+  | "popos"
+  | "deepin";
 
 /**
  * A single package as reported by one source, before deduplication.

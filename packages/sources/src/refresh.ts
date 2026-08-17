@@ -5,6 +5,7 @@ import { fetchAppImage } from "./appimage/fetch";
 import { fetchArch } from "./arch/fetch";
 import { fetchAur } from "./aur/fetch";
 import { fetchDebian } from "./debian/fetch";
+import { fetchDeepin } from "./deepin/fetch";
 import { fetchFedora } from "./fedora/fetch";
 import { fetchFlathub } from "./flathub/fetch";
 import { fetchGentoo } from "./gentoo/fetch";
@@ -37,6 +38,7 @@ const REFRESHERS: Record<string, (cachePath: string) => Promise<number>> = {
   gentoo: fetchGentoo,
   mint: fetchMint,
   popos: fetchPopOs,
+  deepin: fetchDeepin,
 };
 
 async function main() {

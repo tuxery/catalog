@@ -178,6 +178,52 @@ describe("enrichApps", () => {
     expect(enrichApps(matched)[0]?.kind).toBeUndefined();
   });
 
+  it("sets contentType to game from Flathub/AppCenter's direct hasGameCategory signal", () => {
+    const matched: MatchedApp[] = [
+      {
+        id: "flathub:0ad",
+        packages: [pkg({ source: "flatpak-flathub", name: "0 A.D.", hasGameCategory: true })],
+      },
+    ];
+
+    expect(enrichApps(matched)[0]?.contentType).toBe("game");
+  });
+
+  it("sets contentType to game from the Section-based heuristic when no hasGameCategory evidence exists", () => {
+    const matched: MatchedApp[] = [
+      {
+        id: "gentoo:0ad",
+        packages: [pkg({ source: "ebuild-gentoo", name: "0ad", section: "games-strategy" })],
+      },
+    ];
+
+    expect(enrichApps(matched)[0]?.contentType).toBe("game");
+  });
+
+  it("leaves contentType undefined when no member package has game evidence", () => {
+    const matched: MatchedApp[] = [
+      {
+        id: "flathub:example",
+        packages: [pkg({ source: "flatpak-flathub", name: "example", hasGameCategory: false })],
+      },
+    ];
+
+    expect(enrichApps(matched)[0]?.contentType).toBeUndefined();
+  });
+
+  it("evaluates kind and contentType independently — a GUI app group isn't assumed to be a game", () => {
+    const matched: MatchedApp[] = [
+      {
+        id: "fedora:gimp",
+        packages: [pkg({ source: "rpm-fedora", name: "gimp", hasDesktopFile: true })],
+      },
+    ];
+
+    const [app] = enrichApps(matched);
+    expect(app?.kind).toBe("gui");
+    expect(app?.contentType).toBeUndefined();
+  });
+
   it("carries the full packages array through unchanged", () => {
     const packages = [
       pkg({ source: "flatpak-flathub", appId: "org.example.a" }),

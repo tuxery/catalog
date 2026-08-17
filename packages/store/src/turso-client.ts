@@ -14,6 +14,8 @@ export interface AppRecord {
   homepage?: string;
   /** "gui" when at least one source package has positive evidence of a launchable GUI app — see `CatalogApp.kind`'s doc comment for how narrow this signal still is. */
   kind?: "gui";
+  /** "game" when at least one source package has positive evidence of being a game — see `CatalogApp.contentType`'s doc comment. */
+  contentType?: "game";
   category?: string;
   developer?: string;
   publisher?: string;
@@ -61,6 +63,7 @@ const INSERT_COLUMNS = [
   "long_description",
   "homepage",
   "kind",
+  "content_type",
   "category",
   "developer",
   "publisher",
@@ -95,6 +98,7 @@ function appsTableSql(tableName: string): string {
       long_description TEXT,
       homepage TEXT,
       kind TEXT,
+      content_type TEXT,
       category TEXT,
       developer TEXT,
       publisher TEXT,
@@ -138,6 +142,7 @@ function toRow(app: AppRecord): unknown[] {
     app.longDescription ?? null,
     app.homepage ?? null,
     app.kind ?? null,
+    app.contentType ?? null,
     app.category ?? null,
     app.developer ?? null,
     app.publisher ?? null,

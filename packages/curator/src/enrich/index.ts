@@ -1,5 +1,5 @@
 import type { PackageSourceId, SourcedPackage } from "@tuxery/sources";
-import { looksLikeGuiPackage } from "../filter/rules";
+import { looksLikeGamePackage, looksLikeGuiPackage } from "../filter/rules";
 import type { MatchedApp } from "../match/group";
 import type { CatalogApp } from "./types";
 
@@ -49,6 +49,18 @@ function hasGuiEvidence(pkg: SourcedPackage): boolean {
   return false;
 }
 
+/**
+ * Positive-evidence-only game signal: Flathub/AppCenter's direct
+ * `hasGameCategory`, or `looksLikeGamePackage`'s Section-based heuristic
+ * (see that function's doc comment for which sources it applies to).
+ * Never assumed "app" by default; see `CatalogApp.contentType`'s doc
+ * comment.
+ */
+function hasGameEvidence(pkg: SourcedPackage): boolean {
+  if (pkg.hasGameCategory) return true;
+  return looksLikeGamePackage(pkg.source, pkg.section);
+}
+
 /** Turns grouped packages into the display-ready `CatalogApp` records the website reads — see `types.ts` for what's populated today vs. tracked as roadmap. */
 export function enrichApps(matched: MatchedApp[]): CatalogApp[] {
   return matched.map((app) => {
@@ -61,6 +73,7 @@ export function enrichApps(matched: MatchedApp[]): CatalogApp[] {
       homepage: representative.homepage,
       packages: app.packages,
       kind: app.packages.some(hasGuiEvidence) ? "gui" : undefined,
+      contentType: app.packages.some(hasGameEvidence) ? "game" : undefined,
     };
   });
 }

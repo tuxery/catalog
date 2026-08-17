@@ -33,6 +33,24 @@ const FIXTURE = `<?xml version="1.0" encoding="UTF-8"?>
     <name>No Releases</name>
     <summary>Has no releases or icon yet</summary>
   </component>
+  <component type="desktop-application">
+    <id>org.example.SoloGame</id>
+    <name>Solo Game</name>
+    <summary>A game with a single category</summary>
+    <categories>
+      <category>Game</category>
+    </categories>
+  </component>
+  <component type="desktop-application">
+    <id>org.example.MultiCategory</id>
+    <name>Multi Category</name>
+    <summary>A game among several categories</summary>
+    <categories>
+      <category>Utility</category>
+      <category>Game</category>
+      <category>Simulation</category>
+    </categories>
+  </component>
 </components>
 `;
 
@@ -44,6 +62,8 @@ describe("parseAppstreamXml", () => {
       "org.mozilla.firefox",
       "org.example.Cli",
       "org.example.NoReleases",
+      "org.example.SoloGame",
+      "org.example.MultiCategory",
     ]);
   });
 
@@ -78,5 +98,23 @@ describe("parseAppstreamXml", () => {
     expect(noReleases?.version).toBeUndefined();
     expect(noReleases?.iconFilename).toBeUndefined();
     expect(noReleases?.homepage).toBeUndefined();
+  });
+
+  it("flags hasGameCategory false when there's no <categories> at all", () => {
+    const firefox = entries.find((entry) => entry.id === "org.mozilla.firefox");
+
+    expect(firefox?.hasGameCategory).toBe(false);
+  });
+
+  it("flags hasGameCategory true for a single Game category", () => {
+    const soloGame = entries.find((entry) => entry.id === "org.example.SoloGame");
+
+    expect(soloGame?.hasGameCategory).toBe(true);
+  });
+
+  it("flags hasGameCategory true when Game is one of several categories", () => {
+    const multiCategory = entries.find((entry) => entry.id === "org.example.MultiCategory");
+
+    expect(multiCategory?.hasGameCategory).toBe(true);
   });
 });

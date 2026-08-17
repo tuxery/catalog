@@ -32,11 +32,32 @@ export interface CatalogApp {
    * (`looksLikeGuiPackage` in curator's filter/rules.ts, broader coverage
    * but empirically verified against the Fedora/openSUSE signal rather
    * than 100% precise). See the "GUI vs CLI classification" GitHub
-   * Project card for what's still missing: an Arch/AUR signal,
-   * Flatpak/Snap/AppImage source presence as a weaker fallback, and
-   * app-side consumption.
+   * Project card for what's still missing: an Arch/AUR signal, and
+   * Flatpak/Snap/AppImage source presence as a weaker fallback.
    */
   kind?: "gui";
+
+  /**
+   * "game" when at least one member package carries positive evidence of
+   * being a game — `undefined` otherwise, same positive-evidence-only
+   * discipline as `kind` (there's no reliable "confirmed not a game"
+   * signal, so absence never means "definitely an app"). A different
+   * axis from `kind` entirely — a game can be GUI or terminal-based (e.g.
+   * a roguelike), so the two are checked independently. Two signal
+   * families feed this (see `enrich/index.ts`'s `hasGameEvidence`):
+   * `SourcedPackage.hasGameCategory` (Flathub/AppCenter's direct
+   * AppStream `<category>Game</category>` marker, the freedesktop.org
+   * menu spec's own top-level category) and `looksLikeGamePackage` in
+   * curator's filter/rules.ts (Debian-family `games` Section variants,
+   * Gentoo's `games-*` category, openSUSE's `Amusements/Games` group,
+   * Solus's `games.*` PartOf — each sampled against real data before
+   * trusting it, same discipline as the GUI Section heuristic). See the
+   * "Apps vs games classification is missing from the data model"
+   * GitHub Project card for what's still missing: category taxonomy
+   * (genre-level browsing) is a separate, larger, unresolved card this
+   * doesn't attempt to solve.
+   */
+  contentType?: "game";
 
   /**
    * Not resolved yet — sources only carry a bare filename

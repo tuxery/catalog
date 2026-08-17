@@ -26,6 +26,7 @@ describe("parseAppstream", () => {
         version: "153.0.4",
         iconFilename: undefined,
         homepage: undefined,
+        hasGameCategory: false,
       },
     ]);
   });

@@ -143,6 +143,22 @@ describe("looksLikeSupportSection", () => {
     expect(looksLikeSupportSection("phpPackages")).toBe(false);
   });
 
+  it("flags openSUSE's library/doc/font/localization/metapackage groups", () => {
+    expect(looksLikeSupportSection("System/Libraries")).toBe(true);
+    expect(looksLikeSupportSection("Documentation/HTML")).toBe(true);
+    expect(looksLikeSupportSection("Documentation/Other")).toBe(true);
+    expect(looksLikeSupportSection("System/X11/Fonts")).toBe(true);
+    expect(looksLikeSupportSection("System/Localization")).toBe(true);
+    expect(looksLikeSupportSection("Metapackages")).toBe(true);
+  });
+
+  it("does not flag openSUSE's Development/* groups — same language-ecosystem trap as Debian's devel/python/perl/golang sections", () => {
+    expect(looksLikeSupportSection("Development/Libraries/C and C++")).toBe(false);
+    expect(looksLikeSupportSection("Development/Languages/Python")).toBe(false);
+    expect(looksLikeSupportSection("Development/Languages/Other")).toBe(false);
+    expect(looksLikeSupportSection("Development/Tools/Other")).toBe(false);
+  });
+
   it("does not flag an absent section", () => {
     expect(looksLikeSupportSection(undefined)).toBe(false);
   });

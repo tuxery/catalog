@@ -175,8 +175,46 @@ const NIX_NOISE_PREFIX_PATTERNS: RegExp[] = [
   /^terraform-providers$/,
 ];
 
-/** Best-effort guess from Debian/Ubuntu's `Section` field or nixpkgs' attribute-path prefix, alongside `looksLikeSupportPackage`'s name-based guess — see this file's comments on `NOISE_SECTIONS`/`NIX_NOISE_PREFIX_PATTERNS` for which values are safe. */
+// openSUSE reuses the same `section` slot for its hierarchical RPM
+// `<rpm:group>` value (e.g. `System/Libraries`, `Documentation/HTML`) — see
+// SourcedPackage.section. Same verification discipline as NOISE_SECTIONS/
+// NIX_NOISE_PREFIX_PATTERNS above: sampled 15-60 real entries per group
+// before including it, and hit the exact same trap Debian's "devel"/
+// "kernel"/language sections and Nixpkgs' `kdePackages` did —
+// `Development/Libraries/*` and `Development/Languages/*` were checked and
+// *rejected* despite the tempting "just libraries" framing: real
+// standalone tools turned up in every one sampled (clisp, love, act,
+// typescript, codespell, dialog, ...), same "language ecosystem mixes in
+// real tools" reasoning as Debian's python/perl/golang sections.
+//
+// Included — every sample checked (15-60 entries per group) was
+// unambiguously a support package, with one single exception across all
+// six groups (Metapackages' "seidl", a real standalone monitoring client
+// mixed in among 193 patterns-*/installation-images-*/skelcd-* install-time
+// metapackages — allowlisted by exact name in overrides/keep.ndjson rather
+// than loosening this rule, same as Debian's gnu-r r-base/littler):
+// - System/Libraries — shared libraries and runtime plugins (60 sampled,
+//   zero exceptions).
+// - Documentation/HTML / Documentation/Other — javadoc, manuals, API docs.
+// - System/X11/Fonts — font packages.
+// - System/Localization — `-lang`/translation packages.
+// - Metapackages — `patterns-*` desktop/server install selections,
+//   `installation-images-*`, `skelcd-*` — install-time bundles, not apps.
+const OPENSUSE_NOISE_GROUPS = new Set([
+  "System/Libraries",
+  "Documentation/HTML",
+  "Documentation/Other",
+  "System/X11/Fonts",
+  "System/Localization",
+  "Metapackages",
+]);
+
+/** Best-effort guess from Debian/Ubuntu's `Section` field, nixpkgs' attribute-path prefix, or openSUSE's `<rpm:group>` value, alongside `looksLikeSupportPackage`'s name-based guess — see this file's comments on `NOISE_SECTIONS`/`NIX_NOISE_PREFIX_PATTERNS`/`OPENSUSE_NOISE_GROUPS` for which values are safe. */
 export function looksLikeSupportSection(section: string | undefined): boolean {
   if (section === undefined) return false;
-  return NOISE_SECTIONS.has(section) || NIX_NOISE_PREFIX_PATTERNS.some((p) => p.test(section));
+  return (
+    NOISE_SECTIONS.has(section) ||
+    NIX_NOISE_PREFIX_PATTERNS.some((p) => p.test(section)) ||
+    OPENSUSE_NOISE_GROUPS.has(section)
+  );
 }

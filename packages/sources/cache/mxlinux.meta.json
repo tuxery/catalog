@@ -1,0 +1,9 @@
+{
+  "source": "mxlinux",
+  "fetchedAt": "2026-08-17T14:59:11.289Z",
+  "url": "https://mxrepo.com/mx/repo/dists/trixie/main/binary-amd64/Packages.gz",
+  "entryCount": 142,
+  "release": "trixie",
+  "component": "main",
+  "arch": "amd64"
+}

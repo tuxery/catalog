@@ -1,6 +1,6 @@
 {
-  "source": "mint",
-  "fetchedAt": "2026-08-17T14:37:21.103Z",
+  "source": "deb-mint",
+  "fetchedAt": "2026-08-17T19:47:20.987Z",
   "url": "http://packages.linuxmint.com/dists/zena/main/binary-amd64/Packages.gz",
   "entryCount": 108,
   "release": "zena",

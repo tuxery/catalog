@@ -4503,7 +4503,7 @@
 {"name":"jupp","short_desc":"Portable version of JOE’s Own Editor","pkgver":"jupp-3.1jupp41_1","homepage":"https://www.mirbsd.org/jupp.htm","repo":"main"}
 {"name":"jupyterlab","short_desc":"JupyterLab computational environment","pkgver":"jupyterlab-4.4.10_1","homepage":"https://github.com/jupyterlab/jupyterlab/","repo":"main"}
 {"name":"just","short_desc":"Just a command runner","pkgver":"just-1.51.0_1","homepage":"https://github.com/casey/just","repo":"main"}
-{"name":"just-lsp","short_desc":"Language server for just","pkgver":"just-lsp-0.4.6_1","homepage":"https://terror.github.io/just-lsp","repo":"main"}
+{"name":"just-lsp","short_desc":"Language server for just","pkgver":"just-lsp-0.6.2_1","homepage":"https://terror.github.io/just-lsp","repo":"main"}
 {"name":"justbuild","short_desc":"Generic build system supporting multi-repository builds","pkgver":"justbuild-1.6.6_3","homepage":"https://github.com/just-buildsystem/justbuild/","repo":"main"}
 {"name":"jwm","short_desc":"Light-weight window manager for the X11 Window System","pkgver":"jwm-2.4.6_1","homepage":"http://joewing.net/projects/jwm","repo":"main"}
 {"name":"jxrlib","short_desc":"Open source implementation of jpegxr","pkgver":"jxrlib-0.2.2_1","homepage":"https://github.com/glencoesoftware/jxrlib","repo":"main"}

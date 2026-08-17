@@ -1,6 +1,6 @@
 {
-  "source": "gentoo",
-  "fetchedAt": "2026-08-17T14:22:53.654Z",
+  "source": "ebuild-gentoo",
+  "fetchedAt": "2026-08-17T19:47:19.612Z",
   "url": "https://distfiles.gentoo.org/snapshots/portage-latest.tar.xz",
   "entryCount": 19443
 }

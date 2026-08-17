@@ -6,14 +6,26 @@ import { spawnSync } from "node:child_process";
 // of truth for the set of ids is packages/sources/src/types.ts's
 // PackageSourceId union — keep this in sync with it.
 const ALL_SOURCE_IDS = [
-  "flathub",
-  "snapcraft",
+  "flatpak-flathub",
+  "flatpak-appcenter",
+  "snap-snapcraft",
   "appimage",
-  "aur",
-  "debian",
-  "ubuntu",
-  "fedora",
-  "arch",
+  "pacman-aur",
+  "deb-debian",
+  "deb-ubuntu",
+  "rpm-fedora",
+  "pacman-arch",
+  "nix-nixpkgs",
+  "rpm-opensuse",
+  "apk-alpine",
+  "xbps-void",
+  "slackware",
+  "eopkg-solus",
+  "ebuild-gentoo",
+  "deb-mint",
+  "deb-popos",
+  "deb-deepin",
+  "deb-mxlinux",
 ];
 
 /** Re-fetches the given sources (default: all) via @tuxery/sources' existing `refresh` CLI, one at a time. */

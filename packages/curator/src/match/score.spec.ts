@@ -4,7 +4,7 @@ import { MATCH_WEIGHTS, scoreMatch } from "./score";
 
 function pkg(overrides: Partial<SourcedPackage>): SourcedPackage {
   return {
-    source: "flathub",
+    source: "flatpak-flathub",
     name: "Example",
     description: "",
     version: "1.0.0",

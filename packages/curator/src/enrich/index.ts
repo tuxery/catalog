@@ -11,7 +11,7 @@ import type { CatalogApp } from "./types";
  * least (terse descriptions, packager-style names). Sources not listed
  * here fall back to array order.
  */
-const SOURCE_PRIORITY: PackageSourceId[] = ["flathub", "snapcraft", "appimage"];
+const SOURCE_PRIORITY: PackageSourceId[] = ["flatpak-flathub", "snap-snapcraft", "appimage"];
 
 function pickByPriority(packages: SourcedPackage[]): SourcedPackage {
   for (const source of SOURCE_PRIORITY) {
@@ -43,7 +43,7 @@ function pickDescription(packages: SourcedPackage[]): string {
  */
 function hasGuiEvidence(pkg: SourcedPackage): boolean {
   if (pkg.hasDesktopFile) return true;
-  if (pkg.source === "debian" || pkg.source === "ubuntu") {
+  if (pkg.source === "deb-debian" || pkg.source === "deb-ubuntu") {
     return looksLikeGuiPackage(pkg.name, pkg.section);
   }
   return false;

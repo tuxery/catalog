@@ -5,7 +5,7 @@ import type { MatchOverrides } from "./overrides";
 
 function pkg(overrides: Partial<SourcedPackage>): SourcedPackage {
   return {
-    source: "flathub",
+    source: "flatpak-flathub",
     name: "Example",
     description: "",
     version: "1.0.0",
@@ -18,8 +18,8 @@ const NO_OVERRIDES: MatchOverrides = { manual: [], denyPairs: new Set() };
 describe("groupPackages", () => {
   it("groups packages with the same appId across sources (tier 1: exact appId)", () => {
     const packages = [
-      pkg({ source: "flathub", name: "Discord", appId: "com.discordapp.Discord" }),
-      pkg({ source: "snapcraft", name: "Discord", appId: "com.discordapp.Discord" }),
+      pkg({ source: "flatpak-flathub", name: "Discord", appId: "com.discordapp.Discord" }),
+      pkg({ source: "snap-snapcraft", name: "Discord", appId: "com.discordapp.Discord" }),
     ];
 
     const groups = groupPackages(packages, NO_OVERRIDES);
@@ -30,8 +30,8 @@ describe("groupPackages", () => {
 
   it("keeps unrelated packages in separate groups", () => {
     const packages = [
-      pkg({ source: "flathub", name: "Discord", appId: "com.discordapp.Discord" }),
-      pkg({ source: "flathub", name: "Spotify", appId: "com.spotify.Client" }),
+      pkg({ source: "flatpak-flathub", name: "Discord", appId: "com.discordapp.Discord" }),
+      pkg({ source: "flatpak-flathub", name: "Spotify", appId: "com.spotify.Client" }),
     ];
 
     expect(groupPackages(packages, NO_OVERRIDES)).toHaveLength(2);
@@ -39,8 +39,8 @@ describe("groupPackages", () => {
 
   it("groups packages with the same normalized name but different/no appId (tier 2: exact name)", () => {
     const packages = [
-      pkg({ source: "flathub", name: "GIMP", appId: "org.gimp.GIMP" }),
-      pkg({ source: "aur", name: "gimp", appId: undefined }),
+      pkg({ source: "flatpak-flathub", name: "GIMP", appId: "org.gimp.GIMP" }),
+      pkg({ source: "pacman-aur", name: "gimp", appId: undefined }),
     ];
 
     expect(groupPackages(packages, NO_OVERRIDES)).toHaveLength(1);
@@ -48,8 +48,8 @@ describe("groupPackages", () => {
 
   it("unions on appId even when names are completely different — appId is a stronger signal than name similarity", () => {
     const packages = [
-      pkg({ source: "flathub", name: "vscode", appId: "com.visualstudio.code" }),
-      pkg({ source: "snapcraft", name: "visual-studio-code", appId: "com.visualstudio.code" }),
+      pkg({ source: "flatpak-flathub", name: "vscode", appId: "com.visualstudio.code" }),
+      pkg({ source: "snap-snapcraft", name: "visual-studio-code", appId: "com.visualstudio.code" }),
     ];
 
     expect(groupPackages(packages, NO_OVERRIDES)).toHaveLength(1);
@@ -57,8 +57,8 @@ describe("groupPackages", () => {
 
   it("does not merge packages with neither a shared appId nor a shared normalized name", () => {
     const packages = [
-      pkg({ source: "flathub", name: "vscode", appId: "com.visualstudio.code" }),
-      pkg({ source: "snapcraft", name: "visual-studio-code", appId: "different-app-id" }),
+      pkg({ source: "flatpak-flathub", name: "vscode", appId: "com.visualstudio.code" }),
+      pkg({ source: "snap-snapcraft", name: "visual-studio-code", appId: "different-app-id" }),
     ];
 
     // No fuzzy/scored fallback — see group.ts's doc comment for why a
@@ -68,14 +68,18 @@ describe("groupPackages", () => {
 
   it("tier 0: manual overrides force a union regardless of appId/name", () => {
     const packages = [
-      pkg({ source: "flathub", name: "Totally Different Name", appId: "org.example.a" }),
-      pkg({ source: "aur", name: "unrelated-looking-name", appId: "unrelated-looking-name" }),
+      pkg({ source: "flatpak-flathub", name: "Totally Different Name", appId: "org.example.a" }),
+      pkg({
+        source: "pacman-aur",
+        name: "unrelated-looking-name",
+        appId: "unrelated-looking-name",
+      }),
     ];
     const overrides: MatchOverrides = {
       manual: [
         {
-          a: { source: "flathub", appId: "org.example.a" },
-          b: { source: "aur", appId: "unrelated-looking-name" },
+          a: { source: "flatpak-flathub", appId: "org.example.a" },
+          b: { source: "pacman-aur", appId: "unrelated-looking-name" },
           reason: "test: manually confirmed same app under very different names",
         },
       ],
@@ -87,12 +91,12 @@ describe("groupPackages", () => {
 
   it("deny overrides block an otherwise-exact appId match", () => {
     const packages = [
-      pkg({ source: "flathub", name: "Ambiguous", appId: "shared-id" }),
-      pkg({ source: "aur", name: "Ambiguous", appId: "shared-id" }),
+      pkg({ source: "flatpak-flathub", name: "Ambiguous", appId: "shared-id" }),
+      pkg({ source: "pacman-aur", name: "Ambiguous", appId: "shared-id" }),
     ];
     const overrides: MatchOverrides = {
       manual: [],
-      denyPairs: new Set(["aur:shared-id|flathub:shared-id"]),
+      denyPairs: new Set(["flatpak-flathub:shared-id|pacman-aur:shared-id"]),
     };
 
     expect(groupPackages(packages, overrides)).toHaveLength(2);
@@ -100,8 +104,8 @@ describe("groupPackages", () => {
 
   it("does not union generic-name-blocklisted names on name alone (tier 2 is skipped for them)", () => {
     const packages = [
-      pkg({ source: "flathub", name: "Calculator", appId: "org.gnome.Calculator" }),
-      pkg({ source: "flathub", name: "Calculator", appId: "org.kde.kalk" }),
+      pkg({ source: "flatpak-flathub", name: "Calculator", appId: "org.gnome.Calculator" }),
+      pkg({ source: "flatpak-flathub", name: "Calculator", appId: "org.kde.kalk" }),
     ];
 
     expect(groupPackages(packages, NO_OVERRIDES)).toHaveLength(2);
@@ -109,15 +113,15 @@ describe("groupPackages", () => {
 
   it("still unions a blocklisted name via tier 1 (exact appId) when appId genuinely matches", () => {
     const packages = [
-      pkg({ source: "flathub", name: "Calculator", appId: "org.gnome.Calculator" }),
-      pkg({ source: "snapcraft", name: "gnome-calculator", appId: "org.gnome.Calculator" }),
+      pkg({ source: "flatpak-flathub", name: "Calculator", appId: "org.gnome.Calculator" }),
+      pkg({ source: "snap-snapcraft", name: "gnome-calculator", appId: "org.gnome.Calculator" }),
     ];
 
     expect(groupPackages(packages, NO_OVERRIDES)).toHaveLength(1);
   });
 
   it("uses the real (currently empty) override files when none are passed", () => {
-    const packages = [pkg({ source: "flathub", name: "Solo", appId: "org.example.solo" })];
+    const packages = [pkg({ source: "flatpak-flathub", name: "Solo", appId: "org.example.solo" })];
 
     expect(groupPackages(packages)).toHaveLength(1);
   });

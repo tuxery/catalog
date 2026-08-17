@@ -5,7 +5,7 @@ import { enrichApps } from "./index";
 
 function pkg(overrides: Partial<SourcedPackage>): SourcedPackage {
   return {
-    source: "flathub",
+    source: "flatpak-flathub",
     name: "Example",
     description: "An example package.",
     version: "1.0.0",
@@ -45,8 +45,12 @@ describe("enrichApps", () => {
       {
         id: "aur:example",
         packages: [
-          pkg({ source: "aur", name: "example", description: "terse packager description" }),
-          pkg({ source: "flathub", name: "Example", description: "Human-readable summary." }),
+          pkg({ source: "pacman-aur", name: "example", description: "terse packager description" }),
+          pkg({
+            source: "flatpak-flathub",
+            name: "Example",
+            description: "Human-readable summary.",
+          }),
         ],
       },
     ];
@@ -63,8 +67,8 @@ describe("enrichApps", () => {
       {
         id: "aur:example",
         packages: [
-          pkg({ source: "aur", name: "example", description: "terse" }),
-          pkg({ source: "snapcraft", name: "Example", description: "Snap summary." }),
+          pkg({ source: "pacman-aur", name: "example", description: "terse" }),
+          pkg({ source: "snap-snapcraft", name: "Example", description: "Snap summary." }),
         ],
       },
     ];
@@ -80,8 +84,8 @@ describe("enrichApps", () => {
       {
         id: "aur:example",
         packages: [
-          pkg({ source: "aur", name: "example-aur", description: "aur desc" }),
-          pkg({ source: "debian", name: "example-debian", description: "debian desc" }),
+          pkg({ source: "pacman-aur", name: "example-aur", description: "aur desc" }),
+          pkg({ source: "deb-debian", name: "example-debian", description: "debian desc" }),
         ],
       },
     ];
@@ -98,7 +102,7 @@ describe("enrichApps", () => {
         packages: [
           pkg({ source: "appimage", name: "Bazecor", description: "" }),
           pkg({
-            source: "aur",
+            source: "pacman-aur",
             name: "bazecor",
             description: "Graphical configurator for Dygma keyboards",
           }),
@@ -132,8 +136,8 @@ describe("enrichApps", () => {
       {
         id: "fedora:0ad",
         packages: [
-          pkg({ source: "aur", name: "0ad" }),
-          pkg({ source: "fedora", name: "0ad", hasDesktopFile: true }),
+          pkg({ source: "pacman-aur", name: "0ad" }),
+          pkg({ source: "rpm-fedora", name: "0ad", hasDesktopFile: true }),
         ],
       },
     ];
@@ -145,7 +149,7 @@ describe("enrichApps", () => {
     const matched: MatchedApp[] = [
       {
         id: "aur:example",
-        packages: [pkg({ source: "aur", name: "example" })],
+        packages: [pkg({ source: "pacman-aur", name: "example" })],
       },
     ];
 
@@ -156,7 +160,7 @@ describe("enrichApps", () => {
     const matched: MatchedApp[] = [
       {
         id: "debian:abiword",
-        packages: [pkg({ source: "debian", name: "abiword", section: "editors" })],
+        packages: [pkg({ source: "deb-debian", name: "abiword", section: "editors" })],
       },
     ];
 
@@ -167,7 +171,7 @@ describe("enrichApps", () => {
     const matched: MatchedApp[] = [
       {
         id: "gentoo:example",
-        packages: [pkg({ source: "gentoo", name: "example", section: "games-strategy" })],
+        packages: [pkg({ source: "ebuild-gentoo", name: "example", section: "games-strategy" })],
       },
     ];
 
@@ -176,8 +180,8 @@ describe("enrichApps", () => {
 
   it("carries the full packages array through unchanged", () => {
     const packages = [
-      pkg({ source: "flathub", appId: "org.example.a" }),
-      pkg({ source: "snapcraft", appId: "example" }),
+      pkg({ source: "flatpak-flathub", appId: "org.example.a" }),
+      pkg({ source: "snap-snapcraft", appId: "example" }),
     ];
     const matched: MatchedApp[] = [{ id: "flathub:org.example.a", packages }];
 

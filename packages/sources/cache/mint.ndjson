@@ -1,0 +1,108 @@
+{"name":"aptkit","description":"transaction based package management service","version":"1.1.2","homepage":"https://github.com/linuxmint/aptkit","section":"admin"}
+{"name":"bulky","description":"Bulk Renamer","version":"4.2","section":"misc"}
+{"name":"captain","description":"Collection of APT tools","version":"1.1.2","section":"admin"}
+{"name":"cinnamon-core","description":"Cinnamon desktop environment - essential components","version":"2025.12.15+mint22.3","section":"admin"}
+{"name":"cinnamon-desktop-environment","description":"Cinnamon desktop environment - full desktop with extra components","version":"2025.12.15+mint22.3","section":"admin"}
+{"name":"circle-flags-svg","description":"Circle flags in SVG format","version":"2.7.0+mint1","section":"universe/misc"}
+{"name":"folder-color-switcher","description":"Change a folder color","version":"1.7.1","section":"utils"}
+{"name":"grub2-theme-mint","description":"Grub2 theme for Linux Mint","version":"1.2.3","section":"misc"}
+{"name":"grub2-theme-mint-2k","description":"Grub2 theme for Linux Mint","version":"1.2.3","section":"misc"}
+{"name":"hypnotix","description":"IPTV Player","version":"5.6","section":"video"}
+{"name":"ia32-libs","description":"","version":"2020.05.27","section":"admin"}
+{"name":"iso-flag-png","description":"ISO country flags in PNG format","version":"1.0.4","section":"universe/misc"}
+{"name":"lightdm-settings","description":"LightDM configuration tool","version":"2.1.1","section":"gnome"}
+{"name":"linuxmint-keyring","description":"GnuPG key of the Linux Mint repository","version":"2022.06.21","section":"misc"}
+{"name":"live-installer","description":"Live Installer","version":"2025.03.28","section":"admin"}
+{"name":"mate-desktop-environment","description":"MATE desktop environment - full desktop with extra components","version":"2025.12.15+mint22.3","section":"admin"}
+{"name":"mate-desktop-environment-core","description":"MATE Desktop Environment (essential components, metapackage)","version":"2025.12.15+mint22.3","section":"admin"}
+{"name":"mint-artwork","description":"Linux Mint Artwork and Resources","version":"1.9.3","section":"gnome"}
+{"name":"mint-backgrounds-maya","description":"The desktop backgrounds for Linux Mint 13 Maya","version":"1.5","section":"admin"}
+{"name":"mint-backgrounds-nadia","description":"The desktop backgrounds for Linux Mint 14 Nadia","version":"1.4","section":"admin"}
+{"name":"mint-backgrounds-olivia","description":"The desktop backgrounds for Linux Mint 15 Olivia","version":"1.7","section":"admin"}
+{"name":"mint-backgrounds-petra","description":"The desktop backgrounds for Linux Mint 16 Petra","version":"1.7","section":"admin"}
+{"name":"mint-backgrounds-qiana","description":"The desktop backgrounds for Linux Mint 17 Qiana","version":"1.5","section":"admin"}
+{"name":"mint-backgrounds-rafaela","description":"The desktop backgrounds for Linux Mint 17.2 Rafaela","version":"1.2","section":"admin"}
+{"name":"mint-backgrounds-rebecca","description":"The desktop backgrounds for Linux Mint 17.1 Rebecca","version":"1.5","section":"admin"}
+{"name":"mint-backgrounds-retro","description":"Backgrounds from early versions of Linux Mint","version":"1.3","section":"admin"}
+{"name":"mint-backgrounds-rosa","description":"The desktop backgrounds for Linux Mint 17.3 Rosa","version":"1.2","section":"admin"}
+{"name":"mint-backgrounds-sarah","description":"The desktop backgrounds for Linux Mint 18 Sarah","version":"1.1","section":"admin"}
+{"name":"mint-backgrounds-serena","description":"The desktop backgrounds for Linux Mint 18.1 Serena","version":"1.1","section":"admin"}
+{"name":"mint-backgrounds-sonya","description":"The desktop backgrounds for Linux Mint 18.2 Sonya","version":"1.1","section":"admin"}
+{"name":"mint-backgrounds-sylvia","description":"The desktop backgrounds for Linux Mint 18.3 Sylvia","version":"1.2","section":"admin"}
+{"name":"mint-backgrounds-tara","description":"The desktop backgrounds for Linux Mint 19 Tara","version":"1.1","section":"admin"}
+{"name":"mint-backgrounds-tessa","description":"The desktop backgrounds for Linux Mint 19.1 Tessa","version":"1.1","section":"admin"}
+{"name":"mint-backgrounds-tina","description":"The desktop backgrounds for Linux Mint 19.2 Tina","version":"1.2","section":"admin"}
+{"name":"mint-backgrounds-tricia","description":"The desktop backgrounds for Linux Mint 19.3 Tricia","version":"1.1","section":"admin"}
+{"name":"mint-backgrounds-ulyana","description":"The desktop backgrounds for Linux Mint 20 Ulyana","version":"1.1","section":"admin"}
+{"name":"mint-backgrounds-ulyssa","description":"The desktop backgrounds for Linux Mint 20.1 Ulyssa","version":"1.1","section":"admin"}
+{"name":"mint-backgrounds-uma","description":"The desktop backgrounds for Linux Mint 20.2 Uma","version":"1.2","section":"admin"}
+{"name":"mint-backgrounds-una","description":"The desktop backgrounds for Linux Mint 20.3 Una","version":"1.1","section":"admin"}
+{"name":"mint-backgrounds-vanessa","description":"The desktop backgrounds for Linux Mint 21 Vanessa","version":"1.1","section":"admin"}
+{"name":"mint-backgrounds-vera","description":"The desktop backgrounds for Linux Mint 21.1 Vera","version":"1.0","section":"admin"}
+{"name":"mint-backgrounds-victoria","description":"The desktop backgrounds for Linux Mint 21.2 Victoria","version":"1.2","section":"admin"}
+{"name":"mint-backgrounds-virginia","description":"The desktop backgrounds for Linux Mint 21.3 Virginia","version":"1.1","section":"admin"}
+{"name":"mint-backgrounds-wallpapers","description":"Desktop backgrounds - Wallpapers","version":"1.0","section":"admin"}
+{"name":"mint-backgrounds-wilma","description":"The desktop backgrounds for Linux Mint 22 Wilma","version":"1.1","section":"admin"}
+{"name":"mint-common","description":"Common scripts and resources for Linux Mint","version":"2.5.1","section":"admin"}
+{"name":"mint-cursor-themes","description":"Linux Mint Cursor themes","version":"1.0.2","section":"gnome"}
+{"name":"mint-dev-pkg","description":"A dummy package for testing purpose","version":"1.0","section":"admin"}
+{"name":"mint-dev-pkg-debconf","description":"A dummy package for testing purpose","version":"1.0","section":"admin"}
+{"name":"mint-dev-pkg-dep","description":"A dummy package for testing purpose","version":"1.0","section":"admin"}
+{"name":"mint-dev-pkg-rec","description":"A dummy package for testing purpose","version":"1.0","section":"admin"}
+{"name":"mint-dev-pkg-rec2","description":"A dummy package for testing purpose","version":"1.0","section":"admin"}
+{"name":"mint-dev-tools","description":"A collection of tools to develop/compile Linux Mint projects","version":"1.5.4","section":"admin"}
+{"name":"mint-info-cinnamon","description":"Necessary information about the Linux Mint release and edition.","version":"2025.11.11","section":"admin"}
+{"name":"mint-info-mate","description":"Necessary information about the Linux Mint release and edition.","version":"2025.11.11","section":"admin"}
+{"name":"mint-info-xfce","description":"Necessary information about the Linux Mint release and edition.","version":"2025.11.11","section":"admin"}
+{"name":"mint-l-icons","description":"Mint-L icon theme","version":"1.8.0","homepage":"https://github.com/linuxmint/mint-l-icons","section":"gnome"}
+{"name":"mint-l-theme","description":"Mint-L theme","version":"2.0.6","section":"gnome"}
+{"name":"mint-live-session","description":"A collection of files used in the live session","version":"1.0.4","section":"admin"}
+{"name":"mint-meta-cinnamon","description":"Set of packages installed by default in the Cinnamon edition of Linux Mint","version":"2025.12.15+mint22.3","section":"admin"}
+{"name":"mint-meta-codecs","description":"All the packages required for multimedia support in Linux Mint.","version":"2025.12.15+mint22.3","section":"admin"}
+{"name":"mint-meta-core","description":"Core Linux Mint packages","version":"2025.12.15+mint22.3","section":"admin"}
+{"name":"mint-meta-mate","description":"Set of packages installed by default in the MATE edition of Linux Mint","version":"2025.12.15+mint22.3","section":"admin"}
+{"name":"mint-meta-xfce","description":"Set of packages installed by default in the Xfce edition of Linux Mint","version":"2025.12.15+mint22.3","section":"admin"}
+{"name":"mint-mirrors","description":"Linux Mint Repository mirrors","version":"1.2.9","section":"admin"}
+{"name":"mint-themes","description":"Mint themes","version":"2.3.8","section":"gnome"}
+{"name":"mint-translations","description":"Translation files for Linux Mint","version":"2026.01.08","section":"admin"}
+{"name":"mint-upgrade-info","description":"Information about upgrade paths","version":"1.3.0","section":"admin"}
+{"name":"mint-x-icons","description":"Mint-X icon theme","version":"1.7.5","section":"gnome"}
+{"name":"mint-y-icons","description":"Mint-Y icon theme","version":"1.9.1","homepage":"https://github.com/linuxmint/mint-y-icons","section":"gnome"}
+{"name":"mintbackup","description":"Home Directory Backup Tool","version":"2.4.7","section":"admin"}
+{"name":"mintchat","description":"Chat integration for Linux Mint","version":"2.0","section":"admin"}
+{"name":"mintdesktop","description":"Desktop configuration tool","version":"3.7.9","section":"admin"}
+{"name":"mintdrivers","description":"Driver Manager","version":"1.8.8","section":"admin"}
+{"name":"mintinstall","description":"Software Manager","version":"8.4.0","section":"admin"}
+{"name":"mintlocale","description":"Language selection tool","version":"1.6.6","section":"admin"}
+{"name":"mintmenu","description":"Advanced MATE menu","version":"6.2.3","section":"admin"}
+{"name":"mintnanny","description":"Domain blocker for Linux Mint","version":"1.6.0","section":"admin"}
+{"name":"mintreport","description":"Troubleshooting tool for Linux Mint","version":"1.6.1","section":"admin"}
+{"name":"mintstick","description":"write .img and .iso files to USB sticks","version":"1.6.6","section":"misc"}
+{"name":"mintsysadm","description":"System Administration tool","version":"1.0.4","section":"admin"}
+{"name":"mintsystem","description":"Linux Mint System Base Package","version":"8.6.5","section":"admin"}
+{"name":"mintupdate","description":"The Linux Mint Update Manager","version":"7.1.4","section":"admin"}
+{"name":"mintupgrade","description":"Upgrade Tool","version":"2025.11.21","section":"gnome"}
+{"name":"mintupload","description":"Uploads files on the Internet","version":"4.2.3","section":"admin"}
+{"name":"mintwelcome","description":"Welcome screen for Linux Mint","version":"2.6.2","section":"admin"}
+{"name":"nvidia-prime-applet","description":"An applet for NVIDIA Prime","version":"1.4.8","section":"admin"}
+{"name":"python3-xapp","description":"Python 3 XApp library","version":"3.0.2","section":"python"}
+{"name":"rhythmbox-plugin-tray-icon","description":"A tray icon plugin for rhythmbox music player","version":"2020.05.21","section":"universe/gnome"}
+{"name":"sticky","description":"Sticky Notes app","version":"1.31","section":"x11"}
+{"name":"syslinux-themes-linuxmint","description":"collection of boot loaders","version":"1.2.0","section":"misc"}
+{"name":"thingy","description":"Document Manager","version":"1.2.4","section":"misc"}
+{"name":"ubiquity-slideshow-mint","description":"Ubiquity slideshow for Linux Mint","version":"70mint65","section":"x11"}
+{"name":"ubuntu-system-adjustments","description":"Adjustments to the Ubuntu package base","version":"2025.12.16-zena","section":"admin"}
+{"name":"webapp-manager","description":"Web Application Manager","version":"1.4.6","section":"admin"}
+{"name":"wine-desktop-files","description":"Microsoft Windows Compatibility Layer","version":"5.0.3","section":"admin"}
+{"name":"wine-installer","description":"Microsoft Windows Compatibility Layer","version":"5.0.3","section":"admin"}
+{"name":"xapp-aiff-thumbnailer","description":"AIFF thumbnailer","version":"1.2.9","section":"gnome"}
+{"name":"xapp-appimage-thumbnailer","description":"AppImage thumbnailer","version":"1.2.9","section":"gnome"}
+{"name":"xapp-epub-thumbnailer","description":"ePub thumbnailer","version":"1.2.9","section":"gnome"}
+{"name":"xapp-gimp-thumbnailer","description":"Gimp thumbnailer","version":"1.2.9","section":"gnome"}
+{"name":"xapp-jxl-thumbnailer","description":"JPEG XL thumbnailer","version":"1.2.9","section":"gnome"}
+{"name":"xapp-mp3-thumbnailer","description":"MP3 thumbnailer","version":"1.2.9","section":"gnome"}
+{"name":"xapp-ora-thumbnailer","description":"OpenRaster thumbnailer","version":"1.2.9","section":"gnome"}
+{"name":"xapp-raw-thumbnailer","description":"RAW thumbnailer","version":"1.2.9","section":"gnome"}
+{"name":"xapp-symbolic-icons","description":"Set of symbolic icons for GTK applications","version":"1.0.9","homepage":"https://github.com/xapp-project/xapp-symbolic-icons","section":"x11"}
+{"name":"xapp-thumbnailers-common","description":"Common files for XApp thumbnailers","version":"1.2.9","section":"gnome"}
+{"name":"xapp-vorbiscomment-thumbnailer","description":"VorbisComment thumbnailer","version":"1.2.9","section":"gnome"}

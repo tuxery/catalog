@@ -7,6 +7,7 @@ import { searchDebian } from "./debian";
 import { searchFedora } from "./fedora";
 import { searchFlathub } from "./flathub";
 import { searchGentoo } from "./gentoo";
+import { searchMint } from "./mint";
 import { searchNixpkgs } from "./nixpkgs";
 import { searchOpenSuse } from "./opensuse";
 import { searchSlackware } from "./slackware";
@@ -39,6 +40,7 @@ export async function searchAllSources(query: string): Promise<SourcedPackage[]>
     searchSlackware(query),
     searchSolus(query),
     searchGentoo(query),
+    searchMint(query),
   ]);
 
   return results.flat();

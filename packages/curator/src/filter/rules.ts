@@ -271,7 +271,21 @@ const SOLUS_NOISE_PARTOF = new Set([
   "emul32",
 ]);
 
-/** Best-effort guess from Debian/Ubuntu's `Section` field, nixpkgs' attribute-path prefix, openSUSE's `<rpm:group>` value, Slackware's package series, or Solus's `PartOf` value, alongside `looksLikeSupportPackage`'s name-based guess — see this file's comments on `NOISE_SECTIONS`/`NIX_NOISE_PREFIX_PATTERNS`/`OPENSUSE_NOISE_GROUPS`/`SLACKWARE_NOISE_SERIES`/`SOLUS_NOISE_PARTOF` for which values are safe. */
+// Gentoo reuses the same `section` slot for its top-level category (e.g.
+// `games-strategy`, `dev-libs`) — same trap as everywhere else for most
+// categories (dev-*/app-* mix real tools with libraries), but two are
+// unambiguous no matter how sampled: `acct-group`/`acct-user` (900
+// packages, every one a "System group: X"/"A group for Y" system-account
+// definition — not software at all, discovered because they were
+// surviving the filter and polluting cross-source name matches, e.g.
+// "acct-group/clock" merging into the real "Clock" app group) and
+// `virtual` (134 packages, every one a "Virtual for X" dependency-
+// resolution abstraction Portage uses to pick between providers, e.g.
+// `virtual/jre`, `virtual/editor` — never a real launchable package
+// itself).
+const GENTOO_NOISE_CATEGORIES = new Set(["acct-group", "acct-user", "virtual"]);
+
+/** Best-effort guess from Debian/Ubuntu's `Section` field, nixpkgs' attribute-path prefix, openSUSE's `<rpm:group>` value, Slackware's package series, Solus's `PartOf` value, or Gentoo's category, alongside `looksLikeSupportPackage`'s name-based guess — see this file's comments on `NOISE_SECTIONS`/`NIX_NOISE_PREFIX_PATTERNS`/`OPENSUSE_NOISE_GROUPS`/`SLACKWARE_NOISE_SERIES`/`SOLUS_NOISE_PARTOF`/`GENTOO_NOISE_CATEGORIES` for which values are safe. */
 export function looksLikeSupportSection(section: string | undefined): boolean {
   if (section === undefined) return false;
   return (
@@ -279,6 +293,7 @@ export function looksLikeSupportSection(section: string | undefined): boolean {
     NIX_NOISE_PREFIX_PATTERNS.some((p) => p.test(section)) ||
     OPENSUSE_NOISE_GROUPS.has(section) ||
     SLACKWARE_NOISE_SERIES.has(section) ||
+    GENTOO_NOISE_CATEGORIES.has(section) ||
     SOLUS_NOISE_PARTOF.has(section)
   );
 }

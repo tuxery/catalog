@@ -13,7 +13,8 @@ export type PackageSourceId =
   | "nixpkgs"
   | "opensuse"
   | "alpine"
-  | "void";
+  | "void"
+  | "slackware";
 
 /**
  * A single package as reported by one source, before deduplication.
@@ -81,7 +82,11 @@ export interface SourcedPackage {
    * P/V/A/S/I/T/U/L/o/m/t/c/D/p/i/k only; Void: architecture, homepage,
    * license, maintainer, pkgver, provides, run_depends, shlib-requires,
    * short_desc, source-revisions, sourcepkg only — no category/group
-   * field in either).
+   * field in either). Slackware reuses this slot for its package
+   * "series" — a short component code from `PACKAGE LOCATION` (e.g. `l`
+   * for libraries, `kde`, `xfce`, `y` for games), Slackware's own
+   * closest thing to a Section vocabulary, though far coarser than
+   * Debian's (15 series total across the whole tree).
    */
   section?: string;
 }

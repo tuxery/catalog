@@ -9,6 +9,7 @@ import { searchNixpkgs } from "./nixpkgs";
 import { searchOpenSuse } from "./opensuse";
 import { searchSlackware } from "./slackware";
 import { searchSnapcraft } from "./snapcraft";
+import { searchSolus } from "./solus";
 import type { SourcedPackage } from "./types";
 import { searchUbuntu } from "./ubuntu";
 import { searchVoid } from "./void";
@@ -33,6 +34,7 @@ export async function searchAllSources(query: string): Promise<SourcedPackage[]>
     searchAlpine(query),
     searchVoid(query),
     searchSlackware(query),
+    searchSolus(query),
   ]);
 
   return results.flat();

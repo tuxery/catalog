@@ -69,6 +69,10 @@ function unionByExactKey(
 //   package.
 // - `notes` — nuttyartist/notes vs. GNOME's own Notes (upstream name
 //   Bijiben) — different projects sharing a generic display name.
+// - `photos` — KDE's koko image gallery, elementary's own separate
+//   Photos app, and an unrelated AUR "photos" package (a C++ interface
+//   to PHOTOS, a particle-physics simulation library — nothing to do
+//   with a photo gallery).
 // - `portfolio` — a file manager (Portfolio) vs. Portfolio Performance
 //   (an investment-tracking app) — unrelated software, not even the
 //   same category of app.
@@ -96,6 +100,7 @@ const GENERIC_NAME_BLOCKLIST = new Set([
   "music",
   "maps",
   "notes",
+  "photos",
   "portfolio",
   "fuse",
   "clock",

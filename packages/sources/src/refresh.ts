@@ -8,6 +8,7 @@ import { fetchDebian } from "./debian/fetch";
 import { fetchFedora } from "./fedora/fetch";
 import { fetchFlathub } from "./flathub/fetch";
 import { fetchGentoo } from "./gentoo/fetch";
+import { fetchMint } from "./mint/fetch";
 import { fetchNixpkgs } from "./nixpkgs/fetch";
 import { fetchOpenSuse } from "./opensuse/fetch";
 import { fetchSlackware } from "./slackware/fetch";
@@ -33,6 +34,7 @@ const REFRESHERS: Record<string, (cachePath: string) => Promise<number>> = {
   slackware: fetchSlackware,
   solus: fetchSolus,
   gentoo: fetchGentoo,
+  mint: fetchMint,
 };
 
 async function main() {

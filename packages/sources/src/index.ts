@@ -15,4 +15,5 @@ export { searchVoid } from "./void";
 export { searchSlackware } from "./slackware";
 export { searchSolus } from "./solus";
 export { searchGentoo } from "./gentoo";
+export { searchMint } from "./mint";
 export { searchAllSources } from "./search";

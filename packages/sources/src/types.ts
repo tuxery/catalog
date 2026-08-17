@@ -17,7 +17,8 @@ export type PackageSourceId =
   | "void"
   | "slackware"
   | "solus"
-  | "gentoo";
+  | "gentoo"
+  | "mint";
 
 /**
  * A single package as reported by one source, before deduplication.
@@ -68,7 +69,10 @@ export interface SourcedPackage {
    * Upstream package-category classification, when the source exposes
    * one. Debian/Ubuntu's `Section` field (e.g. `libs`, `games`, `doc`),
    * normalized to strip Ubuntu's component prefix (`universe/games` ->
-   * `games`) so it's directly comparable to Debian's bare value. Nixpkgs
+   * `games`) so it's directly comparable to Debian's bare value — Linux
+   * Mint (a Debian/Ubuntu derivative publishing the identical deb822
+   * format) reuses this exact vocabulary verbatim, no separate signal
+   * needed. Nixpkgs
    * reuses this slot for its attribute-path namespace prefix instead
    * (e.g. `python313Packages`, `kdePackages`, `rPackages`), and openSUSE
    * for its RPM `<rpm:group>` value (a hierarchical path, e.g.

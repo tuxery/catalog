@@ -1,0 +1,13 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  ci:
+    uses: tuxery/.github/.github/workflows/ci-web.yml@d31579f042cf78a25d34c729966ddf91f59c38be # main @ 2026-08-13
+    with:
+      working-directory: .

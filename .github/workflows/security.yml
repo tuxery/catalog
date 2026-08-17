@@ -1,0 +1,15 @@
+name: Security Audit
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: "0 6 * * 1"
+
+jobs:
+  security:
+    uses: tuxery/.github/.github/workflows/security-audit-web.yml@d31579f042cf78a25d34c729966ddf91f59c38be # main @ 2026-08-13
+    with:
+      working-directory: .

@@ -1,0 +1,83 @@
+name: Refresh source caches
+
+# Weekly, not daily — most upstream repodata itself doesn't change that
+# often, and this repo pays for every refresh in real git history (every
+# run diffs and commits packages/sources/cache/*.ndjson). Monday 4am UTC,
+# an hour after the Security Audit workflow's Monday 6am UTC... actually
+# before it, so a refresh-caused dependency change (rare, but package.json
+# doesn't change here) would already be in before that audit runs.
+on:
+  schedule:
+    - cron: "0 4 * * 1"
+  workflow_dispatch:
+    inputs:
+      source:
+        description: "Refresh only this source (leave empty to refresh all)"
+        required: false
+
+# One source's fetch failing (a flaky mirror, a temporary 5xx, an upstream
+# repodata layout change) shouldn't block every other source's refresh —
+# each one is fetched and committed independently, same "no single point
+# of failure across sources" principle the catalog itself is built on.
+jobs:
+  refresh:
+    name: Refresh
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: helpers4/action/setup-pnpm@6fddd178620e7325d446a246c38a44f979569fc4 # main @ 2026-07-29
+        with:
+          node-version: "24"
+
+      - name: Refresh source caches
+        working-directory: packages/sources
+        env:
+          # AppImage's version-resolution step uses this — 5000 req/hr vs.
+          # 60 unauthenticated (see docs/sources.md's AppImage note);
+          # skipped gracefully, not a hard failure, when unset.
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -uo pipefail
+
+          if [ -n "${{ github.event.inputs.source }}" ]; then
+            sources="${{ github.event.inputs.source }}"
+          else
+            sources="flathub appcenter snapcraft appimage aur debian ubuntu fedora arch nixpkgs opensuse alpine void slackware solus gentoo mint popos deepin mxlinux"
+          fi
+
+          failed=""
+          for source in $sources; do
+            echo "::group::Refreshing $source"
+            if ! pnpm exec tsx src/refresh.ts "$source"; then
+              echo "::warning::$source refresh failed — cache left at its last successful state"
+              failed="$failed $source"
+            fi
+            echo "::endgroup::"
+          done
+
+          if [ -n "$failed" ]; then
+            echo "::warning::Sources that failed to refresh:$failed"
+          fi
+
+      # main is branch-protected (PR + rebase only, org-wide since the
+      # PoC exit) -- a scheduled bot can't push straight to it, so this
+      # opens a PR the same way a human would, rather than assuming a
+      # bypass that isn't actually configured.
+      - name: Open a PR with the updated caches
+        uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1 @ 2026-04-10
+        with:
+          commit-message: "chore(sources): 🔧 scheduled source cache refresh"
+          title: "chore(sources): scheduled source cache refresh"
+          body: |
+            Automated weekly refresh of `packages/sources/cache/*.ndjson`.
+            See the "Refresh source caches" workflow run for any sources
+            that failed to refresh (left at their last successful state,
+            not blocking the others).
+          branch: chore/scheduled-source-refresh
+          delete-branch: true
+          add-paths: packages/sources/cache/

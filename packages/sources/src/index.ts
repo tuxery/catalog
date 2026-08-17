@@ -16,4 +16,5 @@ export { searchSlackware } from "./slackware";
 export { searchSolus } from "./solus";
 export { searchGentoo } from "./gentoo";
 export { searchMint } from "./mint";
+export { searchPopOs } from "./popos";
 export { searchAllSources } from "./search";

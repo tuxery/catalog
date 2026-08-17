@@ -10,6 +10,7 @@ import { searchGentoo } from "./gentoo";
 import { searchMint } from "./mint";
 import { searchNixpkgs } from "./nixpkgs";
 import { searchOpenSuse } from "./opensuse";
+import { searchPopOs } from "./popos";
 import { searchSlackware } from "./slackware";
 import { searchSnapcraft } from "./snapcraft";
 import { searchSolus } from "./solus";
@@ -41,6 +42,7 @@ export async function searchAllSources(query: string): Promise<SourcedPackage[]>
     searchSolus(query),
     searchGentoo(query),
     searchMint(query),
+    searchPopOs(query),
   ]);
 
   return results.flat();

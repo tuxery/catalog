@@ -1,6 +1,6 @@
 {
-  "source": "appcenter",
-  "fetchedAt": "2026-08-17T14:30:19.472Z",
+  "source": "flatpak-appcenter",
+  "fetchedAt": "2026-08-17T19:46:09.537Z",
   "url": "https://flatpak.elementary.io/repo/appstream/x86_64/appstream.xml.gz",
   "entryCount": 158,
   "arch": "x86_64"

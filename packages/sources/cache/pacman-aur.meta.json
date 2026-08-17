@@ -1,6 +1,6 @@
 {
-  "source": "aur",
-  "fetchedAt": "2026-08-14T13:47:49.663Z",
+  "source": "pacman-aur",
+  "fetchedAt": "2026-08-17T19:46:14.955Z",
   "url": "https://aur.archlinux.org/packages-meta-ext-v1.json.gz",
-  "entryCount": 117520
+  "entryCount": 117776
 }

@@ -297,3 +297,72 @@ export function looksLikeSupportSection(section: string | undefined): boolean {
     SOLUS_NOISE_PARTOF.has(section)
   );
 }
+
+// Debian/Ubuntu Section values that predict a real, launchable GUI app —
+// the weaker half of the "GUI vs CLI classification" card, alongside
+// `SourcedPackage.hasDesktopFile` (Fedora/openSUSE's direct signal). No
+// equivalent synthetic desktop-file marker exists in Debian's Packages.gz,
+// so this leans on Section instead — verified by cross-tabulating every
+// real Debian/Ubuntu Section value against apps *already* known to be GUI
+// via the Fedora/openSUSE signal (real merged catalog, 228k apps: 8,342
+// had both a Debian/Ubuntu section and a Fedora/openSUSE package to check
+// against, 18.4% baseline gui rate in that population).
+//
+// Included — well above baseline (42-75%) *and* manually sampled clean —
+// every "not flagged gui" entry checked in these sections is either a
+// real CLI tool (ani-cli, aravis-tools-cli, ax25-apps) or a companion
+// data/plugin/server package for an app already captured elsewhere (see
+// GUI_SECTION_EXCLUDE_PATTERNS below), never a mislabeled real app:
+// sound, editors, video, graphics, math, science, hamradio, games,
+// contrib/games.
+//
+// Deliberately NOT included despite comparably high raw rates (42-75%) —
+// manual sampling turned up real desktop-environment theme/icon/plugin
+// packages riding along in these sections that this heuristic can't tell
+// apart from real apps by Section alone (adwaita-icon-theme, adwaita-qt6,
+// breeze-icon-theme, breeze-cursor-theme, arc-kde, Numix Circle Icons,
+// thunar-font-manager, xfce4-battery-plugin, ...) — same "look at real
+// samples, not just the percentage" trap NOISE_SECTIONS' header comment
+// describes for kdePackages/Development/*: x11, gnome, kde, xfce.
+const GUI_SECTIONS = new Set([
+  "sound",
+  "editors",
+  "video",
+  "graphics",
+  "math",
+  "science",
+  "hamradio",
+  "games",
+  "contrib/games",
+]);
+
+// Companion data/plugin/server packages that ride along under the same
+// GUI_SECTIONS value as the real app they belong to (0ad-data next to 0ad,
+// ardour-lv2-plugins next to ardour, bzflag-server next to bzflag) but
+// aren't themselves a launchable GUI app — none of these suffixes are
+// caught by `looksLikeSupportPackage`'s NOISE_PATTERNS, which is scoped to
+// dev/debug/doc/lib/font/language-module naming, not this. Verified
+// against the real Debian/Ubuntu cache: 350 `-data`, 117 `-common`, 37
+// `-plugin(s)`, 43 `-server`, and 5 `-icon(s)` names across GUI_SECTIONS.
+const GUI_SECTION_EXCLUDE_PATTERNS: RegExp[] = [
+  /-data$/,
+  /-common$/,
+  /-plugins?$/,
+  /-server$/,
+  /-icons?$/,
+];
+
+/**
+ * Best-effort guess that a Debian/Ubuntu package (`SourcedPackage.section`)
+ * is a real, launchable GUI app — the weaker counterpart to
+ * `SourcedPackage.hasDesktopFile`. Callers should only apply this to
+ * `source: "debian" | "ubuntu"` packages: other sources reuse the same
+ * `section` slot for unrelated vocabularies (see this file's other
+ * per-distro Section comments) that were never checked against
+ * GUI_SECTIONS.
+ */
+export function looksLikeGuiPackage(name: string, section: string | undefined): boolean {
+  if (section === undefined || !GUI_SECTIONS.has(section)) return false;
+  if (looksLikeSupportPackage(name)) return false;
+  return !GUI_SECTION_EXCLUDE_PATTERNS.some((pattern) => pattern.test(name));
+}

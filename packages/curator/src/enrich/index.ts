@@ -1,4 +1,5 @@
 import type { PackageSourceId, SourcedPackage } from "@tuxery/sources";
+import { looksLikeGuiPackage } from "../filter/rules";
 import type { MatchedApp } from "../match/group";
 import type { CatalogApp } from "./types";
 
@@ -33,6 +34,21 @@ function pickDescription(packages: SourcedPackage[]): string {
   return pickByPriority(withDescription.length > 0 ? withDescription : packages).description;
 }
 
+/**
+ * Positive-evidence-only GUI signal: Fedora/openSUSE's direct
+ * `hasDesktopFile`, or Debian/Ubuntu's weaker Section-based heuristic
+ * (`looksLikeGuiPackage`, scoped to those two sources only — see that
+ * function's doc comment for why other sources' `section` values don't
+ * apply). Never "cli" by default; see `CatalogApp.kind`'s doc comment.
+ */
+function hasGuiEvidence(pkg: SourcedPackage): boolean {
+  if (pkg.hasDesktopFile) return true;
+  if (pkg.source === "debian" || pkg.source === "ubuntu") {
+    return looksLikeGuiPackage(pkg.name, pkg.section);
+  }
+  return false;
+}
+
 /** Turns grouped packages into the display-ready `CatalogApp` records the website reads — see `types.ts` for what's populated today vs. tracked as roadmap. */
 export function enrichApps(matched: MatchedApp[]): CatalogApp[] {
   return matched.map((app) => {
@@ -44,7 +60,7 @@ export function enrichApps(matched: MatchedApp[]): CatalogApp[] {
       shortDescription: pickDescription(app.packages),
       homepage: representative.homepage,
       packages: app.packages,
-      kind: app.packages.some((pkg) => pkg.hasDesktopFile) ? "gui" : undefined,
+      kind: app.packages.some(hasGuiEvidence) ? "gui" : undefined,
     };
   });
 }

@@ -44,3 +44,4 @@
 {"source":"ubuntu","name":"littler","reason":"Real standalone app despite the gnu-r noise section — a command-line front-end for R scripts"}
 {"source":"opensuse","name":"seidl","reason":"Real standalone app despite the Metapackages noise group — a lightweight client for the pint monitoring server, not a patterns-*/installation-images-* install-time metapackage"}
 {"source":"slackware","name":"glade","reason":"Real standalone app despite the l (libraries) noise series — a GUI UI designer tool, not a library"}
+{"source":"solus","name":"dcraw","reason":"Real standalone app despite the desktop.library noise PartOf — a command-line raw photo converter, not a library"}

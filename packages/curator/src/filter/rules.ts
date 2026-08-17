@@ -235,13 +235,50 @@ const OPENSUSE_NOISE_GROUPS = new Set([
 //   pure documentation).
 const SLACKWARE_NOISE_SERIES = new Set(["l", "f"]);
 
-/** Best-effort guess from Debian/Ubuntu's `Section` field, nixpkgs' attribute-path prefix, openSUSE's `<rpm:group>` value, or Slackware's package series, alongside `looksLikeSupportPackage`'s name-based guess — see this file's comments on `NOISE_SECTIONS`/`NIX_NOISE_PREFIX_PATTERNS`/`OPENSUSE_NOISE_GROUPS`/`SLACKWARE_NOISE_SERIES` for which values are safe. */
+// Solus reuses the same `section` slot for its `PartOf` value — a dotted
+// hierarchical grouping (e.g. `games.strategy`, `programming.library`),
+// 115 distinct values on real data. Same verification discipline:
+// sampled entries per value before including one, and hit the same
+// language/toolchain-ecosystem trap as everywhere else — `programming.*`
+// buckets other than the two below (`.devel`, `.python`, `.perl`,
+// `.tools`, and bare `programming`) mix real tools in, and even
+// `programming.devel` (2,070 packages, 98.6% already `-devel`-suffixed
+// and so already caught by name pattern regardless) has a small tail of
+// real tools among the un-suffixed 1.4% (gcc-13, dpkg, mingw-w64,
+// rocm-info) — not worth the risk for zero marginal catch.
+// `system.base` was checked too: real CLI tools (zstd, gzip) sit right
+// next to pure libraries (glibc, libdw, mpfr), same trap.
+//
+// Included — safe after sampling (30-40 entries per value, one real
+// exception found overall):
+// - `debug` (3,743 packages) — every sampled entry is a `-dbginfo`
+//   package.
+// - `programming.library` / `desktop.library` / `multimedia.library` —
+//   library packages. `desktop.library` had one real exception —
+//   `dcraw`, a standalone command-line raw photo converter despite the
+//   "library" grouping — allowlisted by exact name rather than loosening
+//   this rule, same pattern as Slackware's `glade`.
+// - `programming.docs` — documentation packages.
+// - `desktop.theme` — icon/GTK/Qt themes, not launchable apps.
+// - `emul32` — 32-bit compat libraries (`-32bit`-suffixed).
+const SOLUS_NOISE_PARTOF = new Set([
+  "debug",
+  "programming.library",
+  "programming.docs",
+  "desktop.library",
+  "multimedia.library",
+  "desktop.theme",
+  "emul32",
+]);
+
+/** Best-effort guess from Debian/Ubuntu's `Section` field, nixpkgs' attribute-path prefix, openSUSE's `<rpm:group>` value, Slackware's package series, or Solus's `PartOf` value, alongside `looksLikeSupportPackage`'s name-based guess — see this file's comments on `NOISE_SECTIONS`/`NIX_NOISE_PREFIX_PATTERNS`/`OPENSUSE_NOISE_GROUPS`/`SLACKWARE_NOISE_SERIES`/`SOLUS_NOISE_PARTOF` for which values are safe. */
 export function looksLikeSupportSection(section: string | undefined): boolean {
   if (section === undefined) return false;
   return (
     NOISE_SECTIONS.has(section) ||
     NIX_NOISE_PREFIX_PATTERNS.some((p) => p.test(section)) ||
     OPENSUSE_NOISE_GROUPS.has(section) ||
-    SLACKWARE_NOISE_SERIES.has(section)
+    SLACKWARE_NOISE_SERIES.has(section) ||
+    SOLUS_NOISE_PARTOF.has(section)
   );
 }

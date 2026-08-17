@@ -1,10 +1,6 @@
-import { fileURLToPath } from "node:url";
-import { readNdjson } from "../_shared/ndjson";
-import type { SourcedPackage } from "../types";
+import { makeCacheSearch } from "../_shared/search";
 import { normalize } from "./normalize";
 import type { VoidCacheEntry } from "./types";
-
-const CACHE_PATH = fileURLToPath(new URL("../../cache/xbps-void.ndjson", import.meta.url));
 
 /**
  * Searches Void Linux's package repository for packages matching `query`.
@@ -12,7 +8,4 @@ const CACHE_PATH = fileURLToPath(new URL("../../cache/xbps-void.ndjson", import.
  * Reads the git-committed cache (see AGENTS.md's "Source cache") rather
  * than the network.
  */
-export async function searchVoid(query: string): Promise<SourcedPackage[]> {
-  void query;
-  return normalize(readNdjson<VoidCacheEntry>(CACHE_PATH));
-}
+export const searchVoid = makeCacheSearch<VoidCacheEntry>("xbps-void", normalize);

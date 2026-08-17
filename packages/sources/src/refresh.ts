@@ -8,6 +8,7 @@ import { fetchFedora } from "./fedora/fetch";
 import { fetchFlathub } from "./flathub/fetch";
 import { fetchNixpkgs } from "./nixpkgs/fetch";
 import { fetchOpenSuse } from "./opensuse/fetch";
+import { fetchSlackware } from "./slackware/fetch";
 import { fetchSnapcraft } from "./snapcraft/fetch";
 import { fetchUbuntu } from "./ubuntu/fetch";
 import { fetchVoid } from "./void/fetch";
@@ -25,6 +26,7 @@ const REFRESHERS: Record<string, (cachePath: string) => Promise<number>> = {
   opensuse: fetchOpenSuse,
   alpine: fetchAlpine,
   void: fetchVoid,
+  slackware: fetchSlackware,
 };
 
 async function main() {

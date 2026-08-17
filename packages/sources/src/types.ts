@@ -1,27 +1,31 @@
-// One id per connector folder under packages/sources/src/ — not a generic
-// "native" bucket, so e.g. an AUR package and a Debian package stay
-// distinguishable by source, not just by appId shape.
+// One id per connector folder under packages/sources/src/ — `<format>-<provider>`
+// rather than a bare provider name, so sources group by install mechanism
+// (the install-CTA logic cares that a .deb installs the same way regardless
+// of which distro ships it) rather than by distro/provider name alone. Two
+// exceptions keep a bare name: appimage (single provider — a prefix would
+// only earn its keep if a second AppImage seed list ever lands) and
+// slackware (single format+provider today, same reasoning).
 export type PackageSourceId =
-  | "flathub"
-  | "appcenter"
-  | "snapcraft"
+  | "flatpak-flathub"
+  | "flatpak-appcenter"
+  | "snap-snapcraft"
   | "appimage"
-  | "aur"
-  | "debian"
-  | "ubuntu"
-  | "fedora"
-  | "arch"
-  | "nixpkgs"
-  | "opensuse"
-  | "alpine"
-  | "void"
+  | "pacman-aur"
+  | "deb-debian"
+  | "deb-ubuntu"
+  | "rpm-fedora"
+  | "pacman-arch"
+  | "nix-nixpkgs"
+  | "rpm-opensuse"
+  | "apk-alpine"
+  | "xbps-void"
   | "slackware"
-  | "solus"
-  | "gentoo"
-  | "mint"
-  | "popos"
-  | "deepin"
-  | "mxlinux";
+  | "eopkg-solus"
+  | "ebuild-gentoo"
+  | "deb-mint"
+  | "deb-popos"
+  | "deb-deepin"
+  | "deb-mxlinux";
 
 /**
  * A single package as reported by one source, before deduplication.

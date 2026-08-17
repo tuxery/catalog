@@ -4,7 +4,7 @@ import { filterPackages } from "./index";
 
 function pkg(overrides: Partial<SourcedPackage>): SourcedPackage {
   return {
-    source: "debian",
+    source: "deb-debian",
     name: "example",
     description: "",
     version: "1.0.0",
@@ -20,9 +20,9 @@ describe("filterPackages", () => {
   });
 
   it("keep overrides win over the auto rules", () => {
-    const packages = [pkg({ source: "debian", name: "libfoo-dev" })];
+    const packages = [pkg({ source: "deb-debian", name: "libfoo-dev" })];
     const overrides = {
-      keep: new Set(["debian:libfoo-dev"]),
+      keep: new Set(["deb-debian:libfoo-dev"]),
       exclude: new Set<string>(),
     };
 
@@ -30,20 +30,20 @@ describe("filterPackages", () => {
   });
 
   it("exclude overrides win over a name that looks fine", () => {
-    const packages = [pkg({ source: "debian", name: "actually-a-library" })];
+    const packages = [pkg({ source: "deb-debian", name: "actually-a-library" })];
     const overrides = {
       keep: new Set<string>(),
-      exclude: new Set(["debian:actually-a-library"]),
+      exclude: new Set(["deb-debian:actually-a-library"]),
     };
 
     expect(filterPackages(packages, overrides)).toHaveLength(0);
   });
 
   it("scopes overrides by source, not just name", () => {
-    const packages = [pkg({ source: "debian", name: "libfoo-dev" })];
+    const packages = [pkg({ source: "deb-debian", name: "libfoo-dev" })];
     const overrides = {
       // Same name, wrong source — shouldn't apply.
-      keep: new Set(["fedora:libfoo-dev"]),
+      keep: new Set(["rpm-fedora:libfoo-dev"]),
       exclude: new Set<string>(),
     };
 
@@ -59,9 +59,9 @@ describe("filterPackages", () => {
   });
 
   it("keep overrides win over the Section signal too", () => {
-    const packages = [pkg({ source: "debian", name: "r-base", section: "gnu-r" })];
+    const packages = [pkg({ source: "deb-debian", name: "r-base", section: "gnu-r" })];
     const overrides = {
-      keep: new Set(["debian:r-base"]),
+      keep: new Set(["deb-debian:r-base"]),
       exclude: new Set<string>(),
     };
 

@@ -1,24 +1,24 @@
-import { searchAlpine } from "./alpine";
-import { searchAppCenter } from "./appcenter";
+import { searchAlpine } from "./apk-alpine";
+import { searchAppCenter } from "./flatpak-appcenter";
 import { searchAppImage } from "./appimage";
-import { searchArch } from "./arch";
-import { searchAur } from "./aur";
-import { searchDebian } from "./debian";
-import { searchDeepin } from "./deepin";
-import { searchFedora } from "./fedora";
-import { searchFlathub } from "./flathub";
-import { searchGentoo } from "./gentoo";
-import { searchMint } from "./mint";
-import { searchMxLinux } from "./mxlinux";
-import { searchNixpkgs } from "./nixpkgs";
-import { searchOpenSuse } from "./opensuse";
-import { searchPopOs } from "./popos";
+import { searchArch } from "./pacman-arch";
+import { searchAur } from "./pacman-aur";
+import { searchDebian } from "./deb-debian";
+import { searchDeepin } from "./deb-deepin";
+import { searchFedora } from "./rpm-fedora";
+import { searchFlathub } from "./flatpak-flathub";
+import { searchGentoo } from "./ebuild-gentoo";
+import { searchMint } from "./deb-mint";
+import { searchMxLinux } from "./deb-mxlinux";
+import { searchNixpkgs } from "./nix-nixpkgs";
+import { searchOpenSuse } from "./rpm-opensuse";
+import { searchPopOs } from "./deb-popos";
 import { searchSlackware } from "./slackware";
-import { searchSnapcraft } from "./snapcraft";
-import { searchSolus } from "./solus";
+import { searchSnapcraft } from "./snap-snapcraft";
+import { searchSolus } from "./eopkg-solus";
 import type { SourcedPackage } from "./types";
-import { searchUbuntu } from "./ubuntu";
-import { searchVoid } from "./void";
+import { searchUbuntu } from "./deb-ubuntu";
+import { searchVoid } from "./xbps-void";
 
 /**
  * Queries every known source in parallel and returns the combined,

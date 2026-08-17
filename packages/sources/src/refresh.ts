@@ -1,46 +1,46 @@
 import { fileURLToPath } from "node:url";
-import { fetchAlpine } from "./alpine/fetch";
-import { fetchAppCenter } from "./appcenter/fetch";
+import { fetchAlpine } from "./apk-alpine/fetch";
+import { fetchAppCenter } from "./flatpak-appcenter/fetch";
 import { fetchAppImage } from "./appimage/fetch";
-import { fetchArch } from "./arch/fetch";
-import { fetchAur } from "./aur/fetch";
-import { fetchDebian } from "./debian/fetch";
-import { fetchDeepin } from "./deepin/fetch";
-import { fetchFedora } from "./fedora/fetch";
-import { fetchFlathub } from "./flathub/fetch";
-import { fetchGentoo } from "./gentoo/fetch";
-import { fetchMint } from "./mint/fetch";
-import { fetchMxLinux } from "./mxlinux/fetch";
-import { fetchNixpkgs } from "./nixpkgs/fetch";
-import { fetchOpenSuse } from "./opensuse/fetch";
-import { fetchPopOs } from "./popos/fetch";
+import { fetchArch } from "./pacman-arch/fetch";
+import { fetchAur } from "./pacman-aur/fetch";
+import { fetchDebian } from "./deb-debian/fetch";
+import { fetchDeepin } from "./deb-deepin/fetch";
+import { fetchFedora } from "./rpm-fedora/fetch";
+import { fetchFlathub } from "./flatpak-flathub/fetch";
+import { fetchGentoo } from "./ebuild-gentoo/fetch";
+import { fetchMint } from "./deb-mint/fetch";
+import { fetchMxLinux } from "./deb-mxlinux/fetch";
+import { fetchNixpkgs } from "./nix-nixpkgs/fetch";
+import { fetchOpenSuse } from "./rpm-opensuse/fetch";
+import { fetchPopOs } from "./deb-popos/fetch";
 import { fetchSlackware } from "./slackware/fetch";
-import { fetchSnapcraft } from "./snapcraft/fetch";
-import { fetchSolus } from "./solus/fetch";
-import { fetchUbuntu } from "./ubuntu/fetch";
-import { fetchVoid } from "./void/fetch";
+import { fetchSnapcraft } from "./snap-snapcraft/fetch";
+import { fetchSolus } from "./eopkg-solus/fetch";
+import { fetchUbuntu } from "./deb-ubuntu/fetch";
+import { fetchVoid } from "./xbps-void/fetch";
 
 const REFRESHERS: Record<string, (cachePath: string) => Promise<number>> = {
-  flathub: fetchFlathub,
-  appcenter: fetchAppCenter,
-  snapcraft: fetchSnapcraft,
+  "flatpak-flathub": fetchFlathub,
+  "flatpak-appcenter": fetchAppCenter,
+  "snap-snapcraft": fetchSnapcraft,
   appimage: fetchAppImage,
-  aur: fetchAur,
-  debian: fetchDebian,
-  ubuntu: fetchUbuntu,
-  fedora: fetchFedora,
-  arch: fetchArch,
-  nixpkgs: fetchNixpkgs,
-  opensuse: fetchOpenSuse,
-  alpine: fetchAlpine,
-  void: fetchVoid,
+  "pacman-aur": fetchAur,
+  "deb-debian": fetchDebian,
+  "deb-ubuntu": fetchUbuntu,
+  "rpm-fedora": fetchFedora,
+  "pacman-arch": fetchArch,
+  "nix-nixpkgs": fetchNixpkgs,
+  "rpm-opensuse": fetchOpenSuse,
+  "apk-alpine": fetchAlpine,
+  "xbps-void": fetchVoid,
   slackware: fetchSlackware,
-  solus: fetchSolus,
-  gentoo: fetchGentoo,
-  mint: fetchMint,
-  popos: fetchPopOs,
-  deepin: fetchDeepin,
-  mxlinux: fetchMxLinux,
+  "eopkg-solus": fetchSolus,
+  "ebuild-gentoo": fetchGentoo,
+  "deb-mint": fetchMint,
+  "deb-popos": fetchPopOs,
+  "deb-deepin": fetchDeepin,
+  "deb-mxlinux": fetchMxLinux,
 };
 
 async function main() {

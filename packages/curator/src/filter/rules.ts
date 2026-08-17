@@ -356,7 +356,7 @@ const GUI_SECTION_EXCLUDE_PATTERNS: RegExp[] = [
  * Best-effort guess that a Debian/Ubuntu package (`SourcedPackage.section`)
  * is a real, launchable GUI app — the weaker counterpart to
  * `SourcedPackage.hasDesktopFile`. Callers should only apply this to
- * `source: "debian" | "ubuntu"` packages: other sources reuse the same
+ * `source: "deb-debian" | "deb-ubuntu"` packages: other sources reuse the same
  * `section` slot for unrelated vocabularies (see this file's other
  * per-distro Section comments) that were never checked against
  * GUI_SECTIONS.

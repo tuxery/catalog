@@ -3,7 +3,7 @@ import { loadFilterOverrides, overrideKey } from "./overrides";
 
 describe("overrideKey", () => {
   it("combines source and name", () => {
-    expect(overrideKey({ source: "debian", name: "firefox" })).toBe("debian:firefox");
+    expect(overrideKey({ source: "deb-debian", name: "firefox" })).toBe("deb-debian:firefox");
   });
 });
 
@@ -21,11 +21,11 @@ describe("loadFilterOverrides", () => {
     // the catalog if keep.ndjson ever lost an entry.
     const overrides = loadFilterOverrides();
 
-    expect(overrides.keep.has("debian:libreoffice")).toBe(true);
-    expect(overrides.keep.has("debian:librecad")).toBe(true);
-    expect(overrides.keep.has("arch:libreoffice-fresh")).toBe(true);
-    expect(overrides.keep.has("aur:libre-menu-editor")).toBe(true);
-    expect(overrides.keep.has("aur:libreddit")).toBe(true);
-    expect(overrides.keep.has("aur:libremines")).toBe(true);
+    expect(overrides.keep.has("deb-debian:libreoffice")).toBe(true);
+    expect(overrides.keep.has("deb-debian:librecad")).toBe(true);
+    expect(overrides.keep.has("pacman-arch:libreoffice-fresh")).toBe(true);
+    expect(overrides.keep.has("pacman-aur:libre-menu-editor")).toBe(true);
+    expect(overrides.keep.has("pacman-aur:libreddit")).toBe(true);
+    expect(overrides.keep.has("pacman-aur:libremines")).toBe(true);
   });
 });

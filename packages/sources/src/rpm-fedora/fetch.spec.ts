@@ -1,24 +1,10 @@
 import { describe, expect, it } from "vitest";
-import { extractPrimaryLocation, mergeByName, parsePrimary, resolveCurrentRelease } from "./fetch";
+import { mergeByName, parsePrimary, resolveCurrentRelease } from "./fetch";
 
-const REPOMD_FIXTURE = `<?xml version="1.0" encoding="UTF-8"?>
-<repomd xmlns="http://linux.duke.edu/metadata/repo">
-  <revision>1776864872</revision>
-  <data type="primary_db">
-    <checksum type="sha256">deadbeef</checksum>
-    <location href="repodata/deadbeef-primary.sqlite.zst"/>
-  </data>
-  <data type="primary">
-    <checksum type="sha256">c48e475</checksum>
-    <location href="repodata/c48e475-primary.xml.zst"/>
-    <timestamp>1776864859</timestamp>
-  </data>
-  <data type="primary_zck">
-    <checksum type="sha256">e32a0c3</checksum>
-    <location href="repodata/e32a0c3-primary.xml.zck"/>
-  </data>
-</repomd>
-`;
+// repomd.xml -> extractPrimaryLocation is shared with openSUSE and
+// tested once, at the source, in _shared/rpm-repodata.spec.ts — no need
+// to re-test it here now that fetchRepo delegates to
+// _shared/rpm-repodata.ts's fetchPrimaryXml instead of hand-rolling it.
 
 const PRIMARY_FIXTURE = `<?xml version="1.0" encoding="UTF-8"?>
 <metadata xmlns="http://linux.duke.edu/metadata/common" xmlns:rpm="http://linux.duke.edu/metadata/rpm" packages="2">
@@ -43,16 +29,6 @@ const PRIMARY_FIXTURE = `<?xml version="1.0" encoding="UTF-8"?>
 </package>
 </metadata>
 `;
-
-describe("extractPrimaryLocation", () => {
-  it("finds the primary location, not primary_db or primary_zck", () => {
-    expect(extractPrimaryLocation(REPOMD_FIXTURE)).toBe("repodata/c48e475-primary.xml.zst");
-  });
-
-  it("returns undefined when there's no primary data", () => {
-    expect(extractPrimaryLocation("<repomd></repomd>")).toBeUndefined();
-  });
-});
 
 describe("parsePrimary", () => {
   const entries = parsePrimary(PRIMARY_FIXTURE);

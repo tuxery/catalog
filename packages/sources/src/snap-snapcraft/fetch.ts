@@ -1,3 +1,4 @@
+import { fetchOrThrow } from "../_shared/http";
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
 import type { SnapcraftCacheEntry, SnapcraftFetchMetadata } from "./types";
@@ -79,13 +80,9 @@ export function mapResults(results: RawResult[]): SnapcraftCacheEntry[] {
 
 async function find(params: string, label: string): Promise<RawResult[]> {
   const url = `${FIND_URL}?${params}&fields=${FIELDS}`;
-  const response = await fetch(url, { headers: { "Snap-Device-Series": DEVICE_SERIES } });
-
-  if (!response.ok) {
-    throw new Error(
-      `Failed to fetch Snapcraft "${label}": ${response.status} ${response.statusText}`,
-    );
-  }
+  const response = await fetchOrThrow(url, `Snapcraft "${label}"`, {
+    headers: { "Snap-Device-Series": DEVICE_SERIES },
+  });
 
   const body = (await response.json()) as { results?: RawResult[] };
   return body.results ?? [];

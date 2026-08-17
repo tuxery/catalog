@@ -1,3 +1,4 @@
+import { fetchOrThrow } from "../_shared/http";
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
 import type { AppImageCacheEntry, AppImageFetchMetadata } from "./types";
@@ -140,13 +141,7 @@ export async function resolveEntries(
  * as NDJSON. See docs/sources.md.
  */
 export async function fetchAppImage(cachePath: string): Promise<number> {
-  const response = await fetch(FEED_URL);
-  if (!response.ok) {
-    throw new Error(
-      `Failed to fetch appimage.github.io feed: ${response.status} ${response.statusText}`,
-    );
-  }
-
+  const response = await fetchOrThrow(FEED_URL, "appimage.github.io feed");
   const body = (await response.json()) as RawFeed;
   const items = body.items ?? [];
   const mapped = mapItems(items);

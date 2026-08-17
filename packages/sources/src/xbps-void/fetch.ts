@@ -4,6 +4,7 @@ import { join } from "node:path";
 import { zstdDecompressSync } from "node:zlib";
 import { parse as parsePlist } from "plist";
 import * as tar from "tar";
+import { fetchOrThrow } from "../_shared/http";
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
 import type { VoidCacheEntry, VoidFetchMetadata } from "./types";
@@ -50,12 +51,7 @@ export function mapPlist(packages: PlistPackages, repo: VoidCacheEntry["repo"]):
  */
 async function fetchRepoEntries(repo: (typeof REPOS)[number]): Promise<VoidCacheEntry[]> {
   const url = `${repo.base}/${ARCH}-repodata`;
-  const response = await fetch(url);
-  if (!response.ok) {
-    throw new Error(
-      `Failed to fetch Void repo "${repo.id}": ${response.status} ${response.statusText}`,
-    );
-  }
+  const response = await fetchOrThrow(url, `Void repo "${repo.id}"`);
 
   const compressed = Buffer.from(await response.arrayBuffer());
   const tarBytes = zstdDecompressSync(compressed);

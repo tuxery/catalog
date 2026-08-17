@@ -1,5 +1,5 @@
-import { gunzipSync } from "node:zlib";
 import { parseDeb822 } from "../_shared/deb822";
+import { fetchGunzippedText } from "../_shared/http";
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
 import type { DeepinCacheEntry, DeepinFetchMetadata } from "./types";
@@ -79,13 +79,7 @@ export function parsePackages(text: string): DeepinCacheEntry[] {
  * normalized entries to `cachePath` as NDJSON. See docs/sources.md.
  */
 export async function fetchDeepin(cachePath: string): Promise<number> {
-  const response = await fetch(PACKAGES_URL);
-  if (!response.ok) {
-    throw new Error(`Failed to fetch Deepin Packages: ${response.status} ${response.statusText}`);
-  }
-
-  const compressed = Buffer.from(await response.arrayBuffer());
-  const text = gunzipSync(compressed).toString("utf8");
+  const text = await fetchGunzippedText(PACKAGES_URL, "Deepin Packages");
   const entries = parsePackages(text);
 
   writeNdjson(cachePath, entries);

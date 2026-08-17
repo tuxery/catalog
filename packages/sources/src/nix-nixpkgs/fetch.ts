@@ -1,3 +1,4 @@
+import { fetchText } from "../_shared/http";
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
 import type { NixpkgsCacheEntry, NixpkgsFetchMetadata } from "./types";
@@ -78,12 +79,7 @@ export function mapPackages(packages: Record<string, RawPackage>): NixpkgsCacheE
  * `cachePath` as NDJSON. See docs/sources.md.
  */
 export async function fetchNixpkgs(cachePath: string): Promise<number> {
-  const response = await fetch(PACKAGES_URL);
-  if (!response.ok) {
-    throw new Error(`Failed to fetch nixpkgs dump: ${response.status} ${response.statusText}`);
-  }
-
-  const json = await response.text();
+  const json = await fetchText(PACKAGES_URL, "nixpkgs dump");
   const dump = JSON.parse(json) as RawDump;
   const entries = mapPackages(dump.packages ?? {});
 

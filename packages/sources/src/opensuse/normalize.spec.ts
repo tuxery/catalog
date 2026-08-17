@@ -11,6 +11,7 @@ describe("opensuse normalize", () => {
       homepage: "https://play0ad.com/",
       repo: "oss",
       group: "Amusements/Games/Strategy/Real Time",
+      hasDesktopFile: true,
     };
 
     expect(normalize([entry])).toEqual([
@@ -22,6 +23,7 @@ describe("opensuse normalize", () => {
         appId: "0ad",
         homepage: "https://play0ad.com/",
         section: "Amusements/Games/Strategy/Real Time",
+        hasDesktopFile: true,
       },
     ]);
   });
@@ -32,6 +34,7 @@ describe("opensuse normalize", () => {
       summary: "Data files for 0ad",
       version: "0.28.0",
       repo: "oss",
+      hasDesktopFile: false,
     };
 
     expect(normalize([entry])[0]?.section).toBeUndefined();

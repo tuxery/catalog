@@ -44,6 +44,7 @@ export function enrichApps(matched: MatchedApp[]): CatalogApp[] {
       shortDescription: pickDescription(app.packages),
       homepage: representative.homepage,
       packages: app.packages,
+      kind: app.packages.some((pkg) => pkg.hasDesktopFile) ? "gui" : undefined,
     };
   });
 }

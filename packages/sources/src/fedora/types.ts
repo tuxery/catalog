@@ -10,6 +10,8 @@ export interface FedoraCacheEntry {
   summary: string;
   version: string;
   homepage?: string;
+  /** Whether this package's RPM provides list includes a synthetic `application(*.desktop)` entry — see `SourcedPackage.hasDesktopFile`. */
+  hasDesktopFile: boolean;
 }
 
 export interface FedoraFetchMetadata extends FetchMetadata {

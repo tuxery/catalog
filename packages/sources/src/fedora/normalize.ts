@@ -10,5 +10,6 @@ export function normalize(entries: FedoraCacheEntry[]): SourcedPackage[] {
     // Fedora/RPM package names are unique within a release/repo/arch.
     appId: entry.name,
     homepage: entry.homepage,
+    hasDesktopFile: entry.hasDesktopFile,
   }));
 }

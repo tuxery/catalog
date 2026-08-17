@@ -159,6 +159,20 @@ describe("looksLikeSupportSection", () => {
     expect(looksLikeSupportSection("Development/Tools/Other")).toBe(false);
   });
 
+  it("flags Slackware's l (libraries) and f (FAQs/docs) series", () => {
+    expect(looksLikeSupportSection("l")).toBe(true);
+    expect(looksLikeSupportSection("f")).toBe(true);
+  });
+
+  it("does not flag Slackware's other series — same mixed-real-apps trap as everywhere else", () => {
+    expect(looksLikeSupportSection("d")).toBe(false);
+    expect(looksLikeSupportSection("a")).toBe(false);
+    expect(looksLikeSupportSection("n")).toBe(false);
+    expect(looksLikeSupportSection("kde")).toBe(false);
+    expect(looksLikeSupportSection("xfce")).toBe(false);
+    expect(looksLikeSupportSection("y")).toBe(false);
+  });
+
   it("does not flag an absent section", () => {
     expect(looksLikeSupportSection(undefined)).toBe(false);
   });

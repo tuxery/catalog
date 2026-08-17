@@ -28,8 +28,10 @@ table is the map, the Project is the tracked work.
 | 5d  | Ubuntu                | restricted           | Native   | 858     | ✅          | Implemented | [9]   |
 | 5d  | Ubuntu                | multiverse           | Native   | 1,242   | ✅          | Implemented | [9]   |
 | 5e  | Fedora                | Everything + updates | Native   | 68,990  | ✅          | Implemented | [10]  |
-| 5f  | Other native          | —                    | Native   | —       | ✅          | Roadmap     | [11]  |
-| 6   | Nixpkgs               | —                    | Native   | 131,101 | ✅          | Implemented | [12]  |
+| 5f  | openSUSE              | oss                  | Native   | 52,482  | ✅          | Implemented | [11]  |
+| 5f  | openSUSE              | non-oss              | Native   | 42      | ✅          | Implemented | [11]  |
+| 5g  | Other native          | —                    | Native   | —       | ✅          | Roadmap     | [12]  |
+| 6   | Nixpkgs               | —                    | Native   | 131,101 | ✅          | Implemented | [13]  |
 
 ## Notes on each row
 
@@ -114,13 +116,31 @@ because a paragraph per cell made the table unreadable.
     alone has 76,354 raw rows but only 67,430 unique names (arch/
     subpackage variants sharing a name); updates then adds 1,560
     genuinely new names on top. `packages/sources/fedora/fetch.ts`.
-11. **Other native** (openSUSE, Alpine, Void, Gentoo, Solus, Clear Linux,
-    Slackware) — each has its own repodata format; openSUSE/Alpine/Void
-    are the same "repodata file(s), per repo/arch" shape as the sources
-    above; Gentoo/Solus/Slackware/Clear Linux are niche enough to be low
-    priority. Roadmap — openSUSE/Alpine worth prioritizing over the rest
-    when picked up. NixOS/nixpkgs split out to its own row (6) — see below.
-12. **Nixpkgs** — `channels.nixos.org/nixos-unstable/packages.json.br`, a
+11. **openSUSE** (Tumbleweed, oss + non-oss) — the identical repomd.xml ->
+    content-hashed primary.xml[.zst] repodata schema as Fedora (parsing
+    shared via `_shared/rpm-repodata.ts`, also used to refactor Fedora's
+    own `fetch.ts`), fetched the same way. Two differences from Fedora:
+    no per-arch repo directory — each repo's primary.xml already bundles
+    every package's `<arch>` in one file (verified: oss's 52,482 entries
+    split exactly into x86_64 + noarch, nothing else mixed in, so no
+    arch filtering needed) — and oss/non-oss are disjoint components
+    rather than overlapping snapshots (verified zero name collisions
+    between them), so a plain concatenation replaces Fedora's by-name
+    merge/precedence logic. `<rpm:group>` (the same RPM Group field
+    Fedora also has but leaves "Unspecified" in practice) is genuinely
+    populated on real openSUSE data, 68.7% of the time, with rich
+    hierarchical values (e.g. `Development/Libraries/C and C++`) — a
+    stronger, richer filter signal than Debian's flat Section vocabulary,
+    reused via the same `SourcedPackage.section` slot.
+    `packages/sources/opensuse/fetch.ts`.
+12. **Other native** (Alpine, Void, Gentoo, Solus, Clear Linux, Slackware)
+    — each has its own repodata format; Alpine/Void are the same
+    "repodata file(s), per repo/arch" shape as the sources above;
+    Gentoo/Solus/Slackware/Clear Linux are niche enough to be low
+    priority. Roadmap — Alpine worth prioritizing over the rest when
+    picked up. NixOS/nixpkgs split out to its own row (6), openSUSE to
+    its own row (5f) — see above/below.
+13. **Nixpkgs** — `channels.nixos.org/nixos-unstable/packages.json.br`, a
     single continuously-updated channel dump — the closest thing to a
     full-catalog file this codebase has seen (149,121 raw entries, more
     than AUR). The `.br` extension is misleading: the server sends a real
@@ -143,4 +163,4 @@ because a paragraph per cell made the table unreadable.
 - **Fetch metadata**: every implemented `fetch.ts` writes a `cache/<source>.meta.json` sidecar — `fetchedAt`, the upstream `url`, `entryCount`, plus source-specific details (Flathub's `arch`, Snapcraft's `deviceSeries`/`categoriesSwept`). See `_shared/metadata.ts`.
 - **Matching cost**: `@tuxery/curator`'s `match/group.ts` (formerly the standalone `@tuxery/matcher` package — merged into `curator` alongside the new `filter/` stage) originally bucketed by an 8-char normalized-name prefix before pairwise scoring within each bucket — a mitigation over a naive full pairwise scan, but one whose cost still climbed super-linearly as more sources landed: ~6s at ~123k packages, ~26s at ~192k, ~51s at ~268k, ~111s at ~357k raw, ~35s after `curator/filter` cut the input to ~303k (see the "Matcher bucket sizes growing again" card, now closed). It's since been replaced with a union-find over exact-match tiers — manual overrides → exact `appId` → exact normalized name, each an O(1)-per-package map lookup, no pairwise comparison at all. A fourth, fuzzy/scored tier (`match/score.ts`'s `scoreMatch`, name-distance + appId + icon-filename weights) was considered but turned out to be mathematically unreachable once the two exact tiers run first — with the current weights (name 0.5, appId 0.35, icon 0.15) and a 0.75 threshold, no pair lacking an exact appId or exact name can score above 0.65 — so it was dropped rather than shipped as inert code; `scoreMatch` stays exported for when weights get revisited. Net effect: grouping the filtered ~303k packages now takes well under a second.
 - **Scheduled refresh**: `fetch.ts` implementations are meant to run on a cron schedule, not on every push — see the "Wire scheduled source refresh" card on the Tuxery GitHub Project.
-- **Catalog filtering**: `@tuxery/curator`'s `filter/` drops packages that look like libraries/dev-headers/docs/fonts/language-ecosystem-modules rather than apps/games, two independent signals: name patterns (`looksLikeSupportPackage`) and the upstream `Section`-equivalent field, when the source has one (`looksLikeSupportSection`, `SourcedPackage.section`) — both verified against real cache data before landing. The `^lib` name prefix has real exceptions (LibreOffice, LibreCAD, Libreddit, ...) rescued by exact name via `overrides/keep.ndjson` rather than by pattern (a `libre*`-prefix allowlist was considered and rejected: 1,208 unique `libre*` names exist, only 25 are real). Debian/Ubuntu's Section signal is deliberately narrow — `libs`/`libdevel`/`oldlibs`/`doc`/`debug`/`introspection`/`gnu-r` only; tempting-looking sections like `python`/`perl`/`golang`/`devel`/`kernel` were checked and rejected, since real standalone tools (black, composer, cliphist, cosign, ...) show up in them too densely to blanket-exclude. Nixpkgs reuses the same `section` slot for its attribute-path namespace prefix (`kdePackages.akregator` -> `kdePackages`) — same discipline applied: verified language/toolchain package sets (R, Haskell, Python, Perl, OCaml, Lua, Ruby, TeX Live, Typst, Qt6, Wine, Godot, PostgreSQL) plus a general `*Plugins`/`*Extensions` suffix pattern (verified safe across ~10 different host-app namespaces), but _not_ a blanket `*Packages` suffix — `kdePackages` and `php83Packages`/`phpPackages` were checked and rejected for the same "real tools mixed in" reason (composer, psalm, akregator, ark). Effective on Debian (~54.3%), Ubuntu (~48.9%), Fedora (~54.7%), and Nixpkgs (~80.0%, by far the largest single-source cut — the language-ecosystem long tail dominates nixpkgs even more than Debian); much less so on AUR (~7.4%) and Arch official (~17.6%) — those ecosystems don't split `-dev` packages out, soname-version names, or expose a Section-equivalent field the way Debian/Nixpkgs do. A reverse-dependency-graph signal and AUR's self-declared Keywords field were both investigated as a further AUR/Arch-specific improvement and found not viable (see the "Filter is far less effective on AUR/Arch" card for the full research writeup) — the ticket stays open for a genuinely new idea. `overrides/keep.ndjson` and `exclude.ndjson` (in `packages/curator/overrides/`) are the manual escape hatch on either side; see that directory's `README.md` for the "would a user launch this on its own" litmus test used to decide `keep.ndjson` entries.
+- **Catalog filtering**: `@tuxery/curator`'s `filter/` drops packages that look like libraries/dev-headers/docs/fonts/language-ecosystem-modules rather than apps/games, two independent signals: name patterns (`looksLikeSupportPackage`) and the upstream `Section`-equivalent field, when the source has one (`looksLikeSupportSection`, `SourcedPackage.section`) — both verified against real cache data before landing. The `^lib` name prefix has real exceptions (LibreOffice, LibreCAD, Libreddit, ...) rescued by exact name via `overrides/keep.ndjson` rather than by pattern (a `libre*`-prefix allowlist was considered and rejected: 1,208 unique `libre*` names exist, only 25 are real). Debian/Ubuntu's Section signal is deliberately narrow — `libs`/`libdevel`/`oldlibs`/`doc`/`debug`/`introspection`/`gnu-r` only; tempting-looking sections like `python`/`perl`/`golang`/`devel`/`kernel` were checked and rejected, since real standalone tools (black, composer, cliphist, cosign, ...) show up in them too densely to blanket-exclude. Nixpkgs reuses the same `section` slot for its attribute-path namespace prefix (`kdePackages.akregator` -> `kdePackages`) — same discipline applied: verified language/toolchain package sets (R, Haskell, Python, Perl, OCaml, Lua, Ruby, TeX Live, Typst, Qt6, Wine, Godot, PostgreSQL) plus a general `*Plugins`/`*Extensions` suffix pattern (verified safe across ~10 different host-app namespaces), but _not_ a blanket `*Packages` suffix — `kdePackages` and `php83Packages`/`phpPackages` were checked and rejected for the same "real tools mixed in" reason (composer, psalm, akregator, ark). openSUSE reuses the same slot again for its hierarchical `<rpm:group>` value — six exact-match groups (`System/Libraries`, `Documentation/HTML`, `Documentation/Other`, `System/X11/Fonts`, `System/Localization`, `Metapackages`) verified safe (15-60 sampled entries each, one real exception found and allowlisted by name — `seidl`, a monitoring client, not an install-time metapackage); `Development/Libraries/*`/`Development/Languages/*` hit the exact same trap as Debian's devel/python/perl/golang sections (clisp, love, act, typescript, codespell, ... mixed in) and were rejected the same way. Effective on Debian (~54.3%), Ubuntu (~48.9%), Fedora (~54.7%), openSUSE (~43.3%), and Nixpkgs (~80.0%, by far the largest single-source cut — the language-ecosystem long tail dominates nixpkgs even more than Debian); much less so on AUR (~7.4%) and Arch official (~17.6%) — those ecosystems don't split `-dev` packages out, soname-version names, or expose a Section-equivalent field the way Debian/Nixpkgs do. A reverse-dependency-graph signal and AUR's self-declared Keywords field were both investigated as a further AUR/Arch-specific improvement and found not viable (see the "Filter is far less effective on AUR/Arch" card for the full research writeup) — the ticket stays open for a genuinely new idea. `overrides/keep.ndjson` and `exclude.ndjson` (in `packages/curator/overrides/`) are the manual escape hatch on either side; see that directory's `README.md` for the "would a user launch this on its own" litmus test used to decide `keep.ndjson` entries.

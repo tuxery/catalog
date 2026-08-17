@@ -39,6 +39,8 @@ table is the map, the Project is the tracked work.
 | 5j  | Solus                 | shannon              | Native   | 11,660  | ✅          | Implemented | [15]  |
 | 5k  | Gentoo                | —                    | Native   | 19,443  | ⚠️          | Implemented | [16]  |
 | 6   | Nixpkgs               | —                    | Native   | 131,101 | ✅          | Implemented | [17]  |
+| 7a  | elementary AppCenter  | —                    | Flatpak  | 158     | ✅          | Implemented | [18]  |
+| 7b  | Linux Mint            | main                 | Native   | 108     | ✅          | Implemented | [19]  |
 
 ## Notes on each row
 
@@ -241,6 +243,42 @@ LOCATION`, e.g. `l` for libraries, `kde`, `y` for games) is a real
     different language-version package sets, mainly: 20,700 of 114,016
     unique `pname`s are used more than once) — the full attribute path is
     the real identifier. `packages/sources/nixpkgs/fetch.ts`.
+
+Row 7 is a different category from everything above: not a general-purpose
+package manager, but a derivative distro's own curated app store/repo of
+genuinely first-party software (not a reskin/rebuild of the parent distro).
+See the "Derivative distros with genuinely unique in-house software" card
+on the Tuxery GitHub Project for the full researched list, including
+explicitly-filtered-out derivatives (CachyOS, Manjaro, EndeavourOS, Garuda,
+Ubuntu flavours, Rocky/AlmaLinux, Raspberry Pi OS — near-vanilla rebases
+with no distinct software of their own) and "worth a cheap evaluate pass"
+candidates (Zorin OS, Kali Linux) not yet implemented.
+
+18. **elementary AppCenter** — its own Flatpak remote (not Flathub), same
+    `appstream.xml.gz` mechanism, parsing shared with Flathub via the new
+    `_shared/appstream.ts`. 158 curated, reviewed, pay-what-you-can apps
+    built specifically for elementary OS. Verified against the real
+    Flathub cache that only 32 of 147 app IDs also exist on Flathub
+    (correctly merged by the existing exact-appId matching tier) — the
+    other 115 are exclusive to AppCenter, a genuinely distinct channel
+    rather than a reskinned Flathub subset.
+    `packages/sources/appcenter/fetch.ts`.
+19. **Linux Mint** — deb822 format (same parser as Debian/Ubuntu — Mint
+    is a derivative), scoped deliberately to the `main` component only:
+    108 packages, all genuinely Mint-authored (mintinstall, Warpinator,
+    Hypnotix, Bulky, ...). Mint also publishes `upstream` (rebuilds of
+    existing software, e.g. patched Chromium/Caja — mostly redundant
+    with Ubuntu's own coverage) and `import` (third-party proprietary
+    convenience packages, e.g. Dropbox/Spotify — not Mint's own
+    software) components, deliberately left out as a different category
+    from this connector's "genuinely unique in-house software" intent.
+    Fetched over HTTP, not HTTPS — matches Mint's own real default
+    `/etc/apt/sources.list.d/official-package-repositories.list`
+    (`http://packages.linuxmint.com`, not `https://`); HTTPS to this
+    host also failed to connect during development, consistent with it
+    genuinely not being the supported scheme. Reuses Debian's exact
+    `Section` vocabulary verbatim — no separate filter signal needed.
+    `packages/sources/mint/fetch.ts`.
 
 ## Cross-cutting notes
 

@@ -6,6 +6,7 @@ import { fetchDebian } from "./debian/fetch";
 import { fetchFedora } from "./fedora/fetch";
 import { fetchFlathub } from "./flathub/fetch";
 import { fetchNixpkgs } from "./nixpkgs/fetch";
+import { fetchOpenSuse } from "./opensuse/fetch";
 import { fetchSnapcraft } from "./snapcraft/fetch";
 import { fetchUbuntu } from "./ubuntu/fetch";
 
@@ -19,6 +20,7 @@ const REFRESHERS: Record<string, (cachePath: string) => Promise<number>> = {
   fedora: fetchFedora,
   arch: fetchArch,
   nixpkgs: fetchNixpkgs,
+  opensuse: fetchOpenSuse,
 };
 
 async function main() {

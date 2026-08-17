@@ -11586,7 +11586,7 @@
 {"name":"python-uritemplate","description":"A Python implementation of RFC6570","version":"4.2.0-2","homepage":"https://github.com/python-hyper/uritemplate","repo":"extra"}
 {"name":"python-url-normalize","description":"URL normalization for Python","version":"3.0.0-1","homepage":"https://github.com/niksite/url-normalize","repo":"extra"}
 {"name":"python-urllib3","description":"HTTP library with thread-safe connection pooling and file post support","version":"2.7.0-1","homepage":"https://github.com/urllib3/urllib3","repo":"extra"}
-{"name":"python-urwid","description":"Curses-based user interface library","version":"4.0.9-1","homepage":"https://urwid.org/","repo":"extra"}
+{"name":"python-urwid","description":"Curses-based user interface library","version":"4.0.10-1","homepage":"https://urwid.org/","repo":"extra"}
 {"name":"python-urwid_readline","description":"Readline text edit for urwid","version":"0.15.1-3","homepage":"https://github.com/rr-/urwid_readline","repo":"extra"}
 {"name":"python-urwidgets","description":"A collection of widgets for urwid","version":"0.2.1-4","homepage":"https://github.com/AnonymouX47/urwidgets","repo":"extra"}
 {"name":"python-urwidtrees","description":"Tree widgets for urwid.","version":"1.0.4-3","homepage":"https://github.com/pazz/urwidtrees","repo":"extra"}
@@ -12090,7 +12090,7 @@
 {"name":"repod","description":"Tooling to maintain binary package repositories","version":"0.3.1-5","homepage":"https://repod.archlinux.page/","repo":"extra"}
 {"name":"repose","description":"Arch Linux repo building tool","version":"7.1-14","homepage":"https://github.com/vodik/repose","repo":"extra"}
 {"name":"reprepro","description":"Debian package repository producer","version":"5.5.1-1","homepage":"https://salsa.debian.org/debian/reprepro","repo":"extra"}
-{"name":"repro-env","description":"Dependency lockfiles for reproducible build environments","version":"0.4.4-1","homepage":"https://github.com/kpcyrd/repro-env","repo":"extra"}
+{"name":"repro-env","description":"Dependency lockfiles for reproducible build environments","version":"0.4.5-1","homepage":"https://github.com/kpcyrd/repro-env","repo":"extra"}
 {"name":"repro-get","description":"Reproducible apt/dnf/apk/pacman, with content-addressing","version":"0.4.1-3","homepage":"https://github.com/reproducible-containers/repro-get","repo":"extra"}
 {"name":"repro-go","description":"Reproducible Builds, Binary hardening, Debug symbols - Minimal Go build system","version":"0.1.1-1","homepage":"https://github.com/kpcyrd/repro-go","repo":"extra"}
 {"name":"reproducible-faketools-ant","description":"Fake system tools for reproducible builds (ant)","version":"0.5.5-3","homepage":"https://github.com/bmwiedemann/reproducible-faketools","repo":"extra"}

@@ -1,6 +1,6 @@
-import { gzipSync } from "node:zlib";
+import { gzipSync, zstdCompressSync } from "node:zlib";
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { fetchGunzippedText, fetchOrThrow } from "./http";
+import { fetchGunzippedText, fetchOrThrow, fetchText, fetchZstdText } from "./http";
 
 describe("fetchOrThrow", () => {
   afterEach(() => {
@@ -42,6 +42,34 @@ describe("fetchOrThrow", () => {
   });
 });
 
+describe("fetchText", () => {
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
+  it("returns the response body as text", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn<typeof fetch>(() => Promise.resolve(new Response("plain text body", { status: 200 }))),
+    );
+
+    await expect(fetchText("https://example.com", "Example")).resolves.toBe("plain text body");
+  });
+
+  it("throws the same labeled error as fetchOrThrow on a non-2xx status", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn<typeof fetch>(() =>
+        Promise.resolve(new Response("nope", { status: 503, statusText: "Service Unavailable" })),
+      ),
+    );
+
+    await expect(fetchText("https://example.com", "Example")).rejects.toThrow(
+      "Failed to fetch Example: 503 Service Unavailable",
+    );
+  });
+});
+
 describe("fetchGunzippedText", () => {
   afterEach(() => {
     vi.unstubAllGlobals();
@@ -67,6 +95,35 @@ describe("fetchGunzippedText", () => {
 
     await expect(fetchGunzippedText("https://example.com", "Example")).rejects.toThrow(
       "Failed to fetch Example: 500 Server Error",
+    );
+  });
+});
+
+describe("fetchZstdText", () => {
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
+  it("decompresses a real Zstandard response body into text", async () => {
+    const compressed = zstdCompressSync(Buffer.from("hello world", "utf8"));
+    vi.stubGlobal(
+      "fetch",
+      vi.fn<typeof fetch>(() => Promise.resolve(new Response(compressed, { status: 200 }))),
+    );
+
+    await expect(fetchZstdText("https://example.com", "Example")).resolves.toBe("hello world");
+  });
+
+  it("throws the same labeled error as fetchOrThrow on a non-2xx status, without attempting to decompress", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn<typeof fetch>(() =>
+        Promise.resolve(new Response("nope", { status: 404, statusText: "Not Found" })),
+      ),
+    );
+
+    await expect(fetchZstdText("https://example.com", "Example")).rejects.toThrow(
+      "Failed to fetch Example: 404 Not Found",
     );
   });
 });

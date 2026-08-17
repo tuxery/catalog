@@ -1,5 +1,5 @@
-import { zstdDecompressSync } from "node:zlib";
 import { XMLParser } from "fast-xml-parser";
+import { fetchZstdText } from "../_shared/http";
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
 import type { SolusCacheEntry, SolusFetchMetadata } from "./types";
@@ -70,15 +70,7 @@ export function parseIndexXml(xml: string): SolusCacheEntry[] {
  * `cachePath` as NDJSON. See docs/sources.md.
  */
 export async function fetchSolus(cachePath: string): Promise<number> {
-  const response = await fetch(URL);
-  if (!response.ok) {
-    throw new Error(
-      `Failed to fetch Solus eopkg-index.xml.zst: ${response.status} ${response.statusText}`,
-    );
-  }
-
-  const compressed = Buffer.from(await response.arrayBuffer());
-  const xml = zstdDecompressSync(compressed).toString("utf8");
+  const xml = await fetchZstdText(URL, "Solus eopkg-index.xml.zst");
   const entries = parseIndexXml(xml);
 
   writeNdjson(cachePath, entries);

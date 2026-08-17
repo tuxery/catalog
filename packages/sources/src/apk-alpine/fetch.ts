@@ -2,6 +2,7 @@ import { mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import * as tar from "tar";
+import { fetchOrThrow } from "../_shared/http";
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
 import type { AlpineCacheEntry, AlpineFetchMetadata } from "./types";
@@ -73,12 +74,7 @@ export function mapStanzas(
  */
 async function fetchRepoEntries(repo: (typeof REPOS)[number]): Promise<AlpineCacheEntry[]> {
   const url = `${BASE}/${repo}/${ARCH}/APKINDEX.tar.gz`;
-  const response = await fetch(url);
-  if (!response.ok) {
-    throw new Error(
-      `Failed to fetch Alpine repo "${repo}": ${response.status} ${response.statusText}`,
-    );
-  }
+  const response = await fetchOrThrow(url, `Alpine repo "${repo}"`);
 
   const workDir = await mkdtemp(join(tmpdir(), `alpine-${repo}-`));
   try {

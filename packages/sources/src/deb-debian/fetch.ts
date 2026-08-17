@@ -1,5 +1,5 @@
-import { gunzipSync } from "node:zlib";
 import { parseDeb822 } from "../_shared/deb822";
+import { fetchGunzippedText } from "../_shared/http";
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
 import type { DebianCacheEntry, DebianFetchMetadata } from "./types";
@@ -41,16 +41,7 @@ export function parsePackages(text: string, component: string): DebianCacheEntry
 }
 
 async function fetchComponent(component: DebianComponent): Promise<DebianCacheEntry[]> {
-  const url = packagesUrl(component);
-  const response = await fetch(url);
-  if (!response.ok) {
-    throw new Error(
-      `Failed to fetch Debian component "${component}": ${response.status} ${response.statusText}`,
-    );
-  }
-
-  const compressed = Buffer.from(await response.arrayBuffer());
-  const text = gunzipSync(compressed).toString("utf8");
+  const text = await fetchGunzippedText(packagesUrl(component), `Debian component "${component}"`);
   return parsePackages(text, component);
 }
 

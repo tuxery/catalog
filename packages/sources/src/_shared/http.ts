@@ -1,4 +1,4 @@
-import { gunzipSync } from "node:zlib";
+import { gunzipSync, zstdDecompressSync } from "node:zlib";
 
 /**
  * Fetches `url` and throws a consistent, source-labeled error on any
@@ -23,6 +23,16 @@ export async function fetchOrThrow(
 }
 
 /**
+ * Fetches `url` and returns its body as text — the uncompressed
+ * counterpart to `fetchGunzippedText`/`fetchZstdText`, for sources
+ * (Slackware, nixpkgs) that publish plain-text repodata.
+ */
+export async function fetchText(url: string, label: string, init?: RequestInit): Promise<string> {
+  const response = await fetchOrThrow(url, label, init);
+  return response.text();
+}
+
+/**
  * Fetches a gzip-compressed URL and returns the decompressed text —
  * every Debian-family (deb822) and Flatpak-family (AppStream) source
  * publishes its repodata this way (9 occurrences of the identical
@@ -37,4 +47,20 @@ export async function fetchGunzippedText(
   const response = await fetchOrThrow(url, label, init);
   const compressed = Buffer.from(await response.arrayBuffer());
   return gunzipSync(compressed).toString("utf8");
+}
+
+/**
+ * Fetches a Zstandard-compressed URL and returns the decompressed text —
+ * RPM repodata (Fedora, openSUSE) and Solus's eopkg-index both publish
+ * this way. Node 24's built-in zlib handles the decompression, no new
+ * dependency.
+ */
+export async function fetchZstdText(
+  url: string,
+  label: string,
+  init?: RequestInit,
+): Promise<string> {
+  const response = await fetchOrThrow(url, label, init);
+  const compressed = Buffer.from(await response.arrayBuffer());
+  return zstdDecompressSync(compressed).toString("utf8");
 }

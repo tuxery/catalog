@@ -1995,7 +1995,7 @@
 {"name":"ampart","description":"A partition tool to modify Amlogic's proprietary eMMC partition format and FDT","version":"1.4.1-1","homepage":"https://github.com/7Ji/ampart"}
 {"name":"ampart-git","description":"A partition tool to modify Amlogic's proprietary eMMC partition format and FDT","version":"1.3.r12.6f90ddd-2","homepage":"https://github.com/7Ji/ampart"}
 {"name":"ampcast-bin","description":"A music player inspired by Winamp.","version":"0.9.29-1","homepage":"https://github.com/rekkyrosso/ampcast"}
-{"name":"ampcode","description":"Amp CLI — Sourcegraph's agentic coding tool","version":"0.0.1786954186_g9739da-1","homepage":"https://ampcode.com"}
+{"name":"ampcode","description":"Amp CLI — Sourcegraph's agentic coding tool","version":"0.0.1786996977_g9b9e2e-1","homepage":"https://ampcode.com"}
 {"name":"ampere-git","description":"Ampere – a simple desktop audio player built off of python-vlc","version":"s.7.g6376594-1","homepage":"https://github.com/hent83722/ampere-audio-player"}
 {"name":"amphi-cloud","description":"A self-hosted cloud for secure file storage","version":"1.1.0-1","homepage":"https://amphi.site"}
 {"name":"amphi-music","description":"Cross-platform music player with support for syncing libraries via a self-hosted server","version":"2.1.0-1","homepage":"https://amphi.site"}
@@ -4691,7 +4691,7 @@
 {"name":"arch-torification","description":"A tool for full system torification of Arch Linux","version":"1.2-1","homepage":"https://github.com/jenil1122/Arch-torification"}
 {"name":"arch-tui","description":"A unified TUI for Arch Linux package management (Pacman + AUR)","version":"0.2.0-1","homepage":"https://github.com/sreevarshan-xenoz/arch-tui"}
 {"name":"arch-udev-usb-sync","description":"Fine tune write cache and impose buffer limits when USB storage device is plugged","version":"1.1-2","homepage":"https://gitlab.manjaro.org/applications/udev-usb-sync"}
-{"name":"arch-update","description":"An interactive update notifier & applier that assists you with important pre / post update tasks","version":"4.1.5-1","homepage":"https://github.com/Antiz96/arch-update"}
+{"name":"arch-update","description":"An interactive update notifier & applier that assists you with important pre / post update tasks","version":"4.1.6-1","homepage":"https://github.com/Antiz96/arch-update"}
 {"name":"arch-update-check","description":"Pre-update safety checks for Arch Linux (Arch News, system state, optional AUR checks)","version":"1.4.1-1","homepage":"https://github.com/Rakosn1cek/arch-update-check"}
 {"name":"arch-update-full","description":"Sentinel Protocol: Update automation (Pacman/AUR/Flatpak/Snap) and auditing.","version":"3.9-6","homepage":"https://github.com/GustavoGianeli/arch-update-full"}
 {"name":"arch-update-git","description":"An interactive update notifier & applier that assists you with important pre / post update tasks (git version)","version":"4.0.0.r765.a55f8fe-1","homepage":"https://github.com/Antiz96/arch-update"}
@@ -5635,7 +5635,7 @@
 {"name":"asus-proart-px13-quirks","description":"Userspace quirks for ASUS ProArt PX13 (HN7306EA): TAS2783/ACP UCM + PipeWire/WirePlumber drop-ins + MT7925 btusb autosuspend + thermal cpufreq-cooling clamp fix + amdgpu PSR disable","version":"1:7.1.8-1","homepage":"https://aur.archlinux.org/packages/asus-proart-px13-quirks"}
 {"name":"asus-rog-nb-wmi-dkms-git","description":"Kernel module to patch asus-nb-wmi to support more ROG laptops","version":"0.2.0.r0.gfa91078-1","homepage":"https://gitlab.com/asus-linux/asus-rog-nb-wmi"}
 {"name":"asus-rog-ryujin-hwmon-dkms-git","description":"Hwmon Linux kernel driver for monitoring ASUS ROG Ryujin AIO coolers","version":"r19.4b9fccb-1","homepage":"https://github.com/aleksamagicka/asus_rog_ryujin-hwmon"}
-{"name":"asus-rog-touchpad-numpad","description":"Linux driver for ASUS ROG laptop touchpad numpad overlay with LED backlight control","version":"1.0.0-1","homepage":"https://github.com/spinualexandru/asus-rog-touchpad-driver"}
+{"name":"asus-rog-touchpad-numpad","description":"Linux driver for ASUS ROG laptop touchpad numpad overlay with LED backlight control","version":"1.1.0-1","homepage":"https://github.com/spinualexandru/asus-rog-touchpad-driver"}
 {"name":"asus-sound-fix","description":"Fix no sound issue on ASUS Vivobook S14 Flip TP3407SA","version":"0.1.3-2","homepage":"https://github.com/Karso2023/vivobook_sound_fix"}
 {"name":"asus-stylus-driver","description":"Supplement driver for Asus Pen stylus","version":"1.2.0-1","homepage":"https://github.com/asus-linux-drivers/asus-stylus-driver"}
 {"name":"asus-stylus-driver-git","description":"Supplement driver for Asus Pen stylus","version":"r81.ca0f0ff-2","homepage":"https://github.com/asus-linux-drivers/asus-stylus-driver"}
@@ -10920,7 +10920,7 @@
 {"name":"calyxos-flasher-git","description":"A simple way to install CalyxOS on your device","version":"r108.ff9a4de-1","homepage":"https://github.com/AOSPAlliance/device-flasher"}
 {"name":"calz-bin","description":"A natural language alternative to Unix 'cal'","version":"0.9.2.0-1","homepage":"https://github.com/jez/calz"}
 {"name":"cam-git","description":"a unix command for viewing images","version":"20141220.19-1","homepage":"https://github.com/itchyny/cam"}
-{"name":"cam-stream","description":"Low-latency camera preview, screen recorder and RTMP(S) streamer for Wayland","version":"1.1.0-1","homepage":"https://github.com/tomdavenport/cam-stream"}
+{"name":"cam-stream","description":"Low-latency camera preview, screen recorder and RTMP(S) streamer for Wayland","version":"1.1.1-1","homepage":"https://github.com/tomdavenport/cam-stream"}
 {"name":"cambalache","description":"A new RAD tool for Gtk 4 and 3","version":"1.0.3-1","homepage":"https://gitlab.gnome.org/jpu/cambalache"}
 {"name":"cambalache-git","description":"A new RAD tool for Gtk 4 and 3 (Git version)","version":"1.0.r18.g3a9d1f5-1","homepage":"https://gitlab.gnome.org/jpu/cambalache"}
 {"name":"camel-k-bin","description":"Apache Camel K (a.k.a. Kamel) is a lightweight integration framework built from Apache Camel that runs natively on Kubernetes and is specifically designed for serverless and microservice architectures.","version":"1.9.1-1","homepage":"https://github.com/apache/camel-k"}
@@ -11893,6 +11893,7 @@
 {"name":"cemu-wine","description":"Wii U emulator. This is the stable Windows version via wine. Includes the Cemuhook plugin","version":"1.26.2-7","homepage":"https://cemu.info/"}
 {"name":"cen64-git","description":"Cycle-accurate Nintendo 64 emulator","version":"1:r941.f703120-1","homepage":"http://www.cen64.com/"}
 {"name":"cen64-qt-git","description":"A basic frontend for CEN64","version":"20241110-1","homepage":"https://github.com/dh4/cen64-qt"}
+{"name":"cencli-bin","description":"Command line interface for interacting with Censys","version":"1.1.1-1","homepage":"https://docs.censys.com/docs/platform-cli"}
 {"name":"cendric-git","description":"RPG game of a boy with no memory who discovers the magical world of Admantris.","version":"1.1.3.r18.g5b0438c7-2","homepage":"https://github.com/tizian/Cendric2"}
 {"name":"cengine","description":"Powerful Rust-based tool for converting Python scripts into standalone executables.","version":"1.2.0-2","homepage":"https://github.com/Da4ndo/CEngine"}
 {"name":"cenon","description":"GNUstep vector editor for EPS, DXF, Gerber, HPGL. Includes docs and examples.","version":"4.0.2-2","homepage":"http://www.cenon.info"}
@@ -12197,8 +12198,8 @@
 {"name":"chameleos-git","description":"Screen annotation tool for niri and Hyprland","version":"0.1.0.r1.g4663dab-1","homepage":"https://github.com/Treeniks/chameleos"}
 {"name":"chamelshot","description":"A lightweight screenshot capture tool for Wayland (wlroots)","version":"4.1.0-1","homepage":"https://github.com/kenjaku-dev/chamelshot"}
 {"name":"chamfer-git","description":"A tiling X11 window manager with Vulkan compositor.","version":"r321-1","homepage":"https://aur.archlinux.org/packages/chamfer-git/"}
-{"name":"chan","description":"AI-native IDE with an embedded web editor","version":"0.91.0-1","homepage":"https://chan.app"}
-{"name":"chan-desktop","description":"Desktop edition of the chan AI-native IDE","version":"0.91.0-1","homepage":"https://chan.app"}
+{"name":"chan","description":"Headless terminal multiplexer and workspace manager","version":"0.92.0-1","homepage":"https://chan.app"}
+{"name":"chan-desktop","description":"Desktop terminal multiplexer and workspace manager","version":"0.92.0-1","homepage":"https://chan.app"}
 {"name":"chan-sccp","description":"Cisco SCCP channel driver for Asterisk, alternative to chan_skinny","version":"4.3.5-1","homepage":"https://chan-sccp.github.io/chan-sccp"}
 {"name":"chandler-bin","description":"TAR normalizer","version":"0.0.10-1","homepage":"https://github.com/mcandre/chandler"}
 {"name":"changed","description":"Lightweight system tuning changelog daemon for Arch Linux (git version)","version":"0.5.9.r1.gc29b0e6-1","homepage":"https://github.com/l3afyb0y/changed"}
@@ -12919,8 +12920,8 @@
 {"name":"chromiumos-snapshot-bin","description":"ChromiumOS compiled for Linux and can run ChromeOS kiosk enterprise apps","version":"1-1","homepage":"https://download-chromium.appspot.com/"}
 {"name":"chromono","description":"A very circular color puzzle game","version":"1.1.1-1","homepage":"https://thp.io/2013/chromono/"}
 {"name":"chrona-bin","description":"Cross-platform text-to-speech and MP3 converter with a modern GUI","version":"1.0.0-1","homepage":"https://github.com/Cypher-Monarch/Chrona"}
-{"name":"chroncal","description":"Terminal-first calendar, todo, and journal manager","version":"0.7.6-1","homepage":"https://github.com/DouglasdeMoura/chroncal"}
-{"name":"chroncal-bin","description":"Terminal-first calendar, todo, and journal manager","version":"0.7.6-1","homepage":"https://github.com/DouglasdeMoura/chroncal"}
+{"name":"chroncal","description":"Terminal-first calendar, todo, and journal manager","version":"0.7.7-1","homepage":"https://github.com/DouglasdeMoura/chroncal"}
+{"name":"chroncal-bin","description":"Terminal-first calendar, todo, and journal manager","version":"0.7.7-1","homepage":"https://github.com/DouglasdeMoura/chroncal"}
 {"name":"chronic","description":"Filters out standard output for cron emails.","version":"1.0.12-1","homepage":"https://github.com/docwhat/chronic"}
 {"name":"chronic-bin","description":"Tool that hides cron output unless the command fails","version":"1.0.11-1","homepage":"https://github.com/docwhat/chronic"}
 {"name":"chronicle","description":"A command-line journal with optional encryption","version":"0.1-1","homepage":"https://github.com/NorfairKing/chronicle"}
@@ -13324,7 +13325,7 @@
 {"name":"claude-agent-acp","description":"Use Claude Agent from any ACP client such as Zed!","version":"0.69.0-1","homepage":"https://github.com/agentclientprotocol/claude-agent-acp"}
 {"name":"claude-agent-acp-bin","description":"Use Claude Agent from any ACP client such as Zed! (precompiled binary)","version":"0.25.3-1","homepage":"https://github.com/agentclientprotocol/claude-agent-acp"}
 {"name":"claude-brain","description":"A local second brain for Claude Code: hybrid recall over notes and past sessions, episodic memory, note-graph traversal, design memory from screenshots and captured URLs, 3D visualisation, cloud sync","version":"0.4.1-1","homepage":"https://github.com/basement-interactive/claude-brain"}
-{"name":"claude-code","description":"An agentic coding tool that lives in your terminal","version":"2.1.233-1","homepage":"https://github.com/anthropics/claude-code"}
+{"name":"claude-code","description":"An agentic coding tool that lives in your terminal","version":"2.1.234-1","homepage":"https://github.com/anthropics/claude-code"}
 {"name":"claude-code-api-git","description":"OpenAI-compatible API gateway for Claude Code CLI","version":"r30.b0cc14c-1","homepage":"https://github.com/codingworkflow/claude-code-api"}
 {"name":"claude-code-bridge-git","description":"Claude Code Bridge (CCB): unified multi-provider terminal bridge for Claude/Codex/Gemini and more","version":"5.2.9.r1.g8e4d63b-1","homepage":"https://github.com/bfly123/claude_code_bridge"}
 {"name":"claude-code-cost-calc-git","description":"Estimate Claude Code API spend by scanning local session files (development version)","version":"r1.cac03ce-2","homepage":"https://github.com/ckhordiasma/cccc"}
@@ -13917,7 +13918,7 @@
 {"name":"cmd-wrapped-bin","description":"Find out what the past year looks like in command line!","version":"0.4.1-1","homepage":"https://github.com/YiNNx/cmd-wrapped"}
 {"name":"cmdbox","description":"A cross-platform command manager for terminal workflows","version":"1.3.1-1","homepage":"https://github.com/PhantomLambSoft/CmdBox"}
 {"name":"cmdcalc","description":"A simple command-line calculator","version":"2.4-1","homepage":"https://github.com/Benni3D/cmdcalc"}
-{"name":"cmdchamp","description":"CLI trainer — 30 levels from ls to privilege escalation","version":"1.5.0-1","homepage":"https://github.com/mellen9999/cmdchamp"}
+{"name":"cmdchamp","description":"CLI trainer — 30 levels from ls to privilege escalation","version":"1.5.1-1","homepage":"https://github.com/mellen9999/cmdchamp"}
 {"name":"cmdcreate","description":"Easily create and manage your own custom commands","version":"1.4.3-1","homepage":"https://github.com/owen-debiasio/cmdcreate"}
 {"name":"cmdcreate-git","description":"Easily create and manage your own custom commands","version":"r1617.ca1bc9e-2","homepage":"https://github.com/owen-debiasio/cmdcreate"}
 {"name":"cmdd","description":"ConnMan D-bus network state Dispatcher","version":"1.0.2-1","homepage":"https://github.com/vsemyonoff/cmdd"}
@@ -18878,7 +18879,7 @@
 {"name":"discogs-wantlist-cli-git","description":"Extract releases from Discogs user wantlist without duplicates","version":"r1.87b4f5e-1","homepage":"https://github.com/voronianski/discogs-wantlist-cli"}
 {"name":"discord-account-manager-git","description":"A powerful and user-friendly Discord account manager built with Electron.js.(Use system-wide electron)","version":"1.5.5.r1.g7f6094b-1","homepage":"https://github.com/Bherl1/DiscordAccMgr"}
 {"name":"discord-bot-client-appimage","description":"A patched version of discord, with bot login & Vencord support","version":"3.9.3-1","homepage":"https://github.com/aiko-chan-ai/DiscordBotClient/"}
-{"name":"discord-canary","description":"All-in-one voice and text chat for gamers - alpha build","version":"1.0.1682-1","homepage":"https://discord.com"}
+{"name":"discord-canary","description":"All-in-one voice and text chat for gamers - alpha build","version":"1.0.1683-1","homepage":"https://discord.com"}
 {"name":"discord-canary-electron-bin","description":"Discord Canary (popular voice + video app) using the system provided electron for increased security and performance","version":"0.0.925-1","homepage":"https://canary.discordapp.com"}
 {"name":"discord-chat-exporter-core","description":"Exports Discord chat logs to a file - Core","version":"2.47.3-1","homepage":"https://github.com/Tyrrrz/DiscordChatExporter"}
 {"name":"discord-chat-exporter-cli","description":"Exports Discord chat logs to a file - CLI","version":"2.47.3-1","homepage":"https://github.com/Tyrrrz/DiscordChatExporter"}
@@ -22481,8 +22482,8 @@
 {"name":"emerald-gtk3","description":"Emerald window decorator","version":"0.8.18-5","homepage":"https://gitlab.com/compiz/emerald/"}
 {"name":"emerald-gtk3-git","description":"Emerald window decorator","version":"0.8.14.r18.g93e490c-1","homepage":"https://gitlab.com/compiz/emerald"}
 {"name":"emerald-icon-theme-git","description":"Fresh and simple personality icon theme","version":"2018.02.02.r18.ge2d3520-3","homepage":"https://github.com/vinceliuice/emerald-icon-theme"}
-{"name":"emerald-legacy-launcher","description":"FOSS, cross-platform launcher for Minecraft Legacy Console Edition","version":"1.5.1-1","homepage":"https://github.com/LCE-Hub/LCE-Emerald-Launcher"}
-{"name":"emerald-legacy-launcher-bin","description":"FOSS, cross-platform launcher for Minecraft Legacy Console Edition","version":"1.5.1-1","homepage":"https://github.com/LCE-Hub/LCE-Emerald-Launcher"}
+{"name":"emerald-legacy-launcher","description":"FOSS, cross-platform launcher for Minecraft Legacy Console Edition","version":"1.6.0-1","homepage":"https://github.com/LCE-Hub/LCE-Emerald-Launcher"}
+{"name":"emerald-legacy-launcher-bin","description":"FOSS, cross-platform launcher for Minecraft Legacy Console Edition","version":"1.6.0-1","homepage":"https://github.com/LCE-Hub/LCE-Emerald-Launcher"}
 {"name":"emerald-legacy-launcher-git","description":"FOSS, cross-platform launcher for Minecraft Legacy Console Edition","version":"1.3.0.r6.g7baa96c-1","homepage":"https://github.com/LCE-Hub/LCE-Emerald-Launcher"}
 {"name":"emerald-theme-qaz-blue-vista","description":"A blue vista theme for emerald.","version":"1.0-2","homepage":"https://github.com/fkxxyz/emerald-theme-qaz-blue-vista"}
 {"name":"emerald-themes","description":"Themes for Emerald Compiz decorator","version":"0.8.18-2","homepage":"https://gitlab.com/compiz/emerald-themes/"}
@@ -24182,7 +24183,7 @@
 {"name":"fancy-mouse-boot-rom","description":"MCPX boot ROM implementation","version":"0.9.0-1","homepage":"https://github.com/SnowyMouse/fancy-mouse-boot-rom"}
 {"name":"fancybeep-dkms","description":"Synthetic or enhanced PC Speaker beeper kernel module and alsa daemon","version":"2.6.24.1-1","homepage":"https://github.com/mozzwald/Fancy-Beeper-Daemon"}
 {"name":"fancylock-bin","description":"A media-playing screen locker (precompiled binary)","version":"0.0.9-1","homepage":"https://github.com/tuxx/fancylock"}
-{"name":"fancymumble-bin","description":"A Modern, Feature-Rich Mumble Client","version":"0.3.0-1","homepage":"https://github.com/Map1en/VRCX-0"}
+{"name":"fancymumble-bin","description":"A Modern, Feature-Rich Mumble Client","version":"0.3.0-1","homepage":"https://github.com/Fancy-Mumble/FancyMumble"}
 {"name":"fancytasks","description":"More modern taskbar-style window switcher displaying icons and text, with some improvments and color. Serves as a replacement for the Icon-Only and Task Manager plasmoids KDE ships with.","version":"1.1.5-1","homepage":"https://github.com/alexankitty/FancyTasks"}
 {"name":"fanficfare","description":"A tool for downloading fanfiction to eBook formats","version":"4.57.0-1","homepage":"https://github.com/JimmXinu/FanFicFare"}
 {"name":"fanficfare-git","description":"Tool to make eBooks from stories on fanfiction and other websites","version":"4.60.0.r21.g81e5e1b-1","homepage":"https://github.com/JimmXinu/FanFicFare"}
@@ -24872,7 +24873,7 @@
 {"name":"ferrum-git","description":"Electron frontend + Spring Boot backend for browsing Metal Archives","version":"0-3","homepage":"https://github.com/prezdev88/ferrum"}
 {"name":"ferrumc-bin","description":"A reimplementation of the Minecraft server in Rust (precompiled binary)","version":"0.1.0.rc2-1","homepage":"https://github.com/ferrumc-rs/ferrumc"}
 {"name":"ferrumc-git","description":"A reimplementation of the minecraft server in rust.","version":"0.0.r1789.ffa2316e-1","homepage":"https://github.com/ferrumc-rs/ferrumc"}
-{"name":"ferrumpix-bin","description":"Desktop photo manager and image editor built with Avalonia UI","version":"0.9.29-2","homepage":"https://github.com/Bitpainter75/FerrumPix"}
+{"name":"ferrumpix-bin","description":"Desktop photo manager and image editor built with Avalonia UI","version":"0.9.29-3","homepage":"https://github.com/Bitpainter75/FerrumPix"}
 {"name":"festival-bin","description":"Festival Methodology CLI suite (fest + camp) - AI-native project planning","version":"0.2.13-1","homepage":"https://fest.build"}
 {"name":"festival-cli-bin","description":"Festival music player CLI","version":"1.0.0-1","homepage":"https://github.com/hinto-janai/festival"}
 {"name":"festival-freebsoft-utils","description":"collection of Festival utilities including modules for speech-dispatcher support","version":"0.10-2","homepage":"http://www.freebsoft.org/festival-freebsoft-utils"}
@@ -25411,8 +25412,8 @@
 {"name":"zen-browser-sponsorblock","description":"Skip YouTube video sponsors","version":"6.1.7-1","homepage":"https://github.com/ajayyy/SponsorBlock"}
 {"name":"firefox-extension-sponsorblock","description":"Skip YouTube video sponsors","version":"6.1.7-1","homepage":"https://github.com/ajayyy/SponsorBlock"}
 {"name":"librewolf-extension-sponsorblock","description":"Skip YouTube video sponsors","version":"6.1.7-1","homepage":"https://github.com/ajayyy/SponsorBlock"}
-{"name":"zen-browser-violentmonkey","description":"Web Extension for saving a faithful copy of a complete web page in a single HTML file","version":"2.40.0-1","homepage":"https://github.com/Violentmonkey/Violentmonkey"}
-{"name":"firefox-extension-violentmonkey","description":"Web Extension for saving a faithful copy of a complete web page in a single HTML file","version":"2.40.0-1","homepage":"https://github.com/Violentmonkey/Violentmonkey"}
+{"name":"zen-browser-violentmonkey","description":"Web Extension for saving a faithful copy of a complete web page in a single HTML file","version":"2.48.0-1","homepage":"https://github.com/Violentmonkey/Violentmonkey"}
+{"name":"firefox-extension-violentmonkey","description":"Web Extension for saving a faithful copy of a complete web page in a single HTML file","version":"2.48.0-1","homepage":"https://github.com/Violentmonkey/Violentmonkey"}
 {"name":"firefox-chrome-manager-git","description":"Firefox userChrome.css Installer","version":"r11.1481abf-1","homepage":"https://github.com/quininer/firefox-chrome-manager"}
 {"name":"firefox-clearurls","description":"Remove tracking elements from URL's.","version":"1.27.3-4","homepage":"https://gitlab.com/ClearURLs/ClearUrls"}
 {"name":"firefox-color","description":"Build, save and share beautiful Firefox themes.","version":"2.1.7-1","homepage":"https://github.com/mozilla/FirefoxColor"}
@@ -26174,7 +26175,7 @@
 {"name":"flightcore","description":"Northstar installer, updater, and launcher","version":"3.2.2-1","homepage":"https://github.com/R2NorthstarTools/FlightCore"}
 {"name":"flightcore-bin","description":"Installer/Updater/Launcher for Northstar (binary release)","version":"3.2.0-1","homepage":"https://github.com/R2NorthstarTools/FlightCore"}
 {"name":"flightgear","description":"An open-source, multi-platform flight simulator","version":"2024.1.6-1","homepage":"https://www.flightgear.org"}
-{"name":"flightgear-appimage","description":"An open-source, multi-platform flight simulator. AppImage release.","version":"2024.1.6-1","homepage":"http://www.flightgear.org/"}
+{"name":"flightgear-appimage","description":"An open-source, multi-platform flight simulator. AppImage release.","version":"2024.1.7-1","homepage":"http://www.flightgear.org/"}
 {"name":"flightgear-data","description":"The FlightGear base package contains the necessary data files to run FlightGear","version":"2024.1.6-1","homepage":"https://gitlab.com/flightgear/fgdata"}
 {"name":"flightgear-data-git","description":"Base data for the flightgear flight simulator.","version":"2024.2.0r10907.462fd76a7-1","homepage":"https://www.flightgear.org"}
 {"name":"flightgear-git","description":"An open-source, multi-platform flight simulator","version":"2024.1.0r16085.1757b1d5b-5","homepage":"https://home.flightgear.org"}
@@ -29769,8 +29770,8 @@
 {"name":"git-toolbelt","description":"A suite of useful Git commands that aid with scripting or every day command line usage","version":"1.11.0-1","homepage":"https://github.com/nvie/git-toolbelt"}
 {"name":"git-tools-git","description":"Assorted git tools, including git-restore-mtime","version":"2022.12.r6.gfaba1cd-1","homepage":"https://github.com/MestreLion/git-tools"}
 {"name":"git-town-bin","description":"Git workflow automation to keep branches in sync and reduce merge conflicts.Written in Go.(Prebuilt version)","version":"24.0.0-1","homepage":"https://www.git-town.com/"}
-{"name":"git-tpl","description":"Git-native project templates","version":"0.5.1-1","homepage":"https://github.com/noirbizarre/git-tpl"}
-{"name":"git-tpl-bin","description":"Git-native project templates (prebuilt binary)","version":"0.5.1-1","homepage":"https://github.com/noirbizarre/git-tpl"}
+{"name":"git-tpl","description":"Git-native project templates","version":"0.6.0-1","homepage":"https://github.com/noirbizarre/git-tpl"}
+{"name":"git-tpl-bin","description":"Git-native project templates (prebuilt binary)","version":"0.6.0-1","homepage":"https://github.com/noirbizarre/git-tpl"}
 {"name":"git-treeflow-bin","description":"A terminal UI for managing git worktrees","version":"0.4.0-1","homepage":"https://github.com/cKreymborg/git-treeflow"}
 {"name":"git-trim","description":"Trims your git remote tracking branches","version":"0.4.3-1","homepage":"https://github.com/foriequal0/git-trim"}
 {"name":"git-trim-bin","description":"Trims your git remote tracking branches","version":"0.4.3-1","homepage":"https://github.com/foriequal0/git-trim"}
@@ -32898,7 +32899,7 @@
 {"name":"grok-bot","description":"Grok Bot desktop agent","version":"0.16.0-1","homepage":"https://cursor.com"}
 {"name":"grok-build","description":"Grok CLI - command line interface for xAI's Grok","version":"1.0.4-1","homepage":"https://x.ai/cli"}
 {"name":"grok-build-bin","description":"SpaceXAI's coding agent harness and TUI. Fullscreen, mouse interactive, extensible.","version":"1.0.4-2","homepage":"https://x.ai/build"}
-{"name":"grok-build-git","description":"SpaceXAI's coding agent harness and TUI. Fullscreen, mouse interactive, extensible.","version":"r29.eb267fe-1","homepage":"https://x.ai/build"}
+{"name":"grok-build-git","description":"SpaceXAI's coding agent harness and TUI. Fullscreen, mouse interactive, extensible.","version":"r33.d71f6e0-1","homepage":"https://x.ai/build"}
 {"name":"grok-desktop-bin","description":"Grok Desktop Application Wrapper - Turning Grok by xAI into a Standalone App","version":"2.2.0-1","homepage":"https://github.com/Ash-Bash/Grok-Desktop-Wrapper"}
 {"name":"grok-exporter","description":"Export Prometheus metrics from arbitrary unstructured log data (from binary release).","version":"0.2.6-1","homepage":"https://github.com/fstab/grok_exporter"}
 {"name":"grok-exporter-bin","description":"Export Prometheus metrics from arbitrary unstructured log data (from binary release).","version":"0.2.8-2","homepage":"https://github.com/fstab/grok_exporter"}
@@ -34964,14 +34965,14 @@
 {"name":"heretic2","description":"Heretic 2 from Raven Software, Linux version by Loki. Update PKGBUILD with path to CD for the data files.","version":"1.06c-1","homepage":"http://www.lokigames.com/products/heretic2/"}
 {"name":"herl-bin","description":"A minimal and scriptable way to refresh a webpage","version":"1.0.3-1","homepage":"https://github.com/SimonMTS/herl"}
 {"name":"hermes","description":"Authenticate on linux by plugging your USB stick!","version":"1.8-1","homepage":"https://github.com/ralt/hermes"}
-{"name":"hermes-agent","description":"Locally-run AI agent with tool use, web browsing, and automation","version":"0.20.2-1","homepage":"https://github.com/NousResearch/hermes-agent"}
+{"name":"hermes-agent","description":"Locally-run AI agent with tool use, web browsing, and automation","version":"0.20.3-1","homepage":"https://github.com/NousResearch/hermes-agent"}
 {"name":"hermes-agent-desktop","description":"Official Hermes Agent desktop app from Nous Research — chat, voice, file browser, and settings UI for the local agent runtime.","version":"0.18.2-1","homepage":"https://github.com/NousResearch/hermes-agent"}
 {"name":"hermes-agent-desktop-bin","description":"Desktop companion for Hermes Agent","version":"0.7.6-1","homepage":"https://github.com/fathah/hermes-desktop"}
 {"name":"hermes-cli","description":"Native speech-to-text CLI daemon","version":"0.1.5-1","homepage":"https://github.com/adityamiskin/hermes"}
 {"name":"hermes-cli-bin","description":"Native speech-to-text CLI daemon (prebuilt binary)","version":"0.1.5-1","homepage":"https://github.com/adityamiskin/hermes"}
 {"name":"hermes-dec","description":"A reverse engineering tool for decompiling and disassembling the React Native Hermes bytecode","version":"0.1.6-1","homepage":"https://github.com/P1sec/hermes-dec"}
 {"name":"hermes-dec-git","description":"A tool for reverse engineering React Native Hermes bytecode files","version":"1:0.1.0.r12.gd1adc33-1","homepage":"https://github.com/P1sec/hermes-dec"}
-{"name":"hermes-decomp-bin","description":"A powerful decompiler that lets you reverse-engineer React Native mobile apps by converting their compiled Hermes bytecode (.hbc) files back into readable JavaScript","version":"0.2.1-1","homepage":"https://github.com/SymbioticSec/hermes-decomp"}
+{"name":"hermes-decomp-bin","description":"A powerful decompiler that lets you reverse-engineer React Native mobile apps by converting their compiled Hermes bytecode (.hbc) files back into readable JavaScript","version":"0.2.2-1","homepage":"https://github.com/SymbioticSec/hermes-decomp"}
 {"name":"hermes-desktop","description":"Native speech-to-text desktop app","version":"0.1.5-1","homepage":"https://github.com/adityamiskin/hermes"}
 {"name":"hermes-desktop-bin","description":"Native speech-to-text desktop app (prebuilt binary)","version":"0.1.5-1","homepage":"https://github.com/adityamiskin/hermes"}
 {"name":"hermes-one-bin","description":"Hermes One — native desktop app for installing, configuring, and chatting with Hermes Agent","version":"0.7.6-1","homepage":"https://github.com/fathah/hermes-desktop"}
@@ -36462,7 +36463,7 @@
 {"name":"hyprnome","description":"GNOME-like workspace switching in Hyprland.","version":"0.3.1-1","homepage":"https://github.com/donovanglover/hyprnome"}
 {"name":"hyprnotify","description":"A notification daemon with 'hyprctl notify' as its backend.","version":"0.8.0-1","homepage":"https://github.com/codelif/hyprnotify"}
 {"name":"hyproled-git","description":"A hyprland shader utility to prevent OLED burn in.","version":"0.1.5-1","homepage":"https://github.com/mklan/hyproled"}
-{"name":"hyprosd-git","description":"Simple Hyprland OSD for volume, brightness, Caps Lock, and Num Lock","version":"0.2.0.r10.g227d411-1","homepage":"https://github.com/jameswylde/hyprosd"}
+{"name":"hyprosd-git","description":"Simple Hyprland OSD for volume, brightness, Caps Lock, and Num Lock","version":"0.2.0.r14.gf7ddc21-1","homepage":"https://github.com/jameswylde/hyprosd"}
 {"name":"hyprpad","description":"A simple, fast text editor with Vim keybinds","version":"0.1.3-1","homepage":"https://github.com/gingrspacecadet/hyprpad"}
 {"name":"hyprpanel","description":"An opinionated panel/shell for the Hyprland compositor.","version":"0.3.1-1","homepage":"https://github.com/pdf/hyprpanel"}
 {"name":"hyprpanel-bin","description":"An opinionated panel/shell for the Hyprland compositor.","version":"0.3.1-1","homepage":"https://github.com/pdf/hyprpanel"}
@@ -38121,7 +38122,7 @@
 {"name":"ioninja","description":"Professional all-in-one terminal emulator, sniffer, and protocol analyzer","version":"5.10.3-1","homepage":"https://ioninja.com"}
 {"name":"ionix-file-manager-git","description":"A keyboard-focused terminal file manager with Kitty graphics protocol support","version":"r32.0c592ae-1","homepage":"https://github.com/LucasionGS/ionix-file-manager"}
 {"name":"ionix-openconnect-tools","description":"CLI utility for managing and connecting to OpenConnect VPN servers","version":"r5.5c1b067-1","homepage":"https://github.com/LucasionGS/openconnect-tools"}
-{"name":"ionix-quickshell-git","description":"Ionix Quickshell desktop shell — bar, popouts and OSD (git)","version":"r23.22b7c03-1","homepage":"https://github.com/LucasionGS/ionix-quickshell"}
+{"name":"ionix-quickshell-git","description":"Ionix Quickshell desktop shell — bar, popouts and OSD (git)","version":"r25.482cd34-1","homepage":"https://github.com/LucasionGS/ionix-quickshell"}
 {"name":"ionix-shell","description":"GTK overlay shell for Hyprland — SSH, VPN, Docker, command palette, and automation panels","version":"r34.353b5e0-1","homepage":"https://github.com/LucasionGS/ionix-shell-ags"}
 {"name":"ionlog","description":"Log analysis and anomaly detection — NEMESIS ENGINE","version":"0.1.0-1","homepage":"https://github.com/VanHoney-ltd/ionlog"}
 {"name":"ionosctl","description":"IONOS Cloud CLI","version":"6.10.3-1","homepage":"https://github.com/ionos-cloud/ionosctl"}
@@ -39540,7 +39541,7 @@
 {"name":"jm-desktop-bin","description":"A jm comic desktop app by react + electron.(Prebuilt version).一个禁漫的第三方客户端","version":"2.2.1-1","homepage":"https://github.com/Dedicatus546/jm-desktop"}
 {"name":"jm-git","description":"JM H.264 reference encoder/decoder, development build","version":"19.0.r110.g8b34eee-1","homepage":"https://vcgit.hhi.fraunhofer.de/jvet/JM"}
 {"name":"jm2cv-git","description":"Converts between JACK MIDI and CV control voltage","version":"20130518-3","homepage":"https://github.com/harryhaaren/jm2cv"}
-{"name":"jman","description":"A command-line utility designed to manage WordPress sites hosted on SpinupWP.","version":"5.27.0-1","homepage":"https://github.com/JCO-Digital/jman"}
+{"name":"jman","description":"A command-line utility designed to manage WordPress sites hosted on SpinupWP.","version":"5.27.1-1","homepage":"https://github.com/JCO-Digital/jman"}
 {"name":"jmap-mcp","description":"mcp server for jmap email - works with claude desktop, cursor, and other mcp clients","version":"0.1.0-1","homepage":"https://github.com/rotkonetworks/jmap-mcp"}
 {"name":"jmapper","description":"token-efficient jmap email cli for ai agents - tsv output, minimal tokens","version":"0.1.0-1","homepage":"https://github.com/rotkonetworks/jmap-mcp"}
 {"name":"jmars","description":"Java Mission-planning and Analysis for Remote Sensing is a geospatial information system for Mars","version":"5.3.14-1","homepage":"https://jmars.mars.asu.edu/"}
@@ -41498,8 +41499,8 @@
 {"name":"klank-preamp-bin","description":"Audio Assault Bass Preamp","version":"1.0.0-1","homepage":"https://audioassault.mx/collections/plugins/products/klank"}
 {"name":"klank-vst","description":"Bass Preamp (VST Plugin)","version":"1.0.0-2","homepage":"https://audioassault.mx/collections/plugins/products/klank"}
 {"name":"klar","description":"Minimalist OSD that shows visual indicators for brightness, audio, and power events","version":"0.2.0-2","homepage":"https://github.com/isaksamsten/klar"}
-{"name":"klassy","description":"Highly customizable binary Window Decoration, Application Style and Global Theme plugin for recent versions of the KDE Plasma desktop.","version":"6.5.3-1","homepage":"https://github.com/paulmcauley/klassy"}
-{"name":"klassy-qt5","description":"Highly customizable binary Window Decoration, Application Style and Global Theme plugin for recent versions of the KDE Plasma desktop.","version":"6.5.3-1","homepage":"https://github.com/paulmcauley/klassy"}
+{"name":"klassy","description":"Highly customizable binary Window Decoration, Application Style and Global Theme plugin for recent versions of the KDE Plasma desktop.","version":"6.7-1","homepage":"https://github.com/paulmcauley/klassy"}
+{"name":"klassy-qt5","description":"Highly customizable binary Window Decoration, Application Style and Global Theme plugin for recent versions of the KDE Plasma desktop.","version":"6.7-1","homepage":"https://github.com/paulmcauley/klassy"}
 {"name":"klassy-bin","description":"Highly customizable binary Window Decoration, Application Style and Global Theme plugin for recent versions of the KDE Plasma desktop.","version":"6.5.3-1","homepage":"https://github.com/paulmcauley/klassy"}
 {"name":"klassy-git","description":"Highly customizable binary Window Decoration, Application Style and Global Theme plugin for recent versions of the KDE Plasma desktop.","version":"6.4.r3217.g61c1e969-1","homepage":"https://github.com/paulmcauley/klassy"}
 {"name":"klassy-qt5-git","description":"Highly customizable binary Window Decoration, Application Style and Global Theme plugin for recent versions of the KDE Plasma desktop.","version":"6.4.r3217.g61c1e969-1","homepage":"https://github.com/paulmcauley/klassy"}
@@ -41800,7 +41801,6 @@
 {"name":"koel","description":"A personal music streaming server that works.","version":"5.1.14-1","homepage":"https://koel.dev/"}
 {"name":"koffan","description":"Free self-hosted groceries list for families and shared households","version":"2.13.0-1","homepage":"https://github.com/PanSalut/Koffan"}
 {"name":"koffe","description":"simple tool for creating easy to use and offline-friendly arch installers with aur support","version":"1.4.0-1","homepage":"https://github.com/konickss/koffe"}
-{"name":"koharu-appimage","description":"ML-powered manga translator","version":"0.61.2-1","homepage":"https://github.com/mayocream/koharu"}
 {"name":"koharu-bin","description":"Manga translation tools","version":"0.73.0-1","homepage":"https://github.com/mayocream/koharu"}
 {"name":"kohighlights","description":"Utility for viewing Koreader's highlights and/or export them to simple text, html, csv or markdown files.","version":"2.3.1.0-2","homepage":"http://www.noembryo.com/apps.php?kohighlights"}
 {"name":"koi","description":"Scheduled LIGHT/DARK Theme Switching for the KDE Plasma Desktop","version":"0.6-2","homepage":"https://github.com/baduhai/Koi"}
@@ -49574,8 +49574,8 @@
 {"name":"lune-git","description":"[Latest Git Commit] A standalone Luau script runtime","version":"0.10.4.r1.g43484f13-1","homepage":"https://lune-org.github.io/docs"}
 {"name":"lunela","description":"Print ephemeris of the moon and more in a terminal without internet connection.","version":"2.3.3-5","homepage":"https://gitlab.com/brunoy/lunela.git"}
 {"name":"luneta","description":"Interactive command-line filter that can be applied to any list, e.g., \"ls | luneta\"","version":"0.7.4-1","homepage":"https://github.com/fbeline/luneta"}
-{"name":"lungo","description":"A simple systray applet to prevent the system from going idle or suspending on demand","version":"1.0.5-1","homepage":"https://github.com/Antiz96/lungo"}
-{"name":"lungo-bin","description":"A simple systray applet to prevent the system from going idle or suspending on demand (bin version)","version":"1.0.5-1","homepage":"https://github.com/Antiz96/lungo"}
+{"name":"lungo","description":"A simple systray applet to prevent the system from going idle or suspending on demand","version":"1.0.6-1","homepage":"https://github.com/Antiz96/lungo"}
+{"name":"lungo-bin","description":"A simple systray applet to prevent the system from going idle or suspending on demand (bin version)","version":"1.0.6-1","homepage":"https://github.com/Antiz96/lungo"}
 {"name":"lungo-git","description":"A simple systray applet to prevent the system from going idle or suspending on demand (git version)","version":"1.0.5.r31.83a5d4f-1","homepage":"https://github.com/Antiz96/lungo"}
 {"name":"lunie-cli-bin","description":"Lunie CLI (prebuilt binary)","version":"1.1.0-1","homepage":"https://github.com/gentij/lunie"}
 {"name":"lunii-qt-bin","description":"GUI to manage Lunii Storyteller devices - pre-built binary","version":"3.0.0-1","homepage":"https://github.com/o-daneel/Lunii.QT"}
@@ -49762,6 +49762,7 @@
 {"name":"lycklig-git","description":"Image processing for lucky imaging.","version":"20180813-1","homepage":"https://github.com/AD-Vega/lycklig.git"}
 {"name":"lylibrary","description":"LyLibrary provides everything necessary to the books cataloguing, the loans management and the registration of the library readers.","version":"3.1-5","homepage":"http://www.codelinsoft.it/sito/2013-11-17-17-56-34/lylibrary.html#"}
 {"name":"lyluatex-git","description":"Include lilypond scores in LuaLaTeX files.","version":"r763.157ccf6-1","homepage":"https://github.com/jperon/lyluatex"}
+{"name":"lyn-git","description":"Weather forecasting CLI powered by the Norwegian Meteorological Institute","version":"1.4.1.r14.gc1fc103-1","homepage":"https://sr.ht/~timharek/lyn/"}
 {"name":"lynda-dl","description":"Tool to download courses from Lynda","version":"0.3-3","homepage":"https://github.com/r0oth3x49/lynda-dl"}
 {"name":"lynda-dl-git","description":"Tool to download courses from Lynda (git)","version":"0.3+r11+gbfa3fbe-1","homepage":"https://github.com/r0oth3x49/lynda-dl"}
 {"name":"lynis-git","description":"Security and system auditing tool to harden Unix/Linux systems","version":"2.6.4.2108.5300475-1","homepage":"https://cisofy.com/lynis/"}
@@ -50364,7 +50365,7 @@
 {"name":"mangatan-bin","description":"Read manga and light novels, and watch anime","version":"1.1.0-1","homepage":"https://github.com/1Selxo/Mangatan"}
 {"name":"mangayomi","description":"free and open source application for reading manga, novels, and watching animes","version":"0.8.3-1","homepage":"https://github.com/kodjodevf/mangayomi"}
 {"name":"mangayomi-appimage","description":"Mangayomi - Manga, Anime and Novel reader (prebuilt Linux zip)","version":"0.6.90-1","homepage":"https://github.com/kodjodevf/mangayomi"}
-{"name":"mangayomi-linux","description":"Mangayomi - Manga, Anime and Novel reader (prebuilt Linux zip)","version":"0.8.5-1","homepage":"https://github.com/kodjodevf/mangayomi"}
+{"name":"mangayomi-linux","description":"Mangayomi - Manga, Anime and Novel reader (prebuilt Linux zip)","version":"0.8.0-1","homepage":"https://github.com/kodjodevf/mangayomi"}
 {"name":"mangband","description":"A free online multiplayer real-time roguelike game, derived from the single player game Angband (ncurses-only)","version":"1.5.3-1","homepage":"http://www.mangband.org/"}
 {"name":"mangcli-bin","description":"Native-first universal package manager","version":"0.1.0-1","homepage":"https://github.com/edwrdq/mangCLI"}
 {"name":"mange","description":"A ncurses-based spreadsheet (eg csv, tsv) editor.","version":"0.1b-5","homepage":"https://github.com/aksr/mange"}
@@ -50390,7 +50391,7 @@
 {"name":"mangoverlay","description":"GUI app for managing your MangoHud configuration.","version":"0.4.0-1","homepage":"https://github.com/loissascha/MangOverlay"}
 {"name":"mangowm","description":"A Wayland compositor with smooth animation","version":"0.16.1-1","homepage":"https://github.com/DreamMaoMao/mangowc"}
 {"name":"mangowm-git","description":"A Wayland compositor with smooth animation","version":"0.16.0.r0.g7bb3f7e-1","homepage":"https://github.com/mangowm/mango"}
-{"name":"mangowm-wlonly","description":"mangowm without scenefx","version":"0.15.5-1","homepage":"https://github.com/mangowm/mango/tree/wl-only"}
+{"name":"mangowm-wlonly","description":"mangowm without scenefx","version":"0.16.1-1","homepage":"https://github.com/mangowm/mango/tree/wl-only"}
 {"name":"mangowm-wlonly-git","description":"mangowm without scenefx","version":"0.7.1.r1132.gf07799e-1","homepage":"https://github.com/mangowm/mango/tree/wl-only"}
 {"name":"manhuagui-downloader","description":"漫画柜 manhuagui 看漫画 下载器，带图形界面，支持下载隐藏内容、导出PDF","version":"0.5.0-1","homepage":"https://github.com/lanyeeee/manhuagui-downloader"}
 {"name":"manhuagui-downloader-bin","description":"An tauri built application that can read comics, downloader, with graphical interface, support downloading hidden content, exporting PDF.(Prebuilt version)一个用于 manhuagui.com看漫画的下载器,带图形界面,支持下载隐藏内容、支持导出cbz和pdf","version":"0.5.0-1","homepage":"https://github.com/lanyeeee/manhuagui-downloader"}
@@ -51505,7 +51506,7 @@
 {"name":"mcplay","description":"A ncurses audio player.","version":"0.3j-4","homepage":"http://www.yahuxo.de/mcplay/"}
 {"name":"mcpli-bin","description":"A command-line interface for interacting with MCP servers","version":"1.3.1-1","homepage":"https://github.com/juanibiapina/mcpli"}
 {"name":"mcpls","description":"Universal MCP to LSP bridge - expose Language Server Protocol capabilities as MCP tools for AI agents","version":"0.3.8-1","homepage":"https://github.com/bug-ops/mcpls"}
-{"name":"mcpp-bin","description":"Modern C++ build & package management tool (prebuilt binary)","version":"2026.8.17.1-1","homepage":"https://github.com/mcpp-community/mcpp"}
+{"name":"mcpp-bin","description":"Modern C++ build & package management tool (prebuilt binary)","version":"2026.8.18.1-1","homepage":"https://github.com/mcpp-community/mcpp"}
 {"name":"mcpp-m","description":"Modern C++ build & package management tool (built from source)","version":"2026.8.1.1-1","homepage":"https://github.com/mcpp-community/mcpp"}
 {"name":"mcpproxy-bin","description":"Smart proxy for AI agents using the Model Context Protocol","version":"0.56.0-1","homepage":"https://github.com/smart-mcp-proxy/mcpproxy-go"}
 {"name":"mcproxy","description":"Multicast Proxy for IGMP/MLD","version":"1.1.1-2","homepage":"http://mcproxy.realmv6.org"}
@@ -52437,7 +52438,7 @@
 {"name":"microsoft-edge-beta-bin","description":"A browser that combines a minimal design with sophisticated technology to make the web faster, safer, and easier","version":"152.0.4191.19-1","homepage":"https://www.microsoftedgeinsider.com/en-us/download"}
 {"name":"microsoft-edge-canary-bin","description":"A browser that combines a minimal design with sophisticated technology to make the web faster, safer, and easier","version":"153.0.4215.0-1","homepage":"https://www.microsoftedgeinsider.com/en-us/download"}
 {"name":"microsoft-edge-dev-bin","description":"A browser that combines a minimal design with sophisticated technology to make the web faster, safer, and easier","version":"153.0.4210.0-1","homepage":"https://www.microsoftedgeinsider.com/en-us/download"}
-{"name":"microsoft-edge-stable-bin","description":"A browser that combines a minimal design with sophisticated technology to make the web faster, safer, and easier","version":"151.0.4129.86-1","homepage":"https://www.microsoftedgeinsider.com/en-us/download"}
+{"name":"microsoft-edge-stable-bin","description":"A browser that combines a minimal design with sophisticated technology to make the web faster, safer, and easier","version":"151.0.4129.93-1","homepage":"https://www.microsoftedgeinsider.com/en-us/download"}
 {"name":"microsoft-gsl-git","description":"Microsoft's Guidelines Support Library (GSL)","version":"r487.d846fe5-1","homepage":"https://github.com/Microsoft/GSL"}
 {"name":"microsoft-identity-broker-bin","description":"Broker for authentication between device and Microsoft Intune","version":"3.0.2-1","homepage":"https://packages.microsoft.com/ubuntu/24.04/prod/pool/main/m/microsoft-identity-broker"}
 {"name":"microsoft-loop-pake","description":"Use Pake to package Microsoft Loop.Microsoft Loop is about people—people who want to create together with ease, no matter where they are or what tools they use.","version":"2.0.0-3","homepage":"https://www.microsoft.com/en-us/microsoft-loop"}
@@ -53029,7 +53030,7 @@
 {"name":"mingw-w64-libaacs","description":"Advanced Access Content System (mingw-w64)","version":"0.11.0-1","homepage":"https://www.videolan.org/developers/libaacs.html"}
 {"name":"mingw-w64-libadwaita","description":"Building blocks for modern GNOME applications.","version":"1.3.4-1","homepage":"https://gitlab.gnome.org/GNOME/libadwaita/-/tree/libadwaita-1-3/"}
 {"name":"mingw-w64-libaec","description":"Adaptive Entropy Coding library (mingw-w64)","version":"1.1.7-1","homepage":"https://gitlab.dkrz.de/dkrz-sw/libaec"}
-{"name":"mingw-w64-libarchive","description":"library that can create and read several streaming archive formats (mingw-w64)","version":"3.7.4-1","homepage":"http://www.libarchive.org/"}
+{"name":"mingw-w64-libarchive","description":"library that can create and read several streaming archive formats (mingw-w64)","version":"3.8.9-1","homepage":"http://www.libarchive.org/"}
 {"name":"mingw-w64-libass","description":"A portable library for SSA/ASS subtitles rendering (mingw-w64)","version":"0.17.5-1","homepage":"https://github.com/libass/libass/"}
 {"name":"mingw-w64-libassuan","description":"IPC library used by some GnuPG related software (mingw-w64)","version":"2.5.6-1","homepage":"http://www.gnupg.org/related_software/libassuan/"}
 {"name":"mingw-w64-libatomic_ops","description":"Provides semi-portable access to hardware provided atomic memory operations (mingw-w64)","version":"7.8.2-1","homepage":"https://github.com/ivmai/libatomic_ops"}
@@ -54747,7 +54748,7 @@
 {"name":"mons","description":"POSIX Shell script to quickly manage 2-monitors display.","version":"0.8.2-1","homepage":"https://github.com/Ventto/mons.git"}
 {"name":"mons-git","description":"KISS and POSIX Shell script to quickly manage three monitors on X","version":"r120.375bbba-2","homepage":"https://github.com/Ventto/mons"}
 {"name":"monsoon","description":"A fast HTTP enumerator that allows you to execute a large number of HTTP requests.","version":"0.10.0-1","homepage":"https://github.com/RedTeamPentesting/monsoon"}
-{"name":"monsoon-emulator","description":"A work-in-progress NES emulator","version":"0.2.9-1","homepage":"https://github.com/EmIsGreat/Monsoon-Emulator"}
+{"name":"monsoon-emulator","description":"A work-in-progress NES emulator","version":"0.2.9-2","homepage":"https://github.com/EmIsGreat/Monsoon-Emulator"}
 {"name":"monsoon-emulator-bin","description":"A work-in-progress NES emulator","version":"0.2.9-1","homepage":"https://github.com/EmIsGreat/Monsoon-Emulator"}
 {"name":"monsoon-git","description":"bittorrent client (daemon + cli + tui) built on libtorrent-rasterbar","version":"r44.fe34af5-1","homepage":"https://gitlab.com/5unekku/monsoon"}
 {"name":"monstar","description":"Linux-native Wayland terminal built on Ghostty terminal core","version":"0.1.0-1","homepage":"https://github.com/rockorager/monstar"}
@@ -61271,7 +61272,7 @@
 {"name":"oh-my-fish-git","description":"The Fish Shell Framework","version":"r964.53b5a1b-1","homepage":"https://github.com/oh-my-fish/oh-my-fish"}
 {"name":"oh-my-git","description":"An opinionated git prompt for bash and zsh","version":"r231.fd13327-1","homepage":"https://github.com/arialdomartini/oh-my-git"}
 {"name":"oh-my-git-git","description":"An interactive Git learning game!","version":"0.6.5.r23.gc64e8f2-1","homepage":"https://ohmygit.org/"}
-{"name":"oh-my-pi","description":"A coding agent with the IDE wired in","version":"17.3.6-1","homepage":"https://omp.sh/"}
+{"name":"oh-my-pi","description":"A coding agent with the IDE wired in","version":"17.3.7-1","homepage":"https://omp.sh/"}
 {"name":"oh-my-pi-bin","description":"A coding agent with the IDE wired in (release binary)","version":"17.3.5-1","homepage":"https://omp.sh/"}
 {"name":"oh-my-pi-git","description":"AI Coding agent for the terminal — hash-anchored edits, optimized tool harness, LSP, Python, browser, subagents, and more (git build)","version":"v13.10.1.r5817130cd3-1","homepage":"https://github.com/can1357/oh-my-pi"}
 {"name":"oh-my-posh","description":"A prompt theme engine for any shell.","version":"30.6.5-1","homepage":"https://github.com/JanDeDobbeleer/oh-my-posh"}
@@ -61692,8 +61693,8 @@
 {"name":"onionshot-git","description":"Screenshot tool for Hyprland","version":"r27.8c2b7ac-1","homepage":"https://codeberg.org/onion27/onionshot"}
 {"name":"onionspray","description":"A tool to setup Onion Services for existing websites.","version":"1.8.1-1","homepage":"https://gitlab.torproject.org/tpo/onion-services/onionspray"}
 {"name":"onionspray-git","description":"A tool to setup Onion Services for existing websites.","version":"1.7.0.r1415.gfd7e69b-1","homepage":"https://gitlab.torproject.org/tpo/onion-services/onionspray"}
-{"name":"oniri","description":"A tool that automatically maximizes the only window of a niri workspace","version":"1.3.2-1","homepage":"https://github.com/Antiz96/oniri"}
-{"name":"oniri-bin","description":"A tool that automatically maximizes the only window of a niri workspace (bin version)","version":"1.3.2-1","homepage":"https://github.com/Antiz96/oniri"}
+{"name":"oniri","description":"A tool that automatically maximizes the only window of a niri workspace","version":"1.3.3-1","homepage":"https://github.com/Antiz96/oniri"}
+{"name":"oniri-bin","description":"A tool that automatically maximizes the only window of a niri workspace (bin version)","version":"1.3.3-1","homepage":"https://github.com/Antiz96/oniri"}
 {"name":"oniri-git","description":"A tool that automatically maximizes the only window of a niri workspace (git version)","version":"1.3.1.r109.0082467-1","homepage":"https://github.com/Antiz96/oniri"}
 {"name":"oniux","description":"Isolate applications over Tor using Linux namespaces","version":"0.12.0-1","homepage":"https://gitlab.torproject.org/tpo/core/oniux"}
 {"name":"oniux-git","description":"Written in Rust, this program uses the naming mechanism of the Linux kernel to encrypt traffic","version":"0.5.0.r0.gf92a8b4-2","homepage":"https://gitlab.torproject.org/tpo/core/oniux"}
@@ -64732,7 +64733,7 @@
 {"name":"pam_usermount","description":"PAM module for automounting (encrypted) volumes on login","version":"0.1-1","homepage":"https://github.com/irtimmer/pam_usermount"}
 {"name":"pan-git","description":"Pan is a Usenet newsreader that's good at both text and binaries. Development version.","version":"1:v0.165.r0.gb18f5cbc-1","homepage":"http://pan.rebelbase.com/"}
 {"name":"panache","description":"A language server, formatter, and linter for Pandoc, Quarto, and R Markdown","version":"3.4.0-1","homepage":"https://github.com/jolars/panache"}
-{"name":"panache-bin","description":"A language server, formatter, and linter for Pandoc, Quarto, and R Markdown","version":"3.4.0-1","homepage":"https://github.com/jolars/panache"}
+{"name":"panache-bin","description":"A language server, formatter, and linter for Pandoc, Quarto, and R Markdown","version":"3.5.0-1","homepage":"https://github.com/jolars/panache"}
 {"name":"panafanpwr","description":"Panasonic CF-series laptop power and fan control","version":"0.3.3-1","homepage":"https://sr.ht/~szern/panafanpwr/"}
 {"name":"panagement-bin","description":"FREE reverb/spatialization plugin with depth and character - Auburn Sounds (VST3 format)","version":"2.8-3","homepage":"https://www.auburnsounds.com/products/Panagement.html"}
 {"name":"panamax-git","description":"Mirror rustup and crates.io repositories, for offline Rust and cargo usage","version":"r194.2024b5b-1","homepage":"https://github.com/panamax-rs/panamax"}
@@ -70353,7 +70354,7 @@
 {"name":"plasma6-themes-vapor-steamos","description":"Vapor theme for KDE Plasma from SteamOS 3","version":"0.29-1"}
 {"name":"plasma6-wallpapers-application","description":"Set an arbitrary application as your Plasma 6 background","version":"1.1-2","homepage":"https://invent.kde.org/dos/plasma-wallpaper-application"}
 {"name":"plasma6-wallpapers-blurredwallpaper","description":"KDE Plasma wallpaper plugin that blurs or/and dim the wallpaper when a window is active","version":"3.5.2-1","homepage":"https://github.com/bouteillerAlan/blurredwallpaper"}
-{"name":"plasma6-wallpapers-blurredwallpaper-git","description":"KDE Plasma wallpaper plugin that blurs and/or dim the wallpaper when a window is active","version":"3.5.2-3","homepage":"https://github.com/bouteillerAlan/blurredwallpaper"}
+{"name":"plasma6-wallpapers-blurredwallpaper-git","description":"KDE Plasma wallpaper plugin that blurs and/or dim the wallpaper when a window is active","version":"3.6.0-3","homepage":"https://github.com/bouteillerAlan/blurredwallpaper"}
 {"name":"plasma6-wallpapers-komplex","description":"Use complex shader arrangements as a desktop background","version":"1.0.8.1-1","homepage":"https://github.com/DigitalArtifex/kde-komplex-wallpaper-engine"}
 {"name":"plasma6-wallpapers-smart-video-wallpaper-reborn","description":"Smart KDE Plasma 6 Wallpaper plugin to play videos on your Desktop/Lock Screen","version":"2.14.0-1","homepage":"https://github.com/luisbocanegra/plasma-smart-video-wallpaper-reborn"}
 {"name":"plasma6-wallpapers-smart-video-wallpaper-reborn-git","description":"Smart KDE Plasma 6 Wallpaper plugin to play videos on your Desktop/Lock Screen","version":"2.13.0.r9.g3e136a0-1","homepage":"https://github.com/luisbocanegra/plasma-smart-video-wallpaper-reborn"}
@@ -74428,7 +74429,7 @@
 {"name":"python-cantools","description":"Python CAN bus tools in Python 3","version":"42.0.3-1","homepage":"https://github.com/eerimoq/cantools"}
 {"name":"python-canvasapi","description":"API wrapper for Instructures Canvas","version":"2.0.0-1","homepage":"https://github.com/ucfopen/canvasapi"}
 {"name":"python-can_ada-git","description":"Python bindings for Ada, a fast and WHATWG spec-compliant URL parser (development version)","version":"3.0.0.r0.gb950b43-1","homepage":"https://github.com/TkTech/can_ada"}
-{"name":"python-cappa","description":"Declarative CLI argument parser","version":"0.32.1-1","homepage":"https://github.com/DanCardin/cappa"}
+{"name":"python-cappa","description":"Declarative CLI argument parser","version":"0.32.2-1","homepage":"https://github.com/DanCardin/cappa"}
 {"name":"python-captcha","description":"Library that generates audio and image CAPTCHAs","version":"0.7.1-1","homepage":"https://github.com/lepture/captcha"}
 {"name":"python-captionstransformer","description":"A set of tools (API + script) to read, write and transform captions from/to many formats","version":"1.2.1-1","homepage":"https://pypi.org/project/captionstransformer"}
 {"name":"python-captionstransformer-git","description":"Set of tools to transform captions from one format to another","version":"r29.6e33cab-1","homepage":"https://github.com/toutpt/captionstransformer"}
@@ -90383,7 +90384,7 @@
 {"name":"relive-bin","description":"An Open-Source Engine Replacement for Oddworld: Abe's Oddysee and Oddworld: Abe's Exoddus.","version":"1.0.9-1","homepage":"https://gitlab.com/linuxbombay/relive"}
 {"name":"relive-git","description":"An open-source Abe's Oddysee / Abe's Exoddus engine","version":"r5946.7bf8a75de-1","homepage":"https://aliveteam.github.io"}
 {"name":"reload-wacom-after-suspend","description":"Reloads the wacom kernel module after suspend","version":"0.1-1","homepage":"https://wiki.archlinux.org/index.php/Lenovo_ThinkPad_X390_Yoga#Fix_touchscreen_after_resume"}
-{"name":"relspec","description":"RelSpec is a comprehensive database relations management tool that reads, transforms, and writes database table specifications across multiple formats and ORMs.","version":"1.0.68-1","homepage":"https://git.warky.dev/wdevs/relspecgo"}
+{"name":"relspec","description":"RelSpec is a comprehensive database relations management tool that reads, transforms, and writes database table specifications across multiple formats and ORMs.","version":"1.0.69-1","homepage":"https://git.warky.dev/wdevs/relspecgo"}
 {"name":"rem-player-bin","description":"Network music player based on netease music api.(Prebuild version.Use system-wide electron)","version":"0.2.4-2","homepage":"https://github.com/reallyGoodBaker/REM"}
 {"name":"remake-git","description":"Enhanced GNU Make - tracing, error reporting, debugging, profiling and more","version":"r3131.7619a012-1","homepage":"http://bashdb.sourceforge.net/remake/"}
 {"name":"remakepkg","description":"wrapper around fetchpkg and repkg to modify packages (REPKGBUILD)","version":"0.14.0-1","homepage":"https://gitlab.com/ayekat/pacman-hacks"}
@@ -93813,7 +93814,7 @@
 {"name":"sable-bin","description":"An almost stable Matrix client.","version":"1.0.0-1","homepage":"https://app.sable.moe/"}
 {"name":"sable-electron-git","description":"Yet another matrix client — Unofficial electron version","version":"r29.139e3cb-1","homepage":"https://github.com/chopper1337/sable-electron"}
 {"name":"sable-git","description":"An almost stable Matrix client.","version":"1.20.0.r1064.gfd5c07b-1","homepage":"https://github.com/SableClient/Sable"}
-{"name":"sable-nightly-bin","description":"An almost stable Matrix client (nightly builds)","version":"1.20.1.nightly.260817185452-1","homepage":"https://github.com/SableClient/Sable"}
+{"name":"sable-nightly-bin","description":"An almost stable Matrix client (nightly builds)","version":"1.20.1.nightly.260817202849-1","homepage":"https://github.com/SableClient/Sable"}
 {"name":"sable-web","description":"A Matrix client built to enhance user experience, forked from cinny.","version":"1.20.0-1","homepage":"https://github.com/SableClient/Sable"}
 {"name":"sabnzbd","description":"A web-interface based binary newsgrabber with NZB file support","version":"5.1.0-1","homepage":"http://www.sabnzbd.org"}
 {"name":"sabnzbd-docker","description":"Convenience launch service for Sabnzd, Nzbhydra2 and Sonarr in docker","version":"0.4-4","homepage":"https://github.com/grumlimited/sabnzbd-docker"}
@@ -97120,8 +97121,8 @@
 {"name":"slsa-verifier-bin","description":"Verify provenance from SLSA compliant builders","version":"2.7.1-3","homepage":"https://github.com/slsa-framework/slsa-verifier"}
 {"name":"slsk","description":"Steam Linux Swiss Knife - A backup utility for Linux Steam games","version":"1.0.0-1","homepage":"https://github.com/skyformat99/SLSK"}
 {"name":"slskd-bin","description":"A modern client-server application for the Soulseek file-sharing network.","version":"0.26.0-1","homepage":"https://github.com/slskd/slskd/"}
-{"name":"slskdn","description":"slskdN, an unofficial batteries-included fork of slskd with SongID, Discovery Graph, multi-source downloads, DHT mesh networking, auto-replace, wishlist, and security hardening.","version":"2026081618.slskdn.306-7","homepage":"https://github.com/snapetech/slskdn"}
-{"name":"slskdn-bin","description":"slskdN, an unofficial batteries-included fork of slskd with SongID, Discovery Graph, multi-source downloads, DHT mesh networking, auto-replace, wishlist, and security hardening.","version":"2026081618.slskdn.306-4","homepage":"https://github.com/snapetech/slskdn"}
+{"name":"slskdn","description":"slskdN, an unofficial batteries-included fork of slskd with SongID, Discovery Graph, multi-source downloads, DHT mesh networking, auto-replace, wishlist, and security hardening.","version":"2026081719.slskdn.309-7","homepage":"https://github.com/snapetech/slskdn"}
+{"name":"slskdn-bin","description":"slskdN, an unofficial batteries-included fork of slskd with SongID, Discovery Graph, multi-source downloads, DHT mesh networking, auto-replace, wishlist, and security hardening.","version":"2026081719.slskdn.309-4","homepage":"https://github.com/snapetech/slskdn"}
 {"name":"slskdn-dev","description":"🔋 The batteries included fork of slskd with 24+ new features: decentralized pods, content validation, swarm downloads, DHT mesh networking, auto-replace, wishlist, security hardening. [EXPERIMENTAL]","version":"0.24.3.dev.91769733763-1","homepage":"https://github.com/snapetech/slskdn/tree/experimental/multi-source-swarm"}
 {"name":"slskr","description":"Rust Soulseek daemon with bundled Web UI","version":"0.2.27-1","homepage":"https://github.com/snapetech/slskr"}
 {"name":"slskr-bin","description":"Rust Soulseek daemon with bundled Web UI","version":"0.2.27-1","homepage":"https://github.com/snapetech/slskr"}
@@ -98859,7 +98860,7 @@
 {"name":"squashfuse-git","description":"FUSE filesystem to mount squashfs archives","version":"0.6.1.r4.ge1e237a-1","homepage":"https://github.com/vasi/squashfuse"}
 {"name":"squaw","description":"Simplistic quiet user agent for the Web","version":"4.3-1","homepage":"http://fenua.org/gaetan/src/"}
 {"name":"squawk","description":"An XMPP desktop messenger, written on pure c++ (qt)","version":"0.2.3-1","homepage":"https://git.macaw.me/blue/squawk"}
-{"name":"squawk-bin","description":"Linter for PostgreSQL, focused on migrations","version":"2.61.0-1","homepage":"https://squawkhq.com/"}
+{"name":"squawk-bin","description":"Linter for PostgreSQL, focused on migrations","version":"2.62.0-1","homepage":"https://squawkhq.com/"}
 {"name":"squawk-cli","description":"Linter for PostgreSQL, focused on migrations","version":"2.62.0-2","homepage":"https://squawkhq.com/"}
 {"name":"squawker-vpn-bin","description":"TryHackMe Squawker VPN Client","version":"1.0.0-2","homepage":"https://tryhackme.com"}
 {"name":"squeaky","description":"Arch Linux system cleanup tool - removes stale caches, orphaned packages, old logs, and temp files","version":"0.1-1","homepage":"https://github.com/jcstr/squeaky"}
@@ -103380,8 +103381,8 @@
 {"name":"thoughts-bin","description":"A relatively powerful web mind map.(Prebuilt version.Use system-wide electron)一个还算强大的Web思维导图.","version":"0.19.0-1","homepage":"https://wanglin2.github.io/mind-map/#/index"}
 {"name":"tho_old","description":"","version":"1-1"}
 {"name":"thplayer-git","description":"TouHou BGM player for all platform.","version":"r53.cf74d30-1","homepage":"https://github.com/BearKidsTeam/thplayer"}
-{"name":"thpm","description":"Omarchy 4-native manager for external theme integrations","version":"1.0.0rc20-1","homepage":"https://github.com/oldjobobo/thpm"}
-{"name":"thpm-git","description":"Omarchy 4-native manager for external theme integrations (git)","version":"1.0.0rc20.r0.g3782e91-1","homepage":"https://github.com/oldjobobo/thpm"}
+{"name":"thpm","description":"Omarchy 4-native manager for external theme integrations","version":"1.0.0rc21-1","homepage":"https://github.com/oldjobobo/thpm"}
+{"name":"thpm-git","description":"Omarchy 4-native manager for external theme integrations (git)","version":"1.0.0rc21.r0.gb77fef1-1","homepage":"https://github.com/oldjobobo/thpm"}
 {"name":"thqm","description":"A simple HTTP server to serve a dynamic menu web page.","version":"0.6.0-1","homepage":"https://github.com/loiccoyle/thqm-rs"}
 {"name":"thr-editor","description":"Control Yamaha THR5, THR5A, THR10, THR10C, and THR10X guitar amplifiers.","version":"1.1.0-1","homepage":"https://usa.yamaha.com/support/updates/57648_en.html"}
 {"name":"thrash-protect","description":"Simple-Stupid user-space program protecting a linux host from thrashing.","version":"1.1.2-1","homepage":"https://github.com/tobixen/thrash-protect"}
@@ -106247,14 +106248,14 @@
 {"name":"ttf-ms-win10-auto-zh_tw","description":"Microsoft Windows 10 Traditional Chinese TrueType fonts","version":"10.0.19042.789-6","homepage":"http://www.microsoft.com/typography/fonts/product.aspx?PID=164"}
 {"name":"ttf-ms-win10-auto-other","description":"Microsoft Windows 10 Other TrueType fonts","version":"10.0.19042.789-6","homepage":"http://www.microsoft.com/typography/fonts/product.aspx?PID=164"}
 {"name":"ttf-ms-win10-fod-zh_cn","description":"Microsoft Windows 10 Simplified Chinese Feature On Demand (FOD) Supplemental TrueType Fonts","version":"10.0.18362.116-1","homepage":"http://www.microsoft.com/typography/fonts/product.aspx?PID=164"}
-{"name":"ttf-ms-win11","description":"Microsoft Windows 11 TrueType fonts","version":"10.0.26200.8737-1","homepage":"http://www.microsoft.com/typography/fonts/product.aspx?PID=164"}
-{"name":"ttf-ms-win11-japanese","description":"Microsoft Windows 11 Japanese TrueType fonts","version":"10.0.26200.8737-1","homepage":"http://www.microsoft.com/typography/fonts/product.aspx?PID=164"}
-{"name":"ttf-ms-win11-korean","description":"Microsoft Windows 11 Korean TrueType fonts","version":"10.0.26200.8737-1","homepage":"http://www.microsoft.com/typography/fonts/product.aspx?PID=164"}
-{"name":"ttf-ms-win11-sea","description":"Microsoft Windows 11 Southeast Asian TrueType fonts","version":"10.0.26200.8737-1","homepage":"http://www.microsoft.com/typography/fonts/product.aspx?PID=164"}
-{"name":"ttf-ms-win11-thai","description":"Microsoft Windows 11 Thai TrueType fonts","version":"10.0.26200.8737-1","homepage":"http://www.microsoft.com/typography/fonts/product.aspx?PID=164"}
-{"name":"ttf-ms-win11-zh_cn","description":"Microsoft Windows 11 Simplified Chinese TrueType fonts","version":"10.0.26200.8737-1","homepage":"http://www.microsoft.com/typography/fonts/product.aspx?PID=164"}
-{"name":"ttf-ms-win11-zh_tw","description":"Microsoft Windows 11 Traditional Chinese TrueType fonts","version":"10.0.26200.8737-1","homepage":"http://www.microsoft.com/typography/fonts/product.aspx?PID=164"}
-{"name":"ttf-ms-win11-other","description":"Microsoft Windows 11 Other TrueType fonts","version":"10.0.26200.8737-1","homepage":"http://www.microsoft.com/typography/fonts/product.aspx?PID=164"}
+{"name":"ttf-ms-win11","description":"Microsoft Windows 11 TrueType fonts","version":"10.0.26200.9168-1","homepage":"http://www.microsoft.com/typography/fonts/product.aspx?PID=164"}
+{"name":"ttf-ms-win11-japanese","description":"Microsoft Windows 11 Japanese TrueType fonts","version":"10.0.26200.9168-1","homepage":"http://www.microsoft.com/typography/fonts/product.aspx?PID=164"}
+{"name":"ttf-ms-win11-korean","description":"Microsoft Windows 11 Korean TrueType fonts","version":"10.0.26200.9168-1","homepage":"http://www.microsoft.com/typography/fonts/product.aspx?PID=164"}
+{"name":"ttf-ms-win11-sea","description":"Microsoft Windows 11 Southeast Asian TrueType fonts","version":"10.0.26200.9168-1","homepage":"http://www.microsoft.com/typography/fonts/product.aspx?PID=164"}
+{"name":"ttf-ms-win11-thai","description":"Microsoft Windows 11 Thai TrueType fonts","version":"10.0.26200.9168-1","homepage":"http://www.microsoft.com/typography/fonts/product.aspx?PID=164"}
+{"name":"ttf-ms-win11-zh_cn","description":"Microsoft Windows 11 Simplified Chinese TrueType fonts","version":"10.0.26200.9168-1","homepage":"http://www.microsoft.com/typography/fonts/product.aspx?PID=164"}
+{"name":"ttf-ms-win11-zh_tw","description":"Microsoft Windows 11 Traditional Chinese TrueType fonts","version":"10.0.26200.9168-1","homepage":"http://www.microsoft.com/typography/fonts/product.aspx?PID=164"}
+{"name":"ttf-ms-win11-other","description":"Microsoft Windows 11 Other TrueType fonts","version":"10.0.26200.9168-1","homepage":"http://www.microsoft.com/typography/fonts/product.aspx?PID=164"}
 {"name":"ttf-ms-win11-auto","description":"Microsoft Windows 11 TrueType fonts","version":"10.0.26100.1742-4","homepage":"https://www.microsoft.com/typography/fonts/product.aspx?PID=164"}
 {"name":"ttf-ms-win11-auto-japanese","description":"Microsoft Windows 11 Japanese TrueType fonts","version":"10.0.26100.1742-4","homepage":"https://www.microsoft.com/typography/fonts/product.aspx?PID=164"}
 {"name":"ttf-ms-win11-auto-korean","description":"Microsoft Windows 11 Korean TrueType fonts","version":"10.0.26100.1742-4","homepage":"https://www.microsoft.com/typography/fonts/product.aspx?PID=164"}
@@ -109071,7 +109072,7 @@
 {"name":"varicad-view","description":"Free viewer, convertor & printing software working with 2D DWG, DXF, 3D STEP formats.","version":"2026.2.01-1","homepage":"https://www.varicad.com/"}
 {"name":"variety-git","description":"Variety wallpaper changer (git version)","version":"0.7.0.r3.g48adbd5-1","homepage":"https://github.com/varietywalls/variety"}
 {"name":"varkon","description":"Powerful parametric 2D/3D CAD, modeling and application development tool","version":"1.19E-1","homepage":"http://varkon.sourceforge.net/"}
-{"name":"varlock-bin","description":"Load and validate environment variables from .env files with schema and encryption","version":"1.6.1-1","homepage":"https://varlock.dev"}
+{"name":"varlock-bin","description":"Load and validate environment variables from .env files with schema and encryption","version":"1.16.1-1","homepage":"https://varlock.dev"}
 {"name":"varnam-fcitx5-git","description":"Fcitx5 wrapper for Varnam input method","version":"r12.b0d3d29-1","homepage":"https://www.varnamproject.com/"}
 {"name":"varnish","description":"High-performance HTTP accelerator","version":"9.0.3-3","homepage":"https://www.varnish-cache.org/"}
 {"name":"varnish-modules","description":"A bundle of commonly useful Varnish vmods","version":"9.0.3-3","homepage":"https://github.com/varnish/varnish-modules"}
@@ -109504,7 +109505,7 @@
 {"name":"veracrypt-trans","description":"Disk encryption with strong security based on TrueCrypt.Translate the interface to other languages. (The language cannot be changed after compilation)","version":"1.24_Update7-1","homepage":"https://www.veracrypt.fr/"}
 {"name":"verapdf","description":"purpose-built, open source, file-format validator covering all PDF/A parts and conformance levels","version":"1.30.2-1","homepage":"https://verapdf.org/"}
 {"name":"verbiste","description":"French conjugation system.","version":"0.1.49-2","homepage":"http://sarrazip.com/dev/verbiste.html"}
-{"name":"vercel","description":"The command line interface for Vercel","version":"59.1.3-1","homepage":"https://github.com/vercel/vercel"}
+{"name":"vercel","description":"The command line interface for Vercel","version":"59.1.4-1","homepage":"https://github.com/vercel/vercel"}
 {"name":"vercel-node","description":"Command-line interface for Vercel","version":"59.1.3-1","homepage":"https://vercel.com"}
 {"name":"verco","description":"A simple Git/Mercurial/PlasticSCM tui client based on keyboard shortcuts","version":"6.12.0-1","homepage":"https://github.com/vamolessa/verco"}
 {"name":"verco-bin","description":"A simple Git/Mercurial/PlasticSCM tui client based on keyboard shortcuts","version":"6.12.0-1","homepage":"https://github.com/vamolessa/verco"}
@@ -111089,7 +111090,7 @@
 {"name":"vonal-bin","description":"Global search for tiling window managers","version":"v1.5-1","homepage":"https://github.com/fxdave/vonal-rust"}
 {"name":"vookiimageviewer-bin","description":"A cross-platform lightweight image viewer for a fast image preview.(Prebuilt version)","version":"2025.11.30-1","homepage":"https://vookiimageviewer.cz/"}
 {"name":"voosweeper-bin","description":"Just a minesweeper game","version":"1.3-1","homepage":"https://github.com/M4rti21/voosweeper"}
-{"name":"vop-bin","description":"AWS credential management via 1Password","version":"0.8.0-1","homepage":"https://github.com/NodeSpy/vop"}
+{"name":"vop-bin","description":"AWS credential management via 1Password","version":"0.8.1-1","homepage":"https://github.com/NodeSpy/vop"}
 {"name":"vopa","description":"Midi CC controllable LV2 plugin for Volume/Panning","version":"1.0.0-1","homepage":"https://github.com/ycollet/vopa"}
 {"name":"vopk","description":"VOPK — unified cross-distro package frontend","version":"1.2.0-1","homepage":"https://github.com/gpteamofficial/vopk"}
 {"name":"vopono","description":"Run applications through VPN connections in network namespaces","version":"0.10.19-1","homepage":"https://github.com/jamesmcm/vopono"}
@@ -111231,10 +111232,10 @@
 {"name":"vrct-git","description":"VRChat Chatbox Translator & Transcription (Git version)","version":"3.4.3-1","homepage":"https://misyaguziya.github.io/VRCT-Docs/"}
 {"name":"vrcx","description":"Friendship management tool for VRChat (built with Electron)","version":"2026.05.03-1","homepage":"https://github.com/vrcx-team/VRCX"}
 {"name":"vrcx-0","description":"Fast, lightweight VRCX implementation built with Tauri and Rust","version":"2.24.1-1","homepage":"https://github.com/Map1en/VRCX-0"}
-{"name":"vrcx-0-bin","description":"Friendship management tool for VRChat (Tauri version)","version":"2.19.0-1","homepage":"https://github.com/Map1en/VRCX-0"}
+{"name":"vrcx-0-bin","description":"Friendship management tool for VRChat (Tauri version)","version":"2.24.1-1","homepage":"https://github.com/Map1en/VRCX-0"}
 {"name":"vrcx-bin","description":"Friendship management tool for VRChat (extracted AppImage version)","version":"2026.07.18-2","homepage":"https://vrcx.app/"}
 {"name":"vrcx-git","description":"Friendship management tool for VRChat (git version built with Electron)","version":"2026.02.11.r463.g92ae1c5-2","homepage":"https://github.com/vrcx-team/VRCX"}
-{"name":"vrcx-nightly-bin","description":"Friendship management tool for VRChat (extracted AppImage version)","version":"2026.07.26T12.53.40e7750-1","homepage":"https://vrcx.app/"}
+{"name":"vrcx-nightly-bin","description":"Friendship management tool for VRChat (extracted AppImage version)","version":"2026.08.16T15.03.e9cda21-1","homepage":"https://vrcx.app/"}
 {"name":"vrf-decompiler-bin","description":"File data viewer and decompiler for Valve's Source 2 resource file format","version":"13.0-1","homepage":"https://valveresourceformat.github.io"}
 {"name":"vrising-server","description":"Dedicated server for the V-Rising PC game","version":"0.6.10.62832-1","homepage":"https://playvrising.com/"}
 {"name":"vrk-mpollux-digisign-client","description":"Client program for Finnish chip ID cards","version":"5:4.4.0d_9074-1","homepage":"https://dvv.fi/linux-versiot"}
@@ -112088,7 +112089,7 @@
 {"name":"wayvnc-git","description":"VNC server for wlroots-based Wayland compositors","version":"0.9.1+31.ge12cb689f3-2","homepage":"https://github.com/any1/wayvnc"}
 {"name":"wayvr","description":"Your way to enjoy VR on Linux! Access your Wayland/X11 desktop from SteamVR/Monado (OpenVR+OpenXR support)","version":"26.8.0-1","homepage":"https://github.com/wayvr-org/wayvr"}
 {"name":"wayvr-actions-bin","description":"Your way to enjoy VR on Linux! Access your Wayland/X11 desktop from SteamVR/Monado (OpenVR+OpenXR, CI build)","version":"30166087451-1","homepage":"https://github.com/wayvr-org/wayvr"}
-{"name":"wayvr-bin","description":"OpenXR desktop overlay for Wayland compositors (binary release)","version":"26.7.1-1","homepage":"https://github.com/wayvr-org/wayvr"}
+{"name":"wayvr-bin","description":"OpenXR desktop overlay for Wayland compositors (binary release)","version":"26.8.0-1","homepage":"https://github.com/wayvr-org/wayvr"}
 {"name":"wayvr-git","description":"Your way to enjoy VR on Linux! Access your Wayland/X11 desktop from SteamVR/Monado (OpenVR+OpenXR support)","version":"26.8.0.r0.cb3aa42-1","homepage":"https://github.com/wayvr-org/wayvr"}
 {"name":"wayvy","description":"Wayvy is a wallpaper switcher and theming manager for wayland written in rust.","version":"1.0.1-2","homepage":"https://codeberg.org/J_S_Barkely-Griggs/Wayvy"}
 {"name":"wayvy-applet-git","description":"A quick and dirty ksni applet for the Wayvy wallpaper manager.","version":"r3.0000001-1","homepage":"https://codeberg.org/J_S_Barkely-Griggs/Wayvy-applet"}
@@ -113801,7 +113802,7 @@
 {"name":"wrestic-bin","description":"A wrapper around restic built in rust","version":"1.7.2-1","homepage":"https://github.com/alvaro17f/wrestic"}
 {"name":"wretch","description":"A simple Fetch CLI program Built with Rust","version":"1.4.1-1","homepage":"https://github.com/addy10s/wretch"}
 {"name":"wretch-bin","description":"A simple Fetch CLI program Built with Rust","version":"1.4.1-1","homepage":"https://github.com/TheSillyBoi/wretch"}
-{"name":"writ-bin","description":"Lightweight, always-ready text editor for developers","version":"0.2.0-1","homepage":"https://github.com/ibrahemid/writ"}
+{"name":"writ-bin","description":"Lightweight, always-ready text editor for developers","version":"0.3.2-1","homepage":"https://github.com/ibrahemid/writ"}
 {"name":"write-good","description":"Naive linter for English prose","version":"1.0.8-2","homepage":"https://github.com/btford/write-good"}
 {"name":"write-shm","description":"Write to a shared memory","version":"1.1.1-2","homepage":"https://github.com/SHMModbus/write_shm"}
 {"name":"writeas-cli","description":"Write.as / WriteFreely command line interface","version":"2.0.0-4","homepage":"https://write.as/apps/cli"}
@@ -116091,7 +116092,7 @@
 {"name":"yayp","description":"yay fork with parallel AUR builds within a single dependency layer","version":"13.0.0.nowaker.1-1","homepage":"https://gitlab.com/nowaker/yay-parallel"}
 {"name":"yaze","description":"Yet Another z80 (CP/M) Emulator","version":"2.51.3-2","homepage":"http://www.mathematik.uni-ulm.de/users/ag/yaze-ag/"}
 {"name":"yazi-git","description":"Blazing fast terminal file manager written in Rust, based on async I/O","version":"26.5.6.r47.gc92c4ab-2","homepage":"https://github.com/sxyazi/yazi"}
-{"name":"yazi-nightly-bin","description":"💥 Blazing fast terminal file manager written in Rust, based on async I/O.","version":"26.8.15.20260817.a044b0a-1","homepage":"https://yazi-rs.github.io"}
+{"name":"yazi-nightly-bin","description":"💥 Blazing fast terminal file manager written in Rust, based on async I/O.","version":"26.8.15.20260817.441b332-1","homepage":"https://yazi-rs.github.io"}
 {"name":"ybacklight","description":"an xbacklight compatable replacement using sysfs","version":"r9.53bf1f7-1","homepage":"https://github.com/yath/ybacklight"}
 {"name":"ycash-bin","description":"A digital currency chain fork of Zcash","version":"4.4.4-1","homepage":"https://github.com/ycashfoundation/ycash"}
 {"name":"ycg","description":"merges and templates yaml files","version":"1.0.0-1","homepage":"https://github.com/racccoooon/ycg"}
@@ -116896,7 +116897,7 @@
 {"name":"zenmonitor3-git","description":"A monitoring software for AMD Zen-based CPUs, now with Zen 3 support!","version":"3:r94.1e1ceec-2","homepage":"https://github.com/detiam/zenmonitor3"}
 {"name":"zennin","description":"Print quotes on your terminal.","version":"1.1.0-1","homepage":"https://github.com/Erymer/zennin"}
 {"name":"zennode","description":"A node builder for Doom WAD files","version":"1.2.1-8","homepage":"http://www.mrousseau.org/programs/ZenNode"}
-{"name":"zennotes-bin","description":"Keyboard-first, local-first Markdown notes with vim motions and live preview","version":"2.28.2-1","homepage":"https://github.com/ZenNotes/zennotes"}
+{"name":"zennotes-bin","description":"Keyboard-first, local-first Markdown notes with vim motions and live preview","version":"2.29.0-1","homepage":"https://github.com/ZenNotes/zennotes"}
 {"name":"zeno","description":"Open-source node system framework for simulation and others","version":"r11.e6cf2fd-1","homepage":"https://github.com/zenustech/zeno"}
 {"name":"zenoh-c","description":"C API for Zenoh","version":"1.10.0-1","homepage":"https://zenoh.io/"}
 {"name":"zenoh-cpp","description":"C++ API for Zenoh","version":"1.10.0-1","homepage":"https://zenoh.io/"}

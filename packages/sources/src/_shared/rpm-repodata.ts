@@ -1,4 +1,5 @@
 import { XMLParser } from "fast-xml-parser";
+import { fetchText, fetchZstdText } from "./http";
 
 interface RawRpmProvidesEntry {
   "@_name"?: string;
@@ -93,4 +94,28 @@ export function parsePrimaryXml(xml: string): RpmPrimaryEntry[] {
         ),
       };
     });
+}
+
+/**
+ * Downloads one repo's primary.xml — repomd.xml first (to find the
+ * current content-hashed `primary.xml.zst` path — RPM repos don't use a
+ * fixed filename like Debian's `Packages.gz`), then that file itself,
+ * Zstandard-compressed — and returns the decompressed XML text, ready
+ * for `parsePrimaryXml`. Shared by Fedora and openSUSE, which were each
+ * hand-rolling this identical two-step fetch before this existed —
+ * `sourceLabel` (e.g. "Fedora", "openSUSE") only affects error messages.
+ */
+export async function fetchPrimaryXml(repoBase: string, sourceLabel: string): Promise<string> {
+  const repomdXml = await fetchText(
+    `${repoBase}/repodata/repomd.xml`,
+    `${sourceLabel} repomd.xml at ${repoBase}`,
+  );
+
+  const primaryLocation = extractPrimaryLocation(repomdXml);
+  if (!primaryLocation) {
+    throw new Error(`${sourceLabel} repomd.xml at ${repoBase} has no primary data location`);
+  }
+
+  const primaryUrl = `${repoBase}/${primaryLocation}`;
+  return fetchZstdText(primaryUrl, `${sourceLabel} primary metadata at ${primaryUrl}`);
 }

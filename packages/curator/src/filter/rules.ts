@@ -209,12 +209,39 @@ const OPENSUSE_NOISE_GROUPS = new Set([
   "Metapackages",
 ]);
 
-/** Best-effort guess from Debian/Ubuntu's `Section` field, nixpkgs' attribute-path prefix, or openSUSE's `<rpm:group>` value, alongside `looksLikeSupportPackage`'s name-based guess — see this file's comments on `NOISE_SECTIONS`/`NIX_NOISE_PREFIX_PATTERNS`/`OPENSUSE_NOISE_GROUPS` for which values are safe. */
+// Slackware reuses the same `section` slot for its package "series" — a
+// short component code from PACKAGE LOCATION (e.g. `l`, `kde`, `xfce`,
+// `y`). Far coarser than Debian's Section vocabulary (15 series total
+// across the whole ~1,900-package tree) — same verification discipline:
+// sampled entries per series before including one. Every series other
+// than the two below mixes real standalone apps with libraries at a rate
+// too high to blanket-exclude — same trap as everywhere else this file
+// documents it, just under Slackware's own naming: `d` (development —
+// bison, python-pip, cargo-c mixed with pure dev libraries), `a` (base —
+// xz, efibootmgr, usbutils are real CLI tools), `n` (network — alpine,
+//   dhcpcd, gnupg, httpd, ethtool are real tools), `x`/`xap`/`xfce`/`kde`
+// (desktop-environment series mixing real GUI apps with their own
+// libraries, e.g. kompare/kontact/plasma-workspace vs. kmime/
+// kpeoplevcard). `y` (games), `t`/`tcl` (TeX/Tcl), and `e` (only 2
+// entries: emacs, emacspeak, both real apps) were also checked and kept.
+//
+// Included — safe after sampling:
+// - `l` (libraries, 501 packages) — 60 sampled, one real exception found
+//   (`glade`, a real standalone GUI UI designer despite the "l" series)
+//   — allowlisted by exact name in overrides/keep.ndjson rather than
+//   loosening this rule, same as Debian's gnu-r r-base/littler and
+//   openSUSE's Metapackages/seidl.
+// - `f` (FAQs/docs — only 2 packages: linux-faqs, linux-howtos, both
+//   pure documentation).
+const SLACKWARE_NOISE_SERIES = new Set(["l", "f"]);
+
+/** Best-effort guess from Debian/Ubuntu's `Section` field, nixpkgs' attribute-path prefix, openSUSE's `<rpm:group>` value, or Slackware's package series, alongside `looksLikeSupportPackage`'s name-based guess — see this file's comments on `NOISE_SECTIONS`/`NIX_NOISE_PREFIX_PATTERNS`/`OPENSUSE_NOISE_GROUPS`/`SLACKWARE_NOISE_SERIES` for which values are safe. */
 export function looksLikeSupportSection(section: string | undefined): boolean {
   if (section === undefined) return false;
   return (
     NOISE_SECTIONS.has(section) ||
     NIX_NOISE_PREFIX_PATTERNS.some((p) => p.test(section)) ||
-    OPENSUSE_NOISE_GROUPS.has(section)
+    OPENSUSE_NOISE_GROUPS.has(section) ||
+    SLACKWARE_NOISE_SERIES.has(section)
   );
 }

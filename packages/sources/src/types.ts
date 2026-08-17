@@ -9,7 +9,8 @@ export type PackageSourceId =
   | "debian"
   | "ubuntu"
   | "fedora"
-  | "arch";
+  | "arch"
+  | "nixpkgs";
 
 /**
  * A single package as reported by one source, before deduplication.
@@ -58,14 +59,18 @@ export interface SourcedPackage {
   lastUpdated?: string;
   /**
    * Upstream package-category classification, when the source exposes
-   * one — Debian/Ubuntu's `Section` field (e.g. `libs`, `games`, `doc`),
+   * one. Debian/Ubuntu's `Section` field (e.g. `libs`, `games`, `doc`),
    * normalized to strip Ubuntu's component prefix (`universe/games` ->
-   * `games`) so it's directly comparable to Debian's bare value. Used by
+   * `games`) so it's directly comparable to Debian's bare value. Nixpkgs
+   * reuses this slot for its attribute-path namespace prefix instead
+   * (e.g. `python313Packages`, `kdePackages`, `rPackages`) — a
+   * differently-shaped value (often version-numbered, not a fixed
+   * vocabulary) but the same underlying purpose. Used by
    * `@tuxery/curator`'s filter as an additional noise signal alongside
    * name patterns — see `filter/rules.ts`'s `looksLikeSupportSection`.
-   * Only Debian/Ubuntu populate this today; Fedora's RPM Group field is
-   * effectively unused upstream ("Unspecified" on real data), and Arch's
-   * `desc` format has no equivalent field at all.
+   * Fedora's RPM Group field is effectively unused upstream
+   * ("Unspecified" on real data), and Arch's `desc` format has no
+   * equivalent field at all — neither populates this.
    */
   section?: string;
 }

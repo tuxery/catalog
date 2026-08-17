@@ -11,6 +11,7 @@ describe("flathub normalize", () => {
       version: "128.0",
       iconFilename: "org.mozilla.firefox.png",
       homepage: "https://www.mozilla.org/firefox/",
+      hasGameCategory: false,
     };
 
     expect(normalize([entry])).toEqual([
@@ -22,13 +23,30 @@ describe("flathub normalize", () => {
         appId: "org.mozilla.firefox",
         iconFilename: "org.mozilla.firefox.png",
         homepage: "https://www.mozilla.org/firefox/",
+        hasGameCategory: false,
       },
     ]);
   });
 
   it('falls back to "unknown" when the version is missing', () => {
-    const entry: FlathubCacheEntry = { id: "org.example.App", name: "App", summary: "An app" };
+    const entry: FlathubCacheEntry = {
+      id: "org.example.App",
+      name: "App",
+      summary: "An app",
+      hasGameCategory: false,
+    };
 
     expect(normalize([entry])[0]?.version).toBe("unknown");
+  });
+
+  it("carries hasGameCategory through when true", () => {
+    const entry: FlathubCacheEntry = {
+      id: "org.example.Game",
+      name: "Game",
+      summary: "A game",
+      hasGameCategory: true,
+    };
+
+    expect(normalize([entry])[0]?.hasGameCategory).toBe(true);
   });
 });

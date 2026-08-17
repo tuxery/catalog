@@ -1,3 +1,5 @@
+import type { PackageSourceId } from "@tuxery/sources";
+
 // Cross-distro Linux packaging naming conventions that reliably indicate a
 // support package (dev headers, debug symbols, docs, fonts, libraries,
 // language-ecosystem modules) rather than something a user would search an
@@ -365,4 +367,67 @@ export function looksLikeGuiPackage(name: string, section: string | undefined): 
   if (section === undefined || !GUI_SECTIONS.has(section)) return false;
   if (looksLikeSupportPackage(name)) return false;
   return !GUI_SECTION_EXCLUDE_PATTERNS.some((pattern) => pattern.test(name));
+}
+
+// Debian's own top-level `games` Section, plus its component-prefixed
+// variants — `contrib/games`/`non-free/games`. Debian's own normalize.ts
+// passes `section` straight through (unlike Ubuntu's, which strips the
+// `<component>/` prefix down to the bare value — see deb-ubuntu's
+// `normalizeSection`), so Debian's real `SourcedPackage.section` keeps
+// the prefixed form while Ubuntu's is always bare "games" by the time it
+// gets here; `universe/games`/`multiverse/games` are listed anyway as a
+// harmless safety net in case that ever changes. Mint/Pop!_OS/Deepin/MX
+// Linux reuse Debian's unstripped pass-through, not Ubuntu's — same
+// reasoning as `looksLikeSupportSection`'s NOISE_SECTIONS. Sampled real
+// data before trusting this: all 1,178 Debian and 1,237 Ubuntu `games`-
+// section entries checked are real games or a real game's own companion
+// data/server package (0ad-data, sauerbraten-server, ...) — never
+// something unrelated.
+const DEB_FAMILY_GAME_SECTIONS = new Set([
+  "games",
+  "contrib/games",
+  "non-free/games",
+  "universe/games",
+  "multiverse/games",
+]);
+const DEB_FAMILY_GAME_SOURCES = new Set<PackageSourceId>([
+  "deb-debian",
+  "deb-ubuntu",
+  "deb-mint",
+  "deb-popos",
+  "deb-deepin",
+  "deb-mxlinux",
+]);
+
+/**
+ * Best-effort guess that a package (`SourcedPackage.section`) is a game,
+ * across every source whose Section-equivalent field has its own games
+ * grouping — the counterpart to `SourcedPackage.hasGameCategory` (Flathub/
+ * AppCenter's direct AppStream signal). Each source's own vocabulary,
+ * sampled against real data before trusting it, same discipline as
+ * `looksLikeGuiPackage`/`looksLikeSupportSection`:
+ * - Debian family (see `DEB_FAMILY_GAME_SECTIONS`/`_SOURCES`).
+ * - Gentoo's `games-*` category prefix (e.g. `games-strategy`,
+ *   `games-fps`) — Gentoo's own top-level category effectively *is* its
+ *   app classification, unlike Debian's Section; 765 real entries
+ *   sampled, all games or a game's own data/server sub-package.
+ * - openSUSE's `Amusements/Games` `<rpm:group>` prefix — 251 sampled,
+ *   all games (plus a couple of gaming-adjacent tools openSUSE itself
+ *   groups here, e.g. `PlayOnLinux`, close enough to not chase further).
+ * - Solus's `games.*`/`games` `PartOf` value — 169 sampled, all games or
+ *   gaming-adjacent tools Solus itself groups here (e.g. `antimicrox`,
+ *   a joystick-to-keyboard mapper).
+ * Not (yet) checked: Slackware's `y` series has only 3 real entries —
+ * too small a sample to trust either way, left out for now.
+ */
+export function looksLikeGamePackage(
+  source: PackageSourceId,
+  section: string | undefined,
+): boolean {
+  if (section === undefined) return false;
+  if (DEB_FAMILY_GAME_SOURCES.has(source)) return DEB_FAMILY_GAME_SECTIONS.has(section);
+  if (source === "ebuild-gentoo") return section.startsWith("games-");
+  if (source === "rpm-opensuse") return section.startsWith("Amusements/Games");
+  if (source === "eopkg-solus") return section === "games" || section.startsWith("games.");
+  return false;
 }

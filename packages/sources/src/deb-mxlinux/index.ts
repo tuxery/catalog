@@ -1,10 +1,6 @@
-import { fileURLToPath } from "node:url";
-import { readNdjson } from "../_shared/ndjson";
-import type { SourcedPackage } from "../types";
+import { makeCacheSearch } from "../_shared/search";
 import { normalize } from "./normalize";
 import type { MxLinuxCacheEntry } from "./types";
-
-const CACHE_PATH = fileURLToPath(new URL("../../cache/deb-mxlinux.ndjson", import.meta.url));
 
 /**
  * Searches MX Linux's own "MX Tools" packages for those matching
@@ -13,7 +9,4 @@ const CACHE_PATH = fileURLToPath(new URL("../../cache/deb-mxlinux.ndjson", impor
  * Reads the git-committed cache (see AGENTS.md's "Source cache") rather
  * than the network.
  */
-export async function searchMxLinux(query: string): Promise<SourcedPackage[]> {
-  void query;
-  return normalize(readNdjson<MxLinuxCacheEntry>(CACHE_PATH));
-}
+export const searchMxLinux = makeCacheSearch<MxLinuxCacheEntry>("deb-mxlinux", normalize);

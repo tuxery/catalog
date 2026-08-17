@@ -1,10 +1,6 @@
-import { fileURLToPath } from "node:url";
-import { readNdjson } from "../_shared/ndjson";
-import type { SourcedPackage } from "../types";
+import { makeCacheSearch } from "../_shared/search";
 import { normalize } from "./normalize";
 import type { GentooCacheEntry } from "./types";
-
-const CACHE_PATH = fileURLToPath(new URL("../../cache/ebuild-gentoo.ndjson", import.meta.url));
 
 /**
  * Searches Gentoo's Portage tree for packages matching `query`.
@@ -12,7 +8,4 @@ const CACHE_PATH = fileURLToPath(new URL("../../cache/ebuild-gentoo.ndjson", imp
  * Reads the git-committed cache (see AGENTS.md's "Source cache") rather
  * than the network.
  */
-export async function searchGentoo(query: string): Promise<SourcedPackage[]> {
-  void query;
-  return normalize(readNdjson<GentooCacheEntry>(CACHE_PATH));
-}
+export const searchGentoo = makeCacheSearch<GentooCacheEntry>("ebuild-gentoo", normalize);

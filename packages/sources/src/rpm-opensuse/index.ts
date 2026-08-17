@@ -1,10 +1,6 @@
-import { fileURLToPath } from "node:url";
-import { readNdjson } from "../_shared/ndjson";
-import type { SourcedPackage } from "../types";
+import { makeCacheSearch } from "../_shared/search";
 import { normalize } from "./normalize";
 import type { OpenSuseCacheEntry } from "./types";
-
-const CACHE_PATH = fileURLToPath(new URL("../../cache/rpm-opensuse.ndjson", import.meta.url));
 
 /**
  * Searches openSUSE Tumbleweed's package repository for packages matching
@@ -13,7 +9,4 @@ const CACHE_PATH = fileURLToPath(new URL("../../cache/rpm-opensuse.ndjson", impo
  * Reads the git-committed cache (see AGENTS.md's "Source cache") rather
  * than the network.
  */
-export async function searchOpenSuse(query: string): Promise<SourcedPackage[]> {
-  void query;
-  return normalize(readNdjson<OpenSuseCacheEntry>(CACHE_PATH));
-}
+export const searchOpenSuse = makeCacheSearch<OpenSuseCacheEntry>("rpm-opensuse", normalize);

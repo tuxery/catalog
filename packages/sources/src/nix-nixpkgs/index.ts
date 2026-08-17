@@ -1,10 +1,6 @@
-import { fileURLToPath } from "node:url";
-import { readNdjson } from "../_shared/ndjson";
-import type { SourcedPackage } from "../types";
+import { makeCacheSearch } from "../_shared/search";
 import { normalize } from "./normalize";
 import type { NixpkgsCacheEntry } from "./types";
-
-const CACHE_PATH = fileURLToPath(new URL("../../cache/nix-nixpkgs.ndjson", import.meta.url));
 
 /**
  * Searches nixpkgs for packages matching `query`.
@@ -12,7 +8,4 @@ const CACHE_PATH = fileURLToPath(new URL("../../cache/nix-nixpkgs.ndjson", impor
  * Reads the git-committed cache (see AGENTS.md's "Source cache") rather
  * than the network.
  */
-export async function searchNixpkgs(query: string): Promise<SourcedPackage[]> {
-  void query;
-  return normalize(readNdjson<NixpkgsCacheEntry>(CACHE_PATH));
-}
+export const searchNixpkgs = makeCacheSearch<NixpkgsCacheEntry>("nix-nixpkgs", normalize);

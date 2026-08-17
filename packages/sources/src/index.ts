@@ -10,4 +10,5 @@ export { searchFedora } from "./fedora";
 export { searchArch } from "./arch";
 export { searchNixpkgs } from "./nixpkgs";
 export { searchOpenSuse } from "./opensuse";
+export { searchVoid } from "./void";
 export { searchAllSources } from "./search";

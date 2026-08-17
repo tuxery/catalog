@@ -173,6 +173,24 @@ describe("looksLikeSupportSection", () => {
     expect(looksLikeSupportSection("y")).toBe(false);
   });
 
+  it("flags Solus's debug/library/docs/theme/emul32 PartOf values", () => {
+    expect(looksLikeSupportSection("debug")).toBe(true);
+    expect(looksLikeSupportSection("programming.library")).toBe(true);
+    expect(looksLikeSupportSection("desktop.library")).toBe(true);
+    expect(looksLikeSupportSection("multimedia.library")).toBe(true);
+    expect(looksLikeSupportSection("programming.docs")).toBe(true);
+    expect(looksLikeSupportSection("desktop.theme")).toBe(true);
+    expect(looksLikeSupportSection("emul32")).toBe(true);
+  });
+
+  it("does not flag Solus's other PartOf values — same mixed-real-tools trap, including programming.devel's un-suffixed tail", () => {
+    expect(looksLikeSupportSection("programming.devel")).toBe(false);
+    expect(looksLikeSupportSection("programming.python")).toBe(false);
+    expect(looksLikeSupportSection("programming")).toBe(false);
+    expect(looksLikeSupportSection("system.base")).toBe(false);
+    expect(looksLikeSupportSection("desktop.kde")).toBe(false);
+  });
+
   it("does not flag an absent section", () => {
     expect(looksLikeSupportSection(undefined)).toBe(false);
   });

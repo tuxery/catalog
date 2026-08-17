@@ -8,4 +8,5 @@ export { searchUbuntu } from "./ubuntu";
 export { searchFedora } from "./fedora";
 export { searchArch } from "./arch";
 export { searchNixpkgs } from "./nixpkgs";
+export { searchOpenSuse } from "./opensuse";
 export { searchAllSources } from "./search";

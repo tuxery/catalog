@@ -10,7 +10,8 @@ export type PackageSourceId =
   | "ubuntu"
   | "fedora"
   | "arch"
-  | "nixpkgs";
+  | "nixpkgs"
+  | "opensuse";
 
 /**
  * A single package as reported by one source, before deduplication.
@@ -63,14 +64,16 @@ export interface SourcedPackage {
    * normalized to strip Ubuntu's component prefix (`universe/games` ->
    * `games`) so it's directly comparable to Debian's bare value. Nixpkgs
    * reuses this slot for its attribute-path namespace prefix instead
-   * (e.g. `python313Packages`, `kdePackages`, `rPackages`) — a
-   * differently-shaped value (often version-numbered, not a fixed
-   * vocabulary) but the same underlying purpose. Used by
-   * `@tuxery/curator`'s filter as an additional noise signal alongside
-   * name patterns — see `filter/rules.ts`'s `looksLikeSupportSection`.
-   * Fedora's RPM Group field is effectively unused upstream
-   * ("Unspecified" on real data), and Arch's `desc` format has no
-   * equivalent field at all — neither populates this.
+   * (e.g. `python313Packages`, `kdePackages`, `rPackages`), and openSUSE
+   * for its RPM `<rpm:group>` value (a hierarchical path, e.g.
+   * `Development/Libraries/C and C++` — unlike Fedora, which uses the
+   * same RPM field but leaves it "Unspecified" on real data, openSUSE
+   * actually populates it, 69% non-empty). Differently-shaped per source
+   * (fixed vocabulary, version-numbered namespace, or hierarchical path)
+   * but the same underlying purpose. Used by `@tuxery/curator`'s filter
+   * as an additional noise signal alongside name patterns — see
+   * `filter/rules.ts`'s `looksLikeSupportSection`. Fedora and Arch's
+   * `desc` format don't populate this.
    */
   section?: string;
 }

@@ -1,3 +1,4 @@
+import { searchAlpine } from "./alpine";
 import { searchAppImage } from "./appimage";
 import { searchArch } from "./arch";
 import { searchAur } from "./aur";
@@ -27,6 +28,7 @@ export async function searchAllSources(query: string): Promise<SourcedPackage[]>
     searchArch(query),
     searchNixpkgs(query),
     searchOpenSuse(query),
+    searchAlpine(query),
   ]);
 
   return results.flat();

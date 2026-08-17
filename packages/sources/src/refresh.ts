@@ -1,4 +1,5 @@
 import { fileURLToPath } from "node:url";
+import { fetchAlpine } from "./alpine/fetch";
 import { fetchAppImage } from "./appimage/fetch";
 import { fetchArch } from "./arch/fetch";
 import { fetchAur } from "./aur/fetch";
@@ -21,6 +22,7 @@ const REFRESHERS: Record<string, (cachePath: string) => Promise<number>> = {
   arch: fetchArch,
   nixpkgs: fetchNixpkgs,
   opensuse: fetchOpenSuse,
+  alpine: fetchAlpine,
 };
 
 async function main() {

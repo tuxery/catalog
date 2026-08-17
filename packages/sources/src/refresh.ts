@@ -11,6 +11,7 @@ import { fetchGentoo } from "./gentoo/fetch";
 import { fetchMint } from "./mint/fetch";
 import { fetchNixpkgs } from "./nixpkgs/fetch";
 import { fetchOpenSuse } from "./opensuse/fetch";
+import { fetchPopOs } from "./popos/fetch";
 import { fetchSlackware } from "./slackware/fetch";
 import { fetchSnapcraft } from "./snapcraft/fetch";
 import { fetchSolus } from "./solus/fetch";
@@ -35,6 +36,7 @@ const REFRESHERS: Record<string, (cachePath: string) => Promise<number>> = {
   solus: fetchSolus,
   gentoo: fetchGentoo,
   mint: fetchMint,
+  popos: fetchPopOs,
 };
 
 async function main() {

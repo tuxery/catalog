@@ -15,7 +15,8 @@ export type PackageSourceId =
   | "alpine"
   | "void"
   | "slackware"
-  | "solus";
+  | "solus"
+  | "gentoo";
 
 /**
  * A single package as reported by one source, before deduplication.

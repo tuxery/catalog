@@ -86,6 +86,9 @@ importers:
       tar:
         specifier: ^7.5.22
         version: 7.5.22
+      xz-decompress:
+        specifier: ^0.2.3
+        version: 0.2.3
     devDependencies:
       '@types/node':
         specifier: 20.19.0
@@ -1242,6 +1245,10 @@ packages:
     resolution: {integrity: sha512-yMqGBqtXyeN1e3TGYvgNgDVZ3j84W4cwkOXQswghol6APgZWaff9lnbvN7MHYJOiXsvGPXtjTYJEiC9J2wv9Eg==}
     engines: {node: '>=8.0'}
 
+  xz-decompress@0.2.3:
+    resolution: {integrity: sha512-O8v6HG8T0PrKBcpyWA13GkSYWFvncwzuzcLx5A7++l3HsE3atmoetXjIxrZ/JV/nbvSZ7WS4+3XvREZuVn+rEA==}
+    engines: {node: '>=16'}
+
   yallist@5.0.0:
     resolution: {integrity: sha512-YgvUTfwqyc7UXVMrB+SImsVYSmTS8X/tSrtdNZMImM+n7+QTriRXyXim0mBrTXNeqzVF0KWGgHPeiyViFFrNDw==}
     engines: {node: '>=18'}
@@ -2031,5 +2038,7 @@ snapshots:
   xml-naming@0.3.0: {}
 
   xmlbuilder@15.1.1: {}
+
+  xz-decompress@0.2.3: {}
 
   yallist@5.0.0: {}

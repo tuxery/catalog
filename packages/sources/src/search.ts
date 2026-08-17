@@ -5,6 +5,7 @@ import { searchAur } from "./aur";
 import { searchDebian } from "./debian";
 import { searchFedora } from "./fedora";
 import { searchFlathub } from "./flathub";
+import { searchGentoo } from "./gentoo";
 import { searchNixpkgs } from "./nixpkgs";
 import { searchOpenSuse } from "./opensuse";
 import { searchSlackware } from "./slackware";
@@ -35,6 +36,7 @@ export async function searchAllSources(query: string): Promise<SourcedPackage[]>
     searchVoid(query),
     searchSlackware(query),
     searchSolus(query),
+    searchGentoo(query),
   ]);
 
   return results.flat();

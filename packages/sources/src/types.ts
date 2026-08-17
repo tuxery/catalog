@@ -14,7 +14,8 @@ export type PackageSourceId =
   | "opensuse"
   | "alpine"
   | "void"
-  | "slackware";
+  | "slackware"
+  | "solus";
 
 /**
  * A single package as reported by one source, before deduplication.
@@ -86,7 +87,11 @@ export interface SourcedPackage {
    * "series" — a short component code from `PACKAGE LOCATION` (e.g. `l`
    * for libraries, `kde`, `xfce`, `y` for games), Slackware's own
    * closest thing to a Section vocabulary, though far coarser than
-   * Debian's (15 series total across the whole tree).
+   * Debian's (15 series total across the whole tree). Solus reuses this
+   * slot again for its `PartOf` value — a dotted hierarchical grouping
+   * (e.g. `games.strategy`, `programming.library`), 115 distinct values
+   * on real data, richer than Slackware's but not as strictly
+   * hierarchical as openSUSE's RPM Group path.
    */
   section?: string;
 }

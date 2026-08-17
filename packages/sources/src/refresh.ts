@@ -10,6 +10,7 @@ import { fetchFedora } from "./fedora/fetch";
 import { fetchFlathub } from "./flathub/fetch";
 import { fetchGentoo } from "./gentoo/fetch";
 import { fetchMint } from "./mint/fetch";
+import { fetchMxLinux } from "./mxlinux/fetch";
 import { fetchNixpkgs } from "./nixpkgs/fetch";
 import { fetchOpenSuse } from "./opensuse/fetch";
 import { fetchPopOs } from "./popos/fetch";
@@ -39,6 +40,7 @@ const REFRESHERS: Record<string, (cachePath: string) => Promise<number>> = {
   mint: fetchMint,
   popos: fetchPopOs,
   deepin: fetchDeepin,
+  mxlinux: fetchMxLinux,
 };
 
 async function main() {

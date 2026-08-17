@@ -20,7 +20,8 @@ export type PackageSourceId =
   | "gentoo"
   | "mint"
   | "popos"
-  | "deepin";
+  | "deepin"
+  | "mxlinux";
 
 /**
  * A single package as reported by one source, before deduplication.

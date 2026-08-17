@@ -1,0 +1,142 @@
+{"name":"mx-apps","description":"metapackage for MX applets","version":"25.09.01mx25","section":"system"}
+{"name":"mx-apps-fluxbox","description":"metapackage for MX applets","version":"25.09.01mx25","section":"system"}
+{"name":"mx-apps-kde","description":"metapackage for MX applets","version":"25.05.01","section":"system"}
+{"name":"mx-apps-rpi","description":"metapackage for MX applets","version":"26.03.01mx25","section":"system"}
+{"name":"mx-boot-options","description":"GUI for managing boot options and UEFI settings","version":"26.07.1","homepage":"https://github.com/mxlinux/mx-boot-options","section":"admin"}
+{"name":"mx-bootrepair","description":"GUI for repairing boot problems","version":"26.06.1","homepage":"https://github.com/mxlinux/mx-bootrepair","section":"admin"}
+{"name":"mx-cleanup","description":"GUI for system cleanup and maintenance","version":"26.07.3","homepage":"https://github.com/mxlinux/mx-cleanup","section":"admin"}
+{"name":"mx-comfort-themes","description":"mx-comfort themes for MX Linux","version":"25.02.01","section":"gnome"}
+{"name":"mx-conky","description":"Conky configuration tool for MX Linux","version":"26.07","homepage":"https://github.com/MX-Linux/mx-conky","section":"admin"}
+{"name":"mx-conky-data","description":"meta package of conky themes for MX","version":"20251102","homepage":"https://github.com/MX-Linux/mx-conky-data","section":"admin"}
+{"name":"mx-conky-data-bin","description":"launcher script for default mx conky file","version":"20251102","homepage":"https://github.com/MX-Linux/mx-conky-data","section":"admin"}
+{"name":"mx-conky-data-themes","description":"conky themes for MX Conky","version":"20251102","homepage":"https://github.com/MX-Linux/mx-conky-data","section":"admin"}
+{"name":"mx-datetime","description":"Date and time configuration tool for MX Linux","version":"26.07","homepage":"https://github.com/MX-Linux/mx-datetime","section":"admin"}
+{"name":"mx-debian-firmware","description":"metapackage that depends on Debian firmware shipped with MX Linux","version":"25.7.01mx25","section":"contrib/misc"}
+{"name":"mx-debian-firmware-compat","description":"mx-debian-firmware","version":"26.01.01","section":"admin"}
+{"name":"mx-desktop-menu-l10n","description":"provides desktop directory translations used in MX Linux","version":"23.07.01","homepage":"https://mxlinux.org","section":"system"}
+{"name":"mx-dockmaker","description":"Dock configuration tool for MX Linux","version":"26.03.1","homepage":"https://github.com/MX-Linux/mx-dockmaker","section":"admin"}
+{"name":"mx-docs","description":"user manual for MX","version":"202601060mx25","homepage":"http://antix.mepis.org","section":"doc"}
+{"name":"mx-docs-ar","description":"user manual for MX","version":"202601060mx25","homepage":"http://antix.mepis.org","section":"doc"}
+{"name":"mx-docs-bg","description":"user manual for MX","version":"202601060mx25","homepage":"http://antix.mepis.org","section":"doc"}
+{"name":"mx-docs-common","description":"user manual for MX","version":"202601060mx25","homepage":"http://antix.mepis.org","section":"doc"}
+{"name":"mx-docs-da","description":"user manual for MX","version":"202601060mx25","homepage":"http://antix.mepis.org","section":"doc"}
+{"name":"mx-docs-de","description":"user manual for MX","version":"202601060mx25","homepage":"http://antix.mepis.org","section":"doc"}
+{"name":"mx-docs-el","description":"user manual for MX","version":"202601060mx25","homepage":"http://antix.mepis.org","section":"doc"}
+{"name":"mx-docs-en","description":"user manual for MX","version":"202601060mx25","homepage":"http://antix.mepis.org","section":"doc"}
+{"name":"mx-docs-es","description":"user manual for MX","version":"202601060mx25","homepage":"http://antix.mepis.org","section":"doc"}
+{"name":"mx-docs-fr","description":"user manual for MX","version":"202601060mx25","homepage":"http://antix.mepis.org","section":"doc"}
+{"name":"mx-docs-hu","description":"user manual for MX","version":"202601060mx25","homepage":"http://antix.mepis.org","section":"doc"}
+{"name":"mx-docs-id","description":"user manual for MX","version":"202601060mx25","homepage":"http://antix.mepis.org","section":"doc"}
+{"name":"mx-docs-it","description":"user manual for MX","version":"202601060mx25","homepage":"http://antix.mepis.org","section":"doc"}
+{"name":"mx-docs-ja","description":"user manual for MX","version":"202601060mx25","homepage":"http://antix.mepis.org","section":"doc"}
+{"name":"mx-docs-nb","description":"user manual for MX","version":"202601060mx25","homepage":"http://antix.mepis.org","section":"doc"}
+{"name":"mx-docs-nl","description":"user manual for MX","version":"202601060mx25","homepage":"http://antix.mepis.org","section":"doc"}
+{"name":"mx-docs-pl","description":"user manual for MX","version":"202601060mx25","homepage":"http://antix.mepis.org","section":"doc"}
+{"name":"mx-docs-pt","description":"user manual for MX","version":"202601060mx25","homepage":"http://antix.mepis.org","section":"doc"}
+{"name":"mx-docs-pt-br","description":"user manual for MX","version":"202601060mx25","homepage":"http://antix.mepis.org","section":"doc"}
+{"name":"mx-docs-ro","description":"user manual for MX","version":"202601060mx25","homepage":"http://antix.mepis.org","section":"doc"}
+{"name":"mx-docs-ru","description":"user manual for MX","version":"202601060mx25","homepage":"http://antix.mepis.org","section":"doc"}
+{"name":"mx-docs-sv","description":"user manual for MX","version":"202601060mx25","homepage":"http://antix.mepis.org","section":"doc"}
+{"name":"mx-docs-tr","description":"user manual for MX","version":"202601060mx25","homepage":"http://antix.mepis.org","section":"doc"}
+{"name":"mx-docs-zh","description":"user manual for MX","version":"202601060mx25","homepage":"http://antix.mepis.org","section":"doc"}
+{"name":"mx-ease-themes","description":"mx-ease themes for MX-Linux","version":"26.05.02","homepage":"<https:/mxlinux.org>","section":"gnome"}
+{"name":"mx-faq-ar","description":"user FAQ for MX","version":"202601060mx25","homepage":"http://antix.mepis.org","section":"doc"}
+{"name":"mx-faq-bg","description":"user FAQ for MX","version":"202601060mx25","homepage":"http://antix.mepis.org","section":"doc"}
+{"name":"mx-faq-ca","description":"user FAQ for MX","version":"20240411+1","homepage":"http://antix.mepis.org","section":"doc"}
+{"name":"mx-faq-common","description":"user FAQ for MX","version":"202601060mx25","homepage":"http://antix.mepis.org","section":"doc"}
+{"name":"mx-faq-cs","description":"user FAQ for MX","version":"202601060mx25","homepage":"http://antix.mepis.org","section":"doc"}
+{"name":"mx-faq-da","description":"user FAQ for MX","version":"202601060mx25","homepage":"http://antix.mepis.org","section":"doc"}
+{"name":"mx-faq-de","description":"user FAQ for MX","version":"202601060mx25","homepage":"http://antix.mepis.org","section":"doc"}
+{"name":"mx-faq-el","description":"user FAQ for MX","version":"202601060mx25","homepage":"http://antix.mepis.org","section":"doc"}
+{"name":"mx-faq-en","description":"user FAQ for MX","version":"202601060mx25","homepage":"http://antix.mepis.org","section":"doc"}
+{"name":"mx-faq-es","description":"user FAQ for MX","version":"202601060mx25","homepage":"http://antix.mepis.org","section":"doc"}
+{"name":"mx-faq-fr","description":"user FAQ for MX","version":"202601060mx25","homepage":"http://antix.mepis.org","section":"doc"}
+{"name":"mx-faq-hu","description":"user FAQ for MX","version":"202601060mx25","homepage":"http://antix.mepis.org","section":"doc"}
+{"name":"mx-faq-id","description":"user FAQ for MX","version":"202601060mx25","homepage":"http://antix.mepis.org","section":"doc"}
+{"name":"mx-faq-it","description":"user FAQ for MX","version":"202601060mx25","homepage":"http://antix.mepis.org","section":"doc"}
+{"name":"mx-faq-ja","description":"user FAQ for MX","version":"202601060mx25","homepage":"http://antix.mepis.org","section":"doc"}
+{"name":"mx-faq-nb","description":"user FAQ for MX","version":"202601060mx25","homepage":"http://antix.mepis.org","section":"doc"}
+{"name":"mx-faq-nl","description":"user FAQ for MX","version":"202601060mx25","homepage":"http://antix.mepis.org","section":"doc"}
+{"name":"mx-faq-pl","description":"user FAQ for MX","version":"202601060mx25","homepage":"http://antix.mepis.org","section":"doc"}
+{"name":"mx-faq-pt","description":"user FAQ for MX","version":"202601060mx25","homepage":"http://antix.mepis.org","section":"doc"}
+{"name":"mx-faq-pt-br","description":"user FAQ for MX","version":"202601060mx25","homepage":"http://antix.mepis.org","section":"doc"}
+{"name":"mx-faq-ro","description":"user FAQ for MX","version":"202601060mx25","homepage":"http://antix.mepis.org","section":"doc"}
+{"name":"mx-faq-ru","description":"user FAQ for MX","version":"202601060mx25","homepage":"http://antix.mepis.org","section":"doc"}
+{"name":"mx-faq-sv","description":"user FAQ for MX","version":"202601060mx25","homepage":"http://antix.mepis.org","section":"doc"}
+{"name":"mx-faq-tr","description":"user FAQ for MX","version":"202601060mx25","homepage":"http://antix.mepis.org","section":"doc"}
+{"name":"mx-faq-zh","description":"user FAQ for MX","version":"202601060mx25","homepage":"http://antix.mepis.org","section":"doc"}
+{"name":"mx-fluxbox","description":"mx apps and configuration defaults for fluxbox (metapackage)","version":"26.06.1mx25","homepage":"https://mxlinux.org","section":"system"}
+{"name":"mx-fluxbox-about","description":"MX-Fluxbox About","version":"21.03.01","homepage":"https://mxlinux.org","section":"system"}
+{"name":"mx-fluxbox-data","description":"mx apps and configuration defaults for fluxbox","version":"26.06.1mx25","homepage":"https://mxlinux.org","section":"system"}
+{"name":"mx-goodies","description":"Various useful scripts for MX.","version":"26.03.01mx25","homepage":"http://antix.mepis.org","section":"system"}
+{"name":"mx-gpg-keys","description":"public gpg keys for iso verification and alert messages","version":"24.08.01","section":"admin"}
+{"name":"mx-greybird-themes","description":"Greybird themes for MX Linux","version":"21.03.01","section":"gnome"}
+{"name":"mx-icons-start","description":"additional start menu icons","version":"18.05.01","section":"xfce"}
+{"name":"mx-idesktool","description":"mx-idesktool","version":"26.06.01","homepage":"https://mxlinux.org","section":"system"}
+{"name":"mx-idevice-mounter","description":"GUI to Mount and Unmount iPhones and iPads","version":"0.1.5.15","section":"python"}
+{"name":"mx-installer","description":"Customizable GUI installer for MX Linux and antiX Linux","version":"26.06mx25","homepage":"https://github.com/gazelle-installer","section":"system"}
+{"name":"mx-iso-template","description":"MX ISO template","version":"26.08.1mx25","section":"admin"}
+{"name":"mx-launcher-l10n","description":"mx launcher pkexec authentication localization","version":"23.05.01","section":"x11"}
+{"name":"mx-live-usb-maker","description":"MX Live USB Maker","version":"26.04.1","homepage":"https://github.com/MX-Linux/mx-live-usb-maker","section":"admin"}
+{"name":"mx-locale","description":"Locale configuration tool for MX Linux","version":"26.03","homepage":"https://github.com/MX-Linux/mx-locale","section":"admin"}
+{"name":"mx-matcha-themes","description":"mx-matcha themes for MX Linux","version":"25.10.02","section":"Xfce"}
+{"name":"mx-menu-editor","description":"MX Menu Editor","version":"26.07","section":"admin"}
+{"name":"mx-network-assistant","description":"MX program for network troubleshooting and configuration","version":"26.03","homepage":"https://github.com/MX-Linux/mx-network-assistant","section":"admin"}
+{"name":"mx-packageinstaller","description":"Package installation tool for MX Linux","version":"26.07.5","homepage":"https://github.com/MX-Linux/mx-packageinstaller","section":"admin"}
+{"name":"mx-packageinstaller-pkglist","description":"Part of MX program for installing additional packages.","version":"26.08.3mx25","section":"admin"}
+{"name":"mx-remaster","description":"Tools for live persistence and remastering.","version":"26.06.03mx25","homepage":"http://mxlinux.org","section":"system"}
+{"name":"mx-remastercc","description":"Remaster Control Center for MX Linux","version":"26.03","homepage":"https://github.com/MX-Linux/mx-remastercc","section":"admin"}
+{"name":"mx-repo-list","description":"Part of MX program for managing repos.","version":"26.06","section":"admin"}
+{"name":"mx-repo-manager","description":"Repository management tool for MX Linux","version":"26.07","homepage":"https://github.com/MX-Linux/mx-repo-manager","section":"admin"}
+{"name":"mx-rofi-manager","description":"Manager of rofi themes and settings","version":"25.11.01","homepage":"https:/mxlinux.org","section":"desktop"}
+{"name":"mx-samba-config","description":"Samba configuration tool for MX Linux","version":"26.03","homepage":"https://github.com/MX-Linux/mx-samba-config","section":"admin"}
+{"name":"mx-select-sound","description":"Sound card selection tool for MX Linux","version":"26.08","homepage":"https://github.com/MX-Linux/mx-select-sound","section":"admin"}
+{"name":"mx-service-manager","description":"Service management tool for MX Linux","version":"26.03","homepage":"https://github.com/MX-Linux/mx-service-manager","section":"admin"}
+{"name":"mx-snapshot","description":"System snapshot tool for MX Linux","version":"26.08","homepage":"https://github.com/MX-Linux/mx-snapshot","section":"admin"}
+{"name":"mx-sound-theme-borealis","description":"Sound theme for mx-system-sounds","version":"17.6mx16","homepage":"http://github.com/mx-linux","section":"system"}
+{"name":"mx-sound-theme-fresh-and-clean","description":"Fresh and Clean sound theme packaged for mx-system-sounds","version":"16.12mx16","homepage":"http://github.com/mx-linux","section":"system"}
+{"name":"mx-system","description":"metapackage for packages needed for system functions","version":"26.5.02mx25","section":"system"}
+{"name":"mx-system-kde","description":"metapackage for packages needed for system functions on KDE-plasma","version":"20.09.01","section":"system"}
+{"name":"mx-system-sounds","description":"System sound configuration tool for MX Linux","version":"26.03","homepage":"https://github.com/MX-Linux/mx-system-sounds","section":"admin"}
+{"name":"mx-tools","description":"MX Tools Launcher for MX Linux","version":"26.06","homepage":"https://github.com/MX-Linux/mx-tools","section":"admin"}
+{"name":"mx-tour","description":"Take a tour of MX Linux","version":"25.09.03mx25","section":"admin"}
+{"name":"mx-tweak","description":"Desktop configuration tool for MX Linux","version":"26.08.01mx25","homepage":"https://github.com/MX-Linux/mx-tweak","section":"admin"}
+{"name":"mx-tweak-data","description":"Part of MX program for installing additional packages.","version":"25.05.04mx25","section":"admin"}
+{"name":"mx-updater","description":"tray applet to notify of system and application updates","version":"26.07.02mx25","homepage":"https://github.com/MX-Linux/mx-updater","section":"admin"}
+{"name":"mx-usb-unmounter","description":"Tray application for unmounting removable media","version":"26.07.1","homepage":"https://mxlinux.org","section":"admin"}
+{"name":"mx-user","description":"MX User Manager","version":"26.07.1","homepage":"https://github.com/mx-linux/mx-user","section":"admin"}
+{"name":"mx-viewer","description":"Lightweight web browser for MX Linux","version":"26.06","section":"web"}
+{"name":"mx-welcome","description":"Welcome screen for MX Linux","version":"26.03mx25","homepage":"https://github.com/AdrianTM/mx-welcome","section":"admin"}
+{"name":"mx-welcome-data","description":"configuration information for mx-welcome","version":"25.11.01mx25","section":"admin"}
+{"name":"mx14-artwork","description":"Default wallpaper backgrounds for MX14","version":"14.03.24","section":"xfce"}
+{"name":"mx15-artwork","description":"Default wallpaper, grub and lightdm backgrounds for MX15","version":"2.0.3","section":"xfce"}
+{"name":"mx16-artwork","description":"Default wallpaper, grub and lightdm backgrounds for MX16","version":"17.0.4","section":"xfce"}
+{"name":"mx17-artwork","description":"Default wallpaper, grub and lightdm backgrounds for MX17","version":"2.0.10","section":"xfce"}
+{"name":"mx18-artwork","description":"Default wallpaper, grub and lightdm backgrounds for MX18","version":"20.06.01","section":"xfce"}
+{"name":"mx19-artwork","description":"Default wallpaper backgrounds for MX19","version":"20.06.01","section":"xfce"}
+{"name":"mx21-artwork","description":"Default wallpaper backgrounds for MX21","version":"21.09.02","section":"xfce"}
+{"name":"mx23-artwork","description":"Default wallpaper backgrounds for MX23","version":"25.01.01","section":"xfce"}
+{"name":"mx25-archive-keyring","description":"GnuPG archive keys of the MX-25 Linux archive","version":"2025.03","section":"misc"}
+{"name":"mx25-artwork","description":"Default wallpaper backgrounds for MX25","version":"26.05.02","section":"xfce"}
+{"name":"mxfb-accessories","description":"Various scripts used in MX-Fluxbox","version":"26.06.01mx25","homepage":"https:/mxlinux.org","section":"system"}
+{"name":"mxfb-art","description":"Backgrounds and other artwork for MX-Fluxbox","version":"20.10.03","section":"fluxbox"}
+{"name":"mxfb-docs","description":"Help files and other documents related to mx-fluxbox","version":"25.12.01mx25","section":"fluxbox"}
+{"name":"mxfb-docs-ar","description":"user manual for MX Fluxbox","version":"25.12.01mx25","section":"doc"}
+{"name":"mxfb-docs-common","description":"user manual for MX Fluxbox","version":"25.12.01mx25","section":"doc"}
+{"name":"mxfb-docs-cs","description":"user manual for MX Fluxbox","version":"25.12.01mx25","section":"doc"}
+{"name":"mxfb-docs-de","description":"user manual for MX Fluxbox","version":"25.12.01mx25","section":"doc"}
+{"name":"mxfb-docs-el","description":"user manual for MX Fluxbox","version":"25.12.01mx25","section":"doc"}
+{"name":"mxfb-docs-en","description":"user manual for MX Fluxbox","version":"25.12.01mx25","section":"doc"}
+{"name":"mxfb-docs-es","description":"user manual for MX Fluxbox","version":"25.12.01mx25","section":"doc"}
+{"name":"mxfb-docs-fr","description":"user manual for MX Fluxbox","version":"25.12.01mx25","section":"doc"}
+{"name":"mxfb-docs-id","description":"user manual for MX Fluxbox","version":"25.12.01mx25","section":"doc"}
+{"name":"mxfb-docs-it","description":"user manual for MX Fluxbox","version":"25.12.01mx25","section":"doc"}
+{"name":"mxfb-docs-ja","description":"user manual for MX Fluxbox","version":"25.12.01mx25","section":"doc"}
+{"name":"mxfb-docs-pl","description":"user manual for MX Fluxbox","version":"25.12.01mx25","section":"doc"}
+{"name":"mxfb-docs-pt","description":"user manual for MX Fluxbox","version":"25.12.01mx25","section":"doc"}
+{"name":"mxfb-docs-ru","description":"user manual for MX Fluxbox","version":"25.12.01mx25","section":"doc"}
+{"name":"mxfb-docs-sv","description":"user manual for MX Fluxbox","version":"25.12.01mx25","section":"doc"}
+{"name":"mxfb-docs-tr","description":"user manual for MX Fluxbox","version":"25.12.01mx25","section":"doc"}
+{"name":"mxfb-docs-zh","description":"user manual for MX Fluxbox","version":"25.12.01mx25","section":"doc"}
+{"name":"mxfb-goodies","description":"Various useful scripts for MX-Fluxbox","version":"23.05.01","homepage":"https:/mxlinux.org","section":"system"}
+{"name":"mxfb-styles","description":"Extra styles for fluxbox","version":"25.10.01mx25","section":"fluxbox"}

@@ -1,5 +1,10 @@
 import { describe, expect, it } from "vitest";
-import { looksLikeGuiPackage, looksLikeSupportPackage, looksLikeSupportSection } from "./rules";
+import {
+  looksLikeGamePackage,
+  looksLikeGuiPackage,
+  looksLikeSupportPackage,
+  looksLikeSupportSection,
+} from "./rules";
 
 describe("looksLikeSupportPackage", () => {
   it("flags dev/debug/doc suffixes", () => {
@@ -247,5 +252,50 @@ describe("looksLikeGuiPackage", () => {
 
   it("does not flag an absent section", () => {
     expect(looksLikeGuiPackage("0ad", undefined)).toBe(false);
+  });
+});
+
+describe("looksLikeGamePackage", () => {
+  it("flags Debian's games section, bare and component-prefixed", () => {
+    expect(looksLikeGamePackage("deb-debian", "games")).toBe(true);
+    expect(looksLikeGamePackage("deb-debian", "contrib/games")).toBe(true);
+    expect(looksLikeGamePackage("deb-debian", "non-free/games")).toBe(true);
+  });
+
+  it("flags Ubuntu's games section (bare, since normalize.ts strips the component prefix)", () => {
+    expect(looksLikeGamePackage("deb-ubuntu", "games")).toBe(true);
+  });
+
+  it("flags Mint/Pop!_OS/Deepin/MX Linux reusing Debian's unstripped vocabulary", () => {
+    expect(looksLikeGamePackage("deb-mint", "games")).toBe(true);
+    expect(looksLikeGamePackage("deb-popos", "games")).toBe(true);
+    expect(looksLikeGamePackage("deb-deepin", "games")).toBe(true);
+    expect(looksLikeGamePackage("deb-mxlinux", "games")).toBe(true);
+  });
+
+  it("flags Gentoo's games-* category prefix", () => {
+    expect(looksLikeGamePackage("ebuild-gentoo", "games-strategy")).toBe(true);
+    expect(looksLikeGamePackage("ebuild-gentoo", "games-fps")).toBe(true);
+    expect(looksLikeGamePackage("ebuild-gentoo", "dev-libs")).toBe(false);
+  });
+
+  it("flags openSUSE's Amusements/Games group prefix", () => {
+    expect(looksLikeGamePackage("rpm-opensuse", "Amusements/Games/Strategy/Real Time")).toBe(true);
+    expect(looksLikeGamePackage("rpm-opensuse", "Amusements/Graphics")).toBe(false);
+  });
+
+  it("flags Solus's games/games.* PartOf value", () => {
+    expect(looksLikeGamePackage("eopkg-solus", "games")).toBe(true);
+    expect(looksLikeGamePackage("eopkg-solus", "games.strategy")).toBe(true);
+    expect(looksLikeGamePackage("eopkg-solus", "programming.library")).toBe(false);
+  });
+
+  it("does not apply any distro's games vocabulary to a source it doesn't belong to", () => {
+    expect(looksLikeGamePackage("rpm-fedora", "games")).toBe(false);
+    expect(looksLikeGamePackage("pacman-aur", "games-strategy")).toBe(false);
+  });
+
+  it("does not flag an absent section", () => {
+    expect(looksLikeGamePackage("deb-debian", undefined)).toBe(false);
   });
 });

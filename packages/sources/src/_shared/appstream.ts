@@ -33,6 +33,7 @@ interface RawComponent {
   icon?: RawIcon[];
   url?: RawUrl[];
   releases?: { release?: RawRelease[] };
+  categories?: { category?: string[] };
 }
 
 /**
@@ -47,6 +48,8 @@ export interface AppstreamComponent {
   version?: string;
   iconFilename?: string;
   homepage?: string;
+  /** Whether `<categories>` includes the freedesktop.org menu spec's "Game" category — see `SourcedPackage.hasGameCategory`. */
+  hasGameCategory: boolean;
 }
 
 /**
@@ -87,7 +90,8 @@ export function parseAppstreamXml(xml: string): AppstreamComponent[] {
     ignoreAttributes: false,
     attributeNamePrefix: "@_",
     textNodeName: "#text",
-    isArray: (name) => ["component", "icon", "url", "release", "name", "summary"].includes(name),
+    isArray: (name) =>
+      ["component", "icon", "url", "release", "name", "summary", "category"].includes(name),
     // Without this, fast-xml-parser silently turns purely-numeric text
     // into a JS number — bit Fedora's fetcher for real (a package named
     // "65535" came back as the number 65535). Every field here is meant
@@ -111,6 +115,7 @@ export function parseAppstreamXml(xml: string): AppstreamComponent[] {
       version: component.releases?.release?.[0]?.["@_version"],
       iconFilename: pickIcon(component.icon),
       homepage: pickHomepage(component.url),
+      hasGameCategory: (component.categories?.category ?? []).includes("Game"),
     }))
     .filter((entry) => entry.id && entry.name);
 }

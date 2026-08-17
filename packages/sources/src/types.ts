@@ -123,4 +123,17 @@ export interface SourcedPackage {
    * heuristic.
    */
   hasDesktopFile?: boolean;
+  /**
+   * Whether this package's upstream metadata directly tags it as a game
+   * — Flathub/AppCenter's AppStream `<categories><category>Game</category>`
+   * (the freedesktop.org menu spec's own top-level category, parsed via
+   * `_shared/appstream.ts`), a direct first-party signal. Used alongside
+   * `@tuxery/curator`'s Section-based heuristic (Debian-family `games`
+   * sections, Gentoo's `games-*` category, openSUSE's `Amusements/Games`
+   * group, Solus's `games.*` PartOf) to set `CatalogApp.contentType` —
+   * see `looksLikeGamePackage` in curator's filter/rules.ts. Same
+   * discipline as `hasDesktopFile`: only positive evidence, absence
+   * isn't evidence of "not a game".
+   */
+  hasGameCategory?: boolean;
 }

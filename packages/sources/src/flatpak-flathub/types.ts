@@ -14,6 +14,8 @@ export interface FlathubCacheEntry {
   version?: string;
   iconFilename?: string;
   homepage?: string;
+  /** Whether AppStream's `<categories>` includes "Game" — see `SourcedPackage.hasGameCategory`. */
+  hasGameCategory: boolean;
 }
 
 export interface FlathubFetchMetadata extends FetchMetadata {

@@ -3,10 +3,6 @@
   "fetchedAt": "2026-08-17T19:46:53.460Z",
   "url": "https://geo.mirror.pkgbuild.com/{core,extra,multilib}/os/x86_64/*.db",
   "entryCount": 15437,
-  "repos": [
-    "core",
-    "extra",
-    "multilib"
-  ],
+  "repos": ["core", "extra", "multilib"],
   "arch": "x86_64"
 }

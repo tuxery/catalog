@@ -23,12 +23,56 @@ export { extractPrimaryLocation };
 // SourcedPackage row each, before this change. updates then adds 1,560
 // genuinely new names on top (e.g. 86box, OpenBoard) — net real coverage
 // goes up even though the raw row count goes down.
-const RELEASE = "44";
 const ARCH = "x86_64";
-const REPO_BASES = [
-  `https://dl.fedoraproject.org/pub/fedora/linux/releases/${RELEASE}/Everything/${ARCH}/os`,
-  `https://dl.fedoraproject.org/pub/fedora/linux/updates/${RELEASE}/Everything/${ARCH}`,
-] as const;
+
+function repoBasesFor(release: string): string[] {
+  return [
+    `https://dl.fedoraproject.org/pub/fedora/linux/releases/${release}/Everything/${ARCH}/os`,
+    `https://dl.fedoraproject.org/pub/fedora/linux/updates/${release}/Everything/${ARCH}`,
+  ];
+}
+
+interface BodhiRelease {
+  id_prefix: string;
+  version: string;
+  state: string;
+}
+
+/**
+ * Resolves the current stable release number from Bodhi's release list —
+ * Fedora has no Debian-`stable`-style always-current URL alias (checked:
+ * `releases/44/` is a plain numbered directory, no `releases/stable/`
+ * symlink), but Bodhi's API is the real equivalent. It marks exactly the
+ * currently-supported Fedora releases (not EPEL/ELN, which use the same
+ * endpoint) `state: "current"` — typically two at once during the
+ * overlap window after a new release ships, so this takes the higher of
+ * the two, matching what a fresh install actually gets. Verified against
+ * live data (2026-08-17): F43 and F44 both "current", 44 matching this
+ * file's previously-hardcoded RELEASE exactly. Pure — no I/O — given an
+ * already-fetched release list.
+ */
+export function resolveCurrentRelease(releases: BodhiRelease[]): string {
+  const current = releases
+    .filter((release) => release.id_prefix === "FEDORA" && release.state === "current")
+    .map((release) => Number.parseInt(release.version, 10))
+    .filter((version) => Number.isFinite(version));
+
+  if (current.length === 0) {
+    throw new Error("Bodhi reported no current Fedora release");
+  }
+
+  return String(Math.max(...current));
+}
+
+async function fetchCurrentRelease(): Promise<string> {
+  const response = await fetch("https://bodhi.fedoraproject.org/releases/?rows_per_page=100");
+  if (!response.ok) {
+    throw new Error(`Failed to fetch Bodhi releases: ${response.status} ${response.statusText}`);
+  }
+
+  const { releases } = (await response.json()) as { releases: BodhiRelease[] };
+  return resolveCurrentRelease(releases);
+}
 
 /**
  * Parses Fedora's primary.xml (already decompressed) into cache rows.
@@ -97,21 +141,25 @@ export function mergeByName(repoEntries: FedoraCacheEntry[][]): FedoraCacheEntry
 }
 
 /**
- * Downloads Fedora's Everything + updates repodata for one release/arch
- * and writes the merged, deduplicated entries to `cachePath` as NDJSON.
- * See docs/sources.md.
+ * Downloads Fedora's Everything + updates repodata for the current
+ * release/arch (resolved live via Bodhi — see `fetchCurrentRelease` —
+ * rather than a hardcoded release number that would silently go stale
+ * every ~6 months) and writes the merged, deduplicated entries to
+ * `cachePath` as NDJSON. See docs/sources.md.
  */
 export async function fetchFedora(cachePath: string): Promise<number> {
-  const repoEntries = await Promise.all(REPO_BASES.map(fetchRepo));
+  const release = await fetchCurrentRelease();
+  const repoBases = repoBasesFor(release);
+  const repoEntries = await Promise.all(repoBases.map(fetchRepo));
   const entries = mergeByName(repoEntries);
 
   writeNdjson(cachePath, entries);
   writeMetadata<FedoraFetchMetadata>(cachePath, {
     source: "rpm-fedora",
     fetchedAt: new Date().toISOString(),
-    url: REPO_BASES.join(", "),
+    url: repoBases.join(", "),
     entryCount: entries.length,
-    release: RELEASE,
+    release,
     arch: ARCH,
   });
 

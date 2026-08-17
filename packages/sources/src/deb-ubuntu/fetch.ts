@@ -6,9 +6,10 @@ import type { UbuntuCacheEntry, UbuntuFetchMetadata } from "./types";
 
 // Ubuntu publishes one Packages file per suite/component/arch, same deb822
 // mechanism as Debian (unsurprising — Ubuntu's archive is a Debian
-// derivative) but its own codename-based suites, not "stable" — resolute
-// is the current release as of writing, verified via the real archive's
-// dists/ listing and each candidate's Release file date, not assumed.
+// derivative) but its own codename-based suites, not "stable" — the
+// codename is resolved live (see `fetchCurrentSuite`) rather than
+// hardcoded, since a fixed codename would silently go stale every ~6
+// months the way Fedora's RELEASE constant did.
 //
 // Unlike Debian, "main" alone is badly incomplete here: Ubuntu's
 // main/universe split is by *support tier* (Canonical-supported vs.
@@ -19,13 +20,50 @@ import type { UbuntuCacheEntry, UbuntuFetchMetadata } from "./types";
 // catalog. restricted (binary/proprietary drivers) and multiverse
 // (copyright/legal-restricted software — codecs, some games) round out
 // the four components, same spirit as Debian's contrib/non-free.
-const SUITE = "resolute";
 const COMPONENTS = ["main", "universe", "restricted", "multiverse"] as const;
 type UbuntuComponent = (typeof COMPONENTS)[number];
 const ARCH = "amd64";
 
-function packagesUrl(component: UbuntuComponent): string {
-  return `https://archive.ubuntu.com/ubuntu/dists/${SUITE}/${component}/binary-${ARCH}/Packages.gz`;
+function packagesUrl(suite: string, component: UbuntuComponent): string {
+  return `https://archive.ubuntu.com/ubuntu/dists/${suite}/${component}/binary-${ARCH}/Packages.gz`;
+}
+
+interface LaunchpadSeries {
+  name: string;
+  status: string;
+}
+
+/**
+ * Resolves the current stable release's codename from Launchpad's public
+ * series list — Ubuntu has no Debian-`stable`-style always-current URL
+ * alias in the archive itself (codenames are the only suite identifier,
+ * and both LTS and interim releases stay "Supported" long after they
+ * stop being current), so this leans on Launchpad's own
+ * `status: "Current Stable Release"` marker instead, which names exactly
+ * one series at a time — the same one a fresh `apt` install would use.
+ * Verified against live data (2026-08-17): "resolute" (26.04), matching
+ * this file's previously-hardcoded SUITE exactly. Pure — no I/O — given
+ * an already-fetched series list.
+ */
+export function resolveCurrentSuite(series: LaunchpadSeries[]): string {
+  const current = series.find((entry) => entry.status === "Current Stable Release");
+  if (!current) {
+    throw new Error("Launchpad reported no current Ubuntu stable release");
+  }
+
+  return current.name;
+}
+
+async function fetchCurrentSuite(): Promise<string> {
+  const response = await fetch("https://api.launchpad.net/devel/ubuntu/series");
+  if (!response.ok) {
+    throw new Error(
+      `Failed to fetch Launchpad Ubuntu series: ${response.status} ${response.statusText}`,
+    );
+  }
+
+  const { entries } = (await response.json()) as { entries: LaunchpadSeries[] };
+  return resolveCurrentSuite(entries);
 }
 
 /**
@@ -47,8 +85,11 @@ export function parsePackages(text: string, component: UbuntuComponent): UbuntuC
     }));
 }
 
-async function fetchComponent(component: UbuntuComponent): Promise<UbuntuCacheEntry[]> {
-  const url = packagesUrl(component);
+async function fetchComponent(
+  suite: string,
+  component: UbuntuComponent,
+): Promise<UbuntuCacheEntry[]> {
+  const url = packagesUrl(suite, component);
   const response = await fetch(url);
   if (!response.ok) {
     throw new Error(
@@ -62,23 +103,26 @@ async function fetchComponent(component: UbuntuComponent): Promise<UbuntuCacheEn
 }
 
 /**
- * Downloads Ubuntu's Packages.gz for main + universe and writes the
- * normalized entries to `cachePath` as NDJSON — each row keeps its source
- * component (see `UbuntuCacheEntry.component`), no cross-component dedup
- * needed since a package name only ever belongs to one. See
- * docs/sources.md.
+ * Downloads Ubuntu's Packages.gz for the current release's four
+ * components and writes the normalized entries to `cachePath` as NDJSON
+ * — each row keeps its source component (see `UbuntuCacheEntry.component`),
+ * no cross-component dedup needed since a package name only ever belongs
+ * to one. See docs/sources.md.
  */
 export async function fetchUbuntu(cachePath: string): Promise<number> {
-  const entriesByComponent = await Promise.all(COMPONENTS.map(fetchComponent));
+  const suite = await fetchCurrentSuite();
+  const entriesByComponent = await Promise.all(
+    COMPONENTS.map((component) => fetchComponent(suite, component)),
+  );
   const entries = entriesByComponent.flat();
 
   writeNdjson(cachePath, entries);
   writeMetadata<UbuntuFetchMetadata>(cachePath, {
     source: "deb-ubuntu",
     fetchedAt: new Date().toISOString(),
-    url: COMPONENTS.map(packagesUrl).join(", "),
+    url: COMPONENTS.map((component) => packagesUrl(suite, component)).join(", "),
     entryCount: entries.length,
-    suite: SUITE,
+    suite,
     component: COMPONENTS.join("+"),
     arch: ARCH,
   });

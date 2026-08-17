@@ -1,6 +1,6 @@
 {
   "source": "deb-ubuntu",
-  "fetchedAt": "2026-08-17T19:46:18.118Z",
+  "fetchedAt": "2026-08-17T19:57:31.252Z",
   "url": "https://archive.ubuntu.com/ubuntu/dists/resolute/main/binary-amd64/Packages.gz, https://archive.ubuntu.com/ubuntu/dists/resolute/universe/binary-amd64/Packages.gz, https://archive.ubuntu.com/ubuntu/dists/resolute/restricted/binary-amd64/Packages.gz, https://archive.ubuntu.com/ubuntu/dists/resolute/multiverse/binary-amd64/Packages.gz",
   "entryCount": 75328,
   "suite": "resolute",

@@ -11,4 +11,5 @@ export { searchArch } from "./arch";
 export { searchNixpkgs } from "./nixpkgs";
 export { searchOpenSuse } from "./opensuse";
 export { searchVoid } from "./void";
+export { searchSlackware } from "./slackware";
 export { searchAllSources } from "./search";

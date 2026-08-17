@@ -1,5 +1,6 @@
 import { fileURLToPath } from "node:url";
 import { fetchAlpine } from "./alpine/fetch";
+import { fetchAppCenter } from "./appcenter/fetch";
 import { fetchAppImage } from "./appimage/fetch";
 import { fetchArch } from "./arch/fetch";
 import { fetchAur } from "./aur/fetch";
@@ -17,6 +18,7 @@ import { fetchVoid } from "./void/fetch";
 
 const REFRESHERS: Record<string, (cachePath: string) => Promise<number>> = {
   flathub: fetchFlathub,
+  appcenter: fetchAppCenter,
   snapcraft: fetchSnapcraft,
   appimage: fetchAppImage,
   aur: fetchAur,

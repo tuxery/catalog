@@ -1,0 +1,77 @@
+{"name":"cosmic-app-library","description":"Cosmic App Library","version":"1.0.12~1785249766~26.04~172acda","homepage":"https://github.com/pop-os/cosmic-app-library","section":"admin"}
+{"name":"cosmic-applets","description":"Cosmic Applets","version":"1.0.15~1785249881~26.04~ec8ffdc","homepage":"https://github.com/pop-os/cosmic-applets","section":"admin"}
+{"name":"cosmic-bg","description":"Cosmic Background","version":"0.1.0~1785349668~26.04~1685f7f","homepage":"https://github.com/pop-os/cosmic-bg","section":"admin"}
+{"name":"cosmic-comp","description":"Wayland compositor of pop-os cosmic shell","version":"0.1~1785355703~26.04~091583a","homepage":"https://github.com/pop-os/cosmic-comp","section":"x11"}
+{"name":"cosmic-design-demo","description":"libcosmic demo displaying its design elements and capabilities","version":"0.1.0~1704748391~26.04~d58cfad","homepage":"https://github.com/pop-os/libcosmic","section":"utils"}
+{"name":"cosmic-edit","description":"Cosmic Text Editor","version":"1.5.0~1785283485~26.04~4ac0da3","homepage":"https://github.com/pop-os/cosmic-edit","section":"admin"}
+{"name":"cosmic-files","description":"Cosmic File Manager","version":"1.5.0~1785283658~26.04~24e34ea","homepage":"https://github.com/pop-os/cosmic-files","section":"admin"}
+{"name":"cosmic-greeter-daemon","description":"Cosmic Greeter daemon","version":"0.1.0~1785340297~26.04~f64e2d8","homepage":"https://github.com/pop-os/cosmic-greeter","section":"admin"}
+{"name":"cosmic-greeter","description":"Cosmic Greeter","version":"0.1.0~1785340297~26.04~f64e2d8","homepage":"https://github.com/pop-os/cosmic-greeter","section":"admin"}
+{"name":"cosmic-icons","description":"Cosmic Icons","version":"0.1.0~1781541006~26.04~b78b059","homepage":"https://github.com/pop-os/cosmic-icons","section":"admin"}
+{"name":"cosmic-idle","description":"Cosmic idle daemon","version":"0.1.0~1771011327~26.04~c95d066","homepage":"https://github.com/pop-os/cosmic-idle","section":"admin"}
+{"name":"cosmic-initial-setup-casper","description":"Disable COSMIC Initial Setup in casper","version":"1.0.0~1785249610~26.04~b5ac418","homepage":"https://github.com/pop-os/cosmic-initial-setup","section":"admin"}
+{"name":"cosmic-initial-setup","description":"COSMIC Initial Setup","version":"1.0.0~1785249610~26.04~b5ac418","homepage":"https://github.com/pop-os/cosmic-initial-setup","section":"admin"}
+{"name":"cosmic-justfiles","description":"Justfile scripts shared between COSMIC and Pop!_OS projects.","version":"1.0.0-beta1~1759415683~26.04~d6fcdd9","homepage":"https://github.com/pop-os/cosmic-justfiles","section":"devel"}
+{"name":"cosmic-launcher","description":"Cosmic Launcher","version":"1.0.12~1785349339~26.04~585a8c0","homepage":"https://github.com/pop-os/cosmic-launcher","section":"admin"}
+{"name":"cosmic-monitor","description":"COSMIC System Monitor","version":"1.5.0~1785283674~26.04~70e6cff","homepage":"https://github.com/pop-os/cosmic-monitor","section":"admin"}
+{"name":"cosmic-notifications","description":"Cosmic Notifications","version":"0.1.0~1783642641~26.04~7c723b7","homepage":"https://github.com/pop-os/cosmic-notifications","section":"admin"}
+{"name":"cosmic-osd","description":"Cosmic OSD","version":"0.1.0~1785249832~26.04~20a2055","homepage":"https://github.com/pop-os/cosmic-osd","section":"admin"}
+{"name":"cosmic-osk","description":"COSMIC On-Screen Keyboard","version":"0.1.0~1769097406~26.04~eee4d04","homepage":"https://github.com/pop-os/cosmic-osk","section":"admin"}
+{"name":"cosmic-panel","description":"XDG Shell Wrapper Panel for COSMIC","version":"0.1.0~1785272608~26.04~d6699ff","homepage":"https://github.com/pop-os/cosmic-panel","section":"admin"}
+{"name":"cosmic-player","description":"Cosmic Media Player","version":"1.5.0~1785283358~26.04~23d5944","homepage":"https://github.com/pop-os/cosmic-player","section":"admin"}
+{"name":"cosmic-randr","description":"Display and configure wayland display outputs","version":"0.1.0~1771011327~26.04~6e8e795","homepage":"https://github.com/pop-os/cosmic-randr","section":"utils"}
+{"name":"cosmic-reader","description":"Cosmic Document Reader","version":"0.1.0~1778600608~26.04~0dde6ae","homepage":"https://github.com/pop-os/cosmic-reader","section":"admin"}
+{"name":"cosmic-screenshot","description":"Cosmic Screenshot Utility","version":"0.1.0~1785250142~26.04~fc778df","homepage":"https://github.com/pop-os/cosmic-screenshot","section":"admin"}
+{"name":"cosmic-session","description":"The session for the COSMIC desktop","version":"1.0.0~1783021552~26.04~b5ef6c0","homepage":"https://github.com/pop-os/cosmic-session","section":"admin"}
+{"name":"cosmic-settings-daemon","description":"Cosmic settings daemon","version":"0.1.0~1784740199~26.04~21a9692","homepage":"https://github.com/pop-os/cosmic-settings-daemon","section":"admin"}
+{"name":"cosmic-settings","description":"Settings application for the COSMIC desktop environment","version":"1.0.12~1785342278~26.04~823ef16","homepage":"https://github.com/pop-os/cosmic-settings","section":"utils"}
+{"name":"pop-gnome-shell-theme","description":"Pop GNOME Shell Theme","version":"5.5.1~1723827328~26.04~25ea85d","homepage":"https://github.com/pop-os/gtk-theme","section":"misc"}
+{"name":"pop-gtk-theme","description":"Pop GTK Theme","version":"5.5.1~1723827328~26.04~25ea85d","homepage":"https://github.com/pop-os/gtk-theme","section":"misc"}
+{"name":"pop-sound-theme","description":"Pop sound theme","version":"5.5.1~1723827328~26.04~25ea85d","homepage":"https://github.com/pop-os/gtk-theme","section":"misc"}
+{"name":"cosmic-store","description":"COSMIC Store","version":"1.5.0~1785283636~26.04~f56cb48","homepage":"https://github.com/pop-os/cosmic-store","section":"admin"}
+{"name":"cosmic-term","description":"COSMIC Terminal","version":"1.5.0~1785342063~26.04~6bf0c65","homepage":"https://github.com/pop-os/cosmic-term","section":"admin"}
+{"name":"cosmic-viewer","description":"COSMIC Image Viewer","version":"1.0.0~1785249139~26.04~6c999eb","homepage":"https://github.com/pop-os/cosmic-viewer","section":"admin"}
+{"name":"cosmic-wallpapers","description":"COSMIC Wallpapers","version":"1.0.0~1771011327~26.04~3c59953","homepage":"https://github.com/pop-os/cosmic-wallpapers","section":"x11"}
+{"name":"cosmic-workspaces","description":"Cosmic workspaces","version":"1.0.12~1785250115~26.04~8faab4c","homepage":"https://github.com/pop-os/cosmic-workspaces-epoch","section":"admin"}
+{"name":"pop-default-settings-ntsync","description":"Enables the ntsync driver module at boot","version":"7.0.0~1784333407~26.04~5005796","homepage":"https://github.com/system76/pop-default-settings","section":"metapackages"}
+{"name":"pop-default-settings-zram","description":"default settings for ZRAM on Pop OS","version":"7.0.0~1784333407~26.04~5005796","homepage":"https://github.com/system76/pop-default-settings","section":"metapackages"}
+{"name":"pop-default-settings","description":"default settings for Pop OS","version":"7.0.0~1784333407~26.04~5005796","homepage":"https://github.com/system76/pop-default-settings","section":"metapackages"}
+{"name":"pop-container-interactive","description":"Pop!_OS metapackage for interactive containers (for example, a containerized development environment).","version":"3.0.0~1785336488~26.04~c647e59","homepage":"https://github.com/system76/pop-desktop","section":"metapackages"}
+{"name":"pop-container-runtime","description":"Pop!_OS metapackage for runtime containers (for example, a cloud container cluster).","version":"3.0.0~1785336488~26.04~c647e59","homepage":"https://github.com/system76/pop-desktop","section":"metapackages"}
+{"name":"pop-de-cosmic","description":"Pop!_OS metapackage for COSMIC-related dependencies.","version":"3.0.0~1785336488~26.04~c647e59","homepage":"https://github.com/system76/pop-desktop","section":"metapackages"}
+{"name":"pop-desktop","description":"Pop!_OS metapackage for desktop OS installations.","version":"3.0.0~1785336488~26.04~c647e59","homepage":"https://github.com/system76/pop-desktop","section":"metapackages"}
+{"name":"pop-pipewire","description":"Pop!_OS metapackage for PipeWire-related dependencies.","version":"3.0.0~1785336488~26.04~c647e59","homepage":"https://github.com/system76/pop-desktop","section":"metapackages"}
+{"name":"pop-server","description":"Pop!_OS metapackage for server OS installations.","version":"3.0.0~1785336488~26.04~c647e59","homepage":"https://github.com/system76/pop-desktop","section":"metapackages"}
+{"name":"pop-fonts","description":"Pop Fonts","version":"1.0.3~1629904758~26.04~2da23d5","homepage":"https://github.com/system76/pop-fonts","section":"gnome"}
+{"name":"pop-gnome-shell-theme","description":"Pop GNOME Shell Theme","version":"5.5.1~1723827328~26.04~25ea85d","homepage":"https://github.com/pop-os/gtk-theme","section":"misc"}
+{"name":"pop-gtk-theme","description":"Pop GTK Theme","version":"5.5.1~1723827328~26.04~25ea85d","homepage":"https://github.com/pop-os/gtk-theme","section":"misc"}
+{"name":"pop-sound-theme","description":"Pop sound theme","version":"5.5.1~1723827328~26.04~25ea85d","homepage":"https://github.com/pop-os/gtk-theme","section":"misc"}
+{"name":"pop-hp-vendor-dkms","description":"HP vendor kernel driver","version":"0.1.0~1707324857~26.04~7c9a0a8","homepage":"https://github.com/pop-os/hp-vendor","section":"admin"}
+{"name":"pop-hp-vendor","description":"HP vendor support","version":"0.1.0~1707324857~26.04~7c9a0a8","homepage":"https://github.com/pop-os/hp-vendor","section":"admin"}
+{"name":"pop-hp-wallpapers","description":"Wallpapers for HP products","version":"1.0.0~1761618479~26.04~94f7df3","homepage":"https://github.com/pop-os/hp-wallpapers","section":"x11"}
+{"name":"pop-icon-theme","description":"Pop Icons","version":"3.5.1~1727801177~26.04~1a575a8","homepage":"https://github.com/pop-os/icon-theme","section":"gnome"}
+{"name":"pop-installer-casper","description":"Autostart pop-installer in casper","version":"0.0.1~1765299062~26.04~5fb8c92","homepage":"https://github.com/pop-os/installer","section":"utils"}
+{"name":"pop-installer-session","description":"Dedicated installer session","version":"0.0.1~1765299062~26.04~5fb8c92","homepage":"https://github.com/pop-os/installer","section":"utils"}
+{"name":"pop-installer","description":"Distribution installer","version":"0.0.1~1765299062~26.04~5fb8c92","homepage":"https://github.com/pop-os/installer","section":"utils"}
+{"name":"system76-keyboard-configurator","description":"System76 Keyboard Configurator","version":"1.3.13~1773328829~26.04~676cdc6","homepage":"https://github.com/pop-os/keyboard-configurator","section":"admin"}
+{"name":"pop-keyring","description":"GnuPG keys of the Pop archive","version":"1.0.0~1641313934~26.04~356a75e","homepage":"https://github.com/pop-os/keyring","section":"misc"}
+{"name":"pop-launcher-system76-power","description":"System76 Power scripts for the launcher","version":"1.2.6~1783019646~26.04~a332a3a","homepage":"https://github.com/pop-os/launcher","section":"utils"}
+{"name":"pop-launcher","description":"Modular IPC-based desktop launcher service","version":"1.2.6~1783019646~26.04~a332a3a","homepage":"https://github.com/pop-os/launcher","section":"utils"}
+{"name":"pop-plymouth-theme","description":"graphical boot animation and logger","version":"3.0.0~1784135291~26.04~784d8b6","section":"x11"}
+{"name":"pop-shell-shortcuts","description":"Pop!_OS Shell Keyboard Shortcuts","version":"0.1.0~1633121872~26.04~52cc83f","homepage":"https://github.com/pop-os/shell-shortcuts","section":"gnome"}
+{"name":"pop-system-updater","description":"Automatic System Updates for Pop!_OS","version":"0.1.0~1706713830~26.04~c208318","homepage":"https://github.com/pop-os/system-updater","section":"admin"}
+{"name":"system76-acpi-dkms","description":"System76 ACPI Driver (DKMS)","version":"1.0.2~1784652717~26.04~add8f71","homepage":"https://github.com/pop-os/system76-acpi-dkms","section":"kernel"}
+{"name":"system76-dkms","description":"System76 DKMS driver","version":"1.0.22~1785362089~26.04~90ea5e6","homepage":"https://github.com/pop-os/system76-dkms","section":"kernel"}
+{"name":"system76-driver-nvidia","description":"Latest nvidia driver for System76 computers","version":"24.04.22~1784740897~26.04~95f75c2","homepage":"https://launchpad.net/system76-driver","section":"utils"}
+{"name":"system76-driver","description":"Universal driver for System76 computers","version":"24.04.22~1784740897~26.04~95f75c2","homepage":"https://launchpad.net/system76-driver","section":"utils"}
+{"name":"system76-firmware-daemon","description":"System76 Firmware Daemon","version":"1.0.77~1784843200~26.04~0337bd4","homepage":"https://github.com/pop-os/system76-firmware","section":"admin"}
+{"name":"system76-firmware","description":"System76 Firmware CLI","version":"1.0.77~1784843200~26.04~0337bd4","homepage":"https://github.com/pop-os/system76-firmware","section":"admin"}
+{"name":"system76-io-dkms","description":"System76 Io DKMS driver","version":"1.0.4~1732138800~26.04~fc71f15","homepage":"https://github.com/pop-os/system76-io-dkms","section":"kernel"}
+{"name":"system76-oled","description":"Control brightness on OLED displays","version":"0.1.5~1664307225~26.04~98f778d","homepage":"https://github.com/pop-os/system76-oled","section":"admin"}
+{"name":"system76-power","description":"System76 Power Management","version":"1.2.8~1783977107~26.04~9a33472","homepage":"https://github.com/pop-os/system76-power","section":"admin"}
+{"name":"system76-scheduler","description":"Oneshot service to tweak the CFS scheduler on boot","version":"2.0.0~1784750427~26.04~8651bbf","homepage":"https://github.com/pop-os/system76-scheduler","section":"utils"}
+{"name":"system76-wallpapers","description":"System76 Wallpapers","version":"18.04.2~1761578402~26.04~c9a5b39","homepage":"https://github.com/pop-os/system76-wallpapers","section":"x11"}
+{"name":"pop-theme","description":"Pop Theme Metapackage","version":"1.0.4~1571245319~26.04~ed52981","homepage":"https://github.com/system76/pop-theme","section":"gnome"}
+{"name":"pop-transition","description":"Pop!_OS Deb-to-Flatpak Migration Assistant","version":"1.1.2~1673280823~26.04~3b034ef","homepage":"https://github.com/pop-os/pop-transition","section":"python"}
+{"name":"pop-upgrade","description":"Utility for performing system upgrades on Pop!_OS","version":"1.0.0~1778861967~26.04~f2903ce","homepage":"https://github.com/pop-os/upgrade","section":"admin"}
+{"name":"pop-wallpapers","description":"Pop Wallpapers","version":"1.0.5~1750780843~26.04~20a9fdd","homepage":"https://github.com/system76/pop-wallpapers","section":"x11"}

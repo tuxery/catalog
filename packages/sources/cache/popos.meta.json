@@ -1,0 +1,9 @@
+{
+  "source": "popos",
+  "fetchedAt": "2026-08-17T14:51:55.643Z",
+  "url": "https://apt.pop-os.org/release/dists/resolute/main/binary-amd64/Packages.gz",
+  "entryCount": 77,
+  "release": "resolute",
+  "component": "main",
+  "arch": "amd64"
+}

@@ -18,7 +18,8 @@ export type PackageSourceId =
   | "slackware"
   | "solus"
   | "gentoo"
-  | "mint";
+  | "mint"
+  | "popos";
 
 /**
  * A single package as reported by one source, before deduplication.

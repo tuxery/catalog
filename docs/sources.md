@@ -254,8 +254,19 @@ See the "Derivative distros with genuinely unique in-house software" card
 on the Tuxery GitHub Project for the full researched list, including
 explicitly-filtered-out derivatives (CachyOS, Manjaro, EndeavourOS, Garuda,
 Ubuntu flavours, Rocky/AlmaLinux, Raspberry Pi OS — near-vanilla rebases
-with no distinct software of their own) and "worth a cheap evaluate pass"
-candidates (Zorin OS, Kali Linux) not yet implemented.
+with no distinct software of their own). Zorin OS and Kali Linux were
+evaluated and concluded not worth a connector: Zorin's `stable` PPA has
+real `zorin-*` branded packages, but they're almost entirely metapackages/
+wallpapers/telemetry, ~4 genuinely launchable apps out of 231 (zorin-
+connect, zorin-appearance, zorin-appgrid-lite, zorin-windows-app-support);
+Kali's `main` component is 71,092 packages, essentially the full Debian
+archive plus security tools under their own real upstream names (already
+reachable via the Debian/Ubuntu connectors) — its 93 `kali-*` packages
+are almost entirely desktop-variant metapackages and tool-category bundle
+menus, ~4-5 genuinely distinctive launchable tools (kali-undercover,
+kali-tweaks, kali-win-kex, kali-autopilot). Neither yield justified the
+connector-building cost — see the "Derivative distros" card for the full
+research writeup.
 
 18. **elementary AppCenter** — its own Flatpak remote (not Flathub), same
     `appstream.xml.gz` mechanism, parsing shared with Flathub via the new

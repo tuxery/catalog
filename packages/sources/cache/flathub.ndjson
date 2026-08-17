@@ -34,7 +34,7 @@
 {"id":"app.legcord.Legcord","name":"Legcord","summary":"Legcord is a custom client designed to enhance your Discord experience while keeping everything lightweight.","version":"1.3.0","iconFilename":"app.legcord.Legcord.png","homepage":"https://legcord.app"}
 {"id":"app.lith.Lith.desktop","name":"Lith","summary":"WeeChat Relay Client","version":"v1.6.18","iconFilename":"app.lith.Lith.desktop.png","homepage":"https://lith.app"}
 {"id":"app.moosync.moosync","name":"Moosync","summary":"Customizable music player","version":"11.0.2","iconFilename":"app.moosync.moosync.png","homepage":"https://moosync.app"}
-{"id":"app.nestful.Nestful","name":"Nestful","summary":"The single place for all your lists and tasks","version":"1.4.1","iconFilename":"app.nestful.Nestful.png","homepage":"https://nestful.app"}
+{"id":"app.nestful.Nestful","name":"Nestful","summary":"Stop planning, start doing","version":"1.6.0","iconFilename":"app.nestful.Nestful.png","homepage":"https://nestful.app"}
 {"id":"app.openbubbles.OpenBubbles","name":"OpenBubbles","summary":"OpenBubbles client for Linux","version":"1.15.0.0","iconFilename":"app.openbubbles.OpenBubbles.png","homepage":"https://openbubbles.app/"}
 {"id":"app.opencomic.OpenComic","name":"OpenComic","summary":"Comic and Manga reader","version":"1.6.5","iconFilename":"app.opencomic.OpenComic.png","homepage":"https://github.com/ollm/OpenComic"}
 {"id":"app.organicmaps.desktop","name":"Organic Maps","summary":"Free offline maps for everyone","version":"2026.05.28-2","iconFilename":"app.organicmaps.desktop.png","homepage":"https://organicmaps.app"}
@@ -46,8 +46,9 @@
 {"id":"app.towdow.TowDow","name":"TowDow","summary":"Tasks & process management","version":"0.0.0","iconFilename":"app.towdow.TowDow.png","homepage":"https://towdow.app/"}
 {"id":"app.tuneline.Tuneline","name":"Tuneline","summary":"Play any media playlist","version":"1.0.101","iconFilename":"app.tuneline.Tuneline.png","homepage":"https://tuneline.app"}
 {"id":"app.twintaillauncher.ttl","name":"Twintail Launcher","summary":"Run anime games hassle free","version":"2.4.0","iconFilename":"app.twintaillauncher.ttl.png","homepage":"https://twintaillauncher.app"}
+{"id":"app.vger.voyager","name":"Voyager","summary":"Browse Lemmy and PieFed","version":"2.48.4","iconFilename":"app.vger.voyager.png","homepage":"https://getvoyager.app"}
 {"id":"app.xemu.xemu","name":"xemu","summary":"Original Xbox Emulator","version":"0.8.136","iconFilename":"app.xemu.xemu.png","homepage":"https://xemu.app"}
-{"id":"app.xmcl.voxelum","name":"X Minecraft Launcher","summary":"Play and manage Minecraft","version":"v0.66.1","iconFilename":"app.xmcl.voxelum.png","homepage":"https://xmcl.app/"}
+{"id":"app.xmcl.voxelum","name":"X Minecraft Launcher","summary":"Play and manage Minecraft","version":"v0.66.2","iconFilename":"app.xmcl.voxelum.png","homepage":"https://xmcl.app/"}
 {"id":"app.ytmdesktop.ytmdesktop","name":"YTMDesktop","summary":"Free cross platform Desktop Player for YouTube Music","version":"v2.0.11","iconFilename":"app.ytmdesktop.ytmdesktop.png","homepage":"https://ytmdesktop.app"}
 {"id":"app.ywallet.Ywallet","name":"Ywallet","summary":"Light Wallet for Ycash and Zcash","version":"1.5.4","iconFilename":"app.ywallet.Ywallet.png","homepage":"https://hhanh00.github.io/zwallet/"}
 {"id":"app.zen_browser.zen","name":"Zen","summary":"Stay focused, browse faster","version":"1.21.14b","iconFilename":"app.zen_browser.zen.png","homepage":"https://zen-browser.app"}
@@ -126,11 +127,12 @@
 {"id":"club.haroohie.SerialLoops","name":"Serial Loops","summary":"Editor for Suzumiya Haruhi no Chokuretsu","version":"v0.3.3","iconFilename":"club.haroohie.SerialLoops.png","homepage":"https://haroohie.club/chokuretsu/serial-loops"}
 {"id":"club.zbridge.zbridge","name":"Zbridge","summary":"Play contract bridge online","version":"1.1.7","iconFilename":"club.zbridge.zbridge.png","homepage":"https://zbridge.club"}
 {"id":"cn.apipost.apipost","name":"Apipost","summary":"Apipost = Postman + Swagger + Mock + Jmeter, Backend, frontend, testing, and online collaboration with real-time content synchronization","version":"8.2.7","iconFilename":"cn.apipost.apipost.png","homepage":"https://www.apipost.cn/"}
+{"id":"cn.eeo.ClassIn","name":"ClassIn","summary":"One-stop interactive online classroom platform","version":"6.0.8.2738","iconFilename":"cn.eeo.ClassIn.png","homepage":"https://www.classin.com/"}
 {"id":"cn.feishu.Feishu","name":"Feishu","summary":"A collaboration platform","version":"7.66.11","iconFilename":"cn.feishu.Feishu.png","homepage":"https://feishu.cn/"}
 {"id":"cn.lceda.LCEDAPro","name":"LCEDA Pro","summary":"An Easier and Powerful Online PCB Design Tool","version":"3.2.116","iconFilename":"cn.lceda.LCEDAPro.png","homepage":"https://lceda.cn/"}
 {"id":"cn.ottercorp.xivlaunchercn","name":"XIVLauncherCN","summary":"Launcher & seamless Linux integration for Final Fantasy XIV Online (China version)","version":"1.1.2.7","iconFilename":"cn.ottercorp.xivlaunchercn.png","homepage":"https://ottercorp.github.io/"}
 {"id":"cn.toside.lxmusic.lx-music-desktop","name":"LX Music Desktop","summary":"LX Music Desktop","version":"2.12.2","iconFilename":"cn.toside.lxmusic.lx-music-desktop.png","homepage":"https://github.com/lyswhut/lx-music-desktop"}
-{"id":"cn.wps.wps_365","name":"WPS 365","summary":"WPS 365 Suite","version":"12.1.2.26885_715982","iconFilename":"cn.wps.wps_365.png","homepage":"https://365.wps.cn/home"}
+{"id":"cn.wps.wps_365","name":"WPS 365","summary":"WPS 365 Suite","version":"12.1.2.28080_765470","iconFilename":"cn.wps.wps_365.png","homepage":"https://365.wps.cn/home"}
 {"id":"cn.xfangfang.wiliwili","name":"wiliwili","summary":"Watch videos from Bilibili","version":"1.6.0","iconFilename":"cn.xfangfang.wiliwili.png","homepage":"https://github.com/xfangfang/wiliwili"}
 {"id":"co.logonoff.awakeonlan","name":"Awake on LAN","summary":"Remotely wake up computers","version":"0.5.2","iconFilename":"co.logonoff.awakeonlan.png","homepage":"https://github.com/logonoff/awake-on-lan"}
 {"id":"co.luoja.Telyn","name":"Telyn","summary":"Visual editor for parametric sewing patterns","version":"1.0.6","iconFilename":"co.luoja.Telyn.png","homepage":"https://luoja.co"}
@@ -141,6 +143,7 @@
 {"id":"codes.merritt.bargain","name":"Unit Bargain Hunter","summary":"Easily compare items when shopping","version":"1.17.0","iconFilename":"codes.merritt.bargain.png","homepage":"https://merritt.codes/bargain/"}
 {"id":"codes.nora.gDiceRoller","name":"Dice Roller","summary":"Roll dice of many different shapes and sizes in all possible combinations.","version":"1.1.3","iconFilename":"codes.nora.gDiceRoller.png","homepage":"https://gitlab.gnome.org/NoraCodes/gDiceRoller/"}
 {"id":"com.VK.Messenger","name":"VK Messenger","summary":"Lightweight and fast in all conditions","version":"6.0.57","iconFilename":"com.VK.Messenger.png","homepage":"https://vk.me/app"}
+{"id":"com.a_chacon.chaski","name":"Chaski","summary":"A calmer way to read the web","version":"0.6.4","iconFilename":"com.a_chacon.chaski.png","homepage":"https://github.com/a-chacon/chaski-app"}
 {"id":"com.abagames.noiz2sa","name":"noiz2sa","summary":"A frenetic abstract shooter","version":"0.51a","iconFilename":"com.abagames.noiz2sa.png","homepage":"https://www.asahi-net.or.jp/~cs8k-cyu/"}
 {"id":"com.abagames.rRootage","name":"rRootage","summary":"Defeat autocreated huge battleships","version":"0.23","iconFilename":"com.abagames.rRootage.png","homepage":"https://www.asahi-net.or.jp/~cs8k-cyu/"}
 {"id":"com.abisource.AbiWord","name":"AbiWord","summary":"A word processor","version":"3.0.8","iconFilename":"com.abisource.AbiWord.png","homepage":"https://www.abisource.com/"}
@@ -166,7 +169,7 @@
 {"id":"com.aloxbook.AloxBook","name":"AloxBook","summary":"Easy, private personal finance","version":"2.1.0","iconFilename":"com.aloxbook.AloxBook.png","homepage":"https://www.aloxbook.com"}
 {"id":"com.alpineclient.AlpineClient","name":"Alpine Client","summary":"Elevate your Minecraft gameplay","version":"1.8.5","iconFilename":"com.alpineclient.AlpineClient.png","homepage":"https://alpineclient.com/"}
 {"id":"com.ampl.ide","name":"AMPL IDE","summary":"A simple and straightforward enhanced modeling interface for AMPL users","version":"4.1.0.202412231704","iconFilename":"com.ampl.ide.png","homepage":"https://ampl.com"}
-{"id":"com.andr2i.scrolex","name":"Scrolex","summary":"Read PDFs and ebooks horizontally","version":"0.11.2","iconFilename":"com.andr2i.scrolex.png","homepage":"https://github.com/molecule-man/scrolex"}
+{"id":"com.andr2i.scrolex","name":"Scrolex","summary":"Read PDFs and ebooks horizontally","version":"0.11.3","iconFilename":"com.andr2i.scrolex.png","homepage":"https://github.com/molecule-man/scrolex"}
 {"id":"com.anydesk.Anydesk.desktop","name":"AnyDesk","summary":"Connect to a computer remotely","version":"8.0.3","iconFilename":"com.anydesk.Anydesk.desktop.png","homepage":"https://www.anydesk.com"}
 {"id":"com.apifox.Apifox","name":"Apifox","summary":"Apifox = Postman + Swagger + Mock + JMeter","version":"2.7.46","iconFilename":"com.apifox.Apifox.png","homepage":"https://apifox.com/"}
 {"id":"com.aresvalley.artemis","name":"Artemis","summary":"The reference for radio signal identification","version":"4.2.0","iconFilename":"com.aresvalley.artemis.png","homepage":"https://aresvalley.com/"}
@@ -177,7 +180,7 @@
 {"id":"com.axantum.xecrets.ez","name":"Xecrets Ez","summary":"Encrypt your files","version":"2.3.1669","iconFilename":"com.axantum.xecrets.ez.png","homepage":"https://www.axantum.com/file-encryption"}
 {"id":"com.axosoft.GitKraken","name":"GitKraken","summary":"For repo management, in-app code editing & issue tracking","version":"12.4.0","iconFilename":"com.axosoft.GitKraken.png","homepage":"https://www.gitkraken.com/"}
 {"id":"com.baidu.NetDisk","name":"Baidu Netdisk","summary":"Baidu Netdisk desktop client","version":"8.7.0","iconFilename":"com.baidu.NetDisk.png","homepage":"http://yun.baidu.com"}
-{"id":"com.bambulab.BambuStudio","name":"Bambu Studio","summary":"Get perfect 3D prints!","version":"2.7.1.62 Public Release","iconFilename":"com.bambulab.BambuStudio.png","homepage":"https://bambulab.com/en/download/studio"}
+{"id":"com.bambulab.BambuStudio","name":"Bambu Studio","summary":"Get perfect 3D prints!","version":"2.8.2 Public Release","iconFilename":"com.bambulab.BambuStudio.png","homepage":"https://bambulab.com/en/download/studio"}
 {"id":"com.basemark.BasemarkGPU","name":"Basemark GPU","summary":"GPU performance evaluation tool","version":"1.2.3","iconFilename":"com.basemark.BasemarkGPU.png","homepage":"https://www.basemark.com/benchmarks/basemark-gpu/"}
 {"id":"com.beavernotes.beavernotes","name":"Beaver Notes","summary":"Private note taking app","version":"4.4.0","iconFilename":"com.beavernotes.beavernotes.png","homepage":"https://beavernotes.com"}
 {"id":"com.behringer.XAirEdit","name":"X Air Edit","summary":"Behringer XR mixers user interface","version":"1.8.1","iconFilename":"com.behringer.XAirEdit.png","homepage":"https://www.behringer.com/product.html?modelCode=P0BI8"}
@@ -221,7 +224,7 @@
 {"id":"com.chatterino.chatterino.desktop","name":"Chatterino","summary":"Chat client for twitch.tv","version":"2.5.5","iconFilename":"com.chatterino.chatterino.desktop.png","homepage":"https://chatterino.com/"}
 {"id":"com.cherry_ai.CherryStudio","name":"Cherry Studio","summary":"A powerful AI assistant for producer","version":"2.0.4","iconFilename":"com.cherry_ai.CherryStudio.png","homepage":"https://cherry-ai.com/"}
 {"id":"com.chez.GrafX2","name":"GrafX2","summary":"A bitmap paint program specialized in 256 color drawing","version":"2.7","iconFilename":"com.chez.GrafX2.png","homepage":"http://grafx2.eu"}
-{"id":"com.chirpmyradio.chirp","name":"CHIRP","summary":"A free, open-source tool for programming your radio","version":"next-20260807","iconFilename":"com.chirpmyradio.chirp.png","homepage":"https://chirpmyradio.com"}
+{"id":"com.chirpmyradio.chirp","name":"CHIRP","summary":"A free, open-source tool for programming your radio","version":"next-20260814","iconFilename":"com.chirpmyradio.chirp.png","homepage":"https://chirpmyradio.com"}
 {"id":"com.chowdsp.BYOD","name":"BYOD","summary":"BYOD: Bring Your Own Distortion, Standalone","version":"1.3.0","iconFilename":"com.chowdsp.BYOD.png","homepage":"https://chowdsp.com/"}
 {"id":"com.chroniclogic.Zatikon","name":"Zatikon","summary":"Chess-like, fantasy game of conquering the enemy's castle","version":"1.1.10","iconFilename":"com.chroniclogic.Zatikon.png","homepage":"https://github.com/zatikon/zatikon"}
 {"id":"com.cinecred.cinecred","name":"Cinecred","summary":"Create beautiful film credits without the pain","version":"1.9.1","iconFilename":"com.cinecred.cinecred.png","homepage":"https://cinecred.com"}
@@ -244,12 +247,12 @@
 {"id":"com.diffingo.fwbackups.desktop","name":"fwbackups","summary":"A feature-rich, user-friendly backup program","version":"1.43.8-rc4","iconFilename":"com.diffingo.fwbackups.desktop.png","homepage":"https://diffingo.com/oss/fwbackups/"}
 {"id":"com.digitalgex.RustDiff","name":"RustDiff","summary":"Semantic JSON and XML comparator","version":"0.4.0","iconFilename":"com.digitalgex.RustDiff.png","homepage":"https://github.com/jereok91/rustdiff"}
 {"id":"com.dingtalk.DingTalk","name":"DingTalk","summary":"An intelligent working platform","version":"8.1.0.6021101","iconFilename":"com.dingtalk.DingTalk.png","homepage":"https://www.dingtalk.com/"}
-{"id":"com.discordapp.Discord","name":"Discord","summary":"Talk, play, hang out","version":"1.0.153","iconFilename":"com.discordapp.Discord.png","homepage":"https://discord.com"}
+{"id":"com.discordapp.Discord","name":"Discord","summary":"Talk, play, hang out","version":"1.0.154","iconFilename":"com.discordapp.Discord.png","homepage":"https://discord.com"}
 {"id":"com.diy_fever.DIYLayoutCreator","name":"DIY Layout Creator","summary":"Circuit layout design tool supporting PCB, vero-board, point-to-point, perf-board and guitar wiring diagrams","version":"4.39.0","iconFilename":"com.diy_fever.DIYLayoutCreator.png","homepage":"https://github.com/bancika/diy-layout-creator"}
 {"id":"com.djoffe.gnukem","name":"Dave Gnukem","summary":"Retro-style 2D scrolling platform shooter","version":"1.0.3","iconFilename":"com.djoffe.gnukem.png","homepage":"https://djoffe.com/gnukem/"}
 {"id":"com.donhopkins.Micropolis","name":"Micropolis","summary":"City building game","version":"4.0","iconFilename":"com.donhopkins.Micropolis.png","homepage":"https://www.donhopkins.com/home/micropolis/"}
 {"id":"com.dosbox.DOSBox","name":"DOSBox","summary":"Run old DOS applications","version":"0.74-3","iconFilename":"com.dosbox.DOSBox.png","homepage":"https://www.dosbox.com"}
-{"id":"com.dosbox_x.DOSBox-X","name":"DOSBox-X","summary":"x86/DOS emulator with sound and graphics","version":"2026.07.02","iconFilename":"com.dosbox_x.DOSBox-X.png","homepage":"https://dosbox-x.com"}
+{"id":"com.dosbox_x.DOSBox-X","name":"DOSBox-X","summary":"x86/DOS emulator with sound and graphics","version":"2026.08.02","iconFilename":"com.dosbox_x.DOSBox-X.png","homepage":"https://dosbox-x.com"}
 {"id":"com.doycho.euterpe.gtk.desktop","name":"Euterpe","summary":"Audio player for the Euterpe media server","version":"0.9.0","iconFilename":"com.doycho.euterpe.gtk.desktop.png","homepage":"https://listen-to-euterpe.eu"}
 {"id":"com.dreamsourcelab.DSView","name":"DSView","summary":"An open source multi-function instrument for everyone","version":"1.3.2","iconFilename":"com.dreamsourcelab.DSView.png","homepage":"https://www.dreamsourcelab.com/"}
 {"id":"com.dropbox.Client.desktop","name":"Dropbox","summary":"Access your files from any computer","version":"264.4.3385","iconFilename":"com.dropbox.Client.desktop.png","homepage":"https://www.dropbox.com"}
@@ -299,7 +302,7 @@
 {"id":"com.georgefb.quickaccess","name":"QuickAccess","summary":"A global menu giving you quick access to folders and custom commands.","version":"3.2.0","iconFilename":"com.georgefb.quickaccess.png","homepage":"https://github.com/g-fb/quickaccess"}
 {"id":"com.gesturedevelop.AirSQLiteManager","name":"Air SQLite Manager","summary":"Manage your SQLite databases with ease.","version":"0.9.14","iconFilename":"com.gesturedevelop.AirSQLiteManager.png","homepage":"https://gesturedevelop.com/"}
 {"id":"com.getmailspring.Mailspring","name":"Mailspring","summary":"The best email app for people and teams at work","version":"1.23.0","iconFilename":"com.getmailspring.Mailspring.png","homepage":"https://getmailspring.com/"}
-{"id":"com.getpostman.Postman","name":"Postman","summary":"Platform for building and using APIs","version":"12.23.7","iconFilename":"com.getpostman.Postman.png","homepage":"https://www.postman.com"}
+{"id":"com.getpostman.Postman","name":"Postman","summary":"Platform for building and using APIs","version":"12.23.8","iconFilename":"com.getpostman.Postman.png","homepage":"https://www.postman.com"}
 {"id":"com.giadamusic.Giada","name":"Giada","summary":"Your hardcore loop machine","version":"1.5.0","iconFilename":"com.giadamusic.Giada.png","homepage":"https://www.giadamusic.com/"}
 {"id":"com.gitbutler.gitbutler","name":"GitButler","summary":"Git, finally designed for humans","version":"0.22.0","iconFilename":"com.gitbutler.gitbutler.png","homepage":"https://gitbutler.com"}
 {"id":"com.gitfiend.GitFiend","name":"GitFiend","summary":"A Git client designed for humans","version":"0.45.3","iconFilename":"com.gitfiend.GitFiend.png","homepage":"https://gitfiend.com"}
@@ -311,7 +314,7 @@
 {"id":"com.github.Bleuzen.FFaudioConverter","name":"FFaudioConverter","summary":"Batch audio converter and effects processor","version":"0.32.0","iconFilename":"com.github.Bleuzen.FFaudioConverter.png","homepage":"https://github.com/Bleuzen/FFaudioConverter"}
 {"id":"com.github.Darazaki.Spedread","name":"Spedread","summary":"GTK speed reading software: Read like a speedrunner!","version":"2.8.1","iconFilename":"com.github.Darazaki.Spedread.png","homepage":"https://github.com/Darazaki/Spedread"}
 {"id":"com.github.Flacon","name":"Flacon","summary":"Flacon extracts individual tracks from one big audio file containing the entire album of music and saves them as separate audio files","version":"12.0.0","iconFilename":"com.github.Flacon.png","homepage":"https://flacon.github.io/"}
-{"id":"com.github.IsmaelMartinez.teams_for_linux","name":"Portal for Teams","summary":"Unofficial Microsoft Teams client for Linux","version":"2.14.1","iconFilename":"com.github.IsmaelMartinez.teams_for_linux.png","homepage":"https://github.com/IsmaelMartinez/teams-for-linux"}
+{"id":"com.github.IsmaelMartinez.teams_for_linux","name":"Portal for Teams","summary":"Unofficial Microsoft Teams client for Linux","version":"2.15.0","iconFilename":"com.github.IsmaelMartinez.teams_for_linux.png","homepage":"https://github.com/IsmaelMartinez/teams-for-linux"}
 {"id":"com.github.KRTirtho.Spotube","name":"Spotube","summary":"Freedom of music","version":"v5.1.2","iconFilename":"com.github.KRTirtho.Spotube.png","homepage":"https://spotube.krtirtho.dev"}
 {"id":"com.github.LongSoft.UEFITool","name":"UEFITool","summary":"UEFI firmware image viewer and editor","version":"A75","iconFilename":"com.github.LongSoft.UEFITool.png","homepage":"https://github.com/LongSoft/UEFITool"}
 {"id":"com.github.Matoking.protontricks","name":"Protontricks","summary":"Apps and fixes for Proton games","version":"1.14.1","iconFilename":"com.github.Matoking.protontricks.png","homepage":"https://github.com/Matoking/protontricks"}
@@ -365,7 +368,7 @@
 {"id":"com.github.geigi.cozy","name":"Cozy","summary":"Listen to audio books","version":"1.3.0","iconFilename":"com.github.geigi.cozy.png","homepage":"https://cozy.sh"}
 {"id":"com.github.gijsgoudzwaard.image-optimizer","name":"Image Optimizer","summary":"Shrink images losslessly","version":"0.5.0","iconFilename":"com.github.gijsgoudzwaard.image-optimizer.png","homepage":"https://github.com/gijsgoudzwaard/image-optimizer"}
 {"id":"com.github.git_cola.git-cola","name":"Git Cola","summary":"Sleek and powerful Git GUI","version":"4.19.0","iconFilename":"com.github.git_cola.git-cola.png","homepage":"https://git-cola.gitlab.io/"}
-{"id":"com.github.gmg137.netease-cloud-music-gtk","name":"NetEase Cloud Music Gtk4","summary":"Linux music player for NetEase Cloud Music","version":"2.5.3","iconFilename":"com.github.gmg137.netease-cloud-music-gtk.png","homepage":"https://github.com/gmg137/netease-cloud-music-gtk"}
+{"id":"com.github.gmg137.netease-cloud-music-gtk","name":"NetEase Cloud Music Gtk4","summary":"Linux music player for NetEase Cloud Music","version":"2.5.4","iconFilename":"com.github.gmg137.netease-cloud-music-gtk.png","homepage":"https://github.com/gmg137/netease-cloud-music-gtk"}
 {"id":"com.github.gpuvis.Gpuvis","name":"gpuvis","summary":"A GPU Trace Visualizer","version":"0.1","iconFilename":"com.github.gpuvis.Gpuvis.png","homepage":"https://github.com/mikesart/gpuvis/wiki"}
 {"id":"com.github.gyunaev.spivak","name":"Spivak","summary":"Karaoke player","version":"1.4","iconFilename":"com.github.gyunaev.spivak.png","homepage":"https://github.com/gyunaev/spivak"}
 {"id":"com.github.hluk.copyq.desktop","name":"CopyQ","summary":"Advanced clipboard manager","version":"16.0.0","iconFilename":"com.github.hluk.copyq.desktop.png","homepage":"https://hluk.github.io/CopyQ/"}
@@ -497,7 +500,7 @@
 {"id":"com.iche2.gai","name":"Gai","summary":"Generative-AI tools for beginner","version":"1.2.7","iconFilename":"com.iche2.gai.png","homepage":"https://webpath.iche2.com/gaidoc/en/"}
 {"id":"com.icons8.Lunacy","name":"Lunacy","summary":"Free graphic design tool for UX/UI","version":"14.1","iconFilename":"com.icons8.Lunacy.png","homepage":"https://icons8.com/lunacy"}
 {"id":"com.identicalsoftware.anagramarama","name":"Anagramarama","summary":"Make words from a jumble of letters","version":"0.7","iconFilename":"com.identicalsoftware.anagramarama.png","homepage":"http://identicalsoftware.com/anagramarama/"}
-{"id":"com.indomitusgroup.indiaccounting","name":"indiAccounting","summary":"Double-entry accounting and payroll for small business","version":"1.7.2","iconFilename":"com.indomitusgroup.indiaccounting.png","homepage":"https://indomitusgroup.com/indiaccounting/"}
+{"id":"com.indomitusgroup.indiaccounting","name":"indiAccounting","summary":"Double-entry accounting and payroll for small business","version":"1.8.0","iconFilename":"com.indomitusgroup.indiaccounting.png","homepage":"https://indomitusgroup.com/indiaccounting/"}
 {"id":"com.indomitusgroup.indipdf","name":"indiPDF","summary":"A powerful PDF editor for Linux","version":"2.0.8","iconFilename":"com.indomitusgroup.indipdf.png","homepage":"https://indomitusgroup.com/indipdf/"}
 {"id":"com.infinipaint.infinipaint","name":"Infinipaint","summary":"Draw on a big canvas","version":"0.6.0","iconFilename":"com.infinipaint.infinipaint.png","homepage":"https://infinipaint.com"}
 {"id":"com.infochunk.OpenMadoola","name":"OpenMadoola","summary":"Wing of Madoola reimplementation","version":"1.26","iconFilename":"com.infochunk.OpenMadoola.png","homepage":"https://www.infochunk.com/madoola/openmadoola.html"}
@@ -530,7 +533,7 @@
 {"id":"com.jpexs.decompiler.flash","name":"JPEXS Free Flash Decompiler","summary":"Decompile and edit SWF files","version":"26.2.1","iconFilename":"com.jpexs.decompiler.flash.png","homepage":"https://github.com/jindrapetrik/jpexs-decompiler/wiki"}
 {"id":"com.js8call.JS8Call","name":"JS8Call","summary":"Software using the JS8 Digital Mode providing weak signal keyboard to keyboard messaging to Amateur Radio Operators","version":"2.2.0","iconFilename":"com.js8call.JS8Call.png","homepage":"https://js8call.com"}
 {"id":"com.jwestall.Forecast","name":"Forecast","summary":"View weather predictions","version":"1.3.0","iconFilename":"com.jwestall.Forecast.png","homepage":"https://github.com/cosmic-utils/forecast"}
-{"id":"com.k0vcz.Artemis","name":"Trailwave","summary":"Parks on the Air hunting companion","version":"2.1.2","iconFilename":"com.k0vcz.Artemis.png","homepage":"https://gettrailwave.app/linux"}
+{"id":"com.k0vcz.Artemis","name":"Trailwave","summary":"Parks on the Air hunting companion","version":"2.2","iconFilename":"com.k0vcz.Artemis.png","homepage":"https://gettrailwave.app/linux"}
 {"id":"com.kalbareader.Kalba","name":"Kalba","summary":"Seamlessly integrate media consumption, getting definitions, and adding flashcards for language learning","version":"0.3.6","iconFilename":"com.kalbareader.Kalba.png","homepage":"http://kalbareader.com"}
 {"id":"com.kavilgroup.gelectrical","name":"GElectrical","summary":"Electrical distribution network design and analysis","version":"1.1","iconFilename":"com.kavilgroup.gelectrical.png","homepage":"https://github.com/manuvarkey/GElectrical"}
 {"id":"com.kavilgroup.gestimator","name":"GEstimator","summary":"Civil Estimation Software","version":"2.7.0","iconFilename":"com.kavilgroup.gestimator.png","homepage":"https://manuvarkey.github.io/GEstimator"}
@@ -572,10 +575,10 @@
 {"id":"com.markopejic.downloader","name":"Media Downloader","summary":"Web video/audio downloader","version":"5.1.1","iconFilename":"com.markopejic.downloader.png","homepage":"https://downloader.markopejic.com"}
 {"id":"com.mastermindzh.tidal-hifi","name":"TIDAL Hi-Fi","summary":"The web version of listen.tidal.com with Hi-Fi (High and Max) support","version":"8.1.1","iconFilename":"com.mastermindzh.tidal-hifi.png","homepage":"https://github.com/Mastermindzh/tidal-hifi"}
 {"id":"com.mastropaolo.www.tabela","name":"Tabëla","summary":"Format tables to Markdown or HTML","version":"1.2.0","iconFilename":"com.mastropaolo.www.tabela.png","homepage":"https://www.mastropaolo.com/tabela/"}
-{"id":"com.mattermost.Desktop","name":"Mattermost","summary":"An open source platform for developer collaboration","version":"6.2.2","iconFilename":"com.mattermost.Desktop.png","homepage":"https://mattermost.com/"}
-{"id":"com.matthiasn.lotti","name":"Lotti","summary":"Private logbook with AI assistants","version":"1.0.10","iconFilename":"com.matthiasn.lotti.png","homepage":"https://github.com/matthiasn/lotti"}
+{"id":"com.mattermost.Desktop","name":"Mattermost","summary":"An open source platform for developer collaboration","version":"6.3.0","iconFilename":"com.mattermost.Desktop.png","homepage":"https://mattermost.com/"}
+{"id":"com.matthiasn.lotti","name":"Lotti","summary":"Private logbook with AI assistants","version":"1.0.11","iconFilename":"com.matthiasn.lotti.png","homepage":"https://github.com/matthiasn/lotti"}
 {"id":"com.mattjakeman.ExtensionManager","name":"Extension Manager","summary":"Install GNOME Extensions","version":"0.6.5","iconFilename":"com.mattjakeman.ExtensionManager.png","homepage":"https://mattjakeman.com/apps/extension-manager"}
-{"id":"com.maxint.maxint","name":"Maxint","summary":"True financial clarity.","version":"2.25.0","iconFilename":"com.maxint.maxint.png","homepage":"https://maxint.com"}
+{"id":"com.maxint.maxint","name":"Maxint","summary":"True financial clarity.","version":"2.25.1","iconFilename":"com.maxint.maxint.png","homepage":"https://maxint.com"}
 {"id":"com.mediahuman.LyricsFinder","name":"Lyrics Finder","summary":"Find and tag song lyrics","version":"1.7","iconFilename":"com.mediahuman.LyricsFinder.png","homepage":"https://www.mediahuman.com"}
 {"id":"com.meetfranz.Franz","name":"Franz","summary":"Messenger for the desktop","version":"6.3.1","iconFilename":"com.meetfranz.Franz.png","homepage":"https://meetfranz.com/"}
 {"id":"com.microsoft.AzureStorageExplorer","name":"Azure Storage Explorer","summary":"Graphical tool to manage Azure cloud storage resources","version":"v1.45.0","iconFilename":"com.microsoft.AzureStorageExplorer.png","homepage":"https://azure.microsoft.com/features/storage-explorer/"}
@@ -583,7 +586,7 @@
 {"id":"com.mikrotik.WinBox","name":"WinBox","summary":"RouterOS administration tool","version":"4.3","iconFilename":"com.mikrotik.WinBox.png","homepage":"https://mikrotik.com"}
 {"id":"com.moddb.TotalChaos","name":"Total Chaos","summary":"Survival horror set on a remote island known as Fort Oasis","version":"1.40","iconFilename":"com.moddb.TotalChaos.png","homepage":"https://www.moddb.com/mods/total-chaos"}
 {"id":"com.moddb.TotalChaosRetro","name":"Total Chaos Retro Edition","summary":"Survival horror set on a remote island known as Fort Oasis","version":"1.40","iconFilename":"com.moddb.TotalChaosRetro.png","homepage":"https://www.moddb.com/mods/total-chaos"}
-{"id":"com.modrinth.ModrinthApp","name":"Modrinth App","summary":"Modrinth's game launcher","version":"0.17.6","iconFilename":"com.modrinth.ModrinthApp.png","homepage":"https://modrinth.com"}
+{"id":"com.modrinth.ModrinthApp","name":"Modrinth App","summary":"Modrinth's game launcher","version":"0.17.10","iconFilename":"com.modrinth.ModrinthApp.png","homepage":"https://modrinth.com"}
 {"id":"com.mojang.Minecraft","name":"Minecraft","summary":"Create your own world in one of the most popular video games","version":"1.0.1221","iconFilename":"com.mojang.Minecraft.png","homepage":"https://minecraft.net"}
 {"id":"com.mongodb.Compass","name":"MongoDB Compass","summary":"The MongoDB GUI","version":"1.49.14","iconFilename":"com.mongodb.Compass.png","homepage":"https://www.mongodb.com/"}
 {"id":"com.moonlight_stream.Moonlight","name":"Moonlight","summary":"Stream games and other applications from another PC running Sunshine or GeForce Experience","version":"6.1.0","iconFilename":"com.moonlight_stream.Moonlight.png","homepage":"https://moonlight-stream.org"}
@@ -591,7 +594,7 @@
 {"id":"com.mtkennerly.madamiru","name":"madamiru","summary":"Dynamic multi-multimedia player","version":"0.4.1","iconFilename":"com.mtkennerly.madamiru.png","homepage":"https://github.com/mtkennerly/madamiru/"}
 {"id":"com.musixmatch.Musixmatch","name":"Musixmatch","summary":"Enjoy your lyrics everywhere","version":"3.6.1","iconFilename":"com.musixmatch.Musixmatch.png","homepage":"https://www.musixmatch.com/"}
 {"id":"com.neatdecisions.Detwinner","name":"Detwinner","summary":"Find and remove duplicate files and similar images","version":"0.4.2","iconFilename":"com.neatdecisions.Detwinner.png","homepage":"https://neatdecisions.com/products/detwinner-linux/"}
-{"id":"com.nedrichards.octopusagile","name":"Agile Rates","summary":"Rates and usage for UK smart electricity tariffs","version":"1.0.22","iconFilename":"com.nedrichards.octopusagile.png","homepage":"https://www.nedrichards.com/2026/05/agile-rates-after-launch/"}
+{"id":"com.nedrichards.octopusagile","name":"Agile Rates","summary":"Rates and usage for UK smart electricity tariffs","version":"1.0.24","iconFilename":"com.nedrichards.octopusagile.png","homepage":"https://www.nedrichards.com/2026/05/agile-rates-after-launch/"}
 {"id":"com.neosubhamoy.neodlp","name":"NeoDLP","summary":"Modern feature-rich video/audio downloader based on yt-dlp","version":"0.4.5","iconFilename":"com.neosubhamoy.neodlp.png","homepage":"https://neodlp.neosubhamoy.com"}
 {"id":"com.neoutils.NeoRegex","name":"NeoRegex","summary":"Regular expression editor and tester.","version":"3.1.0","iconFilename":"com.neoutils.NeoRegex.png","homepage":"https://github.com/NeoUtils/NeoRegex"}
 {"id":"com.netxms.NetXMSClient","name":"NetXMS 4.5","summary":"Control your network monitoring","version":"4.5.7","iconFilename":"com.netxms.NetXMSClient.png","homepage":"https://netxms.com"}
@@ -610,8 +613,8 @@
 {"id":"com.notepadqq.Notepadqq","name":"Notepadqq","summary":"An advanced text editor","version":"1.4.8","iconFilename":"com.notepadqq.Notepadqq.png","homepage":"https://notepadqq.com"}
 {"id":"com.notesnook.Notesnook","name":"Notesnook","summary":"A fully open source & end-to-end encrypted note taking alternative to Evernote","version":"v3.4.5","iconFilename":"com.notesnook.Notesnook.png","homepage":"https://notesnook.com/"}
 {"id":"com.ntrack.n-track","name":"n-Track Studio","summary":"Creative Music Making (DAW)","version":"10.3.1-11007","iconFilename":"com.ntrack.n-track.png","homepage":"https://www.ntrack.com"}
-{"id":"com.nuclearplayer.Nuclear","name":"Nuclear","summary":"Music streaming app","version":"1.46.3","iconFilename":"com.nuclearplayer.Nuclear.png","homepage":"https://nuclearplayer.com"}
-{"id":"com.obsproject.Studio","name":"OBS Studio","summary":"Live stream and record videos","version":"32.2.1","iconFilename":"com.obsproject.Studio.png","homepage":"https://obsproject.com"}
+{"id":"com.nuclearplayer.Nuclear","name":"Nuclear","summary":"Music streaming app","version":"1.47.0","iconFilename":"com.nuclearplayer.Nuclear.png","homepage":"https://nuclearplayer.com"}
+{"id":"com.obsproject.Studio","name":"OBS Studio","summary":"Live stream and record videos","version":"32.2.2","iconFilename":"com.obsproject.Studio.png","homepage":"https://obsproject.com"}
 {"id":"com.odnoyko.valot","name":"Valot","summary":"Time tracking without the hassle","version":"0.9.3","iconFilename":"com.odnoyko.valot.png","homepage":"https://valot.work"}
 {"id":"com.okta.developer.CLI","name":"Okta CLI","summary":"The Okta CLI is the easiest way to get started with Okta!","version":"0.10.0","homepage":"https://github.com/oktadeveloper/okta-cli"}
 {"id":"com.one_ware.OneWare","name":"OneWare","summary":"IDE for Electronics Development","version":"1.0.25","iconFilename":"com.one_ware.OneWare.png","homepage":"https://one-ware.com/studio"}
@@ -643,7 +646,7 @@
 {"id":"com.pot_app.pot","name":"Pot","summary":"A text translation and OCR app","version":"3.0.7","iconFilename":"com.pot_app.pot.png","homepage":"https://pot-app.com/"}
 {"id":"com.poweriso.PowerISO","name":"PowerISO","summary":"A all-in-one CD/DVD/Blu-Ray tool","version":"1.1","iconFilename":"com.poweriso.PowerISO.png","homepage":"https://www.poweriso.com/download-poweriso-for-linux.htm"}
 {"id":"com.pragmar.interrobot","name":"InterroBot","summary":"Website crawler and analyzer","version":"2.12.3.0","iconFilename":"com.pragmar.interrobot.png","homepage":"https://interro.bot"}
-{"id":"com.prof18.feedflow","name":"FeedFlow","summary":"An open source, minimal RSS reader for your desktop","version":"1.15.1","iconFilename":"com.prof18.feedflow.png","homepage":"https://feedflow.dev/"}
+{"id":"com.prof18.feedflow","name":"FeedFlow","summary":"An open source, minimal RSS reader for your desktop","version":"1.16.0","iconFilename":"com.prof18.feedflow.png","homepage":"https://feedflow.dev/"}
 {"id":"com.projecthawkthorne.Hawkthorne","name":"Journey to the Center of Hawkthorne","summary":"2D platformer based on Community's Digital Estate Planning episode","version":"1.1.0","iconFilename":"com.projecthawkthorne.Hawkthorne.png","homepage":"https://projecthawkthorne.com/"}
 {"id":"com.protonvpn.www","name":"Proton VPN","summary":"Secures your internet and protects your online privacy","version":"4.17.2","iconFilename":"com.protonvpn.www.png","homepage":"https://protonvpn.com/"}
 {"id":"com.prusa3d.PrusaSlicer","name":"PrusaSlicer","summary":"The Slicer for Every Maker","version":"2.9.6","iconFilename":"com.prusa3d.PrusaSlicer.png","homepage":"https://www.prusa3d.com/prusaslicer/"}
@@ -666,16 +669,16 @@
 {"id":"com.realm667.Wolfenstein_Blade_of_Agony","name":"Wolfenstein: Blade of Agony","summary":"Story-driven FPS inspired by WWII shooters from the 90's and early 2000's","version":"3.1","iconFilename":"com.realm667.Wolfenstein_Blade_of_Agony.png","homepage":"https://boa.realm667.com"}
 {"id":"com.redis.RedisInsight","name":"Redis Insight","summary":"Developer GUI for Redis, by Redis","version":"3.8.0","iconFilename":"com.redis.RedisInsight.png","homepage":"https://redis.com/redis-enterprise/redis-insight/"}
 {"id":"com.remnantsoftheprecursors.ROTP","name":"Remnants of the Precursors","summary":"A polished modernization of the original Master of Orion Strategy game from 1993.","version":"1.04","iconFilename":"com.remnantsoftheprecursors.ROTP.png","homepage":"https://www.remnantsoftheprecursors.org/"}
-{"id":"com.remnote.RemNote","name":"RemNote","summary":"Make flashcards in your notes","version":"1.27.30","iconFilename":"com.remnote.RemNote.png","homepage":"https://www.remnote.com/"}
+{"id":"com.remnote.RemNote","name":"RemNote","summary":"Make flashcards in your notes","version":"1.28.0","iconFilename":"com.remnote.RemNote.png","homepage":"https://www.remnote.com/"}
 {"id":"com.reqable.Reqable","name":"Reqable","summary":"Advanced API Debugging Proxy and REST Client","version":"3.2.23","iconFilename":"com.reqable.Reqable.png","homepage":"https://reqable.com/en-US/linux"}
-{"id":"com.retrodev.blastem","name":"Blastem","summary":"A Sega Mega Drive/Genesis, and Master System emulator","version":"0.6.2","iconFilename":"com.retrodev.blastem.png","homepage":"https://www.retrodev.com/blastem/"}
+{"id":"com.retrodev.blastem","name":"Blastem","summary":"A Sega Mega Drive/Genesis and Master System emulator","version":"0.6.2","iconFilename":"com.retrodev.blastem.png","homepage":"https://www.retrodev.com/blastem/"}
 {"id":"com.revolutionarygamesstudio.ThriveLauncher","name":"Thrive","summary":"An evolution simulation game. Take control of your species in the environment and edit your species as a whole. Compete with other evolving species for resources on an alien planet.","version":"2.3.2","iconFilename":"com.revolutionarygamesstudio.ThriveLauncher.png","homepage":"https://www.revolutionarygamesstudio.com/"}
 {"id":"com.richwhitehouse.BigPEmu","name":"BigPEmu","summary":"The World's Prefurred Large Pussycat Emulator™","version":"1.221","iconFilename":"com.richwhitehouse.BigPEmu.png","homepage":"https://richwhitehouse.com/jaguar"}
 {"id":"com.rioterm.Rio","name":"Rio","summary":"Hardware-accelerated GPU terminal emulator powered by WebGPU","version":"0.5.8","iconFilename":"com.rioterm.Rio.png","homepage":"https://rioterm.com/"}
 {"id":"com.rocksandpaper.syndic","name":"Syndic","summary":"Feed reader for casual browsing","version":"2.2","iconFilename":"com.rocksandpaper.syndic.png","homepage":"http://syndic.rocksandpaper.com/"}
 {"id":"com.rosegardenmusic.rosegarden","name":"Rosegarden","summary":"MIDI Sequencer and Notation Editor with Audio Support","version":"26.06","iconFilename":"com.rosegardenmusic.rosegarden.png","homepage":"https://www.rosegardenmusic.com/"}
 {"id":"com.rq3.Reaction","name":"Reaction","summary":"Movie realism first-person-shooter","version":"1.0","iconFilename":"com.rq3.Reaction.png","homepage":"https://www.rq3.com/"}
-{"id":"com.rtosta.zapzap","name":"ZapZap","summary":"Desktop client for web messaging","version":"7.4","iconFilename":"com.rtosta.zapzap.png","homepage":"https://rtosta.com/zapzap/"}
+{"id":"com.rtosta.zapzap","name":"ZapZap","summary":"Desktop client for web messaging","version":"7.4.2","iconFilename":"com.rtosta.zapzap.png","homepage":"https://rtosta.com/zapzap/"}
 {"id":"com.rustdesk.RustDesk","name":"RustDesk","summary":"Secure remote desktop access","version":"1.4.9","iconFilename":"com.rustdesk.RustDesk.png","homepage":"https://rustdesk.com"}
 {"id":"com.saivert.pwvucontrol","name":"pwvucontrol","summary":"Volume control for pipewire","version":"0.5.3","iconFilename":"com.saivert.pwvucontrol.png","homepage":"https://github.com/saivert/pwvucontrol"}
 {"id":"com.saunasim.saunasim","name":"SaunaSim","summary":"ATC Training Simulator","version":"0.24.3","iconFilename":"com.saunasim.saunasim.png","homepage":"https://saunasim.com/"}
@@ -715,7 +718,7 @@
 {"id":"com.stepmania.StepMania","name":"StepMania","summary":"Rhythm and dance game","version":"5.1.0-b2","iconFilename":"com.stepmania.StepMania.png","homepage":"https://www.stepmania.com/"}
 {"id":"com.stremio.Service","name":"Stremio Service","summary":"Freedom to Stream","version":"0.1.21","iconFilename":"com.stremio.Service.png","homepage":"https://stremio.com"}
 {"id":"com.stremio.Stremio","name":"Stremio","summary":"Freedom to Stream","version":"1.2.0","iconFilename":"com.stremio.Stremio.png","homepage":"https://github.com/Stremio/stremio-linux-shell"}
-{"id":"com.strlen.TreeSheets","name":"TreeSheets","summary":"Free Form Data Organizer","version":"3305","iconFilename":"com.strlen.TreeSheets.png","homepage":"https://strlen.com/treesheets"}
+{"id":"com.strlen.TreeSheets","name":"TreeSheets","summary":"Free Form Data Organizer","version":"3310","iconFilename":"com.strlen.TreeSheets.png","homepage":"https://strlen.com/treesheets"}
 {"id":"com.sublimehq.SublimeText","name":"Sublime Text","summary":"Text Editing, Done Right","version":"4200","iconFilename":"com.sublimehq.SublimeText.png","homepage":"https://www.sublimetext.com/"}
 {"id":"com.sublimemerge.App","name":"Sublime Merge","summary":"Sublime Merge is a Git client, from the makers of Sublime Text","version":"2125","iconFilename":"com.sublimemerge.App.png","homepage":"https://www.sublimemerge.com/"}
 {"id":"com.super_productivity.SuperProductivity","name":"Super Productivity","summary":"To-do list and time tracker","version":"v18.19.0","iconFilename":"com.super_productivity.SuperProductivity.png","homepage":"https://super-productivity.com/"}
@@ -752,7 +755,7 @@
 {"id":"com.tradingview.tradingview","name":"TradingView","summary":"Where the world charts, chats and trades markets","version":"3.3.0-1","iconFilename":"com.tradingview.tradingview.png","homepage":"https://tradingview.com/"}
 {"id":"com.transmissionbt.Transmission","name":"Transmission","summary":"Download and share files over BitTorrent","version":"4.1.2","iconFilename":"com.transmissionbt.Transmission.png","homepage":"https://transmissionbt.com/"}
 {"id":"com.treemly.treemly","name":"Treemly","summary":"Automated Document Processing for Accounting Services","version":"1.0.12","iconFilename":"com.treemly.treemly.png","homepage":"https://treemly.com"}
-{"id":"com.trougnouf.Cfait","name":"Cfait","summary":"Powerful, fast and elegant CalDAV task manager","version":"1.1.3","iconFilename":"com.trougnouf.Cfait.png","homepage":"https://trougnouf.com"}
+{"id":"com.trougnouf.Cfait","name":"Cfait","summary":"Powerful, fast and elegant CalDAV task manager","version":"1.1.4","iconFilename":"com.trougnouf.Cfait.png","homepage":"https://trougnouf.com"}
 {"id":"com.trustytodo.trustytodo","name":"TrustyTodo","summary":"Tasks on your own CalDAV server!","version":"0.1.3","iconFilename":"com.trustytodo.trustytodo.png","homepage":"https://trustytodo.com"}
 {"id":"com.tutanota.Tutanota","name":"Tuta (Experimental)","summary":"Secure email, calendar & contacts","version":"357.260812.1","iconFilename":"com.tutanota.Tutanota.png","homepage":"https://tuta.com"}
 {"id":"com.tux4kids.tuxmath","name":"Tux, of Math Command","summary":"TuxMath is an arcade game that helps kids practice their math facts","version":"2.0.3","iconFilename":"com.tux4kids.tuxmath.png","homepage":"https://github.com/tux4kids/tuxmath"}
@@ -767,11 +770,11 @@
 {"id":"com.unfolding_machines.pum_lite","name":"PUM Lite","summary":"Play solo RPGs and write stories","version":"1.0.1","iconFilename":"com.unfolding_machines.pum_lite.png","homepage":"https://unfolding-machines.com"}
 {"id":"com.unicornsonlsd.finamp","name":"Finamp","summary":"Open source Jellyfin music player","version":"0.9.25-beta","iconFilename":"com.unicornsonlsd.finamp.png","homepage":"https://github.com/jmshrv/finamp"}
 {"id":"com.unity.UnityHub","name":"Unity Hub","summary":"Manage game engine installations","version":"3.20.1","iconFilename":"com.unity.UnityHub.png","homepage":"https://unity3d.com"}
-{"id":"com.usebottles.bottles","name":"Bottles","summary":"Run Windows software","version":"66.6","iconFilename":"com.usebottles.bottles.png","homepage":"https://usebottles.com"}
+{"id":"com.usebottles.bottles","name":"Bottles","summary":"Run Windows software","version":"66.7","iconFilename":"com.usebottles.bottles.png","homepage":"https://usebottles.com"}
 {"id":"com.usebruno.Bruno","name":"Bruno","summary":"Fast and Git-Friendly API Client","version":"v4.0.0","iconFilename":"com.usebruno.Bruno.png","homepage":"https://www.usebruno.com/"}
 {"id":"com.valvesoftware.Steam","name":"Steam","summary":"Launcher for the Steam software distribution service","version":"1.0.0.85","iconFilename":"com.valvesoftware.Steam.png","homepage":"https://store.steampowered.com/"}
 {"id":"com.valvesoftware.SteamLink","name":"Steam Link","summary":"Stream games from another computer with Steam","version":"1.3.32.316","iconFilename":"com.valvesoftware.SteamLink.png","homepage":"https://store.steampowered.com/steamlink/about/"}
-{"id":"com.vargary.focal","name":"Focal","summary":"Organize tasks & notes in a tree.","version":"2.7.1","iconFilename":"com.vargary.focal.png","homepage":"https://focal.vargary.com/"}
+{"id":"com.vargary.focal","name":"Focal","summary":"Organize tasks & notes in a tree.","version":"2.7.3","iconFilename":"com.vargary.focal.png","homepage":"https://focal.vargary.com/"}
 {"id":"com.vba_m.visualboyadvance-m","name":"VisualBoyAdvance-M","summary":"VisualBoyAdvance-M, a high compatibility Gameboy Advance Emulator","version":"2.2.2","iconFilename":"com.vba_m.visualboyadvance-m.png","homepage":"https://visualboyadvance-m.org"}
 {"id":"com.vesc_project.VescTool","name":"VescTool","summary":"VESC® Tool is the all new and 100% revised replacement for BLDC-Tool","version":"6.05","iconFilename":"com.vesc_project.VescTool.png","homepage":"https://vesc-project.com"}
 {"id":"com.viber.Viber","name":"Viber","summary":"Send free messages and make free calls","version":"24.9.0.3","iconFilename":"com.viber.Viber.png","homepage":"https://www.viber.com/"}
@@ -905,7 +908,7 @@
 {"id":"dev.aa55.yetty","name":"yeTTY","summary":"yeTTY is an open source application for embedded developers to view logs from serial port","version":"0.1.3","iconFilename":"dev.aa55.yetty.png","homepage":"https://yetty.aa55.dev"}
 {"id":"dev.appoutlet.DisCorkie","name":"DisCorkie","summary":"Discover new communities","version":"1.8.4","iconFilename":"dev.appoutlet.DisCorkie.png","homepage":"https://discorkie.appoutlet.dev"}
 {"id":"dev.ares.ares","name":"ares","summary":"Multi-system console emulation suite","version":"148","iconFilename":"dev.ares.ares.png","homepage":"https://ares-emu.net"}
-{"id":"dev.aunetx.deezer","name":"Deezer","summary":"Online music streaming service","version":"7.1.290","iconFilename":"dev.aunetx.deezer.png","homepage":"https://github.com/aunetx/deezer-linux"}
+{"id":"dev.aunetx.deezer","name":"Deezer","summary":"Online music streaming service","version":"7.1.300","iconFilename":"dev.aunetx.deezer.png","homepage":"https://github.com/aunetx/deezer-linux"}
 {"id":"dev.bambosh.UnofficialHomestuckCollection","name":"The Unofficial Homestuck Collection","summary":"Offline collection of Homestuck and its related works","version":"2.8.0","iconFilename":"dev.bambosh.UnofficialHomestuckCollection.png","homepage":"https://homestuck.giovanh.com/unofficial-homestuck-collection/"}
 {"id":"dev.boxi.Boxi","name":"Boxi","summary":"Terminal emulator for Toolbox","version":"6.1","iconFilename":"dev.boxi.Boxi.png","homepage":"https://boxi.dev/"}
 {"id":"dev.bragefuglseth.Fretboard","name":"Fretboard","summary":"Look up guitar chords","version":"9.1","iconFilename":"dev.bragefuglseth.Fretboard.png","homepage":"https://apps.gnome.org/Fretboard"}
@@ -913,8 +916,8 @@
 {"id":"dev.deedles.Trayscale","name":"Trayscale","summary":"Unofficial GUI for Tailscale","version":"v0.18.9","iconFilename":"dev.deedles.Trayscale.png","homepage":"https://github.com/DeedleFake/trayscale"}
 {"id":"dev.deimoshall.DecryptIt","name":"Decrypt It","summary":"Decrypt DLC files","version":"0.2.0","iconFilename":"dev.deimoshall.DecryptIt.png","homepage":"https://github.com/DeimosHall/decrypt-it"}
 {"id":"dev.deimoshall.Metamorphosis","name":"Metamorphosis","summary":"Edit metadata","version":"0.5.0","iconFilename":"dev.deimoshall.Metamorphosis.png","homepage":"https://github.com/DeimosHall/Metamorphosis"}
-{"id":"dev.dergs.Tonearm","name":"Tonearm","summary":"Stream your favorite music","version":"1.4.2","iconFilename":"dev.dergs.Tonearm.png","homepage":"https://dergs.dev/projects/tonearm"}
-{"id":"dev.diegovsky.Riff","name":"Riff","summary":"A libadwaita/GTK4-based Spotify client","version":"26.07","iconFilename":"dev.diegovsky.Riff.png","homepage":"https://github.com/Diegovsky/riff"}
+{"id":"dev.dergs.Tonearm","name":"Tonearm","summary":"Stream your favorite music","version":"1.5.0","iconFilename":"dev.dergs.Tonearm.png","homepage":"https://dergs.dev/projects/tonearm"}
+{"id":"dev.diegovsky.Riff","name":"Riff","summary":"Stream Spotify without distraction","version":"26.07.01","iconFilename":"dev.diegovsky.Riff.png","homepage":"https://github.com/Diegovsky/riff"}
 {"id":"dev.edfloreshz.Calculator","name":"Calculator","summary":"Beyond the equation","version":"0.2.1","iconFilename":"dev.edfloreshz.Calculator.png","homepage":"https://github.com/cosmic-utils/calculator"}
 {"id":"dev.edfloreshz.CosmicTweaks","name":"Tweaks","summary":"Beyond the limits of your desktop","version":"0.2.5","iconFilename":"dev.edfloreshz.CosmicTweaks.png","homepage":"https://github.com/cosmic-utils/tweaks"}
 {"id":"dev.edfloreshz.Tasks","name":"Tasks","summary":"Get things done","version":"0.3.1","iconFilename":"dev.edfloreshz.Tasks.png","homepage":"https://tasks.edfloreshz.dev/"}
@@ -942,7 +945,7 @@
 {"id":"dev.linwood.butterfly","name":"Linwood Butterfly","summary":"Draw and organize ideas","version":"2.5.5","iconFilename":"dev.linwood.butterfly.png","homepage":"https://butterfly.linwood.dev/"}
 {"id":"dev.lizardbyte.app.Sunshine","name":"Sunshine","summary":"GameStream host for Moonlight","version":"2026.516.143833","iconFilename":"dev.lizardbyte.app.Sunshine.png","homepage":"https://app.lizardbyte.dev/Sunshine"}
 {"id":"dev.lunarsrl.NovaMusic","name":"Nova Music","summary":"A music player written in the libcosmic toolkit","version":"1.0","iconFilename":"dev.lunarsrl.NovaMusic.png","homepage":"https://github.com/lunarsrl/NovaMusic"}
-{"id":"dev.mariinkys.Cedilla","name":"Cedilla","summary":"Markdown Text Editor","version":"0.1.10","iconFilename":"dev.mariinkys.Cedilla.png","homepage":"https://github.com/mariinkys/cedilla"}
+{"id":"dev.mariinkys.Cedilla","name":"Cedilla","summary":"Markdown Text Editor","version":"0.1.11","iconFilename":"dev.mariinkys.Cedilla.png","homepage":"https://github.com/mariinkys/cedilla"}
 {"id":"dev.mariinkys.Clockode","name":"Clockode","summary":"TOTP Client","version":"0.2.7","iconFilename":"dev.mariinkys.Clockode.png","homepage":"https://github.com/mariinkys/clockode"}
 {"id":"dev.mariinkys.Oboete","name":"Oboete","summary":"Flashcards application","version":"0.2.6","iconFilename":"dev.mariinkys.Oboete.png","homepage":"https://github.com/mariinkys/oboete"}
 {"id":"dev.mariinkys.StarryDex","name":"StarryDex","summary":"A Pokédex Application","version":"0.3.7","iconFilename":"dev.mariinkys.StarryDex.png","homepage":"https://github.com/mariinkys/starrydex"}
@@ -1012,7 +1015,7 @@
 {"id":"eu.skribisto.skribisto","name":"Skribisto","summary":"Software for writing","version":"1.9.41","iconFilename":"eu.skribisto.skribisto.png","homepage":"https://github.com/jacquetc/skribisto"}
 {"id":"eu.stethewwolf.gresistor","name":"gResistor","summary":"Resistor color codes calculator","version":"3.2.5","iconFilename":"eu.stethewwolf.gresistor.png","homepage":"https://gresistor.stethewwolf.eu/"}
 {"id":"eu.usdx.UltraStarDeluxe","name":"UltraStar Deluxe","summary":"Karaoke for your PC","version":"2026.8.0","iconFilename":"eu.usdx.UltraStarDeluxe.png","homepage":"https://usdx.eu/"}
-{"id":"eu.vcmi.VCMI","name":"VCMI","summary":"Open-source game engine for Heroes of Might and Magic III","version":"1.7.4","iconFilename":"eu.vcmi.VCMI.png","homepage":"https://vcmi.eu/"}
+{"id":"eu.vcmi.VCMI","name":"VCMI","summary":"Open-source game engine for Heroes of Might and Magic III","version":"1.7.5","iconFilename":"eu.vcmi.VCMI.png","homepage":"https://vcmi.eu/"}
 {"id":"fi.csc.Elmer","name":"Elmer","summary":"Free and open source multiphysical simulation software","version":"26.2.1","iconFilename":"fi.csc.Elmer.png","homepage":"https://www.csc.fi/web/elmer"}
 {"id":"fi.mooc.tmc.tmc-cli-rust","name":"TestMyCode CLI","summary":"A CLI for the TestMyCode programming assignment evaluator","version":"v1.1.2","homepage":"https://tmc.mooc.fi"}
 {"id":"fi.skyjake.Lagrange","name":"Lagrange","summary":"A Beautiful Gemini Client","version":"1.20.9","iconFilename":"fi.skyjake.Lagrange.png","homepage":"https://gmi.skyjake.fi/lagrange"}
@@ -1021,7 +1024,7 @@
 {"id":"fm.reaper.Reaper","name":"Reaper","summary":"Digital Audio Workstation","version":"7.78","iconFilename":"fm.reaper.Reaper.png","homepage":"https://www.reaper.fm"}
 {"id":"fr.arnaudmichel.launcherstudio","name":"Launcher Studio","summary":"Create Linux app launchers","version":"0.1.3","iconFilename":"fr.arnaudmichel.launcherstudio.png","homepage":"https://arnaudmichel.fr/projects/launcher-studio"}
 {"id":"fr.dwightstudio.JArmEmu","name":"JArmEmu","summary":"Simple ARMv7 simulator written in Java, intended for educational purpose","version":"1.1.5","iconFilename":"fr.dwightstudio.JArmEmu.png","homepage":"https://dwightstudio.fr/jarmemu"}
-{"id":"fr.ffhandball.fdme","name":"FDME - FFHandball","summary":"Gestion des feuilles de match de handball en France","version":"2.2.1","iconFilename":"fr.ffhandball.fdme.png","homepage":"https://www.ffhandball.fr/"}
+{"id":"fr.ffhandball.fdme","name":"FDME - FFHandball","summary":"Gestion des feuilles de match de handball en France","version":"2.3.0","iconFilename":"fr.ffhandball.fdme.png","homepage":"https://www.ffhandball.fr/"}
 {"id":"fr.fgrabenstaetter.DigitalAssets","name":"Digital Assets","summary":"Cryptocurrencies prices and statistics","version":"2.0.0","iconFilename":"fr.fgrabenstaetter.DigitalAssets.png","homepage":"https://gitlab.gnome.org/fgrabenstaetter/digital-assets"}
 {"id":"fr.free.Homebank","name":"HomeBank","summary":"Personal accounting for everyone","version":"5.10.2","iconFilename":"fr.free.Homebank.png","homepage":"https://www.gethomebank.org"}
 {"id":"fr.free.hxc2001.HxCFloppyEmulator","name":"HxC Floppy Emulator","summary":"Software and hardware solution to replace the old floppy disk","version":"2.16.15.2","iconFilename":"fr.free.hxc2001.HxCFloppyEmulator.png","homepage":"http://hxc2001.free.fr/floppy_drive_emulator/index.html"}
@@ -1083,7 +1086,7 @@
 {"id":"info.febvre.Komikku","name":"Komikku","summary":"Discover and read manga & comics","version":"50.11.0","iconFilename":"info.febvre.Komikku.png","homepage":"https://apps.gnome.org/Komikku/"}
 {"id":"info.mumble.Mumble","name":"Mumble","summary":"Low latency encrypted VoIP client","version":"1.5.915","iconFilename":"info.mumble.Mumble.png","homepage":"https://www.mumble.info"}
 {"id":"info.olasagasti.revelation.desktop","name":"Revelation","summary":"Password manager","version":"0.5.6","iconFilename":"info.olasagasti.revelation.desktop.png","homepage":"https://revelation.olasagasti.info/"}
-{"id":"info.portfolio_performance.PortfolioPerformance","name":"Portfolio Performance","summary":"Track the performance of an investment portfolio","version":"0.86.1","iconFilename":"info.portfolio_performance.PortfolioPerformance.png","homepage":"https://www.portfolio-performance.info/en/"}
+{"id":"info.portfolio_performance.PortfolioPerformance","name":"Portfolio Performance","summary":"Track the performance of an investment portfolio","version":"0.87.0","iconFilename":"info.portfolio_performance.PortfolioPerformance.png","homepage":"https://www.portfolio-performance.info/en/"}
 {"id":"info.puredata.Pd-extended","name":"Pd-extended","summary":"An open source visual programming language for multimedia","version":"0.44.0","iconFilename":"info.puredata.Pd-extended.png","homepage":"https://puredata.info/"}
 {"id":"info.puredata.Pd","name":"Pure Data (Pd)","summary":"realtime computer music system","version":"0.56-5","iconFilename":"info.puredata.Pd.png","homepage":"https://puredata.info/"}
 {"id":"info.rttr.Return-To-The-Roots","name":"Return to the Roots","summary":"Fan project that reimplements The Settlers 2 game","version":"0.9.5","iconFilename":"info.rttr.Return-To-The-Roots.png","homepage":"https://www.rttr.info/"}
@@ -1107,7 +1110,7 @@
 {"id":"io.ente.auth","name":"Ente Auth","summary":"FOSS, cross-platform 2FA app","version":"4.4","iconFilename":"io.ente.auth.png","homepage":"https://ente.com/auth"}
 {"id":"io.ente.photos","name":"Ente Photos","summary":"Safe home for your photos","version":"1.7","iconFilename":"io.ente.photos.png","homepage":"https://ente.com"}
 {"id":"io.exodus.Exodus.desktop","name":"Exodus","summary":"All-in-one app to secure, manage, and exchange blockchain assets","version":"26.3.11","iconFilename":"io.exodus.Exodus.desktop.png","homepage":"https://www.exodus.com/"}
-{"id":"io.frama.editide.editide","name":"EdiTidE","summary":"Browse and edit source code","version":"4.0.2","iconFilename":"io.frama.editide.editide.png","homepage":"https://editide.frama.io/"}
+{"id":"io.frama.editide.editide","name":"EdiTidE","summary":"Browse and edit source code","version":"4.0.3","iconFilename":"io.frama.editide.editide.png","homepage":"https://editide.frama.io/"}
 {"id":"io.frama.tractor.carburetor","name":"Carburetor","summary":"Browse anonymously","version":"5.1.1","iconFilename":"io.frama.tractor.carburetor.png","homepage":"https://tractor.frama.io/carburetor"}
 {"id":"io.freetubeapp.FreeTube","name":"FreeTube","summary":"An Open Source YouTube app for privacy","version":"v0.25.2-beta","iconFilename":"io.freetubeapp.FreeTube.png","homepage":"https://freetubeapp.io/"}
 {"id":"io.gdevelop.ide","name":"GDevelop","summary":"Fast and Easy Game-Making","version":"5.6.276","iconFilename":"io.gdevelop.ide.png","homepage":"https://gdevelop.io"}
@@ -1163,11 +1166,11 @@
 {"id":"io.github.Omniaevo.mqtt5-explorer","name":"MQTT5 Explorer","summary":"Simple yet powerful MQTT5 client","version":"1.19.1","iconFilename":"io.github.Omniaevo.mqtt5-explorer.png","homepage":"https://github.com/Omniaevo/mqtt5-explorer"}
 {"id":"io.github.OpenToonz","name":"OpenToonz","summary":"2D animation","version":"1.8.0","iconFilename":"io.github.OpenToonz.png","homepage":"https://opentoonz.github.io/e/"}
 {"id":"io.github.Pithos","name":"Pithos","summary":"Pandora radio client","version":"1.6.2","iconFilename":"io.github.Pithos.png","homepage":"https://pithos.github.io"}
-{"id":"io.github.Predidit.Kazumi","name":"Kazumi","summary":"Watch Animes online with danmaku support","version":"2.2.7","iconFilename":"io.github.Predidit.Kazumi.png","homepage":"https://github.com/Predidit/Kazumi"}
+{"id":"io.github.Predidit.Kazumi","name":"Kazumi","summary":"Watch Animes online with danmaku support","version":"2.2.8","iconFilename":"io.github.Predidit.Kazumi.png","homepage":"https://github.com/Predidit/Kazumi"}
 {"id":"io.github.Q1CHENL.fig","name":"Fig","summary":"Sleek GIF editor","version":"1.0.7","iconFilename":"io.github.Q1CHENL.fig.png","homepage":"https://github.com/Q1CHENL/fig"}
 {"id":"io.github.Qalculate.qalculate-qt","name":"Qalculate! (Qt UI)","summary":"Powerful and easy to use calculator","version":"5.12.0","iconFilename":"io.github.Qalculate.qalculate-qt.png","homepage":"https://qalculate.github.io"}
 {"id":"io.github.Qalculate","name":"Qalculate! (GTK UI)","summary":"Powerful and easy to use calculator","version":"5.12.0","iconFilename":"io.github.Qalculate.png","homepage":"https://qalculate.github.io"}
-{"id":"io.github.Querz.mcaselector","name":"MCA Selector","summary":"Manage Minecraft chunks","version":"2.7","iconFilename":"io.github.Querz.mcaselector.png","homepage":"https://github.com/Querz/mcaselector"}
+{"id":"io.github.Querz.mcaselector","name":"MCA Selector","summary":"Manage Minecraft chunks","version":"2.8","iconFilename":"io.github.Querz.mcaselector.png","homepage":"https://github.com/Querz/mcaselector"}
 {"id":"io.github.Rangi42.polished-map-plusplus","name":"Polished Map++","summary":"Edit pokecrystal maps and tilesets","version":"2.7.1","iconFilename":"io.github.Rangi42.polished-map-plusplus.png","homepage":"https://github.com/Rangi42/polished-map"}
 {"id":"io.github.Rangi42.polished-map","name":"Polished Map","summary":"Edit pokecrystal maps and tilesets","version":"4.7.1","iconFilename":"io.github.Rangi42.polished-map.png","homepage":"https://github.com/Rangi42/polished-map"}
 {"id":"io.github.Rangi42.tilemap-studio","name":"Tilemap Studio","summary":"A tilemap editor for Game Boy, Color, Advance, DS, and SNES projects","version":"4.0.1","iconFilename":"io.github.Rangi42.tilemap-studio.png","homepage":"https://github.com/Rangi42/tilemap-studio"}
@@ -1209,10 +1212,10 @@
 {"id":"io.github.alamahant.Sadhana","name":"Sadhana","summary":"A digital shrine and practice tracker","version":"1.0.2","iconFilename":"io.github.alamahant.Sadhana.png","homepage":"https://github.com/alamahant/Sadhana"}
 {"id":"io.github.alamahant.Selene","name":"Selene","summary":"Tor-based p2p chat and file sharing manager","version":"1.0.7","iconFilename":"io.github.alamahant.Selene.png","homepage":"https://github.com/alamahant/Selene"}
 {"id":"io.github.alamahant.TarotCaster","name":"TarotCaster","summary":"Cast in Style","version":"1.2.9","iconFilename":"io.github.alamahant.TarotCaster.png","homepage":"https://github.com/alamahant/TarotCaster"}
-{"id":"io.github.alescdb.mailviewer","name":"MailViewer","summary":"EML and MSG file viewer","version":"1.0.9","iconFilename":"io.github.alescdb.mailviewer.png","homepage":"https://github.com/alescdb/mailviewer"}
+{"id":"io.github.alescdb.mailviewer","name":"MailViewer","summary":"EML and MSG file viewer","version":"1.0.11","iconFilename":"io.github.alescdb.mailviewer.png","homepage":"https://github.com/alescdb/mailviewer"}
 {"id":"io.github.alfianlosari.GTKChatGPT","name":"XCA AI Chat","summary":"Chat with AI - Powered by ChatGPT API","version":"0.1.2","iconFilename":"io.github.alfianlosari.GTKChatGPT.png","homepage":"https://github.com/alfianlosari/GTKChatGPT"}
 {"id":"io.github.alper_han.crossmacro","name":"CrossMacro","summary":"Mouse and keyboard automation","version":"1.3.1","iconFilename":"io.github.alper_han.crossmacro.png","homepage":"https://github.com/alper-han/CrossMacro"}
-{"id":"io.github.alsofelix.crabdrop","name":"Crabdrop","summary":"S3-compatible file manager","version":"0.5.3","iconFilename":"io.github.alsofelix.crabdrop.png","homepage":"https://github.com/alsofelix/crabdrop"}
+{"id":"io.github.alsofelix.crabdrop","name":"Crabdrop","summary":"S3-compatible file manager","version":"0.6.0","iconFilename":"io.github.alsofelix.crabdrop.png","homepage":"https://github.com/alsofelix/crabdrop"}
 {"id":"io.github.alyraffauf.Switchyard","name":"Switchyard","summary":"Rules-based browser launcher","version":"0.17.2","iconFilename":"io.github.alyraffauf.Switchyard.png","homepage":"https://switchyard.aly.codes/"}
 {"id":"io.github.am2r_community_developers.Atomic","name":"Atomic","summary":"A mod packaging toolchain for AM2R mods.","version":"2.2.0","iconFilename":"io.github.am2r_community_developers.Atomic.png","homepage":"https://github.com/AM2R-Community-Developers/Atomic"}
 {"id":"io.github.amarz45.Comicpress","name":"Comicpress","summary":"Converts and compresses comics and manga for ereaders","version":"1.0.0","iconFilename":"io.github.amarz45.Comicpress.png","homepage":"https://github.com/amarz45/comicpress"}
@@ -1236,7 +1239,7 @@
 {"id":"io.github.babaissarkar.ssplot","name":"SSPlot","summary":"Simple plotting utility and numerical simulator","version":"2.3.4","iconFilename":"io.github.babaissarkar.ssplot.png","homepage":"https://babaissarkar.github.io/"}
 {"id":"io.github.basshift.Recall","name":"Recall","summary":"Train memory under pressure","version":"1.0.0","iconFilename":"io.github.basshift.Recall.png","homepage":"https://github.com/basshift/Recall"}
 {"id":"io.github.bcpierce00.unison","name":"Unison","summary":"File Synchronizer","version":"2.54.0","iconFilename":"io.github.bcpierce00.unison.png","homepage":"https://github.com/bcpierce00/unison"}
-{"id":"io.github.bendik.Zodia","name":"Zodia","summary":"Natal charts, transits & synastry","version":"0.13.1","iconFilename":"io.github.bendik.Zodia.png","homepage":"https://github.com/bendik/zodia"}
+{"id":"io.github.bendik.Zodia","name":"Zodia","summary":"Natal charts, transits & synastry","version":"0.13.3","iconFilename":"io.github.bendik.Zodia.png","homepage":"https://github.com/bendik/zodia"}
 {"id":"io.github.benini.scid","name":"SCID","summary":"A chess database application","version":"5.2.202603","iconFilename":"io.github.benini.scid.png","homepage":"https://scid.sourceforge.net/"}
 {"id":"io.github.benjamimgois.goverlay","name":"Goverlay","summary":"Easily configure MangoHud, vkBasalt and OptiScaler","version":"1.8.10","iconFilename":"io.github.benjamimgois.goverlay.png","homepage":"https://github.com/benjamimgois/goverlay"}
 {"id":"io.github.berarma.Oversteer","name":"Oversteer","summary":"A steering wheel manager","version":"0.8.3","iconFilename":"io.github.berarma.Oversteer.png","homepage":"https://github.com/berarma/oversteer"}
@@ -1263,6 +1266,7 @@
 {"id":"io.github.chidiwilliams.Buzz","name":"Buzz","summary":"Transcribe and translate audio","version":"1.4.4","iconFilename":"io.github.chidiwilliams.Buzz.png","homepage":"https://github.com/chidiwilliams/buzz"}
 {"id":"io.github.chilledheart.yass","name":"YASS","summary":"Lightweight forward proxy","version":"1.24.13","iconFilename":"io.github.chilledheart.yass.png","homepage":"https://letshack.info"}
 {"id":"io.github.chimi70.cosmic-expansion","name":"Cosmic Expansion","summary":"A space 2D shooter game","version":"0.3","iconFilename":"io.github.chimi70.cosmic-expansion.png","homepage":"https://github.com/joach70/Cosmic-Expansion"}
+{"id":"io.github.chnapy.pkvault","name":"PKVault","summary":"Pokemon storage and save manipulation tool based on PKHeX","version":"2.1.1","iconFilename":"io.github.chnapy.pkvault.png","homepage":"https://github.com/Chnapy/PKVault"}
 {"id":"io.github.ciromattia.kcc","name":"KCC","summary":"Kindle Comic Converter","version":"10.3.0","iconFilename":"io.github.ciromattia.kcc.png","homepage":"https://kcc.iosphe.re"}
 {"id":"io.github.cleomenezesjr.Escambo","name":"Escambo","summary":"Test and develop APIs","version":"0.1.2","iconFilename":"io.github.cleomenezesjr.Escambo.png","homepage":"https://github.com/CleoMenezesJr/escambo"}
 {"id":"io.github.cleomenezesjr.Serigy","name":"Serigy","summary":"Manage your clipboard minimally","version":"2.3.0","iconFilename":"io.github.cleomenezesjr.Serigy.png","homepage":"https://github.com/CleoMenezesJr/Serigy"}
@@ -1280,7 +1284,7 @@
 {"id":"io.github.dagargo.Elektroid","name":"Elektroid","summary":"Sample and MIDI device manager","version":"3.3.2","iconFilename":"io.github.dagargo.Elektroid.png","homepage":"https://dagargo.github.io/elektroid/"}
 {"id":"io.github.daid.EmptyEpsilon","name":"EmptyEpsilon","summary":"Spaceship bridge simulator game","version":"2024.12.08","iconFilename":"io.github.daid.EmptyEpsilon.png","homepage":"https://daid.github.io/EmptyEpsilon/"}
 {"id":"io.github.daniacosta_dev.AuroraMediaPlayer","name":"Aurora Media Player","summary":"Listen to music, watch local and online videos","version":"0.3.0","iconFilename":"io.github.daniacosta_dev.AuroraMediaPlayer.png","homepage":"https://daniacosta-dev.github.io/auroramediaplayer/"}
-{"id":"io.github.danst0.passwordgenerator","name":"Password Generator","summary":"Create strong passwords in seconds","version":"0.6.1","iconFilename":"io.github.danst0.passwordgenerator.png","homepage":"https://github.com/danst0/passwordgenerator"}
+{"id":"io.github.danst0.passwordgenerator","name":"Password Generator","summary":"Create strong passwords in seconds","version":"0.6.3","iconFilename":"io.github.danst0.passwordgenerator.png","homepage":"https://github.com/danst0/passwordgenerator"}
 {"id":"io.github.davidoc26.wallpaper_selector","name":"Wallpaper Selector","summary":"Downloads and applies wallpapers","version":"0.3.7","iconFilename":"io.github.davidoc26.wallpaper_selector.png","homepage":"https://github.com/davidoc26/wallpaper-selector"}
 {"id":"io.github.db_mobile.resonance","name":"Resonance","summary":"Test and explore web services","version":"3.1.8","iconFilename":"io.github.db_mobile.resonance.png","homepage":"https://github.com/db-mobile/resonance"}
 {"id":"io.github.ddanilov.soundscape","name":"Soundscape","summary":"Desktop soundscape application","version":"1.6.0-flathub","iconFilename":"io.github.ddanilov.soundscape.png","homepage":"https://github.com/ddanilov/soundscape"}
@@ -1296,7 +1300,7 @@
 {"id":"io.github.diegoivan.GaticTacToe","name":"GaticTacToe","summary":"Play Tic-tac-toe with your friends","version":"0.5.1","iconFilename":"io.github.diegoivan.GaticTacToe.png","homepage":"https://github.com/Diego-Ivan/GaticTacToe"}
 {"id":"io.github.diegoivan.pdf_metadata_editor","name":"Paper Clip","summary":"Edit PDF document metadata","version":"5.0","iconFilename":"io.github.diegoivan.pdf_metadata_editor.png","homepage":"https://github.com/Diego-Ivan/Paper-Clip"}
 {"id":"io.github.diegoivanme.flowtime","name":"Flowtime","summary":"Spend your time wisely","version":"6.1","iconFilename":"io.github.diegoivanme.flowtime.png","homepage":"https://github.com/Diego-Ivan/Flowtime"}
-{"id":"io.github.diegopvlk.Cine","name":"Cine","summary":"Play your videos","version":"1.8.2","iconFilename":"io.github.diegopvlk.Cine.png","homepage":"https://github.com/diegopvlk/Cine"}
+{"id":"io.github.diegopvlk.Cine","name":"Cine","summary":"Play your videos","version":"1.8.4","iconFilename":"io.github.diegopvlk.Cine.png","homepage":"https://github.com/diegopvlk/Cine"}
 {"id":"io.github.diegopvlk.Dosage.desktop","name":"Dosage","summary":"Keep track of your treatments","version":"2.1.8","iconFilename":"io.github.diegopvlk.Dosage.desktop.png","homepage":"https://github.com/diegopvlk/Dosage"}
 {"id":"io.github.diegopvlk.Tomatillo","name":"Tomatillo","summary":"Focus better, work smarter","version":"1.1.1","iconFilename":"io.github.diegopvlk.Tomatillo.png","homepage":"https://github.com/diegopvlk/Tomatillo"}
 {"id":"io.github.dimtpap.coppwr","name":"coppwr","summary":"Visual, low level PipeWire control","version":"1.7.1","iconFilename":"io.github.dimtpap.coppwr.png","homepage":"https://dimtpap.ovh/coppwr"}
@@ -1311,7 +1315,7 @@
 {"id":"io.github.dtsudo.TuxPlanetSpeedrunAnyPercent","name":"Tux Planet Speedrun Any%","summary":"Speedrun your way through 10 levels using save states!","version":"1.05","iconFilename":"io.github.dtsudo.TuxPlanetSpeedrunAnyPercent.png","homepage":"https://github.com/dtsudo/Tux-Planet-Speedrun-Any-Percent-Electron-Version"}
 {"id":"io.github.dubstar_04.design","name":"Design","summary":"2D CAD for GNOME","version":"50.alpha1","iconFilename":"io.github.dubstar_04.design.png","homepage":"https://design-app.readthedocs.io"}
 {"id":"io.github.dummerle.rare","name":"Rare","summary":"Games launcher for Epic Games Store","version":"1.12.0.178","iconFilename":"io.github.dummerle.rare.png","homepage":"https://github.com/RareDevs/Rare"}
-{"id":"io.github.dvlv.boxbuddyrs","name":"BoxBuddy","summary":"A Graphical Distrobox Manager","version":"2.5.8","iconFilename":"io.github.dvlv.boxbuddyrs.png","homepage":"https://github.com/Dvlv/BoxBuddyRS"}
+{"id":"io.github.dvlv.boxbuddyrs","name":"BoxBuddy","summary":"A Graphical Distrobox Manager","version":"2.6.0","iconFilename":"io.github.dvlv.boxbuddyrs.png","homepage":"https://github.com/Dvlv/BoxBuddyRS"}
 {"id":"io.github.dweymouth.supersonic","name":"Supersonic","summary":"A lightweight cross-platform desktop client for Subsonic and Jellyfin music servers","version":"0.22.1","iconFilename":"io.github.dweymouth.supersonic.png","homepage":"https://github.com/dweymouth/supersonic"}
 {"id":"io.github.dxx_rebirth.dxx-rebirth","name":"DXX-Rebirth","summary":"Modern cross-platform port of the Descent engine","version":"0.60.0-beta2+a531f57","iconFilename":"io.github.dxx_rebirth.dxx-rebirth.png","homepage":"https://github.com/dxx-rebirth/dxx-rebirth/"}
 {"id":"io.github.dyegoaurelio.simple-wireplumber-gui","name":"Simple Wireplumber GUI","summary":"A simple GTK4 GUI for PipeWire","version":"0.2.2","iconFilename":"io.github.dyegoaurelio.simple-wireplumber-gui.png","homepage":"https://github.com/dyegoaurelio/simple-wireplumber-gui"}
@@ -1410,7 +1414,7 @@
 {"id":"io.github.horsicq.detect-it-easy","name":"Detect It Easy","summary":"Advanced file analyzer","version":"3.21","iconFilename":"io.github.horsicq.detect-it-easy.png","homepage":"https://horsicq.github.io/#detect-it-easydie"}
 {"id":"io.github.hrkfdn.ncspot","name":"ncspot","summary":"Cross-platform ncurses Spotify client","version":"1.3.4","iconFilename":"io.github.hrkfdn.ncspot.png","homepage":"https://github.com/hrkfdn/ncspot"}
 {"id":"io.github.hrniels.Eventix","name":"Eventix","summary":"Event and task manager","version":"1.1.2","iconFilename":"io.github.hrniels.Eventix.png","homepage":"https://github.com/hrniels/Eventix"}
-{"id":"io.github.htkhiem.Euphonica","name":"Euphonica","summary":"MPD client with delusions of grandeur","version":"0.99.5-beta","iconFilename":"io.github.htkhiem.Euphonica.png","homepage":"https://github.com/htkhiem/euphonica"}
+{"id":"io.github.htkhiem.Euphonica","name":"Euphonica","summary":"MPD client with delusions of grandeur","version":"0.99.6-beta","iconFilename":"io.github.htkhiem.Euphonica.png","homepage":"https://github.com/htkhiem/euphonica"}
 {"id":"io.github.huderlem.porymap","name":"Porymap","summary":"A map editor for the Pokémon generation 3 decompilation projects","version":"6.3.1","iconFilename":"io.github.huderlem.porymap.png","homepage":"https://huderlem.github.io/porymap"}
 {"id":"io.github.hugomg.xjump-sdl","name":"Xjump","summary":"Falling platforms game","version":"3.0.7","iconFilename":"io.github.hugomg.xjump-sdl.png","homepage":"https://github.com/hugomg/xjump-sdl"}
 {"id":"io.github.hurricangame.hurrican","name":"Hurrican","summary":"Freeware jump and shoot game created by Poke53280","version":"1.0.1","iconFilename":"io.github.hurricangame.hurrican.png","homepage":"https://github.com/HurricanGame/Hurrican"}
@@ -1463,7 +1467,7 @@
 {"id":"io.github.kelvinnovais.Kasasa","name":"Kasasa","summary":"Snip and pin useful information","version":"1.1.6","iconFilename":"io.github.kelvinnovais.Kasasa.png","homepage":"https://github.com/KelvinNovais/Kasasa"}
 {"id":"io.github.khaled_0.TubeSync","name":"Syncara","summary":"Sync YouTube playlists offline","version":"0.1.9","iconFilename":"io.github.khaled_0.TubeSync.png","homepage":"https://syncara.khaled0.me"}
 {"id":"io.github.klassenserver7b.danceinterpreter-rs","name":"Danceinterpreter","summary":"Utility for displaying song infos","version":"0.8.4","iconFilename":"io.github.klassenserver7b.danceinterpreter-rs.png","homepage":"https://github.com/klassenserver7b/danceinterpreter-rs"}
-{"id":"io.github.kolunmi.Bazaar","name":"Bazaar","summary":"Discover and install apps","version":"0.9.3","iconFilename":"io.github.kolunmi.Bazaar.png","homepage":"https://usebazaar.org/"}
+{"id":"io.github.kolunmi.Bazaar","name":"Bazaar","summary":"Discover and install apps","version":"0.9.4","iconFilename":"io.github.kolunmi.Bazaar.png","homepage":"https://usebazaar.org/"}
 {"id":"io.github.koromelodev.mindmate","name":"MindMate","summary":"Unofficial application for ChatGPT","version":"1.10.0-beta","iconFilename":"io.github.koromelodev.mindmate.png","homepage":"https://github.com/KoromeloDev/MindMate"}
 {"id":"io.github.kotatogram","name":"Kotatogram","summary":"Experimental Telegram messenger","version":"1.4.9","iconFilename":"io.github.kotatogram.png","homepage":"https://kotatogram.github.io/"}
 {"id":"io.github.kovzol.bibref","name":"bibref","summary":"Discover references in the Bible","version":"2026-08-08","iconFilename":"io.github.kovzol.bibref.png","homepage":"https://kovzol.github.io/bibref"}
@@ -1498,7 +1502,7 @@
 {"id":"io.github.lloura.DuelPy","name":"Duel!","summary":"Epic hand-game duels","version":"50.0","iconFilename":"io.github.lloura.DuelPy.png","homepage":"https://github.com/lloura/DuelPy"}
 {"id":"io.github.lluciocc.Vish","name":"Vish","summary":"Visual Bash Editor","version":"1.1.3","iconFilename":"io.github.lluciocc.Vish.png","homepage":"https://github.com/Lluciocc/Vish"}
 {"id":"io.github.lo2dev.Echo","name":"Echo","summary":"Ping websites","version":"3","iconFilename":"io.github.lo2dev.Echo.png","homepage":"https://lo2dev.github.io/portal/echo"}
-{"id":"io.github.loot.loot","name":"LOOT","summary":"Modding utility for Starfield and some Elder Scrolls and Fallout games","version":"0.29.1","iconFilename":"io.github.loot.loot.png","homepage":"https://loot.github.io"}
+{"id":"io.github.loot.loot","name":"LOOT","summary":"Modding utility for Starfield and some Elder Scrolls and Fallout games","version":"0.29.2","iconFilename":"io.github.loot.loot.png","homepage":"https://loot.github.io"}
 {"id":"io.github.lruzicka.Needly","name":"Needly","summary":"Python Needle Editor for openQA","version":"2.5.93","iconFilename":"io.github.lruzicka.Needly.png","homepage":"https://github.com/lruzicka/needly"}
 {"id":"io.github.ltiber.Pwall","name":"pwall","summary":"browse your photos/videos","version":"2.3-0","iconFilename":"io.github.ltiber.Pwall.png","homepage":"https://github.com/ltiber/pwall"}
 {"id":"io.github.lullabyX.sone","name":"SONE","summary":"Native TIDAL client for Linux — modern UI, bit-perfect lossless FLAC and Hi-Res audio","version":"0.21.0","iconFilename":"io.github.lullabyX.sone.png","homepage":"https://github.com/lullabyX/sone"}
@@ -1510,19 +1514,19 @@
 {"id":"io.github.manisandro.gImageReader","name":"gImageReader","summary":"A graphical (gtk) frontend to tesseract-ocr","version":"3.4.3","iconFilename":"io.github.manisandro.gImageReader.png","homepage":"https://github.com/manisandro/gImageReader"}
 {"id":"io.github.marco_calautti.DeltaPatcher","name":"Delta Patcher","summary":"Applies and creates patches in xdelta format","version":"3.1.6","iconFilename":"io.github.marco_calautti.DeltaPatcher.png","homepage":"https://github.com/marco-calautti/DeltaPatcher"}
 {"id":"io.github.martchus.syncthingtray","name":"Syncthing Tray","summary":"Tray application for Syncthing","version":"2.1.4-1.09b17c2","iconFilename":"io.github.martchus.syncthingtray.png","homepage":"https://Martchus.github.io/syncthingtray"}
-{"id":"io.github.martinrotter.rssguard","name":"RSS Guard","summary":"Simple, yet powerful news feed reader","version":"5.2.3","iconFilename":"io.github.martinrotter.rssguard.png","homepage":"https://github.com/martinrotter/rssguard"}
-{"id":"io.github.martinrotter.rssguardlite","name":"RSS Guard Lite","summary":"Simple, yet powerful news feed reader (without web browser)","version":"5.2.3","iconFilename":"io.github.martinrotter.rssguardlite.png","homepage":"https://github.com/martinrotter/rssguard"}
+{"id":"io.github.martinrotter.rssguard","name":"RSS Guard","summary":"Simple, yet powerful news feed reader","version":"5.2.4","iconFilename":"io.github.martinrotter.rssguard.png","homepage":"https://github.com/martinrotter/rssguard"}
+{"id":"io.github.martinrotter.rssguardlite","name":"RSS Guard Lite","summary":"Simple, yet powerful news feed reader (without web browser)","version":"5.2.4","iconFilename":"io.github.martinrotter.rssguardlite.png","homepage":"https://github.com/martinrotter/rssguard"}
 {"id":"io.github.martinrotter.textosaurus.desktop","name":"Textosaurus","summary":"Simple cross-platform text editor based on Qt and QScintilla","version":"0.9.12","iconFilename":"io.github.martinrotter.textosaurus.desktop.png","homepage":"https://github.com/martinrotter/textosaurus"}
 {"id":"io.github.masakk1.press","name":"Press","summary":"Music library compressor","version":"0.3.0","iconFilename":"io.github.masakk1.press.png","homepage":"https://github.com/masakk1/press"}
 {"id":"io.github.masterbillwoo.RiseOfThePenguinsGB","name":"Rise of the Penguins GB","summary":"Retro penguin platformer for Gameboy","version":"1.0.0","iconFilename":"io.github.masterbillwoo.RiseOfThePenguinsGB.png","homepage":"https://github.com/masterbillwoo/rise-of-the-penguins-gb-flathub"}
 {"id":"io.github.mbugni.AliensEradicationTC","name":"Aliens Eradication TC","summary":"Aliens Eradication Total Conversion 2.0","version":"2.0","iconFilename":"io.github.mbugni.AliensEradicationTC.png","homepage":"https://github.com/mbugni/AliensEradicationTC"}
-{"id":"io.github.mcthesw.easy-nats","name":"Easy NATS","summary":"Desktop GUI client for NATS and JetStream","version":"0.1.33","iconFilename":"io.github.mcthesw.easy-nats.png","homepage":"https://github.com/mcthesw/easy-nats"}
+{"id":"io.github.mcthesw.easy-nats","name":"Easy NATS","summary":"Desktop GUI client for NATS and JetStream","version":"0.1.34","iconFilename":"io.github.mcthesw.easy-nats.png","homepage":"https://github.com/mcthesw/easy-nats"}
 {"id":"io.github.meehow.Receiver","name":"Receiver","summary":"Discover radio stations worldwide","version":"0.8.0","iconFilename":"io.github.meehow.Receiver.png","homepage":"https://github.com/meehow/receiver"}
 {"id":"io.github.megakode.Wallrus","name":"Wallrus","summary":"Create colorful abstract wallpapers","version":"1.2.2","iconFilename":"io.github.megakode.Wallrus.png","homepage":"https://github.com/megakode/wallrus"}
 {"id":"io.github.meypod.al-quran","name":"Al-Quran - Simple","summary":"A simple open-source Quran reader","version":"1.1.0","iconFilename":"io.github.meypod.al-quran.png","homepage":"https://github.com/meypod/al-quran"}
 {"id":"io.github.mezoahmedii.Picker","name":"Picker","summary":"Randomly pick something to do","version":"1.4.1","iconFilename":"io.github.mezoahmedii.Picker.png","homepage":"https://github.com/mezoahmedii/picker"}
 {"id":"io.github.mfat.jottr","name":"Jottr","summary":"A simple text editor mainly intended for writers, journalists and researchers","version":"1.4.3","iconFilename":"io.github.mfat.jottr.png","homepage":"https://github.com/mfat/jottr"}
-{"id":"io.github.mfat.sshpilot","name":"SSH Pilot","summary":"Manage your servers with ease","version":"5.7.2","iconFilename":"io.github.mfat.sshpilot.png","homepage":"https://github.com/mfat/sshpilot"}
+{"id":"io.github.mfat.sshpilot","name":"SSH Pilot","summary":"Manage your servers with ease","version":"5.8.4","iconFilename":"io.github.mfat.sshpilot.png","homepage":"https://github.com/mfat/sshpilot"}
 {"id":"io.github.mfat.tvhplayer","name":"TVHplayer","summary":"A desktop client for Tvheadend for watching and recording live TV channels","version":"3.5.5","iconFilename":"io.github.mfat.tvhplayer.png","homepage":"https://github.com/mfat/tvhplayer"}
 {"id":"io.github.mgerhardy.vengi.voxedit","name":"vengi VoxEdit","summary":"voxel editor","version":"v0.4.0","iconFilename":"io.github.mgerhardy.vengi.voxedit.png","homepage":"https://vengi-voxel.github.io/vengi/"}
 {"id":"io.github.mhogomchungu.media-downloader","name":"Media Downloader","summary":"A GUI to yt-dlp, gallery-dl and others","version":"5.6.5","iconFilename":"io.github.mhogomchungu.media-downloader.png","homepage":"https://mhogomchungu.github.io/media-downloader"}
@@ -1536,7 +1540,7 @@
 {"id":"io.github.mike632t.x11-calc","name":"RPN Calculator","summary":"HP Calculator Simulator","version":"0.26.0251","iconFilename":"io.github.mike632t.x11-calc.png","homepage":"https://github.com/mike632t/x11-calc"}
 {"id":"io.github.milkshiift.GoofCord","name":"GoofCord","summary":"A privacy minded and highly configurable Discord client","version":"2.3.0","iconFilename":"io.github.milkshiift.GoofCord.png","homepage":"https://github.com/Milkshiift/GoofCord"}
 {"id":"io.github.mimoguz.TriPeaks-GDX","name":"TriPeaks","summary":"A Tri Peaks solitaire game","version":"1.2.3","iconFilename":"io.github.mimoguz.TriPeaks-GDX.png","homepage":"https://github.com/mimoguz/tripeaks-gdx"}
-{"id":"io.github.mimoguz.tripeaks_neue","name":"TriPeaks NEUE","summary":"Patience game","version":"0.9.5","iconFilename":"io.github.mimoguz.tripeaks_neue.png","homepage":"https://github.com/mimoguz/tripeaks_neue"}
+{"id":"io.github.mimoguz.tripeaks_neue","name":"TriPeaks NEUE","summary":"Patience game","version":"0.9.60","iconFilename":"io.github.mimoguz.tripeaks_neue.png","homepage":"https://github.com/mimoguz/tripeaks_neue"}
 {"id":"io.github.mki1967.mki3dgame.desktop","name":"MKI3D Game","summary":"A simple OpenGL game of searching for tokens in 3D stages","version":"3.05","iconFilename":"io.github.mki1967.mki3dgame.desktop.png","homepage":"https://mki1967.github.io/mki3dgame"}
 {"id":"io.github.mlm_games.asteroids_revenge","name":"Asteroids Revenge","summary":"Evade lasers as an enigmatic entity","version":"0.15.2","iconFilename":"io.github.mlm_games.asteroids_revenge.png","homepage":"https://github.com/mlm-games/asteroids-revenge"}
 {"id":"io.github.mlm_games.cavern-cravers","name":"Cavern Cravers","summary":"A roguelike turn-based virtual board game","version":"0.9.2","iconFilename":"io.github.mlm_games.cavern-cravers.png","homepage":"https://github.com/mlm-games/cavern-cravers"}
@@ -1583,7 +1587,7 @@
 {"id":"io.github.nokse22.teleprompter.desktop","name":"Teleprompter","summary":"Stay on track during speeches","version":"1.1.0","iconFilename":"io.github.nokse22.teleprompter.desktop.png","homepage":"https://github.com/Nokse22/teleprompter"}
 {"id":"io.github.nokse22.trivia-quiz","name":"Trivia Quiz","summary":"Respond to endless questions","version":"1.0.1","iconFilename":"io.github.nokse22.trivia-quiz.png","homepage":"https://github.com/Nokse22/trivia-quiz"}
 {"id":"io.github.nokse22.ultimate-tic-tac-toe","name":"Ultimate Tic Tac Toe","summary":"(Tic Tac Toe)²","version":"1.1.0","iconFilename":"io.github.nokse22.ultimate-tic-tac-toe.png","homepage":"https://github.com/Nokse22/ultimate-tic-tac-toe"}
-{"id":"io.github.noobping.keycord","name":"Keycord","summary":"Browse and edit password stores","version":"0.9.11","iconFilename":"io.github.noobping.keycord.png","homepage":"https://github.com/noobping/keycord"}
+{"id":"io.github.noobping.keycord","name":"Keycord","summary":"Browse and edit password stores","version":"0.9.12","iconFilename":"io.github.noobping.keycord.png","homepage":"https://github.com/noobping/keycord"}
 {"id":"io.github.noobping.listenmoe","name":"Listen Moe","summary":"J-POP and K-POP radio","version":"1.2.2","iconFilename":"io.github.noobping.listenmoe.png","homepage":"https://github.com/noobping/listenmoe"}
 {"id":"io.github.nostar.DroidStar","name":"DroidStar","summary":"A digital voice client","version":"1.0.1-git","iconFilename":"io.github.nostar.DroidStar.png","homepage":"https://github.com/nostar/DroidStar"}
 {"id":"io.github.noxworld_dev.OpenNox","name":"OpenNox","summary":"OpenNox is a modern implementation of a Nox game engine","version":"v1.9.0-alpha13","iconFilename":"io.github.noxworld_dev.OpenNox.png","homepage":"https://opennox.github.io/opennox-docs/"}
@@ -1597,7 +1601,7 @@
 {"id":"io.github.openhv.OpenHV","name":"OpenHV","summary":"Futuristic strategy game","version":"20250725","iconFilename":"io.github.openhv.OpenHV.png","homepage":"https://www.openhv.net/"}
 {"id":"io.github.opennumismat.open-numismat","name":"OpenNumismat","summary":"Custom coin collection catalog","version":"1.10.6","iconFilename":"io.github.opennumismat.open-numismat.png","homepage":"https://opennumismat.github.io/"}
 {"id":"io.github.orontee.Argos.desktop","name":"Argos","summary":"Mopidy music client","version":"1.18.1","iconFilename":"io.github.orontee.Argos.desktop.png","homepage":"https://github.com/orontee/argos"}
-{"id":"io.github.ostapkonst.HashVerifier","name":"HashVerifier","summary":"Checksum generation and verification","version":"v2026.8.8","iconFilename":"io.github.ostapkonst.HashVerifier.png","homepage":"https://github.com/ostapkonst/HashVerifier"}
+{"id":"io.github.ostapkonst.HashVerifier","name":"HashVerifier","summary":"Checksum generation and verification","version":"v2026.8.15","iconFilename":"io.github.ostapkonst.HashVerifier.png","homepage":"https://github.com/ostapkonst/HashVerifier"}
 {"id":"io.github.otaxhu.MQTTy","name":"MQTTy","summary":"GUI for consuming MQTT topics","version":"0.1.4","iconFilename":"io.github.otaxhu.MQTTy.png","homepage":"https://github.com/otaxhu/MQTTy"}
 {"id":"io.github.pantheon_tweaks.pantheon-tweaks","name":"Pantheon Tweaks","summary":"Tweak Pantheon settings","version":"2.5.2","iconFilename":"io.github.pantheon_tweaks.pantheon-tweaks.png","homepage":"https://github.com/pantheon-tweaks/pantheon-tweaks"}
 {"id":"io.github.paulwedeck.settlers-remake","name":"JSettlers","summary":"A Remake of \"The Settlers III\" for Windows, Linux, Mac and Android","version":"v0.6.0.6-alpha","iconFilename":"io.github.paulwedeck.settlers-remake.png","homepage":"https://github.com/paulwedeck/settlers-remake"}
@@ -1634,7 +1638,7 @@
 {"id":"io.github.qnapi","name":"QNapi","summary":"A software for downloading and automatic matching subtitles to movies","version":"0.2.3","iconFilename":"io.github.qnapi.png","homepage":"https://qnapi.github.io/"}
 {"id":"io.github.qtox.qTox","name":"qTox","summary":"Powerful Tox chat client that follows the Tox design guidelines.","version":"1.18.5","iconFilename":"io.github.qtox.qTox.png","homepage":"https://qtox.github.io"}
 {"id":"io.github.quantum_mutnauq.fast_reader_gtk","name":"Fast Reader","summary":"Reading one word at a time","version":"8.1","iconFilename":"io.github.quantum_mutnauq.fast_reader_gtk.png","homepage":"https://github.com/Quantum-mutnauQ/Fast_Reader_GTK/"}
-{"id":"io.github.quantum_mutnauq.pictures_converter_gtk","name":"Pictures Converter","summary":"Converting image formats","version":"1.4","iconFilename":"io.github.quantum_mutnauq.pictures_converter_gtk.png","homepage":"https://github.com/Quantum-mutnauQ/pictures_converter_gtk/"}
+{"id":"io.github.quantum_mutnauq.pictures_converter_gtk","name":"Pictures Converter","summary":"Converting image formats","version":"1.5","iconFilename":"io.github.quantum_mutnauq.pictures_converter_gtk.png","homepage":"https://github.com/Quantum-mutnauQ/pictures_converter_gtk/"}
 {"id":"io.github.quodlibet.ExFalso","name":"Ex Falso","summary":"Edit tags in your audio files","version":"4.7.1","iconFilename":"io.github.quodlibet.ExFalso.png","homepage":"https://quodlibet.readthedocs.org"}
 {"id":"io.github.quodlibet.QuodLibet","name":"Quod Libet","summary":"Listen to, browse, or edit your audio collection","version":"4.7.1","iconFilename":"io.github.quodlibet.QuodLibet.png","homepage":"https://quodlibet.readthedocs.org"}
 {"id":"io.github.quotient_im.Quaternion","name":"Quaternion","summary":"Qt-based client for Matrix networks","version":"0.0.97.1","iconFilename":"io.github.quotient_im.Quaternion.png","homepage":"https://github.com/quotient-im/Quaternion"}
@@ -1733,7 +1737,7 @@
 {"id":"io.github.tapscodes.MuseAmp","name":"MuseAmp","summary":"Normalize the volume in audio files","version":"1.4.0","iconFilename":"io.github.tapscodes.MuseAmp.png","homepage":"https://github.com/tapscodes/MuseAmp"}
 {"id":"io.github.tareksander.StoryReader","name":"StoryReader","summary":"An offline library and reader for stories on ScribbleHub and RoyalRoad","version":"0.9.1","iconFilename":"io.github.tareksander.StoryReader.png","homepage":"https://github.com/tareksander/StoryReader"}
 {"id":"io.github.tcobbs.LDView","name":"LDView","summary":"LDraw model viewer","version":"4.7","iconFilename":"io.github.tcobbs.LDView.png","homepage":"https://tcobbs.github.io/ldview/"}
-{"id":"io.github.teacond.Morse","name":"Morse","summary":"Learn Morse Code","version":"1.4.0","iconFilename":"io.github.teacond.Morse.png","homepage":"https://github.com/teacond/Morse"}
+{"id":"io.github.teacond.Morse","name":"Morse","summary":"Learn Morse Code","version":"1.5.0","iconFilename":"io.github.teacond.Morse.png","homepage":"https://github.com/teacond/Morse"}
 {"id":"io.github.tfuxu.Halftone","name":"Halftone","summary":"Dither your images","version":"0.7.1","iconFilename":"io.github.tfuxu.Halftone.png","homepage":"https://github.com/tfuxu/halftone"}
 {"id":"io.github.tfuxu.floodit","name":"Flood It","summary":"Flood the board","version":"2.0.0","iconFilename":"io.github.tfuxu.floodit.png","homepage":"https://github.com/tfuxu/floodit"}
 {"id":"io.github.theforceengine.tfe","name":"The Force Engine","summary":"A modern cross‑platform port of “STAR WARS™: Dark Forces” with mod support","version":"1.22.420","iconFilename":"io.github.theforceengine.tfe.png","homepage":"https://theforceengine.github.io"}
@@ -1754,12 +1758,12 @@
 {"id":"io.github.tom94.tev","name":"tev","summary":"High dynamic range image viewer","version":"2.13.1","iconFilename":"io.github.tom94.tev.png","homepage":"https://github.com/Tom94/tev"}
 {"id":"io.github.tomluchowski.OpenDungeonsPlus","name":"OpenDungeonsPlus","summary":"manage Creatures and Dungeons in the style of Dungeon Keeper","version":"0.8","iconFilename":"io.github.tomluchowski.OpenDungeonsPlus.png","homepage":"https://discord.gg/K2JPXuchZV"}
 {"id":"io.github.torrent_file_editor.Torrent-file-editor","name":"Torrent File Editor","summary":"Edit and create torrent files","version":"1.0.3","iconFilename":"io.github.torrent_file_editor.Torrent-file-editor.png","homepage":"https://torrent-file-editor.github.io"}
-{"id":"io.github.totoshko88.RustConn","name":"RustConn","summary":"Manage SSH, RDP, and VNC connections","version":"0.20.0","iconFilename":"io.github.totoshko88.RustConn.png","homepage":"https://github.com/totoshko88/RustConn"}
+{"id":"io.github.totoshko88.RustConn","name":"RustConn","summary":"Manage SSH, RDP, and VNC connections","version":"0.20.2","iconFilename":"io.github.totoshko88.RustConn.png","homepage":"https://github.com/totoshko88/RustConn"}
 {"id":"io.github.trackballs.Trackballs","name":"Trackballs","summary":"Steer a marble ball through a labyrinth","version":"1.3.5","iconFilename":"io.github.trackballs.Trackballs.png","homepage":"https://trackballs.github.io/"}
 {"id":"io.github.trevorsandy.LPub3D","name":"LPub3D","summary":"LPub3D - An LDraw Building Instruction Editor","version":"2.4.9.4133","iconFilename":"io.github.trevorsandy.LPub3D.png","homepage":"https://trevorsandy.github.io/lpub3d/"}
 {"id":"io.github.trigg.discover_overlay","name":"Discover Overlay","summary":"A graphical overlay for Discord voice chat.","version":"0.7.10","iconFilename":"io.github.trigg.discover_overlay.png","homepage":"https://trigg.github.io/Discover/"}
 {"id":"io.github.troyeguo.koodo-reader","name":"Koodo Reader","summary":"All-in-one ebook reader","version":"2.4.3","iconFilename":"io.github.troyeguo.koodo-reader.png","homepage":"https://www.koodoreader.com/"}
-{"id":"io.github.trufae.Parla","name":"Parla","summary":"A Delta Chat client for GNOME","version":"0.7.8","iconFilename":"io.github.trufae.Parla.png","homepage":"https://github.com/trufae/parla"}
+{"id":"io.github.trufae.Parla","name":"Parla","summary":"A Delta Chat client for GNOME","version":"0.8.0","iconFilename":"io.github.trufae.Parla.png","homepage":"https://github.com/trufae/parla"}
 {"id":"io.github.trytonvanmeer.DungeonJournal","name":"DungeonJournal","summary":"A 5e Character Manager","version":"0.7.0","iconFilename":"io.github.trytonvanmeer.DungeonJournal.png","homepage":"https://github.com/tryton-vanmeer/DungeonJournal"}
 {"id":"io.github.tsmetana.mpk3-settings","name":"MPK3 Settings","summary":"AKAI MPK Mini MK3 settings","version":"0.1.1","iconFilename":"io.github.tsmetana.mpk3-settings.png","homepage":"https://github.com/tsmetana/mpk3-settings"}
 {"id":"io.github.tuner_labs.tuner","name":"Tuner","summary":"Internet Radio","version":"2.1.0","iconFilename":"io.github.tuner_labs.tuner.png","homepage":"https://github.com/tuner-labs/tuner"}
@@ -1806,7 +1810,7 @@
 {"id":"io.github.xverizex.RetroSpriteEditor","name":"Retro Sprite","summary":"Pixel Editor for Retro Consoles","version":"0.2.46","iconFilename":"io.github.xverizex.RetroSpriteEditor.png","homepage":"https://github.com/xverizex/RetroSpriteEditor"}
 {"id":"io.github.xverizex.nem_desktop","name":"Nem Desktop","summary":"Chat with friends.","version":"0.1.48","iconFilename":"io.github.xverizex.nem_desktop.png","homepage":"https://github.com/xverizex/nem_desktop"}
 {"id":"io.github.xyproto.zsnes","name":"ZSNES","summary":"Super Nintendo emulator","version":"2.2.2","iconFilename":"io.github.xyproto.zsnes.png","homepage":"https://github.com/xyproto/zsnes"}
-{"id":"io.github.yairm210.unciv","name":"Unciv","summary":"Turn-based strategy game","version":"4.21.8","iconFilename":"io.github.yairm210.unciv.png","homepage":"https://github.com/yairm210/Unciv/"}
+{"id":"io.github.yairm210.unciv","name":"Unciv","summary":"Turn-based strategy game","version":"4.21.9-patch1","iconFilename":"io.github.yairm210.unciv.png","homepage":"https://github.com/yairm210/Unciv/"}
 {"id":"io.github.yamanqd.antware","name":"AntWare","summary":"An FPS game.","version":"2.1.4","iconFilename":"io.github.yamanqd.antware.png","homepage":"https://github.com/YamanQD/AntWare"}
 {"id":"io.github.yesser_studios.Pong","name":"Pong","summary":"A simple Pong clone","version":"1.2.4","iconFilename":"io.github.yesser_studios.Pong.png","homepage":"https://github.com/yesser-studios/Pong"}
 {"id":"io.github.yesser_studios.Yesser-Calculator","name":"Yesser Calculator","summary":"An extensible calculator","version":"1.2.0","iconFilename":"io.github.yesser_studios.Yesser-Calculator.png","homepage":"https://github.com/yesser-studios/yesser-calculator"}
@@ -1818,7 +1822,7 @@
 {"id":"io.github.zefr0x.hashes","name":"Hashes","summary":"Identify hashing algorithms","version":"1.1.4","iconFilename":"io.github.zefr0x.hashes.png","homepage":"https://github.com/zefr0x/hashes"}
 {"id":"io.github.zerospades.ZeroSpades","name":"ZeroSpades","summary":"Open Source voxel shooter","version":"0.0.9","iconFilename":"io.github.zerospades.ZeroSpades.png","homepage":"https://github.com/zerospades/zerospades/"}
 {"id":"io.github.zhrexl.thisweekinmylife","name":"Schedule","summary":"A simple kanban-styled planner","version":"0.0.6","iconFilename":"io.github.zhrexl.thisweekinmylife.png","homepage":"https://github.com/zhrexl/ThisWeekInMyLife"}
-{"id":"io.github.zingytomato.netpeek","name":"NetPeek","summary":"See what's on your network","version":"0.3.1","iconFilename":"io.github.zingytomato.netpeek.png","homepage":"https://github.com/zingytomato/netpeek"}
+{"id":"io.github.zingytomato.netpeek","name":"NetPeek","summary":"See what's on your network","version":"0.3.2","iconFilename":"io.github.zingytomato.netpeek.png","homepage":"https://github.com/zingytomato/netpeek"}
 {"id":"io.github.zyedidia.micro","name":"Micro Text Editor","summary":"A modern and intuitive terminal-based text editor","version":"2.0.15","iconFilename":"io.github.zyedidia.micro.png","homepage":"https://micro-editor.github.io"}
 {"id":"io.gitlab.ForTheCommunity.torrentsdigger","name":"Torrents Digger","summary":"Digs Torrents From The Internet","version":"1.2.8","iconFilename":"io.gitlab.ForTheCommunity.torrentsdigger.png","homepage":"https://gitlab.com/ForTheCommunity/torrentsdigger"}
 {"id":"io.gitlab.Goodvibes","name":"Goodvibes","summary":"Play web radios","version":"0.8.4","iconFilename":"io.gitlab.Goodvibes.png","homepage":"https://gitlab.com/goodvibes/goodvibes"}
@@ -1895,7 +1899,7 @@
 {"id":"io.liri.Calculator.desktop","name":"Liri Calculator","summary":"Perform arithmetic or scientific calculations","version":"1.3.0","iconFilename":"io.liri.Calculator.desktop.png","homepage":"https://liri.io"}
 {"id":"io.liri.Text","name":"Liri Text","summary":"Edit text files","version":"0.5.0","iconFilename":"io.liri.Text.png","homepage":"https://liri.io"}
 {"id":"io.lmms.LMMS","name":"LMMS","summary":"A music production application","version":"1.2.2","iconFilename":"io.lmms.LMMS.png","homepage":"https://lmms.io/"}
-{"id":"io.m51.Gelly","name":"Gelly","summary":"Music player for Jellyfin and Subsonic","version":"1.9.7","iconFilename":"io.m51.Gelly.png","homepage":"https://github.com/Fingel/gelly"}
+{"id":"io.m51.Gelly","name":"Gelly","summary":"Jellyfin and Subsonic music player","version":"1.10.0","iconFilename":"io.m51.Gelly.png","homepage":"https://github.com/Fingel/gelly"}
 {"id":"io.mango3d.LycheeSlicer","name":"Lychee Slicer","summary":"A powerful and versatile Slicer for Resin and Filament 3D Printers","version":"7.6.6","iconFilename":"io.mango3d.LycheeSlicer.png","homepage":"https://mango3d.io"}
 {"id":"io.mgba.mGBA","name":"mGBA","summary":"Nintendo Game Boy Advance Emulator","version":"0.10.5","iconFilename":"io.mgba.mGBA.png","homepage":"https://mgba.io"}
 {"id":"io.mimiri.notes","name":"Mimiri Notes","summary":"Secure Device-Synchronized Notepad","version":"2.6.20","iconFilename":"io.mimiri.notes.png","homepage":"https://mimiri.io"}
@@ -1919,7 +1923,7 @@
 {"id":"io.qt.qdbusviewer","name":"Qt QDBusViewer","summary":"Debug D-Bus applications","version":"6.11","iconFilename":"io.qt.qdbusviewer.png","homepage":"https://www.qt.io/"}
 {"id":"io.qt.qtdesignstudio","name":"Qt Design Studio","summary":"UI Designer for Qml applications","version":"4.8.2","iconFilename":"io.qt.qtdesignstudio.png","homepage":"https://www.qt.io/product/ui-design-tools"}
 {"id":"io.scottlabs.reManager","name":"reManager","summary":"Manage mods on reMarkable tablets","version":"1.7.1","iconFilename":"io.scottlabs.reManager.png","homepage":"https://github.com/rmitchellscott/reManager"}
-{"id":"io.seamly.seamly2d","name":"Seamly2D","summary":"Sewing pattern design software","version":"v2026.8.3.214","iconFilename":"io.seamly.seamly2d.png","homepage":"https://seamly.io"}
+{"id":"io.seamly.seamly2d","name":"Seamly2D","summary":"Sewing pattern design software","version":"v2026.8.17.159","iconFilename":"io.seamly.seamly2d.png","homepage":"https://seamly.io"}
 {"id":"io.sourceforge.Pixelitor","name":"Pixelitor","summary":"Open source image editor","version":"4.3.1","iconFilename":"io.sourceforge.Pixelitor.png","homepage":"https://pixelitor.sourceforge.io/"}
 {"id":"io.sourceforge.YSoccer","name":"YSoccer","summary":"Retro style soccer game","version":"19","iconFilename":"io.sourceforge.YSoccer.png","homepage":"https://ysoccer.sourceforge.net/"}
 {"id":"io.sourceforge.clonekeenplus","name":"Commander Genius","summary":"A Game Engine for \"Commander Keen\"","version":"3.5.1","iconFilename":"io.sourceforge.clonekeenplus.png","homepage":"https://clonekeenplus.sourceforge.io"}
@@ -1959,9 +1963,9 @@
 {"id":"it.mijorus.whisper","name":"Whisper","summary":"Listen to your mic","version":"1.3.1","iconFilename":"it.mijorus.whisper.png","homepage":"https://whisper.mijorus.it"}
 {"id":"it.mq1.TinyWiiBackupManager","name":"TinyWiiBackupManager","summary":"A tiny game backup and homebrew app manager for the Wii","version":"6.0.8","iconFilename":"it.mq1.TinyWiiBackupManager.png","homepage":"https://github.com/mq1/TinyWiiBackupManager"}
 {"id":"it.unibo.tuprolog.ide","name":"tuProlog IDE","summary":"An IDE for using Prolog via 2p-kt","version":"1.0.4","iconFilename":"it.unibo.tuprolog.ide.png","homepage":"https://apice.unibo.it/xwiki/bin/view/Tuprolog/"}
-{"id":"jp.nonbili.meron","name":"Meron","summary":"Fast/secure mail client with kanban and chat views","version":"0.2.11","iconFilename":"jp.nonbili.meron.png","homepage":"https://meron.im"}
+{"id":"jp.nonbili.meron","name":"Meron","summary":"Fast/secure mail client with kanban and chat views","version":"0.2.12","iconFilename":"jp.nonbili.meron.png","homepage":"https://meron.im"}
 {"id":"jp.nonbili.nora","name":"Nora","summary":"SNS browser","version":"0.2.5","iconFilename":"jp.nonbili.nora.png","homepage":"https://github.com/nonbili/Nora-Desktop"}
-{"id":"jp.nonbili.noutube","name":"NouTube","summary":"YouTube and YouTube Music in a single app","version":"0.2.14","iconFilename":"jp.nonbili.noutube.png","homepage":"https://github.com/nonbili/NouTube-Desktop"}
+{"id":"jp.nonbili.noutube","name":"NouTube","summary":"YouTube and YouTube Music in a single app","version":"0.2.15","iconFilename":"jp.nonbili.noutube.png","homepage":"https://github.com/nonbili/NouTube-Desktop"}
 {"id":"jp.yvt.OpenSpades","name":"OpenSpades","summary":"Open Source voxel shooter","version":"0.1.3","iconFilename":"jp.yvt.OpenSpades.png","homepage":"https://openspades.yvt.jp"}
 {"id":"la.ogri.strongbox","name":"Strongbox","summary":"Addon manager for World of Warcraft","version":"7.7.0","iconFilename":"la.ogri.strongbox.png","homepage":"https://github.com/ogri-la/strongbox"}
 {"id":"land.arcana.TarotCanvas","name":"Tarot Canvas","summary":"Desktop application for viewing and exploring tarot decks","version":"1.2.1","iconFilename":"land.arcana.TarotCanvas.png","homepage":"https://github.com/arcanaland/tarot-canvas"}
@@ -1987,7 +1991,7 @@
 {"id":"me.nathandyer.Kepublicity","name":"Kepublicity","summary":"Create Kobo-formatted ebooks","version":"0.2.0","iconFilename":"me.nathandyer.Kepublicity.png","homepage":"https://nathandyer.me/kepublicity"}
 {"id":"me.njean.shootingpactris","name":"Shooting Pactris","summary":"A coop retro game with Tetris, Pacman and shmup gameplay.","version":"1.2","iconFilename":"me.njean.shootingpactris.png","homepage":"https://shootingpactris.njean.me/"}
 {"id":"me.proton.Mail","name":"Proton Mail","summary":"Secure email that protects your privacy","version":"1.13.4","iconFilename":"me.proton.Mail.png","homepage":"https://proton.me/mail"}
-{"id":"me.proton.Pass","name":"Proton Pass","summary":"Encrypted password manager to keep your login credentials safe","version":"1.38.1","iconFilename":"me.proton.Pass.png","homepage":"https://proton.me/pass"}
+{"id":"me.proton.Pass","name":"Proton Pass","summary":"Encrypted password manager to keep your login credentials safe","version":"1.39.1","iconFilename":"me.proton.Pass.png","homepage":"https://proton.me/pass"}
 {"id":"me.sanchezrodriguez.passes.desktop","name":"Passes","summary":"Manage your digital passes","version":"0.12","iconFilename":"me.sanchezrodriguez.passes.desktop.png","homepage":"https://github.com/pablo-s/passes"}
 {"id":"me.sergiotarxz.Exd","name":"Hiperthermia","summary":"Program your thermal printer","version":"v2.0.1","iconFilename":"me.sergiotarxz.Exd.png","homepage":"https://github.com/sergiotarxz/Hiperthermia"}
 {"id":"me.sergiotarxz.JapaChar","name":"Japachar","summary":"Learn Japanese characters","version":"v2.00-rc4","iconFilename":"me.sergiotarxz.JapaChar.png","homepage":"https://japachar.sergiotarxz.me"}
@@ -2079,13 +2083,13 @@
 {"id":"net.jockx.Kulki","name":"Kulki","summary":"A game of matching marbles","version":"1.1.1","iconFilename":"net.jockx.Kulki.png","homepage":"https://kulki.jockx.net/"}
 {"id":"net.kirgroup.confy","name":"Confy","summary":"Conference schedules viewer","version":"0.9.0","iconFilename":"net.kirgroup.confy.png","homepage":"https://confy.kirgroup.net"}
 {"id":"net.krafting.HexColordle","name":"Hex Colordle","summary":"Find the color","version":"1.3.0","iconFilename":"net.krafting.HexColordle.png","homepage":"https://gitlab.com/Krafting/hexcolordle-gtk"}
-{"id":"net.krafting.Lovaflow","name":"Lovaflow","summary":"Control your pleasure","version":"1.4.0","iconFilename":"net.krafting.Lovaflow.png","homepage":"https://gitlab.com/Krafting/lovaflow-app"}
+{"id":"net.krafting.Lovaflow","name":"Lovaflow","summary":"Control your pleasure","version":"1.5.0","iconFilename":"net.krafting.Lovaflow.png","homepage":"https://gitlab.com/Krafting/lovaflow-app"}
 {"id":"net.krafting.PedantiK","name":"PedantiK","summary":"Find the Wikipedia article","version":"1.5.0","iconFilename":"net.krafting.PedantiK.png","homepage":"https://gitlab.com/Krafting/pedantik"}
 {"id":"net.krafting.Playlifin","name":"Playlifin","summary":"Sync YouTube playlists to Jellyfin","version":"2.6.0","iconFilename":"net.krafting.Playlifin.png","homepage":"https://gitlab.com/Krafting/playlifin-gtk"}
 {"id":"net.krafting.PlaylifinVoyager","name":"Playlifin Voyager","summary":"Transfer playlists to/from Jellyfin","version":"1.5.0","iconFilename":"net.krafting.PlaylifinVoyager.png","homepage":"https://gitlab.com/Krafting/playlifin-voyager-gtk"}
 {"id":"net.krafting.PleasureDVR","name":"Pleasure DVR","summary":"Record Chaturbate live streams","version":"3.0.0","iconFilename":"net.krafting.PleasureDVR.png","homepage":"https://gitlab.com/Krafting/pleasure-dvr-gtk"}
-{"id":"net.krafting.Reddy","name":"Reddy","summary":"Repost Reddit images to Lemmy","version":"1.3.6","iconFilename":"net.krafting.Reddy.png","homepage":"https://gitlab.com/Krafting/reddy-gtk"}
-{"id":"net.krafting.SemantiK","name":"SemantiK","summary":"Find the secret word","version":"1.7.0","iconFilename":"net.krafting.SemantiK.png","homepage":"https://gitlab.com/Krafting/semantik-gtk"}
+{"id":"net.krafting.Reddy","name":"Reddy","summary":"Repost Reddit images to Lemmy","version":"1.3.8","iconFilename":"net.krafting.Reddy.png","homepage":"https://gitlab.com/Krafting/reddy-gtk"}
+{"id":"net.krafting.SemantiK","name":"SemantiK","summary":"Find the secret word","version":"1.7.5","iconFilename":"net.krafting.SemantiK.png","homepage":"https://gitlab.com/Krafting/semantik-gtk"}
 {"id":"net.kubux.Muehle","name":"Muehle","summary":"Play a game of Nine Men's Morris","version":"bison_2023-02-20","iconFilename":"net.kubux.Muehle.png","homepage":"https://muehle.kubux.net"}
 {"id":"net.kuribo64.melonDS","name":"melonDS","summary":"Nintendo DS and DSi emulator","version":"1.1","iconFilename":"net.kuribo64.melonDS.png","homepage":"https://melonds.kuribo64.net/"}
 {"id":"net.kvirc.KVIrc","name":"KVIrc","summary":"KVIrc is a free portable IRC client","version":"5.2.10","iconFilename":"net.kvirc.KVIrc.png","homepage":"https://www.kvirc.net/"}
@@ -2117,7 +2121,7 @@
 {"id":"net.odamex.Odamex","name":"Odamex","summary":"Fast, faithful Classic DOOM action — solo or online","version":"12.3.0","iconFilename":"net.odamex.Odamex.png","homepage":"https://odamex.net"}
 {"id":"net.olofson.KoboDeluxe","name":"Kobo Deluxe","summary":"Third person scrolling 2D shooter","version":"0.5.1","iconFilename":"net.olofson.KoboDeluxe.png","homepage":"https://olofson.net/kobodl/"}
 {"id":"net.openbve_project.OpenBVE","name":"OpenBVE","summary":"Free train simulator","version":"1.14.0.2","iconFilename":"net.openbve_project.OpenBVE.png","homepage":"https://openbve-project.net"}
-{"id":"net.openhabittracker.OpenHabitTracker","name":"OpenHabitTracker","summary":"Take notes, plan tasks, track habits","version":"1.2.3","iconFilename":"net.openhabittracker.OpenHabitTracker.png","homepage":"https://openhabittracker.net"}
+{"id":"net.openhabittracker.OpenHabitTracker","name":"OpenHabitTracker","summary":"Take notes, plan tasks, track habits","version":"1.2.4","iconFilename":"net.openhabittracker.OpenHabitTracker.png","homepage":"https://openhabittracker.net"}
 {"id":"net.openra.OpenRA","name":"OpenRA","summary":"Reimagining of early Westwood real-time strategy games","version":"release-20250330","iconFilename":"net.openra.OpenRA.png","homepage":"https://www.openra.net"}
 {"id":"net.opentabletdriver.OpenTabletDriver","name":"OpenTabletDriver","summary":"Cross-platform tablet driver tool","version":"v0.6.6.2","iconFilename":"net.opentabletdriver.OpenTabletDriver.png","homepage":"https://www.opentabletdriver.net/"}
 {"id":"net.oz9aec.Gpredict","name":"Gpredict","summary":"Real-time satellite tracking and orbit prediction program","version":"2.3.115","iconFilename":"net.oz9aec.Gpredict.png","homepage":"https://oz9aec.dk/gpredict/"}
@@ -2232,7 +2236,7 @@
 {"id":"net.zgcoder.skycheckers","name":"Sky Checkers","summary":"Blast enemies off a stage","version":"1.3.1","iconFilename":"net.zgcoder.skycheckers.png","homepage":"https://zgcoder.net/#sky-checkers"}
 {"id":"network.bisq.Bisq","name":"Bisq","summary":"A decentralized bitcoin exchange network","version":"1.10.4","iconFilename":"network.bisq.Bisq.png","homepage":"https://bisq.network/"}
 {"id":"network.loki.Session","name":"Session Desktop","summary":"Private messenger","version":"1.18.1","iconFilename":"network.loki.Session.png","homepage":"https://getsession.org/"}
-{"id":"nl.andreasknoben.Laser","name":"Laser","summary":"Rip CDs with ease","version":"0.4.0","iconFilename":"nl.andreasknoben.Laser.png","homepage":"https://codeberg.org/andreasknoben/Laser/"}
+{"id":"nl.andreasknoben.Laser","name":"Laser","summary":"Rip CDs with ease","version":"0.5.0","iconFilename":"nl.andreasknoben.Laser.png","homepage":"https://codeberg.org/andreasknoben/Laser/"}
 {"id":"nl.brixit.powersupply","name":"Powersupply","summary":"Linux power subsystem debugger","version":"0.9.0","iconFilename":"nl.brixit.powersupply.png","homepage":"https://gitlab.com/MartijnBraam/powersupply"}
 {"id":"nl.brixit.wiremapper","name":"Wiremapper","summary":"Linux client for Pockethernet network tester","version":"0.9.1","iconFilename":"nl.brixit.wiremapper.png","homepage":"https://gitlab.com/MartijnBraam/wiremapper"}
 {"id":"nl.emphisia.icon","name":"Iconic","summary":"Add icons on top of folders","version":"2026.8.1","iconFilename":"nl.emphisia.icon.png","homepage":"https://emphisia.nl"}
@@ -2282,7 +2286,7 @@
 {"id":"org.audacityteam.Audacity","name":"Audacity","summary":"Audacity is the world's most popular audio editing and recording app","version":"3.7.8","iconFilename":"org.audacityteam.Audacity.png","homepage":"https://www.audacityteam.org/"}
 {"id":"org.audiveris.audiveris","name":"Audiveris","summary":"Optical Music Recognition (OMR) Application","version":"5.10","iconFilename":"org.audiveris.audiveris.png","homepage":"https://audiveris.github.io/audiveris/"}
 {"id":"org.avidemux.Avidemux","name":"Avidemux","summary":"Multi-purpose video editing and processing software","version":"2.8.1","iconFilename":"org.avidemux.Avidemux.png","homepage":"https://www.avidemux.org/"}
-{"id":"org.azahar_emu.Azahar","name":"Azahar","summary":"Open-source 3DS emulator project based on Citra.","version":"2125.1.1","iconFilename":"org.azahar_emu.Azahar.png","homepage":"https://azahar-emu.org/"}
+{"id":"org.azahar_emu.Azahar","name":"Azahar","summary":"Open-source 3DS emulator project based on Citra.","version":"2126.0","iconFilename":"org.azahar_emu.Azahar.png","homepage":"https://azahar-emu.org/"}
 {"id":"org.b3log.siyuan","name":"SiYuan","summary":"A privacy-first personal knowledge management system","version":"3.8.0","iconFilename":"org.b3log.siyuan.png","homepage":"https://b3log.org/siyuan/"}
 {"id":"org.babelserver.spekter","name":"Spekter","summary":"Instant file and folder comparison","version":"1.3.1","iconFilename":"org.babelserver.spekter.png","homepage":"https://gitlab.com/hallyhaa/spekter"}
 {"id":"org.beagleboard.imagingutility","name":"BeagleBoard Imager","summary":"BeagleBoard Imaging Utility","version":"1.0.14","iconFilename":"org.beagleboard.imagingutility.png","homepage":"https://www.beagleboard.org/bb-imager"}
@@ -2348,7 +2352,7 @@
 {"id":"org.deluge_torrent.deluge","name":"Deluge","summary":"A fully-featured BitTorrent Client","version":"2.2.0","iconFilename":"org.deluge_torrent.deluge.png","homepage":"https://deluge-torrent.org"}
 {"id":"org.denemo.Denemo","name":"Denemo","summary":"Create music scores","version":"2.6.49","iconFilename":"org.denemo.Denemo.png","homepage":"https://www.denemo.org/"}
 {"id":"org.deskflow.deskflow","name":"Deskflow","summary":"Software Keyboard and mouse sharing","version":"1.26.0","iconFilename":"org.deskflow.deskflow.png","homepage":"https://deskflow.org"}
-{"id":"org.desktop_plus.desktop-plus","name":"Desktop Plus","summary":"Git client with advanced functionality and Bitbucket, GitLab integration","version":"3.6.4.3","iconFilename":"org.desktop_plus.desktop-plus.png","homepage":"https://desktop-plus.org"}
+{"id":"org.desktop_plus.desktop-plus","name":"Desktop Plus","summary":"Git client for power users","version":"3.6.4.4","iconFilename":"org.desktop_plus.desktop-plus.png","homepage":"https://desktop-plus.org"}
 {"id":"org.desmume.DeSmuME","name":"DeSmuME","summary":"Nintendo DS emulator","version":"0.9.11","iconFilename":"org.desmume.DeSmuME.png","homepage":"http://desmume.org"}
 {"id":"org.develz.Crawl","name":"Dungeon Crawl Stone Soup","summary":"Roguelike dungeon exploration game","version":"0.34.1","iconFilename":"org.develz.Crawl.png","homepage":"https://crawl.develz.org/"}
 {"id":"org.dhewm3.Dhewm3","name":"Dhewm 3","summary":"Dhewm 3 is a Doom 3 GPL source port","version":"1.5.4","iconFilename":"org.dhewm3.Dhewm3.png","homepage":"https://dhewm3.org"}
@@ -2366,7 +2370,7 @@
 {"id":"org.eclipse.iot.fourdiac.Ide","name":"Eclipse 4DIAC IDE","summary":"An OpenSource IEC 61499 compatible PLC IDE","version":"3.1.0","iconFilename":"org.eclipse.iot.fourdiac.Ide.png","homepage":"https://www.eclipse.org/4diac/"}
 {"id":"org.eclipse.sumo","name":"SUMO","summary":"A Microscopic Traffic Simulation","version":"v1_27_1","iconFilename":"org.eclipse.sumo.png","homepage":"https://eclipse.dev/sumo/"}
 {"id":"org.ecosia.Browser","name":"Ecosia Browser","summary":"The greenest browser on Earth","version":"148.1.7778.10","iconFilename":"org.ecosia.Browser.png","homepage":"https://www.ecosia.org"}
-{"id":"org.electrum.electrum","name":"Electrum","summary":"Bitcoin Wallet","version":"4.6.2","iconFilename":"org.electrum.electrum.png","homepage":"https://electrum.org/"}
+{"id":"org.electrum.electrum","name":"Electrum","summary":"Bitcoin Wallet","version":"4.8.1","iconFilename":"org.electrum.electrum.png","homepage":"https://electrum.org/"}
 {"id":"org.emptyflow.ArdorQuery","name":"ArdorQuery","summary":"Testing websites","version":"0.0.20","iconFilename":"org.emptyflow.ArdorQuery.png","homepage":"https://trueromanus.github.io/ArdorQuery"}
 {"id":"org.endlessaccess.threadbare","name":"Threadbare","summary":"Rebuild an unraveling world","version":"0.2.2","iconFilename":"org.endlessaccess.threadbare.png","homepage":"https://access.endlessstudios.com/threadbare"}
 {"id":"org.endlessos.Key","name":"Endless Key","summary":"Curated learning anytime, anywhere","version":"0.9","iconFilename":"org.endlessos.Key.png","homepage":"https://www.endlessos.org/key"}
@@ -2388,7 +2392,7 @@
 {"id":"org.fedoraproject.MediaWriter.desktop","name":"Fedora Media Writer","summary":"Create a Fedora live USB drive","version":"5.3.2","iconFilename":"org.fedoraproject.MediaWriter.desktop.png","homepage":"https://github.com/FedoraQt/MediaWriter"}
 {"id":"org.feichtmeier.Musicpod","name":"musicpod","summary":"Music, podcast and internet radio player","version":"2.15.1","iconFilename":"org.feichtmeier.Musicpod.png","homepage":"https://github.com/ubuntu-flutter-community/musicpod"}
 {"id":"org.ferdium.Ferdium","name":"Ferdium","summary":"Messenger for the desktop","version":"7.1.2","iconFilename":"org.ferdium.Ferdium.png","homepage":"https://ferdium.org"}
-{"id":"org.filezillaproject.Filezilla","name":"FileZilla","summary":"Fast and reliable FTP client","version":"3.69.6","iconFilename":"org.filezillaproject.Filezilla.png","homepage":"https://filezilla-project.org/"}
+{"id":"org.filezillaproject.Filezilla","name":"FileZilla","summary":"Fast and reliable FTP client","version":"3.70.6","iconFilename":"org.filezillaproject.Filezilla.png","homepage":"https://filezilla-project.org/"}
 {"id":"org.filmulator.Filmulator","name":"Filmulator","summary":"Simple raw photo editor based on film development","version":"0.12.0","iconFilename":"org.filmulator.Filmulator.png","homepage":"https://filmulator.org/"}
 {"id":"org.firestormviewer.FirestormViewer","name":"Firestorm Viewer","summary":"Client for accessing 3D virtual worlds","version":"7.2.4.80712","iconFilename":"org.firestormviewer.FirestormViewer.png","homepage":"https://www.firestormviewer.org/"}
 {"id":"org.firo.firo-qt","name":"Firo","summary":"Fully validating Firo peer-to-peer network node, wallet and graphical interface","version":"0.14.17.2","iconFilename":"org.firo.firo-qt.png","homepage":"https://firo.org/"}
@@ -2448,7 +2452,7 @@
 {"id":"org.gahshomar.Gahshomar.desktop","name":"Gahshomar","summary":"A Persian/Jalali/Farsi calendar","version":"5.0.2","iconFilename":"org.gahshomar.Gahshomar.desktop.png","homepage":"https://gahshomar.github.io/gahshomar/"}
 {"id":"org.gajim.Gajim","name":"Gajim","summary":"Fully-featured XMPP chat client","version":"2.5.0","iconFilename":"org.gajim.Gajim.png","homepage":"https://gajim.org/"}
 {"id":"org.gaphor.Gaphor","name":"Gaphor","summary":"Simple UML and SysML modeling tool","version":"3.3.2","iconFilename":"org.gaphor.Gaphor.png","homepage":"https://gaphor.org"}
-{"id":"org.garudalinux.firedragon","name":"FireDragon","summary":"FireDragon is a cross-platform, feature-rich and privacy-focused web browser","version":"v13.1.3","iconFilename":"org.garudalinux.firedragon.png","homepage":"https://firedragon.garudalinux.org/"}
+{"id":"org.garudalinux.firedragon","name":"FireDragon","summary":"FireDragon is a cross-platform, feature-rich and privacy-focused web browser","version":"v13.2.0","iconFilename":"org.garudalinux.firedragon.png","homepage":"https://firedragon.garudalinux.org/"}
 {"id":"org.geany.Geany","name":"Geany","summary":"Fast and lightweight IDE","version":"2.1.0","iconFilename":"org.geany.Geany.png","homepage":"https://geany.org/"}
 {"id":"org.geeqie.Geeqie","name":"Geeqie","summary":"A lightweight image viewer","version":"3.1","iconFilename":"org.geeqie.Geeqie.png","homepage":"https://www.geeqie.org"}
 {"id":"org.gemrb.gemrb","name":"GemRB","summary":"Classic role-playing game engine","version":"0.9.5","iconFilename":"org.gemrb.gemrb.png","homepage":"https://gemrb.org/"}
@@ -2570,7 +2574,7 @@
 {"id":"org.gnome.gitlab.bazylevnik0.Convolution.desktop","name":"Convolution","summary":"Maze escaping game","version":"0.2.7","iconFilename":"org.gnome.gitlab.bazylevnik0.Convolution.desktop.png","homepage":"https://gitlab.gnome.org/bazylevnik0/convolution/"}
 {"id":"org.gnome.gitlab.cheywood.Buffer","name":"Buffer","summary":"Embrace ephemeral text","version":"2026.1","iconFilename":"org.gnome.gitlab.cheywood.Buffer.png","homepage":"https://gitlab.gnome.org/cheywood/buffer"}
 {"id":"org.gnome.gitlab.cheywood.Pulp","name":"Pulp","summary":"Skim excessive articles","version":"2026.4","iconFilename":"org.gnome.gitlab.cheywood.Pulp.png","homepage":"https://gitlab.gnome.org/cheywood/Pulp"}
-{"id":"org.gnome.gitlab.dqpb.GMetronome","name":"GMetronome","summary":"Maintain a steady tempo","version":"0.4.2","iconFilename":"org.gnome.gitlab.dqpb.GMetronome.png","homepage":"https://gitlab.gnome.org/dqpb/gmetronome"}
+{"id":"org.gnome.gitlab.dqpb.GMetronome","name":"GMetronome","summary":"Maintain a steady tempo","version":"0.5.1","iconFilename":"org.gnome.gitlab.dqpb.GMetronome.png","homepage":"https://gitlab.gnome.org/dqpb/gmetronome"}
 {"id":"org.gnome.gitlab.ilhooq.Bookup","name":"Bookup","summary":"Streamline notes with Markdown!","version":"1.1.6","iconFilename":"org.gnome.gitlab.ilhooq.Bookup.png","homepage":"https://gitlab.gnome.org/ilhooq/bookup"}
 {"id":"org.gnome.gitlab.johannesjh.favagtk.desktop","name":"Fava","summary":"Do your finances","version":"2.0.3","iconFilename":"org.gnome.gitlab.johannesjh.favagtk.desktop.png","homepage":"https://gitlab.gnome.org/johannesjh/favagtk"}
 {"id":"org.gnome.gitlab.powimod.aion-task","name":"AionTask","summary":"Cyclic task manager","version":"0.9.3","iconFilename":"org.gnome.gitlab.powimod.aion-task.png","homepage":"https://gitlab.gnome.org/powimod/aion-task/-/wikis/Aion-Task-Manager-home-page"}
@@ -2640,7 +2644,7 @@
 {"id":"org.jellyfin.JellyfinDesktop","name":"Jellyfin Desktop","summary":"Jellyfin desktop client","version":"2.0.0","iconFilename":"org.jellyfin.JellyfinDesktop.png","homepage":"https://github.com/jellyfin/jellyfin-desktop"}
 {"id":"org.jellyfin.JellyfinServer","name":"Jellyfin Server","summary":"Media Streaming System","version":"10.11.11","iconFilename":"org.jellyfin.JellyfinServer.png","homepage":"https://jellyfin.org/"}
 {"id":"org.jflap.JFLAP","name":"JFLAP","summary":"Formal languages testing","version":"7.1","iconFilename":"org.jflap.JFLAP.png","homepage":"https://www.jflap.org"}
-{"id":"org.jitsi.jitsi-meet","name":"Jitsi Meet","summary":"Jitsi Meet - Secure, Simple and Scalable Video Conferences","version":"2026.7.0","iconFilename":"org.jitsi.jitsi-meet.png","homepage":"https://jitsi.org"}
+{"id":"org.jitsi.jitsi-meet","name":"Jitsi Meet","summary":"Jitsi Meet - Secure, Simple and Scalable Video Conferences","version":"2026.8.0","iconFilename":"org.jitsi.jitsi-meet.png","homepage":"https://jitsi.org"}
 {"id":"org.jjazzlab.JJazzLab","name":"JJazzLab","summary":"Generate backing tracks for any song","version":"5.2.1","iconFilename":"org.jjazzlab.JJazzLab.png","homepage":"https://www.jjazzlab.org/"}
 {"id":"org.jousse.vincent.Pomodorolm","name":"pomodorolm","summary":"A simple, good looking and configurable pomodoro tracker with tray icon.","version":"0.9.1","iconFilename":"org.jousse.vincent.Pomodorolm.png","homepage":"https://github.com/vjousse/pomodorolm"}
 {"id":"org.jreleaser.cli","name":"jreleaser","summary":"Release projects quickly and easily with JReleaser","version":"1.25.0","homepage":"https://jreleaser.org"}
@@ -2772,7 +2776,7 @@
 {"id":"org.kde.ksnakeduel","name":"KSnakeDuel","summary":"Tron-like Game","version":"2.1.26043","iconFilename":"org.kde.ksnakeduel.png","homepage":"https://apps.kde.org/ksnakeduel"}
 {"id":"org.kde.ksquares","name":"KSquares","summary":"Connect the dots to create squares","version":"0.6.26043","iconFilename":"org.kde.ksquares.png","homepage":"https://apps.kde.org/ksquares"}
 {"id":"org.kde.kst","name":"Kst","summary":"Data Viewer","version":"3.0.0","iconFilename":"org.kde.kst.png","homepage":"https://apps.kde.org/kst/"}
-{"id":"org.kde.kstars.desktop","name":"KStars","summary":"Desktop Planetarium","version":"3.8.4","iconFilename":"org.kde.kstars.desktop.png","homepage":"https://kstars.kde.org/"}
+{"id":"org.kde.kstars.desktop","name":"KStars","summary":"Desktop Planetarium","version":"3.8.5","iconFilename":"org.kde.kstars.desktop.png","homepage":"https://kstars.kde.org/"}
 {"id":"org.kde.ksudoku","name":"KSudoku","summary":"Complete a numeric puzzle with the numbers from one to nine","version":"1.4.26043","iconFilename":"org.kde.ksudoku.png","homepage":"https://apps.kde.org/ksudoku"}
 {"id":"org.kde.kteatime.desktop","name":"KTeaTime","summary":"Tea Cooker","version":"26.04.3","iconFilename":"org.kde.kteatime.desktop.png","homepage":"https://apps.kde.org/kteatime/"}
 {"id":"org.kde.ktimetracker","name":"KTimeTracker","summary":"Personal Time Tracker","version":"6.0.0","iconFilename":"org.kde.ktimetracker.png","homepage":"https://apps.kde.org/ktimetracker"}
@@ -2824,7 +2828,7 @@
 {"id":"org.kde.vvave.desktop","name":"Vvave","summary":"Play your music collection","version":"4.0.1","iconFilename":"org.kde.vvave.desktop.png","homepage":"https://vvave.kde.org/"}
 {"id":"org.kde.yakuake.desktop","name":"Yakuake","summary":"Drop-down Terminal","version":"26.04.3","iconFilename":"org.kde.yakuake.desktop.png","homepage":"https://apps.kde.org/yakuake"}
 {"id":"org.keepassxc.KeePassXC.desktop","name":"KeePassXC","summary":"Secure and Full-featured Password Manager","version":"2.7.12","iconFilename":"org.keepassxc.KeePassXC.desktop.png","homepage":"https://keepassxc.org"}
-{"id":"org.kekikakademi.eFatura.desktop","name":"eFatura","summary":"E-Invoice Usage Inquiry from Tax or TR Identity Number","version":"1.1.7","iconFilename":"org.kekikakademi.eFatura.desktop.png","homepage":"https://kekikakademi.org"}
+{"id":"org.kekikakademi.eFatura.desktop","name":"eFatura","summary":"E-Invoice Usage Inquiry from Tax or TR Identity Number","version":"1.1.8","iconFilename":"org.kekikakademi.eFatura.desktop.png","homepage":"https://kekikakademi.org"}
 {"id":"org.keystore_explorer.KeyStoreExplorer","name":"KeyStore Explorer","summary":"Multipurpose keystore and certificate tool","version":"v5.6.1","iconFilename":"org.keystore_explorer.KeyStoreExplorer.png","homepage":"https://keystore-explorer.org"}
 {"id":"org.kicad.KiCad","name":"KiCad","summary":"An EDA suite for schematic and circuit board design","version":"10.0.5","iconFilename":"org.kicad.KiCad.png","homepage":"https://www.kicad.org/"}
 {"id":"org.kiwix.desktop","name":"Kiwix","summary":"View offline content","version":"2.4.1","iconFilename":"org.kiwix.desktop.png","homepage":"https://www.kiwix.org/"}
@@ -2962,15 +2966,15 @@
 {"id":"org.qelectrotech.QElectroTech","name":"QElectroTech","summary":"Electrical diagram editor","version":"0.100","iconFilename":"org.qelectrotech.QElectroTech.png","homepage":"https://qelectrotech.org"}
 {"id":"org.qgis.qgis.desktop","name":"QGIS Desktop","summary":"A Free and Open Source Geographic Information System","version":"3.28.9","iconFilename":"org.qgis.qgis.png","homepage":"https://qgis.org"}
 {"id":"org.qgis.qgis.desktop","name":"QGIS Desktop","summary":"A Geographic Information System","version":"4.2.1","iconFilename":"org.qgis.qgis.desktop.png","homepage":"https://qgis.org"}
-{"id":"org.qownnotes.QOwnNotes","name":"QOwnNotes","summary":"Markdown note-taking","version":"26.8.3","iconFilename":"org.qownnotes.QOwnNotes.png","homepage":"https://www.qownnotes.org/"}
+{"id":"org.qownnotes.QOwnNotes","name":"QOwnNotes","summary":"Markdown note-taking","version":"26.8.4","iconFilename":"org.qownnotes.QOwnNotes.png","homepage":"https://www.qownnotes.org/"}
 {"id":"org.quassel_irc.QuasselClient","name":"Quassel Client","summary":"Modern distributed IRC client","version":"0.14.0","iconFilename":"org.quassel_irc.QuasselClient.png","homepage":"https://quassel-irc.org"}
 {"id":"org.quelea.Quelea","name":"Quelea","summary":"Open source projection software for churches","version":"2024.1","iconFilename":"org.quelea.Quelea.png","homepage":"https://quelea.org/"}
 {"id":"org.quetoo.Quetoo","name":"Quetoo","summary":"A free first person shooter for Mac, PC and Linux","version":"1.0.67","iconFilename":"org.quetoo.Quetoo.png","homepage":"https://quetoo.org"}
 {"id":"org.qxmledit.QXmlEdit","name":"QXmlEdit","summary":"XML editor","version":"0.9.18.1","iconFilename":"org.qxmledit.QXmlEdit.png","homepage":"https://qxmledit.org"}
 {"id":"org.raceintospace.Raceintospace","name":"Race into Space","summary":"A game to relive the 1960s Space Race","version":"2.0","iconFilename":"org.raceintospace.Raceintospace.png","homepage":"https://github.com/raceintospace/raceintospace"}
 {"id":"org.racket_lang.Racket","name":"Racket","summary":"The Language-Oriented Programming Language","version":"9.3","iconFilename":"org.racket_lang.Racket.png","homepage":"https://www.racket-lang.org/"}
-{"id":"org.radare.iaito","name":"Iaito","summary":"GUI for radare2","version":"6.1.8","iconFilename":"org.radare.iaito.png","homepage":"https://radare.org/"}
-{"id":"org.rayforge.rayforge","name":"Rayforge","summary":"A desktop application for laser cutting and engraving","version":"1.9.2","iconFilename":"org.rayforge.rayforge.png","homepage":"https://rayforge.org"}
+{"id":"org.radare.iaito","name":"Iaito","summary":"GUI for radare2","version":"6.2.0","iconFilename":"org.radare.iaito.png","homepage":"https://radare.org/"}
+{"id":"org.rayforge.rayforge","name":"Rayforge","summary":"A desktop application for laser cutting and engraving","version":"1.9.3","iconFilename":"org.rayforge.rayforge.png","homepage":"https://rayforge.org"}
 {"id":"org.recoll.recoll","name":"Recoll","summary":"Full-text search for your desktop","version":"1.44.1","iconFilename":"org.recoll.recoll.png","homepage":"https://www.recoll.org"}
 {"id":"org.regular_dev.biplanes_revival","name":"Biplanes Revival","summary":"Old cellphone arcade recreation","version":"1.2.1","iconFilename":"org.regular_dev.biplanes_revival.png","homepage":"https://regular-dev.org/biplanes-revival"}
 {"id":"org.remmina.Remmina","name":"Remmina","summary":"Remote Desktop Client","version":"1.4.43","iconFilename":"org.remmina.Remmina.png","homepage":"https://www.remmina.org/"}
@@ -3003,7 +3007,7 @@
 {"id":"org.simondalvai.pocket-broomball","name":"Pocket Broomball","summary":"World's first Broomball video game","version":"6.1.3","iconFilename":"org.simondalvai.pocket-broomball.png","homepage":"https://simondalvai.org/games/pocket-broomball"}
 {"id":"org.sinzala.silori","name":"Silori","summary":"Calm, fast screen capture for Linux","version":"0.1.1","iconFilename":"org.sinzala.silori.png","homepage":"https://sinzala.org/"}
 {"id":"org.siril.Siril","name":"Siril","summary":"Astronomical image processor","version":"1.4.4","iconFilename":"org.siril.Siril.png","homepage":"https://www.siril.org"}
-{"id":"org.skaven.ratic","name":"Ratic","summary":"Complete music player","version":"0.3.1","iconFilename":"org.skaven.ratic.png","homepage":"https://gitlab.gnome.org/ratcornu/ratic"}
+{"id":"org.skaven.ratic","name":"Ratic","summary":"Complete music player","version":"0.4.0","iconFilename":"org.skaven.ratic.png","homepage":"https://gitlab.gnome.org/ratcornu/ratic"}
 {"id":"org.skytemple.Randomizer","name":"SkyTemple Randomizer","summary":"Randomizer for Pokémon Mystery Dungeon Explorers of Sky","version":"2.2.0","iconFilename":"org.skytemple.Randomizer.png","homepage":"https://skytemple.org"}
 {"id":"org.skytemple.SkyTemple","name":"SkyTemple","summary":"ROM Editor for Pokémon Mystery Dungeon Explorers of Sky","version":"1.8.4","iconFilename":"org.skytemple.SkyTemple.png","homepage":"https://skytemple.org"}
 {"id":"org.soapui.SoapUI","name":"SoapUI Open Source","summary":"Testing solution for APIs","version":"5.10.0","iconFilename":"org.soapui.SoapUI.png","homepage":"https://www.soapui.org/"}
@@ -3075,7 +3079,7 @@
 {"id":"org.telegram.desktop","name":"Telegram","summary":"New era of messaging","version":"7.0.9","iconFilename":"org.telegram.desktop.png","homepage":"https://desktop.telegram.org/"}
 {"id":"org.tenacityaudio.Tenacity","name":"Tenacity","summary":"Record and edit audio files","version":"1.3.5","iconFilename":"org.tenacityaudio.Tenacity.png","homepage":"https://tenacityaudio.org"}
 {"id":"org.texmacs.TeXmacs","name":"TeXmacs","summary":"Scientific Document Editor","version":"2.1.5","iconFilename":"org.texmacs.TeXmacs.png","homepage":"https://www.texmacs.org"}
-{"id":"org.texstudio.TeXstudio","name":"TeXstudio","summary":"Craft beautiful LaTeX documents","version":"4.9.6","iconFilename":"org.texstudio.TeXstudio.png","homepage":"https://texstudio.org/"}
+{"id":"org.texstudio.TeXstudio","name":"TeXstudio","summary":"Craft beautiful LaTeX documents","version":"4.9.7","iconFilename":"org.texstudio.TeXstudio.png","homepage":"https://texstudio.org/"}
 {"id":"org.thentrythis.Samplebrain","name":"Samplebrain","summary":"A custom sample mashing app designed by Aphex Twin","version":"0.18.5","iconFilename":"org.thentrythis.Samplebrain.png","homepage":"https://thentrythis.org/projects/samplebrain/"}
 {"id":"org.thonny.Thonny.desktop","name":"Thonny","summary":"Python IDE for beginners","version":"4.1.7","iconFilename":"org.thonny.Thonny.desktop.png","homepage":"https://thonny.org"}
 {"id":"org.tibirna.qgit","name":"QGit","summary":"A git GUI viewer","version":"2.12","iconFilename":"org.tibirna.qgit.png","homepage":"https://github.com/tibirna/qgit"}
@@ -3119,7 +3123,7 @@
 {"id":"org.virt_manager.virt-manager","name":"Virtual Machine Manager","summary":"Graphically manage KVM, Xen, or LXC via libvirt","version":"5.1.0","iconFilename":"org.virt_manager.virt-manager.png","homepage":"https://www.virt-manager.org/"}
 {"id":"org.virt_manager.virt-viewer","name":"Remote Viewer","summary":"Remotely access virtual machines","version":"11.0.0","iconFilename":"org.virt_manager.virt-viewer.png","homepage":"https://virt-manager.org"}
 {"id":"org.virtualxt.VirtualXT","name":"VirtualXT","summary":"Turbo PC/XT emulator","version":"1.2.0","iconFilename":"org.virtualxt.VirtualXT.png","homepage":"https://phix.itch.io/virtualxt"}
-{"id":"org.waywallen.waywallen","name":"waywallen","summary":"Wallpaper Manager for Linux","version":"0.3.3","iconFilename":"org.waywallen.waywallen.png","homepage":"https://github.com/waywallen"}
+{"id":"org.waywallen.waywallen","name":"waywallen","summary":"Wallpaper Manager for Linux","version":"0.3.5","iconFilename":"org.waywallen.waywallen.png","homepage":"https://github.com/waywallen"}
 {"id":"org.wesnoth.Wesnoth","name":"Battle for Wesnoth","summary":"A turn-based strategy game with a high fantasy theme","version":"1.18.7","iconFilename":"org.wesnoth.Wesnoth.png","homepage":"https://www.wesnoth.org"}
 {"id":"org.wezfurlong.wezterm","name":"WezTerm","summary":"Powerful terminal and multiplexer","version":"20240203-110809-5046fc22","iconFilename":"org.wezfurlong.wezterm.png","homepage":"https://wezfurlong.org/wezterm/"}
 {"id":"org.wfview.wfview","name":"wfview","summary":"Open Source interface for Icom transceivers","version":"2.23","iconFilename":"org.wfview.wfview.png","homepage":"https://wfview.org"}
@@ -3177,7 +3181,7 @@
 {"id":"page.codeberg.dudenix.escritoire","name":"Escritoire","summary":"Write letters with confidence","version":"1.1.2","iconFilename":"page.codeberg.dudenix.escritoire.png","homepage":"https://codeberg.org/dudenix/escritoire"}
 {"id":"page.codeberg.elth0r0.iqpuzzle","name":"iQPuzzle","summary":"Challenging pentomino puzzle","version":"1.5.1","iconFilename":"page.codeberg.elth0r0.iqpuzzle.png","homepage":"https://elth0r0.codeberg.page/iqpuzzle/"}
 {"id":"page.codeberg.friedrich.DND-Dice-Roller","name":"DND Dice Roller","summary":"A DnD dice rolling application for the COSMIC™ desktop","version":"0.2.2","iconFilename":"page.codeberg.friedrich.DND-Dice-Roller.png","homepage":"https://codeberg.org/Friedrich/dnd-dice-roller"}
-{"id":"page.codeberg.grinka.Transition","name":"Transition","summary":"Simple multimedia to audio conversion","version":"2.0","iconFilename":"page.codeberg.grinka.Transition.png","homepage":"https://codeberg.org/grinka/transition"}
+{"id":"page.codeberg.grinka.Transition","name":"Transition","summary":"Multimedia to audio conversion","version":"3.0","iconFilename":"page.codeberg.grinka.Transition.png","homepage":"https://codeberg.org/grinka/transition"}
 {"id":"page.codeberg.gwync.glerm","name":"Glerm","summary":"A puzzle game","version":"0.5.4","iconFilename":"page.codeberg.gwync.glerm.png","homepage":"https://codeberg.org/gwync/glerm"}
 {"id":"page.codeberg.ilijaculap.snux","name":"Snux","summary":"Simple snake game","version":"3.2.2","iconFilename":"page.codeberg.ilijaculap.snux.png","homepage":"https://codeberg.org/ilijaculap/snux"}
 {"id":"page.codeberg.impromptux.ytdl-gui","name":"Yt Downloader","summary":"Download videos and music from various sources.","version":"4.5","iconFilename":"page.codeberg.impromptux.ytdl-gui.png","homepage":"https://codeberg.org/impromptux/ytdl-gui"}
@@ -3189,7 +3193,7 @@
 {"id":"page.codeberg.maerchenfeeimgarten.AntiBillard","name":"AntiBillard","summary":"Billiards: round table, square balls","version":"0.1.1","iconFilename":"page.codeberg.maerchenfeeimgarten.AntiBillard.png","homepage":"https://maerchenfeeimgarten.codeberg.page/AntiBillard/"}
 {"id":"page.codeberg.maerchenfeeimgarten.Pfeilspiel","name":"Pfeilspiel TNG international","summary":"A game about arrows that requires a close look","version":"0.1.0","iconFilename":"page.codeberg.maerchenfeeimgarten.Pfeilspiel.png","homepage":"https://maerchenfeeimgarten.codeberg.page/pfeilspiel//"}
 {"id":"page.codeberg.maerchenfeeimgarten.doors_app","name":"DOORS app","summary":"A pixel art puzzle game about doors","version":"0.1.7","iconFilename":"page.codeberg.maerchenfeeimgarten.doors_app.png","homepage":"https://maerchenfeeimgarten.codeberg.page/DOORS/"}
-{"id":"page.codeberg.ostfriese4.Untis","name":"Timetable","summary":"View your WebUntis timetable","version":"4.2.0","iconFilename":"page.codeberg.ostfriese4.Untis.png","homepage":"https://codeberg.org/ostfriese4/untis"}
+{"id":"page.codeberg.ostfriese4.Untis","name":"Timetable","summary":"View your WebUntis timetable","version":"4.2.1","iconFilename":"page.codeberg.ostfriese4.Untis.png","homepage":"https://codeberg.org/ostfriese4/untis"}
 {"id":"page.codeberg.outfly.outfly","name":"Outfly","summary":"Breathtaking 3D space game in the rings of Jupiter","version":"0.15.0","iconFilename":"page.codeberg.outfly.outfly.png","homepage":"https://codeberg.org/outfly/outfly"}
 {"id":"page.codeberg.papojari.Find_Billy","name":"Find Billy!","summary":"A pixel art 2d platformer game.","version":"0.37.2","iconFilename":"page.codeberg.papojari.Find_Billy.png","homepage":"https://codeberg.org/papojari/Find-Billy"}
 {"id":"page.codeberg.petsoi.words","name":"Words!","summary":"Have fun guessing Words","version":"0.7.9","iconFilename":"page.codeberg.petsoi.words.png","homepage":"https://codeberg.org/petsoi/words"}
@@ -3260,7 +3264,7 @@
 {"id":"so.libdb.dissent","name":"Dissent","summary":"Tiny native Discord app","version":"v0.0.37","iconFilename":"so.libdb.dissent.png","homepage":"https://github.com/diamondburned/dissent"}
 {"id":"so.onekey.Wallet","name":"OneKey","summary":"All-in-one crypto wallet.","version":"6.4.0","iconFilename":"so.onekey.Wallet.png","homepage":"https://onekey.so"}
 {"id":"social.whalebird.WhalebirdDesktop","name":"Whalebird","summary":"Whalebird is a Mastodon, Pleroma, and Misskey client for the desktop","version":"5.0.7","iconFilename":"social.whalebird.WhalebirdDesktop.png","homepage":"https://whalebird.social/en/desktop/contents"}
-{"id":"space.bigrat.mocktail","name":"Mocktail","summary":"Play Roblox on Linux","version":"1.0.1","iconFilename":"space.bigrat.mocktail.png","homepage":"https://github.com/komaruworld/mocktail"}
+{"id":"space.bigrat.mocktail","name":"Mocktail","summary":"Play Roblox on Linux","version":"1.0.3","iconFilename":"space.bigrat.mocktail.png","homepage":"https://github.com/komaruworld/mocktail"}
 {"id":"space.f1nn.chorus","name":"Chorus","summary":"Sing along to your music","version":"0.6.1","iconFilename":"space.f1nn.chorus.png","homepage":"https://github.com/f1nniboy/chorus"}
 {"id":"space.fips.Fips","name":"FIPS","summary":"OpenGL-based FITS image viewer","version":"3.5.0","iconFilename":"space.fips.Fips.png","homepage":"https://fips.space"}
 {"id":"space.gaiasky.GaiaSky","name":"Gaia Sky","summary":"Explore the universe in 3D","version":"3.8.0","iconFilename":"space.gaiasky.GaiaSky.png","homepage":"https://gaiasky.space"}
@@ -3268,8 +3272,8 @@
 {"id":"space.oolite.Oolite","name":"Oolite","summary":"Open-world space opera","version":"1.92.1","iconFilename":"space.oolite.Oolite.png","homepage":"https://oolite.space"}
 {"id":"space.rirusha.Cassette","name":"Cassette","summary":"Unofficial Yandex Music client","version":"0.2.4","iconFilename":"space.rirusha.Cassette.png","homepage":"https://altlinux.space/rirusha/Cassette"}
 {"id":"space.x1z53.iris","name":"Iris","summary":"Unofficial Yummy Anime client","version":"0.2.4","iconFilename":"space.x1z53.iris.png","homepage":"https://iris.x1z53.space"}
-{"id":"studio.assetmanager.ams","name":"Asset Manager Studio","summary":"Movie and game developer asset manager for Epic's Unreal Engine","version":"1.2.0","iconFilename":"studio.assetmanager.ams.png","homepage":"https://www.assetmanager.studio/"}
-{"id":"studio.eufonia.EufoniaClient","name":"Eufonia Client","summary":"Join Minecraft in-game events","version":"3.5.1","iconFilename":"studio.eufonia.EufoniaClient.png","homepage":"https://eufonia.studio/client"}
+{"id":"studio.assetmanager.ams","name":"Asset Manager Studio","summary":"Movie and game developer asset manager for Epic's Unreal Engine","version":"1.2.2","iconFilename":"studio.assetmanager.ams.png","homepage":"https://www.assetmanager.studio/"}
+{"id":"studio.eufonia.EufoniaClient","name":"Eufonia Client","summary":"Join Minecraft in-game events","version":"3.7.0","iconFilename":"studio.eufonia.EufoniaClient.png","homepage":"https://eufonia.studio/client"}
 {"id":"studio.kx.carla","name":"Carla","summary":"Audio Plugin Host","version":"2.5.10","iconFilename":"studio.kx.carla.png","homepage":"https://kx.studio/Applications:Carla"}
 {"id":"studio.okcode.open_alert_viewer","name":"Open Alert Viewer","summary":"Fetch and display server alerts","version":"1.3.4","iconFilename":"studio.okcode.open_alert_viewer.png","homepage":"https://sourceflow.dev/apps/open-alert-viewer/"}
 {"id":"studio.planetpeanut.Bobby","name":"Bobby","summary":"View SQLite databases","version":"50.0.2","iconFilename":"studio.planetpeanut.Bobby.png","homepage":"https://apps.gnome.org/Bobby"}
@@ -3278,7 +3282,7 @@
 {"id":"systems.tranquil.Map","name":"Map","summary":"Visualize your business landscape","version":"1.0.4","iconFilename":"systems.tranquil.Map.png","homepage":"https://map.tranquil.systems/map-for-linux"}
 {"id":"tech.digiroad.Convertidor","name":"Convertidor","summary":"Converting units of measurement","version":"1.4.2","iconFilename":"tech.digiroad.Convertidor.png","homepage":"https://github.com/GS90/Convertidor"}
 {"id":"tech.digiroad.ImageFlow","name":"ImageFlow","summary":"Video to animated images","version":"1.1.2","iconFilename":"tech.digiroad.ImageFlow.png","homepage":"https://github.com/GS90/ImageFlow"}
-{"id":"tech.dongdongbh.mindwtr","name":"Mindwtr","summary":"Get tasks out of your head","version":"1.1.6","iconFilename":"tech.dongdongbh.mindwtr.png","homepage":"https://mindwtr.app"}
+{"id":"tech.dongdongbh.mindwtr","name":"Mindwtr","summary":"Get tasks out of your head","version":"1.2.1","iconFilename":"tech.dongdongbh.mindwtr.png","homepage":"https://mindwtr.app"}
 {"id":"tech.emendir.QR-ScanGen","name":"QR-ScanGen","summary":"A simple cross-platform QR code scanner and generator","version":"1.4.1","iconFilename":"tech.emendir.QR-ScanGen.png","homepage":"https://github.com/emendir/QR-ScanGen"}
 {"id":"tech.feliciano.pocket-casts","name":"Pocket Casts","summary":"Online podcast player","version":"0.10.2","iconFilename":"tech.feliciano.pocket-casts.png","homepage":"https://www.pocketcasts.com/"}
 {"id":"tech.keyforge.keyforge_master","name":"KeyForge Master","summary":"Configurator software for KeyForge devices","version":"v2.0.0","iconFilename":"tech.keyforge.keyforge_master.png","homepage":"https://keyforge.tech/"}
@@ -3304,7 +3308,7 @@
 {"id":"uk.co.studiopond.spiderbro","name":"Spiderbro","summary":"A spider puzzle game!","version":"1.9.2","iconFilename":"uk.co.studiopond.spiderbro.png","homepage":"https://www.studiopond.co.uk/spiderbro/"}
 {"id":"uk.co.studiopond.spiderbro2","name":"Spiderbro 2","summary":"A spider puzzle game!","version":"2.1","iconFilename":"uk.co.studiopond.spiderbro2.png","homepage":"https://www.studiopond.co.uk/spiderbro-2/"}
 {"id":"uk.me.doof.Lander","name":"Lander","summary":"Lunar Lander style arcade game","version":"0.7.2","iconFilename":"uk.me.doof.Lander.png","homepage":"https://www.doof.me.uk/lunar-lander/"}
-{"id":"uk.org.greenend.chiark.sgtatham.putty","name":"PuTTY","summary":"SSH, Telnet and Rlogin client","version":"0.84","iconFilename":"uk.org.greenend.chiark.sgtatham.putty.png","homepage":"https://www.chiark.greenend.org.uk/~sgtatham/putty/"}
+{"id":"uk.org.greenend.chiark.sgtatham.putty","name":"PuTTY","summary":"SSH, Telnet and Rlogin client","version":"0.85","iconFilename":"uk.org.greenend.chiark.sgtatham.putty.png","homepage":"https://www.chiark.greenend.org.uk/~sgtatham/putty/"}
 {"id":"uk.org.greenend.chiark.sgtatham.puzzles","name":"Simon Tatham's Portable Puzzle Collection","summary":"Puzzle game collection","version":"20241229","iconFilename":"uk.org.greenend.chiark.sgtatham.puzzles.png","homepage":"https://www.chiark.greenend.org.uk/~sgtatham/puzzles/"}
 {"id":"uk.org.zint.zint-qt","name":"Zint Barcode Studio","summary":"Barcode generator","version":"2.16.0","iconFilename":"uk.org.zint.zint-qt.png","homepage":"https://zint.org.uk"}
 {"id":"uno.platform.uno-calculator","name":"Uno Calculator","summary":"Linux port of the Microsoft Windows calculator app","version":"1.2.9","iconFilename":"uno.platform.uno-calculator.png","homepage":"https://platform.uno/uno-calculator/"}

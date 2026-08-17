@@ -18,4 +18,5 @@ export { searchGentoo } from "./gentoo";
 export { searchMint } from "./mint";
 export { searchPopOs } from "./popos";
 export { searchDeepin } from "./deepin";
+export { searchMxLinux } from "./mxlinux";
 export { searchAllSources } from "./search";

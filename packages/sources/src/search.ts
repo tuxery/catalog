@@ -9,6 +9,7 @@ import { searchFedora } from "./fedora";
 import { searchFlathub } from "./flathub";
 import { searchGentoo } from "./gentoo";
 import { searchMint } from "./mint";
+import { searchMxLinux } from "./mxlinux";
 import { searchNixpkgs } from "./nixpkgs";
 import { searchOpenSuse } from "./opensuse";
 import { searchPopOs } from "./popos";
@@ -45,6 +46,7 @@ export async function searchAllSources(query: string): Promise<SourcedPackage[]>
     searchMint(query),
     searchPopOs(query),
     searchDeepin(query),
+    searchMxLinux(query),
   ]);
 
   return results.flat();

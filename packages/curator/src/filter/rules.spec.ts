@@ -92,6 +92,57 @@ describe("looksLikeSupportSection", () => {
     expect(looksLikeSupportSection("web")).toBe(false);
   });
 
+  it("flags nixpkgs language-ecosystem attribute-path prefixes, including version-numbered ones", () => {
+    expect(looksLikeSupportSection("rPackages")).toBe(true);
+    expect(looksLikeSupportSection("haskellPackages")).toBe(true);
+    expect(looksLikeSupportSection("python313Packages")).toBe(true);
+    expect(looksLikeSupportSection("perlPackages")).toBe(true);
+    expect(looksLikeSupportSection("perl5Packages")).toBe(true);
+    expect(looksLikeSupportSection("ocamlPackages_latest")).toBe(true);
+    expect(looksLikeSupportSection("lua54Packages")).toBe(true);
+    expect(looksLikeSupportSection("rubyPackages_3_3")).toBe(true);
+    expect(looksLikeSupportSection("chickenPackages_5")).toBe(true);
+    expect(looksLikeSupportSection("texlivePackages")).toBe(true);
+    expect(looksLikeSupportSection("typstPackages")).toBe(true);
+  });
+
+  it("flags nixpkgs toolchain/library sets verified individually, unlike '*Packages' in general", () => {
+    expect(looksLikeSupportSection("qt6Packages")).toBe(true);
+    expect(looksLikeSupportSection("winePackages")).toBe(true);
+    expect(looksLikeSupportSection("wine64Packages")).toBe(true);
+    expect(looksLikeSupportSection("wineWoW64Packages")).toBe(true);
+    expect(looksLikeSupportSection("godotPackages_4_3")).toBe(true);
+    expect(looksLikeSupportSection("postgresql16Packages")).toBe(true);
+  });
+
+  it("flags any nixpkgs plugin/extension prefix for a host app — not independently launchable", () => {
+    // A general suffix pattern, verified safe across ~10 different
+    // host-app namespaces (fish, tmux, obs-studio, netbox, roundcube,
+    // gimp, elasticsearch, grafana, ...) — every sample was a plugin.
+    expect(looksLikeSupportSection("vimPlugins")).toBe(true);
+    expect(looksLikeSupportSection("vscode-extensions")).toBe(true);
+    expect(looksLikeSupportSection("gnomeExtensions")).toBe(true);
+    expect(looksLikeSupportSection("fishPlugins")).toBe(true);
+    expect(looksLikeSupportSection("obs-studio-plugins")).toBe(true);
+    expect(looksLikeSupportSection("php83Extensions")).toBe(true);
+  });
+
+  it("flags nixpkgs non-application prefixes", () => {
+    expect(looksLikeSupportSection("emacsPackages")).toBe(true);
+    expect(looksLikeSupportSection("tree-sitter-grammars")).toBe(true);
+    expect(looksLikeSupportSection("linuxKernel")).toBe(true);
+    expect(looksLikeSupportSection("linuxPackages_xanmod_stable")).toBe(true);
+    expect(looksLikeSupportSection("androidenv")).toBe(true);
+    expect(looksLikeSupportSection("hyphenDicts")).toBe(true);
+    expect(looksLikeSupportSection("terraform-providers")).toBe(true);
+  });
+
+  it("does not flag kdePackages or php*Packages — both mix real standalone apps with libraries, same trap as Debian's devel section", () => {
+    expect(looksLikeSupportSection("kdePackages")).toBe(false);
+    expect(looksLikeSupportSection("php83Packages")).toBe(false);
+    expect(looksLikeSupportSection("phpPackages")).toBe(false);
+  });
+
   it("does not flag an absent section", () => {
     expect(looksLikeSupportSection(undefined)).toBe(false);
   });

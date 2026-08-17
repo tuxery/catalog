@@ -5595,8 +5595,8 @@
 {"name":"tk9-demos","description":"GUI toolkit for the Tcl scripting language, version 9 (demos)","version":"9.0.3-r2","homepage":"https://www.tcl-lang.org/","repo":"main"}
 {"name":"tk9-dev","description":"GUI toolkit for the Tcl scripting language, version 9 (development files)","version":"9.0.3-r2","homepage":"https://www.tcl-lang.org/","repo":"main"}
 {"name":"tk9-doc","description":"GUI toolkit for the Tcl scripting language (documentation)","version":"9.0.3-r2","homepage":"https://www.tcl-lang.org/","repo":"main"}
-{"name":"tmux","description":"Tool to control multiple terminals from a single terminal","version":"3.6b-r0","homepage":"https://tmux.github.io","repo":"main"}
-{"name":"tmux-doc","description":"Tool to control multiple terminals from a single terminal (documentation)","version":"3.6b-r0","homepage":"https://tmux.github.io","repo":"main"}
+{"name":"tmux","description":"Tool to control multiple terminals from a single terminal","version":"3.7c-r0","homepage":"https://tmux.github.io","repo":"main"}
+{"name":"tmux-doc","description":"Tool to control multiple terminals from a single terminal (documentation)","version":"3.7c-r0","homepage":"https://tmux.github.io","repo":"main"}
 {"name":"tmux-zsh-completion","description":"Zsh completions for tmux","version":"5.9-r7","homepage":"https://www.zsh.org/","repo":"main"}
 {"name":"tolua++","description":"a tool to integrate C/C++ code with Lua","version":"1.0.93-r5","homepage":"https://github.com/LuaDist/toluapp","repo":"main"}
 {"name":"tpaste","description":"Helper script to paste things to https://tpaste.us","version":"0.8-r0","homepage":"https://tpaste.us","repo":"main"}

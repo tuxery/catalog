@@ -34,7 +34,7 @@
 {"name":"dbus-docs","description":"Freedesktop.org message bus system - Documentation","version":"1.16.2-1","homepage":"https://www.freedesktop.org/wiki/Software/dbus/","repo":"core"}
 {"name":"dbus-units","description":"D-Bus service units (default provider)","version":"37-3","homepage":"https://github.com/bus1/dbus-broker/wiki","repo":"core"}
 {"name":"debugedit","description":"Tool to mangle source locations in .debug files","version":"5.3-2","homepage":"https://sourceware.org/debugedit/","repo":"core"}
-{"name":"debuginfod","description":"Handle ELF object files and DWARF debugging information (debuginfod)","version":"0.195-8","homepage":"https://sourceware.org/elfutils/","repo":"core"}
+{"name":"debuginfod","description":"Handle ELF object files and DWARF debugging information (debuginfod)","version":"0.196-1","homepage":"https://sourceware.org/elfutils/","repo":"core"}
 {"name":"device-mapper","description":"Device mapper userspace library and tools","version":"2.03.42-1","homepage":"http://sourceware.org/dm/","repo":"core"}
 {"name":"diffutils","description":"Utility programs used for creating patch files","version":"3.12-2","homepage":"https://www.gnu.org/software/diffutils","repo":"core"}
 {"name":"ding-libs","description":"\"DING is not GNU\" helper libraries for SSSD and FreeIPA","version":"0.7.0-1","homepage":"https://github.com/SSSD/ding-libs","repo":"core"}
@@ -44,7 +44,7 @@
 {"name":"e2fsprogs","description":"Ext2/3/4 filesystem utilities","version":"1.47.4-1","homepage":"http://e2fsprogs.sourceforge.net","repo":"core"}
 {"name":"efibootmgr","description":"Linux user-space application to modify the EFI Boot Manager","version":"18-4","homepage":"https://github.com/rhboot/efibootmgr","repo":"core"}
 {"name":"efivar","description":"Tools and libraries to work with EFI variables","version":"39-2","homepage":"https://github.com/rhboot/efivar","repo":"core"}
-{"name":"elfutils","description":"Handle ELF object files and DWARF debugging information (utilities)","version":"0.195-8","homepage":"https://sourceware.org/elfutils/","repo":"core"}
+{"name":"elfutils","description":"Handle ELF object files and DWARF debugging information (utilities)","version":"0.196-1","homepage":"https://sourceware.org/elfutils/","repo":"core"}
 {"name":"expat","description":"An XML parser library","version":"2.8.3-1","homepage":"https://libexpat.github.io/","repo":"core"}
 {"name":"fakeroot","description":"Tool for simulating superuser privileges","version":"1:1.37.2-3","homepage":"https://tracker.debian.org/pkg/fakeroot","repo":"core"}
 {"name":"file","description":"File type identification utility","version":"5.48-1","homepage":"https://www.darwinsys.com/file/","repo":"core"}
@@ -118,7 +118,7 @@
 {"name":"libcurl-compat","description":"command line tool and library for transferring data with URLs (no versioned symbols)","version":"8.21.0-1","homepage":"https://curl.se/","repo":"core"}
 {"name":"libcurl-gnutls","description":"command line tool and library for transferring data with URLs (no versioned symbols, linked against gnutls)","version":"8.21.0-1","homepage":"https://curl.se/","repo":"core"}
 {"name":"libedit","description":"Command line editor library providing generic line editing, history, and tokenization functions","version":"20260512_3.1-1","homepage":"https://thrysoee.dk/editline/","repo":"core"}
-{"name":"libelf","description":"Handle ELF object files and DWARF debugging information (libraries)","version":"0.195-8","homepage":"https://sourceware.org/elfutils/","repo":"core"}
+{"name":"libelf","description":"Handle ELF object files and DWARF debugging information (libraries)","version":"0.196-1","homepage":"https://sourceware.org/elfutils/","repo":"core"}
 {"name":"libevent","description":"Event notification library","version":"2.1.13-2","homepage":"https://libevent.org/","repo":"core"}
 {"name":"libevent-docs","description":"Event notification library (documentation)","version":"2.1.13-2","homepage":"https://libevent.org/","repo":"core"}
 {"name":"libffi","description":"Portable foreign function interface library","version":"3.8.0-1","homepage":"https://sourceware.org/libffi/","repo":"core"}
@@ -179,7 +179,7 @@
 {"name":"licenses","description":"A set of common license files","version":"20240728-1","homepage":"https://www.archlinux.org/","repo":"core"}
 {"name":"links","description":"A text WWW browser, similar to Lynx","version":"2.30-2","homepage":"http://links.twibright.com/","repo":"core"}
 {"name":"linux","description":"The Linux kernel and modules","version":"7.1.8.arch1-3","homepage":"https://github.com/archlinux/linux","repo":"core"}
-{"name":"linux-api-headers","description":"Kernel headers sanitized for use in userspace","version":"7.1-1","homepage":"https://www.gnu.org/software/libc","repo":"core"}
+{"name":"linux-api-headers","description":"Kernel headers sanitized for use in userspace","version":"7.2-1","homepage":"https://www.gnu.org/software/libc","repo":"core"}
 {"name":"linux-docs","description":"Documentation for the Linux kernel","version":"7.1.8.arch1-3","homepage":"https://github.com/archlinux/linux","repo":"core"}
 {"name":"linux-firmware","description":"Firmware files for Linux - Default set","version":"20260810-2","homepage":"https://gitlab.com/kernel-firmware/linux-firmware","repo":"core"}
 {"name":"linux-firmware-amdgpu","description":"Firmware files for Linux - Firmware for AMD Radeon GPUs","version":"20260810-2","homepage":"https://gitlab.com/kernel-firmware/linux-firmware","repo":"core"}
@@ -419,7 +419,7 @@
 {"name":"ali","description":"Generate HTTP load and plot the results in real-time","version":"0.8.0-1","homepage":"https://github.com/nakabonne/ali","repo":"extra"}
 {"name":"alicloud-vault","description":"Vault for securely storing and accessing Alibaba Cloud credentials in development environments","version":"1.3.4-3","homepage":"https://github.com/arafato/alicloud-vault","repo":"extra"}
 {"name":"aliki","description":"Measure Impulse Responses using a sine sweep and deconvolution","version":"0.3.0-4","homepage":"https://kokkinizita.linuxaudio.org/linuxaudio/","repo":"extra"}
-{"name":"aliyun-cli","description":"Alibaba Cloud CLI","version":"3.4.8-1","homepage":"https://github.com/aliyun/aliyun-cli","repo":"extra"}
+{"name":"aliyun-cli","description":"Alibaba Cloud CLI","version":"3.4.11-1","homepage":"https://github.com/aliyun/aliyun-cli","repo":"extra"}
 {"name":"allegro","description":"Portable library mainly aimed at video game and multimedia programming","version":"5.2.11.3-2","homepage":"https://liballeg.org/","repo":"extra"}
 {"name":"allegro4","description":"Portable library aimed at video game and multimedia programming (legacy version)","version":"4.4.3.1-5","homepage":"https://liballeg.org/","repo":"extra"}
 {"name":"alligator","description":"Kirigami-based RSS reader","version":"26.04.3-1","homepage":"https://apps.kde.org/alligator/","repo":"extra"}
@@ -467,12 +467,12 @@
 {"name":"aml","description":"Another Main Loop","version":"1.0.0-1","homepage":"https://github.com/any1/aml","repo":"extra"}
 {"name":"ammonite","description":"A cleanroom re-implementation of the Scala REPL from first principles.","version":"3.0.9-1","homepage":"https://github.com/lihaoyi/Ammonite","repo":"extra"}
 {"name":"ams","description":"A real-time modular synthesizer and effect processor","version":"2.2.1-3","homepage":"http://alsamodular.sourceforge.net/","repo":"extra"}
-{"name":"amsynth","description":"Analogue Modeling SYNTHesizer","version":"1.13.4+r202+gc83787a-2","homepage":"https://amsynth.github.io/","repo":"extra"}
-{"name":"amsynth-common","description":"Analogue Modeling SYNTHesizer - common data","version":"1.13.4+r202+gc83787a-2","homepage":"https://amsynth.github.io/","repo":"extra"}
-{"name":"amsynth-dssi","description":"Analogue Modeling SYNTHesizer - DSSI plugin","version":"1.13.4+r202+gc83787a-2","homepage":"https://amsynth.github.io/","repo":"extra"}
-{"name":"amsynth-lv2","description":"Analogue Modeling SYNTHesizer - LV2 plugin","version":"1.13.4+r202+gc83787a-2","homepage":"https://amsynth.github.io/","repo":"extra"}
-{"name":"amsynth-standalone","description":"Analogue Modeling SYNTHesizer - standalone application","version":"1.13.4+r202+gc83787a-2","homepage":"https://amsynth.github.io/","repo":"extra"}
-{"name":"amsynth-vst","description":"Analogue Modeling SYNTHesizer - VST plugin","version":"1.13.4+r202+gc83787a-2","homepage":"https://amsynth.github.io/","repo":"extra"}
+{"name":"amsynth","description":"Analogue Modeling SYNTHesizer","version":"2.0.0-1","homepage":"https://amsynth.github.io/","repo":"extra"}
+{"name":"amsynth-common","description":"Analogue Modeling SYNTHesizer - common data","version":"2.0.0-1","homepage":"https://amsynth.github.io/","repo":"extra"}
+{"name":"amsynth-dssi","description":"Analogue Modeling SYNTHesizer - DSSI plugin","version":"2.0.0-1","homepage":"https://amsynth.github.io/","repo":"extra"}
+{"name":"amsynth-lv2","description":"Analogue Modeling SYNTHesizer - LV2 plugin","version":"2.0.0-1","homepage":"https://amsynth.github.io/","repo":"extra"}
+{"name":"amsynth-standalone","description":"Analogue Modeling SYNTHesizer - standalone application","version":"2.0.0-1","homepage":"https://amsynth.github.io/","repo":"extra"}
+{"name":"amsynth-vst","description":"Analogue Modeling SYNTHesizer - VST plugin","version":"2.0.0-1","homepage":"https://amsynth.github.io/","repo":"extra"}
 {"name":"amule","description":"An eMule-like client for ed2k p2p network","version":"1:3.0.1-2","homepage":"https://amule-org.github.io/","repo":"extra"}
 {"name":"analitza","description":"A library to add mathematical features to your program","version":"26.04.3-1","homepage":"https://www.kde.org/","repo":"extra"}
 {"name":"ananicy-cpp","description":"Ananicy Cpp is a full rewrite of Ananicy in C++, featuring lower CPU and RAM usage.","version":"1.2.0-1","homepage":"https://gitlab.com/ananicy-cpp/ananicy-cpp","repo":"extra"}
@@ -771,15 +771,15 @@
 {"name":"bats-file","description":"Common filesystem assertions for Bats","version":"0.4.0-2","homepage":"https://github.com/bats-core/bats-file","repo":"extra"}
 {"name":"bats-support","description":"Supporting library for Bats test helpers","version":"0.3.0-6","homepage":"https://github.com/bats-core/bats-support","repo":"extra"}
 {"name":"batsignal","description":"A lightweight battery monitor daemon","version":"1.8.0-2","homepage":"https://github.com/electrickite/batsignal","repo":"extra"}
-{"name":"bazaar","description":"A new app store for GNOME with focus on flatpaks, particularly Flathub","version":"0.9.4-1","homepage":"https://github.com/kolunmi/bazaar","repo":"extra"}
+{"name":"bazaar","description":"A new app store for GNOME with focus on flatpaks, particularly Flathub","version":"0.9.4-3","homepage":"https://github.com/kolunmi/bazaar","repo":"extra"}
 {"name":"bazel","description":"Correct, reproducible, and fast builds for everyone","version":"9.2.0-2","homepage":"https://bazel.build/","repo":"extra"}
 {"name":"bazelisk","description":"A user-friendly launcher for Bazel.","version":"1.29.0-1","homepage":"https://github.com/bazelbuild/bazelisk","repo":"extra"}
 {"name":"bbpager","description":"A dockable pager for Blackbox and other window managers","version":"0.4.7-11","homepage":"https://sourceforge.net/projects/bbtools/","repo":"extra"}
 {"name":"bbswitch","description":"Kernel module allowing to switch dedicated graphics card on Optimus laptops","version":"0.8-845","homepage":"https://github.com/Bumblebee-Project/bbswitch","repo":"extra"}
 {"name":"bbswitch-dkms","description":"Kernel module allowing to switch dedicated graphics card on Optimus laptops","version":"0.8-845","homepage":"https://github.com/Bumblebee-Project/bbswitch","repo":"extra"}
 {"name":"bc","description":"An arbitrary precision calculator language","version":"1.08.2-1","homepage":"https://www.gnu.org/software/bc/","repo":"extra"}
-{"name":"bcachefs-dkms","description":"BCacheFS filesystem utilities","version":"3:1.39.1-1","homepage":"https://bcachefs.org/","repo":"extra"}
-{"name":"bcachefs-tools","description":"BCacheFS filesystem utilities","version":"3:1.39.1-1","homepage":"https://bcachefs.org/","repo":"extra"}
+{"name":"bcachefs-dkms","description":"BCacheFS filesystem utilities","version":"3:1.39.2-1","homepage":"https://bcachefs.org/","repo":"extra"}
+{"name":"bcachefs-tools","description":"BCacheFS filesystem utilities","version":"3:1.39.2-1","homepage":"https://bcachefs.org/","repo":"extra"}
 {"name":"bcc","description":"BPF Compiler Collection (C library)","version":"0.36.1-3","homepage":"https://github.com/iovisor/bcc","repo":"extra"}
 {"name":"bcc-examples","description":"BPF Compiler Collection (Examples)","version":"0.36.1-3","homepage":"https://github.com/iovisor/bcc","repo":"extra"}
 {"name":"bcc-libbpf-tools","description":"BPF Compiler Collection (Tools)","version":"0.36.1-3","homepage":"https://github.com/iovisor/bcc","repo":"extra"}
@@ -839,7 +839,7 @@
 {"name":"blas64","description":"Basic Linear Algebra Subprograms (64-bit integers)","version":"3.12.1-2","homepage":"https://www.netlib.org/lapack","repo":"extra"}
 {"name":"blas64-openblas","description":"An optimized BLAS library based on GotoBLAS2 1.13 BSD (64-bit integers, provides BLAS/CBLAS/LAPACK/LAPACKE system-wide)","version":"0.3.34-1","homepage":"https://www.openblas.net/","repo":"extra"}
 {"name":"blaze","description":"An open-source, high-performance C++ math library for dense and sparse arithmetic.","version":"3.8.2-3","homepage":"https://bitbucket.org/blaze-lib/blaze","repo":"extra"}
-{"name":"bleachbit","description":"Deletes unneeded files to free disk space and maintain privacy","version":"6.0.2-1","homepage":"https://www.bleachbit.org/","repo":"extra"}
+{"name":"bleachbit","description":"Deletes unneeded files to free disk space and maintain privacy","version":"6.0.3-1","homepage":"https://www.bleachbit.org/","repo":"extra"}
 {"name":"blender","description":"A fully integrated 3D graphics creation suite","version":"17:5.2.0-4","homepage":"https://www.blender.org","repo":"extra"}
 {"name":"blendr","description":"The hacker's BLE (bluetooth low energy) browser terminal app","version":"1.3.3-2","homepage":"https://github.com/dmtrKovalenko/blendr","repo":"extra"}
 {"name":"blinken","description":"Memory Enhancement Game","version":"26.04.3-1","homepage":"https://apps.kde.org/blinken/","repo":"extra"}
@@ -942,7 +942,7 @@
 {"name":"btfs","description":"A bittorrent filesystem based on FUSE","version":"3.1-3","homepage":"https://github.com/johang/btfs","repo":"extra"}
 {"name":"btop","description":"A monitor of system resources, bpytop ported to C++","version":"1.4.7-1","homepage":"https://github.com/aristocratos/btop","repo":"extra"}
 {"name":"btrbk","description":"Tool for creating snapshots and remote backups of btrfs subvolumes","version":"0.32.7-1","homepage":"https://github.com/digint/btrbk","repo":"extra"}
-{"name":"btrfs-assistant","description":"An application for managing BTRFS subvolumes and Snapper snapshots","version":"2.2-5","homepage":"https://gitlab.com/btrfs-assistant/btrfs-assistant","repo":"extra"}
+{"name":"btrfs-assistant","description":"An application for managing BTRFS subvolumes and Snapper snapshots","version":"2.3-2","homepage":"https://gitlab.com/btrfs-assistant/btrfs-assistant","repo":"extra"}
 {"name":"btrfs-heatmap","description":"Visualize the layout of data on your btrfs filesystem over time","version":"9-4","homepage":"https://github.com/knorrie/btrfs-heatmap","repo":"extra"}
 {"name":"btrfsmaintenance","description":"Btrfs maintenance scripts","version":"0.5.2-3","homepage":"https://github.com/kdave/btrfsmaintenance","repo":"extra"}
 {"name":"bubblewrap","description":"Unprivileged sandboxing tool","version":"0.11.2-1","homepage":"https://github.com/containers/bubblewrap","repo":"extra"}
@@ -983,7 +983,7 @@
 {"name":"c-ares","description":"A C library for asynchronous DNS requests","version":"1.34.8-1","homepage":"https://c-ares.org/","repo":"extra"}
 {"name":"c-xsc","description":"A C++ class library","version":"2.5.4-5","homepage":"http://www2.math.uni-wuppertal.de/org/WRST/xsc-frame/index.html","repo":"extra"}
 {"name":"c2hs","description":"C->Haskell FFI tool that gives some cross-language type safety","version":"0.28.8-387","homepage":"https://github.com/haskell/c2hs","repo":"extra"}
-{"name":"c3c","description":"Compiler for the C3 language","version":"0.8.2-1","homepage":"https://github.com/c3lang/c3c","repo":"extra"}
+{"name":"c3c","description":"Compiler for the C3 language","version":"0.8.3-1","homepage":"https://github.com/c3lang/c3c","repo":"extra"}
 {"name":"cabal-fmt","description":"Format .cabal files","version":"0.1.10-1","homepage":"https://github.com/phadej/cabal-fmt.git","repo":"extra"}
 {"name":"cabal-install","description":"The command-line interface for Cabal and Hackage.","version":"3.10.3.0-84","homepage":"https://hackage.haskell.org/package/cabal-install","repo":"extra"}
 {"name":"cabal-plan","description":"Library and utility for processing cabal's plan.json file","version":"0.7.4.0-17","homepage":"https://github.com/hvr/cabal-plan","repo":"extra"}
@@ -1074,11 +1074,11 @@
 {"name":"cargo-hack","description":"A cargo subcommand to provide various options useful for testing and CI","version":"0.6.45-1","homepage":"https://github.com/taiki-e/cargo-hack","repo":"extra"}
 {"name":"cargo-insta","description":"Cargo plugin for snapshot testing in Rust","version":"1.48.0-1","homepage":"https://github.com/mitsuhiko/insta","repo":"extra"}
 {"name":"cargo-license","description":"Cargo subcommand to see license of dependencies","version":"0.7.0-2","homepage":"https://github.com/onur/cargo-license","repo":"extra"}
-{"name":"cargo-llvm-cov","description":"Cargo subcommand to easily use LLVM source-based code coverage (-Z instrument-coverage).","version":"0.8.7-1","homepage":"https://github.com/taiki-e/cargo-llvm-cov","repo":"extra"}
+{"name":"cargo-llvm-cov","description":"Cargo subcommand to easily use LLVM source-based code coverage (-Z instrument-coverage).","version":"0.9.0-1","homepage":"https://github.com/taiki-e/cargo-llvm-cov","repo":"extra"}
 {"name":"cargo-machete","description":"Remove unused Rust dependencies","version":"0.9.2-1","homepage":"https://github.com/bnjbvr/cargo-machete","repo":"extra"}
 {"name":"cargo-maelstrom","description":"Cargo test runner for Maelstrom","version":"0.14.0-2","homepage":"https://maelstrom-software.com/","repo":"extra"}
 {"name":"cargo-make","description":"Rust task runner and build tool","version":"0.37.24-2","homepage":"https://github.com/sagiegurari/cargo-make","repo":"extra"}
-{"name":"cargo-modules","description":"A cargo plugin for showing an overview of a crate's modules","version":"0.26.0-1","homepage":"https://github.com/regexident/cargo-modules","repo":"extra"}
+{"name":"cargo-modules","description":"A cargo plugin for showing an overview of a crate's modules","version":"0.27.0-1","homepage":"https://github.com/regexident/cargo-modules","repo":"extra"}
 {"name":"cargo-msrv","description":"Find the minimum supported Rust version (MSRV) for your project","version":"0.19.3-2","homepage":"https://github.com/foresterre/cargo-msrv","repo":"extra"}
 {"name":"cargo-ndk","description":"Compile Rust projects against the Android NDK without hassle","version":"4.1.2-2","homepage":"https://github.com/bbqsrc/cargo-ndk","repo":"extra"}
 {"name":"cargo-nextest","description":"A next-generation test runner for Rust.","version":"0.9.143-1","homepage":"https://github.com/nextest-rs/nextest","repo":"extra"}
@@ -1086,7 +1086,7 @@
 {"name":"cargo-pgrx","description":"Build PostgreSQL extensions with Rust","version":"0.19.2-1","homepage":"https://github.com/pgcentralfoundation/pgrx","repo":"extra"}
 {"name":"cargo-psp","description":"cargo build wrapper for creating Sony PSP executables","version":"0.2.9-1","homepage":"https://github.com/overdrivenpotato/rust-psp","repo":"extra"}
 {"name":"cargo-public-api","description":"List and diff the public API of Rust library crates","version":"0.52.0-1","homepage":"https://github.com/cargo-public-api/cargo-public-api","repo":"extra"}
-{"name":"cargo-rdme","description":"Cargo command to create the README.md from your crate's documentation","version":"2.2.0-1","homepage":"https://github.com/orium/cargo-rdme","repo":"extra"}
+{"name":"cargo-rdme","description":"Cargo command to create the README.md from your crate's documentation","version":"2.2.1-1","homepage":"https://github.com/orium/cargo-rdme","repo":"extra"}
 {"name":"cargo-release","description":"Cargo subcommand \"release\": everything about releasing a rust crate","version":"1.1.5-1","homepage":"https://github.com/crate-ci/cargo-release","repo":"extra"}
 {"name":"cargo-run-bin","description":"Build, cache, and run CLI tools scoped in Cargo.toml","version":"1.7.4-2","homepage":"https://github.com/dustinblackman/cargo-run-bin","repo":"extra"}
 {"name":"cargo-semver-checks","description":"Scan your Rust crate for semver violations","version":"0.50.0-1","homepage":"https://github.com/obi1kenobi/cargo-semver-checks","repo":"extra"}
@@ -1098,8 +1098,8 @@
 {"name":"cargo-spellcheck","description":"Checks all your documentation for spelling and grammar mistakes","version":"0.15.7-1","homepage":"https://github.com/drahnr/cargo-spellcheck","repo":"extra"}
 {"name":"cargo-supply-chain","description":"Gather author, contributor and publisher data on crates in your dependency graph","version":"0.3.7-2","homepage":"https://github.com/rust-secure-code/cargo-supply-chain","repo":"extra"}
 {"name":"cargo-sweep","description":"A cargo subcommand for cleaning up unused build files generated by Cargo","version":"0.8.0-2","homepage":"https://github.com/holmgr/cargo-sweep","repo":"extra"}
-{"name":"cargo-tarpaulin","description":"Tool to analyse test coverage of cargo projects","version":"0.37.1-1","homepage":"https://github.com/xd009642/tarpaulin","repo":"extra"}
-{"name":"cargo-tauri","description":"Command line interface for building Tauri apps","version":"2.11.1-1","homepage":"https://github.com/tauri-apps/tauri","repo":"extra"}
+{"name":"cargo-tarpaulin","description":"Tool to analyse test coverage of cargo projects","version":"0.37.2-1","homepage":"https://github.com/xd009642/tarpaulin","repo":"extra"}
+{"name":"cargo-tauri","description":"Command line interface for building Tauri apps","version":"2.11.5-1","homepage":"https://github.com/tauri-apps/tauri","repo":"extra"}
 {"name":"cargo-udeps","description":"Find unused dependencies in Cargo.toml","version":"0.1.61-1","homepage":"https://github.com/est31/cargo-udeps","repo":"extra"}
 {"name":"cargo-update","description":"A cargo subcommand for checking and applying updates to installed executables","version":"22.1.1-1","homepage":"https://github.com/nabijaczleweli/cargo-update","repo":"extra"}
 {"name":"cargo-watch","description":"Utility for Cargo to compile projects when sources change","version":"8.5.3-1","homepage":"https://github.com/watchexec/cargo-watch","repo":"extra"}
@@ -1254,8 +1254,8 @@
 {"name":"clang21","description":"C language family frontend for LLVM 21","version":"21.1.8-1","homepage":"https://clang.llvm.org/","repo":"extra"}
 {"name":"clanlib","description":"A multi-platform game development library.","version":"4.2.0-1","homepage":"https://github.com/sphair/ClanLib","repo":"extra"}
 {"name":"clap","description":"CLever Audio Plugin API","version":"1.2.10-1","homepage":"https://github.com/free-audio/clap","repo":"extra"}
-{"name":"clapper","description":"Modern and user-friendly media player","version":"0.10.0-1","homepage":"https://rafostar.github.io/clapper","repo":"extra"}
-{"name":"clapper-docs","description":"Modern and user-friendly media player (documentation)","version":"0.10.0-1","homepage":"https://rafostar.github.io/clapper","repo":"extra"}
+{"name":"clapper","description":"Modern and user-friendly media player","version":"0.10.0-2","homepage":"https://rafostar.github.io/clapper","repo":"extra"}
+{"name":"clapper-docs","description":"Modern and user-friendly media player (documentation)","version":"0.10.0-2","homepage":"https://rafostar.github.io/clapper","repo":"extra"}
 {"name":"clapper-enhancers","description":"Plugins enhancing Clapper library capabilities","version":"0.10.0-1","homepage":"https://github.com/Rafostar/clapper-enhancers","repo":"extra"}
 {"name":"clash-ghc","description":"CAES Language for Synchronous Hardware","version":"1.8.2-163","homepage":"https://clash-lang.org/","repo":"extra"}
 {"name":"claws-mail","description":"A GTK+ based e-mail client","version":"4.4.0-4","homepage":"https://www.claws-mail.org","repo":"extra"}
@@ -1281,8 +1281,8 @@
 {"name":"cloud-utils","description":"Useful set of utilities for interacting with a cloud (meta package)","version":"0.33-3","homepage":"https://github.com/canonical/cloud-utils","repo":"extra"}
 {"name":"cloudflare-speed-cli","description":"CLI for internet speed test via Cloudflare","version":"1.0.8-1","homepage":"https://github.com/kavehtehrani/cloudflare-speed-cli","repo":"extra"}
 {"name":"cloudflared","description":"Command-line client for Cloudflare Tunnel","version":"2026.7.3-1","homepage":"https://github.com/cloudflare/cloudflared","repo":"extra"}
-{"name":"clpeak","description":"A tool which profiles OpenCL devices to find their peak capacities (OpenCL/Vulkan support)","version":"2.0.18-1","homepage":"https://github.com/krrishnarraj/clpeak","repo":"extra"}
-{"name":"clpeak-cuda","description":"A tool which profiles GPUs to find their peak capacities (OpenCL/Vulkan/CUDA support)","version":"2.0.18-1","homepage":"https://github.com/krrishnarraj/clpeak","repo":"extra"}
+{"name":"clpeak","description":"A tool which profiles OpenCL devices to find their peak capacities (OpenCL/Vulkan support)","version":"2.0.19-1","homepage":"https://github.com/krrishnarraj/clpeak","repo":"extra"}
+{"name":"clpeak-cuda","description":"A tool which profiles GPUs to find their peak capacities (OpenCL/Vulkan/CUDA support)","version":"2.0.19-1","homepage":"https://github.com/krrishnarraj/clpeak","repo":"extra"}
 {"name":"clthreads","description":"C++ wrapper library around the POSIX threads API","version":"2.4.2-7","homepage":"https://kokkinizita.linuxaudio.org/linuxaudio/","repo":"extra"}
 {"name":"clucene","description":"C++ port of the high-performance text search engine Lucene","version":"2.3.3.4-17","homepage":"http://clucene.sourceforge.net/","repo":"extra"}
 {"name":"clustershell","description":"Python framework for efficient cluster administration","version":"1.10.1-2","homepage":"https://clustershell.github.io/clustershell/","repo":"extra"}
@@ -1448,7 +1448,7 @@
 {"name":"critest","description":"A benchmarking CLI for CRI-compatible container runtimes","version":"1.36.0-1","homepage":"https://github.com/kubernetes-sigs/cri-tools","repo":"extra"}
 {"name":"critter","description":"Critical Mass (aka Critter) is an SDL/OpenGL space shoot'em up game","version":"1.0.2-13","homepage":"https://sourceforge.net/projects/criticalmass","repo":"extra"}
 {"name":"criu","description":"Utilities to checkpoint and restore processes in userspace","version":"4.2.1-1","homepage":"https://criu.org","repo":"extra"}
-{"name":"croc","description":"Easily and securely send things from one computer to another.","version":"1:11.1.0-1","homepage":"https://github.com/schollz/croc","repo":"extra"}
+{"name":"croc","description":"Easily and securely send things from one computer to another.","version":"1:11.1.2-1","homepage":"https://github.com/schollz/croc","repo":"extra"}
 {"name":"cronie","description":"Daemon that runs specified programs at scheduled times and related tools","version":"1.7.2-2","homepage":"https://github.com/cronie-crond/cronie/","repo":"extra"}
 {"name":"cross","description":"'Zero setup' cross compilation and 'cross testing' of Rust crates","version":"0.2.5-3","homepage":"https://github.com/rust-embedded/cross","repo":"extra"}
 {"name":"crosstool-ng","description":"A versatile (cross-)toolchain generator","version":"1.28.0-1","homepage":"https://crosstool-ng.github.io/","repo":"extra"}
@@ -1537,14 +1537,14 @@
 {"name":"davfs2","description":"File system driver that allows you to mount a WebDAV folder","version":"1.7.3-1","homepage":"https://github.com/alisarctl/davfs2","repo":"extra"}
 {"name":"davix","description":"A client for data and file management over the WebDav, Amazon S3, Microsoft Azure and HTTP protocols.","version":"0.8.10-1","homepage":"https://github.com/cern-fts/davix","repo":"extra"}
 {"name":"dbc-parser-cpp","description":"A DBC file parsing library written in C++","version":"0.5.0-1","homepage":"https://github.com/LinuxDevon/dbc_parser_cpp","repo":"extra"}
-{"name":"dbeaver","description":"Free universal SQL Client for developers and database administrators (community edition)","version":"26.1.4-1","homepage":"https://dbeaver.io/","repo":"extra"}
+{"name":"dbeaver","description":"Free universal SQL Client for developers and database administrators (community edition)","version":"26.1.5-1","homepage":"https://dbeaver.io/","repo":"extra"}
 {"name":"dblatex","description":"DocBook (XML and SGML) to DVI, PDF, PostScript converter using latex.","version":"0.3.12-13","homepage":"https://dblatex.sourceforge.net/","repo":"extra"}
 {"name":"dbmail","description":"Fast and scalable sql based mail services","version":"3.5.6-1","homepage":"https://github.com/dbmail/dbmail","repo":"extra"}
 {"name":"dbmate","description":"A lightweight, framework-agnostic database migration tool","version":"2.35.0-1","homepage":"https://github.com/amacneil/dbmate","repo":"extra"}
 {"name":"dbus-c++","description":"A C++ API for D-BUS","version":"0.9.0-13","homepage":"https://sourceforge.net/projects/dbus-cplusplus/","repo":"extra"}
 {"name":"dbus-glib","description":"GLib bindings for D-Bus (deprecated)","version":"0.114-1","homepage":"https://www.freedesktop.org/wiki/Software/dbus/","repo":"extra"}
 {"name":"dbxtool","description":"Tool for UEFI Secure Boot DBX updates","version":"8-1","homepage":"https://github.com/rhboot/dbxtool","repo":"extra"}
-{"name":"dcd","description":"D Completion Daemon: auto-complete for the D programming language","version":"1:0.16.2-1","homepage":"https://github.com/dlang-community/DCD","repo":"extra"}
+{"name":"dcd","description":"D Completion Daemon: auto-complete for the D programming language","version":"1:0.16.3-1","homepage":"https://github.com/dlang-community/DCD","repo":"extra"}
 {"name":"dcmtk","description":"A collection of libraries and applications implementing large parts the DICOM standard","version":"3.7.0-3","homepage":"http://dicom.offis.de/dcmtk","repo":"extra"}
 {"name":"dcmtk-docs","description":"A collection of libraries and applications implementing large parts the DICOM standard - documentation","version":"3.7.0-3","homepage":"http://dicom.offis.de/dcmtk","repo":"extra"}
 {"name":"dconf","description":"Configuration database system","version":"0.49.0-1","homepage":"https://wiki.gnome.org/Projects/dconf","repo":"extra"}
@@ -1638,8 +1638,8 @@
 {"name":"deja-dup","description":"Easy to use backup tool based on Restic","version":"50.1-1","homepage":"https://apps.gnome.org/DejaDup/","repo":"extra"}
 {"name":"dejagnu","description":"Framework for testing other programs","version":"1.6.3-21","homepage":"https://www.gnu.org/software/dejagnu/","repo":"extra"}
 {"name":"delfin","description":"Stream movies and TV shows from Jellyfin","version":"0.4.8-1","homepage":"https://delfin.avery.cafe/","repo":"extra"}
-{"name":"deltachat-desktop","description":"Decentralized private messenger with chat-shared tools and games for Desktop","version":"2.57.0-1","homepage":"https://github.com/deltachat/deltachat-desktop","repo":"extra"}
-{"name":"deltachat-rpc-server","description":"A JSON-RPC 2.0 interface to DeltaChat over standard I/O","version":"2.57.0-1","homepage":"https://github.com/deltachat/deltachat-core-rust/tree/main/deltachat-rpc-server","repo":"extra"}
+{"name":"deltachat-desktop","description":"Decentralized private messenger with chat-shared tools and games for Desktop","version":"2.59.0-1","homepage":"https://github.com/deltachat/deltachat-desktop","repo":"extra"}
+{"name":"deltachat-rpc-server","description":"A JSON-RPC 2.0 interface to DeltaChat over standard I/O","version":"2.59.0-1","homepage":"https://github.com/deltachat/deltachat-core-rust/tree/main/deltachat-rpc-server","repo":"extra"}
 {"name":"deluge","description":"BitTorrent client with multiple user interfaces in a client/server model","version":"1:2.2.0-6","homepage":"https://deluge-torrent.org/","repo":"extra"}
 {"name":"deluge-gtk","description":"GTK UI for Deluge","version":"1:2.2.0-6","homepage":"https://deluge-torrent.org/","repo":"extra"}
 {"name":"delve","description":"A debugger for the Go programming language.","version":"1.27.0-1","homepage":"https://github.com/go-delve/delve","repo":"extra"}
@@ -1692,7 +1692,7 @@
 {"name":"diff-so-fancy","description":"Good-looking diffs with diff-highlight and more","version":"1.4.12-1","homepage":"https://github.com/so-fancy/diff-so-fancy","repo":"extra"}
 {"name":"diffnav","description":"git diff pager based on delta but with a file tree, à la GitHub","version":"0.11.0-1","homepage":"https://github.com/dlvhdr/diffnav","repo":"extra"}
 {"name":"diffoci","description":"diff for Docker and OCI container images","version":"0.1.8-1","homepage":"https://github.com/reproducible-containers/diffoci","repo":"extra"}
-{"name":"diffoscope","description":"Tool for in-depth comparison of files, archives, and directories","version":"327-1","homepage":"https://diffoscope.org/","repo":"extra"}
+{"name":"diffoscope","description":"Tool for in-depth comparison of files, archives, and directories","version":"328-1","homepage":"https://diffoscope.org/","repo":"extra"}
 {"name":"diffpdf","description":"Diffing pdf files visually or textually","version":"2.1.3.1-5","homepage":"https://gitlab.com/eang/diffpdf","repo":"extra"}
 {"name":"diffstat","description":"Display a histogram of diff changes","version":"1.69-1","homepage":"https://invisible-island.net/diffstat","repo":"extra"}
 {"name":"difftastic","description":"An experimental diff tool that compares files based on their syntax","version":"0.70.0-2","homepage":"https://difftastic.wilfred.me.uk","repo":"extra"}
@@ -1764,7 +1764,7 @@
 {"name":"docbook5-xml","description":"a complete rewrite of the well-known DocBook 4 XML schema (DTD, Relax NG, W3C schema) for Docbook 5.X","version":"5.1-5","homepage":"https://docbook.org/schemas/5x","repo":"extra"}
 {"name":"docker","description":"Pack, ship and run any application as a lightweight container","version":"1:29.7.2-1","homepage":"https://www.docker.com/","repo":"extra"}
 {"name":"docker-buildx","description":"Docker CLI plugin for extended build capabilities with BuildKit","version":"0.36.1-1","homepage":"https://github.com/docker/buildx","repo":"extra"}
-{"name":"docker-compose","description":"Fast, isolated development environments using Docker","version":"5.4.0-1","homepage":"https://www.docker.com/","repo":"extra"}
+{"name":"docker-compose","description":"Fast, isolated development environments using Docker","version":"5.5.0-1","homepage":"https://www.docker.com/","repo":"extra"}
 {"name":"docker-machine","description":"Machine management for a container-centric world","version":"0.16.2-6","homepage":"https://github.com/docker/machine","repo":"extra"}
 {"name":"dockerfile-language-server","description":"Language server for Dockerfiles","version":"0.15.0-3","homepage":"https://github.com/rcjsuen/dockerfile-language-server","repo":"extra"}
 {"name":"docopt","description":"Command line arguments parser for C++11 and later","version":"0.6.3-6","homepage":"https://github.com/docopt/docopt.cpp/","repo":"extra"}
@@ -1894,7 +1894,7 @@
 {"name":"dtkwidget","description":"Deepin base graphical widgets library (Qt5 build)","version":"1:6.7.47-2","homepage":"https://github.com/linuxdeepin/dtkwidget","repo":"extra"}
 {"name":"dtools","description":"Ancilliary tools for the D programming language","version":"2.112.0-1","homepage":"https://www.dlang.org","repo":"extra"}
 {"name":"dua-cli","description":"A tool to conveniently learn about the disk usage of directories, fast!","version":"2.42.1-1","homepage":"https://github.com/Byron/dua-cli","repo":"extra"}
-{"name":"dub","description":"Developer package manager for D programming language","version":"1.41.0-1","homepage":"https://github.com/dlang/dub","repo":"extra"}
+{"name":"dub","description":"Developer package manager for D programming language","version":"1.42.0-1","homepage":"https://github.com/dlang/dub","repo":"extra"}
 {"name":"duckdb","description":"An analytical in-process SQL database management system","version":"1.5.5-1","homepage":"https://www.duckdb.org","repo":"extra"}
 {"name":"ducker","description":"A terminal app for managing docker containers","version":"0.6.5-2","homepage":"https://github.com/robertpsoane/ducker","repo":"extra"}
 {"name":"duf","description":"Disk Usage/Free Utility","version":"0.9.1-1","homepage":"https://github.com/muesli/duf","repo":"extra"}
@@ -1968,7 +1968,7 @@
 {"name":"electron39","description":"Build cross platform desktop apps with web technologies","version":"39.8.10-2","homepage":"https://electronjs.org","repo":"extra"}
 {"name":"electron40","description":"Build cross platform desktop apps with web technologies","version":"40.10.6-1","homepage":"https://electronjs.org","repo":"extra"}
 {"name":"electron41","description":"Build cross platform desktop apps with web technologies","version":"41.10.5-1","homepage":"https://electronjs.org","repo":"extra"}
-{"name":"electron42","description":"Build cross platform desktop apps with web technologies","version":"42.9.0-1","homepage":"https://electronjs.org","repo":"extra"}
+{"name":"electron42","description":"Build cross platform desktop apps with web technologies","version":"42.9.2-1","homepage":"https://electronjs.org","repo":"extra"}
 {"name":"electron43","description":"Build cross platform desktop apps with web technologies","version":"43.4.0-1","homepage":"https://electronjs.org","repo":"extra"}
 {"name":"electrum","description":"Lightweight Bitcoin wallet","version":"4.8.1-1","homepage":"https://electrum.org","repo":"extra"}
 {"name":"element","description":"A modular audio plugin host","version":"1.2.0-1","homepage":"https://github.com/kushview/element","repo":"extra"}
@@ -2136,7 +2136,7 @@
 {"name":"fabric","description":"Python library and command-line tool designed to streamline deploying applications or performing system administration tasks via the SSH protocol","version":"3.2.3-1","homepage":"https://www.fabfile.org/","repo":"extra"}
 {"name":"facile","description":"A Functional Constraint Library","version":"1.1.4-13","homepage":"http://www.recherche.enac.fr/opti/facile/","repo":"extra"}
 {"name":"facter","description":"Collect and display system facts","version":"4.10.0-3","homepage":"https://github.com/puppetlabs/facter","repo":"extra"}
-{"name":"fail2ban","description":"Bans IPs after too many failed authentication attempts","version":"1.1.0-8","homepage":"https://www.fail2ban.org/","repo":"extra"}
+{"name":"fail2ban","description":"Bans IPs after too many failed authentication attempts","version":"1.1.1-1","homepage":"https://www.fail2ban.org/","repo":"extra"}
 {"name":"fakechroot","description":"Gives a fake chroot environment","version":"2.20.1-5","homepage":"https://github.com/dex4er/fakechroot/wiki","repo":"extra"}
 {"name":"falcosecurity-libs","description":"libscap and libsinsp libraries to communicate with the scap kernel driver","version":"0.23.2-3","homepage":"https://github.com/falcosecurity/libs","repo":"extra"}
 {"name":"falkon","description":"Cross-platform QtWebEngine browser","version":"26.04.3-1","homepage":"https://www.falkon.org/","repo":"extra"}
@@ -2454,7 +2454,7 @@
 {"name":"firefox-tree-style-tab","description":"Firefox extension to show tabs like a tree","version":"4.3.3-1","homepage":"https://piro.sakura.ne.jp/xul/_treestyletab.html.en","repo":"extra"}
 {"name":"firefox-tridactyl","description":"Replace Firefox's control mechanism with one modelled on Vim","version":"1.24.5-1","homepage":"https://github.com/tridactyl/tridactyl","repo":"extra"}
 {"name":"firefox-ublock-origin","description":"Efficient blocker add-on for various browsers. Fast, potent, and lean","version":"1.70.0-1","homepage":"https://github.com/gorhill/uBlock","repo":"extra"}
-{"name":"firefoxpwa","description":"A tool to install, manage and use Progressive Web Apps (PWAs) in Mozilla Firefox (native component)","version":"2.18.4-1","homepage":"https://pwasforfirefox.filips.si","repo":"extra"}
+{"name":"firefoxpwa","description":"A tool to install, manage and use Progressive Web Apps (PWAs) in Mozilla Firefox (native component)","version":"2.19.0-1","homepage":"https://pwasforfirefox.filips.si","repo":"extra"}
 {"name":"firejail","description":"Linux namespaces sandbox program","version":"0.9.80-1","homepage":"https://github.com/netblue30/firejail","repo":"extra"}
 {"name":"firetools","description":"Graphical user interface of Firejail","version":"0.9.72-3","homepage":"https://firejail.wordpress.com/","repo":"extra"}
 {"name":"firewall-applet","description":"Systray applet for firewallD","version":"2.5.1-1","homepage":"https://firewalld.org","repo":"extra"}
@@ -2490,8 +2490,8 @@
 {"name":"flite","description":"A lightweight speech synthesis engine","version":"2.2-2","homepage":"http://www.festvox.org/flite/","repo":"extra"}
 {"name":"flobopuyo","description":"Clone of the famous PuyoPuyo","version":"0.20-12","homepage":"https://fovea.cc/flobopuyo-en","repo":"extra"}
 {"name":"flowblade","description":"Multitrack non-linear video editor","version":"2.24.2-1","homepage":"https://jliljebl.github.io/flowblade/","repo":"extra"}
-{"name":"fltk","description":"Graphical user interface toolkit for X","version":"1.4.5-1","homepage":"https://www.fltk.org/","repo":"extra"}
-{"name":"fltk-docs","description":"Graphical user interface toolkit for X - documentation","version":"1.4.5-1","homepage":"https://www.fltk.org/","repo":"extra"}
+{"name":"fltk","description":"Graphical user interface toolkit for Wayland and X","version":"1.4.5-2","homepage":"https://www.fltk.org/","repo":"extra"}
+{"name":"fltk-docs","description":"Graphical user interface toolkit for Wayland and X - documentation","version":"1.4.5-2","homepage":"https://www.fltk.org/","repo":"extra"}
 {"name":"fltk1.3","description":"Graphical user interface toolkit for X - version 1.3","version":"1.3.11-4","homepage":"https://www.fltk.org/","repo":"extra"}
 {"name":"fluidd","description":"A free and open-source Klipper web interface for managing your 3d printer","version":"1.37.4-1","homepage":"https://docs.fluidd.xyz/","repo":"extra"}
 {"name":"fluidsynth","description":"A real-time software synthesizer based on the SoundFont 2 specifications","version":"2.6.0-1","homepage":"https://www.fluidsynth.org/","repo":"extra"}
@@ -2512,12 +2512,12 @@
 {"name":"fonteditfs","description":"console font editor","version":"1.2-8","homepage":"http://fonteditfs.sourceforge.net/","repo":"extra"}
 {"name":"fontforge","description":"Outline and bitmap font editor","version":"20251009-5","homepage":"https://fontforge.github.io/","repo":"extra"}
 {"name":"fontobene-qt5","description":"A header-only library to parse FontoBene stroke fonts with C++/Qt5","version":"0.2.0-4","homepage":"https://github.com/fontobene/fontobene-qt5","repo":"extra"}
-{"name":"foomatic-db","description":"Foomatic - The collected knowledge about printers, drivers, and driver options in XML files, used by foomatic-db-engine to generate PPD files.","version":"3:20260209-1","homepage":"http://www.linuxprinting.org/foomatic.html","repo":"extra"}
+{"name":"foomatic-db","description":"Foomatic - The collected knowledge about printers, drivers, and driver options in XML files, used by foomatic-db-engine to generate PPD files.","version":"3:20260813-1","homepage":"http://www.linuxprinting.org/foomatic.html","repo":"extra"}
 {"name":"foomatic-db-engine","description":"Foomatic - Foomatic's database engine generates PPD files from the data in Foomatic's XML database. It also contains scripts to directly generate print queues and handle jobs.","version":"5:20200131-2","homepage":"http://www.linuxprinting.org/foomatic.html","repo":"extra"}
 {"name":"foomatic-db-gutenprint-ppds","description":"simplified prebuilt ppd files","version":"5.3.5-1","homepage":"https://gimp-print.sourceforge.io/","repo":"extra"}
-{"name":"foomatic-db-nonfree","description":"Foomatic - database extension consisting of manufacturer-supplied PPD files released under non-free licenses","version":"3:20260209-1","homepage":"http://www.linuxprinting.org/foomatic.html","repo":"extra"}
-{"name":"foomatic-db-nonfree-ppds","description":"Foomatic - non-free PPDs from printer manufacturers","version":"3:20260209-1","homepage":"http://www.linuxprinting.org/foomatic.html","repo":"extra"}
-{"name":"foomatic-db-ppds","description":"Foomatic - PPDs from printer manufacturers","version":"3:20260209-1","homepage":"http://www.linuxprinting.org/foomatic.html","repo":"extra"}
+{"name":"foomatic-db-nonfree","description":"Foomatic - database extension consisting of manufacturer-supplied PPD files released under non-free licenses","version":"3:20260813-1","homepage":"http://www.linuxprinting.org/foomatic.html","repo":"extra"}
+{"name":"foomatic-db-nonfree-ppds","description":"Foomatic - non-free PPDs from printer manufacturers","version":"3:20260813-1","homepage":"http://www.linuxprinting.org/foomatic.html","repo":"extra"}
+{"name":"foomatic-db-ppds","description":"Foomatic - PPDs from printer manufacturers","version":"3:20260813-1","homepage":"http://www.linuxprinting.org/foomatic.html","repo":"extra"}
 {"name":"foot","description":"Fast, lightweight, and minimalistic Wayland terminal emulator","version":"1.27.0-2","homepage":"https://codeberg.org/dnkl/foot","repo":"extra"}
 {"name":"foot-terminfo","description":"Extra non-standard terminfo files for foot, a Wayland terminal emulator","version":"1.27.0-2","homepage":"https://codeberg.org/dnkl/foot","repo":"extra"}
 {"name":"fooyin","description":"A customisable music player","version":"0.12.2-3","homepage":"https://fooyin.org/","repo":"extra"}
@@ -2565,13 +2565,13 @@
 {"name":"freeplane","description":"A Java mindmapping tool","version":"1.13.2-3","homepage":"http://freeplane.sourceforge.net","repo":"extra"}
 {"name":"freeradius","description":"The premier open source RADIUS server","version":"3.2.10-1","homepage":"https://freeradius.org/","repo":"extra"}
 {"name":"freerdp","description":"Free implementation of the Remote Desktop Protocol (RDP)","version":"2:3.30.0-2","homepage":"https://www.freerdp.com/","repo":"extra"}
-{"name":"freetds","description":"Library for accessing Sybase and MS SQL Server databases","version":"1.5.18-1","homepage":"https://www.freetds.org","repo":"extra"}
+{"name":"freetds","description":"Library for accessing Sybase and MS SQL Server databases","version":"1.5.19-1","homepage":"https://www.freetds.org","repo":"extra"}
 {"name":"freetype2","description":"Font rasterization library","version":"2.14.3-1","homepage":"https://www.freetype.org/","repo":"extra"}
 {"name":"freetype2-demos","description":"Freetype tools and demos","version":"2.14.3-1","homepage":"https://www.freetype.org/","repo":"extra"}
 {"name":"freetype2-docs","description":"Freetype documentation","version":"2.14.3-1","homepage":"https://www.freetype.org/","repo":"extra"}
 {"name":"freeverb3","description":"A signal processing library","version":"3.2.1-5","homepage":"http://www.nongnu.org/freeverb3","repo":"extra"}
 {"name":"freewheeling","description":"A live looper","version":"0.6.6-9","homepage":"https://github.com/free-wheeling/freewheeling","repo":"extra"}
-{"name":"frei0r-plugins","description":"Collection of video effect plugins","version":"3.2.3-2","homepage":"https://frei0r.dyne.org/","repo":"extra"}
+{"name":"frei0r-plugins","description":"Collection of video effect plugins","version":"3.3.0-1","homepage":"https://frei0r.dyne.org/","repo":"extra"}
 {"name":"frescobaldi","description":"A LilyPond sheet music text editor","version":"4.0.7-1","homepage":"https://www.frescobaldi.org/","repo":"extra"}
 {"name":"fretboard","description":"Look up guitar chords","version":"9.1-3","homepage":"https://apps.gnome.org/Fretboard/","repo":"extra"}
 {"name":"fribidi","description":"A Free Implementation of the Unicode Bidirectional Algorithm","version":"1.0.16-2","homepage":"https://github.com/fribidi/fribidi","repo":"extra"}
@@ -2614,7 +2614,7 @@
 {"name":"fwupd-efi","description":"EFI Application used by uefi-capsule plugin in fwupd","version":"1.8-2","homepage":"https://github.com/fwupd/fwupd-efi","repo":"extra"}
 {"name":"fx","description":"Command-line tool and terminal JSON viewer","version":"39.2.0-1","homepage":"https://github.com/antonmedv/fx","repo":"extra"}
 {"name":"fyi","description":"A command line utility and notify-send alternative to send desktop notifications","version":"1.0.4-1","homepage":"https://codeberg.org/dnkl/fyi","repo":"extra"}
-{"name":"fzf","description":"Command-line fuzzy finder","version":"0.74.2-1","homepage":"https://github.com/junegunn/fzf","repo":"extra"}
+{"name":"fzf","description":"Command-line fuzzy finder","version":"0.74.3-1","homepage":"https://github.com/junegunn/fzf","repo":"extra"}
 {"name":"fzssh","description":"a SSH/SFTP library based on libfilezilla","version":"1.3.0-3","homepage":"https://filezilla-project.org","repo":"extra"}
 {"name":"fzy","description":"A better fuzzy finder","version":"1.1-1","homepage":"https://github.com/jhawthorn/fzy","repo":"extra"}
 {"name":"g2reverb","description":"LADSPA stereo reverb plugin based on greverb","version":"0.7.1-8","homepage":"https://kokkinizita.linuxaudio.org/linuxaudio/ladspa/","repo":"extra"}
@@ -2911,12 +2911,12 @@
 {"name":"gitg","description":"GNOME GUI client to view git repositories","version":"2:50-1","homepage":"https://wiki.gnome.org/Apps/Gitg","repo":"extra"}
 {"name":"github-cli","description":"The GitHub CLI","version":"2.97.0-1","homepage":"https://github.com/cli/cli","repo":"extra"}
 {"name":"gitit","description":"Wiki using happstack, git or darcs, and pandoc.","version":"0.16-45","homepage":"https://github.com/jgm/gitit","repo":"extra"}
-{"name":"gitlab","description":"Project management and code hosting application","version":"19.2.1-1","homepage":"https://gitlab.com/gitlab-org/gitlab-foss","repo":"extra"}
+{"name":"gitlab","description":"Project management and code hosting application","version":"19.2.2-1","homepage":"https://gitlab.com/gitlab-org/gitlab-foss","repo":"extra"}
 {"name":"gitlab-ci-ls","description":"Language server for Gitlab CI","version":"1.3.3-1","homepage":"https://github.com/alesbrelih/gitlab-ci-ls","repo":"extra"}
 {"name":"gitlab-container-registry","description":"GitLab Container Registry daemon","version":"4.41.0-1","homepage":"https://gitlab.com/gitlab-org/container-registry","repo":"extra"}
 {"name":"gitlab-exporter","description":"A Gitlab prometheus metric exporter","version":"0.5.2-2","homepage":"https://gitlab.archlinux.org/archlinux/gitlab-exporter","repo":"extra"}
-{"name":"gitlab-gitaly","description":"Speed up Git access using caching","version":"19.2.2-1","homepage":"https://gitlab.com/gitlab-org/gitaly","repo":"extra"}
-{"name":"gitlab-pages","description":"GitLab Pages daemon used to serve static websites for GitLab users","version":"19.2.2-1","homepage":"https://gitlab.com/gitlab-org/gitlab-pages","repo":"extra"}
+{"name":"gitlab-gitaly","description":"Speed up Git access using caching","version":"19.2.4-1","homepage":"https://gitlab.com/gitlab-org/gitaly","repo":"extra"}
+{"name":"gitlab-pages","description":"GitLab Pages daemon used to serve static websites for GitLab users","version":"19.2.4-1","homepage":"https://gitlab.com/gitlab-org/gitlab-pages","repo":"extra"}
 {"name":"gitlab-runner","description":"The official GitLab CI runner written in Go","version":"19.2.2-1","homepage":"https://gitlab.com/gitlab-org/gitlab-runner","repo":"extra"}
 {"name":"gitlab-shell","description":"Git management software","version":"3:14.56.1-1","homepage":"https://gitlab.com/gitlab-org/gitlab-shell/","repo":"extra"}
 {"name":"gitleaks","description":"Audit Git repos for secrets and keys","version":"8.30.1-1","homepage":"https://github.com/gitleaks/gitleaks","repo":"extra"}
@@ -3199,7 +3199,7 @@
 {"name":"graphite-docs","description":"a \"smart font\" system to handle the complexities of lesser-known languages of the world (documentation)","version":"1:1.3.15-1","homepage":"https://graphite.sil.org/","repo":"extra"}
 {"name":"graphql-client-cli","description":"CLI for graphql-client","version":"0.16.0-2","homepage":"https://github.com/graphql-rust/graphql-client","repo":"extra"}
 {"name":"graphs","description":"Tool to plot and manipulate data","version":"2.0.5-1","homepage":"https://apps.gnome.org/Graphs/","repo":"extra"}
-{"name":"graphviz","description":"Graph visualization software","version":"15.1.1-1","homepage":"https://www.graphviz.org/","repo":"extra"}
+{"name":"graphviz","description":"Graph visualization software","version":"16.0.0-1","homepage":"https://www.graphviz.org/","repo":"extra"}
 {"name":"grc","description":"Yet another colouriser for beautifying your logfiles or output of commands","version":"1.13-2","homepage":"https://github.com/garabik/grc","repo":"extra"}
 {"name":"grcov","description":"Rust tool to collect and aggregate code coverage data for multiple source files","version":"0.10.7-2","homepage":"https://github.com/mozilla/grcov","repo":"extra"}
 {"name":"greetd","description":"Generic greeter daemon","version":"0.10.3-2","homepage":"https://git.sr.ht/~kennylevinsen/greetd","repo":"extra"}
@@ -4681,7 +4681,7 @@
 {"name":"highlight-perl","description":"Fast and flexible source code highlighter - perl module","version":"4.21-1","homepage":"http://www.andre-simon.de/doku/highlight/highlight.html","repo":"extra"}
 {"name":"highs","description":"Linear optimization software","version":"1.15.1-1","homepage":"https://highs.dev/","repo":"extra"}
 {"name":"highway","description":"A C++ library that provides portable SIMD/vector intrinsics","version":"1.4.0-1","homepage":"https://github.com/google/highway/","repo":"extra"}
-{"name":"himalaya","description":"A CLI email client","version":"2.0.0-1","homepage":"https://github.com/soywod/himalaya","repo":"extra"}
+{"name":"himalaya","description":"A CLI email client","version":"2.1.0-1","homepage":"https://github.com/soywod/himalaya","repo":"extra"}
 {"name":"hindent","description":"Extensible Haskell pretty printer","version":"6.2.0-4","homepage":"https://github.com/mihaimaruseac/hindent","repo":"extra"}
 {"name":"hip-runtime-amd","description":"Heterogeneous Interface for Portability (AMD runtime)","version":"7.2.4-1","homepage":"https://rocm.docs.amd.com/projects/HIP/en/latest/","repo":"extra"}
 {"name":"hip-runtime-nvidia","description":"Heterogeneous Interface for Portability (Nvidia runtime)","version":"7.2.4-1","homepage":"https://rocm.docs.amd.com/projects/HIP/en/latest/","repo":"extra"}
@@ -4702,7 +4702,7 @@
 {"name":"hiredis","description":"Minimalistic C client library for Redis","version":"1.3.0-1","homepage":"https://github.com/redis/hiredis/","repo":"extra"}
 {"name":"hitori","description":"Play the eponymous puzzle game","version":"44.0-5","homepage":"https://wiki.gnome.org/Apps/Hitori","repo":"extra"}
 {"name":"hivex","description":"System for extracting the contents of Windows Registry","version":"1.3.24-8","homepage":"http://libguestfs.org","repo":"extra"}
-{"name":"hl","description":"A fast and powerful log viewer and processor","version":"0.36.1-1","homepage":"https://github.com/pamburus/hl","repo":"extra"}
+{"name":"hl","description":"A fast and powerful log viewer and processor","version":"0.36.3-1","homepage":"https://github.com/pamburus/hl","repo":"extra"}
 {"name":"hledger","description":"Command-line interface for the hledger accounting system","version":"1.52.1-51","homepage":"http://hledger.org","repo":"extra"}
 {"name":"hledger-iadd","description":"A terminal UI as drop-in replacement for hledger add","version":"1.3.22-87","homepage":"https://github.com/hpdeifel/hledger-iadd#readme","repo":"extra"}
 {"name":"hledger-ui","description":"Curses-style terminal interface for the hledger accounting system","version":"1.52.1-57","homepage":"http://hledger.org","repo":"extra"}
@@ -4723,13 +4723,13 @@
 {"name":"hsa-rocr","description":"HSA Runtime API and runtime for ROCm","version":"7.2.4-1","homepage":"https://github.com/ROCm/rocm-systems","repo":"extra"}
 {"name":"hsetroot","description":"Tool which allows you to compose wallpapers (\"root pixmaps\") for X. Fork by Hyriand","version":"1.0.5-2","homepage":"https://github.com/himdel/hsetroot","repo":"extra"}
 {"name":"hslua-cli","description":"Command-line interface for Lua","version":"1.4.4-12","homepage":"https://hslua.org/","repo":"extra"}
-{"name":"hspell","description":"Hebrew spell-checker","version":"1.4-6","homepage":"http://www.ivrix.org.il/projects/spell-checker/","repo":"extra"}
+{"name":"hspell","description":"Hebrew spell-checker","version":"1.4-7","homepage":"http://www.ivrix.org.il/","repo":"extra"}
 {"name":"hss","description":"Interactive ssh client for multiple servers","version":"1.10-1","homepage":"https://github.com/six-ddc/hss","repo":"extra"}
 {"name":"html-xml-utils","description":"Utilities for manipulating HTML and XML files","version":"8.8-1","homepage":"https://www.w3.org/Tools/HTML-XML-utils","repo":"extra"}
 {"name":"htmlcxx","description":"A simple non-validating CSS1 and HTML parser for C++.","version":"0.87-5","homepage":"http://gcc-libs.sourceforge.net/","repo":"extra"}
 {"name":"htmldoc","description":"HTML Conversion Software","version":"1.9.23-2","homepage":"https://www.msweet.org/htmldoc/","repo":"extra"}
 {"name":"htmlq","description":"Like jq, but for HTML","version":"0.4.0-3","homepage":"https://github.com/mgdm/htmlq","repo":"extra"}
-{"name":"htop","description":"Interactive process viewer","version":"3.5.2-1","homepage":"https://htop.dev/","repo":"extra"}
+{"name":"htop","description":"Interactive process viewer","version":"3.5.3-1","homepage":"https://htop.dev/","repo":"extra"}
 {"name":"httpbin","description":"HTTP Request and Response Service","version":"0.10.4-1","homepage":"https://github.com/psf/httpbin","repo":"extra"}
 {"name":"httpie","description":"human-friendly CLI HTTP client for the API era","version":"3.2.4-2","homepage":"https://github.com/httpie/cli","repo":"extra"}
 {"name":"httping","description":"A ping-like tool for HTTP requests","version":"4.4.0-1","homepage":"https://www.vanheusden.com/httping/","repo":"extra"}
@@ -4770,7 +4770,7 @@
 {"name":"hunspell-fr-classical","description":"French Hunspell dictionary (classical variant)","version":"7.7-2","homepage":"https://grammalecte.net/","repo":"extra"}
 {"name":"hunspell-fr-comprehensive","description":"French Hunspell dictionary (comprehensive variant)","version":"7.7-2","homepage":"https://grammalecte.net/","repo":"extra"}
 {"name":"hunspell-fr-revised","description":"French Hunspell dictionary (revised variant)","version":"7.7-2","homepage":"https://grammalecte.net/","repo":"extra"}
-{"name":"hunspell-he","description":"Hebrew hunspell dictionary","version":"1.4-6","homepage":"http://www.ivrix.org.il/projects/spell-checker/","repo":"extra"}
+{"name":"hunspell-he","description":"Hebrew hunspell dictionary","version":"1.4-7","homepage":"http://www.ivrix.org.il/","repo":"extra"}
 {"name":"hunspell-hu","description":"Hungarian hunspell dictionary","version":"1.9-1","homepage":"https://magyarispell.sourceforge.net/","repo":"extra"}
 {"name":"hunspell-it","description":"Italian dictionary for Hunspell","version":"2.4-13","homepage":"https://sourceforge.net/projects/linguistico/","repo":"extra"}
 {"name":"hunspell-nl","description":"Dutch hunspell dictionaries","version":"2.20.19-5","homepage":"https://www.opentaal.org/","repo":"extra"}
@@ -4903,7 +4903,7 @@
 {"name":"index-fm","description":"Multi-platform file manager","version":"4.0.2-2","homepage":"https://mauikit.org/","repo":"extra"}
 {"name":"indicator-china-weather","description":"Indicator that displays China weather information","version":"3.0.4-2","homepage":"https://github.com/UbuntuKylin/indicator-china-weather","repo":"extra"}
 {"name":"infamousplugins","description":"A collection of open-source LV2 plugins","version":"0.3.2-2","homepage":"https://ssj71.github.io/infamousPlugins/","repo":"extra"}
-{"name":"inferno","description":"A Rust port of FlameGraph","version":"0.12.6-1","homepage":"https://github.com/jonhoo/inferno","repo":"extra"}
+{"name":"inferno","description":"A Rust port of FlameGraph","version":"0.12.8-1","homepage":"https://github.com/jonhoo/inferno","repo":"extra"}
 {"name":"influx-cli","description":"CLI for managing resources in InfluxDB","version":"2.8.0-3","homepage":"https://github.com/InfluxData/influx-cli","repo":"extra"}
 {"name":"influxdb","description":"Scalable datastore for metrics, events, and real-time analytics","version":"2.9.1-1","homepage":"https://github.com/InfluxData/influxdb","repo":"extra"}
 {"name":"iniparser","description":"A free stand-alone ini file parsing library written in portable ANSI C","version":"4.2.6-2","homepage":"https://github.com/ndevilla/iniparser","repo":"extra"}
@@ -5130,7 +5130,7 @@
 {"name":"judy","description":"C library creating and accessing dynamic arrays","version":"1.0.5-10","homepage":"http://judy.sourceforge.net/","repo":"extra"}
 {"name":"jujutsu","description":"Git-compatible VCS that is both simple and powerful","version":"0.44.0-2","homepage":"https://github.com/jj-vcs/jj","repo":"extra"}
 {"name":"juk","description":"A jukebox, tagger and music collection manager","version":"26.04.3-1","homepage":"https://apps.kde.org/juk/","repo":"extra"}
-{"name":"julia","description":"High-level, high-performance, dynamic programming language","version":"2:1.12.6-1","homepage":"https://julialang.org/","repo":"extra"}
+{"name":"julia","description":"High-level, high-performance, dynamic programming language","version":"2:1.12.7-1","homepage":"https://julialang.org/","repo":"extra"}
 {"name":"julius","description":"An enhanced re-implementation of Caesar III","version":"1.8.0-1","homepage":"https://github.com/bvschaik/julius","repo":"extra"}
 {"name":"jumpy","description":"Tactical 2D shooter in fishy pixels style","version":"0.12.2-1","homepage":"https://fishfolk.org/games/jumpy","repo":"extra"}
 {"name":"junction","description":"Application chooser to open files and links","version":"1.12-1","homepage":"https://apps.gnome.org/Junction/","repo":"extra"}
@@ -5143,7 +5143,7 @@
 {"name":"jupyter-nbclassic","description":"Jupyter Notebook as a Jupyter Server Extension","version":"1.3.3-4","homepage":"https://jupyter.org/","repo":"extra"}
 {"name":"jupyter-nbclient","description":"A tool for running Jupyter Notebooks in different execution contexts","version":"0.11.0-1","homepage":"https://github.com/jupyter/nbclient","repo":"extra"}
 {"name":"jupyter-nbconvert","description":"Jupyter Notebook Conversion","version":"7.17.1-2","homepage":"https://pypi.python.org/pypi/nbconvert","repo":"extra"}
-{"name":"jupyter-nbformat","description":"The base implementation of the Jupyter Notebook format and Python APIs for working with notebooks","version":"5.11.0-1","homepage":"https://pypi.python.org/pypi/nbformat","repo":"extra"}
+{"name":"jupyter-nbformat","description":"The base implementation of the Jupyter Notebook format and Python APIs for working with notebooks","version":"5.11.1-1","homepage":"https://pypi.python.org/pypi/nbformat","repo":"extra"}
 {"name":"jupyter-notebook","description":"The language-agnostic HTML notebook application for Project Jupyter","version":"7.6.2-1","homepage":"https://github.com/jupyter/notebook","repo":"extra"}
 {"name":"jupyter-notebook-shim","description":"Provides a way for JupyterLab and other frontends to switch to Jupyter Server for their Python Web application backend","version":"0.2.4-4","homepage":"https://github.com/jupyterlab/notebook_shim","repo":"extra"}
 {"name":"jupyter-server","description":"Provides the backend for Jupyter web applications like Jupyter notebook, JupyterLab, and Voila","version":"2.20.0-1","homepage":"https://jupyter.org/","repo":"extra"}
@@ -5310,7 +5310,7 @@
 {"name":"kew","description":"Music for the Shell","version":"4.2.7-1","homepage":"https://codeberg.org/ravachol/kew","repo":"extra"}
 {"name":"kexec-tools","description":"Load another kernel from the currently executing Linux kernel","version":"2.0.32-1","homepage":"https://kernel.org/pub/linux/utils/kernel/kexec/","repo":"extra"}
 {"name":"key-rack","description":"Password manager for GNOME","version":"0.5.0-1","homepage":"https://gitlab.gnome.org/World/key-rack","repo":"extra"}
-{"name":"keychain","description":"A front-end to ssh-agent, allowing one long-running ssh-agent process per system, rather than per login","version":"3.0.2-1","homepage":"https://www.funtoo.org/Keychain","repo":"extra"}
+{"name":"keychain","description":"A front-end to ssh-agent, allowing one long-running ssh-agent process per system, rather than per login","version":"3.0.3-1","homepage":"https://www.funtoo.org/Keychain","repo":"extra"}
 {"name":"keycloak","description":"Open Source Identity and Access Management For Modern Applications and Services","version":"26.7.1-1","homepage":"https://www.keycloak.org/","repo":"extra"}
 {"name":"keycloak-archlinux-theme","description":"Keycloak Arch Linux theme","version":"2.0.1-1","homepage":"https://gitlab.archlinux.org/archlinux/keycloak-archlinux-theme","repo":"extra"}
 {"name":"keycloak-metrics-spi","description":"A Service Provider that adds a Prometheus metrics endpoint to Keycloak","version":"7.0.0-1","homepage":"https://github.com/aerogear/keycloak-metrics-spi","repo":"extra"}
@@ -5330,7 +5330,7 @@
 {"name":"kglobalacceld","description":"Daemon providing Global Keyboard Shortcut (Accelerator) functionality","version":"6.7.4-1","homepage":"https://kde.org/plasma-desktop/","repo":"extra"}
 {"name":"kgoldrunner","description":"A game of action and puzzle solving","version":"26.04.3-1","homepage":"https://apps.kde.org/kgoldrunner/","repo":"extra"}
 {"name":"kgpg","description":"A GnuPG frontend","version":"26.04.3-1","homepage":"https://apps.kde.org/kgpg/","repo":"extra"}
-{"name":"kgraphviewer","description":"A Graphviz dot graph file viewer","version":"26.04.3-1","homepage":"https://apps.kde.org/kgraphviewer/","repo":"extra"}
+{"name":"kgraphviewer","description":"A Graphviz dot graph file viewer","version":"26.04.3-2","homepage":"https://apps.kde.org/kgraphviewer/","repo":"extra"}
 {"name":"kguiaddons","description":"Addons to QtGui","version":"6.28.0-1","homepage":"https://develop.kde.org/products/frameworks/","repo":"extra"}
 {"name":"kguiaddons5","description":"Addons to QtGui","version":"5.116.0-2","homepage":"https://community.kde.org/Frameworks","repo":"extra"}
 {"name":"khal","description":"CLI calendar application built around CalDAV","version":"0.14.0-1","homepage":"https://lostpackets.de/khal/","repo":"extra"}
@@ -5758,8 +5758,8 @@
 {"name":"libcgif","description":"A fast and lightweight GIF encoding library","version":"0.5.3-1","homepage":"https://github.com/dloebl/cgif","repo":"extra"}
 {"name":"libchardet","description":"Mozilla's Universal Charset Detector C/C++ API","version":"1.0.6-4","homepage":"http://ftp.oops.org/pub/oops/libchardet","repo":"extra"}
 {"name":"libchewing","description":"Intelligent Chinese phonetic input method","version":"0.13.1-1","homepage":"https://chewing.im/","repo":"extra"}
-{"name":"libclapper","description":"Clapper playback library","version":"0.10.0-1","homepage":"https://rafostar.github.io/clapper","repo":"extra"}
-{"name":"libclapper-gtk","description":"Clapper GTK integration library","version":"0.10.0-1","homepage":"https://rafostar.github.io/clapper","repo":"extra"}
+{"name":"libclapper","description":"Clapper playback library","version":"0.10.0-2","homepage":"https://rafostar.github.io/clapper","repo":"extra"}
+{"name":"libclapper-gtk","description":"Clapper GTK integration library","version":"0.10.0-2","homepage":"https://rafostar.github.io/clapper","repo":"extra"}
 {"name":"libclastfm","description":"Unofficial C-API for the Last.fm web service","version":"0.5-9","homepage":"http://liblastfm.sourceforge.net/","repo":"extra"}
 {"name":"libclc","description":"Library requirements of the OpenCL C programming language","version":"22.1.8-2","homepage":"https://libclc.llvm.org/","repo":"extra"}
 {"name":"libcli","description":"Library for including a Cisco-like command-line interface into other software","version":"1.10.7-2","homepage":"https://github.com/dparrish/libcli","repo":"extra"}
@@ -5930,8 +5930,8 @@
 {"name":"libhubbub","description":"HTML5 compliant parsing library","version":"0.3.8-2","homepage":"https://www.netsurf-browser.org/projects/hubbub/","repo":"extra"}
 {"name":"libhx","description":"A library providing queue, tree, I/O and utility functions","version":"5.4-1","homepage":"https://inai.de/projects/libhx/","repo":"extra"}
 {"name":"libibus","description":"IBus support library","version":"1.5.34-1","homepage":"https://github.com/ibus/ibus/wiki","repo":"extra"}
-{"name":"libical","description":"An open source reference implementation of the icalendar data type and serialization format","version":"4.0.4-1","homepage":"https://github.com/libical/libical","repo":"extra"}
-{"name":"libical-docs","description":"An open source reference implementation of the icalendar data type and serialization format (documentation)","version":"4.0.4-1","homepage":"https://github.com/libical/libical","repo":"extra"}
+{"name":"libical","description":"An open source reference implementation of the icalendar data type and serialization format","version":"4.0.5-1","homepage":"https://github.com/libical/libical","repo":"extra"}
+{"name":"libical-docs","description":"An open source reference implementation of the icalendar data type and serialization format (documentation)","version":"4.0.5-1","homepage":"https://github.com/libical/libical","repo":"extra"}
 {"name":"libice","description":"X11 Inter-Client Exchange library","version":"1.1.2-1","homepage":"https://xorg.freedesktop.org/","repo":"extra"}
 {"name":"libicns","description":"Library for manipulating icns/IconFamily files","version":"0.8.1-11","homepage":"https://icns.sourceforge.io/","repo":"extra"}
 {"name":"libiconv","description":"GNU charset conversion library","version":"1.19-1","homepage":"http://www.gnu.org/software/libiconv/","repo":"extra"}
@@ -6037,7 +6037,7 @@
 {"name":"libmcrypt","description":"A library which provides a uniform interface to several symmetric encryption algorithms","version":"2.5.8-7","homepage":"http://mcrypt.sourceforge.net/","repo":"extra"}
 {"name":"libmd","description":"Message Digest functions from BSD systems","version":"1.2.0-1","homepage":"https://www.hadrons.org/software/libmd/","repo":"extra"}
 {"name":"libmediaart","description":"Library tasked with managing, extracting and handling media art caches","version":"1.9.7-2","homepage":"https://gitlab.gnome.org/GNOME/libmediaart","repo":"extra"}
-{"name":"libmediainfo","description":"Shared library for MediaInfo","version":"26.05-1","homepage":"https://mediaarea.net","repo":"extra"}
+{"name":"libmediainfo","description":"Shared library for MediaInfo","version":"26.05-2","homepage":"https://mediaarea.net","repo":"extra"}
 {"name":"libmemcached-awesome","description":"C/C++ client library and tools for the memcached server","version":"1.1.4-4","homepage":"https://awesomized.github.io/libmemcached/","repo":"extra"}
 {"name":"libmesode","description":"Simple, lightweight C library for writing prifanity XMPP client","version":"0.10.1-3","homepage":"https://github.com/boothj5/libmesode","repo":"extra"}
 {"name":"libmesode-doc","description":"Simple, lightweight C library for writing prifanity XMPP client (documentation and samples)","version":"0.10.1-3","homepage":"https://github.com/boothj5/libmesode","repo":"extra"}
@@ -6121,7 +6121,7 @@
 {"name":"libomemo-c","description":"Fork of libsignal-protocol-c adding support for OMEMO XEP-0384 0.5.0+","version":"0.5.1-1","homepage":"https://github.com/dino/libomemo-c","repo":"extra"}
 {"name":"libomxil-bellagio","description":"An opensource implementation of the OpenMAX Integration Layer API","version":"0.9.3-5","homepage":"http://omxil.sourceforge.net","repo":"extra"}
 {"name":"libopencm3","description":"Open Source firmware library for various ARM Cortex microcontrollers","version":"r3116.76670e09-1","homepage":"https://www.libopencm3.org","repo":"extra"}
-{"name":"libopenmpt","description":"A library to render tracker music to a PCM audio stream","version":"0.8.7-1","homepage":"https://lib.openmpt.org/libopenmpt/","repo":"extra"}
+{"name":"libopenmpt","description":"A library to render tracker music to a PCM audio stream","version":"0.8.8-1","homepage":"https://lib.openmpt.org/libopenmpt/","repo":"extra"}
 {"name":"libopenraw","description":"Library for decoding RAW files","version":"0.3.7-2","homepage":"https://libopenraw.freedesktop.org/","repo":"extra"}
 {"name":"libopensmtpd","description":"Library for creating OpenSMTPD filters","version":"1.0-2","homepage":"https://imperialat.at/dev/libopensmtpd/","repo":"extra"}
 {"name":"libopusenc","description":"High-level API for encoding .opus files","version":"0.3-1","homepage":"https://opus-codec.org/","repo":"extra"}
@@ -6777,7 +6777,7 @@
 {"name":"live-media","description":"Set of C++ libraries for multimedia streaming","version":"2025.05.24-1","homepage":"http://live555.com/liveMedia","repo":"extra"}
 {"name":"livecd-sounds","description":"Sound files for accessibility features in a boot medium","version":"1.0-3","homepage":"https://alex19ep.me/public/","repo":"extra"}
 {"name":"lksctp-tools","description":"An implementation of the SCTP protocol","version":"1.0.21-1","homepage":"https://github.com/sctp/lksctp-tools","repo":"extra"}
-{"name":"llama-cpp","description":"LLM inference in C/C++","version":"b10433-1","homepage":"https://github.com/ggml-org/llama.cpp","repo":"extra"}
+{"name":"llama-cpp","description":"LLM inference in C/C++","version":"b10453-1","homepage":"https://github.com/ggml-org/llama.cpp","repo":"extra"}
 {"name":"lld","description":"Linker from the LLVM project","version":"22.1.8-1","homepage":"https://lld.llvm.org/","repo":"extra"}
 {"name":"lld18","description":"Linker from the LLVM project (Version 18)","version":"18.1.6-2","homepage":"https://lld.llvm.org/","repo":"extra"}
 {"name":"lld20","description":"Linker from the LLVM project (Version 20)","version":"20.1.8-1","homepage":"https://lld.llvm.org/","repo":"extra"}
@@ -6787,7 +6787,7 @@
 {"name":"lldpd","description":"802.1ab implementation (LLDP) to help you locate neighbors","version":"1.0.22-1","homepage":"https://vincentbernat.github.io/lldpd/","repo":"extra"}
 {"name":"llhttp","description":"Port of http_parser to llparse","version":"9.3.1-1","homepage":"https://llhttp.org","repo":"extra"}
 {"name":"llm-manager","description":"LLM task->model configuration utility","version":"1.2.1-1","homepage":"https://github.com/xyproto/llm-manager","repo":"extra"}
-{"name":"llmfit","description":"CLI tool to tell which LLM models will run best on your hardware","version":"1.1.9-1","homepage":"https://github.com/AlexsJones/llmfit","repo":"extra"}
+{"name":"llmfit","description":"CLI tool to tell which LLM models will run best on your hardware","version":"1.1.10-1","homepage":"https://github.com/AlexsJones/llmfit","repo":"extra"}
 {"name":"llvm","description":"Compiler infrastructure","version":"22.1.8-2","homepage":"https://llvm.org/","repo":"extra"}
 {"name":"llvm-julia","description":"Compiler infrastructure - Julia fork","version":"18.1.7.4-3","homepage":"https://julialang.org/","repo":"extra"}
 {"name":"llvm-julia-libs","description":"LLVM runtime libraries - Julia fork","version":"18.1.7.4-3","homepage":"https://julialang.org/","repo":"extra"}
@@ -7407,7 +7407,7 @@
 {"name":"mda.lv2","description":"A port of the MDA VST plugins to LV2","version":"1.2.12-1","homepage":"https://gitlab.com/drobilla/mda-lv2","repo":"extra"}
 {"name":"mdbook","description":"Create book from markdown files, like Gitbook but implemented in Rust","version":"0.5.4-1","homepage":"https://github.com/rust-lang/mdBook","repo":"extra"}
 {"name":"mdbook-linkcheck","description":"A mdbook backend which will check all links in a document are valid","version":"0.7.7-2","homepage":"https://github.com/Michael-F-Bryan/mdbook-linkcheck","repo":"extra"}
-{"name":"mdbook-mermaid","description":"A preprocessor for mdbook to add mermaid support","version":"0.17.0-1","homepage":"https://github.com/badboy/mdbook-mermaid","repo":"extra"}
+{"name":"mdbook-mermaid","description":"A preprocessor for mdbook to add mermaid support","version":"0.17.1-1","homepage":"https://github.com/badboy/mdbook-mermaid","repo":"extra"}
 {"name":"mdds","description":"A collection of multi-dimensional data structures and indexing algorithms","version":"3.1.0-1","homepage":"https://gitlab.com/mdds/mdds","repo":"extra"}
 {"name":"mdf2iso","description":"Converts Alcohol 120% .mdf files to .iso files","version":"0.3.1-5","homepage":"https://salsa.debian.org/debian/mdf2iso","repo":"extra"}
 {"name":"mdformat","description":"CommonMark compliant Markdown formatter","version":"1.0.0-2","homepage":"https://github.com/hukkin/mdformat","repo":"extra"}
@@ -7447,7 +7447,7 @@
 {"name":"menyoki","description":"Screen{shot,cast} and perform ImageOps on the command line","version":"1.7.0-3","homepage":"https://github.com/orhun/menyoki","repo":"extra"}
 {"name":"mephisto.lv2","description":"A Just-in-Time FAUST compiler embedded in an LV2 plugin","version":"0.18.2-6","homepage":"https://git.open-music-kontrollers.ch/~hp/mephisto.lv2","repo":"extra"}
 {"name":"mercurial","description":"A scalable distributed SCM tool","version":"7.2.4-1","homepage":"https://www.mercurial-scm.org/","repo":"extra"}
-{"name":"mergiraf","description":"A syntax-aware git merge driver for a growing collection of programming languages and file formats","version":"0.18.0-1","homepage":"https://mergiraf.org/","repo":"extra"}
+{"name":"mergiraf","description":"A syntax-aware git merge driver for a growing collection of programming languages and file formats","version":"0.19.0-1","homepage":"https://mergiraf.org/","repo":"extra"}
 {"name":"merkaartor","description":"OpenStreetMap editor","version":"0.20.0-27","homepage":"http://merkaartor.be/","repo":"extra"}
 {"name":"merkuro","description":"Application suite designed to handle emails, calendars, contacts and tasks","version":"26.04.3-1","homepage":"https://apps.kde.org/merkuro/","repo":"extra"}
 {"name":"mermaid-cli","description":"Generate images from Mermaid files","version":"11.16.0-2","homepage":"https://github.com/mermaid-js/mermaid-cli","repo":"extra"}
@@ -7573,7 +7573,7 @@
 {"name":"monolith","description":"CLI to save web pages as single HTML files","version":"2.10.1-1","homepage":"https://github.com/Y2Z/monolith","repo":"extra"}
 {"name":"moonlight-qt","description":"GameStream client for PCs","version":"6.1.0-7","homepage":"https://moonlight-stream.org","repo":"extra"}
 {"name":"moony.lv2","description":"Easily add realtime programmable logic glue in LV2 plugin graphs","version":"0.40.0-5","homepage":"https://git.open-music-kontrollers.ch/~hp/moony.lv2","repo":"extra"}
-{"name":"moor","description":"A pager designed to just do the right thing without any configuration.","version":"2.16.3-1","homepage":"https://github.com/walles/moor","repo":"extra"}
+{"name":"moor","description":"A pager designed to just do the right thing without any configuration.","version":"2.17.0-1","homepage":"https://github.com/walles/moor","repo":"extra"}
 {"name":"moosefs","description":"High performing and fault tolerant distributed file system","version":"4.59.2-1","homepage":"https://moosefs.com/","repo":"extra"}
 {"name":"mopidy","description":"An extensible music server written in Python","version":"4.0.0a2-2","homepage":"https://www.mopidy.com","repo":"extra"}
 {"name":"moreutils","description":"A growing collection of the unix tools that nobody thought to write thirty years ago","version":"0.70-1","homepage":"https://joeyh.name/code/moreutils/","repo":"extra"}
@@ -7772,13 +7772,13 @@
 {"name":"networkmanager","description":"Network connection manager and user applications","version":"1.58.0-1","homepage":"https://networkmanager.dev/","repo":"extra"}
 {"name":"networkmanager-dmenu","description":"Control Networkmanager via dmenu","version":"2.6.3-1","homepage":"https://github.com/firecat53/networkmanager-dmenu","repo":"extra"}
 {"name":"networkmanager-docs","description":"Network connection manager and user applications (API documentation)","version":"1.58.0-1","homepage":"https://networkmanager.dev/","repo":"extra"}
-{"name":"networkmanager-l2tp","description":"NetworkManager VPN plugin for L2TP (with GUI)","version":"1.52.2-2","homepage":"https://github.com/nm-l2tp/NetworkManager-l2tp/wiki","repo":"extra"}
+{"name":"networkmanager-l2tp","description":"NetworkManager VPN plugin for L2TP (with GUI)","version":"1.52.4-1","homepage":"https://github.com/nm-l2tp/NetworkManager-l2tp/wiki","repo":"extra"}
 {"name":"networkmanager-openconnect","description":"NetworkManager VPN plugin for OpenConnect (with GUI)","version":"1.2.10-4","homepage":"https://networkmanager.dev/docs/vpn/","repo":"extra"}
 {"name":"networkmanager-openvpn","description":"NetworkManager VPN plugin for OpenVPN (with GUI)","version":"1.12.5-1","homepage":"https://networkmanager.dev/docs/vpn/","repo":"extra"}
 {"name":"networkmanager-pptp","description":"NetworkManager VPN plugin for PPTP (with GUI)","version":"1.2.12-8","homepage":"https://networkmanager.dev/docs/vpn/","repo":"extra"}
 {"name":"networkmanager-qt","description":"Qt wrapper for NetworkManager API","version":"6.28.0-1","homepage":"https://develop.kde.org/products/frameworks/","repo":"extra"}
 {"name":"networkmanager-strongswan","description":"Strongswan NetworkManager plugin","version":"1.6.4-1","homepage":"https://wiki.strongswan.org/projects/strongswan/wiki/NetworkManager","repo":"extra"}
-{"name":"networkmanager-vpn-plugin-l2tp","description":"NetworkManager VPN plugin for L2TP (VPN plugin only)","version":"1.52.2-2","homepage":"https://github.com/nm-l2tp/NetworkManager-l2tp/wiki","repo":"extra"}
+{"name":"networkmanager-vpn-plugin-l2tp","description":"NetworkManager VPN plugin for L2TP (VPN plugin only)","version":"1.52.4-1","homepage":"https://github.com/nm-l2tp/NetworkManager-l2tp/wiki","repo":"extra"}
 {"name":"networkmanager-vpn-plugin-openconnect","description":"NetworkManager VPN plugin for OpenConnect (VPN plugin only)","version":"1.2.10-4","homepage":"https://networkmanager.dev/docs/vpn/","repo":"extra"}
 {"name":"networkmanager-vpn-plugin-openvpn","description":"NetworkManager VPN plugin for OpenVPN (VPN plugin only)","version":"1.12.5-1","homepage":"https://networkmanager.dev/docs/vpn/","repo":"extra"}
 {"name":"networkmanager-vpn-plugin-pptp","description":"NetworkManager VPN plugin for PPTP (VPN plugin only)","version":"1.2.12-8","homepage":"https://networkmanager.dev/docs/vpn/","repo":"extra"}
@@ -7788,7 +7788,7 @@
 {"name":"new-session-manager","description":"Audio session manager","version":"1.6.1-3","homepage":"https://github.com/jackaudio/new-session-manager","repo":"extra"}
 {"name":"newsboat","description":"RSS/Atom feed reader for text terminals","version":"2.44-1","homepage":"https://newsboat.org/","repo":"extra"}
 {"name":"newsflash","description":"Feed reader application designed to complement an already existing web-based RSS reader account","version":"5.2.5-1","homepage":"https://apps.gnome.org/NewsFlash/","repo":"extra"}
-{"name":"nextcloud","description":"A cloud server to store your files centrally on a hardware controlled by you","version":"34.0.2-1","homepage":"https://nextcloud.com","repo":"extra"}
+{"name":"nextcloud","description":"A cloud server to store your files centrally on a hardware controlled by you","version":"34.0.3-1","homepage":"https://nextcloud.com","repo":"extra"}
 {"name":"nextcloud-app-bookmarks","description":"Bookmarks app for nextcloud","version":"1:16.2.5-1","homepage":"https://github.com/nextcloud/bookmarks","repo":"extra"}
 {"name":"nextcloud-app-calendar","description":"Calendar app for nextcloud","version":"1:6.5.3-1","homepage":"https://github.com/nextcloud/calendar/","repo":"extra"}
 {"name":"nextcloud-app-contacts","description":"Contacts app for nextcloud","version":"8.7.6-1","homepage":"https://github.com/nextcloud/contacts/","repo":"extra"}
@@ -7931,7 +7931,7 @@
 {"name":"numactl","description":"Simple NUMA policy support","version":"2.0.19-1","homepage":"https://github.com/numactl/numactl","repo":"extra"}
 {"name":"numbat","description":"A statically typed programming language for scientific computations with first class support for physical dimensions and units","version":"1.23.0-2","homepage":"https://github.com/sharkdp/numbat","repo":"extra"}
 {"name":"numlockx","description":"Turns on the numlock key in X11.","version":"1.2-6","homepage":"https://github.com/rg3/numlockx","repo":"extra"}
-{"name":"nushell","description":"A new type of shell","version":"0.114.1-2","homepage":"https://www.nushell.sh","repo":"extra"}
+{"name":"nushell","description":"A new type of shell","version":"0.115.0-1","homepage":"https://www.nushell.sh","repo":"extra"}
 {"name":"nuspell","description":"Fast and safe spellchecking C++ library","version":"5.1.8-1","homepage":"https://nuspell.github.io/","repo":"extra"}
 {"name":"nut","description":"A collection of programs which provide a common interface for monitoring and administering UPS, PDU and SCD hardware","version":"2.8.5-2","homepage":"https://networkupstools.org/","repo":"extra"}
 {"name":"nvchecker","description":"New version checker for software releases","version":"2.22-1","homepage":"https://github.com/lilydjwg/nvchecker","repo":"extra"}
@@ -7982,7 +7982,7 @@
 {"name":"objdiff","description":"A local diffing tool for decompilation projects","version":"3.8.0-1","homepage":"https://github.com/encounter/objdiff","repo":"extra"}
 {"name":"obs-studio","description":"Free, open source software for live streaming and recording","version":"32.2.2-1","homepage":"https://obsproject.com","repo":"extra"}
 {"name":"obs-studio-plugin-browser","description":"CEF-based OBS Studio browser plugin","version":"32.2.2-1","homepage":"https://obsproject.com/kb/browser-source","repo":"extra"}
-{"name":"obsidian","description":"A powerful knowledge base that works on top of a local folder of plain text Markdown files","version":"1.13.7-1","homepage":"https://obsidian.md","repo":"extra"}
+{"name":"obsidian","description":"A powerful knowledge base that works on top of a local folder of plain text Markdown files","version":"1.13.7-2","homepage":"https://obsidian.md","repo":"extra"}
 {"name":"obsidian-icon-theme","description":"Obsidian icon theme","version":"4.15-3","homepage":"https://github.com/madmaxms/iconpack-obsidian","repo":"extra"}
 {"name":"ocaml","description":"A functional language with OO extensions","version":"5.5.0-1","homepage":"https://ocaml.org/","repo":"extra"}
 {"name":"ocaml-astring","description":"Alternative String module for OCaml","version":"0.8.5-10","homepage":"https://erratique.ch/software/astring","repo":"extra"}
@@ -8020,7 +8020,7 @@
 {"name":"ocaml-topkg","description":"A packager for distributing OCaml software","version":"1.1.1-1","homepage":"https://erratique.ch/software/topkg","repo":"extra"}
 {"name":"ocaml-zarith","description":"Implements arithmetic and logical operations over arbitrary-precision integers and rational numbers","version":"1.14-9","homepage":"https://github.com/ocaml/Zarith","repo":"extra"}
 {"name":"ocamlbuild","description":"Build tool that has built-in rules for building OCaml libraries and programs","version":"0.16.1-7","homepage":"https://github.com/ocaml/ocamlbuild","repo":"extra"}
-{"name":"occt","description":"OverClock Checking Tool - CPU/GPU stress testing and monitoring","version":"17.0.15-1","homepage":"https://www.ocbase.com/","repo":"extra"}
+{"name":"occt","description":"OverClock Checking Tool - CPU/GPU stress testing and monitoring","version":"17.0.16-1","homepage":"https://www.ocbase.com/","repo":"extra"}
 {"name":"ocean-sound-theme","description":"Ocean Sound Theme for Plasma","version":"6.7.4-1","homepage":"https://kde.org/plasma-desktop/","repo":"extra"}
 {"name":"ocicl","description":"An OCI-based ASDF system distribution and management tool for Common Lisp","version":"2.17.0-1","homepage":"https://github.com/ocicl/ocicl","repo":"extra"}
 {"name":"ocl-icd","description":"OpenCL ICD Bindings","version":"2.3.5-1","homepage":"https://github.com/OCL-dev/ocl-icd","repo":"extra"}
@@ -8052,11 +8052,11 @@
 {"name":"okteta","description":"KDE hex editor for viewing and editing the raw data of files","version":"1:0.26.27-1","homepage":"https://apps.kde.org/okteta/","repo":"extra"}
 {"name":"okular","description":"Document Viewer","version":"26.04.3-1","homepage":"https://apps.kde.org/okular/","repo":"extra"}
 {"name":"okularpart5","description":"Qt5 Okular KPart","version":"23.08.5-4","homepage":"https://apps.kde.org/okular/","repo":"extra"}
-{"name":"ollama","description":"Create, run and share large language models (LLMs)","version":"0.32.13-1","homepage":"https://github.com/ollama/ollama","repo":"extra"}
-{"name":"ollama-cuda","description":"Create, run and share large language models (LLMs) with CUDA","version":"0.32.13-1","homepage":"https://github.com/ollama/ollama","repo":"extra"}
-{"name":"ollama-docs","description":"Documentation for Ollama","version":"0.32.13-1","homepage":"https://github.com/ollama/ollama","repo":"extra"}
-{"name":"ollama-rocm","description":"Create, run and share large language models (LLMs) with ROCm","version":"0.32.13-1","homepage":"https://github.com/ollama/ollama","repo":"extra"}
-{"name":"ollama-vulkan","description":"Create, run and share large language models (LLMs) with Vulkan","version":"0.32.13-1","homepage":"https://github.com/ollama/ollama","repo":"extra"}
+{"name":"ollama","description":"Create, run and share large language models (LLMs)","version":"0.32.14-1","homepage":"https://github.com/ollama/ollama","repo":"extra"}
+{"name":"ollama-cuda","description":"Create, run and share large language models (LLMs) with CUDA","version":"0.32.14-1","homepage":"https://github.com/ollama/ollama","repo":"extra"}
+{"name":"ollama-docs","description":"Documentation for Ollama","version":"0.32.14-1","homepage":"https://github.com/ollama/ollama","repo":"extra"}
+{"name":"ollama-rocm","description":"Create, run and share large language models (LLMs) with ROCm","version":"0.32.14-1","homepage":"https://github.com/ollama/ollama","repo":"extra"}
+{"name":"ollama-vulkan","description":"Create, run and share large language models (LLMs) with Vulkan","version":"0.32.14-1","homepage":"https://github.com/ollama/ollama","repo":"extra"}
 {"name":"ols","description":"Language server for Odin","version":"dev_2026_06-1","homepage":"https://github.com/DanielGavin/ols","repo":"extra"}
 {"name":"onboard","description":"On-screen keyboard useful on tablet PCs or for mobility impaired users","version":"1.4.1-14","homepage":"https://launchpad.net/onboard","repo":"extra"}
 {"name":"one_gadget","description":"The best tool for finding one gadget RCE in libc.so.6","version":"1.10.0-4","homepage":"https://github.com/david942j/one_gadget","repo":"extra"}
@@ -8079,9 +8079,9 @@
 {"name":"opam","description":"OCaml package manager","version":"2.5.2-1","homepage":"https://opam.ocaml.org/","repo":"extra"}
 {"name":"open-iscsi","description":"iSCSI userland tools","version":"2.1.12-1","homepage":"https://www.open-iscsi.com/","repo":"extra"}
 {"name":"open-isns","description":"iSNS server and client for Linux","version":"0.103-1","homepage":"https://github.com/gonzoleeman/open-isns","repo":"extra"}
-{"name":"open-policy-agent","description":"Command-line utility and REPL for Open Policy Agent","version":"1.19.0-1","homepage":"https://github.com/open-policy-agent/opa","repo":"extra"}
+{"name":"open-policy-agent","description":"Command-line utility and REPL for Open Policy Agent","version":"1.19.1-1","homepage":"https://github.com/open-policy-agent/opa","repo":"extra"}
 {"name":"open-vm-tools","description":"The Open Virtual Machine Tools (open-vm-tools) are the open source implementation of VMware Tools","version":"6:13.1.0-3","homepage":"https://github.com/vmware/open-vm-tools","repo":"extra"}
-{"name":"openai-codex","description":"OpenAIs lightweight coding agent that runs in your terminal","version":"0.146.1-1","homepage":"https://github.com/openai/codex","repo":"extra"}
+{"name":"openai-codex","description":"OpenAIs lightweight coding agent that runs in your terminal","version":"0.147.0-1","homepage":"https://github.com/openai/codex","repo":"extra"}
 {"name":"openal","description":"Cross-platform 3D audio library, software implementation","version":"1.25.2-2","homepage":"https://github.com/kcat/openal-soft","repo":"extra"}
 {"name":"openal-examples","description":"Cross-platform 3D audio library, software implementation (example programs)","version":"1.25.2-2","homepage":"https://github.com/kcat/openal-soft","repo":"extra"}
 {"name":"openapi-diff","description":"Utility for comparing two OpenAPI specifications","version":"2.1.7-1","homepage":"https://github.com/OpenAPITools/openapi-diff","repo":"extra"}
@@ -8140,7 +8140,7 @@
 {"name":"openexr","description":"A high dynamic-range image file format library","version":"3.4.14-1","homepage":"https://www.openexr.com/","repo":"extra"}
 {"name":"openfact","description":"Collect and display system facts","version":"5.6.1-2","homepage":"https://github.com/OpenVoxProject/openfact","repo":"extra"}
 {"name":"openfec","description":"Open Forward Erasure Codecs","version":"1.4.2.12-1","homepage":"http://openfec.org/","repo":"extra"}
-{"name":"openfire","description":"High performance XMPP (Jabber) server.","version":"5.1.1-1","homepage":"https://www.igniterealtime.org/projects/openfire/","repo":"extra"}
+{"name":"openfire","description":"High performance XMPP (Jabber) server.","version":"5.1.2-1","homepage":"https://www.igniterealtime.org/projects/openfire/","repo":"extra"}
 {"name":"openfortivpn","description":"An open implementation of Fortinet's proprietary PPP+SSL VPN solution","version":"1.24.1-1","homepage":"https://github.com/adrienverge/openfortivpn","repo":"extra"}
 {"name":"openfpgaloader","description":"Universal utility for programming FPGA","version":"1.1.1-2","homepage":"https://github.com/trabucayre/openFPGALoader","repo":"extra"}
 {"name":"opengl-man-pages","description":"OpenGL Man Pages - OpenGL 4.x","version":"20260126-1","homepage":"https://github.com/KhronosGroup/OpenGL-Refpages","repo":"extra"}
@@ -8172,7 +8172,7 @@
 {"name":"openmpi-docs","description":"High performance message passing library (MPI) - documentation","version":"5.0.10-3","homepage":"https://www.open-mpi.org","repo":"extra"}
 {"name":"openmw","description":"Open-source engine reimplementation for the role-playing game Morrowind","version":"0.51.0-2","homepage":"http://www.openmw.org","repo":"extra"}
 {"name":"openntpd","description":"Free, easy to use implementation of the Network Time Protocol","version":"7.9p1-1","homepage":"https://www.openntpd.org/","repo":"extra"}
-{"name":"openobserve","description":"Observability platform for logs, metrics, traces, and frontend monitoring","version":"0.92.1-1","homepage":"https://openobserve.ai/","repo":"extra"}
+{"name":"openobserve","description":"Observability platform for logs, metrics, traces, and frontend monitoring","version":"0.92.2-1","homepage":"https://openobserve.ai/","repo":"extra"}
 {"name":"openocd","description":"Debugging, in-system programming and boundary-scan testing for embedded target devices","version":"1:0.12.0-5","homepage":"https://openocd.org","repo":"extra"}
 {"name":"openpace","description":"Cryptographic library for EAC version 2","version":"1.1.4-2","homepage":"https://frankmorgner.github.io/openpace","repo":"extra"}
 {"name":"openpgl","description":"Intel Open Path Guiding Library","version":"0.7.1-1","homepage":"https://github.com/openpathguidinglibrary/openpgl","repo":"extra"}
@@ -8311,7 +8311,7 @@
 {"name":"ossp","description":"Emulate OSS device using CUSE","version":"1.3.3-1","homepage":"https://github.com/OpenMandrivaSoftware/ossp","repo":"extra"}
 {"name":"ostra-cg","description":"Generate call graphs from encoded traces","version":"1:1.31-2","homepage":"https://git.kernel.org/pub/scm/devel/pahole/pahole.git","repo":"extra"}
 {"name":"ostree","description":"Operating system and container binary deployment and upgrades","version":"2026.3-1","homepage":"https://ostreedev.github.io/ostree/","repo":"extra"}
-{"name":"osv-scanner","description":"Vulnerability scanner written in Go which uses the data provided by https://osv.dev","version":"2.5.0-1","homepage":"https://github.com/google/osv-scanner","repo":"extra"}
+{"name":"osv-scanner","description":"Vulnerability scanner written in Go which uses the data provided by https://osv.dev","version":"2.5.1-1","homepage":"https://github.com/google/osv-scanner","repo":"extra"}
 {"name":"ot-bboi-clap","description":"A drum machine inspired by the '90s Rapman sound toys - CLAP plugin","version":"1.0.1-2","homepage":"https://punklabs.com/ot-bboi","repo":"extra"}
 {"name":"ot-bboi-docs","description":"A drum machine inspired by the '90s Rapman sound toys - documentation","version":"1.0.1-2","homepage":"https://punklabs.com/ot-bboi","repo":"extra"}
 {"name":"ot-bboi-standalone","description":"A drum machine inspired by the '90s Rapman sound toys - standalone","version":"1.0.1-2","homepage":"https://punklabs.com/ot-bboi","repo":"extra"}
@@ -8477,7 +8477,7 @@
 {"name":"pari-galpol","description":"PARI package of the GALPOL database of polynomials defining Galois extensions of the rationals","version":"20180625-3","homepage":"http://pari.math.u-bordeaux.fr/","repo":"extra"}
 {"name":"pari-seadata","description":"PARI/GP package needed by ellap for large primes","version":"20090618-3","homepage":"http://pari.math.u-bordeaux.fr/packages.html","repo":"extra"}
 {"name":"pari-seadata-small","description":"PARI database needed by ellap for large primes","version":"20090618-4","homepage":"https://pari.math.u-bordeaux.fr/","repo":"extra"}
-{"name":"parla","description":"Native Gnome DeltaChat client","version":"0.7.8-1","homepage":"https://github.com/trufae/parla","repo":"extra"}
+{"name":"parla","description":"Native Gnome DeltaChat client","version":"0.8.0-1","homepage":"https://github.com/trufae/parla","repo":"extra"}
 {"name":"parley","description":"Vocabulary Trainer","version":"26.04.3-1","homepage":"https://apps.kde.org/parley/","repo":"extra"}
 {"name":"parole","description":"Modern media player based on the GStreamer framework","version":"4.20.0-1","homepage":"https://docs.xfce.org/apps/parole/start","repo":"extra"}
 {"name":"partclone","description":"Utilities to save and restore used blocks on a partition","version":"0.3.48-1","homepage":"https://partclone.org","repo":"extra"}
@@ -8556,8 +8556,8 @@
 {"name":"pekwm-themes","description":"PekWM theme collection","version":"1.0.5-7","homepage":"https://github.com/aur-archive/pekwm-themes","repo":"extra"}
 {"name":"pelican","description":"A tool to generate a static blog, with restructured text (or markdown) input files.","version":"4.11.0-3","homepage":"https://blog.getpelican.com/","repo":"extra"}
 {"name":"pencil2d","description":"Easy, intuitive tool to make 2D hand-drawn animations","version":"0.7.2-1","homepage":"https://www.pencil2d.org/","repo":"extra"}
-{"name":"percona-server","description":"Drop-in replacement for MySQL that provides improved performance, diagnostics, instrumentation and MyRocks storage engine","version":"9.7.1_1-1","homepage":"https://www.percona.com/software/mysql-database/percona-server","repo":"extra"}
-{"name":"percona-server-clients","description":"Percona Server client tools","version":"9.7.1_1-1","homepage":"https://www.percona.com/software/mysql-database/percona-server","repo":"extra"}
+{"name":"percona-server","description":"Drop-in replacement for MySQL that provides improved performance, diagnostics, instrumentation and MyRocks storage engine","version":"9.7.1_1-2","homepage":"https://www.percona.com/software/mysql-database/percona-server","repo":"extra"}
+{"name":"percona-server-clients","description":"Percona Server client tools","version":"9.7.1_1-2","homepage":"https://www.percona.com/software/mysql-database/percona-server","repo":"extra"}
 {"name":"percona-toolkit","description":"Collection of advanced command-line tools to perform a variety of MySQL and system tasks.","version":"3.7.1-1","homepage":"https://www.percona.com/software/database-tools/percona-toolkit","repo":"extra"}
 {"name":"perf","description":"Linux kernel performance auditing tool","version":"7.1.8-1","homepage":"https://www.kernel.org","repo":"extra"}
 {"name":"performous","description":"A free game like \"Singstar\", \"Rockband\" or \"Stepmania\"","version":"1.3.1-21","homepage":"https://performous.org/","repo":"extra"}
@@ -9338,7 +9338,7 @@
 {"name":"piping-server","description":"Infinitely transfer between every device over pure HTTP with pipes or browsers","version":"0.18.0-2","homepage":"https://github.com/nwtgck/piping-server-rust","repo":"extra"}
 {"name":"pitivi","description":"Editor for audio/video projects using the GStreamer framework","version":"2023.03-11","homepage":"https://pitivi.org/","repo":"extra"}
 {"name":"pius","description":"PGP Individual User Signer","version":"3.0.0-9","homepage":"https://www.phildev.net/pius/","repo":"extra"}
-{"name":"pixi","description":"A package management and workflow tool","version":"0.76.1-1","homepage":"https://github.com/prefix-dev/pixi","repo":"extra"}
+{"name":"pixi","description":"A package management and workflow tool","version":"0.76.2-1","homepage":"https://github.com/prefix-dev/pixi","repo":"extra"}
 {"name":"pixiewps","description":"Offline bruteforce of the WPS pin exploiting the low or non-existing entropy of some APs","version":"1.4.2-4","homepage":"https://github.com/wiire/pixiewps","repo":"extra"}
 {"name":"pixman","description":"The pixel-manipulation library for X and cairo","version":"0.46.4-1","homepage":"https://gitlab.freedesktop.org/pixman/pixman","repo":"extra"}
 {"name":"pixz","description":"Parallel, indexed xz compressor","version":"1.0.7-5","homepage":"https://github.com/vasi/pixz","repo":"extra"}
@@ -9419,7 +9419,7 @@
 {"name":"podman-docker","description":"Emulate Docker CLI using podman","version":"6.1.0-1","homepage":"https://github.com/podman-container-tools/podman","repo":"extra"}
 {"name":"podofo","description":"A C++ library to work with the PDF file format","version":"0.10.6-1","homepage":"http://podofo.sourceforge.net","repo":"extra"}
 {"name":"podofo-tools","description":"A C++ library to work with the PDF file format","version":"0.10.6-1","homepage":"http://podofo.sourceforge.net","repo":"extra"}
-{"name":"poedit","description":"Cross-platform gettext catalogs (.po files) editor","version":"1:3.9-1","homepage":"https://www.poedit.net/","repo":"extra"}
+{"name":"poedit","description":"Cross-platform gettext catalogs (.po files) editor","version":"1:3.9.1-1","homepage":"https://www.poedit.net/","repo":"extra"}
 {"name":"poke","description":"Interactive, extensible editor for binary data.","version":"4.3-2","homepage":"http://www.jemarch.net/poke.html","repo":"extra"}
 {"name":"poketex","description":"Simple Pokedex based on TUI","version":"1.17.0-1","homepage":"https://github.com/ckaznable/poketex","repo":"extra"}
 {"name":"polari","description":"An IRC Client for GNOME","version":"50.0-1","homepage":"https://apps.gnome.org/Polari/","repo":"extra"}
@@ -9504,7 +9504,7 @@
 {"name":"presenterm","description":"A markdown terminal slideshow tool","version":"0.16.1-1","homepage":"https://github.com/mfontanini/presenterm","repo":"extra"}
 {"name":"prettier","description":"An opinionated code formatter","version":"3.8.1-1","homepage":"https://prettier.io","repo":"extra"}
 {"name":"prettyping","description":"A ping wrapper making the output prettier, more colorful, more compact, and easier to read.","version":"1:1.1.0-1","homepage":"https://github.com/denilsonsa/prettyping","repo":"extra"}
-{"name":"primecount","description":"Fast C++ prime counting function implementation","version":"8.6-1","homepage":"https://github.com/kimwalisch/primecount","repo":"extra"}
+{"name":"primecount","description":"Fast C++ prime counting function implementation","version":"8.7-1","homepage":"https://github.com/kimwalisch/primecount","repo":"extra"}
 {"name":"primesieve","description":"Fast prime number generator","version":"12.15-1","homepage":"https://github.com/kimwalisch/primesieve","repo":"extra"}
 {"name":"primus","description":"Faster OpenGL offloading for Bumblebee","version":"20151110-9","homepage":"https://github.com/amonakov/primus","repo":"extra"}
 {"name":"primus_vk","description":"Nvidia Vulkan offloading for Bumblebee","version":"1.6.4-1","homepage":"https://github.com/felixdoerre/primus_vk","repo":"extra"}
@@ -9603,21 +9603,21 @@
 {"name":"pulumi","description":"Modern Infrastructure as Code","version":"3.256.0-1","homepage":"https://github.com/pulumi/pulumi","repo":"extra"}
 {"name":"puppet","description":"Server automation framework and application","version":"8.10.0-6","homepage":"https://www.puppet.com/community/open-source","repo":"extra"}
 {"name":"purpose","description":"Framework for providing abstractions to get the developers purposes fulfilled","version":"6.28.0-1","homepage":"https://develop.kde.org/products/frameworks/","repo":"extra"}
-{"name":"putty","description":"A terminal integrated SSH/Telnet client","version":"0.84-2","homepage":"https://putty.software/","repo":"extra"}
+{"name":"putty","description":"A terminal integrated SSH/Telnet client","version":"0.85-1","homepage":"https://putty.software/","repo":"extra"}
 {"name":"puzzles","description":"Simon Tatham's Portable Puzzle Collection","version":"20260720.3c36322-1","homepage":"https://www.chiark.greenend.org.uk/~sgtatham/puzzles/","repo":"extra"}
 {"name":"pv","description":"A terminal-based tool for monitoring the progress of data through a pipeline","version":"1.11.0-1","homepage":"https://www.ivarch.com/programs/pv.shtml","repo":"extra"}
 {"name":"pvoc","description":"LADSPLA plugins and a tool for time compression/expansion using phase-vocoding","version":"0.1.12-6","homepage":"http://quitte.de/dsp/pvoc.html","repo":"extra"}
 {"name":"pwgen","description":"Password generator for creating easily memorable passwords","version":"2.08-3","homepage":"https://sourceforge.net/projects/pwgen/","repo":"extra"}
 {"name":"pwndbg","description":"Makes debugging with GDB suck less","version":"2026.02.18-1","homepage":"https://github.com/pwndbg/pwndbg","repo":"extra"}
 {"name":"pwninit","description":"Automate starting binary exploit challenges","version":"3.3.2-1","homepage":"https://github.com/io12/pwninit","repo":"extra"}
-{"name":"pwru","description":"Packet, where are you? -- eBPF-based Linux kernel networking debugger","version":"1.0.11-2","homepage":"https://github.com/cilium/pwru","repo":"extra"}
+{"name":"pwru","description":"Packet, where are you? -- eBPF-based Linux kernel networking debugger","version":"1.0.12-1","homepage":"https://github.com/cilium/pwru","repo":"extra"}
 {"name":"py3status","description":"An extensible i3status replacement/wrapper written in python","version":"3.64-2","homepage":"https://ultrabug.github.io/py3status/","repo":"extra"}
 {"name":"pyalpm","description":"Python 3 bindings for libalpm","version":"0.11.1-1","homepage":"https://gitlab.archlinux.org/archlinux/pyalpm","repo":"extra"}
 {"name":"pybind11","description":"A lightweight header-only library that exposes C++ types in Python and vice versa","version":"3.1.0-1","homepage":"https://pybind11.readthedocs.org/","repo":"extra"}
 {"name":"pycharm-community-edition","description":"Python IDE for Professional Developers","version":"2026.2-1","homepage":"https://www.jetbrains.com/pycharm/","repo":"extra"}
 {"name":"pychess","description":"Chess client","version":"1.1.0-3","homepage":"https://pychess.github.io","repo":"extra"}
 {"name":"pydf","description":"A colorized df clone","version":"12-5","homepage":"http://kassiopeia.juls.savba.sk/~garabik/software/pydf/","repo":"extra"}
-{"name":"pyenv","description":"Easily switch between multiple versions of Python","version":"1:2.8.3-1","homepage":"https://github.com/pyenv/pyenv","repo":"extra"}
+{"name":"pyenv","description":"Easily switch between multiple versions of Python","version":"1:2.8.4-1","homepage":"https://github.com/pyenv/pyenv","repo":"extra"}
 {"name":"pyflow","description":"An installation and dependency system for Python","version":"0.3.1-3","homepage":"https://github.com/David-OConnor/pyflow","repo":"extra"}
 {"name":"pymol","description":"Molecular visualization system on an Open Source foundation","version":"3.1.0-6","homepage":"https://pymol.org","repo":"extra"}
 {"name":"pyopencl-headers","description":"A complete, object-oriented language binding of OpenCL to Python","version":"1:2025.2.7-2","homepage":"https://documen.tician.de/pyopencl/","repo":"extra"}
@@ -9990,7 +9990,7 @@
 {"name":"python-distro","description":"Linux OS platform information API","version":"1.9.0-4","homepage":"https://github.com/python-distro/distro","repo":"extra"}
 {"name":"python-distutils-extra","description":"Enhancements to the Python build system","version":"2.39-15","homepage":"https://launchpad.net/python-distutils-extra","repo":"extra"}
 {"name":"python-django","description":"A high-level Python Web framework that encourages rapid development and clean design","version":"5.2.13-1","homepage":"http://www.djangoproject.com/","repo":"extra"}
-{"name":"python-django-allauth","description":"Authentication, registration, account management and 3rd party account authentication","version":"65.19.0-1","homepage":"https://codeberg.org/allauth/django-allauth","repo":"extra"}
+{"name":"python-django-allauth","description":"Authentication, registration, account management and 3rd party account authentication","version":"65.19.1-1","homepage":"https://codeberg.org/allauth/django-allauth","repo":"extra"}
 {"name":"python-django-appconf","description":"An app to handle configuration defaults of packaged Django apps gracefully","version":"1.2.0-2","homepage":"https://github.com/django-compressor/django-appconf","repo":"extra"}
 {"name":"python-django-classy-tags","description":"Class based template tags for django","version":"4.1.0-6","homepage":"https://github.com/django-cms/django-classy-tags","repo":"extra"}
 {"name":"python-django-compressor","description":"Compresses linked and inline javascript or CSS into a single cached file","version":"4.6-5","homepage":"https://github.com/django-compressor/django-compressor","repo":"extra"}
@@ -10023,7 +10023,7 @@
 {"name":"python-doit","description":"A task management and automation tool","version":"0.37.0-1","homepage":"https://pydoit.org/","repo":"extra"}
 {"name":"python-doit-py","description":"doit tasks for python stuff","version":"0.5.0-10","homepage":"https://github.com/pydoit/doit-py","repo":"extra"}
 {"name":"python-dominate","description":"A Python library for creating and manipulating HTML documents using an elegant DOM API","version":"2.9.1-4","homepage":"https://github.com/Knio/dominate","repo":"extra"}
-{"name":"python-dotenv","description":"Get and set values in your .env file in local and production servers","version":"1.2.2-1","homepage":"https://github.com/theskumar/python-dotenv/","repo":"extra"}
+{"name":"python-dotenv","description":"Get and set values in your .env file in local and production servers","version":"1.2.3-1","homepage":"https://github.com/theskumar/python-dotenv/","repo":"extra"}
 {"name":"python-dotty-dict","description":"Dictionary wrapper for quick access to deeply nested keys","version":"1.3.1-6","homepage":"https://github.com/pawelzny/dotty_dict","repo":"extra"}
 {"name":"python-dpcontracts","description":"A simple implementation of contracts for Python","version":"0.6.0-14","homepage":"https://github.com/deadpixi/contracts","repo":"extra"}
 {"name":"python-dpkt","description":"Fast, simple packet creation / parsing, with definitions for the basic TCP/IP protocols","version":"1.9.8-5","homepage":"https://github.com/kbandla/dpkt","repo":"extra"}
@@ -10289,7 +10289,7 @@
 {"name":"python-hyperframe","description":"HTTP/2 framing layer for Python","version":"6.1.0-2","homepage":"https://hyper.rtfd.org","repo":"extra"}
 {"name":"python-hyperlink","description":"A featureful, correct URL for Python","version":"21.0.0-8","homepage":"https://github.com/python-hyper/hyperlink","repo":"extra"}
 {"name":"python-hyperqueue","description":"Scheduler for sub-node tasks for HPC systems with batch scheduling - Python bindings","version":"0.26.2-1","homepage":"https://github.com/It4innovations/hyperqueue/","repo":"extra"}
-{"name":"python-hypothesis","description":"Advanced Quickcheck style testing library for Python","version":"6.165.3-1","homepage":"https://hypothesis.readthedocs.org","repo":"extra"}
+{"name":"python-hypothesis","description":"Advanced Quickcheck style testing library for Python","version":"6.165.5-1","homepage":"https://hypothesis.readthedocs.org","repo":"extra"}
 {"name":"python-hypothesis-fspaths","description":"Hypothesis extension for generating filesystem paths","version":"0.1.0-12","homepage":"https://github.com/lazka/hypothesis-fspaths","repo":"extra"}
 {"name":"python-hypothesmith","description":"Hypothesis strategies for generating Python programs, something like CSmith","version":"0.3.3-3","homepage":"https://github.com/Zac-HD/hypothesmith","repo":"extra"}
 {"name":"python-i3ipc","description":"An improved Python library to control i3wm","version":"2.2.1-9","homepage":"https://github.com/altdesktop/i3ipc-python","repo":"extra"}
@@ -10753,7 +10753,7 @@
 {"name":"python-patsy","description":"A Python package for describing statistical models using symbolic formulas","version":"1.0.2-2","homepage":"https://github.com/pydata/patsy","repo":"extra"}
 {"name":"python-pbkdf2","description":"Password-based key derivation function PBKDF2","version":"1.3-15","homepage":"https://www.dlitz.net/software/python-pbkdf2/","repo":"extra"}
 {"name":"python-pbr","description":"Python Build Reasonableness","version":"7.1.0-1","homepage":"https://pypi.python.org/pypi/pbr","repo":"extra"}
-{"name":"python-pbs-installer","description":"Installer for Python Build Standalone","version":"2026.08.07-1","homepage":"https://github.com/frostming/pbs-installer","repo":"extra"}
+{"name":"python-pbs-installer","description":"Installer for Python Build Standalone","version":"2026.08.14-1","homepage":"https://github.com/frostming/pbs-installer","repo":"extra"}
 {"name":"python-pcapy","description":"Extension module that interfaces with the libpcap packet capture library","version":"1.0.9-4","homepage":"https://github.com/stamparm/pcapy-ng","repo":"extra"}
 {"name":"python-pcbnewtransition","description":"Library that allows you to support KiCAD 6/7/8 in your KiCAD plugins","version":"0.5.2-3","homepage":"https://github.com/yaqwsx/pcbnewTransition","repo":"extra"}
 {"name":"python-pcpp","description":"A C99 preprocessor written in pure Python","version":"1.30-8","homepage":"https://github.com/ned14/pcpp","repo":"extra"}
@@ -10841,7 +10841,7 @@
 {"name":"python-priority","description":"A pure-Python implementation of the HTTP/2 priority tree","version":"2.0.0-8","homepage":"https://github.com/python-hyper/priority","repo":"extra"}
 {"name":"python-process-tests","description":"Tools for testing processes","version":"3.0.0-3","homepage":"https://pypi.python.org/pypi/process-tests","repo":"extra"}
 {"name":"python-profilestats","description":"Decorator for profiling individual functions and converting profiling data to the kcachegrind/qcachegrind format.","version":"2.0-16","homepage":"https://github.com/hannosch/profilestats","repo":"extra"}
-{"name":"python-progressbar","description":"A progress bar for Python","version":"4.5.0-3","homepage":"https://github.com/WoLpH/python-progressbar","repo":"extra"}
+{"name":"python-progressbar","description":"A progress bar for Python","version":"4.6.0-1","homepage":"https://github.com/WoLpH/python-progressbar","repo":"extra"}
 {"name":"python-prometheus_client","description":"Prometheus instrumentation library for Python applications","version":"0.25.0-1","homepage":"https://github.com/prometheus/client_python","repo":"extra"}
 {"name":"python-promise","description":"Ultra-performant Promise implementation in Python","version":"2.3.0-10","homepage":"https://github.com/syrusakbary/promise","repo":"extra"}
 {"name":"python-prompt_toolkit","description":"Library for building powerful interactive command lines in Python","version":"3.0.53-1","homepage":"https://github.com/prompt-toolkit/python-prompt-toolkit","repo":"extra"}
@@ -10954,7 +10954,7 @@
 {"name":"python-pygls","description":"Pythonic generic implementation of the Language Server Protocol","version":"2.1.1-1","homepage":"https://github.com/openlawlibrary/pygls","repo":"extra"}
 {"name":"python-pygments","description":"Python syntax highlighter","version":"2.20.0-1","homepage":"https://pygments.org/","repo":"extra"}
 {"name":"python-pygobject-stubs","description":"PEP 561 Typing Stubs for PyGObject","version":"2.17.0-1","homepage":"https://github.com/pygobject/pygobject-stubs","repo":"extra"}
-{"name":"python-pygraphviz","description":"Python interface to Graphviz","version":"2.0.1-1","homepage":"https://pygraphviz.github.io","repo":"extra"}
+{"name":"python-pygraphviz","description":"Python interface to Graphviz","version":"2.0.1-2","homepage":"https://pygraphviz.github.io","repo":"extra"}
 {"name":"python-pyhamcrest","description":"Hamcrest framework for matcher objects","version":"2.1.0-5","homepage":"https://github.com/hamcrest/PyHamcrest","repo":"extra"}
 {"name":"python-pyhcl","description":"HCL configuration parser for python","version":"0.4.5-5","homepage":"https://pypi.org/project/pyhcl/","repo":"extra"}
 {"name":"python-pyhibp","description":"Python interface to Troy Hunt's 'Have I Been Pwned?' public API","version":"4.2.0-2","homepage":"https://gitlab.com/kitsunix/pyHIBP/pyHIBP","repo":"extra"}
@@ -10965,7 +10965,7 @@
 {"name":"python-pykcs11","description":"PKCS#11 Wrapper for Python","version":"1.5.18-2","homepage":"https://github.com/LudovicRousseau/PyKCS11","repo":"extra"}
 {"name":"python-pykeepass","description":"Python library to interact with keepass databases","version":"4.2.0-1","homepage":"https://github.com/libkeepass/pykeepass","repo":"extra"}
 {"name":"python-pykerberos","description":"High-level interface to Kerberos","version":"1:1.2.4-5","homepage":"https://github.com/02strich/pykerberos","repo":"extra"}
-{"name":"python-pykka","description":"Easy to use concurrency abstractions for Python using the actor model","version":"4.1.0-1","homepage":"http://pykka.readthedocs.org/","repo":"extra"}
+{"name":"python-pykka","description":"Easy to use concurrency abstractions for Python using the actor model","version":"4.4.2-1","homepage":"http://pykka.readthedocs.org/","repo":"extra"}
 {"name":"python-pylast","description":"A Python interface to Last.fm and Libre.fm","version":"7.1.0-1","homepage":"https://github.com/pylast/pylast","repo":"extra"}
 {"name":"python-pylatexenc","description":"Simple LaTeX parser providing latex-to-unicode and unicode-to-latex conversion","version":"2.10-6","homepage":"https://github.com/phfaist/pylatexenc","repo":"extra"}
 {"name":"python-pylev","description":"A pure Python Levenshtein implementation","version":"1.4.0-10","homepage":"https://github.com/toastdriven/pylev","repo":"extra"}
@@ -11012,7 +11012,7 @@
 {"name":"python-pypeg2","description":"An intrinsic PEG Parser-Interpreter for Python","version":"2.15.2-13","homepage":"https://fdik.org/pyPEG/","repo":"extra"}
 {"name":"python-pyperclip","description":"A cross-platform clipboard module for Python","version":"1.11.0-2","homepage":"https://github.com/asweigart/pyperclip","repo":"extra"}
 {"name":"python-pyperformance","description":"Python Performance Benchmark Suite","version":"1.14.0-1","homepage":"https://github.com/python/pyperformance","repo":"extra"}
-{"name":"python-pyphen","description":"Pure Python module to hyphenate text","version":"0.17.2-2","homepage":"https://pyphen.org/","repo":"extra"}
+{"name":"python-pyphen","description":"Pure Python module to hyphenate text","version":"0.18.1-1","homepage":"https://pyphen.org/","repo":"extra"}
 {"name":"python-pypng","description":"Pure Python library for PNG image encoding/decoding","version":"0.20250521.0-2","homepage":"https://gitlab.com/drj11/pypng","repo":"extra"}
 {"name":"python-pyppmd","description":"PPM compression/decompression library","version":"1.2.0-2","homepage":"https://codeberg.org/miurahr/pyppmd","repo":"extra"}
 {"name":"python-pypresence","description":"Discord RPC and Rich Presence wrapper library","version":"4.6.2-1","homepage":"https://github.com/qwertyquerty/pypresence","repo":"extra"}
@@ -11116,7 +11116,7 @@
 {"name":"python-pytest-regressions","description":"Pytest plugin for regression testing","version":"2.5.0-4","homepage":"https://github.com/ESSS/pytest-regressions","repo":"extra"}
 {"name":"python-pytest-relaxed","description":"Relaxed test discovery for pytest","version":"2.0.2-5","homepage":"https://github.com/bitprophet/pytest-relaxed","repo":"extra"}
 {"name":"python-pytest-repeat","description":"pytest plugin for repeating test execution","version":"0.9.4-1","homepage":"https://github.com/pytest-dev/pytest-repeat","repo":"extra"}
-{"name":"python-pytest-rerunfailures","description":"A plugin for py.test that re-runs failed tests to eliminate intermittent failures","version":"16.4-1","homepage":"https://github.com/pytest-dev/pytest-rerunfailures/","repo":"extra"}
+{"name":"python-pytest-rerunfailures","description":"A plugin for py.test that re-runs failed tests to eliminate intermittent failures","version":"16.5-1","homepage":"https://github.com/pytest-dev/pytest-rerunfailures/","repo":"extra"}
 {"name":"python-pytest-responsemock","description":"Simplified requests calls mocking for pytest","version":"1.1.1-6","homepage":"https://github.com/idlesign/pytest-responsemock","repo":"extra"}
 {"name":"python-pytest-retry","description":"Adds the ability to retry flaky tests in CI environments","version":"1.7.0-1","homepage":"https://github.com/str0zzapreti/pytest-retry","repo":"extra"}
 {"name":"python-pytest-ruff","description":"Pytest plugin to check ruff requirements","version":"0.5-1","homepage":"https://github.com/businho/pytest-ruff","repo":"extra"}
@@ -11131,7 +11131,7 @@
 {"name":"python-pytest-tap","description":"Test Anything Protocol (TAP) reporting plugin for pytest.","version":"3.5-2","homepage":"https://github.com/python-tap/pytest-tap","repo":"extra"}
 {"name":"python-pytest-testinfra","description":"Testinfra test your infrastructures","version":"10.2.2-2","homepage":"https://github.com/pytest-dev/pytest-testinfra","repo":"extra"}
 {"name":"python-pytest-textual-snapshot","description":"A pytest plugin for snapshot testing Textual applications","version":"1.1.0-4","homepage":"https://github.com/Textualize/pytest-textual-snapshot","repo":"extra"}
-{"name":"python-pytest-timeout","description":"py.test plugin to abort hanging tests","version":"2.4.0-2","homepage":"https://github.com/pytest-dev/pytest-timeout","repo":"extra"}
+{"name":"python-pytest-timeout","description":"py.test plugin to abort hanging tests","version":"2.5.0-1","homepage":"https://github.com/pytest-dev/pytest-timeout","repo":"extra"}
 {"name":"python-pytest-tornado","description":"A py.test plugin providing fixtures and markers to simplify testing of asynchronous tornado applications.","version":"0.8.1-11","homepage":"https://github.com/eugeniy/pytest-tornado","repo":"extra"}
 {"name":"python-pytest-tornasync","description":"py.test plugin for testing Python 3.5+ Tornado code","version":"0.6.0.post2-9","homepage":"https://github.com/eukaryote/pytest-tornasync","repo":"extra"}
 {"name":"python-pytest-trio","description":"Pytest plugin for Trio","version":"0.8.0-11","homepage":"https://github.com/python-trio/pytest-trio","repo":"extra"}
@@ -11454,7 +11454,7 @@
 {"name":"python-suds","description":"A lightweight SOAP python client","version":"1.4.5.0-1","homepage":"https://github.com/cackharot/suds-py3","repo":"extra"}
 {"name":"python-superqt","description":"Missing widgets and components for Qt-python","version":"0.8.1-1","homepage":"https://pyapp-kit.github.io/superqt/","repo":"extra"}
 {"name":"python-sure","description":"An idiomatic testing library for python with powerful and flexible assertions","version":"2.0.1-7","homepage":"https://github.com/gabrielfalcao/sure","repo":"extra"}
-{"name":"python-svglib","description":"Read SVG files and convert them to other formats","version":"2.1.0-1","homepage":"https://github.com/deeplook/svglib","repo":"extra"}
+{"name":"python-svglib","description":"Read SVG files and convert them to other formats","version":"2.2.0-1","homepage":"https://github.com/deeplook/svglib","repo":"extra"}
 {"name":"python-svgwrite","description":"A Python library to create SVG drawings","version":"1.4.3-5","homepage":"https://github.com/mozman/svgwrite","repo":"extra"}
 {"name":"python-swiftclient","description":"An SDK for building applications to work with OpenStack","version":"4.10.0-2","homepage":"https://docs.openstack.org/python-swiftclient","repo":"extra"}
 {"name":"python-sword","description":"Library for Bible study programs","version":"1.9.0-18","homepage":"https://www.crosswire.org/sword/","repo":"extra"}
@@ -11531,7 +11531,7 @@
 {"name":"python-torrentool","description":"The tool to work with torrent files","version":"1.2.0-4","homepage":"https://github.com/idlesign/torrentool","repo":"extra"}
 {"name":"python-tox","description":"Python virtualenv management and testing tool","version":"4.33.0-1","homepage":"https://tox.readthedocs.io","repo":"extra"}
 {"name":"python-tox-current-env","description":"tox plugin to run tests in current Python environment","version":"0.0.16-2","homepage":"https://github.com/fedora-python/tox-current-env","repo":"extra"}
-{"name":"python-tpm2-pytss","description":"Python bindings for tpm2-tss","version":"2.3.0-4","homepage":"https://github.com/tpm2-software/tpm2-pytss","repo":"extra"}
+{"name":"python-tpm2-pytss","description":"Python bindings for tpm2-tss","version":"3.0.0-1","homepage":"https://github.com/tpm2-software/tpm2-pytss","repo":"extra"}
 {"name":"python-tqdm","description":"Fast, Extensible Progress Meter","version":"4.70.0-1","homepage":"https://github.com/tqdm/tqdm","repo":"extra"}
 {"name":"python-tracerite","description":"Pythonic HTML generation/templating (no template files)","version":"2.6.3-1","homepage":"https://github.com/sanic-org/tracerite","repo":"extra"}
 {"name":"python-trailrunner","description":"Walk paths and run things","version":"1.4.0-5","homepage":"https://github.com/omnilib/trailrunner","repo":"extra"}
@@ -11573,7 +11573,7 @@
 {"name":"python-ulid","description":"ULID implementation for Python","version":"4.0.1-1","homepage":"https://github.com/mdomke/python-ulid","repo":"extra"}
 {"name":"python-ulid-transform","description":"Create and transform ULIDs","version":"2.2.9-3","homepage":"https://github.com/bdraco/ulid-transform","repo":"extra"}
 {"name":"python-uncertainties","description":"Transparent calculations with uncertainties on the quantities involved (aka error propagation); fast calculation of derivatives.","version":"3.2.4-1","homepage":"https://github.com/lmfit/uncertainties","repo":"extra"}
-{"name":"python-unearth","description":"A utility to fetch and download python packages","version":"0.18.2-2","homepage":"https://github.com/frostming/unearth","repo":"extra"}
+{"name":"python-unearth","description":"A utility to fetch and download python packages","version":"0.18.3-1","homepage":"https://github.com/frostming/unearth","repo":"extra"}
 {"name":"python-unicode-segmentation-rs","description":"Unicode segmentation and width for Python using Rust","version":"0.2.4-1","homepage":"https://github.com/WeblateOrg/unicode-segmentation-rs","repo":"extra"}
 {"name":"python-unicodedata2","description":"unicodedata backport/updates to Python 3","version":"17.0.1-1","homepage":"https://github.com/fonttools/unicodedata2","repo":"extra"}
 {"name":"python-unicorn","description":"Lightweight, multi-platform, multi-architecture CPU emulator framework based on QEMU","version":"2.1.4-2","homepage":"https://www.unicorn-engine.org","repo":"extra"}
@@ -11664,7 +11664,7 @@
 {"name":"python-wurlitzer","description":"Capture C-level stdout/stderr in Python","version":"3.1.1-3","homepage":"https://github.com/minrk/wurlitzer","repo":"extra"}
 {"name":"python-wxpython","description":"Cross-platform GUI toolkit","version":"1:4.2.5-1","homepage":"https://www.wxpython.org","repo":"extra"}
 {"name":"python-x-wr-timezone","description":"Handling of non-standard X-WR-TIMEZONE icalendar property in Python","version":"2.0.1-2","homepage":"https://github.com/niccokunzmann/x-wr-timezone","repo":"extra"}
-{"name":"python-xapian","description":"Python bindings for Xapian","version":"1:2.0.0-1","homepage":"https://xapian.org/docs/bindings/python/","repo":"extra"}
+{"name":"python-xapian","description":"Python bindings for Xapian","version":"1:2.1.0-1","homepage":"https://xapian.org/docs/bindings/python/","repo":"extra"}
 {"name":"python-xapian-haystack","description":"Xapian backend for Django-Haystack","version":"4.0.0-1","homepage":"https://github.com/notanumber/xapian-haystack","repo":"extra"}
 {"name":"python-xapp","description":"Python Xapp Library","version":"3.0.3-1","homepage":"https://github.com/linuxmint/python3-xapp","repo":"extra"}
 {"name":"python-xarray","description":"N-D labeled arrays and datasets in Python","version":"2026.04.0-1","homepage":"https://xarray.pydata.org/","repo":"extra"}
@@ -11837,9 +11837,9 @@
 {"name":"qhull","description":"A general dimension code for computing convex hulls and related structures","version":"2020.2-5","homepage":"http://www.qhull.org/","repo":"extra"}
 {"name":"qjackctl","description":"A Qt front-end for the JACK low-latency audio server","version":"1.0.6-1","homepage":"https://qjackctl.sourceforge.io","repo":"extra"}
 {"name":"qmapshack","description":"Consumer grade GIS software","version":"1.20.3-1","homepage":"https://github.com/Maproom/qmapshack","repo":"extra"}
-{"name":"qmidiarp","description":"A MIDI arpeggiator, phrase generator and controller LFO for the ALSA sequencer.","version":"0.7.4-1","homepage":"https://sourceforge.net/projects/qmidiarp/","repo":"extra"}
-{"name":"qmidiarp-lv2","description":"A MIDI arpeggiator, phrase generator and controller LFO for the ALSA sequencer. - LV2 plugin","version":"0.7.4-1","homepage":"https://sourceforge.net/projects/qmidiarp/","repo":"extra"}
-{"name":"qmidiarp-standalone","description":"A MIDI arpeggiator, phrase generator and controller LFO for the ALSA sequencer. - standalone","version":"0.7.4-1","homepage":"https://sourceforge.net/projects/qmidiarp/","repo":"extra"}
+{"name":"qmidiarp","description":"A MIDI arpeggiator, phrase generator and controller LFO for the ALSA sequencer.","version":"0.7.5-1","homepage":"https://sourceforge.net/projects/qmidiarp/","repo":"extra"}
+{"name":"qmidiarp-lv2","description":"A MIDI arpeggiator, phrase generator and controller LFO for the ALSA sequencer. - LV2 plugin","version":"0.7.5-1","homepage":"https://sourceforge.net/projects/qmidiarp/","repo":"extra"}
+{"name":"qmidiarp-standalone","description":"A MIDI arpeggiator, phrase generator and controller LFO for the ALSA sequencer. - standalone","version":"0.7.5-1","homepage":"https://sourceforge.net/projects/qmidiarp/","repo":"extra"}
 {"name":"qmidictl","description":"MIDI remote control application sending MIDI data over network using UDP/IP multicast","version":"1.0.3-1","homepage":"https://qmidictl.sourceforge.io/","repo":"extra"}
 {"name":"qmidinet","description":"A MIDI Network Gateway via UDP/IP Multicast","version":"1.0.2-1","homepage":"https://qmidinet.sourceforge.io","repo":"extra"}
 {"name":"qmidiroute","description":"A MIDI router and filter utility","version":"0.4.0-11","homepage":"http://alsamodular.sourceforge.net/","repo":"extra"}
@@ -11866,7 +11866,7 @@
 {"name":"qrencode","description":"C library for encoding data in a QR Code symbol.","version":"4.1.1-4","homepage":"https://fukuchi.org/works/qrencode/","repo":"extra"}
 {"name":"qrtool","description":"An utility for encoding or decoding QR code","version":"0.13.2-1","homepage":"https://github.com/sorairolake/qrtool","repo":"extra"}
 {"name":"qrupdate","description":"Fortran library for fast updates of QR and Cholesky decompositions","version":"1.2.0-1","homepage":"https://sourceforge.net/projects/qrupdate","repo":"extra"}
-{"name":"qsampler","description":"A LinuxSampler Qt GUI Interface","version":"1.0.2-2","homepage":"https://qsampler.sourceforge.io/","repo":"extra"}
+{"name":"qsampler","description":"A LinuxSampler Qt GUI Interface","version":"1.0.3-1","homepage":"https://qsampler.sourceforge.io/","repo":"extra"}
 {"name":"qscintilla-qt5","description":"A port to Qt5 of Neil Hodgson's Scintilla C++ editor class","version":"2.14.1-6","homepage":"https://www.riverbankcomputing.com/software/qscintilla/intro","repo":"extra"}
 {"name":"qscintilla-qt6","description":"A port to Qt6 of Neil Hodgson's Scintilla C++ editor class","version":"2.14.1-6","homepage":"https://www.riverbankcomputing.com/software/qscintilla/intro","repo":"extra"}
 {"name":"qsopt-ex","description":"Exact linear programming solver","version":"2.5.10.3-2","homepage":"https://github.com/jonls/qsopt-ex","repo":"extra"}
@@ -12076,7 +12076,7 @@
 {"name":"reflection-cpp","description":"C++ static reflection support library","version":"0.4.0-1","homepage":"https://github.com/contour-terminal/reflection-cpp","repo":"extra"}
 {"name":"reflector","description":"A Python 3 module and script to retrieve and filter the latest Pacman mirror list.","version":"2023-5","homepage":"https://xyne.dev/projects/reflector","repo":"extra"}
 {"name":"regect","description":"A CLI tool to quickly test regular expressions","version":"1.3.0-1","homepage":"https://github.com/kloki/regect","repo":"extra"}
-{"name":"regina","description":"Software for low-dimensional topology","version":"7.4.1-3","homepage":"https://regina-normal.github.io/","repo":"extra"}
+{"name":"regina","description":"Software for low-dimensional topology","version":"7.4.1-4","homepage":"https://regina-normal.github.io/","repo":"extra"}
 {"name":"rekor","description":"Signature Transparency Log -- Sigstore client and server tools","version":"1.5.3-1","homepage":"https://github.com/sigstore/rekor","repo":"extra"}
 {"name":"release-cli","description":"Gitlab Release CLI","version":"0.24.0-1","homepage":"https://gitlab.com/gitlab-org/release-cli","repo":"extra"}
 {"name":"release-plz","description":"Release Rust packages without using the command line","version":"0.3.160-1","homepage":"https://github.com/MarcoIeni/release-plz","repo":"extra"}
@@ -12220,7 +12220,7 @@
 {"name":"rime-wugniu","description":"Wugniu input for rime","version":"0.0.0.20190120-2","homepage":"https://github.com/rime/rime-wugniu","repo":"extra"}
 {"name":"rink","description":"Unit conversion tool and library written in rust","version":"0.8.0-1","homepage":"https://rinkcalc.app","repo":"extra"}
 {"name":"rinutils","description":"C11 / gnu11 utilities C library","version":"0.10.3-1","homepage":"https://www.shlomifish.org/open-source/projects/","repo":"extra"}
-{"name":"rio","description":"A hardware-accelerated GPU terminal emulator powered by WebGPU","version":"0.5.24-1","homepage":"https://github.com/raphamorim/rio","repo":"extra"}
+{"name":"rio","description":"A hardware-accelerated GPU terminal emulator powered by WebGPU","version":"0.5.25-1","homepage":"https://github.com/raphamorim/rio","repo":"extra"}
 {"name":"ripasso","description":"A simple password manager written in Rust","version":"0.7.0-5","homepage":"https://github.com/cortex/ripasso","repo":"extra"}
 {"name":"ripgrep","description":"A search tool that combines the usability of ag with the raw speed of grep","version":"15.2.0-1","homepage":"https://github.com/BurntSushi/ripgrep","repo":"extra"}
 {"name":"ripgrep-all","description":"rga: ripgrep, but also search in PDFs, E-Books, Office documents, zip, tar.gz, etc.","version":"0.10.10-2","homepage":"https://github.com/phiresky/ripgrep-all","repo":"extra"}
@@ -12300,8 +12300,8 @@
 {"name":"rofi-emoji","description":"A Rofi plugin for selecting emojis","version":"4.1.0-3","homepage":"https://github.com/Mange/rofi-emoji","repo":"extra"}
 {"name":"rofi-rbw","description":"Rofi (and dmenu-like) frontend for Bitwarden","version":"1.6.1-1","homepage":"https://github.com/fdw/rofi-rbw","repo":"extra"}
 {"name":"rofimoji","description":"Emoji, unicode and general character picker for rofi and rofi-likes","version":"6.7.0-2","homepage":"https://github.com/fdw/rofimoji","repo":"extra"}
-{"name":"root","description":"C++ data analysis framework and interpreter from CERN","version":"6.40.02-1","homepage":"https://root.cern","repo":"extra"}
-{"name":"root-cuda","description":"C++ data analysis framework and interpreter from CERN with GPU (CUDA) features enabled","version":"6.40.02-1","homepage":"https://root.cern","repo":"extra"}
+{"name":"root","description":"C++ data analysis framework and interpreter from CERN","version":"6.40.02-2","homepage":"https://root.cern","repo":"extra"}
+{"name":"root-cuda","description":"C++ data analysis framework and interpreter from CERN with GPU (CUDA) features enabled","version":"6.40.02-2","homepage":"https://root.cern","repo":"extra"}
 {"name":"rootlesskit","description":"Native \"fake root\" for implementing rootless containers","version":"3.1.0-1","homepage":"https://github.com/rootless-containers/rootlesskit","repo":"extra"}
 {"name":"ropgadget","description":"Search gadgets in binaries to facilitate ROP exploitation for several file formats and architectures","version":"7.7-1","homepage":"https://github.com/JonathanSalwan/ROPgadget","repo":"extra"}
 {"name":"ropper","description":"Show information about binary files and find gadgets to build rop chains for different architectures","version":"1.13.13-2","homepage":"https://github.com/sashs/Ropper","repo":"extra"}
@@ -12334,7 +12334,7 @@
 {"name":"rsop-oct","description":"Stateless OpenPGP (SOP) CLI tool for OpenPGP card devices based on rPGP and rpgpie","version":"0.1.9-1","homepage":"https://codeberg.org/heiko/rsop","repo":"extra"}
 {"name":"rspamd","description":"Fast, free and open-source spam filtering system","version":"4.1.1-4","homepage":"https://rspamd.com","repo":"extra"}
 {"name":"rss2email","description":"A tool for delivering news from RSS feeds to your email program","version":"3.14-8","homepage":"https://github.com/rss2email/rss2email","repo":"extra"}
-{"name":"rssguard","description":"Simple (yet powerful) Qt feed reader","version":"5.2.3-1","homepage":"https://github.com/martinrotter/rssguard","repo":"extra"}
+{"name":"rssguard","description":"Simple (yet powerful) Qt feed reader","version":"5.2.4-1","homepage":"https://github.com/martinrotter/rssguard","repo":"extra"}
 {"name":"rst2pdf","description":"Use a text editor. Make a PDF","version":"0.105-1","homepage":"https://github.com/rst2pdf/rst2pdf","repo":"extra"}
 {"name":"rstcheck","description":"Checks syntax of reStructuredText and code blocks nested within it","version":"6.2.5-2","homepage":"https://github.com/rstcheck/rstcheck","repo":"extra"}
 {"name":"rsync","description":"A fast and versatile file copying tool for remote and local files","version":"3.5.0-1","homepage":"https://rsync.samba.org/","repo":"extra"}
@@ -12645,7 +12645,7 @@
 {"name":"ruby-prime","description":"Prime numbers and factorization library","version":"0.1.4-1","homepage":"https://github.com/ruby/prime","repo":"extra"}
 {"name":"ruby-process-metrics","description":"Provide detailed OS-specific process metrics","version":"0.13.0-1","homepage":"https://github.com/socketry/process-metrics","repo":"extra"}
 {"name":"ruby-protocol-hpack","description":"A compresssor and decompressor for HTTP 2.0 HPACK","version":"1.5.1-3","homepage":"https://github.com/socketry/protocol-hpack","repo":"extra"}
-{"name":"ruby-protocol-http","description":"Provides abstractions to handle HTTP protocols","version":"0.70.0-1","homepage":"https://github.com/socketry/protocol-http","repo":"extra"}
+{"name":"ruby-protocol-http","description":"Provides abstractions to handle HTTP protocols","version":"0.71.0-1","homepage":"https://github.com/socketry/protocol-http","repo":"extra"}
 {"name":"ruby-protocol-http1","description":"A low level implementation of the HTTP/1 protocol","version":"0.40.2-1","homepage":"https://github.com/socketry/protocol-http1","repo":"extra"}
 {"name":"ruby-protocol-http2","description":"A low level implementation of the HTTP/2 protocol","version":"0.26.2-1","homepage":"https://github.com/socketry/protocol-http2","repo":"extra"}
 {"name":"ruby-protocol-rack","description":"An implementation of the Rack protocol/specification","version":"0.22.1-1","homepage":"https://github.com/socketry/protocol-rack","repo":"extra"}
@@ -12836,7 +12836,7 @@
 {"name":"rxvt-unicode","description":"Unicode enabled rxvt-clone terminal emulator (urxvt)","version":"9.31-9","homepage":"https://software.schmorp.de/pkg/rxvt-unicode.html","repo":"extra"}
 {"name":"rxvt-unicode-terminfo","description":"Terminfo files for urxvt","version":"9.31-9","homepage":"https://software.schmorp.de/pkg/rxvt-unicode.html","repo":"extra"}
 {"name":"rygel","description":"UPnP AV MediaServer and MediaRenderer","version":"1:45.2-1","homepage":"https://gitlab.gnome.org/GNOME/rygel","repo":"extra"}
-{"name":"rz-cutter","description":"Qt and C++ GUI for rizin reverse engineering framework","version":"2.4.1-6","homepage":"https://github.com/rizinorg/cutter","repo":"extra"}
+{"name":"rz-cutter","description":"Qt and C++ GUI for rizin reverse engineering framework","version":"2.4.1-7","homepage":"https://github.com/rizinorg/cutter","repo":"extra"}
 {"name":"rz-ghidra","description":"Deep ghidra decompiler integration for rizin and rz-cutter","version":"0.8.0-1","homepage":"https://github.com/rizinorg/rz-ghidra","repo":"extra"}
 {"name":"s-tui","description":"Terminal UI stress test and monitoring tool","version":"1.4.0-1","homepage":"https://github.com/amanusk/s-tui","repo":"extra"}
 {"name":"s2n-tls","description":"A C99 implementation of the TLS/SSL protocols that is designed to be simple, small, fast, and with security as a priority","version":"1.7.2-1","homepage":"https://github.com/aws/s2n-tls","repo":"extra"}
@@ -13056,14 +13056,14 @@
 {"name":"sing-geosite-rule-set","description":"Geosite Rule Sets for sing-box","version":"20260812055957-1","homepage":"https://github.com/SagerNet/sing-geosite","repo":"extra"}
 {"name":"singular","description":"Computer Algebra System for polynomial computations","version":"4.4.1.p5-11","homepage":"https://www.singular.uni-kl.de/","repo":"extra"}
 {"name":"singularity","description":"Endgame: Singularity - simulation of true AI","version":"1.1-3","homepage":"http://emhsoft.com/singularity/index.html","repo":"extra"}
-{"name":"sip","description":"A tool that makes it easy to create Python bindings for C and C++ libraries","version":"6.16.0-1","homepage":"https://www.riverbankcomputing.com/","repo":"extra"}
+{"name":"sip","description":"A tool that makes it easy to create Python bindings for C and C++ libraries","version":"6.16.1-1","homepage":"https://www.riverbankcomputing.com/","repo":"extra"}
 {"name":"sirocco","description":"C++ library that allows to compute piecewise linear approximations of the path followed by the root of a complex polynomial","version":"2.1.1-2","homepage":"https://github.com/miguelmarco/SIROCCO2","repo":"extra"}
 {"name":"skaffold","description":"A command line tool that facilitates continuous development for Kubernetes applications","version":"2.22.1-1","homepage":"https://github.com/GoogleContainerTools/skaffold","repo":"extra"}
 {"name":"skanlite","description":"Image Scanning Application","version":"26.04.3-1","homepage":"https://apps.kde.org/skanlite/","repo":"extra"}
 {"name":"skanpage","description":"Utility to scan images and multi-page documents","version":"26.04.3-1","homepage":"https://apps.kde.org/skanpage/","repo":"extra"}
 {"name":"skate","description":"A personal key value store","version":"1.0.1-1","homepage":"https://github.com/charmbracelet/skate","repo":"extra"}
 {"name":"skia-sharp","description":"The Skia 2D Graphics library from Google exposed to .NET languages and runtimes across the board","version":"2.88.9-1","homepage":"https://github.com/mono/SkiaSharp","repo":"extra"}
-{"name":"skim","description":"Fuzzy Finder in Rust","version":"5.6.4-1","homepage":"https://github.com/skim-rs/skim","repo":"extra"}
+{"name":"skim","description":"Fuzzy Finder in Rust","version":"5.6.5-1","homepage":"https://github.com/skim-rs/skim","repo":"extra"}
 {"name":"skk-jisyo","description":"Dictionaries for the SKK Japanese input method","version":"20260301-1","homepage":"http://openlab.ring.gr.jp/skk/","repo":"extra"}
 {"name":"skktools","description":"Dictionary maintenance tools for the SKK Japanese input method","version":"1.3.4-4","homepage":"http://openlab.ring.gr.jp/skk/","repo":"extra"}
 {"name":"skladnik","description":"An implementation of the Japanese warehouse keeper game Sokoban","version":"26.04.3-1","homepage":"https://apps.kde.org/skladnik/","repo":"extra"}
@@ -13092,7 +13092,7 @@
 {"name":"smbnetfs","description":"small C program that mounts Microsoft network neighborhood in single directory.","version":"0.6.3-7","homepage":"http://smbnetfs.sourceforge.net/","repo":"extra"}
 {"name":"smlnj","description":"Standard ML compiler from New Jersey","version":"110.99.9-1","homepage":"https://www.smlnj.org/","repo":"extra"}
 {"name":"smokeping","description":"A tool to keep track of your network latency","version":"2.9.0-1","homepage":"https://oss.oetiker.ch/smokeping/","repo":"extra"}
-{"name":"smolvm","description":"Tool to build & run portable, lightweight, self-contained virtual machines","version":"1.8.0-1","homepage":"https://github.com/smol-machines/smolvm","repo":"extra"}
+{"name":"smolvm","description":"Tool to build & run portable, lightweight, self-contained virtual machines","version":"1.8.2-1","homepage":"https://github.com/smol-machines/smolvm","repo":"extra"}
 {"name":"smpeg","description":"SDL MPEG Player Library","version":"2.0.0-4","homepage":"https://icculus.org/smpeg/","repo":"extra"}
 {"name":"smplayer","description":"Media player with built-in codecs that can play virtually all video and audio formats","version":"25.6.0-2","homepage":"https://www.smplayer.info/","repo":"extra"}
 {"name":"smplayer-skins","description":"Skins for SMPlayer","version":"1:20.11.0-4","homepage":"https://smplayer.info/","repo":"extra"}
@@ -13322,8 +13322,8 @@
 {"name":"sugar-toolkit-gtk3","description":"Sugar GTK library","version":"0.121-7","homepage":"https://github.com/sugarlabs/sugar-toolkit-gtk3","repo":"extra"}
 {"name":"suil","description":"A lightweight C library for loading and wrapping LV2 plugin UIs","version":"0.10.26-1","homepage":"https://drobilla.net/software/suil.html","repo":"extra"}
 {"name":"suil-docs","description":"A lightweight C library for loading and wrapping LV2 plugin UIs - documentation","version":"0.10.26-1","homepage":"https://drobilla.net/software/suil.html","repo":"extra"}
-{"name":"suitesparse","description":"A collection of sparse matrix libraries","version":"7.13.0-1","homepage":"http://faculty.cse.tamu.edu/davis/suitesparse.html","repo":"extra"}
-{"name":"suitesparse-graphblas","description":"Graph algorithms in the language of linear algebra","version":"7.13.0-1","homepage":"http://faculty.cse.tamu.edu/davis/suitesparse.html","repo":"extra"}
+{"name":"suitesparse","description":"A collection of sparse matrix libraries","version":"7.14.0-1","homepage":"http://faculty.cse.tamu.edu/davis/suitesparse.html","repo":"extra"}
+{"name":"suitesparse-graphblas","description":"Graph algorithms in the language of linear algebra","version":"7.14.0-1","homepage":"http://faculty.cse.tamu.edu/davis/suitesparse.html","repo":"extra"}
 {"name":"sundials","description":"Suite of nonlinear differential/algebraic equation solvers","version":"7.8.0-1","homepage":"https://computing.llnl.gov/projects/sundials","repo":"extra"}
 {"name":"sunpinyin","description":"Statistical Language Model based pinyin IME by Sun","version":"3.0.0rc2-3","homepage":"https://github.com/sunpinyin/sunpinyin","repo":"extra"}
 {"name":"sunpinyin-data","description":"Statistical language model data from open-gram project for sunpinyin","version":"1:2.0.3.20140820-4","homepage":"https://sourceforge.net/projects/open-gram/","repo":"extra"}
@@ -13864,7 +13864,7 @@
 {"name":"tlsrpt-reporter","description":"An application suite to receive TLSRPT datagrams and to generate and deliver TLSRPT reports","version":"0.5.0-5","homepage":"https://github.com/sys4/tlsrpt-reporter","repo":"extra"}
 {"name":"tmate","description":"Instant terminal sharing","version":"2.4.0-6","homepage":"https://github.com/tmate-io/tmate","repo":"extra"}
 {"name":"tmon","description":"Monitoring and Testing Tool for Linux kernel thermal subsystem","version":"7.1.8-1","homepage":"https://www.kernel.org","repo":"extra"}
-{"name":"tmux","description":"Terminal multiplexer","version":"3.7_b-1","homepage":"https://github.com/tmux/tmux/wiki","repo":"extra"}
+{"name":"tmux","description":"Terminal multiplexer","version":"3.7_c-1","homepage":"https://github.com/tmux/tmux/wiki","repo":"extra"}
 {"name":"tmuxp","description":"Tmux session manager built on libtmux","version":"1.74.0-1","homepage":"https://tmuxp.git-pull.com/en/latest/","repo":"extra"}
 {"name":"tnftp","description":"NetBSD FTP client with several advanced features","version":"20260211-1","homepage":"https://ftp.netbsd.org/pub/NetBSD/misc/tnftp/","repo":"extra"}
 {"name":"toastify","description":"Commandline tool that shows desktop notifications using notify-rust","version":"0.5.4-2","homepage":"https://github.com/hoodie/toastify","repo":"extra"}
@@ -13885,7 +13885,7 @@
 {"name":"toolbox","description":"Unprivileged development environment","version":"0.3-2","homepage":"https://github.com/containers/toolbox","repo":"extra"}
 {"name":"toot","description":"A Mastodon CLI client","version":"0.52.1-1","homepage":"https://github.com/ihabunek/toot","repo":"extra"}
 {"name":"topcom","description":"A package for computing Triangulations Of Point Configurations and Oriented Matroids","version":"1.1.2-4","homepage":"https://www.wm.uni-bayreuth.de/de/team/rambau_joerg/TOPCOM/index.html","repo":"extra"}
-{"name":"topology-toolkit","description":"An open-source library and software collection for topological data analysis and visualization","version":"1.4.0-2","homepage":"https://github.com/topology-tool-kit/ttk","repo":"extra"}
+{"name":"topology-toolkit","description":"An open-source library and software collection for topological data analysis and visualization","version":"1.4.0-3","homepage":"https://github.com/topology-tool-kit/ttk","repo":"extra"}
 {"name":"tor","description":"Anonymizing overlay network.","version":"0.4.9.11-1","homepage":"https://www.torproject.org/download/tor/","repo":"extra"}
 {"name":"torbrowser-launcher","description":"Securely and easily download, verify, install, and launch Tor Browser in Linux","version":"0.3.9-1","homepage":"https://github.com/torproject/torbrowser-launcher","repo":"extra"}
 {"name":"torchvision","description":"Datasets, transforms, and models specific to computer vision (C++ library only)","version":"0.28.0-2","homepage":"https://github.com/pytorch/vision","repo":"extra"}
@@ -14163,7 +14163,7 @@
 {"name":"umbrello","description":"UML modeller","version":"26.04.3-1","homepage":"https://apps.kde.org/umbrello/","repo":"extra"}
 {"name":"umoci","description":"Umoci Modifies Open Container Images","version":"0.6.0-1","homepage":"https://umo.ci/","repo":"extra"}
 {"name":"umockdev","description":"Record/mock hardware devices for bug reports and regression tests","version":"0.19.8-1","homepage":"https://github.com/martinpitt/umockdev/","repo":"extra"}
-{"name":"umurmur","description":"Minimalistic Mumble server","version":"0.3.1-4","homepage":"https://github.com/umurmur/umurmur","repo":"extra"}
+{"name":"umurmur","description":"Minimalistic Mumble server","version":"0.4.0-1","homepage":"https://github.com/umurmur/umurmur","repo":"extra"}
 {"name":"unace","description":"An extraction tool for the proprietary ace archive format","version":"2.5-11","homepage":"http://www.winace.com/","repo":"extra"}
 {"name":"unarchiver","description":"unar and lsar: Objective-C tools for uncompressing archive files","version":"1.10.8-6","homepage":"https://github.com/MacPaw/XADMaster","repo":"extra"}
 {"name":"unarj","description":"Utility to extract, test and view the contents of archives created with the ARJ archiver","version":"2.65-2","homepage":"http://www.arjsoftware.com/","repo":"extra"}
@@ -14203,7 +14203,7 @@
 {"name":"urh","description":"Universal Radio Hacker: investigate wireless protocols like a boss","version":"2.10.0-2","homepage":"https://github.com/jopohl/urh","repo":"extra"}
 {"name":"uriparser","description":"uriparser is a strictly RFC 3986 compliant URI parsing library. uriparser is cross-platform, fast, supports Unicode","version":"1.0.2-1","homepage":"https://github.com/uriparser/uriparser","repo":"extra"}
 {"name":"urjtag","description":"Enhanced, modern tool for communicating over JTAG with flash chips, CPUs, and many more","version":"2021.03-6","homepage":"http://urjtag.org","repo":"extra"}
-{"name":"urlscan","description":"Mutt and terminal url selector","version":"1.0.9-1","homepage":"https://github.com/firecat53/urlscan","repo":"extra"}
+{"name":"urlscan","description":"Mutt and terminal url selector","version":"1.1.2-1","homepage":"https://github.com/firecat53/urlscan","repo":"extra"}
 {"name":"urlwatch","description":"Tool for monitoring webpages for updates","version":"2.29-4","homepage":"https://thp.io/2008/urlwatch/","repo":"extra"}
 {"name":"urxvt-perls","description":"URL and Mouseless text selection for rxvt-unicode","version":"2.3-3","homepage":"https://www.github.com/muennich/urxvt-perls","repo":"extra"}
 {"name":"usage","description":"A specification for CLIs","version":"5.1.0-1","homepage":"https://github.com/jdx/usage","repo":"extra"}
@@ -14248,7 +14248,7 @@
 {"name":"v4l-utils","description":"Userspace tools and conversion library for Video 4 Linux","version":"1.32.0-2","homepage":"https://linuxtv.org/","repo":"extra"}
 {"name":"v4l2loopback-dkms","description":"v4l2-loopback device – module sources","version":"0.15.4-2","homepage":"https://github.com/umlaeute/v4l2loopback","repo":"extra"}
 {"name":"v4l2loopback-utils","description":"v4l2-loopback device – utilities only","version":"0.15.4-2","homepage":"https://github.com/umlaeute/v4l2loopback","repo":"extra"}
-{"name":"vala","description":"Compiler for the GObject type system","version":"0.56.19-1","homepage":"https://wiki.gnome.org/Projects/Vala","repo":"extra"}
+{"name":"vala","description":"Compiler for the GObject type system","version":"0.56.19-2","homepage":"https://wiki.gnome.org/Projects/Vala","repo":"extra"}
 {"name":"valabind","description":"Create bindings from vapi to nodejs, python, swig, c++","version":"2.1.0-1","homepage":"https://github.com/radare/valabind","repo":"extra"}
 {"name":"vale","description":"A markup-aware linter for prose built with speed and extensibility in mind","version":"3.17.1-1","homepage":"https://vale.sh","repo":"extra"}
 {"name":"valgrind","description":"Tool to help find memory-management problems in programs","version":"3.25.1-9","homepage":"https://valgrind.org/","repo":"extra"}
@@ -14404,8 +14404,8 @@
 {"name":"virtualbox-host-dkms","description":"VirtualBox Host kernel modules sources","version":"7.2.14-1","homepage":"https://virtualbox.org/","repo":"extra"}
 {"name":"virtualbox-sdk","description":"VirtualBox Software Developer Kit (SDK)","version":"7.2.14-1","homepage":"https://virtualbox.org/","repo":"extra"}
 {"name":"virtualgl","description":"Redirects 3D commands from an OpenGL application onto a server-side 3D graphics card","version":"3.1.5-1","homepage":"https://virtualgl.org","repo":"extra"}
-{"name":"vis","description":"modern, legacy free, simple yet efficient vim-like editor","version":"0.9.r463.ge9791c2c-1","homepage":"https://github.com/martanne/vis#vis-a-vim-like-text-editor","repo":"extra"}
-{"name":"vis-lexers","description":"syntax highlighting for vis editor","version":"0.9.r463.ge9791c2c-1","homepage":"https://github.com/martanne/vis#vis-a-vim-like-text-editor","repo":"extra"}
+{"name":"vis","description":"modern, legacy free, simple yet efficient vim-like editor","version":"0.9.r498.gad0f1deb-1","homepage":"https://github.com/martanne/vis#vis-a-vim-like-text-editor","repo":"extra"}
+{"name":"vis-lexers","description":"syntax highlighting for vis editor","version":"0.9.r498.gad0f1deb-1","homepage":"https://github.com/martanne/vis#vis-a-vim-like-text-editor","repo":"extra"}
 {"name":"visidata","description":"Terminal spreadsheet multitool for discovering and arranging data","version":"3.4-1","homepage":"https://www.visidata.org","repo":"extra"}
 {"name":"visitors","description":"A very fast web log analyzer","version":"0.7-9","homepage":"http://www.hping.org/visitors/","repo":"extra"}
 {"name":"viskores","description":"A visualization library for many-threaded devices","version":"1.1.1-1","homepage":"https://github.com/Viskores/viskores","repo":"extra"}
@@ -14985,7 +14985,7 @@
 {"name":"xorg-xman","description":"Unix manual page viewer","version":"1.2.0-3","homepage":"https://xorg.freedesktop.org/","repo":"extra"}
 {"name":"xorg-xmessage","description":"Display a message or query in a window","version":"1.0.7-2","homepage":"https://gitlab.freedesktop.org/xorg/app/xmessage","repo":"extra"}
 {"name":"xorg-xmodmap","description":"Utility for modifying keymaps and button mappings","version":"1.0.12-1","homepage":"https://xorg.freedesktop.org/","repo":"extra"}
-{"name":"xorg-xpr","description":"Print an X window dump from xwd","version":"1.2.0-2","homepage":"https://gitlab.freedesktop.org/xorg/app/xpr","repo":"extra"}
+{"name":"xorg-xpr","description":"Print an X window dump from xwd","version":"1.2.1-1","homepage":"https://gitlab.freedesktop.org/xorg/app/xpr","repo":"extra"}
 {"name":"xorg-xprop","description":"Property displayer for X","version":"1.2.8-1","homepage":"https://gitlab.freedesktop.org/xorg/app/xprop","repo":"extra"}
 {"name":"xorg-xrandr","description":"Primitive command line interface to RandR extension","version":"1.5.4-1","homepage":"https://xorg.freedesktop.org/","repo":"extra"}
 {"name":"xorg-xrdb","description":"X server resource database utility","version":"1.2.3-1","homepage":"https://xorg.freedesktop.org/","repo":"extra"}
@@ -15066,11 +15066,11 @@
 {"name":"yices","description":"A solver for Satisfiability Modulo Theories (SMT) problems","version":"2.7.0-1","homepage":"https://yices.csl.sri.com/","repo":"extra"}
 {"name":"yodl","description":"Implements a pre-document language and tools to process it.","version":"4.05.01-1","homepage":"https://fbb-git.gitlab.io/yodl/","repo":"extra"}
 {"name":"yoga","description":"Cross-platform layout engine","version":"3.2.1-1","homepage":"https://github.com/facebook/yoga","repo":"extra"}
-{"name":"yoshimi","description":"A sophisticated soft-synth originally forked from ZynAddSubFX","version":"2.3.6.2-1","homepage":"https://yoshimi.github.io/","repo":"extra"}
-{"name":"yoshimi-data","description":"A sophisticated soft-synth originally forked from ZynAddSubFX - data files","version":"2.3.6.2-1","homepage":"https://yoshimi.github.io/","repo":"extra"}
-{"name":"yoshimi-docs","description":"A sophisticated soft-synth originally forked from ZynAddSubFX - documentation","version":"2.3.6.2-1","homepage":"https://yoshimi.github.io/","repo":"extra"}
-{"name":"yoshimi-lv2","description":"A sophisticated soft-synth originally forked from ZynAddSubFX - LV2 plugin","version":"2.3.6.2-1","homepage":"https://yoshimi.github.io/","repo":"extra"}
-{"name":"yoshimi-standalone","description":"A sophisticated soft-synth originally forked from ZynAddSubFX - standalone","version":"2.3.6.2-1","homepage":"https://yoshimi.github.io/","repo":"extra"}
+{"name":"yoshimi","description":"A sophisticated soft-synth originally forked from ZynAddSubFX","version":"2.3.6.4-1","homepage":"https://yoshimi.github.io/","repo":"extra"}
+{"name":"yoshimi-data","description":"A sophisticated soft-synth originally forked from ZynAddSubFX - data files","version":"2.3.6.4-1","homepage":"https://yoshimi.github.io/","repo":"extra"}
+{"name":"yoshimi-docs","description":"A sophisticated soft-synth originally forked from ZynAddSubFX - documentation","version":"2.3.6.4-1","homepage":"https://yoshimi.github.io/","repo":"extra"}
+{"name":"yoshimi-lv2","description":"A sophisticated soft-synth originally forked from ZynAddSubFX - LV2 plugin","version":"2.3.6.4-1","homepage":"https://yoshimi.github.io/","repo":"extra"}
+{"name":"yoshimi-standalone","description":"A sophisticated soft-synth originally forked from ZynAddSubFX - standalone","version":"2.3.6.4-1","homepage":"https://yoshimi.github.io/","repo":"extra"}
 {"name":"yosys","description":"A framework for RTL synthesis","version":"0.66-1","homepage":"https://yosyshq.net/yosys/","repo":"extra"}
 {"name":"yq","description":"Command-line YAML, XML, TOML processor - jq wrapper for YAML/XML/TOML documents","version":"4.1.2-1","homepage":"https://github.com/kislyuk/yq","repo":"extra"}
 {"name":"yrd","description":"cjdns swiss army knife","version":"0.5.3-10","homepage":"https://github.com/kpcyrd/yrd","repo":"extra"}
@@ -15145,7 +15145,7 @@
 {"name":"zimg","description":"Scaling, colorspace conversion, and dithering library","version":"3.0.6-2","homepage":"https://github.com/sekrit-twc/zimg","repo":"extra"}
 {"name":"zint","description":"Barcode encoding library supporting over 50 symbologies","version":"2.16.0-2","homepage":"https://zint.org.uk/","repo":"extra"}
 {"name":"zint-qt","description":"Zint Barcode Studio GUI","version":"2.16.0-2","homepage":"https://zint.org.uk/","repo":"extra"}
-{"name":"zip","description":"Compressor/archiver for creating and modifying zipfiles","version":"3.0-13","homepage":"http://www.info-zip.org/Zip.html","repo":"extra"}
+{"name":"zip","description":"Compressor/archiver for creating and modifying zipfiles","version":"3.0-14","homepage":"http://www.info-zip.org/Zip.html","repo":"extra"}
 {"name":"ziproxy","description":"forwarding, non-caching, compressing HTTP proxy server","version":"3.3.2-8","homepage":"http://ziproxy.sourceforge.net/","repo":"extra"}
 {"name":"zita-ajbridge","description":"Jack client to use additional ALSA devices.","version":"0.8.4-4","homepage":"https://kokkinizita.linuxaudio.org/linuxaudio/zita-ajbridge-doc/quickguide.html","repo":"extra"}
 {"name":"zita-alsa-pcmi","description":"The successor of clalsadrv, provides easy access to ALSA PCM devices.","version":"0.6.1-3","homepage":"https://kokkinizita.linuxaudio.org/linuxaudio/","repo":"extra"}
@@ -15201,10 +15201,8 @@
 {"name":"zziplib","description":"A lightweight library that offers the ability to easily extract data from files archived in a single zip file","version":"0.13.80-1","homepage":"https://github.com/gdraheim/zziplib","repo":"extra"}
 {"name":"zzuf","description":"Transparent application input fuzzer","version":"0.15-3","homepage":"https://github.com/samhocevar/zzuf","repo":"extra"}
 {"name":"cmucl","description":"CMU Common Lisp","version":"21e-1","homepage":"https://www.cons.org/cmucl/","repo":"multilib"}
-{"name":"lib32-aalib","description":"A portable ASCII art graphic library (32 bit)","version":"1.4rc5-5","homepage":"http://aa-project.sourceforge.net/aalib/","repo":"multilib"}
 {"name":"lib32-acl","description":"Access control list libraries (32-bit)","version":"2.4.0-1","homepage":"https://savannah.nongnu.org/projects/acl","repo":"multilib"}
 {"name":"lib32-alsa-lib","description":"An alternative implementation of Linux sound support (32 bit)","version":"1.2.16.1-1","homepage":"https://www.alsa-project.org","repo":"multilib"}
-{"name":"lib32-alsa-oss","description":"OSS compatibility library (32 bit)","version":"1.1.8-5","homepage":"https://www.alsa-project.org","repo":"multilib"}
 {"name":"lib32-alsa-plugins","description":"Additional ALSA plugins (32-bit)","version":"1.2.12-1","homepage":"https://www.alsa-project.org","repo":"multilib"}
 {"name":"lib32-apitrace","description":"Graphics API Tracing (32-bit)","version":"14.0-1","homepage":"https://github.com/apitrace/apitrace","repo":"multilib"}
 {"name":"lib32-at-spi2-core","description":"Protocol definitions and daemon for D-Bus at-spi (32-bit)","version":"2.60.6-1","homepage":"https://gitlab.gnome.org/GNOME/at-spi2-core","repo":"multilib"}
@@ -15213,7 +15211,6 @@
 {"name":"lib32-brotli","description":"Generic-purpose lossless compression algorithm (32-bit)","version":"1.2.0-2","homepage":"https://github.com/google/brotli","repo":"multilib"}
 {"name":"lib32-bzip2","description":"A high-quality data compression program (32-bit)","version":"1.0.8-4","homepage":"https://sourceware.org/bzip2/","repo":"multilib"}
 {"name":"lib32-cairo","description":"2D graphics library with support for multiple output devices (32-bit)","version":"1.18.4-1","homepage":"https://cairographics.org/","repo":"multilib"}
-{"name":"lib32-cdparanoia","description":"Compact Disc Digital Audio extraction tool","version":"10.2-5","homepage":"https://www.xiph.org/paranoia/","repo":"multilib"}
 {"name":"lib32-clang","description":"C language family frontend for LLVM (32-bit)","version":"22.1.8-1","homepage":"https://clang.llvm.org/","repo":"multilib"}
 {"name":"lib32-cmocka","description":"Elegant unit testing framework for C with support for mock objects","version":"2.0.2-1","homepage":"https://cmocka.org/","repo":"multilib"}
 {"name":"lib32-colord","description":"System daemon for managing color devices (client library, 32-bit)","version":"1.4.8-1","homepage":"https://www.freedesktop.org/software/colord/","repo":"multilib"}
@@ -15221,7 +15218,6 @@
 {"name":"lib32-curl","description":"command line tool and library for transferring data with URLs (32-bit)","version":"8.21.0-1","homepage":"https://curl.se/","repo":"multilib"}
 {"name":"lib32-dbus","description":"Freedesktop.org message bus system - 32-bit","version":"1.16.2-1","homepage":"https://www.freedesktop.org/wiki/Software/dbus/","repo":"multilib"}
 {"name":"lib32-dbus-glib","description":"GLib bindings for DBUS","version":"0.114-1","homepage":"https://www.freedesktop.org/wiki/Software/DBusBindings","repo":"multilib"}
-{"name":"lib32-dconf","description":"Configuration database system (32-bit)","version":"0.49.0-1","homepage":"https://gitlab.gnome.org/GNOME/dconf","repo":"multilib"}
 {"name":"lib32-directx-headers","description":"DirectX headers for using D3D12 (32-bit)","version":"1:1.619.5-1","homepage":"https://github.com/microsoft/DirectX-Headers","repo":"multilib"}
 {"name":"lib32-duktape","description":"Embeddable Javascript engine (32-bit)","version":"2.7.0-7","homepage":"https://duktape.org/","repo":"multilib"}
 {"name":"lib32-e2fsprogs","description":"Ext2/3/4 filesystem libraries (32-bit)","version":"1.47.4-1","homepage":"http://e2fsprogs.sourceforge.net","repo":"multilib"}
@@ -15237,7 +15233,6 @@
 {"name":"lib32-gamemode","description":"A daemon/lib combo that allows games to request a set of optimisations be temporarily applied to the host OS","version":"1.8.2-1","homepage":"https://github.com/FeralInteractive/gamemode","repo":"multilib"}
 {"name":"lib32-gdk-pixbuf2","description":"An image loading library (32-bit)","version":"2.44.7-1","homepage":"https://gitlab.gnome.org/GNOME/gdk-pixbuf","repo":"multilib"}
 {"name":"lib32-gettext","description":"GNU internationalization library (32-bit)","version":"1.0-1","homepage":"https://www.gnu.org/software/gettext/","repo":"multilib"}
-{"name":"lib32-giflib","description":"Library for reading and writing gif images","version":"6.1.3-1","homepage":"http://giflib.sourceforge.net/","repo":"multilib"}
 {"name":"lib32-glew","description":"A cross-platform C/C++ extension loading library (32 bit)","version":"2.3.1-1","homepage":"https://github.com/nigels-com/glew","repo":"multilib"}
 {"name":"lib32-glib-networking","description":"Network extensions for GLib (32-bit)","version":"1:2.80.1-1","homepage":"https://gitlab.gnome.org/GNOME/glib-networking","repo":"multilib"}
 {"name":"lib32-glib2","description":"Low level core library - 32-bit","version":"2.88.3-1","homepage":"https://gitlab.gnome.org/GNOME/glib","repo":"multilib"}
@@ -15251,7 +15246,6 @@
 {"name":"lib32-harfbuzz-cairo","description":"OpenType text shaping engine - 32-bit - Cairo integration","version":"14.3.1-1","homepage":"https://harfbuzz.github.io/","repo":"multilib"}
 {"name":"lib32-harfbuzz-icu","description":"OpenType text shaping engine - 32-bit - ICU integration","version":"14.3.1-1","homepage":"https://harfbuzz.github.io/","repo":"multilib"}
 {"name":"lib32-icu","description":"International Components for Unicode library (32 bit)","version":"78.3-1","homepage":"https://icu.unicode.org","repo":"multilib"}
-{"name":"lib32-imlib2","description":"Library that does image file loading and saving as well as rendering, manipulation, arbitrary polygon support, lib32","version":"1.12.6-1","homepage":"https://sourceforge.net/projects/enlightenment/","repo":"multilib"}
 {"name":"lib32-jack2","description":"The JACK low-latency audio server (32 bit)","version":"1.9.22-2","homepage":"https://github.com/jackaudio/jack2","repo":"multilib"}
 {"name":"lib32-jansson","description":"C library for encoding, decoding and manipulating JSON data","version":"2.15.1-1","homepage":"http://www.digip.org/jansson/","repo":"multilib"}
 {"name":"lib32-json-c","description":"JSON implementation in C (32-bit)","version":"0.19-1","homepage":"https://github.com/json-c/json-c/wiki","repo":"multilib"}
@@ -15260,29 +15254,18 @@
 {"name":"lib32-krb5","description":"The Kerberos network authentication system (32-bit)","version":"1.22.2-1","homepage":"https://web.mit.edu/kerberos/","repo":"multilib"}
 {"name":"lib32-ladspa","description":"Linux Audio Developer's Simple Plugin API","version":"1.17-4","homepage":"https://www.ladspa.org/","repo":"multilib"}
 {"name":"lib32-lcms2","description":"Small-footprint color management engine, version 2 (32-bit)","version":"2.17-1","homepage":"https://www.littlecms.com","repo":"multilib"}
-{"name":"lib32-libaio","description":"The Linux-native asynchronous I/O facility (aio) library","version":"0.3.113-5","homepage":"https://pagure.io/libaio","repo":"multilib"}
-{"name":"lib32-libao","description":"A cross-platform audio output library and plugins (32-bit)","version":"1.2.2-6","homepage":"https://www.xiph.org/ao/","repo":"multilib"}
-{"name":"lib32-libappindicator","description":"Allow applications to extend a menu via Ayatana indicators in Unity, KDE or Systray (32-bit)","version":"12.10.1-1","homepage":"https://launchpad.net/libappindicator","repo":"multilib"}
 {"name":"lib32-libarchive","description":"Multi-format archive and compression library - 32bit","version":"3.8.9-1","homepage":"https://libarchive.org","repo":"multilib"}
 {"name":"lib32-libasyncns","description":"A C library for executing name service queries asynchronously (32-bit)","version":"1:0.8+r3+g68cd5af-3","homepage":"https://0pointer.net/lennart/projects/libasyncns/","repo":"multilib"}
-{"name":"lib32-libavc1394","description":"A library to control A/V devices using the 1394ta AV/C commands (32-bit)","version":"0.5.4-5","homepage":"https://sourceforge.net/projects/libavc1394/","repo":"multilib"}
 {"name":"lib32-libavtp","description":"Open source implementation of Audio Video Transport Protocol","version":"0.2.0-3","homepage":"https://github.com/Avnu/libavtp","repo":"multilib"}
-{"name":"lib32-libbpf","description":"Library for loading eBPF programs and reading and manipulating eBPF objects from user-space","version":"1.7.0-1","homepage":"https://github.com/libbpf/libbpf","repo":"multilib"}
-{"name":"lib32-libcaca","description":"Color AsCii Art library (32-bit)","version":"0.99.beta20-2","homepage":"http://caca.zoy.org/wiki/libcaca","repo":"multilib"}
-{"name":"lib32-libcanberra","description":"A small and lightweight implementation of the XDG Sound Theme Specification (32-bit)","version":"1:0.30+r2+gc0620e4-4","homepage":"https://0pointer.net/lennart/projects/libcanberra/","repo":"multilib"}
-{"name":"lib32-libcap","description":"POSIX 1003.1e capabilities (32-bit)","version":"2.78-1","homepage":"https://sites.google.com/site/fullycapable/","repo":"multilib"}
 {"name":"lib32-libcups","description":"The CUPS Printing System - client libraries (32-bit)","version":"2.4.19-1","homepage":"https://www.cups.org/","repo":"multilib"}
 {"name":"lib32-libcurl-compat","description":"command line tool and library for transferring data with URLs (32-bit, no versioned symbols)","version":"8.21.0-1","homepage":"https://curl.se/","repo":"multilib"}
 {"name":"lib32-libcurl-gnutls","description":"command line tool and library for transferring data with URLs (32-bit, no versioned symbols, linked against gnutls)","version":"8.21.0-1","homepage":"https://curl.se/","repo":"multilib"}
 {"name":"lib32-libdaemon","description":"A lightweight C library which eases the writing of UNIX daemons","version":"0.14-9","homepage":"http://0pointer.de/lennart/projects/libdaemon/","repo":"multilib"}
 {"name":"lib32-libdatrie","description":"Implementation of double-array structure for representing trie, as proposed by Junichi Aoe.","version":"0.2.14-1","homepage":"https://linux.thai.net/projects/datrie","repo":"multilib"}
-{"name":"lib32-libdbusmenu-glib","description":"Library for passing menus over DBus (32-bit)","version":"18.10.20180917-1","homepage":"https://launchpad.net/libdbusmenu","repo":"multilib"}
-{"name":"lib32-libdbusmenu-gtk3","description":"Library for passing menus over DBus (32-bit) (GTK+ 3 library)","version":"18.10.20180917-1","homepage":"https://launchpad.net/libdbusmenu","repo":"multilib"}
 {"name":"lib32-libdecor","description":"Client-side decorations library for Wayland clients","version":"0.2.5-1","homepage":"https://gitlab.gnome.org/jadahl/libdecor","repo":"multilib"}
 {"name":"lib32-libdisplay-info","description":"EDID and DisplayID library - 32-bit","version":"0.3.0-1","homepage":"https://gitlab.freedesktop.org/emersion/libdisplay-info","repo":"multilib"}
 {"name":"lib32-libdrm","description":"Userspace interface to kernel DRM services (32-bit)","version":"2.4.134-1","homepage":"https://dri.freedesktop.org/","repo":"multilib"}
-{"name":"lib32-libdv","description":"The Quasar DV codec (libdv) is a software codec for DV video (32-bit)","version":"1.0.0-9","homepage":"http://libdv.sourceforge.net/","repo":"multilib"}
-{"name":"lib32-libelf","description":"Handle ELF object files and DWARF debugging information (libraries, 32-bit)","version":"0.195-1","homepage":"https://sourceware.org/elfutils/","repo":"multilib"}
+{"name":"lib32-libelf","description":"Handle ELF object files and DWARF debugging information (libraries, 32-bit)","version":"0.196-1","homepage":"https://sourceware.org/elfutils/","repo":"multilib"}
 {"name":"lib32-libepoxy","description":"Library handling OpenGL function pointer management","version":"1.5.10-2","homepage":"https://github.com/anholt/libepoxy","repo":"multilib"}
 {"name":"lib32-libevent","description":"Event notification library (32-bit)","version":"2.1.12-4","homepage":"https://libevent.org/","repo":"multilib"}
 {"name":"lib32-libffi","description":"Portable foreign function interface library (32-bit)","version":"3.8.0-1","homepage":"https://sourceware.org/libffi/","repo":"multilib"}
@@ -15291,12 +15274,9 @@
 {"name":"lib32-libgpg-error","description":"Support library for libgcrypt (32-bit)","version":"1.61-1","homepage":"https://www.gnupg.org","repo":"multilib"}
 {"name":"lib32-libgudev","description":"GObject bindings for libudev","version":"238-3","homepage":"https://gitlab.gnome.org/GNOME/libgudev","repo":"multilib"}
 {"name":"lib32-libgusb","description":"GObject wrapper for libusb1","version":"0.4.9-1","homepage":"https://github.com/hughsie/libgusb","repo":"multilib"}
-{"name":"lib32-libice","description":"X11 Inter-Client Exchange library (32-bit)","version":"1.1.1-2","homepage":"https://xorg.freedesktop.org/","repo":"multilib"}
-{"name":"lib32-libid3tag","description":"library for id3 tagging, lib32.","version":"0.16.3-1","homepage":"https://www.underbit.com/products/mad/","repo":"multilib"}
+{"name":"lib32-libice","description":"X11 Inter-Client Exchange library (32-bit)","version":"1.1.2-1","homepage":"https://xorg.freedesktop.org/","repo":"multilib"}
 {"name":"lib32-libidn","description":"Implementation of the Stringprep, Punycode and IDNA specifications (32 bit)","version":"1.44-1","homepage":"https://www.gnu.org/software/libidn/","repo":"multilib"}
 {"name":"lib32-libidn2","description":"Free software implementation of IDNA2008, Punycode and TR46","version":"2.3.8-1","homepage":"https://www.gnu.org/software/libidn/#libidn2","repo":"multilib"}
-{"name":"lib32-libiec61883","description":"A higher level API for streaming DV, MPEG-2 and audio over Linux IEEE 1394 (32 bit)","version":"1.2.0-5","homepage":"https://www.kernel.org/pub/linux/libs/ieee1394/","repo":"multilib"}
-{"name":"lib32-libindicator","description":"Set of symbols and convenience functions for Ayatana indicators (32-bit)","version":"12.10.1-11","homepage":"https://launchpad.net/libindicator","repo":"multilib"}
 {"name":"lib32-libinstpatch","description":"Instrument file software library","version":"1.1.7-1","homepage":"https://github.com/swami/libinstpatch","repo":"multilib"}
 {"name":"lib32-libjpeg-turbo","description":"JPEG image codec with accelerated baseline compression and decompression","version":"3.2.0-1","homepage":"https://libjpeg-turbo.org/","repo":"multilib"}
 {"name":"lib32-libldap","description":"Lightweight Directory Access Protocol (LDAP) client libraries (32-bit)","version":"2.6.13-1","homepage":"https://www.openldap.org/","repo":"multilib"}
@@ -15311,7 +15291,6 @@
 {"name":"lib32-libnm","description":"NetworkManager client library (32-bit)","version":"1.58.0-1","homepage":"https://networkmanager.dev/","repo":"multilib"}
 {"name":"lib32-libnsl","description":"Public client interface library for NIS(YP)","version":"2.0.1-2","homepage":"https://github.com/thkukuk/libnsl","repo":"multilib"}
 {"name":"lib32-libogg","description":"Ogg bitstream and framing library (32-bit)","version":"1.3.6-1","homepage":"https://www.xiph.org/ogg/","repo":"multilib"}
-{"name":"lib32-libpcap","description":"A system-independent interface for user-level packet capture (32-bit)","version":"1.10.6-1","homepage":"http://www.tcpdump.org/","repo":"multilib"}
 {"name":"lib32-libpciaccess","description":"X11 PCI access library (32-bit","version":"0.19-1","homepage":"https://xorg.freedesktop.org/","repo":"multilib"}
 {"name":"lib32-libpgm","description":"An implementation of the PGM reliable multicast protocol","version":"5.3.128-3","homepage":"https://github.com/steve-o/openpgm","repo":"multilib"}
 {"name":"lib32-libpipewire","description":"Low-latency audio/video router and processor - 32-bit - client library","version":"1:1.6.8-1","homepage":"https://pipewire.org","repo":"multilib"}
@@ -15320,14 +15299,11 @@
 {"name":"lib32-libproxy","description":"Automatic proxy configuration management library (32-bit)","version":"0.5.12-1","homepage":"https://libproxy.github.io/libproxy/","repo":"multilib"}
 {"name":"lib32-libpsl","description":"Public Suffix List library (32-bit)","version":"0.21.5-1","homepage":"https://github.com/rockdaboot/libpsl","repo":"multilib"}
 {"name":"lib32-libpulse","description":"A featureful, general-purpose sound server (32-bit client libraries)","version":"17.0+r98+gb096704c0-1","homepage":"https://www.freedesktop.org/wiki/Software/PulseAudio/","repo":"multilib"}
-{"name":"lib32-libraw1394","description":"Provides an API to the Linux IEEE1394 (FireWire) driver (32 bit)","version":"2.1.2-5","homepage":"https://ieee1394.wiki.kernel.org/index.php/Main_Page","repo":"multilib"}
 {"name":"lib32-librsvg","description":"SVG rendering library (32-bit)","version":"2:2.62.3-1","homepage":"https://gitlab.gnome.org/GNOME/librsvg","repo":"multilib"}
 {"name":"lib32-libsamplerate","description":"An audio sample rate conversion library","version":"0.2.2-3","homepage":"https://libsndfile.github.io/libsamplerate/","repo":"multilib"}
-{"name":"lib32-libshout","description":"Library for accessing a shoutcast/icecast server (32 bit)","version":"1:2.4.6-4","homepage":"https://www.icecast.org/","repo":"multilib"}
 {"name":"lib32-libsm","description":"X11 Session Management library (32-bit)","version":"1.2.6-1","homepage":"https://xorg.freedesktop.org/","repo":"multilib"}
 {"name":"lib32-libsndfile","description":"A C library for reading and writing files containing sampled audio data (32-bit)","version":"1.2.2-3","homepage":"https://libsndfile.github.io/libsndfile/","repo":"multilib"}
 {"name":"lib32-libsodium","description":"A modern, portable, easy to use crypto library","version":"1.0.22-1","homepage":"https://github.com/jedisct1/libsodium","repo":"multilib"}
-{"name":"lib32-libsoup3","description":"HTTP client/server library for GNOME (32-bit)","version":"3.6.6-2","homepage":"https://wiki.gnome.org/Projects/libsoup","repo":"multilib"}
 {"name":"lib32-libssh2","description":"A library implementing the SSH2 protocol as defined by Internet Drafts (32-bit)","version":"1.11.1-5","homepage":"https://www.libssh2.org/","repo":"multilib"}
 {"name":"lib32-libtasn1","description":"The ASN.1 library used in GNUTLS (32 bit)","version":"4.21.0-1","homepage":"https://www.gnu.org/software/libtasn1/","repo":"multilib"}
 {"name":"lib32-libteam","description":"Library for controlling team network device","version":"1.32-2","homepage":"http://libteam.org/","repo":"multilib"}
@@ -15342,7 +15318,6 @@
 {"name":"lib32-libva-intel-driver","description":"VA-API implementation for Intel G45 and HD Graphics family (32-bit)","version":"2.4.5-1","homepage":"https://github.com/irql-notlessorequal/intel-vaapi-driver","repo":"multilib"}
 {"name":"lib32-libvdpau","description":"Nvidia VDPAU library","version":"1.5-3","homepage":"https://www.freedesktop.org/wiki/Software/VDPAU/","repo":"multilib"}
 {"name":"lib32-libvorbis","description":"Reference implementation of the Ogg Vorbis audio format (32-bit)","version":"1.3.7-4","homepage":"https://www.xiph.org/vorbis/","repo":"multilib"}
-{"name":"lib32-libvpx","description":"VP8 and VP9 codec","version":"1.16.0-2","homepage":"https://www.webmproject.org/","repo":"multilib"}
 {"name":"lib32-libwebp","description":"WebP library (32-bit)","version":"1.6.0-1","homepage":"https://developers.google.com/speed/webp/","repo":"multilib"}
 {"name":"lib32-libx11","description":"X11 client-side library (32-bit)","version":"1.8.13-1","homepage":"https://gitlab.freedesktop.org/xorg/lib/libx11","repo":"multilib"}
 {"name":"lib32-libxau","description":"X11 authorisation library (32-bit)","version":"1.0.12-1","homepage":"https://xorg.freedesktop.org/","repo":"multilib"}
@@ -15354,7 +15329,7 @@
 {"name":"lib32-libxdamage","description":"X11 damaged region extension library (32-bit)","version":"1.1.7-1","homepage":"https://xorg.freedesktop.org/","repo":"multilib"}
 {"name":"lib32-libxdmcp","description":"X11 Display Manager Control Protocol library (32-bit)","version":"1.1.5-1","homepage":"https://xorg.freedesktop.org/","repo":"multilib"}
 {"name":"lib32-libxext","description":"X11 miscellaneous extensions library (32-bit)","version":"1.3.7-1","homepage":"https://xorg.freedesktop.org/","repo":"multilib"}
-{"name":"lib32-libxfixes","description":"X11 miscellaneous 'fixes' extension library (32-bit)","version":"6.0.1-2","homepage":"https://xorg.freedesktop.org/","repo":"multilib"}
+{"name":"lib32-libxfixes","description":"X11 miscellaneous 'fixes' extension library (32-bit)","version":"6.0.2-1","homepage":"https://xorg.freedesktop.org/","repo":"multilib"}
 {"name":"lib32-libxft","description":"FreeType-based font drawing library for X (32-bit)","version":"2.3.9-1","homepage":"https://xorg.freedesktop.org/","repo":"multilib"}
 {"name":"lib32-libxi","description":"X11 Input extension library (32-bit)","version":"1.8.3-1","homepage":"https://xorg.freedesktop.org","repo":"multilib"}
 {"name":"lib32-libxinerama","description":"X11 Xinerama extension library (32-bit)","version":"1.1.6-1","homepage":"https://xorg.freedesktop.org/","repo":"multilib"}
@@ -15363,15 +15338,14 @@
 {"name":"lib32-libxml2","description":"XML C parser and toolkit (32-bit)","version":"2.15.3-1","homepage":"https://gitlab.gnome.org/GNOME/libxml2/-/wikis/home","repo":"multilib"}
 {"name":"lib32-libxmu","description":"X11 miscellaneous micro-utility library (32-bit)","version":"1.3.1-1","homepage":"https://xorg.freedesktop.org/","repo":"multilib"}
 {"name":"lib32-libxrandr","description":"X11 RandR extension library (32-bit)","version":"1.5.5-1","homepage":"https://xorg.freedesktop.org/","repo":"multilib"}
-{"name":"lib32-libxrender","description":"X Rendering Extension client library (32-bit)","version":"0.9.11-2","homepage":"https://xorg.freedesktop.org/","repo":"multilib"}
+{"name":"lib32-libxrender","description":"X Rendering Extension client library (32-bit)","version":"0.9.12-1","homepage":"https://xorg.freedesktop.org/","repo":"multilib"}
 {"name":"lib32-libxshmfence","description":"a library that exposes a event API on top of Linux futexes (32-bit)","version":"1.3.3-1","homepage":"https://xorg.freedesktop.org/","repo":"multilib"}
 {"name":"lib32-libxslt","description":"XML stylesheet transformation library (32-bit)","version":"1.1.45-1","homepage":"https://gitlab.gnome.org/GNOME/libxslt/-/wikis/home","repo":"multilib"}
 {"name":"lib32-libxss","description":"X11 Screen Saver extension library (32-bit)","version":"1.2.5-1","homepage":"https://gitlab.freedesktop.org/xorg/lib/libxscrnsaver","repo":"multilib"}
 {"name":"lib32-libxt","description":"X11 toolkit intrinsics library (32-bit)","version":"1.3.1-1","homepage":"https://xorg.freedesktop.org/","repo":"multilib"}
 {"name":"lib32-libxtst","description":"X11 Testing -- Resource extension library (32-bit)","version":"1.2.5-2","homepage":"https://xorg.freedesktop.org/","repo":"multilib"}
-{"name":"lib32-libxv","description":"X11 Video extension library (32-bit)","version":"1.0.12-2","homepage":"https://xorg.freedesktop.org/","repo":"multilib"}
-{"name":"lib32-libxvmc","description":"X11 Video Motion Compensation extension library (32-bit)","version":"1.0.15-1","homepage":"https://xorg.freedesktop.org/","repo":"multilib"}
-{"name":"lib32-libxxf86vm","description":"X11 XFree86 video mode extension library (32-bit)","version":"1.1.5-2","homepage":"https://xorg.freedesktop.org/","repo":"multilib"}
+{"name":"lib32-libxv","description":"X11 Video extension library (32-bit)","version":"1.0.13-1","homepage":"https://xorg.freedesktop.org/","repo":"multilib"}
+{"name":"lib32-libxxf86vm","description":"X11 XFree86 video mode extension library (32-bit)","version":"1.1.7-1","homepage":"https://xorg.freedesktop.org/","repo":"multilib"}
 {"name":"lib32-llvm","description":"Compiler infrastructure (32-bit)","version":"1:22.1.8-1","homepage":"https://llvm.org/","repo":"multilib"}
 {"name":"lib32-llvm-libs","description":"LLVM runtime libraries (32-bit)","version":"1:22.1.8-1","homepage":"https://llvm.org/","repo":"multilib"}
 {"name":"lib32-lm_sensors","description":"Collection of user space tools for general SMBus access and hardware monitoring (32-bit)","version":"1:3.6.2-2","homepage":"http://www.lm-sensors.org/","repo":"multilib"}
@@ -15389,12 +15363,10 @@
 {"name":"lib32-nvidia-cg-toolkit","description":"NVIDIA Cg libraries","version":"3.1-10","homepage":"https://developer.nvidia.com/object/cg_toolkit.html","repo":"multilib"}
 {"name":"lib32-nvidia-utils","description":"NVIDIA drivers utilities (32-bit)","version":"610.57.04-1","homepage":"http://www.nvidia.com/","repo":"multilib"}
 {"name":"lib32-ocl-icd","description":"OpenCL ICD Bindings (32-bit)","version":"2.3.5-1","homepage":"https://github.com/OCL-dev/ocl-icd","repo":"multilib"}
-{"name":"lib32-openal","description":"Cross-platform 3D audio library, software implementation (32-bit)","version":"1.25.2-1","homepage":"https://github.com/kcat/openal-soft","repo":"multilib"}
 {"name":"lib32-opencl-mesa","description":"Open-source OpenCL drivers - 32-bit","version":"1:26.1.7-1","homepage":"https://www.mesa3d.org/","repo":"multilib"}
 {"name":"lib32-opencl-nvidia","description":"OpenCL implemention for NVIDIA (32-bit)","version":"610.57.04-1","homepage":"http://www.nvidia.com/","repo":"multilib"}
 {"name":"lib32-openssl","description":"The Open Source toolkit for Secure Sockets Layer and Transport Layer Security (32-bit)","version":"1:3.6.3-1","homepage":"https://www.openssl.org","repo":"multilib"}
 {"name":"lib32-opus","description":"Totally open, royalty-free, highly versatile audio codec (32-bit)","version":"1.6.1-1","homepage":"https://www.opus-codec.org/","repo":"multilib"}
-{"name":"lib32-orc","description":"Optimized Inner Loop Runtime Compiler (32-bit)","version":"0.4.42-1","homepage":"https://gstreamer.freedesktop.org/modules/orc.html","repo":"multilib"}
 {"name":"lib32-p11-kit","description":"Loads and enumerates PKCS#11 modules (32-bit library)","version":"0.26.5-1","homepage":"https://p11-glue.freedesktop.org","repo":"multilib"}
 {"name":"lib32-pam","description":"Pluggable Authentication Modules","version":"1.7.2-1","homepage":"http://linux-pam.org","repo":"multilib"}
 {"name":"lib32-pango","description":"A library for layout and rendering of text (32-bit)","version":"1:1.58.2-1","homepage":"https://www.pango.org/","repo":"multilib"}
@@ -15416,28 +15388,20 @@
 {"name":"lib32-sdl12-compat","description":"SDL 1.2 runtime compatibility library using SDL 2.0","version":"1.2.68-2","homepage":"https://www.libsdl.org","repo":"multilib"}
 {"name":"lib32-sdl2-compat","description":"An SDL2 compatibility layer that uses SDL3 behind the scenes - 32-bit","version":"2.32.70-1","homepage":"https://github.com/libsdl-org/sdl2-compat","repo":"multilib"}
 {"name":"lib32-sdl2_mixer","description":"A simple multi-channel audio mixer (Version 2)","version":"2.8.2-1","homepage":"https://github.com/libsdl-org/SDL_mixer","repo":"multilib"}
-{"name":"lib32-sdl2_ttf","description":"Library that allows you to use TrueType fonts in your SDL applications (Version 2) (32-bit)","version":"2.24.0-2","homepage":"https://www.libsdl.org/projects/SDL_ttf","repo":"multilib"}
 {"name":"lib32-sdl3","description":"A library for portable low-level access to a video framebuffer, audio output, mouse, and keyboard (Version 3) - 32-bit","version":"3.4.14-1","homepage":"https://www.libsdl.org","repo":"multilib"}
-{"name":"lib32-sdl3_ttf","description":"Library that allows you to use TrueType fonts in your SDL applications (Version 3) (32-bit)","version":"3.2.2-4","homepage":"https://www.libsdl.org/projects/SDL_ttf","repo":"multilib"}
-{"name":"lib32-sdl_image","description":"A simple library to load images of various formats as SDL surfaces (32-bit)","version":"1.2.12-9","homepage":"https://www.libsdl.org/projects/SDL_image/","repo":"multilib"}
-{"name":"lib32-sdl_mixer","description":"A simple multi-channel audio mixer","version":"1.2.12-6","homepage":"https://www.libsdl.org/projects/SDL_mixer/","repo":"multilib"}
 {"name":"lib32-sdl_net","description":"Small cross-platform networking library","version":"1.2.8-5","homepage":"https://www.libsdl.org/projects/SDL_net/","repo":"multilib"}
-{"name":"lib32-sdl_ttf","description":"A library that allows you to use TrueType fonts in your SDL applications (32-bit)","version":"2.0.11-9","homepage":"https://www.libsdl.org/projects/SDL_ttf/","repo":"multilib"}
 {"name":"lib32-slang","description":"S-Lang is a powerful interpreted language","version":"2.3.3-2","homepage":"https://www.jedsoft.org/slang/","repo":"multilib"}
 {"name":"lib32-smpeg","description":"SDL MPEG Player Library","version":"2.0.0-2","homepage":"https://icculus.org/smpeg/","repo":"multilib"}
 {"name":"lib32-sndio","description":"A small audio and MIDI framework (32-bit)","version":"1.10.0-1","homepage":"https://sndio.org","repo":"multilib"}
-{"name":"lib32-speex","description":"A free codec for free speech (32-bit)","version":"1.2.1-2","homepage":"https://www.speex.org/","repo":"multilib"}
 {"name":"lib32-speexdsp","description":"DSP library derived from Speex (32-bit)","version":"1.2.1-2","homepage":"https://www.speex.org/","repo":"multilib"}
 {"name":"lib32-spirv-llvm-translator","description":"LLVM <-> SPIR-V converter for compilers targeting SPIR-V (32-bit)","version":"22.1.5-1","homepage":"https://www.khronos.org/spirv/","repo":"multilib"}
 {"name":"lib32-spirv-tools","description":"API and commands for processing SPIR-V modules (32-bit)","version":"1:1.4.357.0-1","homepage":"https://www.khronos.org/spirv/","repo":"multilib"}
 {"name":"lib32-sqlite","description":"A C library that implements an SQL database engine (32-bit)","version":"3.53.4-1","homepage":"https://www.sqlite.org/","repo":"multilib"}
 {"name":"lib32-systemd","description":"system and service manager (32-bit)","version":"261.2-1","homepage":"https://www.github.com/systemd/systemd","repo":"multilib"}
-{"name":"lib32-taglib","description":"A Library for reading and editing the meta-data of several popular audio formats (32 bit)","version":"2.3.1-1","homepage":"https://developer.kde.org/~wheeler/taglib.html","repo":"multilib"}
 {"name":"lib32-tcl","description":"The Tcl scripting language","version":"8.6.16-1","homepage":"http://tcl.sourceforge.net/","repo":"multilib"}
-{"name":"lib32-tdb","description":"A Trivial Database similar to GDBM but allows simultaneous commits (32-bit)","version":"1.4.13-1","homepage":"https://tdb.samba.org/","repo":"multilib"}
+{"name":"lib32-tdb","description":"A Trivial Database similar to GDBM but allows simultaneous commits (32-bit)","version":"1.4.15-1","homepage":"https://tdb.samba.org/","repo":"multilib"}
 {"name":"lib32-twolame","description":"An optimized MPEG Audio Layer 2 (MP2) encoder (32-bit)","version":"0.4.0-3","homepage":"http://www.twolame.org/","repo":"multilib"}
 {"name":"lib32-util-linux","description":"Miscellaneous system utilities for Linux (32-bit)","version":"2.42.2-1","homepage":"https://github.com/util-linux/util-linux","repo":"multilib"}
-{"name":"lib32-v4l-utils","description":"Userspace tools and conversion library for Video 4 Linux (32-bit)","version":"1.32.0-1","homepage":"https://linuxtv.org/","repo":"multilib"}
 {"name":"lib32-virtualgl","description":"32-bit serverside components for 64-bit VirtualGL servers","version":"3.1.5-1","homepage":"https://virtualgl.org","repo":"multilib"}
 {"name":"lib32-vkd3d","description":"Direct3D 12 to Vulkan translation library By WineHQ","version":"1.19-1","homepage":"https://wiki.winehq.org/Vkd3d","repo":"multilib"}
 {"name":"lib32-vulkan-asahi","description":"Open-source Vulkan driver for Apple GPUs - 32-bit","version":"1:26.1.7-1","homepage":"https://www.mesa3d.org/","repo":"multilib"}
@@ -15457,7 +15421,6 @@
 {"name":"lib32-vulkan-utility-libraries","description":"Vulkan Utility Libraries (32-bit)","version":"1.4.357.0-1","homepage":"https://www.vulkan.org/","repo":"multilib"}
 {"name":"lib32-vulkan-validation-layers","description":"Vulkan Validation Layers (32-bit)","version":"1.4.357.0-1","homepage":"https://www.vulkan.org/","repo":"multilib"}
 {"name":"lib32-vulkan-virtio","description":"Open-source Vulkan driver for Virtio-GPU (Venus) - 32-bit","version":"1:26.1.7-1","homepage":"https://www.mesa3d.org/","repo":"multilib"}
-{"name":"lib32-wavpack","description":"Audio compression format with lossless, lossy, and hybrid compression modes (32 bit)","version":"5.9.0-1","homepage":"http://www.wavpack.com/","repo":"multilib"}
 {"name":"lib32-wayland","description":"A computer display server protocol","version":"1.26.0-1","homepage":"https://wayland.freedesktop.org","repo":"multilib"}
 {"name":"lib32-xcb-util","description":"Utility libraries for XC Binding (32-bit)","version":"0.4.1-2","homepage":"https://xcb.freedesktop.org","repo":"multilib"}
 {"name":"lib32-xcb-util-keysyms","description":"Utility libraries for XC Binding - Standard X key constants and conversion to/from keycodes","version":"0.4.1-2","homepage":"https://xcb.freedesktop.org","repo":"multilib"}

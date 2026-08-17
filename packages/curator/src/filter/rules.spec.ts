@@ -191,6 +191,17 @@ describe("looksLikeSupportSection", () => {
     expect(looksLikeSupportSection("desktop.kde")).toBe(false);
   });
 
+  it("flags Gentoo's acct-group/acct-user/virtual categories", () => {
+    expect(looksLikeSupportSection("acct-group")).toBe(true);
+    expect(looksLikeSupportSection("acct-user")).toBe(true);
+    expect(looksLikeSupportSection("virtual")).toBe(true);
+  });
+
+  it("does not flag Gentoo's other categories", () => {
+    expect(looksLikeSupportSection("games-strategy")).toBe(false);
+    expect(looksLikeSupportSection("dev-libs")).toBe(false);
+  });
+
   it("does not flag an absent section", () => {
     expect(looksLikeSupportSection(undefined)).toBe(false);
   });

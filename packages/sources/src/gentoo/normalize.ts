@@ -13,9 +13,9 @@ export function normalize(entries: GentooCacheEntry[]): SourcedPackage[] {
     // than dropped, unlike bare `entry.name`.
     appId: `${entry.category}/${entry.name}`,
     homepage: entry.homepage,
-    // Gentoo's category (e.g. "games-strategy", "dev-libs") could serve
-    // the same Section-equivalent role Debian/openSUSE/Slackware/Solus's
-    // fields do — not wired in yet, tracked as a follow-on rather than
-    // blocking the connector on it (see the "Add Gentoo" card).
+    // Gentoo's category (e.g. "games-strategy", "dev-libs") serves the
+    // same Section-equivalent role Debian/openSUSE/Slackware/Solus's
+    // fields do — see filter/rules.ts's GENTOO_NOISE_CATEGORIES.
+    section: entry.category,
   }));
 }

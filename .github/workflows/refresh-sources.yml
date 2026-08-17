@@ -2,13 +2,14 @@ name: Refresh source caches
 
 # Weekly, not daily — most upstream repodata itself doesn't change that
 # often, and this repo pays for every refresh in real git history (every
-# run diffs and commits packages/sources/cache/*.ndjson). Monday 4am UTC,
-# an hour after the Security Audit workflow's Monday 6am UTC... actually
-# before it, so a refresh-caused dependency change (rare, but package.json
-# doesn't change here) would already be in before that audit runs.
+# run diffs and commits packages/sources/cache/*.ndjson). Saturday, not a
+# weekday: this is a hobby project worked on evenings/weekends, and a
+# refresh PR that needs a fix (flaky mirror, upstream layout change) is
+# more likely to get attention promptly on a Saturday morning than a
+# Monday one buried under the work week.
 on:
   schedule:
-    - cron: "0 4 * * 1"
+    - cron: "0 4 * * 6"
   workflow_dispatch:
     inputs:
       source:

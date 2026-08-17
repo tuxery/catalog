@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { extractPrimaryLocation, mergeByName, parsePrimary } from "./fetch";
+import { extractPrimaryLocation, mergeByName, parsePrimary, resolveCurrentRelease } from "./fetch";
 
 const REPOMD_FIXTURE = `<?xml version="1.0" encoding="UTF-8"?>
 <repomd xmlns="http://linux.duke.edu/metadata/repo">
@@ -107,5 +107,34 @@ describe("mergeByName", () => {
     expect(mergeByName([everything, updates])).toEqual([
       { name: "a", summary: "new", version: "1.1", homepage: undefined, hasDesktopFile: true },
     ]);
+  });
+});
+
+describe("resolveCurrentRelease", () => {
+  it("picks the higher of two current releases during the overlap window", () => {
+    const releases = [
+      { id_prefix: "FEDORA", version: "43", state: "current" },
+      { id_prefix: "FEDORA", version: "44", state: "current" },
+      { id_prefix: "FEDORA", version: "45", state: "pending" },
+      { id_prefix: "FEDORA", version: "42", state: "archived" },
+    ];
+
+    expect(resolveCurrentRelease(releases)).toBe("44");
+  });
+
+  it("ignores EPEL/ELN entries sharing the same endpoint", () => {
+    const releases = [
+      { id_prefix: "FEDORA", version: "44", state: "current" },
+      { id_prefix: "FEDORA-EPEL", version: "10.2", state: "current" },
+      { id_prefix: "FEDORA", version: "46", state: "pending" },
+    ];
+
+    expect(resolveCurrentRelease(releases)).toBe("44");
+  });
+
+  it("throws when no release is current", () => {
+    const releases = [{ id_prefix: "FEDORA", version: "44", state: "archived" }];
+
+    expect(() => resolveCurrentRelease(releases)).toThrow(/no current Fedora release/);
   });
 });

@@ -3,8 +3,5 @@
   "fetchedAt": "2026-08-17T19:47:03.688Z",
   "url": "https://download.opensuse.org/tumbleweed/repo/oss, https://download.opensuse.org/tumbleweed/repo/non-oss",
   "entryCount": 52524,
-  "reposFetched": [
-    "oss",
-    "non-oss"
-  ]
+  "reposFetched": ["oss", "non-oss"]
 }

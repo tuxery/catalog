@@ -10,6 +10,7 @@ import { fetchNixpkgs } from "./nixpkgs/fetch";
 import { fetchOpenSuse } from "./opensuse/fetch";
 import { fetchSlackware } from "./slackware/fetch";
 import { fetchSnapcraft } from "./snapcraft/fetch";
+import { fetchSolus } from "./solus/fetch";
 import { fetchUbuntu } from "./ubuntu/fetch";
 import { fetchVoid } from "./void/fetch";
 
@@ -27,6 +28,7 @@ const REFRESHERS: Record<string, (cachePath: string) => Promise<number>> = {
   alpine: fetchAlpine,
   void: fetchVoid,
   slackware: fetchSlackware,
+  solus: fetchSolus,
 };
 
 async function main() {

@@ -98,6 +98,24 @@ describe("groupPackages", () => {
     expect(groupPackages(packages, overrides)).toHaveLength(2);
   });
 
+  it("does not union generic-name-blocklisted names on name alone (tier 2 is skipped for them)", () => {
+    const packages = [
+      pkg({ source: "flathub", name: "Calculator", appId: "org.gnome.Calculator" }),
+      pkg({ source: "flathub", name: "Calculator", appId: "org.kde.kalk" }),
+    ];
+
+    expect(groupPackages(packages, NO_OVERRIDES)).toHaveLength(2);
+  });
+
+  it("still unions a blocklisted name via tier 1 (exact appId) when appId genuinely matches", () => {
+    const packages = [
+      pkg({ source: "flathub", name: "Calculator", appId: "org.gnome.Calculator" }),
+      pkg({ source: "snapcraft", name: "gnome-calculator", appId: "org.gnome.Calculator" }),
+    ];
+
+    expect(groupPackages(packages, NO_OVERRIDES)).toHaveLength(1);
+  });
+
   it("uses the real (currently empty) override files when none are passed", () => {
     const packages = [pkg({ source: "flathub", name: "Solo", appId: "org.example.solo" })];
 

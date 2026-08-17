@@ -23,16 +23,18 @@ export interface CatalogApp {
   packages: SourcedPackage[];
   /**
    * "gui" when at least one member package carries positive evidence of
-   * a launchable GUI app (currently: `SourcedPackage.hasDesktopFile`,
-   * only populated by Fedora/openSUSE) — `undefined` otherwise,
-   * deliberately not "cli" by default: absence of the signal doesn't
-   * mean "not a GUI app", most real GUI apps just don't happen to
-   * trigger the specific upstream convention this is derived from (only
-   * ~3% coverage on real Fedora/openSUSE data, though 100% precise where
-   * present). See the "GUI vs CLI classification" GitHub Project card
-   * for the broader plan — a weaker Debian/Ubuntu Section-based
-   * heuristic, Flatpak/Snap/AppImage source presence, ... — not yet
-   * implemented; this is the first, narrowest, most-verified signal.
+   * a launchable GUI app — `undefined` otherwise, deliberately not "cli"
+   * by default: absence of a signal doesn't mean "not a GUI app". Two
+   * signals feed this today (see `enrich/index.ts`'s `hasGuiEvidence`):
+   * `SourcedPackage.hasDesktopFile` (Fedora/openSUSE's direct synthetic
+   * desktop-file marker, ~3% coverage but 100% precise where present),
+   * and Debian/Ubuntu's weaker Section-based heuristic
+   * (`looksLikeGuiPackage` in curator's filter/rules.ts, broader coverage
+   * but empirically verified against the Fedora/openSUSE signal rather
+   * than 100% precise). See the "GUI vs CLI classification" GitHub
+   * Project card for what's still missing: an Arch/AUR signal,
+   * Flatpak/Snap/AppImage source presence as a weaker fallback, and
+   * app-side consumption.
    */
   kind?: "gui";
 

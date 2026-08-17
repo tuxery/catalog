@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { looksLikeSupportPackage, looksLikeSupportSection } from "./rules";
+import { looksLikeGuiPackage, looksLikeSupportPackage, looksLikeSupportSection } from "./rules";
 
 describe("looksLikeSupportPackage", () => {
   it("flags dev/debug/doc suffixes", () => {
@@ -204,5 +204,48 @@ describe("looksLikeSupportSection", () => {
 
   it("does not flag an absent section", () => {
     expect(looksLikeSupportSection(undefined)).toBe(false);
+  });
+});
+
+describe("looksLikeGuiPackage", () => {
+  it("flags real apps in a verified GUI-predictive section", () => {
+    expect(looksLikeGuiPackage("abiword", "editors")).toBe(true);
+    expect(looksLikeGuiPackage("obs-studio", "video")).toBe(true);
+    expect(looksLikeGuiPackage("0ad", "games")).toBe(true);
+    expect(looksLikeGuiPackage("wsjtx", "hamradio")).toBe(true);
+  });
+
+  it("does not flag sections with real theme/plugin contamination, despite a comparably high raw rate", () => {
+    // x11/gnome/kde/xfce were checked and rejected — see rules.ts's
+    // GUI_SECTIONS comment for the real theme/icon packages that ride
+    // along in these sections (adwaita-icon-theme, breeze-icon-theme, ...).
+    expect(looksLikeGuiPackage("some-window-manager", "x11")).toBe(false);
+    expect(looksLikeGuiPackage("adwaita-icon-theme", "gnome")).toBe(false);
+    expect(looksLikeGuiPackage("breeze-icon-theme", "kde")).toBe(false);
+    expect(looksLikeGuiPackage("thunar", "xfce")).toBe(false);
+  });
+
+  it("does not flag sections at or below the GUI-rate baseline", () => {
+    expect(looksLikeGuiPackage("some-tool", "utils")).toBe(false);
+    expect(looksLikeGuiPackage("some-tool", "admin")).toBe(false);
+    expect(looksLikeGuiPackage("some-tool", "web")).toBe(false);
+    expect(looksLikeGuiPackage("some-tool", "mail")).toBe(false);
+  });
+
+  it("does not flag companion data/common/plugin/server/icon packages riding along in a GUI section", () => {
+    expect(looksLikeGuiPackage("0ad-data", "games")).toBe(false);
+    expect(looksLikeGuiPackage("abiword-common", "editors")).toBe(false);
+    expect(looksLikeGuiPackage("ardour-lv2-plugins", "sound")).toBe(false);
+    expect(looksLikeGuiPackage("bzflag-server", "games")).toBe(false);
+    expect(looksLikeGuiPackage("qtel-icons", "hamradio")).toBe(false);
+  });
+
+  it("does not flag names that already look like a support package (-dev/-doc/lib*/...)", () => {
+    expect(looksLikeGuiPackage("libreoffice-dev", "editors")).toBe(false);
+    expect(looksLikeGuiPackage("libsdl2", "games")).toBe(false);
+  });
+
+  it("does not flag an absent section", () => {
+    expect(looksLikeGuiPackage("0ad", undefined)).toBe(false);
   });
 });

@@ -152,6 +152,28 @@ describe("enrichApps", () => {
     expect(enrichApps(matched)[0]?.kind).toBeUndefined();
   });
 
+  it("sets kind to gui from Debian/Ubuntu's Section heuristic when no hasDesktopFile evidence exists", () => {
+    const matched: MatchedApp[] = [
+      {
+        id: "debian:abiword",
+        packages: [pkg({ source: "debian", name: "abiword", section: "editors" })],
+      },
+    ];
+
+    expect(enrichApps(matched)[0]?.kind).toBe("gui");
+  });
+
+  it("does not apply the Debian/Ubuntu Section heuristic to other sources reusing the same section slot", () => {
+    const matched: MatchedApp[] = [
+      {
+        id: "gentoo:example",
+        packages: [pkg({ source: "gentoo", name: "example", section: "games-strategy" })],
+      },
+    ];
+
+    expect(enrichApps(matched)[0]?.kind).toBeUndefined();
+  });
+
   it("carries the full packages array through unchanged", () => {
     const packages = [
       pkg({ source: "flathub", appId: "org.example.a" }),

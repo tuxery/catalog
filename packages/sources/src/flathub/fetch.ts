@@ -1,5 +1,5 @@
 import { gunzipSync } from "node:zlib";
-import { XMLParser } from "fast-xml-parser";
+import { parseAppstreamXml } from "../_shared/appstream";
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
 import type { FlathubCacheEntry, FlathubFetchMetadata } from "./types";
@@ -10,102 +10,14 @@ import type { FlathubCacheEntry, FlathubFetchMetadata } from "./types";
 const ARCH = "x86_64";
 const APPSTREAM_URL = `https://dl.flathub.org/repo/appstream/${ARCH}/appstream.xml.gz`;
 
-// AppStream also lists "addon"/"runtime"/"localization"/"generic" components
-// (extensions, Flatpak runtimes, translation packs, ...) — not apps a user
-// would search for in a store.
-const APP_TYPES = new Set(["desktop-application", "desktop", "console-application"]);
-
-interface RawTextNode {
-  "#text"?: string;
-  "@_xml:lang"?: string;
-}
-type RawText = string | RawTextNode;
-
-interface RawIcon {
-  "#text"?: string;
-  "@_type"?: string;
-}
-
-interface RawUrl {
-  "#text"?: string;
-  "@_type"?: string;
-}
-
-interface RawRelease {
-  "@_version"?: string;
-}
-
-interface RawComponent {
-  "@_type"?: string;
-  id?: string;
-  name?: RawText[];
-  summary?: RawText[];
-  icon?: RawIcon[];
-  url?: RawUrl[];
-  releases?: { release?: RawRelease[] };
-}
-
-/**
- * AppStream repeats `<name>`/`<summary>` once per translation, each tagged
- * with `xml:lang` — except the default (English) entry, which has no
- * `xml:lang` attribute and so parses as a bare string instead of an object.
- */
-function pickDefaultText(entries: RawText[] | undefined): string | undefined {
-  for (const entry of entries ?? []) {
-    if (typeof entry === "string") return entry;
-    if (!entry["@_xml:lang"] || entry["@_xml:lang"] === "en") return entry["#text"];
-  }
-  return undefined;
-}
-
-function pickIcon(icons: RawIcon[] | undefined): string | undefined {
-  return (
-    icons?.find((icon) => icon["@_type"] === "cached")?.["#text"] ??
-    icons?.find((icon) => icon["@_type"] === "stock")?.["#text"] ??
-    icons?.[0]?.["#text"]
-  );
-}
-
-function pickHomepage(urls: RawUrl[] | undefined): string | undefined {
-  return urls?.find((url) => url["@_type"] === "homepage")?.["#text"];
-}
-
 /**
  * Parses Flathub's appstream XML (already decompressed) into cache rows.
- * Pure — no I/O — so it's the part covered by tests; `fetchFlathub` is thin
- * glue around this plus the network call and gunzip.
+ * A thin wrapper — the actual parsing is shared with elementary AppCenter
+ * (another Flatpak remote publishing the identical format) in
+ * `_shared/appstream.ts`. Pure — no I/O.
  */
 export function parseAppstream(xml: string): FlathubCacheEntry[] {
-  const parser = new XMLParser({
-    ignoreAttributes: false,
-    attributeNamePrefix: "@_",
-    textNodeName: "#text",
-    isArray: (name) => ["component", "icon", "url", "release", "name", "summary"].includes(name),
-    // Without this, fast-xml-parser silently turns purely-numeric text
-    // into a JS number — bit Fedora's fetcher for real (a package named
-    // "65535" came back as the number 65535). Every field here is meant
-    // to stay a string; no known case in Flathub's data today, but the
-    // failure mode is silent, so defend against it here too.
-    parseTagValue: false,
-    parseAttributeValue: false,
-  });
-
-  const parsed = parser.parse(xml) as { components?: { component?: RawComponent[] } };
-  const components = parsed.components?.component ?? [];
-
-  return components
-    .filter((component) => APP_TYPES.has(component["@_type"] ?? ""))
-    .map((component) => ({
-      id: component.id ?? "",
-      name: pickDefaultText(component.name) ?? "",
-      summary: pickDefaultText(component.summary) ?? "",
-      // Releases are listed newest-first — verified against the real
-      // Flathub feed, not an assumption from the AppStream spec alone.
-      version: component.releases?.release?.[0]?.["@_version"],
-      iconFilename: pickIcon(component.icon),
-      homepage: pickHomepage(component.url),
-    }))
-    .filter((entry) => entry.id && entry.name);
+  return parseAppstreamXml(xml);
 }
 
 /**

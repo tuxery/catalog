@@ -3,6 +3,7 @@
 // distinguishable by source, not just by appId shape.
 export type PackageSourceId =
   | "flathub"
+  | "appcenter"
   | "snapcraft"
   | "appimage"
   | "aur"

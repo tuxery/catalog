@@ -1,4 +1,5 @@
 import { searchAlpine } from "./alpine";
+import { searchAppCenter } from "./appcenter";
 import { searchAppImage } from "./appimage";
 import { searchArch } from "./arch";
 import { searchAur } from "./aur";
@@ -23,6 +24,7 @@ import { searchVoid } from "./void";
 export async function searchAllSources(query: string): Promise<SourcedPackage[]> {
   const results = await Promise.all([
     searchFlathub(query),
+    searchAppCenter(query),
     searchSnapcraft(query),
     searchAppImage(query),
     searchAur(query),

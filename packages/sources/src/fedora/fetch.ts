@@ -1,8 +1,10 @@
 import { zstdDecompressSync } from "node:zlib";
-import { XMLParser } from "fast-xml-parser";
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
+import { extractPrimaryLocation, parsePrimaryXml } from "../_shared/rpm-repodata";
 import type { FedoraCacheEntry, FedoraFetchMetadata } from "./types";
+
+export { extractPrimaryLocation };
 
 // Fedora publishes one repodata set per release/repo/arch. This fetches
 // two repos for the current release/arch: "Everything" (the frozen
@@ -28,55 +30,20 @@ const REPO_BASES = [
   `https://dl.fedoraproject.org/pub/fedora/linux/updates/${RELEASE}/Everything/${ARCH}`,
 ] as const;
 
-interface RawPackage {
-  name?: string;
-  summary?: string;
-  version?: { "@_ver"?: string };
-  url?: string;
-}
-
-/**
- * Finds the current primary metadata's location from `repomd.xml`. RPM
- * repos publish that file with a content-hash prefix that changes on
- * every metadata refresh (e.g. `<hash>-primary.xml.zst`), unlike Debian's
- * fixed `Packages.gz` path — it can't be hardcoded, has to be looked up.
- * Matches `type="primary"` specifically, not `"primary_db"`/`"primary_zck"`
- * (repomd.xml lists several encodings of the same data). Pure — no I/O —
- * so it's covered by tests, same as `parsePrimary`.
- */
-export function extractPrimaryLocation(repomdXml: string): string | undefined {
-  return repomdXml.match(/<data type="primary">[\s\S]*?<location href="([^"]+)"/)?.[1];
-}
-
 /**
  * Parses Fedora's primary.xml (already decompressed) into cache rows.
- * Pure — no I/O.
+ * Fedora's `<rpm:group>` is unused upstream in practice ("Unspecified" on
+ * real data), so it's dropped here rather than threaded into
+ * `FedoraCacheEntry` — see `_shared/rpm-repodata.ts`'s `parsePrimaryXml`,
+ * shared with openSUSE, which does populate it. Pure — no I/O.
  */
 export function parsePrimary(xml: string): FedoraCacheEntry[] {
-  const parser = new XMLParser({
-    ignoreAttributes: false,
-    attributeNamePrefix: "@_",
-    textNodeName: "#text",
-    isArray: (name) => name === "package",
-    // Without this, fast-xml-parser silently turns purely-numeric text
-    // into a JS number — real bug hit on the actual data: a package
-    // literally named "65535" came back as the number 65535, not the
-    // string "65535". Every field here is meant to stay a string.
-    parseTagValue: false,
-    parseAttributeValue: false,
-  });
-
-  const parsed = parser.parse(xml) as { metadata?: { package?: RawPackage[] } };
-  const packages = parsed.metadata?.package ?? [];
-
-  return packages
-    .filter((pkg) => pkg.name)
-    .map((pkg) => ({
-      name: pkg.name ?? "",
-      summary: pkg.summary ?? "",
-      version: pkg.version?.["@_ver"] ?? "unknown",
-      homepage: pkg.url || undefined,
-    }));
+  return parsePrimaryXml(xml).map(({ name, summary, version, homepage }) => ({
+    name,
+    summary,
+    version,
+    homepage,
+  }));
 }
 
 /**

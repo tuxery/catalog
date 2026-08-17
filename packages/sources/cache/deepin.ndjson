@@ -1,0 +1,255 @@
+{"name":"dde","description":"Deepin New Desktop Environment - Next","version":"2023.02.16","homepage":"http://www.linuxdeepin.com","section":"metapackages"}
+{"name":"dde-account-faces","description":"Deepin Account face Images","version":"1.0.11-1","section":"deepin"}
+{"name":"dde-api","description":"Go-lang bingdings for dde-daemon","version":"5.5.33-1","homepage":"http://www.deepin.org","section":"devel"}
+{"name":"dde-api-dbgsym","description":"debug symbols for dde-api","version":"5.5.33-1","section":"debug"}
+{"name":"dde-api-dev","description":"Go-lang bindings for dde-daemon -- dev file","version":"5.5.33-1","homepage":"http://www.deepin.org","section":"devel"}
+{"name":"dde-calendar","description":"Calendar is a smart daily planner to schedule all things in life.","version":"5.9.14-1","homepage":"http://www.deepin.org","section":"utils"}
+{"name":"dde-calendar-dbgsym","description":"debug symbols for dde-calendar","version":"5.9.14-1","section":"debug"}
+{"name":"dde-clipboard","description":"deepin desktop-environment - clipboard module","version":"1:5.4.26.1-1","homepage":"https://github.com/linuxdeepin/dde-clipboard","section":"admin"}
+{"name":"dde-clipboard-dbgsym","description":"debug symbols for dde-clipboard","version":"1:5.4.26.1-1","section":"debug"}
+{"name":"dde-control-center","description":"New control center for Deepin Desktop Environment,","version":"5.5.197-1","homepage":"https://github.com/linuxdeepin/dde-control-center","section":"admin"}
+{"name":"dde-control-center-dbgsym","description":"debug symbols for dde-control-center","version":"5.5.197-1","section":"debug"}
+{"name":"dde-control-center-dev","description":"New control center for Deepin Desktop Environment - development files","version":"5.5.197-1","homepage":"https://github.com/linuxdeepin/dde-control-center","section":"admin"}
+{"name":"dde-daemon","description":"daemon handling the DDE session settings","version":"5.14.137.2-1","homepage":"http://www.deepin.org","section":"admin"}
+{"name":"dde-daemon-dbgsym","description":"debug symbols for dde-daemon","version":"5.14.137.2-1","section":"debug"}
+{"name":"dde-dconfig-daemon","description":"deepin desktop-environment - dde-dconfig-daemon module","version":"0.0.20-1","section":"libdevel"}
+{"name":"dde-dconfig-daemon-dbgsym","description":"debug symbols for dde-dconfig-daemon","version":"0.0.20-1","section":"debug"}
+{"name":"dde-dconfig-editor","description":"deepin desktop-environment - dde-dconfig-editor module","version":"0.0.20-1","section":"libdevel"}
+{"name":"dde-dconfig-editor-dbgsym","description":"debug symbols for dde-dconfig-editor","version":"0.0.20-1","section":"debug"}
+{"name":"dde-desktop","description":"deepin desktop-environment - desktop module","version":"5.9.2-1","homepage":"http://www.deepin.org","section":"libdevel"}
+{"name":"dde-desktop-dbgsym","description":"debug symbols for dde-desktop","version":"5.9.2-1","section":"debug"}
+{"name":"dde-device-formatter","description":"Device formatter","version":"0.0.1.15-1","homepage":"http://www.deepin.org","section":"utils"}
+{"name":"dde-device-formatter-dbgsym","description":"debug symbols for dde-device-formatter","version":"0.0.1.15-1","section":"debug"}
+{"name":"dde-devicemanager","description":"<insert up to 60 chars description>","version":"5.2.3-1","section":"devel"}
+{"name":"dde-devicemanager-dbgsym","description":"debug symbols for dde-devicemanager","version":"5.2.3-1","section":"debug"}
+{"name":"dde-disk-mount-plugin","description":"plugin of dde-dock","version":"5.9.2-1","homepage":"http://www.deepin.org","section":"libdevel"}
+{"name":"dde-disk-mount-plugin-dbgsym","description":"debug symbols for dde-disk-mount-plugin","version":"5.9.2-1","section":"debug"}
+{"name":"dde-dock","description":"deepin desktop-environment - dock module","version":"5.5.86.1-1","homepage":"http://www.deepin.org/","section":"x11"}
+{"name":"dde-dock-dbgsym","description":"debug symbols for dde-dock","version":"5.5.86.1-1","section":"debug"}
+{"name":"dde-dock-dev","description":"deepin desktop-environment - dock module development files","version":"5.5.86.1-1","homepage":"http://www.deepin.org/","section":"x11"}
+{"name":"dde-dock-onboard-plugin","description":"deepin desktop-environment - dock plugin for onboard","version":"5.5.86.1-1","homepage":"http://www.deepin.org/","section":"x11"}
+{"name":"dde-dock-onboard-plugin-dbgsym","description":"debug symbols for dde-dock-onboard-plugin","version":"5.5.86.1-1","section":"debug"}
+{"name":"dde-file-manager","description":"File manager front end","version":"5.9.2-1","homepage":"http://www.deepin.org","section":"libdevel"}
+{"name":"dde-file-manager-dbgsym","description":"debug symbols for dde-file-manager","version":"5.9.2-1","section":"debug"}
+{"name":"dde-file-manager-menu-oem","description":"OEM menu extension support for Deepin File Manager","version":"0.2.1-1","homepage":"https://www.deepin.org/","section":"admin"}
+{"name":"dde-file-manager-menu-oem-dbgsym","description":"debug symbols for dde-file-manager-menu-oem","version":"0.2.1-1","section":"debug"}
+{"name":"dde-grand-search","description":"deepin desktop-environment - search module","version":"5.4.3.10-1","homepage":"http://www.deepin.org/","section":"utils"}
+{"name":"dde-grand-search-dbgsym","description":"debug symbols for dde-grand-search","version":"5.4.3.10-1","section":"debug"}
+{"name":"dde-introduction","description":"Introduction for UOS","version":"5.6.38-1","homepage":"http://www.deepin.org","section":"utils"}
+{"name":"dde-introduction-dbgsym","description":"debug symbols for dde-introduction","version":"5.6.38-1","section":"debug"}
+{"name":"dde-kwin","description":"KWin configures/plugins on the DDE","version":"5.5.25.1-3","homepage":"https://github.com/linuxdeepin/dde-kwin","section":"devel"}
+{"name":"dde-kwin-dbgsym","description":"debug symbols for dde-kwin","version":"5.5.25.1-3","section":"debug"}
+{"name":"dde-kwin-dev","description":"Developer package of dde-kwin","version":"5.5.25.1-3","homepage":"https://github.com/linuxdeepin/dde-kwin","section":"libdevel"}
+{"name":"dde-launcher","description":"deepin desktop-environment - dde-launcher module","version":"5.5.40.2-1","homepage":"http://www.deepin.org/","section":"x11"}
+{"name":"dde-launcher-dbgsym","description":"debug symbols for dde-launcher","version":"5.5.40.2-1","section":"debug"}
+{"name":"dde-manual-content","description":"protocol files","version":"1.1.6-1","homepage":"https://github.com/linuxdeepin/dde-manual-content","section":"doc"}
+{"name":"dde-network-dialog","description":"the executable of network","version":"1.0.69-1","homepage":"https://gerrit.uniontech.com/admin/repos/dde-network-core","section":"lib"}
+{"name":"dde-network-dialog-dbgsym","description":"debug symbols for dde-network-dialog","version":"1.0.69-1","section":"debug"}
+{"name":"dde-polkit-agent","description":"PolicyKit agent for DDE.","version":"5.5.21-1","homepage":"http://www.deepin.org/","section":"devel"}
+{"name":"dde-polkit-agent-dbgsym","description":"debug symbols for dde-polkit-agent","version":"5.5.21-1","section":"debug"}
+{"name":"dde-polkit-agent-dev","description":"developement files of dde-polkit-agent extensions.","version":"5.5.21-1","homepage":"http://www.deepin.org/","section":"devel"}
+{"name":"dde-preload","description":"deepin desktop-environment - dde-preload module","version":"5.1.0.7-1","homepage":"http://www.deepin.org/","section":"devel"}
+{"name":"dde-preload-dbgsym","description":"debug symbols for dde-preload","version":"5.1.0.7-1","section":"debug"}
+{"name":"dde-printer","description":"Deepin Print Manager is a eazy tool to manage printers.","version":"0.9.18-1","homepage":"http://www.linuxdeepin.com/","section":"misc"}
+{"name":"dde-printer-dbgsym","description":"debug symbols for dde-printer","version":"0.9.18-1","section":"debug"}
+{"name":"dde-qt5integration","description":"Qt platform theme integration plugin choosers for DDE","version":"5.5.26.1-1","section":"devel"}
+{"name":"dde-qt5integration-dbgsym","description":"debug symbols for dde-qt5integration","version":"5.5.26.1-1","section":"debug"}
+{"name":"dde-qt5integration5","description":"Qt platform theme integration plugins for DDE","version":"5.5.26.1-1","section":"devel"}
+{"name":"dde-qt5integration5-dbgsym","description":"debug symbols for dde-qt5integration5","version":"5.5.26.1-1","section":"debug"}
+{"name":"dde-qt5integration5.5","description":"Qt platform theme integration plugins(v5.5) for DDE","version":"5.5.8-2+rb2","section":"devel"}
+{"name":"dde-qt5integration5.5-dbgsym","description":"debug symbols for dde-qt5integration5.5","version":"5.5.8-2+rb2","section":"debug"}
+{"name":"dde-qt5wayland-plugin","description":"Qt platform plugins","version":"5.0.71-1+rb1","section":"devel"}
+{"name":"dde-qt5wayland-plugin-dbgsym","description":"debug symbols for dde-qt5wayland-plugin","version":"5.0.71-1+rb1","section":"debug"}
+{"name":"dde-qt5xcb-plugin","description":"Qt platform plugins","version":"5.0.71-1+rb1","section":"devel"}
+{"name":"dde-qt5xcb-plugin-dbgsym","description":"debug symbols for dde-qt5xcb-plugin","version":"5.0.71-1+rb1","section":"debug"}
+{"name":"dde-select-dialog-wayland","description":"dbus service for wayland","version":"5.5.3-1","homepage":"http://www.deepin.org","section":"libdevel"}
+{"name":"dde-select-dialog-wayland-dbgsym","description":"debug symbols for dde-select-dialog-wayland","version":"5.5.3-1","section":"debug"}
+{"name":"dde-select-dialog-x11","description":"dbus service for x11","version":"5.5.3-1","homepage":"http://www.deepin.org","section":"libdevel"}
+{"name":"dde-select-dialog-x11-dbgsym","description":"debug symbols for dde-select-dialog-x11","version":"5.5.3-1","section":"debug"}
+{"name":"dde-session-shell","description":"deepin desktop-environment - dde-session-shell module","version":"5.5.100.2-1","homepage":"http://www.deepin.org/","section":"devel"}
+{"name":"dde-session-shell-dbgsym","description":"debug symbols for dde-session-shell","version":"5.5.100.2-1","section":"debug"}
+{"name":"dde-session-shell-dev","description":"deepin desktop-environment - dde-session-shell module development files","version":"5.5.100.2-1","homepage":"http://www.deepin.org/","section":"devel"}
+{"name":"dde-session-ui","description":"deepin desktop-environment - dde-session-ui module","version":"5.6.1-1","homepage":"http://www.deepin.org/","section":"devel"}
+{"name":"dde-session-ui-dbgsym","description":"debug symbols for dde-session-ui","version":"5.6.1-1","section":"debug"}
+{"name":"dde-wayland-config","description":"This package is the configuration file to adapt to the wayland environment","version":"1.0.9-1","homepage":"https://www.deepin.org","section":"utils"}
+{"name":"dde-wayland-config-dbgsym","description":"debug symbols for dde-wayland-config","version":"1.0.9-1","section":"debug"}
+{"name":"dde-wldpms","description":"this is dde wldpms","version":"1.0.2-1","homepage":"http://www.deepin.org/","section":"devel"}
+{"name":"dde-wldpms-dbgsym","description":"debug symbols for dde-wldpms","version":"1.0.2-1","section":"debug"}
+{"name":"dde-wloutput","description":"this is dde-wloutput","version":"1.0.3-1","homepage":"https://github.com/linuxdeepin/dde-wloutput","section":"devel"}
+{"name":"dde-wloutput-daemon","description":"this is dde-wloutput-daemon","version":"1.0.6-1","homepage":"http://www.deepin.org/","section":"devel"}
+{"name":"dde-wloutput-daemon-dbgsym","description":"debug symbols for dde-wloutput-daemon","version":"1.0.6-1","section":"debug"}
+{"name":"dde-wloutput-dbgsym","description":"debug symbols for dde-wloutput","version":"1.0.3-1","section":"debug"}
+{"name":"deepin-ab-recovery","description":"A/B backup and restore service","version":"1.3.35-1","homepage":"http://github.com/linuxdeepin/deepin-ab-recovery","section":"admin"}
+{"name":"deepin-ab-recovery-dbgsym","description":"debug symbols for deepin-ab-recovery","version":"1.3.35-1","section":"debug"}
+{"name":"deepin-ai-daemon","description":"AI search application server for dde-grand-search","version":"1.0.4-1","homepage":"http://www.deepin.org/","section":"utils"}
+{"name":"deepin-ai-daemon-dbgsym","description":"debug symbols for deepin-ai-daemon","version":"1.0.4-1","section":"debug"}
+{"name":"deepin-ai-models","description":"AI model","version":"1.0.2-1","homepage":"https://www.deepin.org/","section":"libdevel"}
+{"name":"deepin-ai-models-dbgsym","description":"debug symbols for deepin-ai-models","version":"1.0.2-1","section":"debug"}
+{"name":"deepin-ai-module","description":"AI model","version":"1.0.0-1","homepage":"https://www.deepin.org/","section":"libdevel"}
+{"name":"deepin-ai-module-dbgsym","description":"debug symbols for deepin-ai-module","version":"1.0.0-1","section":"debug"}
+{"name":"deepin-aiassistant","description":"deepin desktop voice AI assistant","version":"1.1.7-1","section":"tools"}
+{"name":"deepin-aiassistant-dbgsym","description":"debug symbols for deepin-aiassistant","version":"1.1.7-1","section":"debug"}
+{"name":"deepin-aiservice","description":"AI capability dbus services provided by iFLYTEK","version":"1.0.6-1","section":"tools"}
+{"name":"deepin-aiservice-dbgsym","description":"debug symbols for deepin-aiservice","version":"1.0.6-1","section":"debug"}
+{"name":"deepin-album","description":"Album for UOS","version":"5.10.21-1","homepage":"<insert the upstream URL, if relevant>","section":"utils"}
+{"name":"deepin-album-dbgsym","description":"debug symbols for deepin-album","version":"5.10.21-1","section":"debug"}
+{"name":"deepin-anything-dev","description":"anything user interface library","version":"6.0.3-1","homepage":"http://github.com/linuxdeepin/deepin-anything","section":"admin"}
+{"name":"deepin-anything-dev-dbgsym","description":"debug symbols for deepin-anything-dev","version":"6.0.3-1","section":"debug"}
+{"name":"deepin-anything-dkms","description":"anything module","version":"6.0.3-1","homepage":"http://github.com/linuxdeepin/deepin-anything","section":"admin"}
+{"name":"deepin-anything-libs","description":"anything library","version":"6.0.3-1","homepage":"http://github.com/linuxdeepin/deepin-anything","section":"admin"}
+{"name":"deepin-anything-libs-dbgsym","description":"debug symbols for deepin-anything-libs","version":"6.0.3-1","section":"debug"}
+{"name":"deepin-anything-server","description":"anything server application and lib","version":"6.0.3-1","homepage":"http://github.com/linuxdeepin/deepin-anything","section":"admin"}
+{"name":"deepin-anything-server-dbgsym","description":"debug symbols for deepin-anything-server","version":"6.0.3-1","section":"debug"}
+{"name":"deepin-anything-server-dev","description":"anything server user interface library","version":"6.0.3-1","homepage":"http://github.com/linuxdeepin/deepin-anything","section":"admin"}
+{"name":"deepin-app-store-data","description":"A beautiful and easy-to-use application store website.","version":"6.2.0.22-1","homepage":"https://www.deepin.com","section":"admin"}
+{"name":"deepin-app-store-runtime","description":"A runtime environment software package for Deepin App Store.","version":"1.0.2+community","section":"utils"}
+{"name":"deepin-appstore","description":"Deepin App Store","version":"5.3.1.5-1","homepage":"https://deepin.org","section":"admin"}
+{"name":"deepin-appstore-data","description":"Deepin App Store web data","version":"5.3.1.5-1","homepage":"https://deepin.org","section":"admin"}
+{"name":"deepin-appstore-data-aot","description":"Deepin App Store web data","version":"5.3.1.5-1","homepage":"https://deepin.org","section":"admin"}
+{"name":"deepin-appstore-dbgsym","description":"debug symbols for deepin-appstore","version":"5.3.1.5-1","section":"debug"}
+{"name":"deepin-artwork","description":"Deepin Artwork","version":"2018.10.9-1","section":"misc"}
+{"name":"deepin-boot-kit","description":"uos rollback the grub management tool","version":"1.0.22-1","homepage":"https://www.deepin.org","section":"utils"}
+{"name":"deepin-boot-kit-dbgsym","description":"debug symbols for deepin-boot-kit","version":"1.0.22-1","section":"debug"}
+{"name":"deepin-boot-maker","description":"Simple tool for user to create a boot usb stick quickly and easily","version":"5.7.8-1","homepage":"https://github.com/linuxdeepin/deepin-boot-maker","section":"misc"}
+{"name":"deepin-boot-maker-dbgsym","description":"debug symbols for deepin-boot-maker","version":"5.7.8-1","section":"debug"}
+{"name":"deepin-calculator","description":"Calculator for UOS","version":"5.7.22-1","homepage":"http://www.deepin.org","section":"utils"}
+{"name":"deepin-calculator-dbgsym","description":"debug symbols for deepin-calculator","version":"5.7.22-1","section":"debug"}
+{"name":"deepin-camera","description":"this package software for  UOS","version":"1.4.9-1","homepage":"http://www.deepin.org","section":"utils"}
+{"name":"deepin-camera-dbgsym","description":"debug symbols for deepin-camera","version":"1.4.9-1","section":"debug"}
+{"name":"deepin-clone","description":"Backup Restore Tool","version":"5.0.11-1+rb3","section":"devel"}
+{"name":"deepin-clone-dbgsym","description":"debug symbols for deepin-clone","version":"5.0.11-1+rb3","section":"debug"}
+{"name":"deepin-compressor","description":"Archive Manager is a fast and lightweight application for creating and extracting archives.","version":"5.12.14-1","section":"devel"}
+{"name":"deepin-compressor-dbgsym","description":"debug symbols for deepin-compressor","version":"5.12.14-1","section":"debug"}
+{"name":"deepin-contacts","description":"Contacts is a helpful communication application for Deepin ID users.","version":"1.0.5-1","homepage":"<insert the upstream URL, if relevant>","section":"utils"}
+{"name":"deepin-contacts-dbgsym","description":"debug symbols for deepin-contacts","version":"1.0.5-1","section":"debug"}
+{"name":"deepin-deb-installer","description":"Package Installer helps users install and remove local packages.","version":"6.0.19-1","homepage":"https://www.deepin.com/","section":"utils"}
+{"name":"deepin-deb-installer-dbgsym","description":"debug symbols for deepin-deb-installer","version":"6.0.19-1","section":"debug"}
+{"name":"deepin-deepinid-client","description":"client to login deepin sync account","version":"5.1.1.6+c7-1","homepage":"https://www.deepin.org","section":"net"}
+{"name":"deepin-deepinid-client-dbgsym","description":"debug symbols for deepin-deepinid-client","version":"5.1.1.6+c7-1","section":"debug"}
+{"name":"deepin-default-settings","description":"default settings for deepin destkop environment","version":"2023.04.04-1","section":"admin"}
+{"name":"deepin-default-settings-tuning","description":"default settings for deepin destkop environment - misc overrides","version":"2023.04.04-1","section":"admin"}
+{"name":"deepin-defender-vdbup","description":"AnHeng virus engine","version":"2.1.0.1-1","homepage":"http://www.deepin.com","section":"devel"}
+{"name":"deepin-defender-vdbup-dbgsym","description":"debug symbols for deepin-defender-vdbup","version":"2.1.0.1-1","section":"debug"}
+{"name":"deepin-desktop-base","description":"The basic file of Deepin Desktop,","version":"2023.03.31-deepin","section":"misc"}
+{"name":"deepin-desktop-schemas","description":"GSettings deepin desktop-wide schemas","version":"5.10.7+community-1","homepage":"http://www.deepin.org/","section":"misc"}
+{"name":"deepin-desktop-server","description":"The basic file of Deepin Desktop,","version":"2021.2.20-apricot","section":"misc"}
+{"name":"deepin-devicemanager","description":"Device Manager is a handy tool for viewing hardware information and managing the devices.","version":"5.9.7-1+rb1","section":"devel"}
+{"name":"deepin-devicemanager-dbgsym","description":"debug symbols for deepin-devicemanager","version":"5.9.7-1+rb1","section":"debug"}
+{"name":"deepin-diskmanager","description":"Disk Utility is a disk management tool for creating, reorganizing and formatting partitions.","version":"1.3.20-1","section":"tools"}
+{"name":"deepin-diskmanager-dbgsym","description":"debug symbols for deepin-diskmanager","version":"1.3.20-1","section":"debug"}
+{"name":"deepin-draw","description":"Draw for UOS","version":"6.0.3-1","homepage":"http://www.deepin.org","section":"utils"}
+{"name":"deepin-draw-dbgsym","description":"debug symbols for deepin-draw","version":"6.0.3-1","section":"debug"}
+{"name":"deepin-editor","description":"Text editor for DDE (Deepin Desktop Environment)","version":"6.0.3-1+rb1","homepage":"https://github.com/linuxdeepin/deepin-editor","section":"editors"}
+{"name":"deepin-editor-dbgsym","description":"debug symbols for deepin-editor","version":"6.0.3-1+rb1","section":"debug"}
+{"name":"deepin-elf-sign-tool","description":"Elf signer","version":"0.0.2.7-1","homepage":"<insert the upstream URL, if relevant>","section":"devel"}
+{"name":"deepin-elf-sign-tool-dbgsym","description":"debug symbols for deepin-elf-sign-tool","version":"0.0.2.7-1","section":"debug"}
+{"name":"deepin-elf-verify","description":"Local elf program validation backend","version":"1.2.0.6-1","homepage":"<insert the upstream URL, if relevant>","section":"admin"}
+{"name":"deepin-face","description":"Face recognition service","version":"1.0.6-1","homepage":"https://github.com/linuxdeepin/deepin-face","section":"devel"}
+{"name":"deepin-face-dbgsym","description":"debug symbols for deepin-face","version":"1.0.6-1","section":"debug"}
+{"name":"deepin-fcitxconfigtool-plugin","description":"New Fcitx Configtool for Deepin Desktop Environment - development files","version":"4.2.56-1","homepage":"https://www.deepin.org/","section":"utils"}
+{"name":"deepin-fcitxconfigtool-plugin-dbgsym","description":"debug symbols for deepin-fcitxconfigtool-plugin","version":"4.2.56-1","section":"debug"}
+{"name":"deepin-feedback","description":"report crash information to deepin for debugging","version":"5.2.0-1","section":"utils"}
+{"name":"deepin-fix-init","description":"help users to deal with failures during the initramfs boot phase.","version":"0.1.6","homepage":"http://www.deepin.org","section":"utils"}
+{"name":"deepin-fix-init-dbgsym","description":"debug symbols for deepin-fix-init","version":"0.1.6","section":"debug"}
+{"name":"deepin-font-manager","description":"Deepin Font Manager binary","version":"5.9.14-1","homepage":"http://www.deepin.org","section":"utils"}
+{"name":"deepin-font-manager-dbgsym","description":"debug symbols for deepin-font-manager","version":"5.9.14-1","section":"debug"}
+{"name":"deepin-forum","description":"A scripts to deepin forum","version":"0.1-1","homepage":"https://www.deepin.org/","section":"net"}
+{"name":"deepin-gettext-tools","description":"Deepin Internationalization utilities","version":"1.0.8-4","homepage":"https://github.com/linuxdeepin/deepin-gettext-tools","section":"devel"}
+{"name":"deepin-graphics-driver-manager","description":"deepin driver manager","version":"5.0.0-1+rb2","homepage":"https://www.deepin.org","section":"misc"}
+{"name":"deepin-graphics-driver-manager-dbgsym","description":"debug symbols for deepin-graphics-driver-manager","version":"5.0.0-1+rb2","section":"debug"}
+{"name":"deepin-greeter-wayland","description":"deepin desktop-environment - dde-session-shell module config files","version":"5.5.100.2-1","homepage":"http://www.deepin.org/","section":"devel"}
+{"name":"deepin-gtk-theme","description":"Deepin Gtk Themes","version":"17.10.11-1","section":"gnome"}
+{"name":"deepin-home","description":"deepin home","version":"1.0.13-1+rb1","section":"admin"}
+{"name":"deepin-home-dbgsym","description":"debug symbols for deepin-home","version":"1.0.13-1+rb1","section":"debug"}
+{"name":"deepin-icon-theme","description":"Deepin Icons","version":"2021.11.24-1","homepage":"https://github.com/linuxdeepin/deepin-icon-theme","section":"x11"}
+{"name":"deepin-image-viewer","description":"Image Viewer is an image viewing tool with fashion interface and smooth performance.","version":"5.9.16-1","homepage":"http://www.deepin.org","section":"utils"}
+{"name":"deepin-image-viewer-dbgsym","description":"debug symbols for deepin-image-viewer","version":"5.9.16-1","section":"debug"}
+{"name":"deepin-installer","description":"Release version of deepin installer","version":"5.7.47-1","homepage":"http://www.deepin.org","section":"utils"}
+{"name":"deepin-installer-dbgsym","description":"debug symbols for deepin-installer","version":"5.7.47-1","section":"debug"}
+{"name":"deepin-installer-oem","description":"OEM tool","version":"5.5.12-1","homepage":"http://www.deepin.org","section":"utils"}
+{"name":"deepin-installer-oem-dbgsym","description":"debug symbols for deepin-installer-oem","version":"5.5.12-1","section":"debug"}
+{"name":"deepin-installer-timezones","description":"Language package for timezone names","version":"5.7.37-1","homepage":"http://www.deepin.org","section":"utils"}
+{"name":"deepin-keyring","description":"GnuPG keys of the Deepin archive","version":"2021.06.07-1","section":"misc"}
+{"name":"deepin-license-activator","description":"Deepin License Activator.","version":"5.2.6-1","homepage":"https://www.chinauos.com","section":"graphics"}
+{"name":"deepin-license-activator-dbgsym","description":"debug symbols for deepin-license-activator","version":"5.2.6-1","section":"debug"}
+{"name":"deepin-log-viewer","description":"Log Viewer is a useful tool for viewing system logs.","version":"6.0.7-1","section":"utils"}
+{"name":"deepin-log-viewer-dbgsym","description":"debug symbols for deepin-log-viewer","version":"6.0.7-1","section":"debug"}
+{"name":"deepin-mail","description":"Mail is an easy-to-use desktop mail client that can manage multiple email accounts, supporting IMAP and POP3 protocols.","version":"5.1.0.45-1","homepage":"https://www.deepin.com/","section":"non-free"}
+{"name":"deepin-mail-dbgsym","description":"debug symbols for deepin-mail","version":"5.1.0.45-1","section":"debug"}
+{"name":"deepin-manual","description":"Manual provides user guides of the system and applications.","version":"6.0.5-1","homepage":"https://github.com/linuxdeepin/deepin-manual/","section":"python"}
+{"name":"deepin-manual-dbgsym","description":"debug symbols for deepin-manual","version":"6.0.5-1","section":"debug"}
+{"name":"deepin-menu","description":"Deepin menu service","version":"5.0.1-1+rb2","homepage":"https://github.com/linuxdeepin/deepin-menu","section":"devel"}
+{"name":"deepin-menu-dbgsym","description":"debug symbols for deepin-menu","version":"5.0.1-1+rb2","section":"debug"}
+{"name":"deepin-movie","description":"movie player","version":"5.10.38-1","homepage":"https://www.deepin.org/","section":"libdevel"}
+{"name":"deepin-movie-dbgsym","description":"debug symbols for deepin-movie","version":"5.10.38-1","section":"debug"}
+{"name":"deepin-music","description":"Music software for UOS","version":"6.2.35-1","homepage":"http://www.deepin.org/","section":"sound"}
+{"name":"deepin-music-dbgsym","description":"debug symbols for deepin-music","version":"6.2.35-1","section":"debug"}
+{"name":"deepin-notifications","description":"System notifications for Deepin Desktop Environment","version":"3.3.4-1+rb2","homepage":"https://github.com/linuxdeepin/deepin-notifications","section":"x11"}
+{"name":"deepin-notifications-dbgsym","description":"debug symbols for deepin-notifications","version":"3.3.4-1+rb2","section":"debug"}
+{"name":"deepin-nvidia-installer","description":"Use it in the deepin-installer","version":"1.0.4","homepage":"https://www.deepin.org","section":"misc"}
+{"name":"deepin-ocr","description":"Ocr for UOS","version":"1.1.2-1","homepage":"http://www.deepin.org/","section":"utils"}
+{"name":"deepin-ocr-dbgsym","description":"debug symbols for deepin-ocr","version":"1.1.2-1","section":"debug"}
+{"name":"deepin-op","description":"<insert up to 60 chars description>","version":"3.1-1","homepage":"https://www.uniontech.com","section":"x11"}
+{"name":"deepin-phone-master","description":"deepin phone master","version":"5.1.0.32-1","section":"utils"}
+{"name":"deepin-phone-master-dbgsym","description":"debug symbols for deepin-phone-master","version":"5.1.0.32-1","section":"debug"}
+{"name":"deepin-picker","description":"Color picker tool for deepin","version":"5.0.28-1","homepage":"http://www.deepin.org","section":"utils"}
+{"name":"deepin-picker-cli","description":"Color picker tool for deepin","version":"5.0.28-1","homepage":"http://www.deepin.org","section":"utils"}
+{"name":"deepin-picker-cli-dbgsym","description":"debug symbols for deepin-picker-cli","version":"5.0.28-1","section":"debug"}
+{"name":"deepin-picker-dbgsym","description":"debug symbols for deepin-picker","version":"5.0.3-1","section":"debug"}
+{"name":"deepin-pre-package","description":"Mirror pre-installed list","version":"1.0.4-1","homepage":"<insert the upstream URL, if relevant>","section":"misc"}
+{"name":"deepin-prime","description":"Tools to enable NVIDIA's Prime","version":"1.0.3","section":"admin"}
+{"name":"deepin-prime-dbgsym","description":"debug symbols for deepin-prime","version":"1.0.3","section":"debug"}
+{"name":"deepin-proxy","description":"service for global or app proxy","version":"1.0.2-1","homepage":"http://www.deepin.org","section":"misc"}
+{"name":"deepin-proxy-dbgsym","description":"debug symbols for deepin-proxy","version":"1.0.2-1","section":"debug"}
+{"name":"deepin-pw-check","description":"deepin password check interface","version":"5.1.17-1","homepage":"http://www.deepin.org","section":"devel"}
+{"name":"deepin-pw-check-dbgsym","description":"debug symbols for deepin-pw-check","version":"5.1.17-1","section":"debug"}
+{"name":"deepin-reader","description":"a tool for reading document files.","version":"5.10.27-1","section":"graphics"}
+{"name":"deepin-reader-dbgsym","description":"debug symbols for deepin-reader","version":"5.10.27-1","section":"debug"}
+{"name":"deepin-recovery-gui","description":"Recovery GUI","version":"5.3.0.11-1","homepage":"https://gitlab.deepin.io/dde-v20/deepin-recovery-gui","section":"admin"}
+{"name":"deepin-recovery-gui-dbgsym","description":"debug symbols for deepin-recovery-gui","version":"5.3.0.11-1","section":"debug"}
+{"name":"deepin-recovery-tool","description":"Recovery Tool","version":"5.3.0.11-1","homepage":"https://gitlab.deepin.io/dde-v20/deepin-recovery-gui","section":"admin"}
+{"name":"deepin-recovery-tool-dbgsym","description":"debug symbols for deepin-recovery-tool","version":"5.3.0.11-1","section":"debug"}
+{"name":"deepin-repair-tools","description":"deepin system repair tools","version":"5.0.5+qtzc-1","homepage":"https://www.deepin.com/","section":"utils"}
+{"name":"deepin-repair-tools-dbgsym","description":"debug symbols for deepin-repair-tools","version":"5.0.5+qtzc-1","section":"debug"}
+{"name":"deepin-repair-tools-dev","description":"deepin system repair tools - dev files","version":"5.0.5+qtzc-1","homepage":"https://www.deepin.com/","section":"utils"}
+{"name":"deepin-screen-recorder","description":"Simple recorder tools for UOS","version":"5.11.21-1","homepage":"https://github.com/linuxdeepin/deepin-screen-recorder","section":"utils"}
+{"name":"deepin-screen-recorder-dbgsym","description":"debug symbols for deepin-screen-recorder","version":"5.11.21-1","section":"debug"}
+{"name":"deepin-screensaver","description":"Screensaver Tool","version":"5.0.16-1","section":"devel"}
+{"name":"deepin-screensaver-dbgsym","description":"debug symbols for deepin-screensaver","version":"5.0.16-1","section":"debug"}
+{"name":"deepin-screensaver-xscreensaver-data","description":"Screensaver data","version":"5.0.16-1","section":"devel"}
+{"name":"deepin-screensaver-xscreensaver-data-dbgsym","description":"debug symbols for deepin-screensaver-xscreensaver-data","version":"5.0.16-1","section":"debug"}
+{"name":"deepin-screenshot","description":"Advanced screen shoting tool","version":"5.0.0-1","homepage":"http://www.deepin.org","section":"utils"}
+{"name":"deepin-screenshot-dbgsym","description":"debug symbols for deepin-screenshot","version":"5.0.0-1","section":"debug"}
+{"name":"deepin-sdk","description":"DTK Development Environment Virtual Package","version":"1.0.0-1","homepage":"https://github.com/linuxdeepin/deepin-sdk","section":"devel"}
+{"name":"deepin-security-pam","description":"Normal mode PAM module, which is used to restrict the permissions of sudo and Su","version":"1.3.1.6-1","homepage":"<insert the upstream URL, if relevant>","section":"devel"}
+{"name":"deepin-security-pam-dbgsym","description":"debug symbols for deepin-security-pam","version":"1.3.1.6-1","section":"debug"}
+{"name":"deepin-security-verify","description":"<insert up to 60 chars description>","version":"1.3.1.4-1","homepage":"<insert the upstream URL, if relevant>","section":"devel"}
+{"name":"deepin-security-verify-dbgsym","description":"debug symbols for deepin-security-verify","version":"1.3.1.4-1","section":"debug"}
+{"name":"deepin-shortcut-viewer","description":"shortcut viewer tools","version":"5.0.7-1","homepage":"http://www.deepin.org","section":"devel"}
+{"name":"deepin-shortcut-viewer-dbgsym","description":"debug symbols for deepin-shortcut-viewer","version":"5.0.7-1","section":"debug"}
+{"name":"deepin-show-userlogin","description":"Set system resolution on arm","version":"0.0.2.3-1+back","section":"x11"}
+{"name":"deepin-sound-theme","description":"Deepin sound","version":"15.10.5-1","homepage":"http://www.deepin.org/","section":"x11"}
+{"name":"deepin-sync-daemon","description":"Deepin sync daemon for user configurations","version":"5.1.3.9+c1-1","homepage":"http://www.deepin.org","section":"devel"}
+{"name":"deepin-sync-daemon-dbgsym","description":"debug symbols for deepin-sync-daemon","version":"5.1.3.9+c1-1","section":"debug"}
+{"name":"deepin-system-monitor","description":"A system monitor tool.","version":"5.9.32-1","homepage":"https://github.com/linuxdeepin/deepin-system-monitor","section":"utils"}
+{"name":"deepin-system-monitor-dbgsym","description":"debug symbols for deepin-system-monitor","version":"5.9.32-1","section":"debug"}
+{"name":"deepin-system-upgrade","description":"system upgrade tool","version":"6.0.4-1","homepage":"http://www.deepin.org","section":"utils"}
+{"name":"deepin-system-upgrade-dbgsym","description":"debug symbols for deepin-system-upgrade","version":"6.0.4-1","section":"debug"}
+{"name":"deepin-terminal","description":"Terminal is an advanced terminal emulator with workspace, multiple","version":"5.9.40-1+rb1","homepage":"https://www.deepin.com/","section":"utils"}
+{"name":"deepin-terminal-dbgsym","description":"debug symbols for deepin-terminal","version":"5.9.40-1+rb1","section":"debug"}
+{"name":"deepin-turbo","description":"Application launcher for fast startup","version":"0.0.6.3-1","section":"devel"}
+{"name":"deepin-turbo-booster","description":"DTK application booster binary for deepin-turbo","version":"0.0.6.3-1","section":"devel"}
+{"name":"deepin-turbo-booster-dbgsym","description":"debug symbols for deepin-turbo-booster","version":"0.0.6.3-1","section":"debug"}
+{"name":"deepin-turbo-dbgsym","description":"debug symbols for deepin-turbo","version":"0.0.6.3-1","section":"debug"}
+{"name":"deepin-turbo-dev","description":"Development files for launchable applications","version":"0.0.6.3-1","section":"devel"}
+{"name":"deepin-unstable-source","description":"Deepin unstable source","version":"0.0.5-2","homepage":"https://www.deepin.org","section":"metapackages"}
+{"name":"deepin-upgrade-manager","description":"uos backup and restore tool","version":"1.0.22-1","homepage":"https://www.deepin.org","section":"utils"}
+{"name":"deepin-upgrade-manager-dbgsym","description":"debug symbols for deepin-upgrade-manager","version":"1.0.22-1","section":"debug"}
+{"name":"deepin-user-experience-daemon","description":"deepin-user-experience-daemon","version":"1.1.0100.2-1","homepage":"http://www.deepin.org","section":"misc"}
+{"name":"deepin-user-experience-daemon-dbgsym","description":"debug symbols for deepin-user-experience-daemon","version":"1.1.0100.2-1","section":"debug"}
+{"name":"deepin-voice-note","description":"Voice Notes is a lightweight memo tool to make text notes and voice recordings","version":"5.10.23-1","homepage":"<insert the upstream URL, if relevant>","section":"devel"}
+{"name":"deepin-voice-note-dbgsym","description":"debug symbols for deepin-voice-note","version":"5.10.23-1","section":"debug"}
+{"name":"deepin-voice-recorder","description":"Voice recorder application for deepin","version":"5.0.0-1","homepage":"https://github.com/linuxdeepin/deepin-voice-recorder","section":"utils"}
+{"name":"deepin-voice-recorder-dbgsym","description":"debug symbols for deepin-voice-recorder","version":"5.0.0-1","section":"debug"}
+{"name":"deepin-wallpapers","description":"When users are ready to set their own desktop background,","version":"1.7.12-2","homepage":"https://www.deepin.org/","section":"utils"}
+{"name":"deepin-wallpapers-nonfree","description":"dde wallpapers nonfree","version":"1.5-1","homepage":"https://www.deepin.org/","section":"utils"}

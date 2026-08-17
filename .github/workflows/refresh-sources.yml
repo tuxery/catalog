@@ -48,7 +48,7 @@ jobs:
           if [ -n "${{ github.event.inputs.source }}" ]; then
             sources="${{ github.event.inputs.source }}"
           else
-            sources="flathub appcenter snapcraft appimage aur debian ubuntu fedora arch nixpkgs opensuse alpine void slackware solus gentoo mint popos deepin mxlinux"
+            sources="flatpak-flathub flatpak-appcenter snap-snapcraft appimage pacman-aur deb-debian deb-ubuntu rpm-fedora pacman-arch nix-nixpkgs rpm-opensuse apk-alpine xbps-void slackware eopkg-solus ebuild-gentoo deb-mint deb-popos deb-deepin deb-mxlinux"
           fi
 
           failed=""

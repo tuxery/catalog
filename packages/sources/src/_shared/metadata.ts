@@ -16,7 +16,7 @@ export interface FetchMetadata {
 }
 
 /**
- * `cache/flathub.ndjson` -> `cache/flathub.meta.json`. A sibling file
+ * `cache/flatpak-flathub.ndjson` -> `cache/flatpak-flathub.meta.json`. A sibling file
  * rather than a header row in the NDJSON itself, so re-fetching (which
  * always changes `fetchedAt`) doesn't touch every data line's diff.
  */

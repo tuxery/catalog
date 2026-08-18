@@ -10,6 +10,8 @@ export interface AurCacheEntry {
   description: string;
   version: string;
   homepage?: string;
+  /** See `SourcedPackage.popularity`. */
+  popularity?: number;
 }
 
 export type AurFetchMetadata = FetchMetadata;

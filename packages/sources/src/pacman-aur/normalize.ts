@@ -11,5 +11,6 @@ export function normalize(entries: AurCacheEntry[]): SourcedPackage[] {
     // to an app id.
     appId: entry.name,
     homepage: entry.homepage,
+    popularity: entry.popularity,
   }));
 }

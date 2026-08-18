@@ -30,6 +30,8 @@ export interface FlathubCacheEntry {
   screenshots: string[];
   /** See `SourcedPackage.rating`. */
   rating?: { average: number; count: number };
+  /** See `SourcedPackage.popularity`. */
+  popularity?: number;
 }
 
 export interface FlathubFetchMetadata extends FetchMetadata {

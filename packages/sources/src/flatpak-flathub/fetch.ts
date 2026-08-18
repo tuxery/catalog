@@ -1,5 +1,5 @@
 import { parseAppstreamXml, resolveIconUrl } from "../_shared/appstream";
-import { fetchGunzippedText } from "../_shared/http";
+import { fetchOrThrow, fetchGunzippedText } from "../_shared/http";
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
 import { fetchOdrsRatings, pickOdrsRating, type OdrsRating } from "../_shared/odrs";
@@ -12,23 +12,60 @@ const ARCH = "x86_64";
 const REPO_BASE = `https://dl.flathub.org/repo/appstream/${ARCH}`;
 const APPSTREAM_URL = `${REPO_BASE}/appstream.xml.gz`;
 
+// Flathub's own "Popular" collection — the same ranked list its own
+// frontend uses — real, live, unauthenticated, no per-app request needed:
+// one call returns its current top 250 apps in rank order (verified live).
+const POPULAR_URL = "https://flathub.org/api/v2/collection/popular";
+
+interface RawPopularHit {
+  app_id?: string;
+}
+
+interface RawPopularResponse {
+  hits?: RawPopularHit[];
+}
+
+/**
+ * Ranks Flathub's own "Popular" collection into a 0-1 score by list
+ * position (1 for rank 1, decreasing towards 0 for rank 250) — see
+ * `SourcedPackage.popularity`. Apps outside the top 250 get no score at
+ * all, never a fake bottom value — this list is a ranking, not a full
+ * catalog census. Pure — no I/O.
+ */
+export function rankPopularity(hits: RawPopularHit[]): Map<string, number> {
+  const scores = new Map<string, number>();
+  hits.forEach((hit, index) => {
+    if (!hit.app_id) return;
+    scores.set(hit.app_id, hits.length > 1 ? 1 - index / (hits.length - 1) : 1);
+  });
+  return scores;
+}
+
+async function fetchPopularityRanks(): Promise<Map<string, number>> {
+  const response = await fetchOrThrow(POPULAR_URL, "Flathub popular collection");
+  const data = (await response.json()) as RawPopularResponse;
+  return rankPopularity(data.hits ?? []);
+}
+
 /**
  * Parses Flathub's appstream XML (already decompressed) into cache rows.
  * Mostly a thin wrapper — the actual parsing is shared with elementary
  * AppCenter (another Flatpak remote publishing the identical format) in
  * `_shared/appstream.ts` — but resolves each entry's icon URL here, since
  * that needs Flathub's own repo base, and joins in each entry's ODRS
- * rating (see `_shared/odrs.ts`) by its `.desktop`-suffixed id. Pure — no
- * I/O.
+ * rating (see `_shared/odrs.ts`) by its `.desktop`-suffixed id and
+ * Flathub's own popularity rank by its bare id. Pure — no I/O.
  */
 export function parseAppstream(
   xml: string,
   odrsRatings: Map<string, OdrsRating>,
+  popularityRanks: Map<string, number>,
 ): FlathubCacheEntry[] {
   return parseAppstreamXml(xml).map((entry) =>
     Object.assign(entry, {
       iconUrl: resolveIconUrl(entry, REPO_BASE),
       rating: pickOdrsRating(odrsRatings, entry.id),
+      popularity: popularityRanks.get(entry.id),
     }),
   );
 }
@@ -40,11 +77,12 @@ export function parseAppstream(
  * see docs/sources.md.
  */
 export async function fetchFlathub(cachePath: string): Promise<number> {
-  const [xml, odrsRatings] = await Promise.all([
+  const [xml, odrsRatings, popularityRanks] = await Promise.all([
     fetchGunzippedText(APPSTREAM_URL, "Flathub appstream"),
     fetchOdrsRatings(),
+    fetchPopularityRanks(),
   ]);
-  const entries = parseAppstream(xml, odrsRatings);
+  const entries = parseAppstream(xml, odrsRatings, popularityRanks);
 
   writeNdjson(cachePath, entries);
   writeMetadata<FlathubFetchMetadata>(cachePath, {

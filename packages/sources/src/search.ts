@@ -8,6 +8,8 @@ import { searchDeepin } from "./deb-deepin";
 import { searchFedora } from "./rpm-fedora";
 import { searchFlathub } from "./flatpak-flathub";
 import { searchGentoo } from "./ebuild-gentoo";
+import { searchGog } from "./gog";
+import { searchLutris } from "./lutris";
 import { searchMint } from "./deb-mint";
 import { searchMxLinux } from "./deb-mxlinux";
 import { searchNixpkgs } from "./nix-nixpkgs";
@@ -47,6 +49,8 @@ export async function searchAllSources(query: string): Promise<SourcedPackage[]>
     searchPopOs(query),
     searchDeepin(query),
     searchMxLinux(query),
+    searchGog(query),
+    searchLutris(query),
   ]);
 
   return results.flat();

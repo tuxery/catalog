@@ -75,4 +75,17 @@ describe("gog normalize", () => {
 
     expect(normalize([entry])[0]?.hasGameCategory).toBe(true);
   });
+
+  it("passes the cache entry's rating through unchanged", () => {
+    const entry: GogCacheEntry = {
+      id: "1459256379",
+      title: "Firewatch",
+      slug: "firewatch",
+      developers: [],
+      screenshots: [],
+      rating: { average: 3.9, count: 2153 },
+    };
+
+    expect(normalize([entry])[0]?.rating).toEqual({ average: 3.9, count: 2153 });
+  });
 });

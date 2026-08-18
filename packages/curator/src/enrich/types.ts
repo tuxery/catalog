@@ -106,7 +106,16 @@ export interface CatalogApp {
   screenshots?: string[];
   /** Not sourced yet. */
   videos?: string[];
-  /** Not sourced yet — no upstream store API among current sources exposes ratings. */
+  /**
+   * A count-weighted average across every member package's own rating —
+   * see `enrich/index.ts`'s `aggregateRating`. Two independent sources
+   * today: GNOME's ODRS community ratings (joined into Flathub/AppCenter
+   * by AppStream id, sparse — ~6%/~4% real coverage) and GOG's own
+   * `reviewsRating`/`reviewsCount` (games only). `undefined` when no
+   * member package has a rating at all, never a synthetic 0. Per-source
+   * detail is already available without a separate field — read each
+   * entry's own `rating` off `packages`.
+   */
   rating?: { average: number; count: number };
   /** Not sourced yet — no upstream store API among current sources exposes reviews. */
   reviews?: Array<{ author: string; text: string; rating: number }>;

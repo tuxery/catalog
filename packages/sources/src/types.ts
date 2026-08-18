@@ -169,4 +169,19 @@ export interface SourcedPackage {
   longDescription?: string;
   /** Screenshot image URLs, always full URLs already. Only Flathub/AppCenter populate this today, from AppStream's `<screenshots>`. */
   screenshots?: string[];
+  /**
+   * A crowd rating, when this source exposes one — `average` on a 1-5
+   * scale, `count` the number of votes behind it. Only set on real
+   * evidence (never a synthetic 0/0), same positive-evidence-only
+   * discipline as `hasGameCategory`. Two independent sources today:
+   * Flathub/AppCenter join in GNOME's ODRS community ratings by
+   * AppStream id (see `_shared/odrs.ts` — sparse, ~6%/~4% real
+   * coverage), and GOG exposes its own `reviewsRating`/`reviewsCount`
+   * directly on its catalog API (games only). `@tuxery/curator` combines
+   * every member package's rating into a count-weighted average for
+   * `CatalogApp.rating` — see `enrich/index.ts`'s `aggregateRating`; the
+   * per-source figures stay visible on each `SourcedPackage` here for a
+   * "ratings by source" breakdown.
+   */
+  rating?: { average: number; count: number };
 }

@@ -2,6 +2,7 @@ import { parseAppstreamXml, resolveIconUrl } from "../_shared/appstream";
 import { fetchGunzippedText } from "../_shared/http";
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
+import { fetchOdrsRatings, pickOdrsRating, type OdrsRating } from "../_shared/odrs";
 import type { FlathubCacheEntry, FlathubFetchMetadata } from "./types";
 
 // Flathub publishes one appstream file per arch — this is the one most
@@ -15,12 +16,20 @@ const APPSTREAM_URL = `${REPO_BASE}/appstream.xml.gz`;
  * Parses Flathub's appstream XML (already decompressed) into cache rows.
  * Mostly a thin wrapper — the actual parsing is shared with elementary
  * AppCenter (another Flatpak remote publishing the identical format) in
- * `_shared/appstream.ts` — but resolves each entry's icon URL here,
- * since that needs Flathub's own repo base. Pure — no I/O.
+ * `_shared/appstream.ts` — but resolves each entry's icon URL here, since
+ * that needs Flathub's own repo base, and joins in each entry's ODRS
+ * rating (see `_shared/odrs.ts`) by its `.desktop`-suffixed id. Pure — no
+ * I/O.
  */
-export function parseAppstream(xml: string): FlathubCacheEntry[] {
+export function parseAppstream(
+  xml: string,
+  odrsRatings: Map<string, OdrsRating>,
+): FlathubCacheEntry[] {
   return parseAppstreamXml(xml).map((entry) =>
-    Object.assign(entry, { iconUrl: resolveIconUrl(entry, REPO_BASE) }),
+    Object.assign(entry, {
+      iconUrl: resolveIconUrl(entry, REPO_BASE),
+      rating: pickOdrsRating(odrsRatings, entry.id),
+    }),
   );
 }
 
@@ -31,8 +40,11 @@ export function parseAppstream(xml: string): FlathubCacheEntry[] {
  * see docs/sources.md.
  */
 export async function fetchFlathub(cachePath: string): Promise<number> {
-  const xml = await fetchGunzippedText(APPSTREAM_URL, "Flathub appstream");
-  const entries = parseAppstream(xml);
+  const [xml, odrsRatings] = await Promise.all([
+    fetchGunzippedText(APPSTREAM_URL, "Flathub appstream"),
+    fetchOdrsRatings(),
+  ]);
+  const entries = parseAppstream(xml, odrsRatings);
 
   writeNdjson(cachePath, entries);
   writeMetadata<FlathubFetchMetadata>(cachePath, {

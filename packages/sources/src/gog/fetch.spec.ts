@@ -67,4 +67,34 @@ describe("mapProducts", () => {
 
     expect(mapProducts(products)[0]?.storeLink).toBe("https://www.gog.com/en/game/firewatch");
   });
+
+  it("converts reviewsRating's 0-50 scale to a 0-5 average when reviews exist", () => {
+    const products = [
+      {
+        id: "1",
+        slug: "firewatch",
+        title: "Firewatch",
+        productType: "game",
+        reviewsRating: 39,
+        reviewsCount: 2153,
+      },
+    ];
+
+    expect(mapProducts(products)[0]?.rating).toEqual({ average: 3.9, count: 2153 });
+  });
+
+  it("drops the rating for unreviewed products rather than keeping a fake zero", () => {
+    const products = [
+      {
+        id: "1",
+        slug: "app",
+        title: "App",
+        productType: "game",
+        reviewsRating: 0,
+        reviewsCount: 0,
+      },
+    ];
+
+    expect(mapProducts(products)[0]?.rating).toBeUndefined();
+  });
 });

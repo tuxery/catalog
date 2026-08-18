@@ -23,5 +23,6 @@ export function normalize(entries: GogCacheEntry[]): SourcedPackage[] {
     hasGameCategory: true,
     developer: entry.developers[0],
     screenshots: entry.screenshots.length > 0 ? entry.screenshots : undefined,
+    rating: entry.rating,
   }));
 }

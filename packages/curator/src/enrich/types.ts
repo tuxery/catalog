@@ -69,7 +69,21 @@ export interface CatalogApp {
   iconUrl?: string;
   /** Not sourced yet — only short summaries exist today, no source has a separate long-form description. */
   longDescription?: string;
-  /** Not sourced yet — no connector captures upstream categories (Snapcraft's sweep categories are fetch-time only, not per-package). */
+  /**
+   * A single display-ready category label (e.g. "Productivity",
+   * "Multimedia") — `undefined` when no member package has category
+   * data, or none of it maps to a recognized category, never guessed.
+   * Sourced from Flathub/AppCenter's AppStream `<categories>` only today
+   * (`SourcedPackage.categories`, freedesktop.org menu spec Main
+   * Categories — see `enrich/category.ts`'s `pickCategory` for the full
+   * taxonomy and its real-data verification). "Game" is deliberately
+   * excluded here — see `contentType` — and genre-level categorization
+   * (for the Games page) isn't attempted, a separate, larger, unresolved
+   * scope per the "Define the category taxonomy" GitHub Project card.
+   * Snapcraft's own store categories (swept at fetch time to discover
+   * the catalog) aren't threaded through per-package yet — a possible
+   * second signal, not done here.
+   */
   category?: string;
   /** Not sourced yet — distro "Maintainer"/"Packager" fields exist but denote the packager, not the app's actual developer; not a reliable proxy. */
   developer?: string;

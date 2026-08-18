@@ -1,6 +1,7 @@
 import type { PackageSourceId, SourcedPackage } from "@tuxery/sources";
 import { looksLikeGamePackage, looksLikeGuiPackage } from "../filter/rules";
 import type { MatchedApp } from "../match/group";
+import { pickCategory } from "./category";
 import type { CatalogApp } from "./types";
 
 /**
@@ -61,6 +62,23 @@ function hasGameEvidence(pkg: SourcedPackage): boolean {
   return looksLikeGamePackage(pkg.source, pkg.section);
 }
 
+/**
+ * Picks a category label from whichever member package actually has
+ * `categories` data (currently Flathub/AppCenter only), same
+ * priority-with-fallback shape as `pickDescription` — a group's
+ * representative package (by `SOURCE_PRIORITY`) might not be the one
+ * carrying category data (e.g. AppCenter isn't in `SOURCE_PRIORITY` at
+ * all, so a Snapcraft+AppCenter group's representative would never have
+ * categories on its own). `undefined` when no member package has
+ * category data, or none of it maps to a recognized Main Category — see
+ * `CatalogApp.category`'s doc comment.
+ */
+function pickCategoryLabel(packages: SourcedPackage[]): string | undefined {
+  const withCategories = packages.filter((pkg) => pkg.categories && pkg.categories.length > 0);
+  if (withCategories.length === 0) return undefined;
+  return pickCategory(pickByPriority(withCategories).categories ?? []);
+}
+
 /** Turns grouped packages into the display-ready `CatalogApp` records the website reads — see `types.ts` for what's populated today vs. tracked as roadmap. */
 export function enrichApps(matched: MatchedApp[]): CatalogApp[] {
   return matched.map((app) => {
@@ -74,6 +92,7 @@ export function enrichApps(matched: MatchedApp[]): CatalogApp[] {
       packages: app.packages,
       kind: app.packages.some(hasGuiEvidence) ? "gui" : undefined,
       contentType: app.packages.some(hasGameEvidence) ? "game" : undefined,
+      category: pickCategoryLabel(app.packages),
     };
   });
 }

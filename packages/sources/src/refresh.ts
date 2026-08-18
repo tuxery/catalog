@@ -9,6 +9,8 @@ import { fetchDeepin } from "./deb-deepin/fetch";
 import { fetchFedora } from "./rpm-fedora/fetch";
 import { fetchFlathub } from "./flatpak-flathub/fetch";
 import { fetchGentoo } from "./ebuild-gentoo/fetch";
+import { fetchGog } from "./gog/fetch";
+import { fetchLutris } from "./lutris/fetch";
 import { fetchMint } from "./deb-mint/fetch";
 import { fetchMxLinux } from "./deb-mxlinux/fetch";
 import { fetchNixpkgs } from "./nix-nixpkgs/fetch";
@@ -41,6 +43,8 @@ const REFRESHERS: Record<string, (cachePath: string) => Promise<number>> = {
   "deb-popos": fetchPopOs,
   "deb-deepin": fetchDeepin,
   "deb-mxlinux": fetchMxLinux,
+  gog: fetchGog,
+  lutris: fetchLutris,
 };
 
 async function main() {

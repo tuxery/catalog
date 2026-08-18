@@ -1,0 +1,1795 @@
+{"gameId":4713,"gameSlug":"rollercoaster-tycoon-2","name":"RollerCoaster Tycoon 2","description":"Play \"RollerCoaster Tycoon 2\" CD edition on Linux!"}
+{"gameId":284356,"gameSlug":"omounix","name":"OmoUNIX","description":"Downloads a copy of OmoUNIX 4.1 from Archive.org and extracts it to be installed in the default games folder"}
+{"gameId":17267,"gameSlug":"harvest-moon-64","name":"Harvest Moon 64","description":""}
+{"gameId":9781,"gameSlug":"croc-2","name":"Croc 2","description":"Play \"Croc 2\" CD edition on Linux!"}
+{"gameId":21093,"gameSlug":"croc-legend-of-the-gobbos","name":"Croc: Legend of the Gobbos","description":"Play \"Croc: Legend of the Gobbos\" CD edition on Linux!"}
+{"gameId":7319,"gameSlug":"caesar-iii","name":"Caesar III","description":"Play \"Caesar III\"installed from CD on Linux! using Julius open source project"}
+{"gameId":6591,"gameSlug":"asdivine-hearts","name":"Asdivine Hearts","description":""}
+{"gameId":254059,"gameSlug":"goodbye-eternity","name":"Goodbye Eternity","description":""}
+{"gameId":76231,"gameSlug":"scooby-doo-jinx-at-the-sphinx","name":"Scooby-Doo: Jinx at the Sphinx","description":"Play \"Scooby-Doo - Jinx at the Sphinx\" CD edition on Linux!"}
+{"gameId":106188,"gameSlug":"a-quiet-weekend-in-capri","name":"A Quiet Weekend in Capri","description":"Play \"A Quiet Weekend in Capri\" CD edition on Linux!"}
+{"gameId":44274,"gameSlug":"lego-island","name":"LEGO Island","description":"Play \"LEGO Island\" CD edition on Linux!"}
+{"gameId":369098,"gameSlug":"openomf","name":"OpenOMF","description":""}
+{"gameId":27680,"gameSlug":"lego-island-2-the-bricksters-revenge","name":"Lego Island 2: The Brickster's Revenge","description":"Play \"Lego Island 2: The Brickster's Revenge\" CD edition on Linux!"}
+{"gameId":367665,"gameSlug":"skullcandy-hq","name":"Skullcandy HQ","description":"Installs Skull-HQ into a dedicated Wine prefix and wires up a native HID bridge (a hid.dll shim plus a small per-user helper service) so the headset's control protocol works under Wine. Uses the built-in \"linux\" runner to launch the app through the project's own wrapper, which pins it to system Wine — required for the headset HID. Downloads the official Skull-HQ 3.2.0 installer from Skullcandy's server and the open-source bridge from GitHub."}
+{"gameId":131222,"gameSlug":"hardwood-spades","name":"Hardwood Spades","description":"Play \"Hardwood Spades\" on Linux!"}
+{"gameId":174970,"gameSlug":"hardwood-hearts","name":"Hardwood Hearts","description":"Play \"Hardwood Hearts\" on Linux!"}
+{"gameId":220826,"gameSlug":"hardwood-solitaire-iii","name":"Hardwood Solitaire III","description":"Play \"Hardwood Solitaire III\" full edition on Linux!"}
+{"gameId":367655,"gameSlug":"hardwood-solitaire-ii","name":"Hardwood Solitaire II","description":"Play \"Hardwood Solitaire II\" on Linux!"}
+{"gameId":179289,"gameSlug":"space-station-14","name":"Space Station 14","description":"Downloads direct from playss14.com"}
+{"gameId":6689,"gameSlug":"tomb-raider-iii-adventures-of-lara-croft","name":"Tomb Raider III: Adventures of Lara Croft","description":"Play \"Tomb Raider III - Adventures of Lara Croft\" Steam edition on Linux!"}
+{"gameId":121,"gameSlug":"hexen-ii","name":"HeXen II","description":"Play \"Hexen II\" on Linux!"}
+{"gameId":6282,"gameSlug":"the-abbey-of-crime-extensum","name":"The Abbey of Crime Extensum","description":"Version 1.3e"}
+{"gameId":37810,"gameSlug":"terra-nil","name":"Terra Nil","description":""}
+{"gameId":364288,"gameSlug":"helixftw","name":"HelixFTW","description":"Manuel-Installer (Native)"}
+{"gameId":15308,"gameSlug":"roblox","name":"Roblox","description":"Make sure Flatpak is installed"}
+{"gameId":11084,"gameSlug":"slam-tilt","name":"Slam Tilt","description":"Play \"Slam Tilt\" CD edition on Linux!"}
+{"gameId":9330,"gameSlug":"the-legend-of-zelda-twilight-princess","name":"The Legend of Zelda: Twilight Princess","description":"Play \"The Legend of Zelda - Twilight Princess\" on Linux!"}
+{"gameId":41295,"gameSlug":"treasure-cove","name":"Treasure Cove!","description":""}
+{"gameId":19,"gameSlug":"quake-iii-arena","name":"Quake III Arena","description":"Play \"Quake III Arena\" on Linux!"}
+{"gameId":29551,"gameSlug":"mega-man-64","name":"Mega Man 64","description":"Play \"Mega Man 64\" on Linux!"}
+{"gameId":205478,"gameSlug":"prism-launcher","name":"Prism Launcher","description":"Official flatpak version"}
+{"gameId":37369,"gameSlug":"pokeclicker","name":"PokéClicker","description":""}
+{"gameId":128767,"gameSlug":"tomb-raider-iii-the-lost-artifact","name":"Tomb Raider III: The Lost Artifact","description":"Play \"Tomb Raider III - The Lost Artefact\" CD edition on Linux!"}
+{"gameId":360954,"gameSlug":"pineconemc","name":"PineconeMC","description":"AppImage from PineconeMC GitHub repository , this script is for x86_64 hardware"}
+{"gameId":24253,"gameSlug":"fallen-haven","name":"Fallen Haven","description":"Play \"Fallen Haven\" CD edition on Linux!"}
+{"gameId":107261,"gameSlug":"disneys-the-lion-king-ii-simbas-pride","name":"Disney's The Lion King II: Simba's Pride","description":"Play \"Disney's The Lion King II - Simba's Pride\" CD edition on Linux!"}
+{"gameId":359553,"gameSlug":"deeper-club","name":"Deeper Club","description":"Manuel-Installer (Native)"}
+{"gameId":38150,"gameSlug":"hytale","name":"Hytale","description":"shellfile version for hyprland as an alternative to the flatpak version."}
+{"gameId":319150,"gameSlug":"streets-of-rage-2-new-era","name":"Streets of Rage 2 — New Era","description":""}
+{"gameId":16349,"gameSlug":"kingdom-hearts-3582-days","name":"Kingdom Hearts 358/2 Days","description":""}
+{"gameId":248564,"gameSlug":"flare-empyrean-campaign","name":"Flare: Empyrean Campaign","description":""}
+{"gameId":176930,"gameSlug":"kingdom-hearts-re-coded","name":"Kingdom Hearts Re:coded","description":""}
+{"gameId":37769,"gameSlug":"space-station-silicon-valley","name":"Space Station Silicon Valley","description":"Play \"Space Station: Silicon Valley\" on Linux!"}
+{"gameId":23715,"gameSlug":"fallen-haven-liberation-day","name":"Fallen Haven: Liberation Day","description":"Play \"Fallen Haven: Liberation Day\" CD edition on Linux!"}
+{"gameId":16508,"gameSlug":"mystical-ninja-starring-goemon","name":"Mystical Ninja Starring Goemon","description":"Play \"Mystical Ninja Starring Goemon\" on Linux!"}
+{"gameId":28,"gameSlug":"quake-ii","name":"Quake II","description":""}
+{"gameId":5638,"gameSlug":"command-conquer","name":"Command & Conquer","description":"Play \"Command & Conquer\" CD Gold edition on Linux!"}
+{"gameId":1818,"gameSlug":"dune-2000","name":"Dune 2000","description":"Play \"Dune 2000\" on Linux!"}
+{"gameId":65669,"gameSlug":"shanghai-second-dynasty","name":"Shanghai: Second Dynasty","description":"Play \"Shanghai - Second Dynasty\" on Linux!"}
+{"gameId":6241,"gameSlug":"banjo-kazooie","name":"Banjo-Kazooie","description":"Play \"Banjo-Kazooie\" on Linux!"}
+{"gameId":204013,"gameSlug":"riichi-city","name":"Riichi City","description":""}
+{"gameId":247590,"gameSlug":"pokemon-tectonic","name":"Pokémon Tectonic","description":""}
+{"gameId":4455,"gameSlug":"super-mario-64","name":"Super Mario 64","description":"Installs Linux Version of Ghostship"}
+{"gameId":194179,"gameSlug":"yarg","name":"YARG","description":"YARC Installer v1.0.0 - do not update"}
+{"gameId":343371,"gameSlug":"pokepathtd","name":"PokePathTD","description":"Now in Appimage !"}
+{"gameId":31115,"gameSlug":"unigine-superposition","name":"Unigine Superposition","description":"Unigine Superposition 1.1 Linux"}
+{"gameId":4456,"gameSlug":"star-fox-64","name":"Star Fox 64","description":"Play Star Fox 64 using Linux build of Recompiled engine"}
+{"gameId":21730,"gameSlug":"perfect-world-level-up","name":"Perfect World","description":"Perfect World Level Up! (64-bit 2025) - Work In Progress  Updated script for Perfect World Level Up 64-bit (2025 version). Bypasses problematic launcher with startbypatcher command line. DXVK/Vulkan + Windows 10 + modern 64-bit dependencies.  ⚠️ WORK IN PROGRESS - Still testing and refining Runner recommended: Proton Experimental or lutris-GE-Proton8-26  After installer finishes: UNCHECK \"Launch game now\""}
+{"gameId":224756,"gameSlug":"jumpstart-adventures-6th-grade-mission-earthquest","name":"JumpStart Adventures 6th Grade: Mission EarthQuest","description":""}
+{"gameId":160942,"gameSlug":"jumpstart-adventures-5th-grade-jo-hammet-kid-detective","name":"JumpStart Adventures: 5th Grade - Jo Hammet, Kid Detective","description":""}
+{"gameId":342864,"gameSlug":"tripleplay-plus-english","name":"TriplePlay Plus! English","description":""}
+{"gameId":49830,"gameSlug":"playing-with-language-games-in-english","name":"Games in English","description":""}
+{"gameId":342857,"gameSlug":"tripleplay-plus-french","name":"TriplePlay Plus! French","description":""}
+{"gameId":342854,"gameSlug":"tripleplay-plus-spanish","name":"TriplePlay Plus! Spanish","description":""}
+{"gameId":342852,"gameSlug":"tripleplay-plus-japanese","name":"TriplePlay Plus! Japanese","description":""}
+{"gameId":342848,"gameSlug":"tripleplay-spanish","name":"TriplePlay Spanish","description":""}
+{"gameId":342840,"gameSlug":"games-in-german","name":"Games in German","description":""}
+{"gameId":160949,"gameSlug":"jumpstart-music","name":"JumpStart Music","description":""}
+{"gameId":280586,"gameSlug":"jumpstart-artist","name":"JumpStart Artist","description":""}
+{"gameId":27507,"gameSlug":"scorched-planet","name":"Scorched Planet","description":"Play \"Scorched Planet\" CD Matrox edition on Linux!"}
+{"gameId":97343,"gameSlug":"trivia-munchers-deluxe","name":"Trivia Munchers Deluxe","description":""}
+{"gameId":106412,"gameSlug":"word-munchers-deluxe","name":"Word Munchers Deluxe","description":""}
+{"gameId":41288,"gameSlug":"super-solvers-mission-think","name":"Super Solvers Mission: T.H.I.N.K.","description":""}
+{"gameId":66653,"gameSlug":"isles-of-derek","name":"Isles of Derek","description":""}
+{"gameId":288163,"gameSlug":"sid-meiers-civilization-ii-test-of-time","name":"Sid Meier's Civilization II: Test of Time","description":"Play \"Sid Meier's Civilization II - Test of Time\" CD edition on Linux!"}
+{"gameId":116561,"gameSlug":"simpark","name":"SimPark","description":""}
+{"gameId":111564,"gameSlug":"simtunes","name":"SimTunes","description":""}
+{"gameId":118127,"gameSlug":"3d-body-adventure","name":"3-D Body Adventure","description":"Have the iso for your CD ready.  Make sure it is designed to run on Windows 3.1/95 and is not DOS-only."}
+{"gameId":342783,"gameSlug":"gold-medal-math","name":"Gold Medal Math","description":""}
+{"gameId":342777,"gameSlug":"comptons-interactive-encyclopedia","name":"Compton's Interactive Encyclopedia","description":""}
+{"gameId":342775,"gameSlug":"north-american-birds-peterson-multimedia-guide","name":"North American Birds: Peterson Multimedia Guide","description":""}
+{"gameId":112072,"gameSlug":"nacah","name":"Nacah","description":"Download the disc image here: https://www.myabandonware.com/game/nacah-iqc"}
+{"gameId":342760,"gameSlug":"3d-thinking-lab","name":"3D Thinking Lab","description":""}
+{"gameId":41265,"gameSlug":"where-in-the-world-is-carmen-sandiego-treasures-of","name":"Where in the World Is Carmen Sandiego? Treasures of Knowledge","description":""}
+{"gameId":41270,"gameSlug":"carmen-sandiego-word-detective","name":"Carmen Sandiego Word Detective","description":""}
+{"gameId":342751,"gameSlug":"geosafari-science","name":"GeoSafari Science","description":""}
+{"gameId":68323,"gameSlug":"geosafari-animals","name":"GeoSafari: Animals","description":""}
+{"gameId":160999,"gameSlug":"the-amazon-trail","name":"The Amazon Trail","description":""}
+{"gameId":162491,"gameSlug":"math-munchers-deluxe","name":"Math Munchers Deluxe","description":""}
+{"gameId":342742,"gameSlug":"grammar-games","name":"Grammar Games","description":""}
+{"gameId":342740,"gameSlug":"spell-it-deluxe","name":"Spell It Deluxe","description":""}
+{"gameId":41206,"gameSlug":"visual-pinball-x","name":"Visual Pinball X","description":"Play \"JP's Addams Family (Bally 1992)\" table with \"Visual Pinball X\""}
+{"gameId":340811,"gameSlug":"welcome-to-bodyland","name":"Welcome to Bodyland","description":""}
+{"gameId":113157,"gameSlug":"oregon-trail-ii","name":"Oregon Trail II","description":""}
+{"gameId":342734,"gameSlug":"frantic-factory","name":"Frantic Factory","description":""}
+{"gameId":4251,"gameSlug":"huniepop","name":"HuniePop","description":""}
+{"gameId":342730,"gameSlug":"geobee-challenge","name":"GeoBee Challenge","description":""}
+{"gameId":342729,"gameSlug":"explorers-of-the-new-world","name":"Explorers of the New World","description":""}
+{"gameId":342687,"gameSlug":"games-in-french","name":"Games in French","description":""}
+{"gameId":342701,"gameSlug":"the-multimedia-bird-book","name":"The Multimedia Bird Book","description":""}
+{"gameId":111341,"gameSlug":"3-d-ultra-pinball-the-lost-continent","name":"3-D Ultra Pinball: The Lost Continent","description":"Play \"3-D Ultra Pinball - The Lost Continent\" CD edition on Linux!"}
+{"gameId":106503,"gameSlug":"3-d-ultra-pinball","name":"3-D Ultra Pinball","description":"Play \"3-D Ultra Pinball\" CD edition on Linux!"}
+{"gameId":56388,"gameSlug":"3-d-ultra-pinball-creep-night","name":"3-D Ultra Pinball: Creep Night","description":"Play \"3-D Ultra Pinball - Creep Night\" CD edition on Linux!"}
+{"gameId":27731,"gameSlug":"cyber-gladiators","name":"Cyber Gladiators","description":"Play \"Cyber Gladiators\" on Linux!"}
+{"gameId":181022,"gameSlug":"dinosaur-planet","name":"Dinosaur Planet","description":""}
+{"gameId":106127,"gameSlug":"the-lost-mind-of-dr-brain","name":"The Lost Mind of Dr. Brain","description":"Play \"The Lost Mind of Dr. Brain\" CD edition on Linux!"}
+{"gameId":342677,"gameSlug":"the-multimedia-bug-book","name":"The Multimedia Bug Book","description":"Play \"The Multimedia Bug Book\" on Linux!"}
+{"gameId":342679,"gameSlug":"windows-95","name":"Windows 95","description":"Windows 95 on Linux!"}
+{"gameId":26784,"gameSlug":"windows-31x","name":"Windows 3.1x","description":"Windows 3.1 on Linux!"}
+{"gameId":24001,"gameSlug":"dustforce-dx","name":"Dustforce DX","description":"Dustforce DX + Dustmod, a drop-in replacement mod with various performance, usability and quality-of-life features."}
+{"gameId":319254,"gameSlug":"book-of-lust","name":"Book of Lust","description":"Book of Lust Linux installer"}
+{"gameId":204726,"gameSlug":"mechwarrior-2-ghost-bears-legacy","name":"Mechwarrior 2: Ghost Bear's Legacy","description":"Play \"MechWarrior 2 - Ghost Bear's Legacy\" CD Titanium Trilogy edition on Linux!"}
+{"gameId":117145,"gameSlug":"mechwarrior-2-mercenaries","name":"MechWarrior 2: Mercenaries","description":"Play \"MechWarrior 2 - Mercenaries - Titanium\" CD Titanium Trilogy edition on Linux!"}
+{"gameId":3649,"gameSlug":"descent-freespace-the-great-war","name":"Descent: Freespace - The Great War","description":"Play \"Descent: Freespace - The Great War\" CD edition on Linux!"}
+{"gameId":25140,"gameSlug":"legoland","name":"Legoland","description":"Play \"LEGOLAND\" on Linux!"}
+{"gameId":117638,"gameSlug":"mechwarrior-2-31st-century-combat","name":"MechWarrior 2: 31st Century Combat","description":"Play \"MechWarrior 2 - 31st Century Combat\" CD Titanium Trilogy edition on Linux!"}
+{"gameId":7250,"gameSlug":"lego-loco","name":"Lego Loco","description":"Play \"LEGO Loco\" on Linux!"}
+{"gameId":283006,"gameSlug":"microsoft-windows-98","name":"Microsoft Windows 98","description":"Windows 98 on Linux!"}
+{"gameId":205004,"gameSlug":"turtlewow","name":"Turtle WoW","description":"AppImage native Linux version"}
+{"gameId":242991,"gameSlug":"aaaaxy","name":"Aaaaxy","description":"Flatpak version"}
+{"gameId":20210,"gameSlug":"luckydog1","name":"Luckydog1","description":""}
+{"gameId":12270,"gameSlug":"xmage","name":"XMage","description":"XMage"}
+{"gameId":294733,"gameSlug":"tsui-no-sora","name":"Tsui no Sora","description":""}
+{"gameId":334975,"gameSlug":"super-mario-bros-remastered","name":"Super Mario Bros Remastered","description":"Installs Linux Version of Super Mario Bros. Remastered"}
+{"gameId":273757,"gameSlug":"streets-of-rage-x","name":"Streets of Rage X","description":"Requires a manual download."}
+{"gameId":265656,"gameSlug":"ifscl-a-code-lyoko-fangame","name":"IFSCL: A Code Lyoko Fangame","description":"Install the Kolossus Launcher, official launcher for the IFSCL"}
+{"gameId":4083,"gameSlug":"jazz-jackrabbit","name":"Jazz Jackrabbit","description":"Play \"Jazz Jackrabbit\" provided by GOG on Linux!"}
+{"gameId":17383,"gameSlug":"starblast","name":"Starblast","description":"The official AppImage version of Starblast published by Neuronality."}
+{"gameId":319326,"gameSlug":"nsmb-mario-vs-luigi-online","name":"NSMB – Mario Vs Luigi Online","description":"Install the latest version aviable!"}
+{"gameId":633,"gameSlug":"the-dark-eye-chains-of-satinav","name":"The Dark Eye: Chains of Satinav","description":"This is for the GOG Linux version."}
+{"gameId":332587,"gameSlug":"geforce-infinity","name":"GeForce Infinity","description":""}
+{"gameId":207007,"gameSlug":"apotris","name":"Apotris","description":""}
+{"gameId":319182,"gameSlug":"sprawl-96","name":"SPRAWL 96","description":"Uses the official Flatpak release"}
+{"gameId":14976,"gameSlug":"medal-of-honor-allied-assault-war-chest","name":"Medal of Honor: Allied Assault War Chest","description":"OpenMoHAA is an open-source reimplementation of MoH:AA's game engine"}
+{"gameId":6251,"gameSlug":"perfect-dark","name":"Perfect Dark","description":"Play \"Perfect Dark\" natively on Linux!"}
+{"gameId":6247,"gameSlug":"the-legend-of-zelda-majoras-mask","name":"The Legend of Zelda: Majora’s Mask","description":"The Legend of Zelda - Majora's Mask [Native Linux Version 1.2.1] with Majora's Mask Reloaded HD Pack"}
+{"gameId":2955,"gameSlug":"mario-kart-64","name":"Mario Kart 64","description":"Play \"Mario Kart 64\" natively on Linux!"}
+{"gameId":287407,"gameSlug":"zbrush","name":"ZBrush","description":"ZBrush is a digital sculpting, modeling, and painting software used to create highly detailed 3D models. It offers fluid, intuitive features that allow you to model 3D shapes just like sculpting with real clay. Loved by 3D artists and industries worldwide, the intuitive brush system adapts to your style, letting you create with precision and control."}
+{"gameId":318803,"gameSlug":"kiss-me-everyday","name":"Kiss Me Everyday","description":""}
+{"gameId":5773,"gameSlug":"flightgear","name":"FlightGear","description":""}
+{"gameId":5826,"gameSlug":"diablo","name":"Diablo","description":"CD + devilutionx-linux-x86_64.appimage"}
+{"gameId":127379,"gameSlug":"ultima-vii-part-two-serpent-isle","name":"Ultima VII: Part Two - Serpent Isle","description":"Play \"Ultima VII - Part Two - Serpent Isle\" provided by GOG on Linux!"}
+{"gameId":13841,"gameSlug":"super-smash-flash-2","name":"Super Smash Flash 2","description":"Super Smash Flash is back! You do remember us, right? The original Smash Bros fangame, most popular for content and difficulty, rather than gameplay, Super Smash Flash was…well, Super Smash in a Flash. It showed very few similarities to the actual Smash Bros gameplay as it was our first game, yet still somehow attracted large crowds of people. Now, with the knowledge we’ve picked up along the way, we’re striving for the utmost quality this time around. Super Smash Flash 2 is not a game made by one person in"}
+{"gameId":3366,"gameSlug":"openttd","name":"OpenTTD","description":"OpenTTD-patches (JGR Patch Pack) client: https://github.com/JGRennison/OpenTTD-patches"}
+{"gameId":28652,"gameSlug":"minecraft-bedrock-edition","name":"Minecraft: Bedrock Edition","description":"Use this if the other one dosen't work"}
+{"gameId":8128,"gameSlug":"atlauncher","name":"AtLauncher","description":"Installs the latest flatpak package"}
+{"gameId":21995,"gameSlug":"discord","name":"Discord","description":"Installs the latest flatpak package"}
+{"gameId":19268,"gameSlug":"itchio","name":"Itch.io","description":"Installs the latest flatpak package"}
+{"gameId":15,"gameSlug":"minecraft","name":"Minecraft: Java Edition","description":"Official launcher latest flatpak package"}
+{"gameId":39567,"gameSlug":"minecraft-pi-edition","name":"Minecraft: Pi Edition","description":"Minecraft: Pi Edition: Reborn latest flatpak package"}
+{"gameId":29407,"gameSlug":"pcsx2","name":"PCSX2","description":"Installs the latest flatpak package"}
+{"gameId":191246,"gameSlug":"polymc","name":"PolyMC","description":"Installs the latest flatpak package"}
+{"gameId":9833,"gameSlug":"thrive","name":"Thrive","description":"Installs the latest flatpak package"}
+{"gameId":296801,"gameSlug":"attack-on-titan-tribute-game-2","name":"Attack on Titan Tribute Game 2","description":"Download 'Linux Standalone' release from itch.io: https://aottg2.itch.io/aottg2"}
+{"gameId":3696,"gameSlug":"theme-hospital","name":"Theme Hospital","description":"Play \"Theme Hospital\" provided by GOG on Linux!"}
+{"gameId":318810,"gameSlug":"mdpro3","name":"MDPro3","description":"MDPro3 Linux installer"}
+{"gameId":9908,"gameSlug":"legends-of-equestria","name":"Legends of Equestria","description":"Download the Installer manually then run this Script"}
+{"gameId":106117,"gameSlug":"star-wars-monopoly","name":"Star Wars: Monopoly","description":"Play \"Star Wars - Monopoly\" CD EU edition on Linux!"}
+{"gameId":16545,"gameSlug":"celeste","name":"Celeste","description":"This installer is intended to be installed alongside another instance of Celeste, install that one first and then this one."}
+{"gameId":19021,"gameSlug":"steam","name":"Steam","description":"Installs the latest flatpak package"}
+{"gameId":17524,"gameSlug":"star-wars-episode-i-the-phantom-menace","name":"Star Wars: Episode I – The Phantom Menace","description":"Play \"Star Wars: Episode I – The Phantom Menace\" CD edition on Linux!"}
+{"gameId":27506,"gameSlug":"firestorm-secondlife-viewer","name":"Firestorm Secondlife Viewer","description":"Firestorm SecondLife version 7.2.4 (80712)"}
+{"gameId":13860,"gameSlug":"pharaoh-plus-cleopatra","name":"Pharaoh + Cleopatra","description":"Play \"Pharaoh + Cleopatra\" provided by GOG on Linux!"}
+{"gameId":20931,"gameSlug":"exapunks","name":"EXAPUNKS","description":""}
+{"gameId":30267,"gameSlug":"eliza","name":"Eliza","description":""}
+{"gameId":43355,"gameSlug":"valkyrie-gm","name":"Valkyrie GM","description":"Installs the release from the github page"}
+{"gameId":6688,"gameSlug":"tomb-raider-ii","name":"Tomb Raider II","description":"Play \"Tomb Raider II\" provided by GOG on Linux!"}
+{"gameId":117837,"gameSlug":"super-mario-bros-x","name":"Super Mario Bros. X","description":"Installs Super Mario Bros. X (TheXTech sourceport)"}
+{"gameId":38269,"gameSlug":"dolphin-emulator","name":"Dolphin Emulator","description":"https://flathub.org/apps/org.DolphinEmu.dolphin-emu"}
+{"gameId":23560,"gameSlug":"geforce-now","name":"GeForce NOW","description":""}
+{"gameId":101138,"gameSlug":"accidental-woman","name":"Accidental Woman","description":"Latest Public Release by ThaumX. Also installing and configuring it as portable nwjs apps."}
+{"gameId":294913,"gameSlug":"masters-of-raana","name":"Masters of Raana","description":"Latest Public Release by Grim Dark. Also installing and configuring it as portable nwjs apps."}
+{"gameId":299101,"gameSlug":"factorio-space-age","name":"Factorio: Space Age","description":"Installs the game version downloaded from the Factorio website"}
+{"gameId":23211,"gameSlug":"mari0","name":"Mari0","description":""}
+{"gameId":14945,"gameSlug":"doom-1993","name":"DOOM (1993)","description":"Sony PlayStation version running with PsyDoom"}
+{"gameId":126,"gameSlug":"final-doom","name":"Final Doom","description":"Sony PlayStation version running with PsyDoom"}
+{"gameId":14217,"gameSlug":"clone-hero","name":"Clone Hero","description":"Downloads and installs Clone Hero v1.1.0.4261-PTB  from Github."}
+{"gameId":25996,"gameSlug":"command-conquer-red-alert","name":"Command & Conquer: Red Alert","description":"Uses the native Vanilla Conquer source port. Includes the Counterstrike and Aftermath expansion packs."}
+{"gameId":235341,"gameSlug":"edopro","name":"EDOPro","description":""}
+{"gameId":296405,"gameSlug":"steps-of-debauchery","name":"Steps of Debauchery","description":""}
+{"gameId":46,"gameSlug":"dwarf-fortress","name":"Dwarf Fortress","description":"Add‐on for Dwarf Fortress."}
+{"gameId":293374,"gameSlug":"c-evo-new-horizons","name":"C‐evo: New Horizons","description":""}
+{"gameId":290188,"gameSlug":"singularity-secondlife-viewer-189-8338","name":"Singularity Secondlife Viewer 1.8.9 (8338)","description":"Singularity Secondlife Viewer 1.8.9 (8338)"}
+{"gameId":281005,"gameSlug":"polytrack","name":"Polytrack","description":""}
+{"gameId":200817,"gameSlug":"zenless-zone-zero","name":"Zenless Zone Zero","description":"Play \"Zenless Zone Zero\" on Linux using \"Sleepy Launcher\" open source   project"}
+{"gameId":32330,"gameSlug":"price-for-freedom-avarice","name":"Price for Freedom: Avarice","description":"Latest version from the official website."}
+{"gameId":225080,"gameSlug":"wuthering-waves","name":"Wuthering Waves","description":"Play \"Wuthering Waves\" on Linux using the \"Wavey Launcher\" open source project"}
+{"gameId":272091,"gameSlug":"celeste-64-fragments-of-the-mountain","name":"Celeste 64: Fragments of the Mountain","description":"i"}
+{"gameId":245898,"gameSlug":"kagetsu-tohya","name":"Kagetsu Tohya","description":"ONScripter"}
+{"gameId":225312,"gameSlug":"date-ariane-remastered","name":"Date Ariane Remastered","description":""}
+{"gameId":5472,"gameSlug":"neverball","name":"Neverball","description":"Flatpak version"}
+{"gameId":4099,"gameSlug":"technic-launcher","name":"Technic Launcher","description":""}
+{"gameId":39292,"gameSlug":"c-dogs-sdl","name":"C-Dogs SDL","description":"Github tarball release"}
+{"gameId":10578,"gameSlug":"armagetron-advanced","name":"Armagetron Advanced","description":"AppImage x64 version"}
+{"gameId":7153,"gameSlug":"freedoom","name":"Freedoom","description":"Play \"FreeDoom\" with \"Quake Champions - Doom edition mod\"  on Linux!"}
+{"gameId":284748,"gameSlug":"super-mario-63-redux","name":"Super Mario 63 Redux","description":"tiny demo v0.1.6"}
+{"gameId":3194,"gameSlug":"hexen-ii-portals-of-praevus","name":"HeXen II: Portals of Praevus","description":"Play \"HeXen II - Portals of Praevus\" on Linux!"}
+{"gameId":37667,"gameSlug":"mudlet","name":"Mudlet","description":"Direct download of the AppImage Linux client from the official website (mudlet.org)."}
+{"gameId":210647,"gameSlug":"the-infinite-black-2","name":"The Infinite Black 2","description":"Direct download of the native Linux client from the official website (tib2.com)."}
+{"gameId":8252,"gameSlug":"the-infinite-black","name":"The Infinite Black","description":"Direct download of the native Linux client from the official website (spellbook.com/tib/)."}
+{"gameId":273790,"gameSlug":"super-mario-64-coop-deluxe","name":"Super Mario 64 Coop Deluxe","description":"Installs Native Linux Version of Super Mario 64 Coop Deluxe"}
+{"gameId":23415,"gameSlug":"yuzu","name":"Yuzu","description":"suyu (AppImage)"}
+{"gameId":155461,"gameSlug":"kapital-sparks-of-revolution","name":"Kapital: Sparks of Revolution","description":""}
+{"gameId":29646,"gameSlug":"citra","name":"Citra","description":"PabloMK7 fork with ArticBase Support"}
+{"gameId":114,"gameSlug":"wolfenstein-3d-spear-of-destiny","name":"Wolfenstein 3D: Spear of Destiny","description":"Play \"Wolfenstein 3D: Spear of Destiny\" provided by GOG on Linux! using ECWolf open source project"}
+{"gameId":316,"gameSlug":"wolfenstein-3d","name":"Wolfenstein 3D","description":"Play \"Wolfenstein 3D\" provided by GOG on Linux! using ECWolf open source project"}
+{"gameId":188053,"gameSlug":"unlock-everything","name":"Unlock Everything","description":""}
+{"gameId":269806,"gameSlug":"paladium-games-launcher","name":"Paladium Games Launcher","description":"Official java launcher"}
+{"gameId":22044,"gameSlug":"nox","name":"Nox","description":"Nox native with OpenNox open source project"}
+{"gameId":38503,"gameSlug":"bluemaximas-flashpoint","name":"Flashpoint Archive","description":"Mutable Linux build as detailed here: https://flashpointarchive.org/datahub/Linux_Support#Mutable_Version"}
+{"gameId":176576,"gameSlug":"deltatraveler","name":"DELTATRAVELER","description":""}
+{"gameId":27537,"gameSlug":"fear-hunger","name":"Fear & Hunger","description":""}
+{"gameId":10616,"gameSlug":"oneshot","name":"OneShot","description":""}
+{"gameId":215226,"gameSlug":"ambermoon-dot-net","name":"Ambermoon.net","description":""}
+{"gameId":1645,"gameSlug":"duke-nukem-2","name":"Duke Nukem II","description":"Installs RigelEngine with game files manually provided by you (like from an installation of the floppy disk version)"}
+{"gameId":204998,"gameSlug":"gdlauncher","name":"GDLauncher","description":""}
+{"gameId":37792,"gameSlug":"sonic-3-air","name":"Sonic 3 A.I.R","description":"Compiles and installs the git (unstable) version of Sonic 3 A.I.R"}
+{"gameId":4116,"gameSlug":"factorio","name":"Factorio","description":""}
+{"gameId":7682,"gameSlug":"rigs-of-rods","name":"Rigs Of Rods","description":""}
+{"gameId":2097,"gameSlug":"democracy-3","name":"Democracy 3","description":""}
+{"gameId":251911,"gameSlug":"new-super-mario-bros-versus","name":"New Super Mario Bros. Versus","description":""}
+{"gameId":1111,"gameSlug":"doom-3-bfg-edition","name":"Doom 3: BFG Edition","description":"Play \"Doom 3 - BFG Edition\" provided by Steam on Linux!"}
+{"gameId":181804,"gameSlug":"eschalon-book-i","name":"Eschalon: Book I","description":""}
+{"gameId":27819,"gameSlug":"psychonauts-2","name":"Psychonauts 2","description":""}
+{"gameId":2616,"gameSlug":"the-legend-of-zelda-ocarina-of-time","name":"The Legend of Zelda: Ocarina of Time","description":"Installs Native Linux Version of Ship of Harkinian"}
+{"gameId":256086,"gameSlug":"sound-space","name":"Sound Space + | Rhythia","description":"Sound Space Plus - native Linux package"}
+{"gameId":114500,"gameSlug":"higanbana-no-saku-yoru-ni-the-first-night","name":"Higanbana no Saku Yoru ni: The First Night","description":""}
+{"gameId":2816,"gameSlug":"carmageddon-max-pack","name":"Carmageddon Max Pack","description":"This installer contains a script that updates to the lattest version of Nglide that have Vulkan support and provide some useful scripts for running the expansions easier with updated version of Nglide"}
+{"gameId":249521,"gameSlug":"movie-battles-ii","name":"Movie Battles II","description":"This installer uses the GOG version of Jedi Academy"}
+{"gameId":24257,"gameSlug":"a-kiss-for-the-petals-maidens-of-michael","name":"A Kiss For The Petals - Maidens of Michael","description":"Installer for full release of this game."}
+{"gameId":230436,"gameSlug":"midnight-witch","name":"Midnight Witch","description":""}
+{"gameId":246565,"gameSlug":"modrinth","name":"Modrinth","description":"The Modrinth App is a unique, open source launcher that allows you to play your favorite mods, and keep them up to date, all in one neat little package."}
+{"gameId":10579,"gameSlug":"terasology","name":"Terasology","description":"This build comes with the Terasology Launcher"}
+{"gameId":159464,"gameSlug":"punishing-gray-raven","name":"Punishing: Gray Raven","description":"AABL launcher is deprecated. Use standard version instead."}
+{"gameId":3515,"gameSlug":"katawa-shoujo","name":"Katawa Shoujo","description":""}
+{"gameId":204765,"gameSlug":"last-call-bbs","name":"Last Call BBS","description":""}
+{"gameId":31222,"gameSlug":"honkai-impact-3rd","name":"Honkai Impact 3rd","description":"Play \"Honkai Impact 3rd\" on Linux using \"Honkers Launcher\" open source project"}
+{"gameId":168872,"gameSlug":"honkai-star-rail","name":"Honkai: Star Rail","description":"Play \"Honkai Star Rail\" on Linux using \"The Honkers Railway Launcher\" open source project"}
+{"gameId":39074,"gameSlug":"genshin-impact","name":"Genshin Impact","description":"Play \"Genshin Impact\" on Linux!"}
+{"gameId":175964,"gameSlug":"3d-pinball-space-cadet","name":"3D Pinball: Space Cadet","description":"Play \"3D Pinball for Windows: Space Cadet\" on Linux!"}
+{"gameId":37300,"gameSlug":"haven-hearth","name":"Haven & Hearth","description":"Standalone Ender client for java 32-bit"}
+{"gameId":205299,"gameSlug":"lonelypie-evie","name":"LonelyPie Evie","description":"Installer for latest Evie version from GitHub"}
+{"gameId":98993,"gameSlug":"me-and-my-shadow","name":"Me and My Shadow","description":"Build from source."}
+{"gameId":4027,"gameSlug":"speed-dreams","name":"Speed Dreams","description":""}
+{"gameId":40569,"gameSlug":"jewels-of-the-oracle","name":"Jewels of the Oracle","description":"Play \"Jewels of the Oracle\" CD edition on Linux!"}
+{"gameId":1512,"gameSlug":"tomb-raider-i","name":"Tomb Raider","description":"Play \"Tomb Raider I\" provided by GOG on Linux!"}
+{"gameId":2940,"gameSlug":"the-legend-of-zelda-a-link-to-the-past","name":"The Legend of Zelda: A Link to the Past","description":"Build Zelda 3 from source, a reverse engineered clone of Zelda 3 - A Link to the Past"}
+{"gameId":3362,"gameSlug":"0-ad","name":"0 A.D.","description":"Official Flatpak Version"}
+{"gameId":40,"gameSlug":"teeworlds","name":"Teeworlds","description":"Unofficial Flatpak Version"}
+{"gameId":32,"gameSlug":"xonotic","name":"Xonotic","description":"Official Flatpak Version"}
+{"gameId":77,"gameSlug":"red-eclipse","name":"Red Eclipse","description":"Unofficial Flatpak Version"}
+{"gameId":3361,"gameSlug":"the-battle-for-wesnoth","name":"The Battle for Wesnoth","description":"Official way to install the game in Linux is through flatpak."}
+{"gameId":4812,"gameSlug":"freeorion","name":"FreeOrion","description":"Official Flatpak Version"}
+{"gameId":4587,"gameSlug":"osu","name":"osu!","description":"Unofficial Flatpak Version"}
+{"gameId":28524,"gameSlug":"endgame-singularity","name":"Endgame: Singularity","description":""}
+{"gameId":202744,"gameSlug":"mega-man-x-online-deathmatch","name":"Mega Man X Online: Deathmatch","description":""}
+{"gameId":76,"gameSlug":"minetest","name":"Luanti","description":"Requires flatpak to be installed and flatpak runner to be enabled in Lutris"}
+{"gameId":40154,"gameSlug":"abbaye-des-morts","name":"Abbaye Des Morts","description":"Requires flatpak to be installed and flatpak runner to be enabled in Lutris"}
+{"gameId":5400,"gameSlug":"lix","name":"Lix","description":"Requires flatpak to be installed and flatpak runner to be enabled in Lutris"}
+{"gameId":5834,"gameSlug":"pingus","name":"Pingus","description":"Requires flatpak to be installed and flatpak runner to be enabled in Lutris"}
+{"gameId":39709,"gameSlug":"open-surge","name":"Open Surge","description":"Flathub version"}
+{"gameId":17832,"gameSlug":"blade-of-agony","name":"Blade of Agony","description":"Standalone version. Requires flatpak to be installed and flatpak runner to be enabled in Lutris"}
+{"gameId":41056,"gameSlug":"openhv","name":"OpenHV","description":""}
+{"gameId":4941,"gameSlug":"widelands","name":"Widelands","description":""}
+{"gameId":49334,"gameSlug":"daggerfall-unity","name":"Daggerfall Unity","description":"One stop install for DFU"}
+{"gameId":105536,"gameSlug":"runescape-classic","name":"RuneScape Classic","description":"OpenRSC is an open-source server preservation project for RuneScape Classic"}
+{"gameId":16449,"gameSlug":"cemu","name":"Cemu","description":"Cemu linux (appimage)"}
+{"gameId":26866,"gameSlug":"bomb-squad","name":"BombSquad","description":""}
+{"gameId":33159,"gameSlug":"helltaker","name":"Helltaker","description":""}
+{"gameId":27591,"gameSlug":"sigil","name":"Sigil","description":"Requires The Ultimate Doom. Uses its launcher script that uses system's crispy-doom binary and stores persistent config in game directory."}
+{"gameId":123,"gameSlug":"master-levels-for-doom-ii","name":"Master Levels for DOOM II","description":"Requires Doom II: Hell on Earth. Uses its launcher script that uses system's crispy-doom binary and stores persistent config in game directory."}
+{"gameId":205359,"gameSlug":"doom-ii-no-rest-for-the-living","name":"Doom II: No Rest for the Living","description":"Requires Doom II: Hell on Earth installation. Uses doom2 launcher script that uses system's crispy-doom binary and stores persistent config in game directory."}
+{"gameId":127,"gameSlug":"doom-ii-hell-on-earth","name":"Doom II: Hell on Earth","description":"Creates launcher script that uses system's crispy-doom binary and stores persistent config in game directory."}
+{"gameId":125,"gameSlug":"the-ultimate-doom","name":"The Ultimate Doom","description":"Creates launcher script that uses system's crispy-doom binary and stores persistent config in game directory."}
+{"gameId":1817,"gameSlug":"the-curse-of-monkey-island","name":"The Curse of Monkey Island","description":"Creates launcher script that uses system's scummvm binary and stores persistent config in game directory."}
+{"gameId":11827,"gameSlug":"discworld-ii-missing-presumed","name":"Discworld II: Missing Presumed...!?","description":"Creates launcher script that uses system's scummvm binary and stores persistent config in game directory."}
+{"gameId":11826,"gameSlug":"discworld","name":"Discworld","description":"Creates launcher script that uses system's scummvm binary and stores persistent config in game directory."}
+{"gameId":306,"gameSlug":"super-hexagon","name":"Super Hexagon","description":""}
+{"gameId":184420,"gameSlug":"ultra-hat-dimension","name":"Ultra Hat Dimension","description":""}
+{"gameId":4893,"gameSlug":"crosscode","name":"CrossCode","description":""}
+{"gameId":1807,"gameSlug":"unreal-tournament-2003","name":"Unreal Tournament 2003","description":"Installs retail 3 CD version of the game, updated to version 2225"}
+{"gameId":16806,"gameSlug":"cosmic-express","name":"Cosmic Express","description":""}
+{"gameId":5562,"gameSlug":"soldat","name":"Soldat","description":"OpenSoldat 1.8.0"}
+{"gameId":204907,"gameSlug":"sulis","name":"Sulis","description":"simple extractor for github release"}
+{"gameId":204864,"gameSlug":"az-launcher","name":"AZ Launcher","description":"AZ Launcher is A Minecraft Modpack which can be used to launch minecraft for free"}
+{"gameId":7845,"gameSlug":"cataclysm-dark-days-ahead","name":"Cataclysm: Dark Days Ahead","description":"Installs qrrk's Catapult: A cross-platform launcher for Cataclysm: DDA and BN"}
+{"gameId":26938,"gameSlug":"mechwarrior-3","name":"MechWarrior 3","description":"Play \"MechWarrior 3\" CD edition on Linux!"}
+{"gameId":191394,"gameSlug":"spine-ps4-linux","name":"Spine Ps4 Linux","description":""}
+{"gameId":124,"gameSlug":"commander-keen-complete-pack","name":"Commander Keen Complete Pack","description":"with HQ packs"}
+{"gameId":187491,"gameSlug":"fly-dangerous","name":"Fly Dangerous","description":"Get latest version on github"}
+{"gameId":8100,"gameSlug":"teamspeak","name":"Teamspeak","description":""}
+{"gameId":11059,"gameSlug":"gonner","name":"GoNNER","description":"Simply extracts the zip file"}
+{"gameId":11350,"gameSlug":"sundered","name":"Sundered","description":""}
+{"gameId":38805,"gameSlug":"shutter-stroll","name":"Shutter Stroll","description":""}
+{"gameId":37447,"gameSlug":"wild-woods","name":"Wild Woods","description":""}
+{"gameId":500,"gameSlug":"receiver","name":"Receiver","description":""}
+{"gameId":38741,"gameSlug":"data-loss","name":"DATA LOSS","description":""}
+{"gameId":37546,"gameSlug":"lingotopia","name":"Lingotopia","description":""}
+{"gameId":101129,"gameSlug":"cyber-drak-cools-yas-from-mars-rat-and-bat-love-and-hate","name":"Cyber Drak-Cools-Yas From Mars: Rat and Bat. Love and Hate.","description":""}
+{"gameId":38835,"gameSlug":"three-lesbians-in-a-barrow","name":"Three Lesbians in a Barrow","description":""}
+{"gameId":185492,"gameSlug":"super-is-hot","name":"Super Is Hot","description":""}
+{"gameId":6322,"gameSlug":"cannon-fodder-2","name":"Cannon Fodder 2","description":"Installs OpenFodder https://github.com/OpenFodder/openfodder"}
+{"gameId":6321,"gameSlug":"cannon-fodder","name":"Cannon Fodder","description":"Installs OpenFodder https://github.com/OpenFodder/openfodder"}
+{"gameId":6062,"gameSlug":"sonic-the-hedgehog-2","name":"Sonic the Hedgehog 2","description":"Installs Sonic Decompilation https://github.com/Rubberduckycooly/Sonic-1-2-2013-Decompilation"}
+{"gameId":3240,"gameSlug":"sonic-the-hedgehog","name":"Sonic the Hedgehog","description":"Installs Sonic Decompilation https://github.com/Rubberduckycooly/Sonic-1-2-2013-Decompilation"}
+{"gameId":5091,"gameSlug":"cosmos-cosmic-adventure","name":"Cosmo's Cosmic Adventure","description":"Installs Cosmo-Engine https://github.com/yuv422/cosmo-engine/"}
+{"gameId":5097,"gameSlug":"blake-stone-planet-strike","name":"Blake Stone: Planet Strike","description":"Installs bstone source port https://github.com/bibendovsky/bstone"}
+{"gameId":5086,"gameSlug":"blake-stone-aliens-of-gold","name":"Blake Stone: Aliens of Gold","description":"Installs bstone source port https://github.com/bibendovsky/bstone"}
+{"gameId":21878,"gameSlug":"unavowed","name":"Unavowed","description":""}
+{"gameId":191258,"gameSlug":"openra-combined-arms","name":"OpenRA: Combined Arms","description":""}
+{"gameId":23293,"gameSlug":"jagged-alliance-2","name":"Jagged Alliance 2","description":"Uses the Linux appimage to run JA2 Stracciatella"}
+{"gameId":191205,"gameSlug":"q3rally","name":"Q3Rally","description":"v0.3c 64 bit"}
+{"gameId":15139,"gameSlug":"driver-2-back-on-the-streets","name":"Driver 2: Back on the Streets","description":"Installs REDRIVER2 https://github.com/OpenDriver2/REDRIVER2"}
+{"gameId":6131,"gameSlug":"a-boy-and-his-blob","name":"A Boy and His Blob","description":""}
+{"gameId":1601,"gameSlug":"x-com-terror-from-the-deep","name":"X-COM: Terror from the Deep","description":"Installs nightly AppImage of OpenXcom in portable mode. See more info here: https://www.ufopaedia.org/index.php/OpenXcom"}
+{"gameId":1604,"gameSlug":"x-com-ufo-defense","name":"X-COM: UFO Defense","description":"Installs nightly AppImage of OpenXcom in portable mode. See more info here: https://www.ufopaedia.org/index.php/OpenXcom"}
+{"gameId":2953,"gameSlug":"one-must-fall-2097","name":"One Must Fall 2097","description":"Installs OpenOMF https://www.openomf.org/"}
+{"gameId":44200,"gameSlug":"escape-the-ayuwoki","name":"Escape the Ayuwoki","description":"Installer for the Linux version available at https://deadlycrowgames.itch.io/escape-the-ayuwoki"}
+{"gameId":4117,"gameSlug":"planeshift","name":"PlaneShift","description":""}
+{"gameId":2425,"gameSlug":"supertux","name":"SuperTux","description":""}
+{"gameId":5568,"gameSlug":"cryptark","name":"CRYPTARK","description":""}
+{"gameId":44684,"gameSlug":"shattered-pixel-dungeon","name":"Shattered Pixel Dungeon","description":"Version 3.3.8"}
+{"gameId":25925,"gameSlug":"nullpomino","name":"NullpoMino","description":"Installs patched version 7.6.0 of NullpoMino for x86_64 Linux"}
+{"gameId":44733,"gameSlug":"mtg-arena-tool","name":"MTG Arena Tool","description":""}
+{"gameId":41031,"gameSlug":"realrtcw","name":"Return to Castle Wolfenstein - RealRTCW mod","description":"\r\n\"Return to Castle Wolfenstein\" provided by GOG using RealRTCW project:\r\nhttps://github.com/wolfetplayer/RealRTCW and RealRTCW mod 3.3.\r\n\r\n"}
+{"gameId":2249,"gameSlug":"daikatana","name":"Daikatana","description":"Daikatana 1.3 x64 engine using GOG game assets"}
+{"gameId":25935,"gameSlug":"old-school-runescape","name":"Old School RuneScape","description":"RuneLite version 2.4.4."}
+{"gameId":74,"gameSlug":"shadowrun-returns","name":"Shadowrun Returns","description":"To run the game you need a libGLU package. On arch you can download it from multilib / lib32-glu."}
+{"gameId":44381,"gameSlug":"frozen-depths","name":"Frozen Depths","description":"Some distros, e.g. Arch, use the wide character build of the ncurses library as its standard (ncursesw). This is the build you'll want on those distros."}
+{"gameId":43962,"gameSlug":"moodle-desktop","name":"Moodle Desktop","description":"x64. File uploaded to archive.org. Moodle team removed the linux files. When launching moodle, please wait, it takes some time to launch the GUI. This is not a game, is a platform for educational purposes that has been discontinued by the owner of this software and I decided to keep it (in some way) alive in the Lutris platform."}
+{"gameId":43437,"gameSlug":"death-trash","name":"Death Trash","description":""}
+{"gameId":9944,"gameSlug":"ladykiller-in-a-bind","name":"Ladykiller in a Bind","description":"Installer for removed scene in Presidents route."}
+{"gameId":37021,"gameSlug":"wanderlust-transsiberian","name":"Wanderlust: Transsiberian","description":""}
+{"gameId":21495,"gameSlug":"mindustry","name":"Mindustry","description":"Uses the 7.0-alpha (v131) jar file from GitHub and your native Java runtime."}
+{"gameId":2039,"gameSlug":"the-dark-mod","name":"The Dark Mod","description":"Important: run the installer with default installation directory and settings."}
+{"gameId":41760,"gameSlug":"ascension-wow","name":"Ascension WoW","description":"Installer for the Linux Launcher of Project Ascension. The installer creates a small update/start script to automatically update the launcher if a new version is published."}
+{"gameId":119,"gameSlug":"quake-mission-pack-1-scourge-of-armagon","name":"Quake Mission Pack 1: Scourge of Armagon","description":"New Steam version"}
+{"gameId":41161,"gameSlug":"panfuus-desktop-app","name":"Panfu.us Desktop app","description":"Native version of Panfu.us desktop client (32 bit)"}
+{"gameId":43650,"gameSlug":"post-hello","name":"Post Hello","description":""}
+{"gameId":23591,"gameSlug":"sonic-robo-blast-2-kart","name":"Sonic Robo Blast 2 Kart","description":"Does not include \"Discord Rich Presence\" support."}
+{"gameId":41602,"gameSlug":"ottomatic","name":"Ottomatic","description":"Native Linux build with cheat support\r\n\r\nhttps://github.com/jorio/OttoMatic/blob/master/CHEATS.md"}
+{"gameId":43488,"gameSlug":"insatia","name":"Insatia","description":"None"}
+{"gameId":39491,"gameSlug":"ddracenetwork","name":"DDraceNetwork","description":"Install DDraceNetwork Linux version"}
+{"gameId":41238,"gameSlug":"xenia-emu","name":"Xenia","description":"Latest Canary version for Linux"}
+{"gameId":43246,"gameSlug":"cutietanks","name":"CutieTanks","description":"The installer downloads the latest version game from GitHub and puts the files in the game directory."}
+{"gameId":12335,"gameSlug":"dream-daddy-a-dad-dating-simulator","name":"Dream Daddy: A Dad Dating Simulator","description":""}
+{"gameId":3072,"gameSlug":"dex","name":"Dex","description":""}
+{"gameId":36712,"gameSlug":"carrion","name":"CARRION","description":""}
+{"gameId":42935,"gameSlug":"ldtk","name":"LDtk: Level Designer Toolkit","description":"https://github.com/deepnight/ldtk/releases/tag/v0.9.3"}
+{"gameId":10446,"gameSlug":"hellpoint","name":"Hellpoint","description":""}
+{"gameId":7829,"gameSlug":"aragami","name":"Aragami","description":""}
+{"gameId":41621,"gameSlug":"budom","name":"Bugdom","description":"x86_64 https://github.com/jorio/Bugdom/"}
+{"gameId":40556,"gameSlug":"tyranny-gold-edition","name":"Tyranny — Gold Edition","description":""}
+{"gameId":42531,"gameSlug":"tetraforce","name":"TetraForce","description":""}
+{"gameId":42023,"gameSlug":"forged-alliance-forever","name":"Forged Alliance Forever","description":""}
+{"gameId":3657,"gameSlug":"this-war-of-mine","name":"This War of Mine","description":""}
+{"gameId":29895,"gameSlug":"aokana-four-rhythms-across-the-blue","name":"Aokana - Four Rhythms Across the Blue","description":"Fan-produced native Linux port of the original Windows version of \"Ao no Kanata no Four Rhythm\" (Aokana) digitally published by NekoNyan and JAST, courtesy the Fuwanovel forum. This installer is the complete uncensored Aokana experience ported to Linux, including all CGs, scenes, and dialogues from the original Japanese release, Misaka's supplementary scenes from the Aokana Perfect Edition+, and perfect playback of Linux-compatible videos transcoded from the original Windows release."}
+{"gameId":42221,"gameSlug":"xbox-cloud-gaming","name":"Xbox Cloud Gaming","description":"The installer uses an electron app to run xbox cloud gaming. The installer pulls from my github page and then runs npm install to pull all dependencies for the electron app. The installer also makes run.sh executable because the command \"npm start\" is need to start app."}
+{"gameId":42168,"gameSlug":"mighty-mike","name":"Mighty Mike","description":"Mighty Mike is being re-released here (https://github.com/jorio/mightymike) under the CC BY-NC-SA 4.0 license with permission from Pangea Software, Inc.\r\n\r\n© 1995-2000 Pangea Software, Inc. Mighty Mike is a trademark of Pangea Software, Inc.\r\n\r\nThis software includes portions © 2021 Iliyas Jorio.\r\n\r\nPackaged by jpenguin"}
+{"gameId":42114,"gameSlug":"ashes-wlg","name":"Ashes (WLG)","description":""}
+{"gameId":4627,"gameSlug":"simcity-2000","name":"SimCity 2000","description":"Play \"SimCity 2000 Special Edition\" on Linux!"}
+{"gameId":5613,"gameSlug":"godot-engine","name":"Godot Engine","description":"Latest stable of the standard version."}
+{"gameId":42017,"gameSlug":"the-binding-of-isaac","name":"The Binding of Isaac","description":""}
+{"gameId":264,"gameSlug":"legend-of-grimrock","name":"Legend of Grimrock","description":""}
+{"gameId":472,"gameSlug":"retro-city-rampagetm","name":"Retro City Rampage DX","description":""}
+{"gameId":41783,"gameSlug":"3-d-ultra-pinball-thrillride","name":"3-D Ultra Pinball: Thrillride","description":"Play \"3-D Ultra Pinball: Thrillride\" on Linux!"}
+{"gameId":41668,"gameSlug":"nanosaur","name":"Nanosaur","description":"Native recompile for Linux by https://github.com/jorio/"}
+{"gameId":32568,"gameSlug":"badlion-client","name":"Badlion Client","description":"This is the Badlion client running under Linux native(AppImage). It has all of the features of this one. Which means that it does not support the Badlion Anticheat but only all other features such as FPS BOOST, 50+ Mods, Cosmetics, and more."}
+{"gameId":41344,"gameSlug":"luck-be-a-landlord","name":"Luck be a Landlord","description":""}
+{"gameId":83,"gameSlug":"starmade","name":"StarMade","description":"downloads the launcher directly from star-made.org, for non steam use"}
+{"gameId":27200,"gameSlug":"krunker","name":"Krunker","description":"Installs the idkr Krunker client (64-Bit) provided by Mixaz017 at https://github.com/Mixaz017/idkr \r\n\r\nThis client aims for:\r\n-Stable behavior and performance \r\n-Advanced customizability (settings and userscripts) \r\n-Constructive to the community (open source and MIT license)"}
+{"gameId":2941,"gameSlug":"unvanquished","name":"Unvanquished","description":""}
+{"gameId":41058,"gameSlug":"friday-night-funkin","name":"Friday Night Funkin","description":""}
+{"gameId":480,"gameSlug":"dont-starve","name":"Don't Starve","description":""}
+{"gameId":7646,"gameSlug":"the-king-of-fighters-2002","name":"The King of Fighters 2002","description":"This is the GOG version of The King of Fighters 2002."}
+{"gameId":3993,"gameSlug":"oddworld-new-n-tasty","name":"Oddworld: New 'n' Tasty","description":""}
+{"gameId":29196,"gameSlug":"lisa-the-pointless","name":"LISA: The Pointless","description":""}
+{"gameId":8795,"gameSlug":"ara-fell","name":"Ara Fell: Enhanced Edition","description":""}
+{"gameId":17407,"gameSlug":"surviving-mars","name":"Surviving Mars","description":""}
+{"gameId":261,"gameSlug":"cave-story","name":"Cave Story+","description":""}
+{"gameId":6762,"gameSlug":"am2r-return-of-samus","name":"AM2R: Return of Samus","description":""}
+{"gameId":6593,"gameSlug":"brogue","name":"Brogue","description":""}
+{"gameId":3845,"gameSlug":"sunless-sea","name":"Sunless Sea","description":""}
+{"gameId":153783,"gameSlug":"swords-and-soldiers","name":"Swords & Soldiers","description":""}
+{"gameId":234,"gameSlug":"trauma","name":"TRAUMA","description":""}
+{"gameId":115,"gameSlug":"return-to-castle-wolfenstein","name":"Return to Castle Wolfenstein","description":"Uses the iortcw engine https://github.com/iortcw/iortcw"}
+{"gameId":301,"gameSlug":"cortex-command","name":"Cortex Command","description":""}
+{"gameId":277,"gameSlug":"oil-rush","name":"Oil Rush","description":""}
+{"gameId":303,"gameSlug":"little-inferno","name":"Little Inferno","description":""}
+{"gameId":39618,"gameSlug":"art-of-rally","name":"art of rally","description":""}
+{"gameId":27834,"gameSlug":"spiritfarer","name":"Spiritfarer","description":""}
+{"gameId":14886,"gameSlug":"nekojishi","name":"Nekojishi","description":""}
+{"gameId":38610,"gameSlug":"unciv","name":"Unciv","description":"Always the latest version of the game from github"}
+{"gameId":40450,"gameSlug":"x4-split-vendetta","name":"X4: Split Vendetta","description":""}
+{"gameId":36876,"gameSlug":"drod-king-dugans-dungeon","name":"DROD: King Dugan's Dungeon","description":""}
+{"gameId":11240,"gameSlug":"stephens-sausage-roll","name":"Stephen's Sausage Roll","description":""}
+{"gameId":4000,"gameSlug":"the-adventures-of-prince-ivan","name":"The Adventures of Prince Ivan","description":"Free download from <a href=\"https://renai.us/game/ivan\">renai.us</a>"}
+{"gameId":40291,"gameSlug":"beyond-all-reason","name":"Beyond All Reason","description":""}
+{"gameId":3553,"gameSlug":"the-talos-principle","name":"The Talos Principle","description":"Very basic installer"}
+{"gameId":4974,"gameSlug":"rocket-league","name":"Rocket League","description":"This installs the old steam client"}
+{"gameId":39822,"gameSlug":"arduino-ide","name":"Arduino-IDE","description":""}
+{"gameId":122,"gameSlug":"doom-3-resurrection-of-evil","name":"Doom 3: Resurrection of Evil","description":"Play \"Doom 3 - Resurrection Of Evil\" on Linux!"}
+{"gameId":69,"gameSlug":"doom-3","name":"Doom 3","description":"Play \"Doom 3\" on Linux!"}
+{"gameId":39948,"gameSlug":"bonfire","name":"Bonfire","description":"Please support Bonfire devs on Patreon: https://www.patreon.com/bonfire"}
+{"gameId":21157,"gameSlug":"pokemon-reborn","name":"Pokemon Reborn","description":"Native Linux Version"}
+{"gameId":879,"gameSlug":"quake-4","name":"Quake 4","description":"Uses the Steam installed Quake 4 files to install the native version."}
+{"gameId":1077,"gameSlug":"aliens-versus-predator-classic-2000","name":"Aliens versus Predator Classic 2000","description":"This installer uses the Steam installation to get the game data and the open source native executable from http://icculus.org/avp/"}
+{"gameId":33,"gameSlug":"quake-iii-team-arena","name":"Quake III Team Arena","description":""}
+{"gameId":8227,"gameSlug":"duke-nukem-3d-20th-anniversary-world-tour","name":"Duke Nukem 3D: 20th Anniversary World Tour","description":"\"Hi Resolution Pack\" for EDuke32: HD graphism, HD music, light effects and other enhancements.\r\nCredits:\r\nBig thanks to the guys at Duke4.net:\r\nhttp://hrp.duke4.net/\r\nand his community:\r\nhttps://forums.duke4.net/"}
+{"gameId":7678,"gameSlug":"duke-nukem-3d-megaton-edition","name":"Duke Nukem 3D: Megaton Edition","description":"\"Hi Resolution Pack\" for EDuke32: HD graphism, HD music, light effects and other enhancements.\r\nCredits:\r\nBig thanks to the guys at Duke4.net:\r\nhttp://hrp.duke4.net/\r\nand his community:\r\nhttps://forums.duke4.net/"}
+{"gameId":19064,"gameSlug":"battlevoid-harbinger","name":"Battlevoid: Harbinger","description":""}
+{"gameId":39714,"gameSlug":"the-cleft-of-dimensions","name":"The Cleft of Dimensions","description":""}
+{"gameId":39713,"gameSlug":"alter-aeon","name":"Alter Aeon","description":""}
+{"gameId":30413,"gameSlug":"the-fertile-crescent","name":"The Fertile Crescent","description":"The Fertile Crescent - Download file from itch.io and install"}
+{"gameId":39351,"gameSlug":"ultimaker-cura","name":"Ultimaker Cura","description":""}
+{"gameId":28231,"gameSlug":"shattered-paradise","name":"Shattered Paradise","description":""}
+{"gameId":20,"gameSlug":"serious-sam-the-first-encounter","name":"Serious Sam: The First Encounter","description":"\"Serious Sam: The First Encounter\" provided by GOG using SeriousSamClassic-VK open source project"}
+{"gameId":39323,"gameSlug":"dolphin-island-2","name":"Dolphin Island 2","description":""}
+{"gameId":176073,"gameSlug":"dune-ii-the-building-of-a-dynasty","name":"Dune II: The Building of a Dynasty","description":"\r\n\"Dune II\" DOS CD edition using dunelegacy project:\r\nhttp://dunelegacy.sourceforge.net/\r\n\r\n"}
+{"gameId":7691,"gameSlug":"the-powder-toy","name":"Powder Toy","description":""}
+{"gameId":1095,"gameSlug":"neo-scavenger","name":"NEO Scavenger","description":""}
+{"gameId":38598,"gameSlug":"projectosirion","name":"Project::OSiRiON","description":"Tarball contains both 64 bit and 32 bit binaries."}
+{"gameId":38593,"gameSlug":"netradiant","name":"NetRadiant","description":"illwieckz's build (Linux amd64 tarball)"}
+{"gameId":169,"gameSlug":"osmos","name":"Osmos","description":"\r\n\"OSMOS\" provided from official OSMOS site game: http://www.osmos-game.com/\r\n\r\n"}
+{"gameId":24889,"gameSlug":"unity-game-engine","name":"Unity (game engine)","description":"Download AppImage"}
+{"gameId":8363,"gameSlug":"deadbolt","name":"DEADBOLT","description":""}
+{"gameId":31347,"gameSlug":"unreal-engine-4","name":"Unreal Engine 4","description":"Installs latest native UE4."}
+{"gameId":38283,"gameSlug":"pixel-vision-8","name":"Pixel Vision 8","description":""}
+{"gameId":14818,"gameSlug":"hand-of-fate-2","name":"Hand of Fate 2","description":""}
+{"gameId":38262,"gameSlug":"cafe-memoria-deux","name":"Café Memoria Deux","description":""}
+{"gameId":4386,"gameSlug":"neverwinter-nights","name":"Neverwinter Nights","description":"Installer for the retail Diamond DVD"}
+{"gameId":37207,"gameSlug":"tic-80","name":"TIC-80","description":"Nightly build as of 2020.07.17."}
+{"gameId":36967,"gameSlug":"ultima-viitm-the-black-gate-the-forge-of-virtue","name":"Ultima VII™  - The Black Gate + The Forge of Virtue","description":"This option will install GOG edition of \"Ultima VII™ - The Black Gate + The Forge of Virtue\", specifically the Linux native version of the Exult Open Source Engine. \r\n\r\n*Important Notes*\r\nDuring the installation process you must provide the offline install files from your own GOG.com account library. (https://www.gog.com/account)\r\n\r\nIf you do not own the game yet you can buy it here (it also includes Ultima VII Part Two: Serpent Isle):\r\nhttps://www.gog.com/game/ultima_7_complete"}
+{"gameId":37887,"gameSlug":"hodoku","name":"HoDoKu","description":""}
+{"gameId":20587,"gameSlug":"beholder-2","name":"Beholder 2","description":""}
+{"gameId":4697,"gameSlug":"interstellaria","name":"Interstellaria","description":"This is for \"Interstellaria\", available from itch.io (and part of the wildly popular \"Bundle for Racial Justice and Equality\" as well as other bundles and direct purchase)."}
+{"gameId":36983,"gameSlug":"curse-of-the-azure-bonds","name":"Curse of the Azure Bonds","description":"The second game from the GOG \"Forgotten Realms: The Archives - Collection Two\" package"}
+{"gameId":33058,"gameSlug":"nowhere-prophet","name":"Nowhere Prophet","description":"This a generic install script for Nowhere Prophet."}
+{"gameId":10008,"gameSlug":"the-away-team","name":"The Away Team","description":""}
+{"gameId":13607,"gameSlug":"halcyon-6-lightspeed-edition","name":"Halcyon 6: Lightspeed Edition","description":""}
+{"gameId":4505,"gameSlug":"darkest-dungeon","name":"Darkest Dungeon","description":"Added missing DLC files for complete GOG installation"}
+{"gameId":12386,"gameSlug":"tangledeep","name":"Tangledeep","description":""}
+{"gameId":15778,"gameSlug":"the-darkside-detective","name":"The Darkside Detective","description":""}
+{"gameId":23388,"gameSlug":"warhammer-40000-mechanicus","name":"Warhammer 40,000: Mechanicus","description":""}
+{"gameId":5277,"gameSlug":"hacknet","name":"Hacknet","description":""}
+{"gameId":5003,"gameSlug":"endless-sky","name":"Endless Sky","description":"Compiling the game from source"}
+{"gameId":18933,"gameSlug":"amorous","name":"Amorous","description":"This script is designed to accept the linux zip of Amorous from itch.io"}
+{"gameId":37293,"gameSlug":"umineko-no-naku-koro-ni-musu","name":"Umineko no Naku Koro ni Musu","description":"Game: https://www.mediafire.com/file/x6b4c77xfx3dti1/Umineko_no_Naku_Koro_ni_Musu.rar/file\r\nOnScripter archive: https://web.archive.org/web/20180804033515/http://unclemion.com/onscripter/releases/"}
+{"gameId":21807,"gameSlug":"ai-war-2","name":"AI War 2","description":""}
+{"gameId":24424,"gameSlug":"shortest-trip-to-earth","name":"Shortest Trip to Earth","description":"This version works as intended. The initial GOG installer produces an error because the \"start.sh\" can't be found. Also, this game installs and plays properly when using the \"generic\" installer content hereby presented."}
+{"gameId":36601,"gameSlug":"space-haven","name":"Space Haven","description":""}
+{"gameId":29,"gameSlug":"quake-ii-ground-zero","name":"Quake II: Ground Zero","description":"The script uses the game files from GOG's Quake II: Quad Damage"}
+{"gameId":30,"gameSlug":"quake-ii-the-reckoning","name":"Quake II: The Reckoning","description":"The script uses the game files from GOG's Quake II: Quad Damage v2"}
+{"gameId":552,"gameSlug":"kentucky-route-zero","name":"Kentucky Route Zero","description":"An installer for the GOG version of the game."}
+{"gameId":4695,"gameSlug":"sky-rogue","name":"Sky Rogue","description":""}
+{"gameId":32524,"gameSlug":"lennas-inception","name":"Lenna's Inception","description":""}
+{"gameId":25302,"gameSlug":"odd-realm","name":"Odd Realm","description":""}
+{"gameId":24331,"gameSlug":"mewnbase","name":"MewnBase","description":""}
+{"gameId":32870,"gameSlug":"xeno-crisis","name":"Xeno Crisis","description":""}
+{"gameId":32751,"gameSlug":"truckersmp","name":"TruckersMP","description":""}
+{"gameId":280,"gameSlug":"tiny-and-big-grandpas-leftovers","name":"Tiny and Big: Grandpa's Leftovers","description":""}
+{"gameId":27341,"gameSlug":"mod-organizer-2","name":"Mod Organizer 2","description":""}
+{"gameId":300,"gameSlug":"mark-of-the-ninja","name":"Mark of the Ninja","description":""}
+{"gameId":36512,"gameSlug":"tetrio","name":"TETR.IO","description":"Official Electron app of the game, extracted from the .tar.gz provided here: https://tetr.io/about/desktop/"}
+{"gameId":23189,"gameSlug":"fell-seal-arbiters-mark","name":"Fell Seal: Arbiter's Mark","description":""}
+{"gameId":28415,"gameSlug":"littlewood","name":"Littlewood","description":""}
+{"gameId":15866,"gameSlug":"toontown-rewritten","name":"Toontown Rewritten","description":""}
+{"gameId":13604,"gameSlug":"ultima-iv-quest-of-the-avatar","name":"Ultima IV: Quest of the Avatar","description":"Runs Ultima IV natively on Linux. No emulator required, thanks to the XU4 project.\r\nWhile it can be made to work with the \"Ultima IV - Quest of the Avatar\" GOG edition, by default it just uses the version that Origin released for free in 1997 and makes installation a little easier.\r\nA scan of the cloth map provided with Ultima IV can be found at: http://www.dengler.net/xedragon/hrump/u4-100.jpg and the manual can be read at: https://archive.org/details/c64man_ultima4"}
+{"gameId":4056,"gameSlug":"tremulous","name":"Tremulous","description":"Version 1.3.0-alpha.0.14"}
+{"gameId":33128,"gameSlug":"virtuaverse","name":"VirtuaVerse","description":"Uses the Linux shell installer from GOG."}
+{"gameId":4746,"gameSlug":"runescape","name":"RuneScape","description":""}
+{"gameId":31409,"gameSlug":"seeds-of-chaos","name":"Seeds of Chaos","description":""}
+{"gameId":31847,"gameSlug":"a-kiss-for-the-petals-new-generation","name":"A Kiss For The Petals - New Generation","description":""}
+{"gameId":32885,"gameSlug":"dandara-trials-of-fear-edition","name":"Dandara: Trials of Fear Edition","description":"This option will install GOG edition of \"Dandara: Trials of Fear Edition\", specifically the Linux native version. \r\n\r\n*Important Notes*\r\nDuring the installation process you must provide the offline install files from your own GOG.com account library. (https://www.gog.com/account)\r\n\r\nIf you do not own the game yet you can buy it here:\r\nhttps://www.gog.com/game/dandara_trials_of_fear_edition"}
+{"gameId":4206,"gameSlug":"enigmatis-the-ghosts-of-maple-creek","name":"Enigmatis: The Ghosts of Maple Creek","description":""}
+{"gameId":28851,"gameSlug":"a-short-hike","name":"A Short Hike","description":""}
+{"gameId":31988,"gameSlug":"chiaki","name":"Chiaki","description":"Small Installer that grabs Chiaki Sourcehut and executes the PSN AccountID script to setup Chiaki."}
+{"gameId":32738,"gameSlug":"star-wars-rebel-assault-ii","name":"STAR WARS: Rebel Assault II","description":"Installs the GOG Linux version of Star Wars: Rebel Assault II."}
+{"gameId":10084,"gameSlug":"star-warstm-rebel-assault-i-ii","name":"STAR WARS™: Rebel Assault I + II","description":"Installs the GOG Linux version of Star Wars: Rebel Assault I."}
+{"gameId":11,"gameSlug":"star-wars-jedi-knight-ii-jedi-outcast","name":"Star Wars Jedi Knight II: Jedi Outcast","description":"Play \"Star Wars - Jedi Knight II - Jedi Outcast\" provided by GOG on Linux!"}
+{"gameId":3782,"gameSlug":"airline-tycoon-deluxe","name":"Airline Tycoon Deluxe","description":""}
+{"gameId":4644,"gameSlug":"ultima-vii-black-gate","name":"Ultima VII: The Black Gate","description":"Play \"Ultima VII - The Black Gate\" provided by GOG on Linux!"}
+{"gameId":8264,"gameSlug":"ohsir-the-insult-simulator","name":"Oh...Sir! The Insult Simulator","description":""}
+{"gameId":9052,"gameSlug":"neon-chrome","name":"Neon Chrome","description":""}
+{"gameId":8166,"gameSlug":"caravan","name":"Caravan","description":""}
+{"gameId":32458,"gameSlug":"doombringer","name":"DOOMBRINGER","description":"HD Textures version. ~1.6GB"}
+{"gameId":2760,"gameSlug":"vangers","name":"Vangers","description":""}
+{"gameId":32329,"gameSlug":"quickie-a-love-hotel-story","name":"Quickie: A Love Hotel Story","description":""}
+{"gameId":32328,"gameSlug":"dungeon-tail","name":"Dungeon Tail","description":""}
+{"gameId":32327,"gameSlug":"project-feline","name":"Project Feline","description":""}
+{"gameId":9200,"gameSlug":"we-happy-few","name":"We Happy Few","description":""}
+{"gameId":32316,"gameSlug":"neoncode","name":"NeonCode","description":""}
+{"gameId":32307,"gameSlug":"chromatose","name":"CHROMATOSE","description":""}
+{"gameId":17887,"gameSlug":"hardcoded","name":"Hardcoded","description":""}
+{"gameId":32243,"gameSlug":"before-crisis-remake","name":"Before Crisis -Final Fantasy VII (Remake)","description":"Itch.io download running using EasyRPG."}
+{"gameId":2049,"gameSlug":"duke-nukem-3d","name":"Duke Nukem 3D","description":"Play \"Duke Nukem 3D\" with HD graphism, HD music, light effects and other enhancements"}
+{"gameId":10267,"gameSlug":"night-in-the-woods","name":"Night in the Woods","description":""}
+{"gameId":14216,"gameSlug":"hiveswap-act-1","name":"HIVESWAP: ACT 1","description":""}
+{"gameId":3457,"gameSlug":"descent-3","name":"Descent 3","description":"Install Descent 3 from the GOG installer"}
+{"gameId":3,"gameSlug":"braid","name":"Braid","description":""}
+{"gameId":23860,"gameSlug":"postal-classic-and-uncut","name":"POSTAL: Classic and Uncut","description":""}
+{"gameId":31873,"gameSlug":"mable-the-wood","name":"Mable & The Wood","description":""}
+{"gameId":24136,"gameSlug":"westport-independent-the","name":"Westport Independent, The","description":""}
+{"gameId":31953,"gameSlug":"the-longing","name":"The Longing","description":""}
+{"gameId":13284,"gameSlug":"overload","name":"Overload","description":"GOG"}
+{"gameId":31986,"gameSlug":"sisterly-bliss-dont-let-mom-find-out","name":"Sisterly Bliss ~Don't Let Mom Find Out~","description":""}
+{"gameId":31965,"gameSlug":"poisoners-teacup","name":"Poisoner's Teacup","description":""}
+{"gameId":31917,"gameSlug":"moonshine-tsuki-no-terasu","name":"Moonshine (Tsuki no Terasu)","description":""}
+{"gameId":25579,"gameSlug":"vintage-story","name":"Vintage Story","description":""}
+{"gameId":4961,"gameSlug":"rimworld","name":"RimWorld","description":""}
+{"gameId":20513,"gameSlug":"full-service","name":"Full Service","description":""}
+{"gameId":31794,"gameSlug":"teamspeak-3-old-versions","name":"TeamSpeak 3 (Old Versions)","description":""}
+{"gameId":29492,"gameSlug":"wasteland-3","name":"Wasteland 3","description":""}
+{"gameId":31766,"gameSlug":"edna-harvey-the-breakout-anniversary-edition","name":"Edna & Harvey: The Breakout - Anniversary Edition","description":""}
+{"gameId":31756,"gameSlug":"luna-the-shadow-dust","name":"LUNA The Shadow Dust","description":""}
+{"gameId":31405,"gameSlug":"veloren","name":"Veloren","description":""}
+{"gameId":31378,"gameSlug":"little-devil","name":"Little Devil","description":""}
+{"gameId":14215,"gameSlug":"figment","name":"Figment","description":"\"Figment\" GOG Linux native edition."}
+{"gameId":31346,"gameSlug":"megaman-rock-n-roll","name":"Megaman: Rock N Roll","description":"Native Linux release"}
+{"gameId":10564,"gameSlug":"streets-of-rogue","name":"Streets of Rogue","description":""}
+{"gameId":20023,"gameSlug":"starsector","name":"Starsector","description":"Allocate up to 4GB of RAM to Starsector for a stable experience when adding mods. If you plan on heavily modding the game and you have the RAM spare, you will need to use the 8GB installer instead."}
+{"gameId":31244,"gameSlug":"god-is-dead","name":"God is Dead","description":"Download the Windows release."}
+{"gameId":31235,"gameSlug":"dim-a-light-in-the-dark","name":"Dim: A Light In The Dark","description":""}
+{"gameId":31218,"gameSlug":"fair-n-square","name":"FAIR N SQUARE","description":"Install the game from itch.io\r\nThe zip file from https://danidev.itch.io/fair-n-square is required"}
+{"gameId":31209,"gameSlug":"may-i-take-your-order","name":"May I Take Your Order?","description":""}
+{"gameId":10600,"gameSlug":"hollow-knight","name":"Hollow Knight","description":""}
+{"gameId":26049,"gameSlug":"framed-collection","name":"FRAMED Collection","description":""}
+{"gameId":21892,"gameSlug":"openra-tiberian-dawn","name":"OpenRA Tiberian Dawn","description":"Installs the latest AppImage version from GitHub."}
+{"gameId":26724,"gameSlug":"multimc","name":"MultiMC","description":"MultiMC is an alternative launcher for Minecraft. It allows you to have multiple, cleanly separated instances of Minecraft (each with their own mods, resource packs, saves, etc) and helps you manage them and their associated options with a simple and powerful interface."}
+{"gameId":5505,"gameSlug":"star-wars-tie-fighter","name":"STAR WARS®: TIE Fighter (1994)","description":"Installs the 1994 version of TIE Fighter."}
+{"gameId":10089,"gameSlug":"star-wars-x-wing","name":"STAR WARS®: X-Wing (1993)","description":"Installs the original 1993 version of Star Wars: X-Wing."}
+{"gameId":31073,"gameSlug":"planet-mule","name":"Planet M.U.L.E.","description":""}
+{"gameId":4865,"gameSlug":"sakura-swim-club","name":"Sakura Swim Club","description":"trial for non steam user"}
+{"gameId":31058,"gameSlug":"cube-metalheart-2-combat-squared","name":"Cube MetalHeart 2 - Combat Squared","description":""}
+{"gameId":12312,"gameSlug":"runescape-3","name":"RuneScape 3","description":"Downloads runescape-launcher and required libraries."}
+{"gameId":28990,"gameSlug":"warfork","name":"Warfork","description":"A 32-bit installer for Warfork"}
+{"gameId":27954,"gameSlug":"unnamed-sdvx-clone","name":"Unnamed-SDVX-Clone","description":"Linux build version."}
+{"gameId":18432,"gameSlug":"slipstream","name":"Slipstream","description":""}
+{"gameId":30754,"gameSlug":"boa-retina","name":"Boa Retina","description":""}
+{"gameId":30703,"gameSlug":"sakura-apprentice","name":"Sakura Apprentice","description":""}
+{"gameId":28314,"gameSlug":"knife-sisters","name":"Knife Sisters","description":""}
+{"gameId":30701,"gameSlug":"green-thread-of-fate","name":"Green Thread of Fate","description":""}
+{"gameId":30700,"gameSlug":"grey-feather","name":"Grey Feather","description":"Should also work for the demo."}
+{"gameId":30622,"gameSlug":"transport-fever-2","name":"Transport Fever 2","description":""}
+{"gameId":16257,"gameSlug":"minecraft-feed-the-beast","name":"Minecraft - Feed the Beast","description":"edited download path for jar file to correct site as of 06 Dec 2019"}
+{"gameId":30633,"gameSlug":"cartagra-affliction-of-the-soul","name":"Cartagra ~Affliction of the Soul~","description":""}
+{"gameId":26896,"gameSlug":"student-transfer","name":"Student Transfer","description":""}
+{"gameId":30617,"gameSlug":"alices-day-off","name":"Alice's Day Off","description":""}
+{"gameId":6917,"gameSlug":"soulcaster-part-i-ii","name":"Soulcaster: Part I & II","description":"\"Soulcaster: Part I & II\" Humble Bundle edition with support for modern computer configuration."}
+{"gameId":30585,"gameSlug":"carmilla","name":"Carmilla","description":""}
+{"gameId":30564,"gameSlug":"spike-under-the-leaves-2017","name":"Spike: Under the Leaves 2017","description":""}
+{"gameId":30563,"gameSlug":"kill-or-love","name":"Kill or Love","description":""}
+{"gameId":5807,"gameSlug":"descent-2","name":"Descent 2","description":"Use the GOG installer to install the D2X Rebirth version of Descent II. Game music from: https://github.com/pudlez/dxx-addons/tree/master"}
+{"gameId":30552,"gameSlug":"ogs-mahjong","name":"OGS Mahjong","description":"Play \"OGS Mahjong\" full edition."}
+{"gameId":3456,"gameSlug":"descent","name":"Descent","description":"Use the GOG installer to install the D1X Rebirth version of Descent."}
+{"gameId":13843,"gameSlug":"pirate-galaxy","name":"Pirate Galaxy","description":"Pirate Galaxy: java-vm x86_x64"}
+{"gameId":30189,"gameSlug":"va-11-hall-a-kids","name":"VA-11 Hall-A KIDS!","description":""}
+{"gameId":30177,"gameSlug":"my-burning-heart","name":"My Burning Heart","description":""}
+{"gameId":30159,"gameSlug":"willy-bear-beach","name":"Willy Bear Beach","description":""}
+{"gameId":8410,"gameSlug":"va-11-hall-a-cyberpunk-bartender-action","name":"VA-11 Hall-A: Cyberpunk Bartender Action","description":""}
+{"gameId":30081,"gameSlug":"lugame-lunchtime-games-club","name":"LuGame: Lunchtime Games Club!","description":"- <a href=\"https://urban-meadows.itch.io/lugame\">https://urban-meadows.itch.io/lugame</a>"}
+{"gameId":27070,"gameSlug":"reality-2017","name":"＜/reality＞ (2017)","description":"Installer also works on the demo."}
+{"gameId":29992,"gameSlug":"super-tux-party","name":"Super Tux Party","description":"Downloads the latest release from the Super Tux Party website."}
+{"gameId":18135,"gameSlug":"basingstoke","name":"Basingstoke","description":""}
+{"gameId":10112,"gameSlug":"fear-equation","name":"Fear Equation","description":""}
+{"gameId":16417,"gameSlug":"the-coma-recut","name":"The Coma: Recut","description":""}
+{"gameId":28969,"gameSlug":"gibbous-a-cthulhu-adventure","name":"Gibbous - A Cthulhu Adventure","description":""}
+{"gameId":4939,"gameSlug":"indivisible","name":"Indivisible","description":""}
+{"gameId":29793,"gameSlug":"2-guys-1-laptop","name":"2 Guys 1 Laptop","description":""}
+{"gameId":8934,"gameSlug":"candle","name":"Candle","description":""}
+{"gameId":167,"gameSlug":"samorost-2","name":"Samorost 2","description":""}
+{"gameId":29790,"gameSlug":"pine","name":"Pine","description":""}
+{"gameId":29756,"gameSlug":"pilgrims","name":"Pilgrims","description":""}
+{"gameId":7060,"gameSlug":"kingdom-new-lands","name":"Kingdom: New Lands","description":""}
+{"gameId":29896,"gameSlug":"black-mirror","name":"Black Mirror","description":""}
+{"gameId":16467,"gameSlug":"dusk","name":"DUSK","description":"An installer for the GOG version of the game."}
+{"gameId":26362,"gameSlug":"hypnospace-outlaw","name":"Hypnospace Outlaw","description":""}
+{"gameId":16558,"gameSlug":"freecol","name":"FreeCol","description":""}
+{"gameId":29194,"gameSlug":"baldis-basics-classic","name":"Baldi's Basics Classic","description":""}
+{"gameId":59,"gameSlug":"amnesia-the-dark-descent","name":"Amnesia: The Dark Descent","description":""}
+{"gameId":29355,"gameSlug":"classicube","name":"ClassiCube","description":"Download ClassiCube from the official website."}
+{"gameId":29311,"gameSlug":"mimo","name":"MIMO","description":""}
+{"gameId":29310,"gameSlug":"cautionary-tale","name":"Cautionary Tale","description":""}
+{"gameId":235,"gameSlug":"frozen-synapse","name":"Frozen Synapse","description":""}
+{"gameId":29284,"gameSlug":"sacramento","name":"Sacramento","description":""}
+{"gameId":29283,"gameSlug":"blooming-nightshade","name":"Blooming Nightshade","description":""}
+{"gameId":118,"gameSlug":"quake-mission-pack-2-dissolution-of-eternity","name":"Quake Mission Pack 2: Dissolution of Eternity","description":"Requires CDROM + Darkplaces version of Quake installed"}
+{"gameId":1,"gameSlug":"quake","name":"Quake","description":""}
+{"gameId":6197,"gameSlug":"momodora-reverie-under-the-moonlight","name":"Momodora: Reverie Under the Moonlight","description":""}
+{"gameId":29145,"gameSlug":"longest-night","name":"Longest Night","description":"Tested with v1.1"}
+{"gameId":28500,"gameSlug":"alderon-games-launcher","name":"Alderon Games Launcher","description":""}
+{"gameId":28869,"gameSlug":"colobot-gold-edition","name":"Colobot: Gold Edition","description":""}
+{"gameId":28596,"gameSlug":"ghost-love","name":"Ghost Love","description":""}
+{"gameId":16224,"gameSlug":"space-rogue-classic","name":"Space Rogue Classic","description":""}
+{"gameId":28324,"gameSlug":"what-never-was","name":"What Never Was","description":""}
+{"gameId":18957,"gameSlug":"wizard-of-legend","name":"Wizard of Legend","description":""}
+{"gameId":14921,"gameSlug":"ken-folletts-the-pillars-of-the-earth","name":"Ken Follett's The Pillars of the Earth","description":"Install Book 1 - 3 from GOG"}
+{"gameId":28318,"gameSlug":"valentyne-stories-necromancy","name":"Valentyne Stories Necromancy","description":""}
+{"gameId":28315,"gameSlug":"superhero-league-of-hoboken","name":"Superhero League of Hoboken","description":""}
+{"gameId":28289,"gameSlug":"missed-messages","name":"missed messages.","description":""}
+{"gameId":27965,"gameSlug":"miss-bullards-school-for-former-ladies","name":"Miss Bullard’s School for Former Ladies","description":"Download the Windows release."}
+{"gameId":27963,"gameSlug":"methods-the-detective-competition","name":"Methods: The Detective Competition","description":""}
+{"gameId":27957,"gameSlug":"synthetic-lover","name":"Synthetic Lover","description":""}
+{"gameId":27955,"gameSlug":"the-expression-amrilato","name":"The Expression Amrilato","description":""}
+{"gameId":21703,"gameSlug":"infra-arcana","name":"Infra Arcana","description":""}
+{"gameId":27951,"gameSlug":"ascii-sector","name":"Ascii Sector","description":""}
+{"gameId":16805,"gameSlug":"orwell-ignorance-is-strength","name":"Orwell: Ignorance is Strength","description":""}
+{"gameId":21389,"gameSlug":"x4-foundations","name":"X4: Foundations","description":"Installer for X4: Foundtions from GOG"}
+{"gameId":27471,"gameSlug":"challenge-promode-arena","name":"Challenge ProMode Arena","description":"Requires Quake 3 Arena"}
+{"gameId":1384,"gameSlug":"risk-of-rain","name":"Risk of Rain","description":""}
+{"gameId":487,"gameSlug":"bittrip-presents-runner2-future-legend-of-rhythm-a","name":"BIT.TRIP Runner2: Future Legend of Rhythm Alien","description":""}
+{"gameId":5333,"gameSlug":"party-hard","name":"Party Hard","description":""}
+{"gameId":8275,"gameSlug":"neurovoider","name":"NeuroVoider","description":""}
+{"gameId":27460,"gameSlug":"undead-horde","name":"Undead Horde","description":""}
+{"gameId":27659,"gameSlug":"sakura-valentines-day","name":"Sakura Valentine's Day","description":""}
+{"gameId":27658,"gameSlug":"sakura-maid-3","name":"Sakura Maid 3","description":""}
+{"gameId":27657,"gameSlug":"sakura-maid-2","name":"Sakura Maid 2","description":""}
+{"gameId":16250,"gameSlug":"quest-failed-chapter-one","name":"Quest Failed - Chapter One","description":""}
+{"gameId":13855,"gameSlug":"my-little-pony-the-cursed-gem","name":"My Little Pony: The Cursed Gem","description":""}
+{"gameId":27384,"gameSlug":"skyrim-script-extender-64-skse64","name":"Skyrim Script Extender 64 (SKSE64)","description":"For a copy of Skyrim Special Edition installed for Steam Play only. Lauching SKSE64 from within Lutris will run the default game launcher. In order to play the game using SKSE64 the game must be run from Steam (or Lutris, which launches Steam).\r\n\r\nA few manual steps are required, the installer will guide you trough them.\r\n\r\nRemember to check the know bugs and limitations in lutris.net before using this installer"}
+{"gameId":2912,"gameSlug":"unrest","name":"Unrest","description":""}
+{"gameId":27575,"gameSlug":"flower-garden","name":"Flower Garden","description":"Download: http://www.mediafire.com/file/sis5kb5qso9dvlv/Flower+Garden-1.0-all.zip"}
+{"gameId":27574,"gameSlug":"schoolgirl-x-squid","name":"Schoolgirl x Squid","description":"Uses the Ren'Py SDK to run the game natively in Linux.\r\nGame Download: http://www.mediafire.com/file/mndvvxfaru29d6o/Schoolgirl+x+Squid-1.0-win.zip"}
+{"gameId":27573,"gameSlug":"humming-strings-relay","name":"Humming Strings: Relay","description":"Download: http://www.mediafire.com/file/d2dpkeumwupu3du/humming-strings-relay.zip"}
+{"gameId":5383,"gameSlug":"duck-game","name":"Duck Game","description":"Linux native version by 0x0ade: https://github.com/0x0ade/DuckGame-Linux"}
+{"gameId":27558,"gameSlug":"cat-muffler","name":"Cat Muffler","description":""}
+{"gameId":13665,"gameSlug":"gladiabots","name":"Gladiabots","description":"Install the game from the archive provided by itch.io"}
+{"gameId":27496,"gameSlug":"sono-hanabira-ni-kuchizuke-o-watashi-no-ouji-sama","name":"Sono Hanabira ni Kuchizuke o - Watashi no Ouji-sama","description":"Unofficial port by Polish translation group Nyan."}
+{"gameId":27493,"gameSlug":"sono-hanabira-ni-kuchiduke-o-a-kiss-for-the-petals","name":"Sono Hanabira ni Kuchizuke o - A Kiss for the Petals","description":"Unofficial port by Polish translation group Nyan."}
+{"gameId":3904,"gameSlug":"vera-blanc-ghost-in-the-castle","name":"Vera Blanc: Ghost In The Castle","description":"Uses the binaries from the demo version to run the Steam version from https://lutris.net/games/winter-wolves-classic-games-collection/ natively in Linux."}
+{"gameId":3903,"gameSlug":"vera-blanc-full-moon","name":"Vera Blanc: Full Moon","description":"Uses the binaries from the demo version to run the Steam version from https://lutris.net/games/winter-wolves-classic-games-collection/ natively in Linux."}
+{"gameId":15249,"gameSlug":"the-merchant-memoirs","name":"The Merchant Memoirs","description":"Native Linux version using Steam game data."}
+{"gameId":27440,"gameSlug":"closed-needs","name":"CLOSED / NEEDS","description":""}
+{"gameId":5566,"gameSlug":"punch-club","name":"Punch Club","description":""}
+{"gameId":18961,"gameSlug":"herald-an-interactive-period-drama-book-i-ii","name":"Herald: An Interactive Period Drama - Book I & II","description":""}
+{"gameId":16174,"gameSlug":"milkmaid-of-the-milky-way","name":"Milkmaid of the Milky Way","description":""}
+{"gameId":2489,"gameSlug":"ascendant","name":"Ascendant","description":""}
+{"gameId":8519,"gameSlug":"tux-racer","name":"Tux Racer","description":"This is the free demo of the commercial release of Tux Racer."}
+{"gameId":27166,"gameSlug":"bakedmagic","name":"BAKED:MAGIC","description":""}
+{"gameId":12324,"gameSlug":"wonder-boy-the-dragons-trap","name":"Wonder Boy: The Dragon's Trap","description":""}
+{"gameId":24241,"gameSlug":"reigns-game-of-thrones","name":"Reigns: Game of Thrones","description":""}
+{"gameId":10310,"gameSlug":"river-city-ransom-underground","name":"River City Ransom: Underground","description":"Download gog_river_city_ransom_underground_2.0.0.1"}
+{"gameId":27103,"gameSlug":"last-day-of-spring","name":"last day of spring","description":""}
+{"gameId":13670,"gameSlug":"west-of-loathing","name":"West of Loathing","description":""}
+{"gameId":26436,"gameSlug":"imperator-rome","name":"Imperator: Rome","description":""}
+{"gameId":5053,"gameSlug":"the-royal-trap-the-confines-of-the-crown","name":"The Royal Trap: The Confines Of The Crown","description":""}
+{"gameId":6760,"gameSlug":"higurashi-when-they-cry-ch3-tatarigoroshi","name":"Higurashi When They Cry - Ch.3 Tatarigoroshi","description":""}
+{"gameId":6092,"gameSlug":"higurashi-when-they-cry-ch2-watanagashi","name":"Higurashi When They Cry - Ch.2 Watanagashi","description":""}
+{"gameId":4256,"gameSlug":"higurashi-when-they-cry-ch1-onikakushi","name":"Higurashi When They Cry - Ch.1 Onikakushi","description":""}
+{"gameId":27048,"gameSlug":"catacomb-prince","name":"Catacomb Prince","description":""}
+{"gameId":23824,"gameSlug":"jill-of-the-jungle-the-complete-trilogy","name":"Jill of the Jungle: The Complete Trilogy","description":""}
+{"gameId":16731,"gameSlug":"the-red-strings-club","name":"The Red Strings Club","description":""}
+{"gameId":11073,"gameSlug":"beat-cop","name":"Beat Cop","description":""}
+{"gameId":17701,"gameSlug":"on-earth-as-it-is-in-heaven-a-kinetic-novel","name":"On Earth As It Is In Heaven - A Kinetic Novel","description":"Native Linux version using Steam game data."}
+{"gameId":21818,"gameSlug":"heaven-will-be-mine","name":"Heaven Will Be Mine","description":""}
+{"gameId":26904,"gameSlug":"skillwarz","name":"Skillwarz","description":""}
+{"gameId":26975,"gameSlug":"imolicious","name":"Imolicious","description":""}
+{"gameId":26952,"gameSlug":"love-witches","name":"Love Witches","description":"Patch to fix the issue with save/load, settings, etc. menus not being accessible. Please install the game first."}
+{"gameId":9014,"gameSlug":"albion-online","name":"Albion Online","description":""}
+{"gameId":26486,"gameSlug":"we-the-revolution","name":"We. The Revolution","description":""}
+{"gameId":26865,"gameSlug":"hampton-court","name":"Hampton Court","description":""}
+{"gameId":26820,"gameSlug":"fightcade-online-retro-gaming","name":"Fightcade - Online Retro Gaming","description":""}
+{"gameId":21827,"gameSlug":"one-hour-one-life","name":"One Hour One Life","description":""}
+{"gameId":3934,"gameSlug":"fault-milestone-one","name":"fault milestone one","description":""}
+{"gameId":26656,"gameSlug":"pathway","name":"Pathway","description":""}
+{"gameId":22218,"gameSlug":"this-is-the-police-2","name":"This Is the Police 2","description":""}
+{"gameId":7264,"gameSlug":"epistory-typing-chronicles","name":"Epistory - Typing Chronicles","description":""}
+{"gameId":1301,"gameSlug":"race-the-sun","name":"Race The Sun","description":""}
+{"gameId":16536,"gameSlug":"tesla-vs-lovecraft","name":"Tesla vs Lovecraft","description":""}
+{"gameId":7693,"gameSlug":"zombasite","name":"Zombasite","description":""}
+{"gameId":3568,"gameSlug":"crimsonland","name":"Crimsonland","description":""}
+{"gameId":448,"gameSlug":"depths-of-peril","name":"Depths of Peril","description":""}
+{"gameId":26302,"gameSlug":"baba-is-you","name":"Baba Is You","description":""}
+{"gameId":14911,"gameSlug":"memoranda","name":"Memoranda","description":""}
+{"gameId":1593,"gameSlug":"the-elder-scrolls-ii-daggerfall","name":"The Elder Scrolls II: Daggerfall","description":"Engine from the Daggerfall Unity project. Game data and content free download thanks to Bethesda Softworks."}
+{"gameId":23978,"gameSlug":"inherit-the-earth","name":"Inherit the Earth","description":""}
+{"gameId":4211,"gameSlug":"victory-at-sea","name":"Victory At Sea","description":""}
+{"gameId":9119,"gameSlug":"pharaonic","name":"Pharaonic","description":""}
+{"gameId":24162,"gameSlug":"my-brother-rabbit","name":"My Brother Rabbit","description":""}
+{"gameId":23858,"gameSlug":"jack-orlando-a-cinematic-adventure-directors-cut","name":"Jack Orlando: A Cinematic Adventure - Director's Cut","description":""}
+{"gameId":18435,"gameSlug":"unforeseen-incidents","name":"Unforeseen Incidents","description":""}
+{"gameId":24060,"gameSlug":"nightmares-from-the-deep-2-the-sirens-call","name":"Nightmares from the Deep 2: The Siren's Call","description":""}
+{"gameId":1953,"gameSlug":"nightmares-from-the-deep-the-cursed-heart","name":"Nightmares from the Deep: The Cursed Heart","description":""}
+{"gameId":4207,"gameSlug":"nightmares-from-the-deep-3-davy-jones","name":"Nightmares from the Deep 3: Davy Jones","description":""}
+{"gameId":24245,"gameSlug":"lamplight-city","name":"Lamplight City","description":""}
+{"gameId":12402,"gameSlug":"silver","name":"Silver","description":""}
+{"gameId":17138,"gameSlug":"helium-rain","name":"Helium Rain","description":""}
+{"gameId":17477,"gameSlug":"where-the-water-tastes-like-wine","name":"Where the Water Tastes Like Wine","description":""}
+{"gameId":14865,"gameSlug":"tower-of-time","name":"Tower of Time","description":""}
+{"gameId":24209,"gameSlug":"victory-at-sea-pacific","name":"Victory at Sea Pacific","description":""}
+{"gameId":26305,"gameSlug":"ankama-launcher","name":"Ankama Launcher","description":"Download the AppImage file and run it."}
+{"gameId":26232,"gameSlug":"session-seven","name":"Session Seven","description":""}
+{"gameId":21890,"gameSlug":"openra-dune-2000","name":"OpenRA Dune 2000","description":"Installs the latest AppImage version from GitHub."}
+{"gameId":6124,"gameSlug":"master-of-orion-2","name":"Master of Orion 2","description":""}
+{"gameId":6123,"gameSlug":"master-of-orion-1","name":"Master of Orion 1","description":""}
+{"gameId":26147,"gameSlug":"pikuniku","name":"Pikuniku","description":""}
+{"gameId":19546,"gameSlug":"objects-in-space","name":"Objects in Space","description":""}
+{"gameId":26073,"gameSlug":"super-mario-war","name":"Super Mario War","description":""}
+{"gameId":26042,"gameSlug":"endless-forms-most-beautiful","name":"Endless Forms Most Beautiful","description":""}
+{"gameId":26041,"gameSlug":"donkey-me","name":"Donkey Me","description":""}
+{"gameId":21657,"gameSlug":"maldita-castilla","name":"Maldita Castilla","description":""}
+{"gameId":25918,"gameSlug":"castles","name":"Castles","description":""}
+{"gameId":190451,"gameSlug":"ion-fury","name":"Ion Fury","description":""}
+{"gameId":3629,"gameSlug":"blood-one-unit-whole-blood","name":"Blood: One Unit Whole Blood","description":"Uses the open source engine nblood"}
+{"gameId":1702,"gameSlug":"guacamelee-gold-edition","name":"Guacamelee! Gold Edition","description":""}
+{"gameId":9969,"gameSlug":"higurashi-when-they-cry-hou-ch4-himatsubushi","name":"Higurashi When They Cry Hou - Ch.4 Himatsubushi","description":""}
+{"gameId":19390,"gameSlug":"moonlighter","name":"Moonlighter","description":""}
+{"gameId":24072,"gameSlug":"timespinner","name":"Timespinner","description":""}
+{"gameId":23181,"gameSlug":"lost-eden","name":"Lost Eden","description":""}
+{"gameId":24206,"gameSlug":"titus-the-fox-to-marrakech-and-back","name":"Titus The Fox: To Marrakech and Back","description":""}
+{"gameId":11958,"gameSlug":"pray-for-death","name":"Pray for Death","description":""}
+{"gameId":9868,"gameSlug":"battle-chess","name":"Battle Chess","description":""}
+{"gameId":23859,"gameSlug":"septerra-core-legacy-of-the-creator","name":"Septerra Core: Legacy of the Creator","description":""}
+{"gameId":17980,"gameSlug":"battletech","name":"BATTLETECH","description":""}
+{"gameId":5342,"gameSlug":"convoy","name":"Convoy","description":""}
+{"gameId":25759,"gameSlug":"malice","name":"Malice","description":"Requires the Quake full version with Darkplace (We currently only have an installer for the Steam data)"}
+{"gameId":25755,"gameSlug":"spheres-of-chaos","name":"Spheres of Chaos","description":""}
+{"gameId":25752,"gameSlug":"overland","name":"Overland","description":""}
+{"gameId":25725,"gameSlug":"1st-degree","name":"1st Degree","description":""}
+{"gameId":4804,"gameSlug":"f-117a-nighthawk-stealth-fighter-20","name":"F-117A Nighthawk Stealth Fighter 2.0","description":""}
+{"gameId":25588,"gameSlug":"marble-marcher","name":"Marble Marcher","description":""}
+{"gameId":25600,"gameSlug":"armadillo-run","name":"Armadillo Run","description":""}
+{"gameId":6331,"gameSlug":"feist","name":"Feist","description":""}
+{"gameId":20881,"gameSlug":"pizza-connection-3","name":"Pizza Connection 3","description":""}
+{"gameId":24180,"gameSlug":"desert-child","name":"Desert Child","description":""}
+{"gameId":22959,"gameSlug":"machiavillain","name":"MachiaVillain","description":""}
+{"gameId":22199,"gameSlug":"kingdom-rush-origins","name":"Kingdom Rush: Origins","description":""}
+{"gameId":6050,"gameSlug":"the-count-lucanor","name":"The Count Lucanor","description":""}
+{"gameId":14248,"gameSlug":"jydge","name":"JYDGE","description":""}
+{"gameId":8634,"gameSlug":"transport-fever","name":"Transport Fever","description":""}
+{"gameId":19483,"gameSlug":"the-falconers-moonlight","name":"The Falconers: Moonlight","description":""}
+{"gameId":24200,"gameSlug":"orphan","name":"Orphan","description":""}
+{"gameId":22071,"gameSlug":"need-to-know","name":"Need to Know","description":""}
+{"gameId":19696,"gameSlug":"mhakna-gramura-and-fairy-bell","name":"Mhakna Gramura and Fairy Bell","description":""}
+{"gameId":4960,"gameSlug":"olliolli2-welcome-to-olliwood","name":"OlliOlli2: Welcome to Olliwood","description":""}
+{"gameId":24090,"gameSlug":"cyberia-2-resurrection","name":"Cyberia 2: Resurrection","description":""}
+{"gameId":23367,"gameSlug":"ib","name":"Ib","description":""}
+{"gameId":25388,"gameSlug":"game-over-quest","name":"Game Over Quest","description":""}
+{"gameId":25387,"gameSlug":"dwarf","name":"dWARf","description":""}
+{"gameId":14336,"gameSlug":"the-first-tree","name":"The First Tree","description":""}
+{"gameId":16804,"gameSlug":"empires-of-the-undergrowth","name":"Empires of the Undergrowth","description":""}
+{"gameId":3507,"gameSlug":"bloodnet","name":"BloodNet","description":""}
+{"gameId":15798,"gameSlug":"atom-rpg","name":"ATOM RPG","description":""}
+{"gameId":11450,"gameSlug":"blazing-star","name":"Blazing Star","description":""}
+{"gameId":4720,"gameSlug":"caves-of-qud","name":"Caves of Qud","description":""}
+{"gameId":11895,"gameSlug":"battle-chef-brigade","name":"Battle Chef Brigade","description":""}
+{"gameId":6336,"gameSlug":"baseball-stars-2","name":"BASEBALL STARS 2","description":""}
+{"gameId":18114,"gameSlug":"feudal-alloy","name":"Feudal Alloy","description":""}
+{"gameId":7233,"gameSlug":"airships-conquer-the-skies","name":"Airships: Conquer the Skies","description":""}
+{"gameId":24181,"gameSlug":"project-hospital","name":"Project Hospital","description":""}
+{"gameId":4031,"gameSlug":"crawl","name":"Crawl","description":""}
+{"gameId":24227,"gameSlug":"war-for-the-overworld","name":"War for the Overworld","description":""}
+{"gameId":14115,"gameSlug":"sunless-skies","name":"Sunless Skies","description":""}
+{"gameId":8992,"gameSlug":"planet-nomads","name":"Planet Nomads","description":""}
+{"gameId":24490,"gameSlug":"hard-work","name":"Hard Work","description":""}
+{"gameId":25175,"gameSlug":"sacred-sand","name":"Sacred Sand","description":""}
+{"gameId":25145,"gameSlug":"earth-boys-are-easy","name":"Earth Boys Are Easy","description":""}
+{"gameId":25143,"gameSlug":"minecraftonly","name":"MinecraftOnly","description":""}
+{"gameId":9007,"gameSlug":"the-last-blade","name":"THE LAST BLADE","description":""}
+{"gameId":25093,"gameSlug":"mana-spark","name":"Mana Spark","description":""}
+{"gameId":5799,"gameSlug":"kohan-immortal-sovereigns","name":"Kohan: Immortal Sovereigns","description":"Native Linux version from Loki (requires xserver-xephyr and pulseaudio-utils)"}
+{"gameId":25018,"gameSlug":"last-epoch","name":"Last Epoch","description":"Installs the game launcher, you still need to have an account and buy the game."}
+{"gameId":14445,"gameSlug":"observer","name":"Observer","description":""}
+{"gameId":19702,"gameSlug":"feast-book-one-family-ties","name":"FEAST: Book One «Family Ties»","description":"Native Linux version using Steam game data."}
+{"gameId":25001,"gameSlug":"thief-story","name":"Thief Story","description":""}
+{"gameId":24899,"gameSlug":"hamilton-the-dating-sim","name":"Hamilton: The Dating Sim","description":""}
+{"gameId":24835,"gameSlug":"cross-love-episode-1","name":"Cross Love - Episode 1","description":""}
+{"gameId":324,"gameSlug":"shadow-warrior-classic-redux","name":"Shadow Warrior Classic Redux","description":""}
+{"gameId":17727,"gameSlug":"neverwinter-nights-enhanced-edition","name":"Neverwinter Nights — Enhanced Edition","description":""}
+{"gameId":20956,"gameSlug":"graveyard-keeper","name":"Graveyard Keeper","description":""}
+{"gameId":4181,"gameSlug":"world-of-padman","name":"World of Padman","description":"World of Padman installer for 64 bit Linux. This downloads both the 1.5 unified release (2010-12-28) and the 1.6 update patch (2011-12-17)."}
+{"gameId":10573,"gameSlug":"planescape-torment-enhanced-edition","name":"Planescape: Torment: Enhanced Edition","description":""}
+{"gameId":7159,"gameSlug":"turmoil","name":"Turmoil","description":""}
+{"gameId":1005,"gameSlug":"reus","name":"Reus","description":""}
+{"gameId":8550,"gameSlug":"political-animals","name":"Political Animals","description":""}
+{"gameId":1059,"gameSlug":"gnomoria","name":"Gnomoria","description":""}
+{"gameId":24298,"gameSlug":"hovertank-3d","name":"Hovertank 3D","description":"Compiles and installs the SDL_Hovertank3D source port from source code. Requires a zip file with the game data files to work."}
+{"gameId":12182,"gameSlug":"d-the-game","name":"D: The Game","description":""}
+{"gameId":19245,"gameSlug":"hero-u-rogue-to-redemption","name":"Hero-U: Rogue to Redemption","description":""}
+{"gameId":52,"gameSlug":"fez","name":"Fez","description":""}
+{"gameId":20784,"gameSlug":"wild-romance-mofu-mofu-edition","name":"Wild Romance: Mofu Mofu Edition","description":""}
+{"gameId":5919,"gameSlug":"stardew-valley","name":"Stardew Valley","description":"Installs Stardew Valley and SMAPI for you."}
+{"gameId":23659,"gameSlug":"forgotten-paradise","name":"Forgotten Paradise","description":""}
+{"gameId":23658,"gameSlug":"pandoras-box","name":"Pandora's Box","description":""}
+{"gameId":17675,"gameSlug":"for-elise","name":"For Elise","description":""}
+{"gameId":17691,"gameSlug":"assuming-gender","name":"Assuming Gender","description":""}
+{"gameId":8950,"gameSlug":"everspacetm","name":"EVERSPACE™","description":""}
+{"gameId":23557,"gameSlug":"otchan","name":"Otchłań","description":""}
+{"gameId":23503,"gameSlug":"sango-tales-from-the-coral-cave","name":"Sango: Tales From The Coral Cave","description":""}
+{"gameId":23431,"gameSlug":"eternal-lands","name":"Eternal Lands","description":"Generic Linux Install Script"}
+{"gameId":23413,"gameSlug":"sexy-litter","name":"Sexy Litter","description":""}
+{"gameId":23397,"gameSlug":"monster-hunting-for-love","name":"Monster Hunting... For Love!","description":""}
+{"gameId":20510,"gameSlug":"camp-buddy","name":"Camp Buddy","description":""}
+{"gameId":23338,"gameSlug":"princess-of-ruin","name":"Princess of Ruin","description":""}
+{"gameId":23352,"gameSlug":"hexoshi","name":"Hexoshi","description":""}
+{"gameId":23213,"gameSlug":"who-we-are-now","name":"Who We Are Now","description":""}
+{"gameId":23198,"gameSlug":"mordred","name":"Mordred","description":""}
+{"gameId":23042,"gameSlug":"lost-impressions","name":"Lost Impressions","description":""}
+{"gameId":23032,"gameSlug":"the-doll-shop","name":"The Doll Shop","description":""}
+{"gameId":23047,"gameSlug":"solus-stunts","name":"Solus Stunts","description":""}
+{"gameId":22994,"gameSlug":"pigeon-game","name":"Pigeon Game","description":""}
+{"gameId":12352,"gameSlug":"freeso","name":"FreeSO","description":"This downloads and installs the required files to run FreeSO (https://freeso.org) natively on Linux using Mono."}
+{"gameId":13488,"gameSlug":"pyre","name":"Pyre","description":""}
+{"gameId":22215,"gameSlug":"iron-rust","name":"Iron & Rust","description":""}
+{"gameId":22085,"gameSlug":"seiyuu-danshi","name":"Seiyuu Danshi","description":""}
+{"gameId":5102,"gameSlug":"terminal-velocity","name":"Terminal Velocity","description":""}
+{"gameId":6307,"gameSlug":"stellaris","name":"Stellaris","description":""}
+{"gameId":19669,"gameSlug":"pathfinder-kingmaker","name":"Pathfinder: Kingmaker","description":""}
+{"gameId":768,"gameSlug":"long-live-the-queen","name":"Long Live The Queen","description":""}
+{"gameId":6757,"gameSlug":"highway-blossoms","name":"Highway Blossoms","description":"Install the GOG version of Highway Blossoms"}
+{"gameId":19240,"gameSlug":"cultist-simulator","name":"Cultist Simulator","description":""}
+{"gameId":22091,"gameSlug":"hazelnut-bastille","name":"Hazelnut Bastille","description":"September 29, 2018, Public Preview Build 6.0 from https://www.aloftstudio.com/hbdemobuilds"}
+{"gameId":22084,"gameSlug":"algormortis","name":"algormortis","description":""}
+{"gameId":22083,"gameSlug":"the-duenkhy","name":"The Duenkhy","description":"<a href=\"https://alyssaleandra.itch.io/the-duenkhy-demo\">itch.io</a>"}
+{"gameId":22004,"gameSlug":"deep-sky-derelicts","name":"Deep Sky Derelicts","description":""}
+{"gameId":22003,"gameSlug":"depth-of-extinction","name":"Depth of Extinction","description":""}
+{"gameId":21969,"gameSlug":"the-winds-disciple","name":"The Wind's Disciple","description":"Download the Windows version."}
+{"gameId":21888,"gameSlug":"spirit-parade","name":"Spirit Parade","description":"<a href=\"https://lettucewaltz.itch.io/spirit-parade\">itch.io</a>"}
+{"gameId":21889,"gameSlug":"lieve-oma","name":"Lieve Oma","description":""}
+{"gameId":5884,"gameSlug":"slime-rancher","name":"Slime Rancher","description":""}
+{"gameId":21852,"gameSlug":"panic-at-the-dog-show","name":"Panic! at the Dog Show","description":""}
+{"gameId":8133,"gameSlug":"pandum-online","name":"Pandum online","description":"Install game client (x64 - including java virtual machine)"}
+{"gameId":21836,"gameSlug":"trigger","name":"Trigger","description":""}
+{"gameId":21831,"gameSlug":"vile-halicarnassus","name":"Vile Halicarnassus","description":"Free download"}
+{"gameId":21835,"gameSlug":"detective-chirpums-private-investigator","name":"Detective Chirpums: Private Investigator","description":""}
+{"gameId":21830,"gameSlug":"graverobber-episode-one","name":"GRAVEROBBER - Episode One","description":"Free download"}
+{"gameId":21795,"gameSlug":"autonauts","name":"Autonauts","description":"Download at https://denki.itch.io/autonauts"}
+{"gameId":15239,"gameSlug":"getting-over-it-with-bennett-foddy","name":"Getting Over It with Bennett Foddy","description":""}
+{"gameId":20790,"gameSlug":"the-25th-ward-the-silver-case","name":"The 25th Ward: The Silver Case","description":""}
+{"gameId":19033,"gameSlug":"dofus-touch","name":"DOFUS Touch (Lindo)","description":"Lindo allows you to play DOFUS Touch without an Android emulator, it's entirely coded in JavaScript via Electron & Angular. Lindo is totally corss-platform."}
+{"gameId":21752,"gameSlug":"blameless-a-god-game","name":"Blameless - A God Game","description":"This is the untested linux version. It has some graphic bugs. I prefer the windows version."}
+{"gameId":13909,"gameSlug":"tiny-echo","name":"Tiny Echo","description":"Version of the game downloaded from Humble Trove."}
+{"gameId":6046,"gameSlug":"hard-west","name":"Hard West","description":""}
+{"gameId":21731,"gameSlug":"al-qadim-the-genies-curse","name":"Al-Qadim: The Genie's Curse","description":""}
+{"gameId":21729,"gameSlug":"dark-queen-of-krynn","name":"Dark Queen of Krynn","description":""}
+{"gameId":21728,"gameSlug":"death-knights-of-krynn","name":"Death Knights of Krynn","description":""}
+{"gameId":21727,"gameSlug":"champions-of-krynn","name":"Champions of Krynn","description":""}
+{"gameId":21726,"gameSlug":"ravenloft-strahds-possession","name":"Ravenloft: Strahd's Possession","description":""}
+{"gameId":21725,"gameSlug":"ravenloft-stone-prophet","name":"Ravenloft: Stone Prophet","description":""}
+{"gameId":21368,"gameSlug":"7-billion-humans","name":"7 Billion Humans","description":""}
+{"gameId":21706,"gameSlug":"feverdream-saga","name":"Fever☆Dream Saga","description":""}
+{"gameId":21698,"gameSlug":"make-love-not-waagh","name":"Make Love not Waagh!","description":""}
+{"gameId":14233,"gameSlug":"stay-stay-democratic-peoples-republic-of-korea","name":"Stay! Stay! Democratic People's Republic of Korea!","description":""}
+{"gameId":21500,"gameSlug":"dunnet","name":"Dunnet","description":"Requires the Emacs text editor to be installed system wide."}
+{"gameId":21492,"gameSlug":"gods-of-nowhere","name":"Gods of Nowhere","description":""}
+{"gameId":21489,"gameSlug":"soundless-a-modern-salem-in-remote-area-","name":"Soundless - A Modern Salem in Remote Area -","description":"<a href=\"https://milkplus.itch.io/soundless\">itch.io link</a>"}
+{"gameId":17863,"gameSlug":"cows-revenge","name":"Cow's Revenge","description":"Github release"}
+{"gameId":2457,"gameSlug":"mini-metro","name":"Mini Metro","description":""}
+{"gameId":21395,"gameSlug":"vigilantes","name":"Vigilantes","description":""}
+{"gameId":16830,"gameSlug":"into-the-breach","name":"Into the Breach","description":""}
+{"gameId":1208,"gameSlug":"septerra-core","name":"Septerra Core","description":""}
+{"gameId":6555,"gameSlug":"turok-dinosaur-hunter","name":"Turok","description":""}
+{"gameId":3411,"gameSlug":"2048","name":"2048","description":"Love-Phibonacci: 2048 but with Fibonacci"}
+{"gameId":21165,"gameSlug":"love2d","name":"LÖVE","description":""}
+{"gameId":21146,"gameSlug":"jumpai","name":"Jumpaï","description":""}
+{"gameId":21126,"gameSlug":"return-of-the-tentacle","name":"Return of the Tentacle","description":"The Prologue available from Itch.io"}
+{"gameId":3796,"gameSlug":"hearthlands","name":"Hearthlands","description":""}
+{"gameId":14200,"gameSlug":"regalia-of-men-and-monarchs","name":"Regalia: Of Men and Monarchs","description":""}
+{"gameId":6311,"gameSlug":"zelda-time-to-triumph","name":"Zelda: Time To Triumph","description":""}
+{"gameId":5641,"gameSlug":"star-warstm-x-wing-special-edition","name":"STAR WARS®: X-Wing Collector's CD (1994)","description":""}
+{"gameId":19139,"gameSlug":"find-someone-else","name":"Find someone else","description":"Native Linux version using Steam game data."}
+{"gameId":20947,"gameSlug":"doppelganger-dawn-of-the-inverted-souls","name":"Doppelganger: Dawn of the Inverted Souls","description":""}
+{"gameId":17623,"gameSlug":"tibia","name":"Tibia","description":""}
+{"gameId":16098,"gameSlug":"spirits-ciel-bleu","name":"Spirits: Ciel Bleu","description":""}
+{"gameId":4888,"gameSlug":"soma","name":"SOMA","description":""}
+{"gameId":15984,"gameSlug":"shinrai-broken-beyond-despair","name":"SHINRAI - Broken Beyond Despair","description":""}
+{"gameId":20616,"gameSlug":"chocolate-cage","name":"Chocolate Cage","description":"Free download"}
+{"gameId":20614,"gameSlug":"monochrome-heaven","name":"Monochrome Heaven","description":""}
+{"gameId":6742,"gameSlug":"slain-back-from-hell","name":"Slain: Back from Hell","description":""}
+{"gameId":20605,"gameSlug":"noda-narukos-naughty-nights","name":"Noda & Naruko's Naughty Nights","description":""}
+{"gameId":20604,"gameSlug":"chibi-kocchi","name":"Chibi Kocchi","description":""}
+{"gameId":20603,"gameSlug":"otchi-kocchi","name":"OTChi Kocchi","description":""}
+{"gameId":20553,"gameSlug":"rose-guns-days","name":"Rose Guns Days","description":""}
+{"gameId":8446,"gameSlug":"this-is-the-police","name":"This Is the Police","description":""}
+{"gameId":19543,"gameSlug":"metamorphoser","name":"metamorphoser","description":""}
+{"gameId":20521,"gameSlug":"digital-paintball-2","name":"Digital Paintball 2","description":"Sets up the native version of the game"}
+{"gameId":20522,"gameSlug":"bacchikoi","name":"Bacchikoi!","description":""}
+{"gameId":20511,"gameSlug":"sleep-over","name":"Sleep Over","description":"Play \"Sleep Over\" on Linux!"}
+{"gameId":20505,"gameSlug":"infinite-universe","name":"Infinite Universe","description":""}
+{"gameId":20504,"gameSlug":"sultans-of-rema","name":"Sultans of Rema","description":""}
+{"gameId":20503,"gameSlug":"temple-of-the-spider-god","name":"Temple of the Spider God","description":""}
+{"gameId":20500,"gameSlug":"the-wizard-from-tarnath-tor","name":"The Wizard from Tarnath Tor","description":""}
+{"gameId":20499,"gameSlug":"slaves-of-rema","name":"Slaves of Rema","description":""}
+{"gameId":20462,"gameSlug":"the-siege-of-the-necromancer","name":"The Siege of the Necromancer","description":""}
+{"gameId":20456,"gameSlug":"40-days-and-40-nights-of-rain","name":"40 Days and 40 Nights of Rain","description":""}
+{"gameId":20447,"gameSlug":"revenant-rising","name":"Revenant Rising","description":""}
+{"gameId":20446,"gameSlug":"spellcaster-the-forgotten-spell","name":"Spellcaster: The Forgotten Spell","description":""}
+{"gameId":20196,"gameSlug":"the-rose-of-segunda","name":"The Rose of Segunda","description":""}
+{"gameId":20311,"gameSlug":"the-devil-and-the-deep-blue-sea","name":"The Devil and the Deep Blue Sea","description":""}
+{"gameId":20271,"gameSlug":"killer-queen","name":"Killer Queen","description":""}
+{"gameId":20245,"gameSlug":"cafe-memoria","name":"Café Memoria","description":""}
+{"gameId":20130,"gameSlug":"steascree","name":"SteaScree","description":""}
+{"gameId":19898,"gameSlug":"alexas-wild-night","name":"Alexa's Wild Night","description":""}
+{"gameId":20108,"gameSlug":"cute-knight-kingdom","name":"Cute Knight Kingdom","description":""}
+{"gameId":20107,"gameSlug":"cute-knight","name":"Cute Knight","description":""}
+{"gameId":20104,"gameSlug":"tears-of-yggdrasil","name":"Tears of Yggdrasil","description":""}
+{"gameId":20103,"gameSlug":"pure-heart-chronicles","name":"Pure Heart Chronicles","description":""}
+{"gameId":20022,"gameSlug":"lets-meat-adam","name":"Let's Meat Adam","description":""}
+{"gameId":19992,"gameSlug":"matches-matrimony-a-pride-and-prejudice-tale","name":"Matches & Matrimony: A Pride and Prejudice Tale","description":""}
+{"gameId":19991,"gameSlug":"mobs-inc","name":"Mobs, Inc.","description":"This is a Linux64 Version."}
+{"gameId":19984,"gameSlug":"tung-the-ultimate-nerd-game","name":"TUNG — The Ultimate Nerd Game","description":"Installs the game"}
+{"gameId":19951,"gameSlug":"black-diary","name":"Black Diary","description":""}
+{"gameId":17706,"gameSlug":"renpy","name":"Ren'Py","description":""}
+{"gameId":19938,"gameSlug":"icebreaker","name":"IceBreaker","description":""}
+{"gameId":19929,"gameSlug":"elemental-seven-minutes-in-heaven","name":"Elemental: Seven Minutes in Heaven","description":""}
+{"gameId":19926,"gameSlug":"save-the-date","name":"Save the Date","description":""}
+{"gameId":19914,"gameSlug":"colette-and-becca","name":"Colette and Becca","description":""}
+{"gameId":19908,"gameSlug":"warhammer-40000-gladius-relics-of-war","name":"Warhammer 40,000: Gladius - Relics of War","description":""}
+{"gameId":11324,"gameSlug":"dead-cells","name":"Dead Cells","description":""}
+{"gameId":19892,"gameSlug":"divide","name":"Divide","description":""}
+{"gameId":3994,"gameSlug":"alcarys-complex","name":"Alcarys Complex","description":""}
+{"gameId":19890,"gameSlug":"amaranto","name":"Amaranto","description":""}
+{"gameId":5549,"gameSlug":"black-closet","name":"Black Closet","description":""}
+{"gameId":19884,"gameSlug":"the-boy-i-like-2","name":"The Boy I Like? 2","description":""}
+{"gameId":19882,"gameSlug":"the-boy-i-like","name":"The Boy I Like?","description":""}
+{"gameId":19851,"gameSlug":"dejection-an-ode","name":"Dejection: An Ode","description":""}
+{"gameId":19848,"gameSlug":"learning-in-love","name":"Learning in Love!","description":""}
+{"gameId":19843,"gameSlug":"adrift","name":"Adrift","description":"Free download"}
+{"gameId":19842,"gameSlug":"sorority-sister-sleuths-london-calling","name":"Sorority Sister Sleuths: London Calling","description":""}
+{"gameId":16396,"gameSlug":"leisure-suit-larry-love-for-sail","name":"Leisure Suit Larry: Love for Sail!","description":""}
+{"gameId":12074,"gameSlug":"full-throttle-remastered","name":"Full Throttle Remastered","description":""}
+{"gameId":4648,"gameSlug":"one-manga-day","name":"One Manga Day","description":"Free download"}
+{"gameId":1171,"gameSlug":"defenders-quest-valley-of-the-forgotten","name":"Defender's Quest: Valley of the Forgotten","description":""}
+{"gameId":19667,"gameSlug":"paradox-games-launcher","name":"Paradox Games Launcher","description":""}
+{"gameId":19665,"gameSlug":"dont-take-it-personally-babe-it-just-aint-your-sto","name":"don't take it personally, babe, it just ain't your story","description":"Free download"}
+{"gameId":4008,"gameSlug":"oolite","name":"Oolite","description":""}
+{"gameId":9005,"gameSlug":"flare","name":"Flare","description":"v1.14"}
+{"gameId":19615,"gameSlug":"i-promise","name":"I Promise! (Я обещаю!)","description":"Free download"}
+{"gameId":19608,"gameSlug":"great-troubles","name":"Great Troubles (Большие неприятности)","description":"Free download"}
+{"gameId":19605,"gameSlug":"pinewood-island","name":"Pinewood Island","description":""}
+{"gameId":19604,"gameSlug":"blind-men","name":"Blind Men","description":""}
+{"gameId":19596,"gameSlug":"love-sniper","name":"Love Sniper","description":"Free download"}
+{"gameId":15398,"gameSlug":"xoxo-droplets","name":"XOXO Droplets","description":""}
+{"gameId":11584,"gameSlug":"sakura-magical-girls","name":"Sakura Magical Girls","description":"Native Linux version using Steam game data."}
+{"gameId":19544,"gameSlug":"tomai","name":"Tomai","description":""}
+{"gameId":19501,"gameSlug":"arthurs-nightmare","name":"Arthur's Nightmare","description":""}
+{"gameId":19528,"gameSlug":"inverness-nights","name":"Inverness Nights","description":""}
+{"gameId":14322,"gameSlug":"a-foretold-affair","name":"A Foretold Affair","description":""}
+{"gameId":16009,"gameSlug":"requiescence","name":"Requiescence","description":""}
+{"gameId":15886,"gameSlug":"error-human-not-found","name":"ERROR: Human Not Found","description":"Native Linux version using Steam game data."}
+{"gameId":19115,"gameSlug":"broken-minds","name":"Broken Minds","description":""}
+{"gameId":298,"gameSlug":"wizorb","name":"Wizorb","description":""}
+{"gameId":227,"gameSlug":"steel-storm-burning-retribution","name":"Steel Storm: Burning Retribution","description":""}
+{"gameId":4655,"gameSlug":"jumpjet-rex","name":"JumpJet Rex","description":""}
+{"gameId":17959,"gameSlug":"the-swords-of-ditto","name":"The Swords of Ditto","description":""}
+{"gameId":16065,"gameSlug":"getaway-island","name":"Getaway Island","description":"Native Linux version using Steam game data."}
+{"gameId":155,"gameSlug":"torchlight","name":"Torchlight","description":""}
+{"gameId":19432,"gameSlug":"elephant-in-the-room","name":"Elephant in the Room","description":""}
+{"gameId":434,"gameSlug":"wasteland","name":"Wasteland","description":""}
+{"gameId":5767,"gameSlug":"starward-rogue","name":"Starward Rogue","description":""}
+{"gameId":2770,"gameSlug":"the-last-federation","name":"The Last Federation","description":""}
+{"gameId":13529,"gameSlug":"the-end-is-nigh","name":"The End Is Nigh","description":""}
+{"gameId":19427,"gameSlug":"where-we-lay-our-scene","name":"Where We Lay Our Scene","description":""}
+{"gameId":19116,"gameSlug":"baptism","name":"BAPTISM","description":"Native Linux version using Steam game data."}
+{"gameId":16077,"gameSlug":"anomie","name":"Anomie","description":"Native Linux version using Steam game data."}
+{"gameId":8593,"gameSlug":"gunmetal-arcadia-zero","name":"Gunmetal Arcadia Zero","description":""}
+{"gameId":4219,"gameSlug":"windward","name":"Windward","description":""}
+{"gameId":1220,"gameSlug":"bionic-dues","name":"Bionic Dues","description":""}
+{"gameId":19422,"gameSlug":"quiet-city","name":"Quiet City","description":""}
+{"gameId":19419,"gameSlug":"destiny-fails-us-a-new-life","name":"Destiny Fails Us: A New Life","description":""}
+{"gameId":19414,"gameSlug":"aloners-redux","name":"Aloners (Redux)","description":""}
+{"gameId":19413,"gameSlug":"genderwrecked","name":"GENDERWRECKED","description":""}
+{"gameId":19411,"gameSlug":"my-magical-demon-lover","name":"My Magical Demon Lover","description":""}
+{"gameId":15936,"gameSlug":"millia-the-ending-","name":"Millia -The ending-","description":"Native Linux version using Steam game data."}
+{"gameId":19368,"gameSlug":"edepth-angel-pinocchios-murder","name":"Edepth Angel: Pinocchio's Murder","description":"Native Linux version using Steam game data."}
+{"gameId":19361,"gameSlug":"hadaka-shitsuji-naked-butlers","name":"Hadaka Shitsuji - Naked Butlers","description":""}
+{"gameId":13867,"gameSlug":"the-journeyman-project-1-pegasus-prime","name":"The Journeyman Project 1: Pegasus Prime","description":""}
+{"gameId":7217,"gameSlug":"quake-ii-quad-damage","name":"Quake II: Quad Damage","description":"Acceso a Quake 2: The Reckoning"}
+{"gameId":1000,"gameSlug":"xenonauts","name":"Xenonauts","description":""}
+{"gameId":19203,"gameSlug":"cart-crawlers","name":"Cart Crawlers","description":"Download at https://aloe-vertex.itch.io/cartcrawlers"}
+{"gameId":15109,"gameSlug":"ruiner","name":"RUINER","description":""}
+{"gameId":16733,"gameSlug":"shogo-mobile-armor-division","name":"Shogo: Mobile Armor Division","description":""}
+{"gameId":3192,"gameSlug":"test","name":"A test","description":""}
+{"gameId":18266,"gameSlug":"shuvit","name":"Shuvit","description":""}
+{"gameId":1091,"gameSlug":"baldurs-gate-enhanced-edition","name":"Baldur's Gate: Enhanced Edition","description":""}
+{"gameId":17448,"gameSlug":"pillars-of-eternity-ii-deadfire","name":"Pillars of Eternity II: Deadfire","description":""}
+{"gameId":18003,"gameSlug":"you-left-me","name":"You Left Me","description":""}
+{"gameId":5510,"gameSlug":"sepia-tears","name":"Sepia Tears","description":""}
+{"gameId":17880,"gameSlug":"her-lie-i-tried-to-believe","name":"Her Lie I Tried To Believe","description":""}
+{"gameId":18091,"gameSlug":"ambrosias","name":"Ambrosia's","description":""}
+{"gameId":3548,"gameSlug":"strife-veteran-edition","name":"Strife: Veteran Edition","description":""}
+{"gameId":6676,"gameSlug":"devil-daggers","name":"Devil Daggers","description":""}
+{"gameId":3233,"gameSlug":"pixel-dungeon","name":"Pixel Dungeon","description":"Snap Version of the Game."}
+{"gameId":1456,"gameSlug":"eye-of-the-beholder","name":"Eye of the Beholder","description":""}
+{"gameId":12085,"gameSlug":"rakuen","name":"Rakuen","description":".tgz file downloaded from Humble Bundle"}
+{"gameId":10392,"gameSlug":"thimbleweed-park","name":"Thimbleweed Park","description":""}
+{"gameId":10590,"gameSlug":"x-plane-11","name":"X-Plane 11","description":""}
+{"gameId":4993,"gameSlug":"divinity-original-sin-enhanced-edition","name":"Divinity: Original Sin - Enhanced Edition","description":"Try this version first."}
+{"gameId":2473,"gameSlug":"baldurs-gate-ii-enhanced-edition","name":"Baldur's Gate II: Enhanced Edition","description":""}
+{"gameId":16803,"gameSlug":"iconoclasts","name":"Iconoclasts","description":""}
+{"gameId":17767,"gameSlug":"railway-empire","name":"Railway Empire","description":""}
+{"gameId":7604,"gameSlug":"goetia","name":"Goetia","description":""}
+{"gameId":16709,"gameSlug":"crossing-souls","name":"Crossing Souls","description":""}
+{"gameId":15067,"gameSlug":"opus-magnum","name":"Opus Magnum","description":""}
+{"gameId":15281,"gameSlug":"maniac-mansion","name":"Maniac Mansion","description":""}
+{"gameId":17765,"gameSlug":"ash-of-gods-redemption","name":"Ash of Gods: Redemption","description":""}
+{"gameId":17738,"gameSlug":"minit","name":"Minit","description":""}
+{"gameId":8006,"gameSlug":"titus-the-fox","name":"Titus The Fox","description":"This script require linux .sh installer from gog.com"}
+{"gameId":17720,"gameSlug":"clonk-rage","name":"Clonk Rage","description":"The full freeware version for linux, 64 bit"}
+{"gameId":15184,"gameSlug":"dreams-of-desire","name":"Dreams of Desire","description":"Installer for Chapter 1-11"}
+{"gameId":3369,"gameSlug":"stepmania","name":"StepMania","description":""}
+{"gameId":3522,"gameSlug":"eldevin","name":"Eldevin","description":"Standalone java launcher for eldevin"}
+{"gameId":1063,"gameSlug":"overgrowth","name":"Overgrowth","description":""}
+{"gameId":15242,"gameSlug":"ecchi-sketch-draw-cute-girls-every-day","name":"Ecchi Sketch: Draw Cute Girls Every Day!","description":""}
+{"gameId":17564,"gameSlug":"frequent-flier-a-long-distance-love-story","name":"Frequent Flier: A Long Distance Love Story","description":""}
+{"gameId":15250,"gameSlug":"the-girl-on-the-train","name":"The Girl on the Train","description":""}
+{"gameId":16560,"gameSlug":"tuxemon","name":"Tuxemon","description":""}
+{"gameId":4291,"gameSlug":"sage-fusion","name":"Sage Fusion","description":""}
+{"gameId":2833,"gameSlug":"supertuxkart","name":"SuperTuxKart","description":""}
+{"gameId":17559,"gameSlug":"being-beauteous","name":"Being Beauteous","description":""}
+{"gameId":17558,"gameSlug":"wounded-by-words","name":"Wounded By Words","description":""}
+{"gameId":9475,"gameSlug":"palinurus","name":"Palinurus","description":""}
+{"gameId":17550,"gameSlug":"keycars","name":"KeyCars","description":"Download at https://kenney.itch.io/keycars"}
+{"gameId":17503,"gameSlug":"virtuality","name":"Virtuality","description":""}
+{"gameId":13904,"gameSlug":"kare-wa-kanojo","name":"Kare wa Kanojo","description":""}
+{"gameId":17470,"gameSlug":"tsukihime","name":"Tsukihime","description":"Game run natively via onscripter-en Linux port"}
+{"gameId":17204,"gameSlug":"foxtail","name":"FoxTail","description":""}
+{"gameId":3560,"gameSlug":"frets-on-fire","name":"Frets on Fire","description":""}
+{"gameId":17364,"gameSlug":"close-your-eyes-itchio","name":"Close Your Eyes","description":""}
+{"gameId":13924,"gameSlug":"shovel-knight-specter-of-torment","name":"Shovel Knight: Specter of Torment","description":""}
+{"gameId":17303,"gameSlug":"snow-daze-the-music-of-winter","name":"Snow Daze - The Music of Winter","description":""}
+{"gameId":1123,"gameSlug":"ai-war-fleet-command","name":"AI War: Fleet Command","description":""}
+{"gameId":17167,"gameSlug":"paizuri-university","name":"Paizuri University","description":""}
+{"gameId":16101,"gameSlug":"ghosts-of-miami","name":"Ghosts of Miami","description":"64 bit only"}
+{"gameId":16704,"gameSlug":"localhost","name":"Localhost","description":""}
+{"gameId":4948,"gameSlug":"dungeons-2","name":"Dungeons 2","description":""}
+{"gameId":14202,"gameSlug":"tacoma","name":"Tacoma","description":""}
+{"gameId":7753,"gameSlug":"marathon-rubicon-x","name":"Marathon: Rubicon X","description":""}
+{"gameId":15634,"gameSlug":"secret-agenda","name":"Secret Agenda","description":""}
+{"gameId":11876,"gameSlug":"airis","name":"AIRIS","description":""}
+{"gameId":3476,"gameSlug":"the-elder-scrolls-iii-morrowind-goty-edition","name":"The Elder Scrolls III: Morrowind GOTY Edition","description":"OpenMW 0.51.0 x64 engine + GOG game data"}
+{"gameId":2834,"gameSlug":"arx-fatalis","name":"Arx Fatalis","description":"Uses Arx Libertatis with game data from the GOG installer  >v1.2"}
+{"gameId":904,"gameSlug":"robin-hood-the-legend-of-sherwood","name":"Robin Hood: The Legend of Sherwood","description":"The Desura version is the only native Linux version available."}
+{"gameId":1642,"gameSlug":"bleed","name":"Bleed","description":""}
+{"gameId":6205,"gameSlug":"hex-shards-of-fate","name":"HEX: Shards of Fate","description":""}
+{"gameId":4729,"gameSlug":"zero-k","name":"Zero-K","description":"http links -> https links"}
+{"gameId":15721,"gameSlug":"the-stargazers","name":"The Stargazers","description":""}
+{"gameId":15716,"gameSlug":"halloween-otome","name":"Halloween Otome","description":""}
+{"gameId":15715,"gameSlug":"return-of-red-hood","name":"Return of Red Hood","description":""}
+{"gameId":15700,"gameSlug":"love-guitars-and-the-nashville-skyline","name":"Love, Guitars, and the Nashville Skyline","description":""}
+{"gameId":15699,"gameSlug":"fare-thee-well","name":"Fare Thee Well","description":""}
+{"gameId":15697,"gameSlug":"our-home","name":"Our Home.","description":""}
+{"gameId":3915,"gameSlug":"re-alistair","name":"RE: Alistair++","description":""}
+{"gameId":15695,"gameSlug":"daisy-chain","name":"Daisy Chain","description":""}
+{"gameId":15694,"gameSlug":"nachtigal","name":"Nachtigal","description":""}
+{"gameId":15693,"gameSlug":"her-tears-were-my-light","name":"Her Tears Were My Light","description":""}
+{"gameId":4778,"gameSlug":"quantum-conscience","name":"Quantum Conscience","description":""}
+{"gameId":7384,"gameSlug":"plith","name":"Plith","description":""}
+{"gameId":15678,"gameSlug":"my-magical-divorce-bureau","name":"My Magical Divorce Bureau!!","description":""}
+{"gameId":2153,"gameSlug":"dreaming-sarah","name":"Dreaming Sarah","description":""}
+{"gameId":3836,"gameSlug":"drew-and-the-floating-labyrinth","name":"Drew and the Floating Labyrinth","description":""}
+{"gameId":7093,"gameSlug":"dr-bulbaceous","name":"Dr. Bulbaceous","description":""}
+{"gameId":2916,"gameSlug":"bionic-heart","name":"Bionic Heart","description":""}
+{"gameId":15652,"gameSlug":"booksleeper","name":"bookSLEEPer","description":""}
+{"gameId":3137,"gameSlug":"great-permutator","name":"Great Permutator","description":""}
+{"gameId":2504,"gameSlug":"hexcells-infinite","name":"Hexcells Infinite","description":""}
+{"gameId":1962,"gameSlug":"hexcells","name":"Hexcells","description":""}
+{"gameId":15638,"gameSlug":"sakura-christmas-party","name":"Sakura Christmas Party","description":"Free download from: https://we.tl/mmPjKnclAZ"}
+{"gameId":9577,"gameSlug":"magical-otoge-ciel","name":"Magical Otoge Ciel","description":""}
+{"gameId":15620,"gameSlug":"exit-fate","name":"Exit Fate","description":"Free download from: https://radialapps.com/linux/exitfate.html"}
+{"gameId":9709,"gameSlug":"sakura-dungeon","name":"Sakura Dungeon","description":"Adult patch downloaded from: https://we.tl/EGJuqaTyOd"}
+{"gameId":7733,"gameSlug":"sakura-maid","name":"Sakura Maid","description":"Free download from: https://we.tl/D7Psde9XDc"}
+{"gameId":15610,"gameSlug":"insatiable-creatures","name":"Insatiable Creatures","description":""}
+{"gameId":3803,"gameSlug":"just-get-through","name":"Just Get Through","description":""}
+{"gameId":2269,"gameSlug":"grimind","name":"Grimind","description":""}
+{"gameId":15606,"gameSlug":"just-kill-yourself","name":"Just Kill Yourself","description":""}
+{"gameId":5436,"gameSlug":"invisible-apartment-zero","name":"Invisible Apartment Zero","description":""}
+{"gameId":4020,"gameSlug":"invisible-apartment","name":"Invisible Apartment","description":""}
+{"gameId":2595,"gameSlug":"heileen-1-sail-away","name":"Heileen: Sail Away","description":""}
+{"gameId":15596,"gameSlug":"magical-otoge-anholly","name":"Magical Otoge Anholly","description":""}
+{"gameId":15587,"gameSlug":"homeward","name":"Homeward","description":""}
+{"gameId":2418,"gameSlug":"evolution-rts","name":"Evolution RTS","description":""}
+{"gameId":8547,"gameSlug":"shenzhen-io","name":"SHENZHEN I/O","description":""}
+{"gameId":10632,"gameSlug":"negligee","name":"Negligee","description":""}
+{"gameId":2214,"gameSlug":"sunrider-first-arrival","name":"Sunrider: Mask of Arcadius","description":""}
+{"gameId":7499,"gameSlug":"expander","name":"Expander","description":""}
+{"gameId":15336,"gameSlug":"dave-gnukem","name":"Dave Gnukem","description":""}
+{"gameId":5420,"gameSlug":"sunrider-academy","name":"Sunrider Academy","description":""}
+{"gameId":15311,"gameSlug":"densha-girl","name":"Densha Girl","description":""}
+{"gameId":3813,"gameSlug":"cubot","name":"Cubot","description":""}
+{"gameId":15245,"gameSlug":"another-lost-phone-lauras-story","name":"Another Lost Phone: Laura's Story","description":""}
+{"gameId":6748,"gameSlug":"a-kiss-for-the-petals-remembering-how-we-met","name":"A Kiss for the Petals - Remembering How We Met","description":""}
+{"gameId":6835,"gameSlug":"butsbal","name":"Butsbal","description":""}
+{"gameId":460,"gameSlug":"avadon-the-black-fortress","name":"Avadon: The Black Fortress","description":""}
+{"gameId":3926,"gameSlug":"awesome-shapes","name":"Awesome Shapes","description":""}
+{"gameId":1691,"gameSlug":"aztaka","name":"Aztaka","description":""}
+{"gameId":11915,"gameSlug":"a-normal-lost-phone","name":"A Normal Lost Phone","description":""}
+{"gameId":15265,"gameSlug":"stalker-yandere","name":"Stalker & Yandere","description":""}
+{"gameId":3925,"gameSlug":"amygdala","name":"Amygdala","description":""}
+{"gameId":10201,"gameSlug":"fumiko","name":"Fumiko!","description":""}
+{"gameId":15252,"gameSlug":"an-otakus-guide-to-santas-reindeer","name":"An Otaku's Guide to Santa's Reindeer","description":""}
+{"gameId":2578,"gameSlug":"always-remember-me","name":"Always Remember Me","description":""}
+{"gameId":6082,"gameSlug":"always-the-same-blue-sky","name":"Always The Same Blue Sky...","description":""}
+{"gameId":2156,"gameSlug":"woodle-tree-adventures","name":"Woodle Tree Adventures","description":""}
+{"gameId":4143,"gameSlug":"square-heroes","name":"Square Heroes","description":""}
+{"gameId":15182,"gameSlug":"lucid-dreamer","name":"Lucid Dreamer","description":""}
+{"gameId":3620,"gameSlug":"prelogate","name":"Prelogate","description":""}
+{"gameId":15172,"gameSlug":"legend-of-the-silver-fox","name":"Legend of the Silver Fox","description":""}
+{"gameId":15171,"gameSlug":"finding-paradise","name":"Finding Paradise","description":""}
+{"gameId":15168,"gameSlug":"starlit-flowers","name":"Starlit Flowers","description":""}
+{"gameId":808,"gameSlug":"survivor-squad","name":"Survivor Squad","description":""}
+{"gameId":6508,"gameSlug":"brigador","name":"Brigador","description":""}
+{"gameId":7749,"gameSlug":"we-are-the-dwarves","name":"We Are The Dwarves","description":""}
+{"gameId":15078,"gameSlug":"realpolitiks","name":"Realpolitiks","description":""}
+{"gameId":3428,"gameSlug":"a-story-about-my-uncle","name":"A Story About My Uncle","description":""}
+{"gameId":6277,"gameSlug":"parkitect","name":"Parkitect","description":""}
+{"gameId":6926,"gameSlug":"torment-tides-of-numenera","name":"Torment: Tides of Numenera","description":""}
+{"gameId":13491,"gameSlug":"serial-cleaner","name":"Serial Cleaner","description":""}
+{"gameId":1873,"gameSlug":"superhot","name":"Superhot","description":""}
+{"gameId":263,"gameSlug":"the-bards-tale","name":"The Bard's Tale","description":""}
+{"gameId":8257,"gameSlug":"the-dwarves","name":"The Dwarves","description":""}
+{"gameId":3127,"gameSlug":"the-long-dark","name":"The Long Dark","description":"Note: Game was removed from GOG, but owners can still use this installer"}
+{"gameId":95,"gameSlug":"kerbal-space-program","name":"Kerbal Space Program","description":""}
+{"gameId":1628,"gameSlug":"two-worlds-epic-edition","name":"Two Worlds: Epic Edition","description":""}
+{"gameId":9100,"gameSlug":"orwell","name":"Orwell","description":""}
+{"gameId":15032,"gameSlug":"dope-trashcanners","name":"Dope TrashCanners","description":""}
+{"gameId":15014,"gameSlug":"liar-liar-2-pants-on-fire","name":"Liar Liar 2: Pants on Fire","description":""}
+{"gameId":15010,"gameSlug":"liar-liar","name":"Liar Liar","description":""}
+{"gameId":15008,"gameSlug":"blood-idol-wakabayashi","name":"Blood Idol Wakabayashi","description":""}
+{"gameId":11761,"gameSlug":"discouraged-workers-teen","name":"Discouraged Workers TEEN","description":""}
+{"gameId":15001,"gameSlug":"no-one-but-you","name":"No One But You","description":""}
+{"gameId":2675,"gameSlug":"whispering-willows","name":"Whispering Willows","description":""}
+{"gameId":276,"gameSlug":"bastion","name":"Bastion","description":""}
+{"gameId":4910,"gameSlug":"undertale","name":"Undertale","description":""}
+{"gameId":4529,"gameSlug":"tis-100","name":"TIS-100","description":"This change is made to liken this older installer to newer ones."}
+{"gameId":14999,"gameSlug":"rats-spears","name":"Rats & Spears","description":""}
+{"gameId":14934,"gameSlug":"nagiq","name":"NagiQ","description":""}
+{"gameId":576,"gameSlug":"quantz","name":"QuantZ","description":""}
+{"gameId":14988,"gameSlug":"awaker","name":"Awaker","description":""}
+{"gameId":2027,"gameSlug":"zen-puzzle-garden","name":"Zen Puzzle Garden","description":""}
+{"gameId":14986,"gameSlug":"jaspers-journeys","name":"Jasper's Journeys","description":""}
+{"gameId":14985,"gameSlug":"chocolate-castle","name":"Chocolate Castle","description":""}
+{"gameId":14987,"gameSlug":"neko-puzzle","name":"Neko Puzzle","description":""}
+{"gameId":5031,"gameSlug":"freeciv","name":"Freeciv","description":"Stable"}
+{"gameId":563,"gameSlug":"prey-2006","name":"Prey (2006)","description":""}
+{"gameId":935,"gameSlug":"air-forte","name":"Air Forte","description":""}
+{"gameId":4598,"gameSlug":"minilens","name":"Minilens","description":""}
+{"gameId":14839,"gameSlug":"date-treat","name":"Date Treat","description":""}
+{"gameId":577,"gameSlug":"star-wars-dark-forces","name":"Star Wars: Dark Forces","description":"Play \"Star Wars - Dark Forces\" provided by GOG on Linux!"}
+{"gameId":11868,"gameSlug":"everything","name":"Everything","description":""}
+{"gameId":14735,"gameSlug":"planet-blupi","name":"Planet Blupi","description":""}
+{"gameId":14768,"gameSlug":"christmas-eve-crisis","name":"Christmas Eve Crisis","description":""}
+{"gameId":14767,"gameSlug":"barrel-patrol-3d","name":"Barrel Patrol 3D","description":""}
+{"gameId":14754,"gameSlug":"he-beat-her","name":"He Beat Her","description":""}
+{"gameId":14524,"gameSlug":"ideka-halloween-special","name":"I.D.E.K.A Halloween Special","description":""}
+{"gameId":1097,"gameSlug":"zigfrak","name":"Zigfrak","description":""}
+{"gameId":8265,"gameSlug":"gran-turismo","name":"Gran Turismo","description":""}
+{"gameId":14446,"gameSlug":"kilgazar","name":"Kilgazar","description":""}
+{"gameId":14296,"gameSlug":"dungeons-3","name":"Dungeons 3","description":""}
+{"gameId":11700,"gameSlug":"the-warlock-of-firetop-mountain","name":"The Warlock of Firetop Mountain","description":""}
+{"gameId":4325,"gameSlug":"satellite-reign","name":"Satellite Reign","description":""}
+{"gameId":14419,"gameSlug":"atom-grrrl","name":"Atom Grrrl!!","description":""}
+{"gameId":360,"gameSlug":"anomaly-korea","name":"Anomaly Korea","description":""}
+{"gameId":2777,"gameSlug":"paper-dungeons","name":"Paper Dungeons","description":""}
+{"gameId":14406,"gameSlug":"icewind-dale-ii","name":"Icewind Dale II","description":"Play \"Icewind Dale II\" GOG edition on Linux!"}
+{"gameId":3999,"gameSlug":"freedroidrpg","name":"FreedroidRPG","description":""}
+{"gameId":2140,"gameSlug":"krunch","name":"KRUNCH","description":""}
+{"gameId":299,"gameSlug":"intrusion-2","name":"Intrusion 2","description":""}
+{"gameId":720,"gameSlug":"windosill","name":"Windosill","description":""}
+{"gameId":14341,"gameSlug":"scallywags","name":"Scallywags","description":""}
+{"gameId":9723,"gameSlug":"rive","name":"RIVE","description":""}
+{"gameId":4057,"gameSlug":"pretty","name":"Pretty","description":""}
+{"gameId":10513,"gameSlug":"soulless-ray-of-hope","name":"Soulless: Ray Of Hope","description":""}
+{"gameId":14301,"gameSlug":"my-strange-sis","name":"My Strange Sis","description":""}
+{"gameId":14292,"gameSlug":"i-woke-up-next-to-you-again","name":"I Woke up next to You Again","description":""}
+{"gameId":14269,"gameSlug":"grey-plague","name":"Grey Plague","description":""}
+{"gameId":10317,"gameSlug":"fox-flock","name":"Fox & Flock","description":""}
+{"gameId":5462,"gameSlug":"dungeon-souls","name":"Dungeon Souls","description":""}
+{"gameId":14268,"gameSlug":"doki-doki-literature-club","name":"Doki Doki Literature Club!","description":""}
+{"gameId":2685,"gameSlug":"depression-quest","name":"Depression Quest","description":""}
+{"gameId":14267,"gameSlug":"chook-sosig-hit-the-club","name":"Chook & Sosig: Hit the Club","description":""}
+{"gameId":14266,"gameSlug":"chook-sosig","name":"Chook & Sosig","description":""}
+{"gameId":14265,"gameSlug":"butterfly-soup","name":"Butterfly Soup","description":""}
+{"gameId":14242,"gameSlug":"argentum-age","name":"Argentum Age","description":""}
+{"gameId":8476,"gameSlug":"tyranny","name":"Tyranny","description":""}
+{"gameId":223,"gameSlug":"crayon-physics-deluxe","name":"Crayon Physics Deluxe","description":""}
+{"gameId":14110,"gameSlug":"moon-buggy","name":"Moon Buggy","description":""}
+{"gameId":622,"gameSlug":"gemini-rue","name":"Gemini Rue","description":""}
+{"gameId":956,"gameSlug":"prison-architect","name":"Prison Architect","description":""}
+{"gameId":446,"gameSlug":"hacker-evolution-untold","name":"Hacker Evolution - Untold","description":""}
+{"gameId":13928,"gameSlug":"super-tower-rush","name":"Super Tower Rush","description":""}
+{"gameId":13889,"gameSlug":"ultrastar-creator","name":"UltraStar Creator","description":""}
+{"gameId":13859,"gameSlug":"eggnogg","name":"Eggnogg+","description":"Download at https://madgarden.itch.io/eggnogg"}
+{"gameId":8419,"gameSlug":"ravenfield","name":"Ravenfield","description":"Download at https://steelraven7.itch.io/ravenfield"}
+{"gameId":2962,"gameSlug":"wakfu","name":"WAKFU","description":""}
+{"gameId":11894,"gameSlug":"invisigun-heroes","name":"Invisigun Reloaded","description":"The demo can be downloaded from: https://sombr.itch.io/invisigun-heroes"}
+{"gameId":5521,"gameSlug":"human-resource-machine","name":"Human Resource Machine","description":""}
+{"gameId":13536,"gameSlug":"american-civil-war-v2","name":"American Civil War v2","description":""}
+{"gameId":11092,"gameSlug":"truecombat-elite","name":"TrueCombat Elite","description":"Installer based on et legacy and Elite mod"}
+{"gameId":13287,"gameSlug":"lode-runner-on-line-the-mad-monks-revenge","name":"Lode Runner On-line: The Mad Monk's Revenge Definitive Edition","description":"Native version of the game without soundtrack"}
+{"gameId":9187,"gameSlug":"ignition","name":"Ignition","description":""}
+{"gameId":12390,"gameSlug":"ellaria-cotton-cream","name":"Ellaria: Cotton & Cream","description":""}
+{"gameId":5732,"gameSlug":"big-journey-to-home","name":"Big Journey to Home","description":""}
+{"gameId":11055,"gameSlug":"red-string-of-fate","name":"Red String of Fate","description":""}
+{"gameId":12351,"gameSlug":"hitogotchi","name":"Hitogotchi","description":""}
+{"gameId":12350,"gameSlug":"straight-up-sister-zoned","name":"Straight Up: Sister-Zoned!","description":""}
+{"gameId":12344,"gameSlug":"vicarwissen","name":"Vicarwissen","description":""}
+{"gameId":12342,"gameSlug":"heartbaked","name":"Heartbaked","description":""}
+{"gameId":12123,"gameSlug":"never-give-up","name":"Never give up!","description":"Free download from http://anivisual.net/stuff/2-1-0-468"}
+{"gameId":7015,"gameSlug":"porradaria-2-pagode-of-the-night","name":"Porradaria 2: Pagode of the Night","description":""}
+{"gameId":12323,"gameSlug":"tales-of-androgyny","name":"Tales of Androgyny","description":""}
+{"gameId":6088,"gameSlug":"highschool-possession","name":"Highschool Possession","description":"Uncensor patch from: http://dharkerstudio.com/uncensored.html"}
+{"gameId":12119,"gameSlug":"summer-fling","name":"Summer Fling","description":"Uncensor patch from: http://dharkerstudio.com/uncensored.html"}
+{"gameId":6086,"gameSlug":"club-life","name":"Club Life","description":"Uncensor patch from: http://dharkerstudio.com/uncensored.html"}
+{"gameId":12118,"gameSlug":"beauty-bounce","name":"Beauty Bounce","description":"Uncensor patch from: http://dharkerstudio.com/uncensored.html"}
+{"gameId":5072,"gameSlug":"written-in-the-sky","name":"Written in the Sky","description":""}
+{"gameId":12250,"gameSlug":"dance-like-a-butterfly","name":"Dance Like a Butterfly","description":""}
+{"gameId":12249,"gameSlug":"john-cenas-sexy-holiday-surprise","name":"John Cena's Sexy Holiday Surprise!","description":""}
+{"gameId":12248,"gameSlug":"orchids-to-dusk","name":"Orchids to Dusk","description":""}
+{"gameId":12230,"gameSlug":"sweet-and-spices","name":"Sweet and Spices","description":""}
+{"gameId":12229,"gameSlug":"whats-your-name","name":"What's Your Name?","description":""}
+{"gameId":6948,"gameSlug":"beach-bounce","name":"Beach Bounce","description":"Uncensor patch from: http://dharkerstudio.com/uncensored.html"}
+{"gameId":12120,"gameSlug":"bunny-bounce","name":"Bunny Bounce","description":"Uncensor patch from: http://dharkerstudio.com/uncensored.html"}
+{"gameId":12214,"gameSlug":"moonlight-crossing","name":"Moonlight Crossing","description":""}
+{"gameId":12213,"gameSlug":"hands-off","name":"Hands Off!","description":""}
+{"gameId":12196,"gameSlug":"kiss-the-cock","name":"Kiss the Coøck","description":""}
+{"gameId":12195,"gameSlug":"text-a-summer-story","name":"[text] A Summer Story","description":"Free download from <a href=\"https://www.renai.us/game/text\">renai.us</a>"}
+{"gameId":11093,"gameSlug":"truecombat-cqb","name":"TrueCombat CQB","description":""}
+{"gameId":12157,"gameSlug":"the-shadows-that-run-alongside-our-car","name":"The Shadows That Run Alongside Our Car","description":""}
+{"gameId":12156,"gameSlug":"monster-girl-island","name":"Monster Girl Island","description":""}
+{"gameId":5823,"gameSlug":"shmadow","name":"Shmadow","description":""}
+{"gameId":12150,"gameSlug":"the-phantom-of-the-hospital","name":"The Phantom of the Hospital","description":""}
+{"gameId":12149,"gameSlug":"after-school","name":"After School","description":""}
+{"gameId":12148,"gameSlug":"takume","name":"Takume","description":""}
+{"gameId":12121,"gameSlug":"my-lady","name":"My Lady","description":""}
+{"gameId":12147,"gameSlug":"helenas-flowers","name":"Helena's Flowers","description":""}
+{"gameId":11872,"gameSlug":"the-thing-with-mistletoes","name":"The Thing With Mistletoes","description":""}
+{"gameId":12104,"gameSlug":"poke-abby","name":"Poke Abby","description":""}
+{"gameId":6893,"gameSlug":"orange-moon","name":"Orange Moon","description":""}
+{"gameId":11782,"gameSlug":"sakura-space","name":"Sakura Space","description":"Adult Patch"}
+{"gameId":12099,"gameSlug":"memoir-en-code","name":"Memoir En Code","description":""}
+{"gameId":6906,"gameSlug":"repete","name":"RePete","description":""}
+{"gameId":12090,"gameSlug":"bundle-clicker","name":"Bundle Clicker","description":""}
+{"gameId":12089,"gameSlug":"paper-roses","name":"Paper Roses","description":""}
+{"gameId":11004,"gameSlug":"cinderella-phenomenon","name":"Cinderella Phenomenon","description":""}
+{"gameId":6791,"gameSlug":"the-grave-digger","name":"The Grave Digger","description":""}
+{"gameId":12087,"gameSlug":"hairy-tales","name":"Hairy Tales","description":""}
+{"gameId":447,"gameSlug":"hacker-evolution-duality","name":"Hacker Evolution Duality","description":""}
+{"gameId":12082,"gameSlug":"scattered-notes","name":"Scattered Notes","description":""}
+{"gameId":6945,"gameSlug":"divine-slice-of-life","name":"Divine Slice of Life","description":"Uncensor patch from: http://dharkerstudio.com/uncensored.html"}
+{"gameId":11679,"gameSlug":"sounds-of-her-love","name":"Sounds of Her Love","description":""}
+{"gameId":6396,"gameSlug":"the-sad-story-of-emmeline-burns","name":"The Sad Story of Emmeline Burns","description":""}
+{"gameId":11208,"gameSlug":"blossoms-bloom-brightest","name":"Blossoms Bloom Brightest","description":""}
+{"gameId":3675,"gameSlug":"autumns-journey","name":"Autumn's Journey","description":""}
+{"gameId":9708,"gameSlug":"trick-and-treat-visual-novel","name":"Trick and Treat - Visual Novel","description":""}
+{"gameId":4962,"gameSlug":"the-beginners-guide","name":"The Beginner's Guide","description":""}
+{"gameId":3527,"gameSlug":"super-3d-noahs-ark","name":"Super 3D Noah's Ark","description":""}
+{"gameId":11955,"gameSlug":"pokemon-revolution-online","name":"Pokemon Revolution Online","description":""}
+{"gameId":250,"gameSlug":"serious-sam-the-second-encounter","name":"Serious Sam: The Second Encounter","description":""}
+{"gameId":5442,"gameSlug":"sakura-fantasy-chapter-1","name":"Sakura Fantasy Chapter 1","description":"Adult Patch"}
+{"gameId":667,"gameSlug":"flatout","name":"FlatOut","description":""}
+{"gameId":9731,"gameSlug":"cayne","name":"CAYNE","description":""}
+{"gameId":2401,"gameSlug":"broforce","name":"Broforce","description":""}
+{"gameId":3916,"gameSlug":"my-magical-cosplay-cafe","name":"My Magical Cosplay Cafe","description":"Free download from renai.us"}
+{"gameId":3905,"gameSlug":"the-real-texas","name":"The Real Texas","description":""}
+{"gameId":247,"gameSlug":"defcon","name":"DEFCON","description":""}
+{"gameId":5318,"gameSlug":"doodle-god","name":"Doodle God","description":""}
+{"gameId":194,"gameSlug":"rush","name":"RUSH","description":""}
+{"gameId":3818,"gameSlug":"the-depths-of-tolagal","name":"The Depths of Tolagal","description":""}
+{"gameId":292,"gameSlug":"rocketbirds-hardboiled-chicken","name":"Rocketbirds: Hardboiled Chicken","description":""}
+{"gameId":293,"gameSlug":"shatter","name":"Shatter","description":"libxft2:i386 is needed from your distribution's repository."}
+{"gameId":2974,"gameSlug":"neverending-nightmares","name":"Neverending Nightmares","description":""}
+{"gameId":2860,"gameSlug":"world-end-economica-episode01","name":"WORLD END ECONOMiCA episode.01","description":""}
+{"gameId":1944,"gameSlug":"the-inner-world","name":"The Inner World","description":""}
+{"gameId":11793,"gameSlug":"swarm-racer-3000","name":"Swarm Racer 3000","description":""}
+{"gameId":635,"gameSlug":"botanicula","name":"Botanicula","description":""}
+{"gameId":2237,"gameSlug":"the-whispered-world-special-edition","name":"The Whispered World Special Edition","description":""}
+{"gameId":1090,"gameSlug":"primordia","name":"Primordia","description":""}
+{"gameId":1649,"gameSlug":"draw-a-stickman-epic","name":"Draw a Stickman: EPIC","description":""}
+{"gameId":11785,"gameSlug":"dont-move","name":"Don't Move","description":""}
+{"gameId":580,"gameSlug":"i-have-no-mouth-and-i-must-scream","name":"I Have No Mouth, and I Must Scream","description":""}
+{"gameId":4113,"gameSlug":"toast-time","name":"Toast Time","description":""}
+{"gameId":6171,"gameSlug":"toonstruck","name":"Toonstruck","description":""}
+{"gameId":7673,"gameSlug":"oxenfree","name":"Oxenfree","description":""}
+{"gameId":1543,"gameSlug":"delver","name":"Delver","description":""}
+{"gameId":3238,"gameSlug":"eufloria-hd","name":"Eufloria HD","description":""}
+{"gameId":291,"gameSlug":"closure","name":"Closure","description":""}
+{"gameId":11780,"gameSlug":"super-scrapped-robot","name":"Super Scrapped Robot","description":""}
+{"gameId":1518,"gameSlug":"gone-home","name":"Gone Home","description":""}
+{"gameId":10589,"gameSlug":"fantasy-general","name":"Fantasy General","description":""}
+{"gameId":314,"gameSlug":"waking-mars","name":"Waking Mars","description":""}
+{"gameId":11759,"gameSlug":"irukandji","name":"Irukandji","description":""}
+{"gameId":11758,"gameSlug":"inverto","name":"Inverto","description":""}
+{"gameId":11756,"gameSlug":"operation-smash","name":"Operation Smash","description":""}
+{"gameId":11752,"gameSlug":"ynglet","name":"Ynglet","description":""}
+{"gameId":11748,"gameSlug":"pharaohs-dance","name":"Pharaoh’s Dance","description":""}
+{"gameId":2145,"gameSlug":"volt","name":"Volt","description":""}
+{"gameId":2585,"gameSlug":"spy-chameleon-rgb-agent","name":"Spy Chameleon - RGB Agent","description":""}
+{"gameId":3816,"gameSlug":"crashed-lander","name":"Crashed Lander","description":""}
+{"gameId":11735,"gameSlug":"copod","name":"Copod","description":""}
+{"gameId":5764,"gameSlug":"dropsy","name":"Dropsy","description":""}
+{"gameId":2644,"gameSlug":"bravada","name":"Bravada","description":""}
+{"gameId":11733,"gameSlug":"earth-destroyer","name":"Earth Destroyer","description":""}
+{"gameId":2763,"gameSlug":"children-of-liberty","name":"Children of Liberty","description":""}
+{"gameId":5048,"gameSlug":"rats-time-is-running-out","name":"Rats - Time is running out!","description":""}
+{"gameId":3912,"gameSlug":"snake-blocks","name":"Snake Blocks","description":""}
+{"gameId":3817,"gameSlug":"crunch-time","name":"Crunch Time!","description":""}
+{"gameId":11711,"gameSlug":"vassal","name":"Vassal","description":""}
+{"gameId":11696,"gameSlug":"los-cuervos","name":"Los Cuervos","description":""}
+{"gameId":3801,"gameSlug":"clusterpuck-99","name":"ClusterPuck 99","description":""}
+{"gameId":7904,"gameSlug":"coated","name":"Coated","description":""}
+{"gameId":1200,"gameSlug":"perfection","name":"Perfection.","description":""}
+{"gameId":11466,"gameSlug":"ananias-roguelike","name":"Ananias Roguelike","description":""}
+{"gameId":5516,"gameSlug":"parallax","name":"Parallax","description":""}
+{"gameId":11683,"gameSlug":"i-am-level","name":"I Am Level","description":""}
+{"gameId":4885,"gameSlug":"grey-cubes","name":"Grey Cubes","description":""}
+{"gameId":4723,"gameSlug":"supercharged-robot-vulkaiser","name":"Supercharged Robot VULKAISER","description":""}
+{"gameId":733,"gameSlug":"planetary-annihilation","name":"Planetary Annihilation","description":""}
+{"gameId":4547,"gameSlug":"sportsfriends","name":"Sportsfriends","description":""}
+{"gameId":2943,"gameSlug":"tales-of-majeyal","name":"Tales of Maj'Eyal","description":""}
+{"gameId":3500,"gameSlug":"sakura-spirit","name":"Sakura Spirit","description":""}
+{"gameId":1542,"gameSlug":"teslagrad","name":"Teslagrad","description":""}
+{"gameId":2050,"gameSlug":"farsky","name":"FarSky","description":""}
+{"gameId":1536,"gameSlug":"the-stanley-parable","name":"The Stanley Parable","description":""}
+{"gameId":11644,"gameSlug":"veraball","name":"Veraball","description":"Early release."}
+{"gameId":11643,"gameSlug":"dday-normandy","name":"DDay: Normandy","description":""}
+{"gameId":11642,"gameSlug":"kaitlyn-in-chinaland","name":"Kaitlyn in Chinaland","description":""}
+{"gameId":11608,"gameSlug":"vee-is-calling","name":"Vee is Calling","description":""}
+{"gameId":302,"gameSlug":"thomas-was-alone","name":"Thomas Was Alone","description":""}
+{"gameId":491,"gameSlug":"ultratron","name":"Ultratron","description":""}
+{"gameId":4899,"gameSlug":"tulpa","name":"Tulpa","description":""}
+{"gameId":275,"gameSlug":"superbrothers-sword-sworcery-ep","name":"Superbrothers: Sword & Sworcery EP","description":""}
+{"gameId":2135,"gameSlug":"strata","name":"Strata","description":""}
+{"gameId":279,"gameSlug":"splice","name":"Splice","description":""}
+{"gameId":3064,"gameSlug":"spacecom","name":"SPACECOM","description":""}
+{"gameId":217,"gameSlug":"solar-2","name":"Solar 2","description":""}
+{"gameId":285,"gameSlug":"snapshot","name":"Snapshot","description":""}
+{"gameId":1125,"gameSlug":"secret-of-the-magic-crystal","name":"Secret of the Magic Crystal","description":""}
+{"gameId":171,"gameSlug":"revenge-of-the-titans","name":"Revenge of the Titans","description":""}
+{"gameId":259,"gameSlug":"nightsky","name":"NightSky","description":""}
+{"gameId":2882,"gameSlug":"monster-loves-you","name":"Monster Loves You!","description":""}
+{"gameId":513,"gameSlug":"megabyte-punch","name":"Megabyte Punch","description":""}
+{"gameId":11551,"gameSlug":"low-light-combat","name":"Low Light Combat","description":""}
+{"gameId":11550,"gameSlug":"hoky","name":"HOKY","description":""}
+{"gameId":11549,"gameSlug":"hellmouth","name":"Hellmouth","description":""}
+{"gameId":265,"gameSlug":"english-country-tune","name":"English Country Tune","description":""}
+{"gameId":4987,"gameSlug":"else-heartbreak","name":"Else Heart.Break()","description":""}
+{"gameId":492,"gameSlug":"droid-assault","name":"Droid Assault","description":""}
+{"gameId":4209,"gameSlug":"crowntakers","name":"Crowntakers","description":""}
+{"gameId":11547,"gameSlug":"crap-no-one-loves-me","name":"CRAP! No One Loves Me","description":""}
+{"gameId":197,"gameSlug":"capsized","name":"Capsized","description":""}
+{"gameId":11546,"gameSlug":"battle-frogs","name":"Battle Frogs","description":""}
+{"gameId":11541,"gameSlug":"alea","name":"ALEA","description":""}
+{"gameId":289,"gameSlug":"anomaly-warzone-earth","name":"Anomaly Warzone Earth","description":""}
+{"gameId":11540,"gameSlug":"sleepwalkers-journey","name":"Sleepwalker's Journey","description":""}
+{"gameId":11539,"gameSlug":"funky-smugglers","name":"Funky Smugglers","description":""}
+{"gameId":521,"gameSlug":"anomaly-warzone-earth-mobile-campaign","name":"Anomaly Warzone Earth Mobile Campaign","description":""}
+{"gameId":295,"gameSlug":"rochard","name":"Rochard","description":""}
+{"gameId":256,"gameSlug":"shank","name":"Shank","description":""}
+{"gameId":260,"gameSlug":"gratuitous-space-battles","name":"Gratuitous Space Battles","description":""}
+{"gameId":458,"gameSlug":"zen-bound-2","name":"Zen Bound® 2","description":""}
+{"gameId":2627,"gameSlug":"halfway","name":"Halfway","description":""}
+{"gameId":3073,"gameSlug":"ar-k","name":"AR-K","description":""}
+{"gameId":3087,"gameSlug":"a-wizards-lizard","name":"A Wizard's Lizard","description":""}
+{"gameId":3991,"gameSlug":"virtual-jay-peak","name":"Virtual Jay Peak","description":"Dynamically linked libraries"}
+{"gameId":626,"gameSlug":"jack-lumber","name":"Jack Lumber","description":""}
+{"gameId":222,"gameSlug":"and-yet-it-moves","name":"And Yet It Moves","description":""}
+{"gameId":322,"gameSlug":"fieldrunners","name":"Fieldrunners","description":""}
+{"gameId":11536,"gameSlug":"pico-8","name":"PICO-8","description":""}
+{"gameId":11535,"gameSlug":"voxatron","name":"Voxatron","description":""}
+{"gameId":779,"gameSlug":"tidalis","name":"Tidalis","description":""}
+{"gameId":245,"gameSlug":"darwinia","name":"Darwinia","description":""}
+{"gameId":248,"gameSlug":"multiwinia","name":"Multiwinia","description":""}
+{"gameId":246,"gameSlug":"uplink","name":"Uplink","description":""}
+{"gameId":4945,"gameSlug":"chroma-squad","name":"Chroma Squad","description":""}
+{"gameId":11520,"gameSlug":"bureaucrap","name":"Bureaucrap","description":""}
+{"gameId":2172,"gameSlug":"qube-directors-cut","name":"Q.U.B.E: Director's Cut","description":""}
+{"gameId":4956,"gameSlug":"dyscourse","name":"Dyscourse","description":""}
+{"gameId":333,"gameSlug":"brutal-legend","name":"Brütal Legend","description":""}
+{"gameId":335,"gameSlug":"organ-trail-directors-cut","name":"Organ Trail: Director's Cut","description":""}
+{"gameId":162,"gameSlug":"greed-corp","name":"Greed Corp","description":""}
+{"gameId":1233,"gameSlug":"forced","name":"Forced","description":""}
+{"gameId":2465,"gameSlug":"ziggurat","name":"Ziggurat","description":""}
+{"gameId":6354,"gameSlug":"steamworld-heist","name":"SteamWorld Heist","description":""}
+{"gameId":7793,"gameSlug":"beholder","name":"Beholder","description":""}
+{"gameId":294,"gameSlug":"space-pirates-and-zombies","name":"Space Pirates and Zombies","description":""}
+{"gameId":8888,"gameSlug":"owlboy","name":"Owlboy","description":""}
+{"gameId":2628,"gameSlug":"loren-the-amazon-princess","name":"Loren The Amazon Princess","description":""}
+{"gameId":786,"gameSlug":"lume","name":"Lume","description":""}
+{"gameId":4322,"gameSlug":"infinifactory","name":"Infinifactory","description":""}
+{"gameId":6686,"gameSlug":"neon-drive","name":"Neon Drive","description":""}
+{"gameId":2046,"gameSlug":"goat-simulator","name":"Goat Simulator","description":""}
+{"gameId":671,"gameSlug":"symphony","name":"Symphony","description":""}
+{"gameId":510,"gameSlug":"ittle-dew","name":"Ittle Dew","description":""}
+{"gameId":1713,"gameSlug":"ironclad-tactics","name":"Ironclad Tactics","description":""}
+{"gameId":5499,"gameSlug":"plug-play","name":"Plug & Play","description":""}
+{"gameId":7973,"gameSlug":"wheels-of-aurelia","name":"Wheels of Aurelia","description":""}
+{"gameId":5005,"gameSlug":"pixel-heroes-byte-magic","name":"Pixel Heroes: Byte & Magic","description":""}
+{"gameId":2575,"gameSlug":"kill-the-bad-guy","name":"Kill The Bad Guy","description":""}
+{"gameId":3910,"gameSlug":"another-star","name":"Another Star","description":""}
+{"gameId":3665,"gameSlug":"velocibox","name":"Velocibox","description":""}
+{"gameId":1215,"gameSlug":"mirrormoon-ep","name":"MirrorMoon EP","description":""}
+{"gameId":1462,"gameSlug":"unepic","name":"Unepic","description":""}
+{"gameId":3867,"gameSlug":"roommates","name":"Roommates","description":""}
+{"gameId":359,"gameSlug":"the-chaos-engine","name":"The Chaos Engine","description":""}
+{"gameId":3540,"gameSlug":"fotonica","name":"Fotonica","description":""}
+{"gameId":3489,"gameSlug":"blast-em","name":"Blast Em!","description":""}
+{"gameId":3683,"gameSlug":"the-forest-of-doom","name":"The Forest of Doom","description":""}
+{"gameId":2812,"gameSlug":"dungeon-of-elements","name":"Dungeon of Elements","description":""}
+{"gameId":5912,"gameSlug":"cupid-a-free-to-play-visual-novel","name":"Cupid","description":""}
+{"gameId":4654,"gameSlug":"seduce-me-the-otome","name":"Seduce Me the Otome","description":""}
+{"gameId":3447,"gameSlug":"always-sometimes-monsters","name":"Always Sometimes Monsters","description":"Native Version"}
+{"gameId":2769,"gameSlug":"detective-grimoire","name":"Detective Grimoire","description":""}
+{"gameId":1540,"gameSlug":"super-splatters","name":"Super Splatters","description":""}
+{"gameId":624,"gameSlug":"torchlight-ii","name":"Torchlight II","description":""}
+{"gameId":4549,"gameSlug":"stardust-vanguards","name":"Stardust Vanguards","description":""}
+{"gameId":518,"gameSlug":"assault-android-cactus","name":"Assault Android Cactus","description":""}
+{"gameId":3429,"gameSlug":"screencheat","name":"Screencheat","description":""}
+{"gameId":1547,"gameSlug":"the-shivah","name":"The Shivah","description":""}
+{"gameId":3715,"gameSlug":"dreamfall-chapters","name":"Dreamfall Chapters","description":""}
+{"gameId":7744,"gameSlug":"duelyst","name":"Duelyst","description":"Installs Duelyst as a native linux application."}
+{"gameId":11485,"gameSlug":"gunnel-vision","name":"Gunnel Vision","description":""}
+{"gameId":1475,"gameSlug":"bad-hotel","name":"Bad Hotel","description":""}
+{"gameId":181,"gameSlug":"trine-enchanted-edition","name":"Trine Enchanted Edition","description":"Enchanted Edition"}
+{"gameId":784,"gameSlug":"hoard","name":"HOARD","description":""}
+{"gameId":321,"gameSlug":"dungeons-of-dredmor","name":"Dungeons of Dredmor","description":""}
+{"gameId":1966,"gameSlug":"luxuria-superbia","name":"Luxuria Superbia","description":""}
+{"gameId":332,"gameSlug":"strike-suit-zero","name":"Strike Suit Zero","description":""}
+{"gameId":1711,"gameSlug":"unity-of-command","name":"Unity of Command","description":""}
+{"gameId":766,"gameSlug":"magical-diary","name":"Magical Diary","description":""}
+{"gameId":1598,"gameSlug":"joe-danger-2-the-movie","name":"Joe Danger 2: The Movie","description":""}
+{"gameId":11462,"gameSlug":"cryptic-sea-ep","name":"Cryptic Sea EP","description":""}
+{"gameId":336,"gameSlug":"anodyne","name":"Anodyne","description":""}
+{"gameId":1964,"gameSlug":"galcon-legends","name":"Galcon Legends","description":""}
+{"gameId":2056,"gameSlug":"blocks-that-matter","name":"Blocks That Matter","description":""}
+{"gameId":2099,"gameSlug":"kingdom-rush","name":"Kingdom Rush","description":""}
+{"gameId":830,"gameSlug":"galcon-fusion","name":"Galcon Fusion","description":""}
+{"gameId":2083,"gameSlug":"fieldrunners-2","name":"Fieldrunners 2","description":""}
+{"gameId":11460,"gameSlug":"samurai-shodown-v-special","name":"Samurai Shodown V Special","description":""}
+{"gameId":11459,"gameSlug":"samurai-shodown-ii","name":"Samurai Shodown II","description":""}
+{"gameId":11458,"gameSlug":"real-bout-fatal-fury-2-the-newcomers","name":"Real Bout Fatal Fury 2: The Newcomers","description":""}
+{"gameId":1188,"gameSlug":"the-swapper","name":"The Swapper","description":""}
+{"gameId":2291,"gameSlug":"planet-stronghold","name":"Planet Stronghold","description":""}
+{"gameId":1776,"gameSlug":"ravensword-shadowlands","name":"Ravensword: Shadowlands","description":""}
+{"gameId":530,"gameSlug":"savant-ascent","name":"Savant - Ascent","description":""}
+{"gameId":11454,"gameSlug":"king-of-the-monsters","name":"King of the Monsters","description":""}
+{"gameId":7884,"gameSlug":"sengoku-3","name":"Sengoku 3","description":""}
+{"gameId":11453,"gameSlug":"garou-mark-of-the-wolves","name":"Garou: Mark of the Wolves","description":""}
+{"gameId":11452,"gameSlug":"fatal-fury-special","name":"Fatal Fury Special","description":""}
+{"gameId":11451,"gameSlug":"pulstar-1995","name":"Pulstar (1995)","description":""}
+{"gameId":3076,"gameSlug":"influent","name":"Influent","description":"Latin Language Pack"}
+{"gameId":531,"gameSlug":"king-arthurs-gold","name":"King Arthur's Gold","description":""}
+{"gameId":3612,"gameSlug":"potatoman-seeks-the-troof","name":"Potatoman Seeks the Troof","description":""}
+{"gameId":2108,"gameSlug":"cube-star-an-arbitrary-love","name":"Cube & Star: An Arbitrary Love","description":""}
+{"gameId":1898,"gameSlug":"lyne","name":"LYNE","description":""}
+{"gameId":1732,"gameSlug":"hate-plus","name":"Hate Plus","description":""}
+{"gameId":11444,"gameSlug":"ironclad","name":"Ironclad","description":""}
+{"gameId":1180,"gameSlug":"dungeon-hearts","name":"Dungeon Hearts","description":""}
+{"gameId":6339,"gameSlug":"twinkle-star-sprites","name":"TWINKLE STAR SPRITES","description":""}
+{"gameId":11436,"gameSlug":"the-king-of-fighters-2000","name":"The King of Fighters 2000","description":""}
+{"gameId":2095,"gameSlug":"skulls-of-the-shogun","name":"Skulls of the Shogun","description":""}
+{"gameId":236,"gameSlug":"shank-2","name":"Shank 2","description":""}
+{"gameId":2516,"gameSlug":"goodbye-deponia","name":"Goodbye Deponia","description":""}
+{"gameId":1146,"gameSlug":"blackwell-convergence","name":"The Blackwell Convergence","description":""}
+{"gameId":1145,"gameSlug":"blackwell-unbound","name":"Blackwell Unbound","description":""}
+{"gameId":1144,"gameSlug":"the-blackwell-legacy","name":"The Blackwell Legacy","description":""}
+{"gameId":4220,"gameSlug":"apotheon","name":"Apotheon","description":""}
+{"gameId":991,"gameSlug":"cubemen","name":"Cubemen","description":""}
+{"gameId":2276,"gameSlug":"quest-of-dungeons","name":"Quest of Dungeons","description":""}
+{"gameId":2174,"gameSlug":"deadly-30","name":"Deadly 30","description":""}
+{"gameId":4600,"gameSlug":"sunset","name":"Sunset","description":""}
+{"gameId":2114,"gameSlug":"breach-clear","name":"Breach & Clear","description":""}
+{"gameId":6338,"gameSlug":"shock-troopers","name":"Shock Troopers","description":""}
+{"gameId":9008,"gameSlug":"shock-troopers-2nd-squad","name":"SHOCK TROOPERS 2nd Squad","description":""}
+{"gameId":2448,"gameSlug":"paper-sorcerer","name":"Paper Sorcerer","description":""}
+{"gameId":325,"gameSlug":"dungeon-defenders","name":"Dungeon Defenders","description":""}
+{"gameId":499,"gameSlug":"anomaly-2","name":"Anomaly 2","description":""}
+{"gameId":1441,"gameSlug":"to-the-moon","name":"To the Moon","description":"Minisode 2"}
+{"gameId":253,"gameSlug":"trine-2-complete-story","name":"Trine 2: Complete Story","description":""}
+{"gameId":267,"gameSlug":"a-virus-named-tom","name":"A Virus Named TOM","description":""}
+{"gameId":2461,"gameSlug":"heavy-bullets","name":"Heavy Bullets","description":""}
+{"gameId":3667,"gameSlug":"the-shopkeeper","name":"The Shopkeeper","description":""}
+{"gameId":3653,"gameSlug":"never-alone-kisima-ingitchuna","name":"Never Alone (Kisima Ingitchuna)","description":""}
+{"gameId":506,"gameSlug":"sir-you-are-being-hunted","name":"Sir, You Are Being Hunted","description":""}
+{"gameId":1767,"gameSlug":"insanely-twisted-shadow-planet","name":"Insanely Twisted Shadow Planet","description":""}
+{"gameId":2656,"gameSlug":"solar-flux","name":"Solar Flux","description":""}
+{"gameId":2139,"gameSlug":"pixel-piracy","name":"Pixel Piracy","description":""}
+{"gameId":1102,"gameSlug":"analogue-a-hate-story","name":"Analogue: A Hate Story","description":""}
+{"gameId":11414,"gameSlug":"art-of-fighting-2","name":"Art of Fighting 2","description":""}
+{"gameId":7882,"gameSlug":"neo-turf-masters","name":"Neo Turf Masters","description":""}
+{"gameId":4287,"gameSlug":"metal-slug-x","name":"METAL SLUG X","description":""}
+{"gameId":1701,"gameSlug":"tales-from-space-mutant-blobs-attack","name":"Tales from Space: Mutant Blobs Attack","description":""}
+{"gameId":3741,"gameSlug":"a-golden-wake","name":"A Golden Wake","description":""}
+{"gameId":1551,"gameSlug":"montagues-mount","name":"Montague's Mount","description":""}
+{"gameId":1544,"gameSlug":"knock-knock","name":"Knock-knock","description":""}
+{"gameId":519,"gameSlug":"paranautical-activity","name":"Paranautical Activity","description":"Deluxe Atonement Edition"}
+{"gameId":2837,"gameSlug":"bridge-constructor-playground","name":"Bridge Constructor Playground","description":""}
+{"gameId":4583,"gameSlug":"trine-3-the-artifacts-of-power","name":"Trine 3: The Artifacts of Power","description":""}
+{"gameId":2382,"gameSlug":"reignmaker","name":"ReignMaker","description":""}
+{"gameId":3001,"gameSlug":"anomaly-defenders","name":"Anomaly Defenders","description":""}
+{"gameId":4304,"gameSlug":"woah-dave","name":"Woah Dave!","description":""}
+{"gameId":214,"gameSlug":"worms-reloaded","name":"Worms Reloaded","description":""}
+{"gameId":11411,"gameSlug":"yurei-station","name":"Yūrei Station","description":""}
+{"gameId":11410,"gameSlug":"maid-with-perfection","name":"Maid With Perfection","description":""}
+{"gameId":958,"gameSlug":"cook-serve-delicious","name":"Cook, Serve, Delicious!","description":""}
+{"gameId":2104,"gameSlug":"escape-goat-2","name":"Escape Goat 2","description":""}
+{"gameId":1045,"gameSlug":"door-kickers","name":"Door Kickers","description":""}
+{"gameId":338,"gameSlug":"stacking","name":"Stacking","description":""}
+{"gameId":11407,"gameSlug":"boximals-bounce","name":"Boximals Bounce","description":""}
+{"gameId":3026,"gameSlug":"contraption-maker","name":"Contraption Maker","description":""}
+{"gameId":1686,"gameSlug":"chaos-on-deponia","name":"Chaos on Deponia","description":""}
+{"gameId":6337,"gameSlug":"metal-slug-2","name":"Metal Slug 2","description":""}
+{"gameId":1049,"gameSlug":"tetrobot-and-co","name":"Tetrobot and Co.","description":""}
+{"gameId":2379,"gameSlug":"lifeless-planet","name":"Lifeless Planet","description":""}
+{"gameId":2144,"gameSlug":"the-fall","name":"The Fall","description":""}
+{"gameId":4673,"gameSlug":"hot-tin-roof-the-cat-that-wore-a-fedora","name":"Hot Tin Roof: The Cat That Wore A Fedora","description":""}
+{"gameId":517,"gameSlug":"amnesia-a-machine-for-pigs","name":"Amnesia: A Machine for Pigs","description":""}
+{"gameId":3740,"gameSlug":"massive-chalice","name":"MASSIVE CHALICE","description":""}
+{"gameId":1298,"gameSlug":"the-bridge","name":"The Bridge ","description":""}
+{"gameId":11393,"gameSlug":"milles-knight-of-anal-tyranny-impregnated-by-lusty","name":"Milles, Knight of Anal Tyranny ~Impregnated by Lusty Tentacles at the Ends of Oblivion~","description":""}
+{"gameId":2353,"gameSlug":"gods-will-be-watching","name":"Gods Will Be Watching","description":""}
+{"gameId":2369,"gameSlug":"sokobond","name":"Sokobond","description":""}
+{"gameId":11392,"gameSlug":"sexy-demon-transformation","name":"Sexy Demon Transformation!","description":""}
+{"gameId":2151,"gameSlug":"stranded","name":"Stranded","description":""}
+{"gameId":522,"gameSlug":"steamworld-dig","name":"SteamWorld Dig","description":""}
+{"gameId":1194,"gameSlug":"toki-tori-2","name":"Toki Tori 2+","description":""}
+{"gameId":6611,"gameSlug":"valhalla-hills","name":"Valhalla Hills","description":""}
+{"gameId":1046,"gameSlug":"mousecraft","name":"MouseCraft","description":""}
+{"gameId":11391,"gameSlug":"farewell-bunny-boy","name":"Farewell, Bunny Boy","description":""}
+{"gameId":1308,"gameSlug":"broken-sword-5","name":"Broken Sword 5","description":""}
+{"gameId":1533,"gameSlug":"gunpoint","name":"Gunpoint","description":""}
+{"gameId":1730,"gameSlug":"the-novelist","name":"The Novelist","description":""}
+{"gameId":4937,"gameSlug":"jotun","name":"Jotun","description":""}
+{"gameId":2121,"gameSlug":"card-city-nights","name":"Card City Nights","description":""}
+{"gameId":4018,"gameSlug":"shelter-2","name":"Shelter 2","description":""}
+{"gameId":6673,"gameSlug":"day-of-the-tentacle-remastered","name":"Day of the Tentacle Remastered","description":""}
+{"gameId":326,"gameSlug":"proteus","name":"Proteus","description":""}
+{"gameId":494,"gameSlug":"cubemen-2","name":"Cubemen 2","description":""}
+{"gameId":497,"gameSlug":"surgeon-simulator-2013","name":"Surgeon Simulator 2013","description":""}
+{"gameId":158,"gameSlug":"broken-sword-2-the-smoking-mirror-remastered","name":"Broken Sword 2: The Smoking Mirror – Remastered","description":""}
+{"gameId":11322,"gameSlug":"cute-demon-crashers","name":"Cute Demon Crashers!","description":""}
+{"gameId":337,"gameSlug":"costume-quest","name":"Costume Quest","description":""}
+{"gameId":1660,"gameSlug":"wooden-sensey","name":"Wooden Sen'SeY","description":""}
+{"gameId":1160,"gameSlug":"they-bleed-pixels","name":"They Bleed Pixels","description":""}
+{"gameId":273,"gameSlug":"psychonauts","name":"Psychonauts","description":""}
+{"gameId":481,"gameSlug":"puddle","name":"Puddle","description":""}
+{"gameId":1572,"gameSlug":"outlast","name":"Outlast","description":""}
+{"gameId":11309,"gameSlug":"punity-pt-hallway-recreation","name":"PuniTy – PT Hallway Recreation","description":""}
+{"gameId":4387,"gameSlug":"pokemmo","name":"PokeMMO","description":""}
+{"gameId":7696,"gameSlug":"galaxy-forces","name":"Galaxy Forces","description":""}
+{"gameId":7685,"gameSlug":"wing-commander-flat-universe","name":"Wing Commander Flat Universe","description":""}
+{"gameId":2304,"gameSlug":"toribash","name":"Toribash","description":"Last non-Steam Linux version"}
+{"gameId":7686,"gameSlug":"quetoo","name":"Quetoo","description":""}
+{"gameId":9712,"gameSlug":"glportal","name":"GlPortal","description":""}
+{"gameId":10143,"gameSlug":"force-leashed","name":"Force: Leashed","description":"To change resolution modify lutris game arguments"}
+{"gameId":166,"gameSlug":"lugaru-hd","name":"Lugaru HD","description":"Free version form OOS Lugaru Project:\r\nhttps://osslugaru.gitlab.io/"}
+{"gameId":9863,"gameSlug":"yo-frankie","name":"Yo Frankie!","description":""}
+{"gameId":10567,"gameSlug":"open-sonic","name":"Open Sonic","description":""}
+{"gameId":2404,"gameSlug":"crypt-of-the-necrodancer","name":"Crypt of the NecroDancer","description":"DRM-Free GOG.com version"}
+{"gameId":10447,"gameSlug":"claw","name":"Claw","description":"Open Source reimplementation of the game engine: https://github.com/pjasicek/CaptainClaw"}
+{"gameId":6079,"gameSlug":"cursed-sight","name":"Cursed Sight","description":""}
+{"gameId":37,"gameSlug":"hotline-miami","name":"Hotline Miami","description":""}
+{"gameId":10379,"gameSlug":"project-starfighter","name":"Project: Starfighter","description":""}
+{"gameId":5639,"gameSlug":"wizznic","name":"Wizznic!","description":""}
+{"gameId":4058,"gameSlug":"ultrastar-deluxe","name":"UltraStar Deluxe","description":""}
+{"gameId":2895,"gameSlug":"girls-like-robots","name":"Girls Like Robots","description":""}
+{"gameId":170,"gameSlug":"machinarium","name":"Machinarium","description":""}
+{"gameId":2101,"gameSlug":"jazzpunk","name":"Jazzpunk","description":""}
+{"gameId":5322,"gameSlug":"metal-slug","name":"METAL SLUG","description":""}
+{"gameId":1882,"gameSlug":"the-plan","name":"The Plan","description":""}
+{"gameId":9346,"gameSlug":"the-herbalist","name":"The Herbalist","description":"Free download from <a href=\"https://moonworks.ru/\">moonworks.ru</a>"}
+{"gameId":3513,"gameSlug":"everlasting-summer","name":"Everlasting Summer","description":"Can be downloaded from Moonworks' webpage.\r\nhttps://moonworks.ru/"}
+{"gameId":2876,"gameSlug":"hand-of-fate","name":"Hand Of Fate","description":""}
+{"gameId":9910,"gameSlug":"my-little-karaoke-singing-is-magic","name":"My Little Karaoke: Singing is Magic","description":"Includes UltraStar Deluxe and a downloader/updater"}
+{"gameId":2660,"gameSlug":"max-gentlemen","name":"Max Gentlemen","description":""}
+{"gameId":3697,"gameSlug":"grim-fandango-remastered","name":"Grim Fandango Remastered","description":""}
+{"gameId":2169,"gameSlug":"hatoful-boyfriend","name":"Hatoful Boyfriend","description":""}
+{"gameId":4599,"gameSlug":"gravity-ghost","name":"Gravity Ghost","description":""}
+{"gameId":9816,"gameSlug":"throb-the-greatest-inventions-of-the-sexy-era-seco","name":"Throb! The Greatest Inventions of the Sexy Era! ~Second Science Club–A Secret Society of Love, Rage, and Sorrow~","description":""}
+{"gameId":9815,"gameSlug":"touma-kojirous-detective-file-murder-at-the-opera-","name":"Touma Kojirou’s Detective File: Murder at the Opera House","description":""}
+{"gameId":3121,"gameSlug":"roundabout","name":"Roundabout","description":""}
+{"gameId":5067,"gameSlug":"asphyxia","name":"Asphyxia","description":""}
+{"gameId":5458,"gameSlug":"pony-island","name":"Pony Island","description":""}
+{"gameId":9784,"gameSlug":"kindness-coins","name":"Kindness Coins","description":""}
+{"gameId":9799,"gameSlug":"acceptance","name":"Acceptance","description":""}
+{"gameId":9798,"gameSlug":"demon-master-chris","name":"Demon Master Chris","description":"Installer also works on the demo version and the Nutaku version."}
+{"gameId":9786,"gameSlug":"john-cenas-sexy-high-school-adventure-2-aas-throug","name":"John Cena's Sexy High School Adventure!!! 2: AAs Through Time","description":""}
+{"gameId":9785,"gameSlug":"john-cenas-sexy-high-school-adventure","name":"John Cena's Sexy High School Adventure!!!","description":""}
+{"gameId":9202,"gameSlug":"dajjals-minions","name":"Dajjal's Minions","description":"Final installer for the game. Unzips archive with executable."}
+{"gameId":493,"gameSlug":"postal","name":"POSTAL","description":"Uses the Open Source engine with Steam data"}
+{"gameId":532,"gameSlug":"starbound","name":"Starbound","description":""}
+{"gameId":9054,"gameSlug":"triplea","name":"TripleA","description":""}
+{"gameId":2345,"gameSlug":"towerfall-ascension","name":"TowerFall Ascension","description":""}
+{"gameId":1296,"gameSlug":"unmechanical","name":"Unmechanical","description":"native Linux game \"Unmechanical\"."}
+{"gameId":7886,"gameSlug":"doomthe-roguelike","name":"DRL","description":""}
+{"gameId":5180,"gameSlug":"xevil","name":"XEvil","description":""}
+{"gameId":8450,"gameSlug":"silence","name":"Silence","description":""}
+{"gameId":3523,"gameSlug":"icewind-dale-enhanced-edition","name":"Icewind Dale: Enhanced Edition","description":"standard installer could not extract files to proper directory"}
+{"gameId":8325,"gameSlug":"biogenesis","name":"Biogenesis","description":""}
+{"gameId":8324,"gameSlug":"manaplus","name":"ManaPlus","description":""}
+{"gameId":8323,"gameSlug":"chromium-bsu","name":"Chromium B.S.U.","description":""}
+{"gameId":2836,"gameSlug":"flashback","name":"Flashback","description":"Arrow Keys      move Conrad\r\n    Enter                 use the current inventory object\r\n    Shift                   talk / use / run / shoot\r\n    Escape              display the options\r\n    Backspace       display the inventory\r\n    Alt Enter           toggle windowed/fullscreen mode\r\n    Alt + and -        change video scaler"}
+{"gameId":27,"gameSlug":"shadow-warrior-classic","name":"Shadow Warrior Classic","description":"Shadow Warrior Classic Complete is available for free on GOG.com"}
+{"gameId":1453,"gameSlug":"another-world","name":"Another World","description":"Another World: 20th Anniversary Edition"}
+{"gameId":8097,"gameSlug":"prince-of-persia","name":"Prince of Persia","description":"An open-source port of Prince of Persia, based on the disassembly of the DOS version."}
+{"gameId":8096,"gameSlug":"icewind-dale-1-complete","name":"Icewind Dale Complete","description":"GOG version run with the GemRB libre engine. (gemrb.org)"}
+{"gameId":7863,"gameSlug":"counter-strike-2d","name":"Counter-Strike 2D","description":""}
+{"gameId":78,"gameSlug":"planescape-torment","name":"Planescape: Torment","description":"GOG version run with the GemRB libre engine. (gemrb.org)"}
+{"gameId":1813,"gameSlug":"baldurs-gate-the-original-saga","name":"Baldur's Gate: The Original Saga","description":"GOG version run with the GemRB libre engine. (gemrb.org)"}
+{"gameId":7842,"gameSlug":"magarena","name":"Magarena","description":"Downloading the correct files for 1.96 version."}
+{"gameId":7833,"gameSlug":"butcher","name":"Butcher","description":"Installer for the GOG version."}
+{"gameId":3720,"gameSlug":"opendungeons","name":"OpenDungeons","description":"http://download.tuxfamily.org/opendungeons/0.7/OpenDungeons-0.7.1-Linux64.tar.bz2"}
+{"gameId":7822,"gameSlug":"ponyvania-order-of-equestria","name":"Ponyvania: Order of Equestria","description":"See Read Me.txt for more info about how to play.\r\nPress F4 to toggle fullscreen/view modes."}
+{"gameId":3698,"gameSlug":"freedom-planet","name":"Freedom Planet","description":""}
+{"gameId":2303,"gameSlug":"you-have-to-win-the-game","name":"You Have to Win the Game","description":"non-DRM release"}
+{"gameId":485,"gameSlug":"monaco-whats-yours-is-mine","name":"Monaco: What's Yours Is Mine","description":""}
+{"gameId":638,"gameSlug":"deponia","name":"Deponia","description":""}
+{"gameId":3093,"gameSlug":"pier-solar-and-the-great-architects","name":"Pier Solar and the Great Architects","description":""}
+{"gameId":1534,"gameSlug":"140","name":"140","description":""}
+{"gameId":1151,"gameSlug":"a-valley-without-wind-2","name":"A Valley Without Wind 2","description":""}
+{"gameId":1150,"gameSlug":"a-valley-without-wind","name":"A Valley Without Wind","description":""}
+{"gameId":7755,"gameSlug":"push-me-pull-you","name":"Push Me Pull You","description":""}
+{"gameId":7754,"gameSlug":"that-dam-level","name":"That Dam Level","description":""}
+{"gameId":6899,"gameSlug":"random-access-murder","name":"Random Access Murder","description":""}
+{"gameId":7721,"gameSlug":"rose-time","name":"Rose & Time","description":""}
+{"gameId":7719,"gameSlug":"ifscl","name":"IFSCL","description":""}
+{"gameId":3650,"gameSlug":"freespace-2","name":"Freespace 2","description":"adds multiplayer support over FS2NetD"}
+{"gameId":7629,"gameSlug":"zaxxon-retro-remake","name":"Zaxxon Retro Remake","description":""}
+{"gameId":3460,"gameSlug":"z","name":"Z","description":"Zod Engine AppImage. No installation or dependencies required"}
+{"gameId":7628,"gameSlug":"netpanzer","name":"netPanzer","description":""}
+{"gameId":536,"gameSlug":"spiral-knights","name":"Spiral Knights","description":""}
+{"gameId":7294,"gameSlug":"no-marios-sky","name":"No Mario's Sky","description":""}
+{"gameId":7621,"gameSlug":"dmcas-sky","name":"DMCA's Sky","description":"Free download from: https://asmb.itch.io/dmcas-sky"}
+{"gameId":7622,"gameSlug":"warspear-online","name":"Warspear Online","description":""}
+{"gameId":7620,"gameSlug":"forsaken","name":"Forsaken","description":"ProjectX-SourcePort"}
+{"gameId":7619,"gameSlug":"mother-russia-bleeds","name":"Mother Russia Bleeds","description":""}
+{"gameId":3528,"gameSlug":"open-hexagon","name":"Open Hexagon","description":""}
+{"gameId":7609,"gameSlug":"rollm-up","name":"Roll'm Up","description":""}
+{"gameId":7608,"gameSlug":"annex-conquer-the-world","name":"Annex: Conquer the World","description":""}
+{"gameId":7607,"gameSlug":"sloth-patrol","name":"Sloth Patrol","description":""}
+{"gameId":3130,"gameSlug":"back-to-bed","name":"Back to Bed","description":""}
+{"gameId":1546,"gameSlug":"syder-arcade","name":"Syder Arcade","description":""}
+{"gameId":7300,"gameSlug":"tvtower","name":"TVTower","description":""}
+{"gameId":5628,"gameSlug":"firewatch","name":"Firewatch","description":""}
+{"gameId":7296,"gameSlug":"forced-showdown","name":"Forced: Showdown","description":""}
+{"gameId":6302,"gameSlug":"annas-quest","name":"Anna's Quest","description":""}
+{"gameId":641,"gameSlug":"edna-harvey-harveys-new-eyes","name":"Edna & Harvey: Harvey's New Eyes","description":""}
+{"gameId":5935,"gameSlug":"deponia-doomsday","name":"Deponia Doomsday","description":""}
+{"gameId":7279,"gameSlug":"zak-mckracken-between-time-and-space","name":"Zak McKracken: between time and space","description":""}
+{"gameId":7263,"gameSlug":"pan-pan","name":"Pan-Pan","description":""}
+{"gameId":2123,"gameSlug":"hexcells-plus","name":"Hexcells Plus","description":""}
+{"gameId":7257,"gameSlug":"syndicate-wars","name":"Syndicate Wars","description":"Syndicate Wars Port is a port of the 1996 DOS game Syndicate Wars to modern operating systems. In particular, it runs on GNU, Mac OS and Windows, but it should also work on any system supported by the SDL library on the i386 architecture.\r\n\r\nThe port is not fully complete. It is possible to finish the single player campaigns, but support for networking is missing. There is also no support for joystick control."}
+{"gameId":503,"gameSlug":"rogue-legacy","name":"Rogue Legacy","description":""}
+{"gameId":2944,"gameSlug":"tesseract","name":"Tesseract","description":""}
+{"gameId":4565,"gameSlug":"deadnaut","name":"Deadnaut","description":""}
+{"gameId":48,"gameSlug":"aquaria","name":"Aquaria","description":""}
+{"gameId":1437,"gameSlug":"shadow-warrior","name":"Shadow Warrior","description":""}
+{"gameId":215,"gameSlug":"terraria","name":"Terraria","description":""}
+{"gameId":352,"gameSlug":"x3-reunion","name":"X3: Reunion","description":""}
+{"gameId":2051,"gameSlug":"papers-please","name":"Papers, Please","description":""}
+{"gameId":2646,"gameSlug":"the-book-of-unwritten-tales-2","name":"The Book of Unwritten Tales 2","description":""}
+{"gameId":7246,"gameSlug":"the-settlers-ii5-return-to-the-roots","name":"The Settlers II: Return to the Roots","description":"- 0.9.5 - x86-64 version- Uses the GOG.com Settlers II: Gold Edition data files"}
+{"gameId":4015,"gameSlug":"lethal-league","name":"Lethal League","description":""}
+{"gameId":196,"gameSlug":"bittrip-beat","name":"BIT.TRIP BEAT","description":""}
+{"gameId":3235,"gameSlug":"springrts","name":"SpringRTS","description":""}
+{"gameId":7077,"gameSlug":"sqrxz-remake","name":"Sqrxz (Remake)","description":""}
+{"gameId":7076,"gameSlug":"gianas-return","name":"Giana's Return","description":""}
+{"gameId":7075,"gameSlug":"fruity","name":"Fruit'Y","description":""}
+{"gameId":5961,"gameSlug":"enter-the-gungeon","name":"Enter the Gungeon","description":""}
+{"gameId":6767,"gameSlug":"duskers","name":"Duskers","description":""}
+{"gameId":164,"gameSlug":"world-of-goo","name":"World of Goo","description":""}
+{"gameId":4754,"gameSlug":"braveland-wizard","name":"Braveland Wizard","description":""}
+{"gameId":1442,"gameSlug":"hammerwatch","name":"Hammerwatch","description":""}
+{"gameId":1051,"gameSlug":"project-zomboid","name":"Project Zomboid","description":""}
+{"gameId":6546,"gameSlug":"lionheart","name":"Lionheart","description":"Java remake from http://www.b3dgs.com/v7/page.php?lang=en&section=lionheart_remake"}
+{"gameId":4815,"gameSlug":"big-pharma","name":"Big Pharma","description":""}
+{"gameId":6216,"gameSlug":"huniecam-studio","name":"HunieCam Studio","description":""}
+{"gameId":6502,"gameSlug":"rrootage","name":"rRootage","description":""}
+{"gameId":6501,"gameSlug":"torus-trooper","name":"Torus Trooper","description":""}
+{"gameId":1945,"gameSlug":"edna-harvey-the-breakout","name":"Edna & Harvey: The Breakout","description":""}
+{"gameId":6379,"gameSlug":"reaction","name":"Reaction","description":""}
+{"gameId":6225,"gameSlug":"simutrans","name":"Simutrans","description":"Version 124-5"}
+{"gameId":5359,"gameSlug":"emily-is-away","name":"Emily is Away","description":"Tested with v1.1"}
+{"gameId":6352,"gameSlug":"lost-constellation","name":"Lost Constellation","description":"Tested with v1.1"}
+{"gameId":6351,"gameSlug":"photobomb","name":"Photobomb","description":""}
+{"gameId":6350,"gameSlug":"intimate-infinite","name":"Intimate, Infinite.","description":"Tested with v1.3, RC3"}
+{"gameId":6348,"gameSlug":"love-and-romance-a-study-of-intimacy","name":"Love and Romance - A Study of Intimacy","description":"Tested with v1.0"}
+{"gameId":6347,"gameSlug":"the-maitre-d","name":"The Maître D'","description":"Tested with v1.1"}
+{"gameId":6346,"gameSlug":"one-night-stand","name":"One Night Stand","description":""}
+{"gameId":6345,"gameSlug":"diamond-rose","name":"Diamond Rose","description":"Tested with v1.1"}
+{"gameId":2405,"gameSlug":"rocketsrocketsrockets","name":"ROCKETSROCKETSROCKETS","description":""}
+{"gameId":4508,"gameSlug":"reassembly","name":"Reassembly","description":""}
+{"gameId":4247,"gameSlug":"tinykeep","name":"TinyKeep","description":""}
+{"gameId":4700,"gameSlug":"snakebird","name":"Snakebird","description":""}
+{"gameId":4811,"gameSlug":"dofus","name":"Dofus","description":"Now in AppImage"}
+{"gameId":6038,"gameSlug":"re-volt","name":"Re-Volt","description":"For multiplayer matches you might want to join the Re-Volt discord here: https://discord.gg/NMT4Xdb"}
+{"gameId":4498,"gameSlug":"return-of-dr-destructo","name":"Return of Dr. Destructo","description":""}
+{"gameId":4643,"gameSlug":"heroes-of-umbra","name":"Heroes of Umbra","description":"requires a java-runtime"}
+{"gameId":6325,"gameSlug":"stendhal","name":"Stendhal","description":"Latest version downloaded from SourceForge"}
+{"gameId":75,"gameSlug":"master-of-magic","name":"Master of Magic","description":""}
+{"gameId":6320,"gameSlug":"megamek","name":"MegaMek","description":"Latest version downloaded from SourceForge"}
+{"gameId":6319,"gameSlug":"bos-wars","name":"Bos Wars","description":""}
+{"gameId":5457,"gameSlug":"hatoful-boyfriend-holiday-star","name":"Hatoful Boyfriend: Holiday Star","description":""}
+{"gameId":5497,"gameSlug":"read-only-memories","name":"2064: Read Only Memories","description":"Tested with version: 1.2b"}
+{"gameId":2838,"gameSlug":"mountain","name":"Mountain","description":""}
+{"gameId":5625,"gameSlug":"duet","name":"Duet","description":""}
+{"gameId":6316,"gameSlug":"alterego-dreamwalker","name":"AlterEgo: DreamWalker","description":""}
+{"gameId":6315,"gameSlug":"alterego","name":"AlterEgo","description":""}
+{"gameId":6314,"gameSlug":"game-jolt-client","name":"Game Jolt Client","description":""}
+{"gameId":3536,"gameSlug":"boson-x","name":"Boson X","description":""}
+{"gameId":6313,"gameSlug":"zelda-picross","name":"Zelda: Picross","description":"french amd64 release"}
+{"gameId":6312,"gameSlug":"zelda-navis-quest","name":"Zelda: Navi's Quest","description":""}
+{"gameId":6309,"gameSlug":"zelda-oni-link-begins","name":"Zelda: Oni Link Begins","description":""}
+{"gameId":6310,"gameSlug":"zelda-return-of-the-hylian","name":"Zelda: Return of the Hylian","description":"english i386 release"}
+{"gameId":6308,"gameSlug":"zelda-classic","name":"Zelda Classic","description":""}
+{"gameId":226,"gameSlug":"vvvvvv","name":"VVVVVV","description":"DRM-Free GOG.com version"}
+{"gameId":2132,"gameSlug":"ace-combattm-assault-horizon-enhanced-edition","name":"ACE COMBAT™ ASSAULT HORIZON Enhanced Edition","description":"This is a work in progress demo of an open source re-implementation of the game engine."}
+{"gameId":3896,"gameSlug":"need-for-speed-ii","name":"Need for Speed II","description":"Play \"Need for Speed II\" CD edition on Linux!"}
+{"gameId":4613,"gameSlug":"quintet","name":"Quintet","description":""}
+{"gameId":1113,"gameSlug":"skullgirls","name":"Skullgirls","description":""}
+{"gameId":861,"gameSlug":"knights-of-pen-and-paper-1","name":"Knights of Pen and Paper +1","description":""}
+{"gameId":1202,"gameSlug":"beatbuddy-tale-of-the-guardians","name":"Beatbuddy: Tale of the Guardians","description":""}
+{"gameId":242,"gameSlug":"the-binding-of-isaac-wrath-of-the-lamb","name":"The Binding of Isaac: Wrath of the Lamb","description":""}
+{"gameId":297,"gameSlug":"dustforce","name":"Dustforce","description":""}
+{"gameId":2499,"gameSlug":"volgarr-the-viking","name":"Volgarr the Viking","description":""}
+{"gameId":4732,"gameSlug":"assaultcube-reloaded","name":"AssaultCube Reloaded","description":""}
+{"gameId":4936,"gameSlug":"wasteland-2-directors-cut","name":"Wasteland 2: Director's Cut","description":""}
+{"gameId":70,"gameSlug":"openra","name":"OpenRA Red Alert","description":"Installs latest version of AppImage from Github."}
+{"gameId":4809,"gameSlug":"abuse","name":"Abuse","description":""}
+{"gameId":5534,"gameSlug":"gfxbench","name":"GFXBench","description":""}
+{"gameId":4055,"gameSlug":"ryzom","name":"Ryzom","description":"Automated installation of Ryzom MMORPG with integrated automatic updates. Downloads the official Linux 64-bit client from the Ryzom servers."}
+{"gameId":2029,"gameSlug":"stunt-rally","name":"Stunt Rally","description":""}
+{"gameId":5455,"gameSlug":"playonlinux","name":"PlayOnLinux","description":""}
+{"gameId":5052,"gameSlug":"keen-dreams","name":"Keen Dreams","description":""}
+{"gameId":2961,"gameSlug":"wolfenstein-enemy-territory","name":"Wolfenstein: Enemy Territory","description":"ET: Legacy - https://www.etlegacy.com/"}
+{"gameId":5389,"gameSlug":"gameplay-football","name":"Gameplay Football","description":""}
+{"gameId":4632,"gameSlug":"commander-keen","name":"Commander Keen","description":""}
+{"gameId":3006,"gameSlug":"enemy-territory-quake-wars","name":"Enemy Territory: Quake Wars","description":""}
+{"gameId":4685,"gameSlug":"hotline-miami-2-wrong-number","name":"Hotline Miami 2: Wrong Number","description":""}
+{"gameId":271,"gameSlug":"ftl-faster-than-light","name":"FTL: Faster Than Light","description":""}
+{"gameId":73,"gameSlug":"mount-blade-warband","name":"Mount & Blade: Warband","description":""}
+{"gameId":4834,"gameSlug":"unreal-tournament-4","name":"Unreal Tournament 4","description":"Pre alpha version of the game, has no official launcher yet. You can get the official community maps here https://www.epicgames.com/unrealtournament/forums/mapunlock"}
+{"gameId":4570,"gameSlug":"shadowrun-hong-kong","name":"Shadowrun: Hong Kong","description":""}
+{"gameId":225,"gameSlug":"atom-zombie-smasher","name":"Atom Zombie Smasher","description":"DRM free version from humblebundle.com"}
+{"gameId":4046,"gameSlug":"sauerbraten-cube-2","name":"Cube 2: Sauerbraten","description":""}
+{"gameId":4277,"gameSlug":"krosmaster-arena","name":"Krosmaster Arena","description":"Ankama account required to play.  Signup link available in launcher."}
+{"gameId":4112,"gameSlug":"pillars-of-eternity","name":"Pillars of Eternity","description":""}
+{"gameId":4098,"gameSlug":"horsegame","name":"HorseGame","description":""}
+{"gameId":4014,"gameSlug":"celestian-tales-old-north","name":"Celestian Tales: Old North","description":"Demo prototype"}
+{"gameId":4006,"gameSlug":"pioneer","name":"Pioneer","description":""}
+{"gameId":3963,"gameSlug":"rise-of-the-triad-dark-war","name":"Rise of the Triad: Dark War","description":""}
+{"gameId":3960,"gameSlug":"ned-et-les-maki","name":"Ned et les maki","description":""}
+{"gameId":3848,"gameSlug":"valyria-tear","name":"Valyria Tear","description":"Episode I version x64 portable binary installer for Linux"}
+{"gameId":443,"gameSlug":"star-wars-jedi-knight-jedi-academy","name":"Star Wars Jedi Knight: Jedi Academy","description":"NO LONGER MAINTAINED, INSTEAD USE LUXTORPEDA WITH THE STEAM VERSION: https://github.com/luxtorpeda-dev/luxtorpeda"}
+{"gameId":3550,"gameSlug":"openclonk","name":"OpenClonk","description":""}
+{"gameId":1548,"gameSlug":"eldritch","name":"Eldritch","description":""}
+{"gameId":490,"gameSlug":"titan-attacks","name":"Titan Attacks","description":""}
+{"gameId":1731,"gameSlug":"secrets-of-rtikon","name":"Secrets of Rætikon","description":""}
+{"gameId":2116,"gameSlug":"luftrausers","name":"Luftrausers","description":""}
+{"gameId":918,"gameSlug":"hack-slash-loot","name":"Hack, Slash, Loot","description":""}
+{"gameId":163,"gameSlug":"gish","name":"Gish","description":""}
+{"gameId":509,"gameSlug":"electronic-super-joy","name":"Electronic Super Joy","description":""}
+{"gameId":2196,"gameSlug":"electronic-super-joy-groove-city","name":"Electronic Super Joy: Groove City","description":""}
+{"gameId":3475,"gameSlug":"shadowrun-dragonfall-directors-cut","name":"Shadowrun: Dragonfall - Director's Cut","description":""}
+{"gameId":380,"gameSlug":"mutant-factions","name":"Mutant Factions","description":""}
+{"gameId":3472,"gameSlug":"vertigo","name":"Vertigo","description":"Native version"}
+{"gameId":3469,"gameSlug":"tyrian","name":"Tyrian","description":"OpenTyrian is a libre engine for Tyrian 2.1"}
+{"gameId":3443,"gameSlug":"shovel-knight-treasure-trove","name":"Shovel Knight: Treasure Trove","description":""}
+{"gameId":882,"gameSlug":"war-thunder","name":"War Thunder","description":""}
+{"gameId":3074,"gameSlug":"olliolli","name":"OlliOlli","description":"version from Humble Bundle"}
+{"gameId":3372,"gameSlug":"terminal-overload","name":"Terminal Overload","description":"The game crashes with segmentation fault --Xod"}
+{"gameId":2937,"gameSlug":"cave-express","name":"CaveExpress","description":""}
+{"gameId":2294,"gameSlug":"gigantic-army","name":"Gigantic Army","description":"Version from Humble Bundle"}
+{"gameId":2959,"gameSlug":"star-wars-galaxies-an-empire-divided","name":"Star Wars Galaxies: An Empire Divided","description":""}
+{"gameId":2681,"gameSlug":"strife","name":"Strife","description":""}
+{"gameId":317,"gameSlug":"bitfighter","name":"Bitfighter","description":"Bitfighter 019e"}
+{"gameId":2034,"gameSlug":"zero-ballistics","name":"Zero Ballistics","description":""}
+{"gameId":84,"gameSlug":"assault-cube","name":"AssaultCube","description":"Assault Cube v1.2.0.2"}
+{"gameId":1221,"gameSlug":"typerider","name":"Type:Rider","description":"Humble Bundle version"}
+{"gameId":1234,"gameSlug":"bridge-constructor","name":"Bridge Constructor","description":""}
+{"gameId":45,"gameSlug":"serious-sam-2","name":"Serious Sam 2","description":""}
+{"gameId":1748,"gameSlug":"broken-age","name":"Broken Age","description":""}
+{"gameId":1806,"gameSlug":"digital-a-love-story","name":"Digital: A Love Story","description":""}
+{"gameId":1805,"gameSlug":"soldier-of-fortune","name":"Soldier of Fortune","description":"Native version from CD Rom"}
+{"gameId":463,"gameSlug":"caster","name":"Caster","description":"64bit demo "}
+{"gameId":257,"gameSlug":"bittrip-runner","name":"BIT.TRIP Runner","description":""}
+{"gameId":1737,"gameSlug":"heroes-of-newerth","name":"Heroes of Newerth","description":"Make sure you choose a destination folder that does not contain any space in its path!"}
+{"gameId":1592,"gameSlug":"harmony","name":"Harmony","description":""}
+{"gameId":553,"gameSlug":"zelda-mystery-of-solarus-dx","name":"The Legend of Zelda: Mystery of Solarus DX","description":""}
+{"gameId":21,"gameSlug":"diablo-ii","name":"Diablo II","description":"Play \"Diablo II\" CD edition on Linux!"}
+{"gameId":53,"gameSlug":"eyes-the-horror-game","name":"Eyes - the Horror Game","description":""}
+{"gameId":58,"gameSlug":"urban-terror","name":"Urban Terror","description":"Linux updater"}
+{"gameId":57,"gameSlug":"sid-meyers-alpha-centauri","name":"Sid Meier's Alpha Centauri","description":"Native linux version from Loki (requires Xephyr and alsa-oss)"}
+{"gameId":55,"gameSlug":"marathon-2-durandal","name":"Marathon 2: Durandal","description":""}
+{"gameId":56,"gameSlug":"marathon-infinity","name":"Marathon: Infinity","description":""}
+{"gameId":54,"gameSlug":"marathon","name":"Marathon","description":"Native linux version for 64bit"}
+{"gameId":51,"gameSlug":"retrobooster","name":"Retrobooster","description":""}
+{"gameId":50,"gameSlug":"fractal","name":"Fractal","description":"DRM Free version from Humble Bundle"}
+{"gameId":49,"gameSlug":"warsow","name":"Warsow","description":""}
+{"gameId":36,"gameSlug":"stealth-bastard-deluxe","name":"Stealth Bastard Deluxe","description":""}
+{"gameId":12,"gameSlug":"openarena","name":"OpenArena","description":""}
+{"gameId":42,"gameSlug":"maniadrive","name":"ManiaDrive","description":""}
+{"gameId":38,"gameSlug":"alien-arena","name":"Alien Arena","description":"Alien Arena 7.65 for Linux (source code)"}
+{"gameId":31,"gameSlug":"broken-sword-1-shadow-of-the-templars-directors-cut","name":"Broken Sword: The Shadow of the Templars – The Director's Cut","description":"bs1dc_linux_v1.0.799"}
+{"gameId":14,"gameSlug":"chasm","name":"Chasm","description":""}

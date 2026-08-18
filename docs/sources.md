@@ -8,42 +8,44 @@ table is the map, the Project is the tracked work.
 
 ## Support matrix
 
-| #   | Source                | Component            | Format   | Count   | Exhaustive? | Status      | Notes |
-| --- | --------------------- | -------------------- | -------- | ------- | ----------- | ----------- | ----- |
-| 1   | Flathub               | —                    | Flatpak  | 3,345   | ✅          | Implemented | [1]   |
-| 1b  | Other Flatpak remotes | —                    | Flatpak  | —       | ⚠️          | Not started | [2]   |
-| 2   | Snapcraft             | —                    | Snap     | 3,652   | ⚠️          | Implemented | [3]   |
-| 3   | AppImage              | —                    | AppImage | 1,052   | ⚠️          | Implemented | [4]   |
-| 4   | GitHub Releases       | —                    | Any      | —       | ❌          | Deferred    | [5]   |
-| 5a  | AUR (Arch, community) | —                    | Native   | 117,520 | ✅          | Implemented | [6]   |
-| 5b  | Arch official         | core                 | Native   | 296     | ✅          | Implemented | [7]   |
-| 5b  | Arch official         | extra                | Native   | 14,906  | ✅          | Implemented | [7]   |
-| 5b  | Arch official         | multilib             | Native   | 272     | ✅          | Implemented | [7]   |
-| 5c  | Debian                | main                 | Native   | 68,755  | ✅          | Implemented | [8]   |
-| 5c  | Debian                | contrib              | Native   | 303     | ✅          | Implemented | [8]   |
-| 5c  | Debian                | non-free             | Native   | 741     | ✅          | Implemented | [8]   |
-| 5c  | Debian                | non-free-firmware    | Native   | 44      | ✅          | Implemented | [8]   |
-| 5d  | Ubuntu                | main                 | Native   | 6,487   | ✅          | Implemented | [9]   |
-| 5d  | Ubuntu                | universe             | Native   | 66,741  | ✅          | Implemented | [9]   |
-| 5d  | Ubuntu                | restricted           | Native   | 858     | ✅          | Implemented | [9]   |
-| 5d  | Ubuntu                | multiverse           | Native   | 1,242   | ✅          | Implemented | [9]   |
-| 5e  | Fedora                | Everything + updates | Native   | 68,990  | ✅          | Implemented | [10]  |
-| 5f  | openSUSE              | oss                  | Native   | 52,482  | ✅          | Implemented | [11]  |
-| 5f  | openSUSE              | non-oss              | Native   | 42      | ✅          | Implemented | [11]  |
-| 5g  | Alpine                | main                 | Native   | 5,961   | ✅          | Implemented | [12]  |
-| 5g  | Alpine                | community            | Native   | 22,678  | ✅          | Implemented | [12]  |
-| 5h  | Void                  | main                 | Native   | 14,746  | ✅          | Implemented | [13]  |
-| 5h  | Void                  | nonfree              | Native   | 67      | ✅          | Implemented | [13]  |
-| 5h  | Void                  | multilib             | Native   | 5,710   | ✅          | Implemented | [13]  |
-| 5i  | Slackware             | —                    | Native   | 1,887   | ✅          | Implemented | [14]  |
-| 5j  | Solus                 | shannon              | Native   | 11,660  | ✅          | Implemented | [15]  |
-| 5k  | Gentoo                | —                    | Native   | 19,443  | ⚠️          | Implemented | [16]  |
-| 6   | Nixpkgs               | —                    | Native   | 131,101 | ✅          | Implemented | [17]  |
-| 7a  | elementary AppCenter  | —                    | Flatpak  | 158     | ✅          | Implemented | [18]  |
-| 7b  | Linux Mint            | main                 | Native   | 108     | ✅          | Implemented | [19]  |
-| 7c  | Pop!_OS               | main                 | Native   | 77      | ⚠️          | Implemented | [20]  |
-| 7d  | Deepin                | main                 | Native   | 255     | ⚠️          | Implemented | [21]  |
-| 7e  | MX Linux              | main                 | Native   | 142     | ⚠️          | Implemented | [22]  |
+| #   | Source                | Component            | Format     | Count   | Exhaustive? | Status      | Notes |
+| --- | --------------------- | -------------------- | ---------- | ------- | ----------- | ----------- | ----- |
+| 1   | Flathub               | —                    | Flatpak    | 3,345   | ✅          | Implemented | [1]   |
+| 1b  | Other Flatpak remotes | —                    | Flatpak    | —       | ⚠️          | Not started | [2]   |
+| 2   | Snapcraft             | —                    | Snap       | 3,652   | ⚠️          | Implemented | [3]   |
+| 3   | AppImage              | —                    | AppImage   | 1,052   | ⚠️          | Implemented | [4]   |
+| 4   | GitHub Releases       | —                    | Any        | —       | ❌          | Deferred    | [5]   |
+| 5a  | AUR (Arch, community) | —                    | Native     | 117,520 | ✅          | Implemented | [6]   |
+| 5b  | Arch official         | core                 | Native     | 296     | ✅          | Implemented | [7]   |
+| 5b  | Arch official         | extra                | Native     | 14,906  | ✅          | Implemented | [7]   |
+| 5b  | Arch official         | multilib             | Native     | 272     | ✅          | Implemented | [7]   |
+| 5c  | Debian                | main                 | Native     | 68,755  | ✅          | Implemented | [8]   |
+| 5c  | Debian                | contrib              | Native     | 303     | ✅          | Implemented | [8]   |
+| 5c  | Debian                | non-free             | Native     | 741     | ✅          | Implemented | [8]   |
+| 5c  | Debian                | non-free-firmware    | Native     | 44      | ✅          | Implemented | [8]   |
+| 5d  | Ubuntu                | main                 | Native     | 6,487   | ✅          | Implemented | [9]   |
+| 5d  | Ubuntu                | universe             | Native     | 66,741  | ✅          | Implemented | [9]   |
+| 5d  | Ubuntu                | restricted           | Native     | 858     | ✅          | Implemented | [9]   |
+| 5d  | Ubuntu                | multiverse           | Native     | 1,242   | ✅          | Implemented | [9]   |
+| 5e  | Fedora                | Everything + updates | Native     | 68,990  | ✅          | Implemented | [10]  |
+| 5f  | openSUSE              | oss                  | Native     | 52,482  | ✅          | Implemented | [11]  |
+| 5f  | openSUSE              | non-oss              | Native     | 42      | ✅          | Implemented | [11]  |
+| 5g  | Alpine                | main                 | Native     | 5,961   | ✅          | Implemented | [12]  |
+| 5g  | Alpine                | community            | Native     | 22,678  | ✅          | Implemented | [12]  |
+| 5h  | Void                  | main                 | Native     | 14,746  | ✅          | Implemented | [13]  |
+| 5h  | Void                  | nonfree              | Native     | 67      | ✅          | Implemented | [13]  |
+| 5h  | Void                  | multilib             | Native     | 5,710   | ✅          | Implemented | [13]  |
+| 5i  | Slackware             | —                    | Native     | 1,887   | ✅          | Implemented | [14]  |
+| 5j  | Solus                 | shannon              | Native     | 11,660  | ✅          | Implemented | [15]  |
+| 5k  | Gentoo                | —                    | Native     | 19,443  | ⚠️          | Implemented | [16]  |
+| 6   | Nixpkgs               | —                    | Native     | 131,101 | ✅          | Implemented | [17]  |
+| 7a  | elementary AppCenter  | —                    | Flatpak    | 158     | ✅          | Implemented | [18]  |
+| 7b  | Linux Mint            | main                 | Native     | 108     | ✅          | Implemented | [19]  |
+| 7c  | Pop!_OS               | main                 | Native     | 77      | ⚠️          | Implemented | [20]  |
+| 7d  | Deepin                | main                 | Native     | 255     | ⚠️          | Implemented | [21]  |
+| 7e  | MX Linux              | main                 | Native     | 142     | ⚠️          | Implemented | [22]  |
+| 8a  | GOG                   | Linux-compat.        | Storefront | 1,342   | ⚠️          | Implemented | [23]  |
+| 8b  | Lutris                | published, linux     | Script     | 1,795   | ⚠️          | Implemented | [24]  |
 
 ## Notes on each row
 
@@ -340,6 +342,44 @@ research writeup.
     caught by the existing `NOISE_SECTIONS` filter (`Section: doc` on
     real data) — no new signal needed.
     `packages/sources/deb-mxlinux/fetch.ts`.
+23. **GOG** — catalog.gog.com/v1/catalog, undocumented but real, public,
+    unauthenticated, and already relied on by community tools (Heroic
+    Games Launcher, Lutris) that need to query GOG's own catalog
+    themselves — not just a scraped guess. `systems=linux` filters
+    server-side to Linux-compatible products (2,658 of 12,589 total,
+    ~21%, inclusive rather than Linux-exclusive — e.g. Firewatch's own
+    `operatingSystems` is `["windows", "linux", "osx"]`); `productType`
+    further narrows to real standalone games (1,342 of those), dropping
+    "pack" (bundle editions of games already counted on their own,
+    e.g. "Planescape: Torment: Enhanced Edition" alongside the base
+    "Planescape: Torment") and "dlc" (add-on content, not standalone
+    installable). `limit` caps at 100 (a `limit=200` request returns a
+    real 400); 27 real pages, fetched sequentially rather than
+    concurrently given the API has no documented rate-limit guidance.
+    No `description` field exists on the catalog-list endpoint at all
+    (only the per-product detail page has one, which would mean 2,000+
+    extra requests just for that) — left blank, same precedent as
+    AppImage's frequently-blank feed. `packages/sources/gog/fetch.ts`.
+24. **Lutris** — lutris.net/api/installers, real, public, unauthenticated.
+    Its `/api/games` endpoint (347k+ entries) looked more promising at
+    first glance but turned out to be mostly an IGDB mirror — most
+    entries Windows-only or platform-unlabeled, not a real Linux signal
+    on its own; `/api/installers` is the genuinely useful one, 15,557
+    community-authored install scripts each tagged with a `runner` —
+    "linux" (native, 2,261 of them) is what this connector wants,
+    "wine"/"winesteam" (Windows games via a compatibility layer),
+    "steam"/"web"/emulator runners (dosbox, scummvm, libretro, mame,
+    ...) are all real but a different paradigm from every other source
+    here. A `?runner=linux` query param was tried first and verified
+    live to be silently ignored (same total count either way) —
+    filtering happens client-side after fetching all 63 pages instead.
+    Deduplicated down to one row per game (1,795 of them) — 332 real
+    games have 2+ published Linux installers (different versions/install
+    methods for the same game, not different games), the first one kept.
+    No separate game description exists either — the closest available
+    text is the chosen installer's own description (e.g. `Play
+"RollerCoaster Tycoon 2" CD edition on Linux!"`), which is what gets
+    used. `packages/sources/lutris/fetch.ts`.
 
 ## Cross-cutting notes
 

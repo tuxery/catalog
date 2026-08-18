@@ -46,13 +46,18 @@ function unionByExactKey(
   }
 }
 
-// Tier 2 (below) unions purely on normalized name, with no appId to
-// disambiguate — safe for most names, but a short list of generic,
-// desktop-environment-style app names turn out to be reused by multiple
-// genuinely different, unrelated projects. Verified against the real
-// dataset (each one traced back to its actual constituent packages, not
-// assumed from the name alone) before excluding it from tier 2 — found
-// via a real cross-source-merge quality pass, not preemptively:
+// Tiers 1 and 2 (below) both union purely on one exact string (appId or
+// normalized name respectively), with nothing else to disambiguate —
+// safe for most names, but a short list of generic, desktop-environment-
+// style app names turn out to be reused by multiple genuinely different,
+// unrelated projects. Verified against the real dataset (each one traced
+// back to its actual constituent packages, not assumed from the name
+// alone) before excluding it from tier 2 — found via a real
+// cross-source-merge quality pass, not preemptively. Excluded from tier
+// 1 for the identical reason, added later once the same collision was
+// confirmed reachable through bare-appId sources too (AUR/Fedora/
+// Debian/... literally use the package name as appId), not because a
+// wrong merge had actually surfaced there yet:
 // - `calculator` — GNOME Calculator, KDE Kalk, ExpidusOS Calculator, and
 //   elementary's own Calculator are four separate projects that all
 //   happen to display as "Calculator".
@@ -108,6 +113,26 @@ const GENERIC_NAME_BLOCKLIST = new Set([
 ]);
 
 /**
+ * Tier 1's key function — `pkg.appId`, except for `GENERIC_NAME_BLOCKLIST`
+ * entries (checked via `normalizeName`, since the bare-package-name
+ * sources that hit this tier — AUR, Arch, Fedora, Debian/Ubuntu family,
+ * Snapcraft, Alpine, Void, Slackware, Solus, openSUSE, Gentoo, nixpkgs —
+ * use the literal, unnormalized package name as `appId`) — same
+ * protection Tier 2 already had, closing a real gap: `unionByExactKey`
+ * on raw `appId` alone had no defense against two of those sources
+ * packaging genuinely unrelated software under one of these exact
+ * generic words (the identical class of collision the blocklist's own
+ * comment documents, just reachable through this tier too — confirmed
+ * live: `fuse`, `weather`, `calendar`, and `notes` all currently union
+ * 3-8 bare-appId sources into one group purely on this tier, today
+ * correct by luck rather than by any actual guard).
+ */
+function tier1Key(pkg: SourcedPackage): string | undefined {
+  if (!pkg.appId) return undefined;
+  return GENERIC_NAME_BLOCKLIST.has(normalizeName(pkg.appId)) ? undefined : pkg.appId;
+}
+
+/**
  * Tier 2's key function — `normalizeName`, except for `GENERIC_NAME_BLOCKLIST`
  * entries, which return `undefined` (skipped by `unionByExactKey`, same as
  * a package with no name at all) so they never union on name alone.
@@ -125,7 +150,9 @@ function tier2Key(pkg: SourcedPackage): string | undefined {
  *    ignoring deny (explicit human intent beats everything).
  * 1. Exact `appId` match — e.g. Snapcraft/Debian/AUR/Arch/Fedora all use
  *    the bare package name as appId, so "firefox" unions across all of
- *    them for free.
+ *    them for free. Skips `GENERIC_NAME_BLOCKLIST` entries (via
+ *    `tier1Key`) — see its comment for why bare-appId sources need the
+ *    same protection Tier 2 has.
  * 2. Exact normalized-name match — bridges sources with human-readable
  *    names (Flathub's "Firefox", AppImage's "GIMP") to the appId-based
  *    groups above. Skips `GENERIC_NAME_BLOCKLIST` entries — see its
@@ -156,7 +183,7 @@ export function groupPackages(
   }
 
   // Tier 1: exact appId match.
-  unionByExactKey(uf, packages, (pkg) => pkg.appId, overrides.denyPairs);
+  unionByExactKey(uf, packages, tier1Key, overrides.denyPairs);
 
   // Tier 2: exact normalized-name match.
   unionByExactKey(uf, packages, tier2Key, overrides.denyPairs);

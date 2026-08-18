@@ -120,6 +120,37 @@ describe("groupPackages", () => {
     expect(groupPackages(packages, NO_OVERRIDES)).toHaveLength(1);
   });
 
+  it("does not union on appId alone when the appId itself is a blocklisted generic word (tier 1 gap fix)", () => {
+    // Bare-package-name sources (AUR, Fedora, ...) set appId to the
+    // literal package name — two unrelated tools both literally named
+    // "weather" would previously union on that shared appId with zero
+    // defense, the exact gap tier 2's blocklist already closed for names.
+    const packages = [
+      pkg({ source: "pacman-aur", name: "weather", appId: "weather" }),
+      pkg({ source: "rpm-fedora", name: "weather", appId: "weather" }),
+    ];
+
+    expect(groupPackages(packages, NO_OVERRIDES)).toHaveLength(2);
+  });
+
+  it("blocklists a bare appId case-insensitively, same normalization tier 2 already uses for names", () => {
+    const packages = [
+      pkg({ source: "pacman-aur", name: "Clock", appId: "Clock" }),
+      pkg({ source: "rpm-fedora", name: "clock", appId: "clock" }),
+    ];
+
+    expect(groupPackages(packages, NO_OVERRIDES)).toHaveLength(2);
+  });
+
+  it("still unions non-blocklisted bare appIds via tier 1 as normal", () => {
+    const packages = [
+      pkg({ source: "pacman-aur", name: "firefox", appId: "firefox" }),
+      pkg({ source: "rpm-fedora", name: "firefox", appId: "firefox" }),
+    ];
+
+    expect(groupPackages(packages, NO_OVERRIDES)).toHaveLength(1);
+  });
+
   it("uses the real (currently empty) override files when none are passed", () => {
     const packages = [pkg({ source: "flatpak-flathub", name: "Solo", appId: "org.example.solo" })];
 

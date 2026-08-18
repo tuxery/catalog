@@ -26,6 +26,8 @@ const ALL_SOURCE_IDS = [
   "deb-popos",
   "deb-deepin",
   "deb-mxlinux",
+  "gog",
+  "lutris",
 ];
 
 /** Re-fetches the given sources (default: all) via @tuxery/sources' existing `refresh` CLI, one at a time. */

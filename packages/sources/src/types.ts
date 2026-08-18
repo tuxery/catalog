@@ -1,10 +1,14 @@
 // One id per connector folder under packages/sources/src/ — `<format>-<provider>`
 // rather than a bare provider name, so sources group by install mechanism
 // (the install-CTA logic cares that a .deb installs the same way regardless
-// of which distro ships it) rather than by distro/provider name alone. Two
-// exceptions keep a bare name: appimage (single provider — a prefix would
-// only earn its keep if a second AppImage seed list ever lands) and
-// slackware (single format+provider today, same reasoning).
+// of which distro ships it) rather than by distro/provider name alone. A
+// few exceptions keep a bare name: appimage (single provider — a prefix
+// would only earn its keep if a second AppImage seed list ever lands),
+// slackware (single format+provider today, same reasoning), and gog/lutris
+// (neither maps to a system package format at all — GOG sells DRM-free
+// installers/Galaxy client downloads, Lutris installs via its own
+// community-authored scripts — so there's no `<format>` prefix to give
+// them, same single-provider reasoning as appimage/slackware).
 export type PackageSourceId =
   | "flatpak-flathub"
   | "flatpak-appcenter"
@@ -25,7 +29,9 @@ export type PackageSourceId =
   | "deb-mint"
   | "deb-popos"
   | "deb-deepin"
-  | "deb-mxlinux";
+  | "deb-mxlinux"
+  | "gog"
+  | "lutris";
 
 /**
  * A single package as reported by one source, before deduplication.

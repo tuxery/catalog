@@ -88,6 +88,13 @@ const FIXTURE = `<?xml version="1.0" encoding="UTF-8"?>
     </developer>
   </component>
   <component type="desktop-application">
+    <id>org.example.TranslatedDeveloperName</id>
+    <name>Translated Developer Name</name>
+    <summary>developer_name repeats per translation too, same as name/summary/description</summary>
+    <developer_name>Alex Angelou</developer_name>
+    <developer_name xml:lang="el">Αλέξανδρος Αγγέλου</developer_name>
+  </component>
+  <component type="desktop-application">
     <id>org.example.RemoteIcon</id>
     <name>Remote Icon</name>
     <summary>Has both a cached filename and a ready-to-use remote URL</summary>
@@ -110,6 +117,7 @@ describe("parseAppstreamXml", () => {
       "org.example.MultiCategory",
       "org.example.RichMetadata",
       "org.example.NewStyleDeveloper",
+      "org.example.TranslatedDeveloperName",
       "org.example.RemoteIcon",
     ]);
   });
@@ -193,6 +201,19 @@ describe("parseAppstreamXml", () => {
     const entry = entries.find((e) => e.id === "org.example.NewStyleDeveloper");
 
     expect(entry?.developer).toBe("Someone");
+  });
+
+  it("picks the untranslated developer_name, not a translation, when developer_name itself repeats per language", () => {
+    // Real bug caught live: io.github.aggalex.Wineglass has both a bare
+    // <developer_name> and an xml:lang="el" translation — without
+    // treating developer_name the same array-per-translation way as
+    // name/summary/description, the raw translation array leaked
+    // straight into SourcedPackage.developer, which SQLite then refused
+    // to bind when publishing to Turso.
+    const entry = entries.find((e) => e.id === "org.example.TranslatedDeveloperName");
+
+    expect(entry?.developer).toBe("Alex Angelou");
+    expect(typeof entry?.developer).toBe("string");
   });
 
   it("flattens <description>'s paragraphs and list items to plain text, only from the untranslated block", () => {

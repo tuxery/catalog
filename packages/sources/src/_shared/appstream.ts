@@ -66,7 +66,14 @@ interface RawComponent {
   releases?: { release?: RawRelease[] };
   categories?: { category?: string[] };
   project_license?: string;
-  developer_name?: string;
+  // Same xml:lang-repeats-per-translation shape as <name>/<summary> —
+  // real bug caught live: "io.github.aggalex.Wineglass" has both
+  // <developer_name>Alex Angelou</developer_name> and a Greek
+  // xml:lang="el" translation. Assuming a single bare string (only the
+  // common case) instead of RawText[] here meant the raw array leaked
+  // straight into SourcedPackage.developer for any component with a
+  // translated developer_name, which SQLite then refused to bind at all.
+  developer_name?: RawText[];
   developer?: RawDeveloper;
   screenshots?: { screenshot?: RawScreenshot[] };
 }
@@ -155,7 +162,7 @@ export function resolveIconUrl(
 }
 
 function pickDeveloper(component: RawComponent): string | undefined {
-  return component.developer_name || pickDefaultText(component.developer?.name);
+  return pickDefaultText(component.developer_name) ?? pickDefaultText(component.developer?.name);
 }
 
 /**
@@ -257,6 +264,7 @@ export function parseAppstreamXml(xml: string): AppstreamComponent[] {
         "name",
         "summary",
         "description",
+        "developer_name",
         "category",
         "p",
         "li",

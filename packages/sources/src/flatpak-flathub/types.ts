@@ -28,6 +28,8 @@ export interface FlathubCacheEntry {
   longDescription?: string;
   /** See `SourcedPackage.screenshots`. */
   screenshots: string[];
+  /** See `SourcedPackage.rating`. */
+  rating?: { average: number; count: number };
 }
 
 export interface FlathubFetchMetadata extends FetchMetadata {

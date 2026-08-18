@@ -360,4 +360,38 @@ describe("enrichApps", () => {
 
     expect(enrichApps(matched)[0]?.screenshots).toBeUndefined();
   });
+
+  it("combines every member package's rating into one count-weighted average", () => {
+    const matched: MatchedApp[] = [
+      {
+        id: "gog:firewatch",
+        packages: [
+          pkg({ source: "gog", rating: { average: 4, count: 100 } }),
+          pkg({ source: "lutris", rating: { average: 2, count: 50 } }),
+        ],
+      },
+    ];
+
+    // (4*100 + 2*50) / 150 = 3.333...
+    expect(enrichApps(matched)[0]?.rating).toEqual({ average: 500 / 150, count: 150 });
+  });
+
+  it("leaves rating undefined when no member package has one, never a synthetic 0", () => {
+    const matched: MatchedApp[] = [
+      { id: "aur:example", packages: [pkg({ source: "pacman-aur", name: "example" })] },
+    ];
+
+    expect(enrichApps(matched)[0]?.rating).toBeUndefined();
+  });
+
+  it("ignores a rating with a zero count rather than folding it into the average", () => {
+    const matched: MatchedApp[] = [
+      {
+        id: "gog:example",
+        packages: [pkg({ source: "gog", rating: { average: 0, count: 0 } })],
+      },
+    ];
+
+    expect(enrichApps(matched)[0]?.rating).toBeUndefined();
+  });
 });

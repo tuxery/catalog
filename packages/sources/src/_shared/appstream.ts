@@ -50,6 +50,8 @@ export interface AppstreamComponent {
   homepage?: string;
   /** Whether `<categories>` includes the freedesktop.org menu spec's "Game" category — see `SourcedPackage.hasGameCategory`. */
   hasGameCategory: boolean;
+  /** Every raw `<category>` value, freedesktop.org menu spec identifiers (e.g. "AudioVideo", "Game", "ArcadeGame") — see `SourcedPackage.categories`. */
+  categories: string[];
 }
 
 /**
@@ -116,6 +118,7 @@ export function parseAppstreamXml(xml: string): AppstreamComponent[] {
       iconFilename: pickIcon(component.icon),
       homepage: pickHomepage(component.url),
       hasGameCategory: (component.categories?.category ?? []).includes("Game"),
+      categories: component.categories?.category ?? [],
     }))
     .filter((entry) => entry.id && entry.name);
 }

@@ -11,5 +11,6 @@ export function normalize(entries: FlathubCacheEntry[]): SourcedPackage[] {
     iconFilename: entry.iconFilename,
     homepage: entry.homepage,
     hasGameCategory: entry.hasGameCategory,
+    categories: entry.categories,
   }));
 }

@@ -18,6 +18,8 @@ export interface AppCenterCacheEntry {
   homepage?: string;
   /** Whether AppStream's `<categories>` includes "Game" — see `SourcedPackage.hasGameCategory`. */
   hasGameCategory: boolean;
+  /** Every raw `<category>` value — see `SourcedPackage.categories`. */
+  categories: string[];
 }
 
 export interface AppCenterFetchMetadata extends FetchMetadata {

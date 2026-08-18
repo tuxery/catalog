@@ -136,4 +136,13 @@ export interface SourcedPackage {
    * isn't evidence of "not a game".
    */
   hasGameCategory?: boolean;
+  /**
+   * Every raw freedesktop.org menu spec category value from this
+   * package's upstream metadata (e.g. `["AudioVideo", "Player"]`) — only
+   * Flathub/AppCenter currently populate this (parsed via
+   * `_shared/appstream.ts`). Used by `@tuxery/curator`'s enrich stage
+   * (`pickCategory` in `enrich/category.ts`) to set `CatalogApp.category`
+   * — undefined/empty here means "not sourced", not "no category".
+   */
+  categories?: string[];
 }

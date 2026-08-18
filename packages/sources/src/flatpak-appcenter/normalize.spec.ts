@@ -12,6 +12,7 @@ describe("appcenter normalize", () => {
       iconFilename: "com.github.akiraux.akira.png",
       homepage: "https://akiraux.org",
       hasGameCategory: false,
+      categories: ["Graphics"],
     };
 
     expect(normalize([entry])).toEqual([
@@ -24,6 +25,7 @@ describe("appcenter normalize", () => {
         iconFilename: "com.github.akiraux.akira.png",
         homepage: "https://akiraux.org",
         hasGameCategory: false,
+        categories: ["Graphics"],
       },
     ]);
   });
@@ -34,6 +36,7 @@ describe("appcenter normalize", () => {
       name: "No Releases",
       summary: "Has no releases yet",
       hasGameCategory: false,
+      categories: [],
     };
 
     expect(normalize([entry])[0]?.version).toBe("unknown");
@@ -45,8 +48,21 @@ describe("appcenter normalize", () => {
       name: "Game",
       summary: "A game",
       hasGameCategory: true,
+      categories: ["Game"],
     };
 
     expect(normalize([entry])[0]?.hasGameCategory).toBe(true);
+  });
+
+  it("carries categories through unchanged", () => {
+    const entry: AppCenterCacheEntry = {
+      id: "com.example.App",
+      name: "App",
+      summary: "An app",
+      hasGameCategory: false,
+      categories: ["Office", "TextEditor"],
+    };
+
+    expect(normalize([entry])[0]?.categories).toEqual(["Office", "TextEditor"]);
   });
 });

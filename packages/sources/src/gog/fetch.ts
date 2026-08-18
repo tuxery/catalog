@@ -31,6 +31,9 @@ interface RawProduct {
   storeLink?: string;
   developers?: string[];
   screenshots?: string[];
+  /** 0-50 scale (e.g. 39 = 3.9/5 stars) — verified live against GOG's own product pages. 0 when `reviewsCount` is also 0 (no reviews yet), not a real zero rating. */
+  reviewsRating?: number;
+  reviewsCount?: number;
 }
 
 interface RawCatalogPage {
@@ -65,6 +68,9 @@ export function mapProducts(products: RawProduct[]): GogCacheEntry[] {
       storeLink: product.storeLink,
       developers: product.developers ?? [],
       screenshots: (product.screenshots ?? []).map(resolveScreenshotUrl),
+      rating: product.reviewsCount
+        ? { average: (product.reviewsRating ?? 0) / 10, count: product.reviewsCount }
+        : undefined,
     }));
 }
 

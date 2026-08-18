@@ -30,6 +30,8 @@ export interface AppCenterCacheEntry {
   longDescription?: string;
   /** See `SourcedPackage.screenshots`. */
   screenshots: string[];
+  /** See `SourcedPackage.rating`. */
+  rating?: { average: number; count: number };
 }
 
 export interface AppCenterFetchMetadata extends FetchMetadata {

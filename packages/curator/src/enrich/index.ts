@@ -94,6 +94,30 @@ function pickCategoryLabel(packages: SourcedPackage[]): string | undefined {
   return categories ? pickCategory(categories) : undefined;
 }
 
+/**
+ * Combines every member package's own rating into one count-weighted
+ * average — unlike `pickField`, which picks a single source's value,
+ * ratings from independent sources (e.g. a game sold on both GOG and
+ * packaged on Flathub) are genuinely different votes on the same app and
+ * should all count, not just the highest-priority source's. `undefined`
+ * when no member package has a rating at all — never a synthetic 0.
+ * Per-source figures stay readable on `CatalogApp.packages[].rating` for
+ * a "ratings by source" breakdown.
+ */
+function aggregateRating(
+  packages: SourcedPackage[],
+): { average: number; count: number } | undefined {
+  const rated = packages.filter(
+    (pkg): pkg is SourcedPackage & { rating: { average: number; count: number } } =>
+      Boolean(pkg.rating && pkg.rating.count > 0),
+  );
+  if (rated.length === 0) return undefined;
+
+  const count = rated.reduce((sum, pkg) => sum + pkg.rating.count, 0);
+  const weightedSum = rated.reduce((sum, pkg) => sum + pkg.rating.average * pkg.rating.count, 0);
+  return { average: weightedSum / count, count };
+}
+
 /** Turns grouped packages into the display-ready `CatalogApp` records the website reads — see `types.ts` for what's populated today vs. tracked as roadmap. */
 export function enrichApps(matched: MatchedApp[]): CatalogApp[] {
   return matched.map((app) => {
@@ -115,6 +139,7 @@ export function enrichApps(matched: MatchedApp[]): CatalogApp[] {
       screenshots: pickField(app.packages, (pkg) =>
         pkg.screenshots && pkg.screenshots.length > 0 ? pkg.screenshots : undefined,
       ),
+      rating: aggregateRating(app.packages),
     };
   });
 }

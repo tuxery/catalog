@@ -20,8 +20,10 @@ const FIXTURE = `<?xml version="1.0" encoding="UTF-8"?>
 </components>
 `;
 
+const ODRS_RATINGS = new Map<string, { average: number; count: number }>();
+
 describe("parseAppstream", () => {
-  const entries = parseAppstream(FIXTURE);
+  const entries = parseAppstream(FIXTURE, ODRS_RATINGS);
 
   it("delegates to the shared AppStream parser", () => {
     const akira = entries.find((entry) => entry.id === "com.github.akiraux.akira");
@@ -40,6 +42,7 @@ describe("parseAppstream", () => {
       developer: undefined,
       longDescription: undefined,
       screenshots: [],
+      rating: undefined,
     });
   });
 

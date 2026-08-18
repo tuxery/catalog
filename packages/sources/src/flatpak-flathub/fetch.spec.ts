@@ -27,8 +27,10 @@ const FIXTURE = `<?xml version="1.0" encoding="UTF-8"?>
 </components>
 `;
 
+const ODRS_RATINGS = new Map([["org.mozilla.firefox.desktop", { average: 3.9, count: 778 }]]);
+
 describe("parseAppstream", () => {
-  const entries = parseAppstream(FIXTURE);
+  const entries = parseAppstream(FIXTURE, ODRS_RATINGS);
 
   it("delegates to the shared AppStream parser", () => {
     const firefox = entries.find((entry) => entry.id === "org.mozilla.firefox");
@@ -47,6 +49,7 @@ describe("parseAppstream", () => {
       developer: undefined,
       longDescription: undefined,
       screenshots: [],
+      rating: { average: 3.9, count: 778 },
     });
   });
 
@@ -62,5 +65,11 @@ describe("parseAppstream", () => {
     expect(entry?.iconUrl).toBe(
       "https://dl.flathub.org/repo/appstream/x86_64/icons/128x128/org.example.CachedOnly.png",
     );
+  });
+
+  it("leaves rating undefined for an id with no ODRS entry", () => {
+    const entry = entries.find((e) => e.id === "org.example.RemoteIcon");
+
+    expect(entry?.rating).toBeUndefined();
   });
 });

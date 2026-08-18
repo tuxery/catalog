@@ -2,6 +2,7 @@ import { parseAppstreamXml, resolveIconUrl } from "../_shared/appstream";
 import { fetchGunzippedText } from "../_shared/http";
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
+import { fetchOdrsRatings, pickOdrsRating, type OdrsRating } from "../_shared/odrs";
 import type { AppCenterCacheEntry, AppCenterFetchMetadata } from "./types";
 
 // elementary AppCenter is its own Flatpak remote (not Flathub) -- same
@@ -23,11 +24,18 @@ const APPSTREAM_URL = `${REPO_BASE}/appstream.xml.gz`;
  * icon URL here, since that needs AppCenter's own repo base (only ~8%
  * of its real components carry a ready-to-use `remoteIconUrl`, unlike
  * Flathub's 100%, so this fallback carries most of AppCenter's real
- * icon coverage). Pure — no I/O.
+ * icon coverage), and joins in each entry's ODRS rating (see
+ * `_shared/odrs.ts`) by its `.desktop`-suffixed id. Pure — no I/O.
  */
-export function parseAppstream(xml: string): AppCenterCacheEntry[] {
+export function parseAppstream(
+  xml: string,
+  odrsRatings: Map<string, OdrsRating>,
+): AppCenterCacheEntry[] {
   return parseAppstreamXml(xml).map((entry) =>
-    Object.assign(entry, { iconUrl: resolveIconUrl(entry, REPO_BASE) }),
+    Object.assign(entry, {
+      iconUrl: resolveIconUrl(entry, REPO_BASE),
+      rating: pickOdrsRating(odrsRatings, entry.id),
+    }),
   );
 }
 
@@ -37,8 +45,11 @@ export function parseAppstream(xml: string): AppCenterCacheEntry[] {
  * no auth, no pagination — see docs/sources.md.
  */
 export async function fetchAppCenter(cachePath: string): Promise<number> {
-  const xml = await fetchGunzippedText(APPSTREAM_URL, "elementary AppCenter appstream");
-  const entries = parseAppstream(xml);
+  const [xml, odrsRatings] = await Promise.all([
+    fetchGunzippedText(APPSTREAM_URL, "elementary AppCenter appstream"),
+    fetchOdrsRatings(),
+  ]);
+  const entries = parseAppstream(xml, odrsRatings);
 
   writeNdjson(cachePath, entries);
   writeMetadata<AppCenterFetchMetadata>(cachePath, {

@@ -117,4 +117,16 @@ describe("parseAppstreamXml", () => {
 
     expect(multiCategory?.hasGameCategory).toBe(true);
   });
+
+  it("exposes every raw category value, in document order", () => {
+    const multiCategory = entries.find((entry) => entry.id === "org.example.MultiCategory");
+
+    expect(multiCategory?.categories).toEqual(["Utility", "Game", "Simulation"]);
+  });
+
+  it("exposes an empty categories array when there's no <categories> at all", () => {
+    const firefox = entries.find((entry) => entry.id === "org.mozilla.firefox");
+
+    expect(firefox?.categories).toEqual([]);
+  });
 });

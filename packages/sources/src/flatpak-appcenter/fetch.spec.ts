@@ -27,6 +27,7 @@ describe("parseAppstream", () => {
         iconFilename: undefined,
         homepage: undefined,
         hasGameCategory: false,
+        categories: [],
       },
     ]);
   });

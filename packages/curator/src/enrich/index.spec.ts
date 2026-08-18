@@ -235,4 +235,59 @@ describe("enrichApps", () => {
 
     expect(app?.packages).toBe(packages);
   });
+
+  it("sets category from the representative package's categories", () => {
+    const matched: MatchedApp[] = [
+      {
+        id: "flathub:gimp",
+        packages: [pkg({ source: "flatpak-flathub", name: "GIMP", categories: ["Graphics"] })],
+      },
+    ];
+
+    expect(enrichApps(matched)[0]?.category).toBe("Graphics & Creativity");
+  });
+
+  it("falls back to a non-representative package's categories when the representative has none", () => {
+    // AppCenter isn't in SOURCE_PRIORITY, so Snapcraft wins as
+    // representative here — but only AppCenter carries category data.
+    const matched: MatchedApp[] = [
+      {
+        id: "snap:example",
+        packages: [
+          pkg({ source: "snap-snapcraft", name: "example" }),
+          pkg({ source: "flatpak-appcenter", name: "example", categories: ["Office"] }),
+        ],
+      },
+    ];
+
+    expect(enrichApps(matched)[0]?.category).toBe("Productivity");
+  });
+
+  it("leaves category undefined when no member package has category data", () => {
+    const matched: MatchedApp[] = [
+      { id: "aur:example", packages: [pkg({ source: "pacman-aur", name: "example" })] },
+    ];
+
+    expect(enrichApps(matched)[0]?.category).toBeUndefined();
+  });
+
+  it("leaves category undefined for a Game-only package — contentType covers that, not category", () => {
+    const matched: MatchedApp[] = [
+      {
+        id: "flathub:example",
+        packages: [
+          pkg({
+            source: "flatpak-flathub",
+            name: "example",
+            hasGameCategory: true,
+            categories: ["Game"],
+          }),
+        ],
+      },
+    ];
+
+    const [app] = enrichApps(matched);
+    expect(app?.contentType).toBe("game");
+    expect(app?.category).toBeUndefined();
+  });
 });

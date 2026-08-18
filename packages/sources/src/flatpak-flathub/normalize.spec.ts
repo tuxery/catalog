@@ -12,6 +12,7 @@ describe("flathub normalize", () => {
       iconFilename: "org.mozilla.firefox.png",
       homepage: "https://www.mozilla.org/firefox/",
       hasGameCategory: false,
+      categories: ["Network", "WebBrowser"],
     };
 
     expect(normalize([entry])).toEqual([
@@ -24,6 +25,7 @@ describe("flathub normalize", () => {
         iconFilename: "org.mozilla.firefox.png",
         homepage: "https://www.mozilla.org/firefox/",
         hasGameCategory: false,
+        categories: ["Network", "WebBrowser"],
       },
     ]);
   });
@@ -34,6 +36,7 @@ describe("flathub normalize", () => {
       name: "App",
       summary: "An app",
       hasGameCategory: false,
+      categories: [],
     };
 
     expect(normalize([entry])[0]?.version).toBe("unknown");
@@ -45,8 +48,21 @@ describe("flathub normalize", () => {
       name: "Game",
       summary: "A game",
       hasGameCategory: true,
+      categories: ["Game"],
     };
 
     expect(normalize([entry])[0]?.hasGameCategory).toBe(true);
+  });
+
+  it("carries categories through unchanged", () => {
+    const entry: FlathubCacheEntry = {
+      id: "org.example.App",
+      name: "App",
+      summary: "An app",
+      hasGameCategory: false,
+      categories: ["Utility", "Development"],
+    };
+
+    expect(normalize([entry])[0]?.categories).toEqual(["Utility", "Development"]);
   });
 });

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { parseAppstream } from "./fetch";
+import { parseAppstream, rankPopularity } from "./fetch";
 
 const FIXTURE = `<?xml version="1.0" encoding="UTF-8"?>
 <components version="0.8" origin="flathub">
@@ -28,9 +28,10 @@ const FIXTURE = `<?xml version="1.0" encoding="UTF-8"?>
 `;
 
 const ODRS_RATINGS = new Map([["org.mozilla.firefox.desktop", { average: 3.9, count: 778 }]]);
+const POPULARITY_RANKS = new Map([["org.mozilla.firefox", 0.9]]);
 
 describe("parseAppstream", () => {
-  const entries = parseAppstream(FIXTURE, ODRS_RATINGS);
+  const entries = parseAppstream(FIXTURE, ODRS_RATINGS, POPULARITY_RANKS);
 
   it("delegates to the shared AppStream parser", () => {
     const firefox = entries.find((entry) => entry.id === "org.mozilla.firefox");
@@ -50,7 +51,14 @@ describe("parseAppstream", () => {
       longDescription: undefined,
       screenshots: [],
       rating: { average: 3.9, count: 778 },
+      popularity: 0.9,
     });
+  });
+
+  it("leaves popularity undefined for an id outside the Popular collection", () => {
+    const entry = entries.find((e) => e.id === "org.example.RemoteIcon");
+
+    expect(entry?.popularity).toBeUndefined();
   });
 
   it("prefers a ready-to-use remote icon URL when present", () => {
@@ -71,5 +79,26 @@ describe("parseAppstream", () => {
     const entry = entries.find((e) => e.id === "org.example.RemoteIcon");
 
     expect(entry?.rating).toBeUndefined();
+  });
+});
+
+describe("rankPopularity", () => {
+  it("scores rank 1 as 1, decreasing towards 0 for the last hit", () => {
+    const hits = [{ app_id: "a" }, { app_id: "b" }, { app_id: "c" }];
+
+    const ranks = rankPopularity(hits);
+    expect(ranks.get("a")).toBe(1);
+    expect(ranks.get("b")).toBeCloseTo(0.5, 5);
+    expect(ranks.get("c")).toBe(0);
+  });
+
+  it("skips hits with no app_id", () => {
+    const ranks = rankPopularity([{ app_id: "a" }, {}]);
+    expect(ranks.size).toBe(1);
+  });
+
+  it("scores the sole hit as 1 rather than dividing by zero", () => {
+    const ranks = rankPopularity([{ app_id: "only" }]);
+    expect(ranks.get("only")).toBe(1);
   });
 });

@@ -10,13 +10,43 @@ interface RawPackage {
   Description?: string | null;
   Version?: string;
   URL?: string | null;
+  Popularity?: number;
+}
+
+/**
+ * Ranks every package with real `Popularity` (AUR's own decayed
+ * usage-frequency metric — a raw float whose scale is meaningless on its
+ * own) into a 0-1 percentile score comparable across sources — see
+ * `SourcedPackage.popularity`. Packages with zero/no `Popularity`
+ * (91,164 of 117,747 real entries — most AUR packages are simply never
+ * installed via a helper that reports usage) get no score at all, not a
+ * fake bottom-percentile value. Pure — no I/O.
+ */
+export function rankPopularity(packages: RawPackage[]): Map<string, number> {
+  const ranked = packages.filter(
+    (pkg): pkg is RawPackage & { Name: string; Popularity: number } =>
+      Boolean(pkg.Name) && Boolean(pkg.Popularity),
+  );
+  // .sort() mutates in place, but `ranked` is already a fresh array from
+  // .filter() above, not a reference the caller can see — safe.
+  // eslint-disable-next-line unicorn/no-array-sort
+  ranked.sort((a, b) => b.Popularity - a.Popularity);
+
+  const scores = new Map<string, number>();
+  ranked.forEach((pkg, index) => {
+    scores.set(pkg.Name, ranked.length > 1 ? 1 - index / (ranked.length - 1) : 1);
+  });
+  return scores;
 }
 
 /**
  * Maps the AUR's raw metadata dump entries to cache rows. Pure — no I/O —
  * so it's the part covered by tests.
  */
-export function mapPackages(packages: RawPackage[]): AurCacheEntry[] {
+export function mapPackages(
+  packages: RawPackage[],
+  popularityRanks: Map<string, number>,
+): AurCacheEntry[] {
   const entries: AurCacheEntry[] = [];
 
   for (const pkg of packages) {
@@ -27,6 +57,7 @@ export function mapPackages(packages: RawPackage[]): AurCacheEntry[] {
       description: pkg.Description ?? "",
       version: pkg.Version ?? "unknown",
       homepage: pkg.URL ?? undefined,
+      popularity: popularityRanks.get(pkg.Name),
     });
   }
 
@@ -43,7 +74,7 @@ export function mapPackages(packages: RawPackage[]): AurCacheEntry[] {
 export async function fetchAur(cachePath: string): Promise<number> {
   const json = await fetchGunzippedText(PACKAGES_URL, "AUR metadata dump");
   const packages = JSON.parse(json) as RawPackage[];
-  const entries = mapPackages(packages);
+  const entries = mapPackages(packages, rankPopularity(packages));
 
   writeNdjson(cachePath, entries);
   writeMetadata<AurFetchMetadata>(cachePath, {

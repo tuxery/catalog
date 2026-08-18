@@ -184,4 +184,20 @@ export interface SourcedPackage {
    * "ratings by source" breakdown.
    */
   rating?: { average: number; count: number };
+  /**
+   * A trending/popularity score, when this source exposes a real ranking
+   * signal — normalized to 0-1 *within this source's own distribution*
+   * (a percentile-style rank, e.g. 1 for the single most popular real
+   * entry), not a directly comparable absolute count across sources the
+   * way `rating` is. Two independent sources today: AUR's own decayed
+   * usage-frequency `Popularity` field (already present in the bulk
+   * metadata dump every `pacman-aur` fetch already downloads — ranked
+   * across all ~118k real entries, only the ~23% with any real votes get
+   * a score) and Flathub's own "Popular" collection API (a live top-250
+   * ranked list — apps outside it get no score, never a fake bottom
+   * value). `@tuxery/curator` averages whichever member packages have a
+   * score into `CatalogApp.popularity` — see `enrich/index.ts`'s
+   * `aggregatePopularity`.
+   */
+  popularity?: number;
 }

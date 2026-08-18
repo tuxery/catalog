@@ -117,6 +117,17 @@ export interface CatalogApp {
    * entry's own `rating` off `packages`.
    */
   rating?: { average: number; count: number };
+  /**
+   * A trending/popularity score (0-1) — the mean of every member
+   * package's own `SourcedPackage.popularity`, see `enrich/index.ts`'s
+   * `aggregatePopularity`. Not a directly meaningful percentage, only a
+   * relative ranking signal for sorting a "trending" listing — AUR's
+   * decayed usage `Popularity` (bulk dump, ~23% real coverage) and
+   * Flathub's own "Popular" collection (top 250 only) are today's two
+   * sources, both already normalized to comparable 0-1 scales before
+   * reaching here. `undefined` when no member package has a score.
+   */
+  popularity?: number;
   /** Not sourced yet — no upstream store API among current sources exposes reviews. */
   reviews?: Array<{ author: string; text: string; rating: number }>;
   /** Not sourced yet. */

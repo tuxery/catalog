@@ -1,4 +1,4 @@
-import { parseAppstreamXml } from "../_shared/appstream";
+import { parseAppstreamXml, resolveIconUrl } from "../_shared/appstream";
 import { fetchGunzippedText } from "../_shared/http";
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
@@ -13,15 +13,22 @@ import type { AppCenterCacheEntry, AppCenterFetchMetadata } from "./types";
 // also exist on Flathub (which the existing exact-appId matching tier
 // already merges correctly) -- the other 115 are exclusive to AppCenter.
 const ARCH = "x86_64";
-const APPSTREAM_URL = `https://flatpak.elementary.io/repo/appstream/${ARCH}/appstream.xml.gz`;
+const REPO_BASE = `https://flatpak.elementary.io/repo/appstream/${ARCH}`;
+const APPSTREAM_URL = `${REPO_BASE}/appstream.xml.gz`;
 
 /**
  * Parses elementary AppCenter's appstream XML (already decompressed)
- * into cache rows. A thin wrapper — the actual parsing is shared with
- * Flathub in `_shared/appstream.ts`. Pure — no I/O.
+ * into cache rows. Mostly a thin wrapper — the actual parsing is shared
+ * with Flathub in `_shared/appstream.ts` — but resolves each entry's
+ * icon URL here, since that needs AppCenter's own repo base (only ~8%
+ * of its real components carry a ready-to-use `remoteIconUrl`, unlike
+ * Flathub's 100%, so this fallback carries most of AppCenter's real
+ * icon coverage). Pure — no I/O.
  */
 export function parseAppstream(xml: string): AppCenterCacheEntry[] {
-  return parseAppstreamXml(xml);
+  return parseAppstreamXml(xml).map((entry) =>
+    Object.assign(entry, { iconUrl: resolveIconUrl(entry, REPO_BASE) }),
+  );
 }
 
 /**

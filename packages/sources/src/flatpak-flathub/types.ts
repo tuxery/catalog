@@ -13,11 +13,21 @@ export interface FlathubCacheEntry {
   summary: string;
   version?: string;
   iconFilename?: string;
+  /** Resolved, ready-to-use icon URL — see `SourcedPackage.iconUrl`. */
+  iconUrl?: string;
   homepage?: string;
   /** Whether AppStream's `<categories>` includes "Game" — see `SourcedPackage.hasGameCategory`. */
   hasGameCategory: boolean;
   /** Every raw `<category>` value — see `SourcedPackage.categories`. */
   categories: string[];
+  /** See `SourcedPackage.license`. */
+  license?: string;
+  /** See `SourcedPackage.developer`. */
+  developer?: string;
+  /** See `SourcedPackage.longDescription`. */
+  longDescription?: string;
+  /** See `SourcedPackage.screenshots`. */
+  screenshots: string[];
 }
 
 export interface FlathubFetchMetadata extends FetchMetadata {

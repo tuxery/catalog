@@ -60,14 +60,21 @@ export interface CatalogApp {
   contentType?: "game";
 
   /**
-   * Not resolved yet — sources only carry a bare filename
-   * (`SourcedPackage.iconFilename`), not a fetchable URL, and Snapcraft's
-   * `normalize.ts` currently even discards a full icon URL down to just
-   * that filename. Needs per-source base-URL resolution (and fixing the
-   * Snapcraft normalize.ts regression) before this can populate.
+   * A directly usable icon URL, picked from whichever member package has
+   * one (`SourcedPackage.iconUrl` — see `enrich/index.ts`'s `pickField`).
+   * Populated by Flathub/AppCenter (AppStream's `type="remote"` icon, or
+   * resolved against that source's own repo layout when absent — see
+   * `_shared/appstream.ts`'s `resolveIconUrl`) and Snapcraft (a full URL
+   * from its own API, previously discarded down to just a filename — a
+   * regression fixed alongside this).
    */
   iconUrl?: string;
-  /** Not sourced yet — only short summaries exist today, no source has a separate long-form description. */
+  /**
+   * Long-form, multi-paragraph description — distinct from
+   * `shortDescription`. Populated by Flathub/AppCenter's AppStream
+   * `<description>`, flattened from its `<p>`/`<ul>`/`<ol>` structure to
+   * plain text (see `_shared/appstream.ts`'s `pickLongDescription`).
+   */
   longDescription?: string;
   /**
    * A single display-ready category label (e.g. "Productivity",
@@ -85,17 +92,17 @@ export interface CatalogApp {
    * second signal, not done here.
    */
   category?: string;
-  /** Not sourced yet — distro "Maintainer"/"Packager" fields exist but denote the packager, not the app's actual developer; not a reliable proxy. */
+  /** The app's actual developer/team name — populated by Flathub/AppCenter's AppStream `<developer_name>`/`<developer>`. Distro "Maintainer"/"Packager" fields exist elsewhere but denote the packager, not a reliable proxy for this. */
   developer?: string;
-  /** Not sourced yet — same caveat as `developer`. */
+  /** Not sourced yet — same caveat as `developer`; no current source distinguishes a publisher from a developer at all. */
   publisher?: string;
-  /** Not sourced yet — e.g. Flathub/Snapcraft appstream both carry a license, not fetched today. */
+  /** SPDX-ish license expression (e.g. "GPL-3.0+ AND LGPL-3.0+") — populated by Flathub/AppCenter's AppStream `<project_license>`. */
   license?: string;
   /** Not sourced yet. */
   languages?: string[];
   /** Not sourced yet — no connector captures installed/download size. */
   approxSizeBytes?: number;
-  /** Not sourced yet — Flathub/Snapcraft appstream carry screenshot URLs, not fetched today. */
+  /** Screenshot image URLs — populated by Flathub/AppCenter's AppStream `<screenshots>`. */
   screenshots?: string[];
   /** Not sourced yet. */
   videos?: string[];

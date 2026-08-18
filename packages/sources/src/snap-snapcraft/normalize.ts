@@ -10,8 +10,13 @@ export function normalize(entries: SnapcraftCacheEntry[]): SourcedPackage[] {
     appId: entry.name,
     channel: entry.channel,
     // iconUrl is a full URL, unlike Flathub's bare filename — take just the
-    // last path segment so the matcher compares like with like.
+    // last path segment for iconFilename so the matcher compares like with
+    // like, but also keep the full URL itself (previously discarded here
+    // entirely — see the "Populate CatalogApp rich fields per source"
+    // card, which flagged this as a regression to fix before iconUrl
+    // population started).
     iconFilename: entry.iconUrl?.split("/").pop(),
+    iconUrl: entry.iconUrl,
     homepage: entry.website,
   }));
 }

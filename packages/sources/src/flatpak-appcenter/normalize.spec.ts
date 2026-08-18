@@ -10,9 +10,14 @@ describe("appcenter normalize", () => {
       summary: "The Linux Design Tool",
       version: "0.0.16",
       iconFilename: "com.github.akiraux.akira.png",
+      iconUrl: "https://flatpak.elementary.io/repo/appstream/x86_64/icons/128x128/akira.png",
       homepage: "https://akiraux.org",
       hasGameCategory: false,
       categories: ["Graphics"],
+      license: "GPL-3.0+",
+      developer: "Alessandro Castellani",
+      longDescription: "Akira is a native Linux app for UI and UX design.",
+      screenshots: ["https://raw.githubusercontent.com/akiraux/akira/master/screenshot-1.png"],
     };
 
     expect(normalize([entry])).toEqual([
@@ -23,9 +28,14 @@ describe("appcenter normalize", () => {
         version: "0.0.16",
         appId: "com.github.akiraux.akira",
         iconFilename: "com.github.akiraux.akira.png",
+        iconUrl: "https://flatpak.elementary.io/repo/appstream/x86_64/icons/128x128/akira.png",
         homepage: "https://akiraux.org",
         hasGameCategory: false,
         categories: ["Graphics"],
+        license: "GPL-3.0+",
+        developer: "Alessandro Castellani",
+        longDescription: "Akira is a native Linux app for UI and UX design.",
+        screenshots: ["https://raw.githubusercontent.com/akiraux/akira/master/screenshot-1.png"],
       },
     ]);
   });
@@ -37,6 +47,7 @@ describe("appcenter normalize", () => {
       summary: "Has no releases yet",
       hasGameCategory: false,
       categories: [],
+      screenshots: [],
     };
 
     expect(normalize([entry])[0]?.version).toBe("unknown");
@@ -49,6 +60,7 @@ describe("appcenter normalize", () => {
       summary: "A game",
       hasGameCategory: true,
       categories: ["Game"],
+      screenshots: [],
     };
 
     expect(normalize([entry])[0]?.hasGameCategory).toBe(true);
@@ -61,8 +73,22 @@ describe("appcenter normalize", () => {
       summary: "An app",
       hasGameCategory: false,
       categories: ["Office", "TextEditor"],
+      screenshots: [],
     };
 
     expect(normalize([entry])[0]?.categories).toEqual(["Office", "TextEditor"]);
+  });
+
+  it("leaves screenshots undefined (not an empty array) when there are none", () => {
+    const entry: AppCenterCacheEntry = {
+      id: "com.example.App",
+      name: "App",
+      summary: "An app",
+      hasGameCategory: false,
+      categories: [],
+      screenshots: [],
+    };
+
+    expect(normalize([entry])[0]?.screenshots).toBeUndefined();
   });
 });

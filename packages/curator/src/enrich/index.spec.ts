@@ -290,4 +290,74 @@ describe("enrichApps", () => {
     expect(app?.contentType).toBe("game");
     expect(app?.category).toBeUndefined();
   });
+
+  it("sets iconUrl, license, developer, longDescription, and screenshots from the representative package", () => {
+    const matched: MatchedApp[] = [
+      {
+        id: "flathub:example",
+        packages: [
+          pkg({
+            source: "flatpak-flathub",
+            iconUrl: "https://dl.flathub.org/media/example/icon.png",
+            license: "GPL-3.0+",
+            developer: "Example Team",
+            longDescription: "A longer description.",
+            screenshots: ["https://dl.flathub.org/media/example/1.png"],
+          }),
+        ],
+      },
+    ];
+
+    const [app] = enrichApps(matched);
+    expect(app?.iconUrl).toBe("https://dl.flathub.org/media/example/icon.png");
+    expect(app?.license).toBe("GPL-3.0+");
+    expect(app?.developer).toBe("Example Team");
+    expect(app?.longDescription).toBe("A longer description.");
+    expect(app?.screenshots).toEqual(["https://dl.flathub.org/media/example/1.png"]);
+  });
+
+  it("falls back to a non-representative package's rich fields, same as category — AppCenter isn't in SOURCE_PRIORITY either", () => {
+    const matched: MatchedApp[] = [
+      {
+        id: "snap:example",
+        packages: [
+          pkg({ source: "snap-snapcraft", name: "example" }),
+          pkg({
+            source: "flatpak-appcenter",
+            name: "example",
+            license: "MIT",
+            developer: "AppCenter Dev",
+          }),
+        ],
+      },
+    ];
+
+    const [app] = enrichApps(matched);
+    expect(app?.license).toBe("MIT");
+    expect(app?.developer).toBe("AppCenter Dev");
+  });
+
+  it("leaves rich fields undefined when no member package has them, never guessed", () => {
+    const matched: MatchedApp[] = [
+      { id: "aur:example", packages: [pkg({ source: "pacman-aur", name: "example" })] },
+    ];
+
+    const [app] = enrichApps(matched);
+    expect(app?.iconUrl).toBeUndefined();
+    expect(app?.license).toBeUndefined();
+    expect(app?.developer).toBeUndefined();
+    expect(app?.longDescription).toBeUndefined();
+    expect(app?.screenshots).toBeUndefined();
+  });
+
+  it("leaves screenshots undefined (not an empty array) when a member package's screenshots array is empty", () => {
+    const matched: MatchedApp[] = [
+      {
+        id: "flathub:example",
+        packages: [pkg({ source: "flatpak-flathub", screenshots: [] })],
+      },
+    ];
+
+    expect(enrichApps(matched)[0]?.screenshots).toBeUndefined();
+  });
 });

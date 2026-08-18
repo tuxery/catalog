@@ -10,9 +10,14 @@ describe("flathub normalize", () => {
       summary: "Fast, private, and safe web browser",
       version: "128.0",
       iconFilename: "org.mozilla.firefox.png",
+      iconUrl: "https://dl.flathub.org/media/org/mozilla/firefox/icons/128x128/icon.png",
       homepage: "https://www.mozilla.org/firefox/",
       hasGameCategory: false,
       categories: ["Network", "WebBrowser"],
+      license: "MPL-2.0",
+      developer: "Mozilla",
+      longDescription: "Firefox is a free and open source web browser.",
+      screenshots: ["https://dl.flathub.org/media/org/mozilla/firefox/screenshots/1.png"],
     };
 
     expect(normalize([entry])).toEqual([
@@ -23,9 +28,14 @@ describe("flathub normalize", () => {
         version: "128.0",
         appId: "org.mozilla.firefox",
         iconFilename: "org.mozilla.firefox.png",
+        iconUrl: "https://dl.flathub.org/media/org/mozilla/firefox/icons/128x128/icon.png",
         homepage: "https://www.mozilla.org/firefox/",
         hasGameCategory: false,
         categories: ["Network", "WebBrowser"],
+        license: "MPL-2.0",
+        developer: "Mozilla",
+        longDescription: "Firefox is a free and open source web browser.",
+        screenshots: ["https://dl.flathub.org/media/org/mozilla/firefox/screenshots/1.png"],
       },
     ]);
   });
@@ -37,6 +47,7 @@ describe("flathub normalize", () => {
       summary: "An app",
       hasGameCategory: false,
       categories: [],
+      screenshots: [],
     };
 
     expect(normalize([entry])[0]?.version).toBe("unknown");
@@ -49,6 +60,7 @@ describe("flathub normalize", () => {
       summary: "A game",
       hasGameCategory: true,
       categories: ["Game"],
+      screenshots: [],
     };
 
     expect(normalize([entry])[0]?.hasGameCategory).toBe(true);
@@ -61,8 +73,41 @@ describe("flathub normalize", () => {
       summary: "An app",
       hasGameCategory: false,
       categories: ["Utility", "Development"],
+      screenshots: [],
     };
 
     expect(normalize([entry])[0]?.categories).toEqual(["Utility", "Development"]);
+  });
+
+  it("leaves screenshots undefined (not an empty array) when there are none", () => {
+    const entry: FlathubCacheEntry = {
+      id: "org.example.App",
+      name: "App",
+      summary: "An app",
+      hasGameCategory: false,
+      categories: [],
+      screenshots: [],
+    };
+
+    expect(normalize([entry])[0]?.screenshots).toBeUndefined();
+  });
+
+  it("carries license, developer, and longDescription through unchanged", () => {
+    const entry: FlathubCacheEntry = {
+      id: "org.example.App",
+      name: "App",
+      summary: "An app",
+      hasGameCategory: false,
+      categories: [],
+      screenshots: [],
+      license: "GPL-3.0+",
+      developer: "Example Team",
+      longDescription: "A longer description.",
+    };
+
+    const [pkg] = normalize([entry]);
+    expect(pkg?.license).toBe("GPL-3.0+");
+    expect(pkg?.developer).toBe("Example Team");
+    expect(pkg?.longDescription).toBe("A longer description.");
   });
 });

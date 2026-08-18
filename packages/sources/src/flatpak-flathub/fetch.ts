@@ -1,4 +1,4 @@
-import { parseAppstreamXml } from "../_shared/appstream";
+import { parseAppstreamXml, resolveIconUrl } from "../_shared/appstream";
 import { fetchGunzippedText } from "../_shared/http";
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
@@ -8,16 +8,20 @@ import type { FlathubCacheEntry, FlathubFetchMetadata } from "./types";
 // desktop Linux installs actually run on. aarch64 is available at the same
 // path with the arch swapped, if/when Tuxery needs it.
 const ARCH = "x86_64";
-const APPSTREAM_URL = `https://dl.flathub.org/repo/appstream/${ARCH}/appstream.xml.gz`;
+const REPO_BASE = `https://dl.flathub.org/repo/appstream/${ARCH}`;
+const APPSTREAM_URL = `${REPO_BASE}/appstream.xml.gz`;
 
 /**
  * Parses Flathub's appstream XML (already decompressed) into cache rows.
- * A thin wrapper — the actual parsing is shared with elementary AppCenter
- * (another Flatpak remote publishing the identical format) in
- * `_shared/appstream.ts`. Pure — no I/O.
+ * Mostly a thin wrapper — the actual parsing is shared with elementary
+ * AppCenter (another Flatpak remote publishing the identical format) in
+ * `_shared/appstream.ts` — but resolves each entry's icon URL here,
+ * since that needs Flathub's own repo base. Pure — no I/O.
  */
 export function parseAppstream(xml: string): FlathubCacheEntry[] {
-  return parseAppstreamXml(xml);
+  return parseAppstreamXml(xml).map((entry) =>
+    Object.assign(entry, { iconUrl: resolveIconUrl(entry, REPO_BASE) }),
+  );
 }
 
 /**

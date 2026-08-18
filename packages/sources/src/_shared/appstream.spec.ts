@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { parseAppstreamXml } from "./appstream";
+import { parseAppstreamXml, resolveIconUrl } from "./appstream";
 
 const FIXTURE = `<?xml version="1.0" encoding="UTF-8"?>
 <components version="0.8" origin="flathub">
@@ -51,6 +51,50 @@ const FIXTURE = `<?xml version="1.0" encoding="UTF-8"?>
       <category>Simulation</category>
     </categories>
   </component>
+  <component type="desktop-application">
+    <id>org.example.RichMetadata</id>
+    <name>Rich Metadata</name>
+    <summary>Has license, developer, description, and screenshots</summary>
+    <project_license>GPL-3.0+ AND LGPL-3.0+</project_license>
+    <developer_name>The Example Team</developer_name>
+    <description>
+      <p>First paragraph, plain text.</p>
+      <p>Second paragraph with <em>inline markup</em> that fast-xml-parser turns into a nested object, not a plain string — a real bug hit against live Flathub data (app.authpass.AuthPass).</p>
+      <ul>
+        <li>First feature</li>
+        <li>Second feature</li>
+      </ul>
+    </description>
+    <description xml:lang="fr">
+      <p>Ce texte ne doit jamais apparaître dans longDescription.</p>
+    </description>
+    <screenshots>
+      <screenshot type="default">
+        <image type="thumbnail">https://example.com/thumb-1.png</image>
+        <image type="source">https://example.com/full-1.png</image>
+      </screenshot>
+      <screenshot>
+        <image type="source">https://example.com/full-2.png</image>
+      </screenshot>
+    </screenshots>
+  </component>
+  <component type="desktop-application">
+    <id>org.example.NewStyleDeveloper</id>
+    <name>New Style Developer</name>
+    <summary>Uses &lt;developer&gt;&lt;name&gt; instead of developer_name</summary>
+    <developer>
+      <name>Someone</name>
+      <name xml:lang="fr">Quelqu'un</name>
+    </developer>
+  </component>
+  <component type="desktop-application">
+    <id>org.example.RemoteIcon</id>
+    <name>Remote Icon</name>
+    <summary>Has both a cached filename and a ready-to-use remote URL</summary>
+    <icon type="cached" width="128" height="128">org.example.RemoteIcon.png</icon>
+    <icon type="remote" width="128" height="128" scale="2">https://example.com/icon@2x.png</icon>
+    <icon type="remote" width="128" height="128">https://example.com/icon.png</icon>
+  </component>
 </components>
 `;
 
@@ -64,6 +108,9 @@ describe("parseAppstreamXml", () => {
       "org.example.NoReleases",
       "org.example.SoloGame",
       "org.example.MultiCategory",
+      "org.example.RichMetadata",
+      "org.example.NewStyleDeveloper",
+      "org.example.RemoteIcon",
     ]);
   });
 
@@ -128,5 +175,104 @@ describe("parseAppstreamXml", () => {
     const firefox = entries.find((entry) => entry.id === "org.mozilla.firefox");
 
     expect(firefox?.categories).toEqual([]);
+  });
+
+  it("extracts the license verbatim", () => {
+    const rich = entries.find((entry) => entry.id === "org.example.RichMetadata");
+
+    expect(rich?.license).toBe("GPL-3.0+ AND LGPL-3.0+");
+  });
+
+  it("extracts developer_name", () => {
+    const rich = entries.find((entry) => entry.id === "org.example.RichMetadata");
+
+    expect(rich?.developer).toBe("The Example Team");
+  });
+
+  it("falls back to <developer><name> (translated, like <name>/<summary>) when there's no developer_name", () => {
+    const entry = entries.find((e) => e.id === "org.example.NewStyleDeveloper");
+
+    expect(entry?.developer).toBe("Someone");
+  });
+
+  it("flattens <description>'s paragraphs and list items to plain text, only from the untranslated block", () => {
+    const rich = entries.find((entry) => entry.id === "org.example.RichMetadata");
+
+    // Word order around inline markup (<em>, ...) specifically isn't
+    // guaranteed — fast-xml-parser's non-order-preserving mode splits
+    // mixed text+element content into separate keys with no ordering
+    // info between them (see extractText's/pickLongDescription's doc
+    // comments) — checked via toContain rather than a single exact toBe
+    // for that reason. Plain paragraphs (the vast majority of real data)
+    // have no such ambiguity, since they're a single #text leaf.
+    expect(rich?.longDescription).toContain("First paragraph, plain text.");
+    expect(rich?.longDescription).toContain("inline markup");
+    expect(rich?.longDescription).toContain(
+      "that fast-xml-parser turns into a nested object, not a plain string",
+    );
+    expect(rich?.longDescription).toContain("- First feature\n- Second feature");
+    expect(rich?.longDescription).not.toContain("jamais apparaître");
+  });
+
+  it("leaves longDescription undefined when there's no <description> at all", () => {
+    const firefox = entries.find((entry) => entry.id === "org.mozilla.firefox");
+
+    expect(firefox?.longDescription).toBeUndefined();
+  });
+
+  it("picks each screenshot's source-type image, falling back to the first available size", () => {
+    const rich = entries.find((entry) => entry.id === "org.example.RichMetadata");
+
+    expect(rich?.screenshots).toEqual([
+      "https://example.com/full-1.png",
+      "https://example.com/full-2.png",
+    ]);
+  });
+
+  it("exposes an empty screenshots array when there are none", () => {
+    const firefox = entries.find((entry) => entry.id === "org.mozilla.firefox");
+
+    expect(firefox?.screenshots).toEqual([]);
+  });
+
+  it("prefers a non-HiDPI remote icon over an @_scale=2 variant", () => {
+    const entry = entries.find((e) => e.id === "org.example.RemoteIcon");
+
+    expect(entry?.remoteIconUrl).toBe("https://example.com/icon.png");
+  });
+
+  it("leaves remoteIconUrl undefined when there's no type=remote icon", () => {
+    const firefox = entries.find((entry) => entry.id === "org.mozilla.firefox");
+
+    expect(firefox?.remoteIconUrl).toBeUndefined();
+  });
+});
+
+describe("resolveIconUrl", () => {
+  it("prefers remoteIconUrl when present, ignoring repoBase entirely", () => {
+    const url = resolveIconUrl(
+      { remoteIconUrl: "https://example.com/icon.png", iconFilename: "app.png" },
+      "https://other-host.example/repo",
+    );
+
+    expect(url).toBe("https://example.com/icon.png");
+  });
+
+  it("falls back to resolving iconFilename against repoBase's icons/128x128/ layout", () => {
+    const url = resolveIconUrl(
+      { remoteIconUrl: undefined, iconFilename: "app.png" },
+      "https://example.com/repo/appstream/x86_64",
+    );
+
+    expect(url).toBe("https://example.com/repo/appstream/x86_64/icons/128x128/app.png");
+  });
+
+  it("returns undefined when there's neither a remote icon nor a filename", () => {
+    const url = resolveIconUrl(
+      { remoteIconUrl: undefined, iconFilename: undefined },
+      "https://example.com",
+    );
+
+    expect(url).toBeUndefined();
   });
 });

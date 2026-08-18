@@ -23,6 +23,7 @@ describe("snapcraft normalize", () => {
         appId: "spotify",
         channel: "stable",
         iconFilename: "spotify.png",
+        iconUrl: "https://dashboard.snapcraft.io/icons/spotify.png",
         homepage: "https://spotify.com",
       },
     ]);
@@ -38,5 +39,18 @@ describe("snapcraft normalize", () => {
     };
 
     expect(normalize([entry])[0]?.iconFilename).toBeUndefined();
+  });
+
+  it("keeps the full iconUrl, unlike iconFilename which is trimmed down to just the last path segment", () => {
+    const entry: SnapcraftCacheEntry = {
+      name: "spotify",
+      title: "Spotify",
+      summary: "Stream music, podcasts, and playlists",
+      version: "1.2.3",
+      channel: "stable",
+      iconUrl: "https://dashboard.snapcraft.io/icons/spotify.png",
+    };
+
+    expect(normalize([entry])[0]?.iconUrl).toBe("https://dashboard.snapcraft.io/icons/spotify.png");
   });
 });

@@ -11,24 +11,56 @@ const FIXTURE = `<?xml version="1.0" encoding="UTF-8"?>
       <release timestamp="1786320000" version="153.0.4"/>
     </releases>
   </component>
+  <component type="desktop-application">
+    <id>org.example.RemoteIcon</id>
+    <name>Remote Icon</name>
+    <summary>Has a ready-to-use remote icon URL</summary>
+    <icon type="cached" width="128" height="128">org.example.RemoteIcon.png</icon>
+    <icon type="remote" width="128" height="128">https://dl.flathub.org/media/org/example/RemoteIcon/icon.png</icon>
+  </component>
+  <component type="desktop-application">
+    <id>org.example.CachedOnly</id>
+    <name>Cached Only</name>
+    <summary>Only has a cached-filename icon, no remote URL</summary>
+    <icon type="cached" width="128" height="128">org.example.CachedOnly.png</icon>
+  </component>
 </components>
 `;
 
 describe("parseAppstream", () => {
-  it("delegates to the shared AppStream parser", () => {
-    const entries = parseAppstream(FIXTURE);
+  const entries = parseAppstream(FIXTURE);
 
-    expect(entries).toEqual([
-      {
-        id: "org.mozilla.firefox",
-        name: "Firefox",
-        summary: "Fast, Private & Safe Web Browser",
-        version: "153.0.4",
-        iconFilename: undefined,
-        homepage: undefined,
-        hasGameCategory: false,
-        categories: [],
-      },
-    ]);
+  it("delegates to the shared AppStream parser", () => {
+    const firefox = entries.find((entry) => entry.id === "org.mozilla.firefox");
+
+    expect(firefox).toEqual({
+      id: "org.mozilla.firefox",
+      name: "Firefox",
+      summary: "Fast, Private & Safe Web Browser",
+      version: "153.0.4",
+      iconFilename: undefined,
+      iconUrl: undefined,
+      homepage: undefined,
+      hasGameCategory: false,
+      categories: [],
+      license: undefined,
+      developer: undefined,
+      longDescription: undefined,
+      screenshots: [],
+    });
+  });
+
+  it("prefers a ready-to-use remote icon URL when present", () => {
+    const entry = entries.find((e) => e.id === "org.example.RemoteIcon");
+
+    expect(entry?.iconUrl).toBe("https://dl.flathub.org/media/org/example/RemoteIcon/icon.png");
+  });
+
+  it("resolves the icon URL against Flathub's own repo base when there's no remote icon", () => {
+    const entry = entries.find((e) => e.id === "org.example.CachedOnly");
+
+    expect(entry?.iconUrl).toBe(
+      "https://dl.flathub.org/repo/appstream/x86_64/icons/128x128/org.example.CachedOnly.png",
+    );
   });
 });

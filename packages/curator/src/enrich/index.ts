@@ -36,6 +36,25 @@ function pickDescription(packages: SourcedPackage[]): string {
 }
 
 /**
+ * Picks a field from whichever member package actually has it, not
+ * strictly the group's `SOURCE_PRIORITY` representative — a source
+ * carrying real data for a given field (e.g. AppCenter's `license`)
+ * might not itself be in `SOURCE_PRIORITY` at all (AppCenter isn't),
+ * so a Snapcraft+AppCenter group's representative would otherwise never
+ * see it. Falls back to `undefined` when no member package has the
+ * field, same positive-evidence-only discipline as everything else in
+ * this file — never guessed.
+ */
+function pickField<T>(
+  packages: SourcedPackage[],
+  getField: (pkg: SourcedPackage) => T | undefined,
+): T | undefined {
+  const withField = packages.filter((pkg) => getField(pkg) !== undefined);
+  if (withField.length === 0) return undefined;
+  return getField(pickByPriority(withField));
+}
+
+/**
  * Positive-evidence-only GUI signal: Fedora/openSUSE's direct
  * `hasDesktopFile`, or Debian/Ubuntu's weaker Section-based heuristic
  * (`looksLikeGuiPackage`, scoped to those two sources only — see that
@@ -63,20 +82,16 @@ function hasGameEvidence(pkg: SourcedPackage): boolean {
 }
 
 /**
- * Picks a category label from whichever member package actually has
- * `categories` data (currently Flathub/AppCenter only), same
- * priority-with-fallback shape as `pickDescription` — a group's
- * representative package (by `SOURCE_PRIORITY`) might not be the one
- * carrying category data (e.g. AppCenter isn't in `SOURCE_PRIORITY` at
- * all, so a Snapcraft+AppCenter group's representative would never have
- * categories on its own). `undefined` when no member package has
- * category data, or none of it maps to a recognized Main Category — see
+ * Picks a category label via `pickField`, then maps it through
+ * `pickCategory`'s taxonomy — `undefined` when no member package has
+ * category data, or none of it maps to a recognized Main Category. See
  * `CatalogApp.category`'s doc comment.
  */
 function pickCategoryLabel(packages: SourcedPackage[]): string | undefined {
-  const withCategories = packages.filter((pkg) => pkg.categories && pkg.categories.length > 0);
-  if (withCategories.length === 0) return undefined;
-  return pickCategory(pickByPriority(withCategories).categories ?? []);
+  const categories = pickField(packages, (pkg) =>
+    pkg.categories && pkg.categories.length > 0 ? pkg.categories : undefined,
+  );
+  return categories ? pickCategory(categories) : undefined;
 }
 
 /** Turns grouped packages into the display-ready `CatalogApp` records the website reads — see `types.ts` for what's populated today vs. tracked as roadmap. */
@@ -93,6 +108,13 @@ export function enrichApps(matched: MatchedApp[]): CatalogApp[] {
       kind: app.packages.some(hasGuiEvidence) ? "gui" : undefined,
       contentType: app.packages.some(hasGameEvidence) ? "game" : undefined,
       category: pickCategoryLabel(app.packages),
+      iconUrl: pickField(app.packages, (pkg) => pkg.iconUrl),
+      license: pickField(app.packages, (pkg) => pkg.license),
+      developer: pickField(app.packages, (pkg) => pkg.developer),
+      longDescription: pickField(app.packages, (pkg) => pkg.longDescription),
+      screenshots: pickField(app.packages, (pkg) =>
+        pkg.screenshots && pkg.screenshots.length > 0 ? pkg.screenshots : undefined,
+      ),
     };
   });
 }

@@ -145,4 +145,22 @@ export interface SourcedPackage {
    * — undefined/empty here means "not sourced", not "no category".
    */
   categories?: string[];
+  /**
+   * A directly usable icon URL — distinct from `iconFilename` (a bare
+   * filename, not fetchable on its own). Only Snapcraft (a full URL from
+   * its own API, previously discarded down to just a filename — see the
+   * "Populate CatalogApp rich fields per source" card) and Flathub/
+   * AppCenter (AppStream's `type="remote"` icon when present, else
+   * resolved against that source's own repo layout — see each
+   * connector's `fetch.ts`) populate this today.
+   */
+  iconUrl?: string;
+  /** SPDX-ish license expression (e.g. "GPL-3.0+ AND LGPL-3.0+") — only Flathub/AppCenter populate this today, from AppStream's `<project_license>`. */
+  license?: string;
+  /** The app's actual developer/team name — only Flathub/AppCenter populate this today, from AppStream's `<developer_name>`/`<developer>`. Distro "Maintainer"/"Packager" fields exist elsewhere but denote the packager, not a reliable proxy for this. */
+  developer?: string;
+  /** Long-form, multi-paragraph description — distinct from `description` (every source's short one-liner). Only Flathub/AppCenter populate this today, from AppStream's `<description>`, flattened from its `<p>`/`<ul>`/`<ol>` structure to plain text (see `_shared/appstream.ts`'s `pickLongDescription`). */
+  longDescription?: string;
+  /** Screenshot image URLs, always full URLs already. Only Flathub/AppCenter populate this today, from AppStream's `<screenshots>`. */
+  screenshots?: string[];
 }

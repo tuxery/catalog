@@ -25,6 +25,8 @@ export interface AppRecord {
   changelog?: string;
   requirements?: string;
   rating?: { average: number; count: number };
+  /** Trending/popularity signal (0-1), when at least one source has one — see `CatalogApp.popularity`'s doc comment. */
+  popularity?: number;
   aiFeatures?: boolean;
   inAppPurchases?: boolean;
   gdprCompliant?: boolean;
@@ -74,6 +76,7 @@ const INSERT_COLUMNS = [
   "requirements",
   "rating_average",
   "rating_count",
+  "popularity",
   "ai_features",
   "in_app_purchases",
   "gdpr_compliant",
@@ -109,6 +112,7 @@ function appsTableSql(tableName: string): string {
       requirements TEXT,
       rating_average REAL,
       rating_count INTEGER,
+      popularity REAL,
       ai_features INTEGER,
       in_app_purchases INTEGER,
       gdpr_compliant INTEGER,
@@ -153,6 +157,7 @@ function toRow(app: AppRecord): unknown[] {
     app.requirements ?? null,
     app.rating?.average ?? null,
     app.rating?.count ?? null,
+    app.popularity ?? null,
     toBoolColumn(app.aiFeatures),
     toBoolColumn(app.inAppPurchases),
     toBoolColumn(app.gdprCompliant),

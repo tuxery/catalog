@@ -118,6 +118,21 @@ function aggregateRating(
   return { average: weightedSum / count, count };
 }
 
+/**
+ * Averages every member package's own popularity score into one
+ * app-level trending signal — unlike `rating`, there's no natural weight
+ * (vote count) to skew by, so a plain mean of whichever member packages
+ * have a score. `undefined` when no member package has one at all.
+ */
+function aggregatePopularity(packages: SourcedPackage[]): number | undefined {
+  const scored = packages.filter(
+    (pkg): pkg is SourcedPackage & { popularity: number } => pkg.popularity !== undefined,
+  );
+  if (scored.length === 0) return undefined;
+
+  return scored.reduce((sum, pkg) => sum + pkg.popularity, 0) / scored.length;
+}
+
 /** Turns grouped packages into the display-ready `CatalogApp` records the website reads — see `types.ts` for what's populated today vs. tracked as roadmap. */
 export function enrichApps(matched: MatchedApp[]): CatalogApp[] {
   return matched.map((app) => {
@@ -140,6 +155,7 @@ export function enrichApps(matched: MatchedApp[]): CatalogApp[] {
         pkg.screenshots && pkg.screenshots.length > 0 ? pkg.screenshots : undefined,
       ),
       rating: aggregateRating(app.packages),
+      popularity: aggregatePopularity(app.packages),
     };
   });
 }

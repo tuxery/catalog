@@ -394,4 +394,26 @@ describe("enrichApps", () => {
 
     expect(enrichApps(matched)[0]?.rating).toBeUndefined();
   });
+
+  it("averages every member package's popularity score", () => {
+    const matched: MatchedApp[] = [
+      {
+        id: "flathub:example",
+        packages: [
+          pkg({ source: "flatpak-flathub", popularity: 1 }),
+          pkg({ source: "pacman-aur", popularity: 0.5 }),
+        ],
+      },
+    ];
+
+    expect(enrichApps(matched)[0]?.popularity).toBe(0.75);
+  });
+
+  it("leaves popularity undefined when no member package has a score", () => {
+    const matched: MatchedApp[] = [
+      { id: "aur:example", packages: [pkg({ source: "pacman-aur", name: "example" })] },
+    ];
+
+    expect(enrichApps(matched)[0]?.popularity).toBeUndefined();
+  });
 });

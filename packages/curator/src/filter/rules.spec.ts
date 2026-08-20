@@ -284,6 +284,11 @@ describe("looksLikeGamePackage", () => {
     expect(looksLikeGamePackage("rpm-opensuse", "Amusements/Graphics")).toBe(false);
   });
 
+  it("flags RPM Fusion's identical Amusements/Games group prefix", () => {
+    expect(looksLikeGamePackage("rpm-rpmfusion", "Amusements/Games")).toBe(true);
+    expect(looksLikeGamePackage("rpm-rpmfusion", "Applications/Multimedia")).toBe(false);
+  });
+
   it("flags Solus's games/games.* PartOf value", () => {
     expect(looksLikeGamePackage("eopkg-solus", "games")).toBe(true);
     expect(looksLikeGamePackage("eopkg-solus", "games.strategy")).toBe(true);

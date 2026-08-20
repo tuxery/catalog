@@ -15,6 +15,7 @@ import { searchMint } from "./deb-mint";
 import { searchMxLinux } from "./deb-mxlinux";
 import { searchNixpkgs } from "./nix-nixpkgs";
 import { searchOpenSuse } from "./rpm-opensuse";
+import { searchRpmFusion } from "./rpm-rpmfusion";
 import { searchPopOs } from "./deb-popos";
 import { searchSlackware } from "./slackware";
 import { searchSnapcraft } from "./snap-snapcraft";
@@ -42,6 +43,7 @@ export async function searchAllSources(query: string): Promise<SourcedPackage[]>
     searchArch(query),
     searchNixpkgs(query),
     searchOpenSuse(query),
+    searchRpmFusion(query),
     searchAlpine(query),
     searchVoid(query),
     searchSlackware(query),

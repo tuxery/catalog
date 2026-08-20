@@ -13,8 +13,8 @@ const REPO_BASE = `https://dl.flathub.org/repo/appstream/${ARCH}`;
 const APPSTREAM_URL = `${REPO_BASE}/appstream.xml.gz`;
 
 // Flathub's own "Popular" collection — the same ranked list its own
-// frontend uses — real, live, unauthenticated, no per-app request needed:
-// one call returns its current top 250 apps in rank order (verified live).
+// frontend uses — public and unauthenticated: one call returns its
+// current top 250 apps in rank order, no per-app request needed.
 const POPULAR_URL = "https://flathub.org/api/v2/collection/popular";
 
 interface RawPopularHit {
@@ -49,12 +49,12 @@ async function fetchPopularityRanks(): Promise<Map<string, number>> {
 
 /**
  * Parses Flathub's appstream XML (already decompressed) into cache rows.
- * Mostly a thin wrapper — the actual parsing is shared with elementary
+ * Mostly a thin wrapper — parsing itself is shared with elementary
  * AppCenter (another Flatpak remote publishing the identical format) in
- * `_shared/appstream.ts` — but resolves each entry's icon URL here, since
- * that needs Flathub's own repo base, and joins in each entry's ODRS
- * rating (see `_shared/odrs.ts`) by its `.desktop`-suffixed id and
- * Flathub's own popularity rank by its bare id. Pure — no I/O.
+ * `_shared/appstream.ts` — but resolves each entry's icon URL against
+ * Flathub's own repo base, and joins in its ODRS rating (see
+ * `_shared/odrs.ts`) by `.desktop`-suffixed id and popularity rank by bare
+ * id. Pure — no I/O.
  */
 export function parseAppstream(
   xml: string,

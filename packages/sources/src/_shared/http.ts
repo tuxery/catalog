@@ -3,10 +3,8 @@ import { gunzipSync, zstdDecompressSync } from "node:zlib";
 /**
  * Fetches `url` and throws a consistent, source-labeled error on any
  * non-2xx response — every connector's `fetch.ts` used to repeat this
- * exact check-and-throw by hand (24 occurrences across 20 sources, all
- * following the identical `Failed to fetch ${label}: ${status}
- * ${statusText}` message shape); this is the one place it's implemented
- * now. Not a fit for cases that need to degrade gracefully instead of
+ * check-and-throw by hand; this is the one place it's implemented now.
+ * Not a fit for cases that need to degrade gracefully instead of
  * throwing (e.g. AppImage's per-repo GitHub lookups, where one dead repo
  * shouldn't fail the whole batch) — those stay hand-written.
  */
@@ -35,9 +33,8 @@ export async function fetchText(url: string, label: string, init?: RequestInit):
 /**
  * Fetches a gzip-compressed URL and returns the decompressed text —
  * every Debian-family (deb822) and Flatpak-family (AppStream) source
- * publishes its repodata this way (9 occurrences of the identical
- * fetch-then-gunzip pair before this existed). Node's built-in zlib
- * handles the decompression, no new dependency.
+ * publishes its repodata this way. Node's built-in zlib handles the
+ * decompression, no new dependency.
  */
 export async function fetchGunzippedText(
   url: string,

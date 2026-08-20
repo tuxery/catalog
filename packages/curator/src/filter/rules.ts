@@ -3,17 +3,13 @@ import type { PackageSourceId } from "@tuxery/sources";
 // Cross-distro Linux packaging naming conventions that reliably indicate a
 // support package (dev headers, debug symbols, docs, fonts, libraries,
 // language-ecosystem modules) rather than something a user would search an
-// app store for. Deliberately conservative, verified against the real
-// cached data before picking these specific patterns:
-// - `^lib` is a blanket noise prefix (see below) rather than the narrower
-//   soname-versioned-only check this used to be — the real exceptions
-//   (LibreOffice, LibreCAD, ...) are rescued via `overrides/keep.ndjson`
-//   instead of trying to keep excluding them by pattern. See that pattern's
-//   own comment for why: extending the regex doesn't scale past a certain
-//   point (56k+ real libraries starting with `lib` were slipping through
-//   the old digit-suffix-only check), and prefix matching can't reliably
-//   tell libreoffice/librecad apart from the 1,200+ other `libre*` names
-//   that are coincidentally "lib" + a word starting with "re" (libreadline,
+// app store for. Deliberately conservative:
+// - `^lib` is a blanket noise prefix (see below) rather than a narrower
+//   soname-versioned-only check — real exceptions (LibreOffice, LibreCAD,
+//   ...) are rescued via `overrides/keep.ndjson` instead of trying to keep
+//   excluding them by pattern, since prefix matching can't reliably tell
+//   libreoffice/librecad apart from the many other `libre*` names that are
+//   coincidentally "lib" + a word starting with "re" (libreadline,
 //   librealsense, librecast, ...) — only an exact-name allowlist can.
 // - A `^rust-`/`^golang-` prefix would have wrongly excluded
 //   rust-analyzer, a real standalone tool Debian happens to name that way
@@ -22,9 +18,9 @@ import type { PackageSourceId } from "@tuxery/sources";
 //   ecosystem uses the prefix, and there's no clean way to tell those
 //   apart by name alone. Left in rather than risk hiding real tools. Older
 //   "library-culture" ecosystems below (Perl, OCaml, Haskell, Lua, R, Tcl)
-//   don't have this problem — verified against real cached data that their
-//   prefixed packages are overwhelmingly modules/libraries, not user-facing
-//   tools, unlike Rust/Go's real CLI-tool culture.
+//   don't have this problem — their prefixed packages are overwhelmingly
+//   modules/libraries, not user-facing tools, unlike Rust/Go's real
+//   CLI-tool culture.
 const NOISE_PATTERNS: RegExp[] = [
   // Development headers, debug symbols, documentation (Debian/Ubuntu-style
   // suffixes) and their Fedora-style equivalents (-devel, -debuginfo,
@@ -65,37 +61,32 @@ export function looksLikeSupportPackage(name: string): boolean {
 // Group field is unused upstream in practice, "Unspecified" on real data;
 // Arch's desc format has no equivalent at all) — an official, upstream
 // classification the name-pattern rules above have no visibility into.
-// Verified against the real Debian cache before picking this specific
-// set: for each candidate section, checked whether real standalone tools
-// show up in it, not just libraries/modules.
 //
-// Included — every sample checked was unambiguously a support package,
-// no exceptions found even in expanded (60-130 entry) samples:
+// Included — unambiguously support packages, no real exceptions found:
 // - libs / libdevel / oldlibs — shared libraries, headers, transitional
 //   compat packages.
 // - doc — documentation, manuals, guides (including plain-text books
 //   packaged as Debian docs, e.g. "anarchism" — not apps either).
 // - debug — every entry is a "-dbg"/"debugging symbols for X" package.
 // - introspection — GObject typelib data (gir1.2-*).
-// - gnu-r — 1,313 of 1,320 checked are r-cran-*/r-bioc-*/r-other-*
-//   library packages; the 7 exceptions (r-base itself, littler, ...) are
-//   real but few enough to allowlist by exact name instead of loosening
-//   this rule — see overrides/keep.ndjson.
+// - gnu-r — almost entirely r-cran-*/r-bioc-*/r-other-* library packages;
+//   the few real exceptions (r-base itself, littler, ...) are allowlisted
+//   by exact name instead of loosening this rule — see
+//   overrides/keep.ndjson.
 //
 // Deliberately NOT included, despite being tempting (same "library
-// ecosystem" framing as the patterns above) — checked and found real
-// standalone tools mixed in at a rate too high to blanket-exclude:
-// python (black, bpython, cookiecutter, azure-cli, alembic, ...), perl
-// (alice, biber, cme, cpan-listchanges, ...), golang (assetfinder,
-// aws-nuke, cliphist, cobra-cli, cosign, ...), ruby (asciidoctor,
-// batalert, ...), php (composer, cmsscanner, ...), java (activemq, ...),
-// javascript, haskell (ghc, glirc, ...), ocaml, lisp (abcl, ...), devel
-// (a56, abi-dumper, acme, ...), kernel (dt-utils, firmware/driver
-// packages a user may genuinely want), interpreters (brandy, bwbasic,
-// ...). Same reasoning as this file's existing rust-/golang- name-prefix
-// exception — these sections mix a language's own library ecosystem
-// with genuine standalone tools written in it, and Section alone can't
-// tell them apart.
+// ecosystem" framing as the patterns above) — real standalone tools mix
+// in at a rate too high to blanket-exclude: python (black, bpython,
+// cookiecutter, azure-cli, alembic, ...), perl (alice, biber, cme,
+// cpan-listchanges, ...), golang (assetfinder, aws-nuke, cliphist,
+// cobra-cli, cosign, ...), ruby (asciidoctor, batalert, ...), php
+// (composer, cmsscanner, ...), java (activemq, ...), javascript, haskell
+// (ghc, glirc, ...), ocaml, lisp (abcl, ...), devel (a56, abi-dumper,
+// acme, ...), kernel (dt-utils, firmware/driver packages a user may
+// genuinely want), interpreters (brandy, bwbasic, ...). Same reasoning as
+// this file's rust-/golang- name-prefix exception above — these sections
+// mix a language's own library ecosystem with genuine standalone tools
+// written in it, and Section alone can't tell them apart.
 const NOISE_SECTIONS = new Set([
   "libs",
   "libdevel",
@@ -111,27 +102,22 @@ const NOISE_SECTIONS = new Set([
 // shaped value than Debian's fixed vocabulary — version-numbered variants
 // are common (python313Packages, lua54Packages, rubyPackages_3_3,
 // chickenPackages_5, ...), so a plain Set can't match them; patterns can.
-// Same verification discipline as NOISE_SECTIONS above — checked real
-// samples per prefix before including one, including the exact trap that
-// caught Debian's "devel"/"kernel" sections: kdePackages was checked and
-// *rejected* despite being tempting (same "distro packaging namespace"
-// framing) — it mixes real standalone apps (akregator, ark, arianna) with
-// libraries (akonadi-contacts, accounts-qt) at too high a rate, same
-// reasoning as Debian's "devel" section.
-// "*Packages" is NOT a safe general suffix — checked and rejected as one:
-// kdePackages mixes real apps (akregator, ark, arianna) with libraries,
-// and php83Packages/phpPackages contain real standalone tools (composer,
-// psalm, phpmd, php-cs-fixer) alongside phpXXExtensions being pure PECL
-// extensions right next to it. Every entry below is individually
-// verified, not inferred from the suffix alone.
+// kdePackages was checked and *rejected* despite being tempting (same
+// "distro packaging namespace" framing as Debian's Section) — it mixes
+// real standalone apps (akregator, ark, arianna) with libraries
+// (akonadi-contacts, accounts-qt) at too high a rate.
+// "*Packages" is NOT a safe general suffix: kdePackages mixes real apps
+// with libraries as above, and php83Packages/phpPackages contain real
+// standalone tools (composer, psalm, phpmd, php-cs-fixer) right next to
+// phpXXExtensions' pure PECL extensions. Every entry below is
+// individually verified, not inferred from the suffix alone.
 const NIX_NOISE_PREFIX_PATTERNS: RegExp[] = [
-  // Language/ecosystem package sets verified as overwhelmingly modules,
-  // not standalone tools (sampled 4-6 entries per prefix, all libraries,
-  // for every prefix below): R (CRAN mirror), Haskell (Hackage mirror),
-  // Python (PyPI mirror, any interpreter version), Perl (CPAN mirror),
-  // OCaml (opam mirror), Common Lisp (SBCL/Chicken/Akku package sets),
-  // Lua, Ruby (any version), TeX Live (LaTeX packages), Typst (template/
-  // library packages) — none of these are apps.
+  // Language/ecosystem package sets, overwhelmingly modules not standalone
+  // tools: R (CRAN mirror), Haskell (Hackage mirror), Python (PyPI
+  // mirror, any interpreter version), Perl (CPAN mirror), OCaml (opam
+  // mirror), Common Lisp (SBCL/Chicken/Akku package sets), Lua, Ruby (any
+  // version), TeX Live (LaTeX packages), Typst (template/library
+  // packages) — none of these are apps.
   /^rPackages$/,
   /^haskellPackages$/,
   /^py(thon|py)\d*Packages$/,
@@ -157,10 +143,9 @@ const NIX_NOISE_PREFIX_PATTERNS: RegExp[] = [
   // not independently launchable, same "would a user launch this on its
   // own" litmus test as overrides/README.md's keep.ndjson guidance
   // (mirrors the libretro-core/browser-extension exclusions decided
-  // there for AppImageHub-derived names). Verified as a safe *general*
-  // pattern across ~10 different host-app namespaces (fish, tmux, vim,
-  // obs-studio, netbox, roundcube, gimp, elasticsearch, grafana, ...) —
-  // every single one sampled was a plugin, none a standalone app.
+  // there for AppImageHub-derived names). Verified as a safe general
+  // pattern across many different host-app namespaces (fish, tmux, vim,
+  // obs-studio, netbox, roundcube, gimp, elasticsearch, grafana, ...).
   /plugins?$/i,
   /extensions?$/i,
   // Not applications at all, by construction: editor package sets
@@ -179,9 +164,7 @@ const NIX_NOISE_PREFIX_PATTERNS: RegExp[] = [
 
 // openSUSE reuses the same `section` slot for its hierarchical RPM
 // `<rpm:group>` value (e.g. `System/Libraries`, `Documentation/HTML`) — see
-// SourcedPackage.section. Same verification discipline as NOISE_SECTIONS/
-// NIX_NOISE_PREFIX_PATTERNS above: sampled 15-60 real entries per group
-// before including it, and hit the exact same trap Debian's "devel"/
+// SourcedPackage.section. Hit the exact same trap Debian's "devel"/
 // "kernel"/language sections and Nixpkgs' `kdePackages` did —
 // `Development/Libraries/*` and `Development/Languages/*` were checked and
 // *rejected* despite the tempting "just libraries" framing: real
@@ -189,14 +172,13 @@ const NIX_NOISE_PREFIX_PATTERNS: RegExp[] = [
 // typescript, codespell, dialog, ...), same "language ecosystem mixes in
 // real tools" reasoning as Debian's python/perl/golang sections.
 //
-// Included — every sample checked (15-60 entries per group) was
-// unambiguously a support package, with one single exception across all
-// six groups (Metapackages' "seidl", a real standalone monitoring client
-// mixed in among 193 patterns-*/installation-images-*/skelcd-* install-time
-// metapackages — allowlisted by exact name in overrides/keep.ndjson rather
-// than loosening this rule, same as Debian's gnu-r r-base/littler):
-// - System/Libraries — shared libraries and runtime plugins (60 sampled,
-//   zero exceptions).
+// Included — unambiguously support packages, with one exception across
+// all six groups (Metapackages' "seidl", a real standalone monitoring
+// client mixed in among patterns-*/installation-images-*/skelcd-*
+// install-time metapackages — allowlisted by exact name in
+// overrides/keep.ndjson rather than loosening this rule, same as Debian's
+// gnu-r r-base/littler):
+// - System/Libraries — shared libraries and runtime plugins.
 // - Documentation/HTML / Documentation/Other — javadoc, manuals, API docs.
 // - System/X11/Fonts — font packages.
 // - System/Localization — `-lang`/translation packages.
@@ -213,48 +195,42 @@ const OPENSUSE_NOISE_GROUPS = new Set([
 
 // Slackware reuses the same `section` slot for its package "series" — a
 // short component code from PACKAGE LOCATION (e.g. `l`, `kde`, `xfce`,
-// `y`). Far coarser than Debian's Section vocabulary (15 series total
-// across the whole ~1,900-package tree) — same verification discipline:
-// sampled entries per series before including one. Every series other
-// than the two below mixes real standalone apps with libraries at a rate
-// too high to blanket-exclude — same trap as everywhere else this file
-// documents it, just under Slackware's own naming: `d` (development —
-// bison, python-pip, cargo-c mixed with pure dev libraries), `a` (base —
-// xz, efibootmgr, usbutils are real CLI tools), `n` (network — alpine,
-//   dhcpcd, gnupg, httpd, ethtool are real tools), `x`/`xap`/`xfce`/`kde`
-// (desktop-environment series mixing real GUI apps with their own
-// libraries, e.g. kompare/kontact/plasma-workspace vs. kmime/
-// kpeoplevcard). `y` (games), `t`/`tcl` (TeX/Tcl), and `e` (only 2
-// entries: emacs, emacspeak, both real apps) were also checked and kept.
+// `y`). Far coarser than Debian's Section vocabulary (15 series total).
+// Every series other than the two below mixes real standalone apps with
+// libraries at a rate too high to blanket-exclude — same trap as
+// everywhere else this file documents it, just under Slackware's own
+// naming: `d` (development — bison, python-pip, cargo-c mixed with pure
+// dev libraries), `a` (base — xz, efibootmgr, usbutils are real CLI
+// tools), `n` (network — alpine, dhcpcd, gnupg, httpd, ethtool are real
+// tools), `x`/`xap`/`xfce`/`kde` (desktop-environment series mixing real
+// GUI apps with their own libraries, e.g. kompare/kontact/plasma-workspace
+// vs. kmime/kpeoplevcard). `y` (games), `t`/`tcl` (TeX/Tcl), and `e`
+// (only emacs, emacspeak, both real apps) were also checked and kept.
 //
 // Included — safe after sampling:
-// - `l` (libraries, 501 packages) — 60 sampled, one real exception found
-//   (`glade`, a real standalone GUI UI designer despite the "l" series)
-//   — allowlisted by exact name in overrides/keep.ndjson rather than
-//   loosening this rule, same as Debian's gnu-r r-base/littler and
-//   openSUSE's Metapackages/seidl.
-// - `f` (FAQs/docs — only 2 packages: linux-faqs, linux-howtos, both
-//   pure documentation).
+// - `l` (libraries) — one real exception found (`glade`, a real
+//   standalone GUI UI designer despite the "l" series) — allowlisted by
+//   exact name in overrides/keep.ndjson rather than loosening this rule,
+//   same as Debian's gnu-r r-base/littler and openSUSE's
+//   Metapackages/seidl.
+// - `f` (FAQs/docs — only linux-faqs, linux-howtos, both pure
+//   documentation).
 const SLACKWARE_NOISE_SERIES = new Set(["l", "f"]);
 
 // Solus reuses the same `section` slot for its `PartOf` value — a dotted
-// hierarchical grouping (e.g. `games.strategy`, `programming.library`),
-// 115 distinct values on real data. Same verification discipline:
-// sampled entries per value before including one, and hit the same
-// language/toolchain-ecosystem trap as everywhere else — `programming.*`
-// buckets other than the two below (`.devel`, `.python`, `.perl`,
-// `.tools`, and bare `programming`) mix real tools in, and even
-// `programming.devel` (2,070 packages, 98.6% already `-devel`-suffixed
-// and so already caught by name pattern regardless) has a small tail of
-// real tools among the un-suffixed 1.4% (gcc-13, dpkg, mingw-w64,
-// rocm-info) — not worth the risk for zero marginal catch.
-// `system.base` was checked too: real CLI tools (zstd, gzip) sit right
-// next to pure libraries (glibc, libdw, mpfr), same trap.
+// hierarchical grouping (e.g. `games.strategy`, `programming.library`).
+// Hit the same language/toolchain-ecosystem trap as everywhere else —
+// `programming.*` buckets other than the two below (`.devel`, `.python`,
+// `.perl`, `.tools`, and bare `programming`) mix real tools in, and even
+// `programming.devel` (almost entirely already `-devel`-suffixed and so
+// already caught by name pattern regardless) has a small tail of real
+// tools among the un-suffixed remainder (gcc-13, dpkg, mingw-w64,
+// rocm-info) — not worth the risk for zero marginal catch. `system.base`
+// was checked too: real CLI tools (zstd, gzip) sit right next to pure
+// libraries (glibc, libdw, mpfr), same trap.
 //
-// Included — safe after sampling (30-40 entries per value, one real
-// exception found overall):
-// - `debug` (3,743 packages) — every sampled entry is a `-dbginfo`
-//   package.
+// Included — safe after sampling, one real exception found overall:
+// - `debug` — every sampled entry is a `-dbginfo` package.
 // - `programming.library` / `desktop.library` / `multimedia.library` —
 //   library packages. `desktop.library` had one real exception —
 //   `dcraw`, a standalone command-line raw photo converter despite the
@@ -276,15 +252,14 @@ const SOLUS_NOISE_PARTOF = new Set([
 // Gentoo reuses the same `section` slot for its top-level category (e.g.
 // `games-strategy`, `dev-libs`) — same trap as everywhere else for most
 // categories (dev-*/app-* mix real tools with libraries), but two are
-// unambiguous no matter how sampled: `acct-group`/`acct-user` (900
-// packages, every one a "System group: X"/"A group for Y" system-account
-// definition — not software at all, discovered because they were
-// surviving the filter and polluting cross-source name matches, e.g.
-// "acct-group/clock" merging into the real "Clock" app group) and
-// `virtual` (134 packages, every one a "Virtual for X" dependency-
-// resolution abstraction Portage uses to pick between providers, e.g.
-// `virtual/jre`, `virtual/editor` — never a real launchable package
-// itself).
+// unambiguous no matter how sampled: `acct-group`/`acct-user` (every one
+// a "System group: X"/"A group for Y" system-account definition — not
+// software at all, discovered because they were surviving the filter and
+// polluting cross-source name matches, e.g. "acct-group/clock" merging
+// into the real "Clock" app group) and `virtual` (every one a "Virtual
+// for X" dependency-resolution abstraction Portage uses to pick between
+// providers, e.g. `virtual/jre`, `virtual/editor` — never a real
+// launchable package itself).
 const GENTOO_NOISE_CATEGORIES = new Set(["acct-group", "acct-user", "virtual"]);
 
 /** Best-effort guess from Debian/Ubuntu's `Section` field, nixpkgs' attribute-path prefix, openSUSE's `<rpm:group>` value, Slackware's package series, Solus's `PartOf` value, or Gentoo's category, alongside `looksLikeSupportPackage`'s name-based guess — see this file's comments on `NOISE_SECTIONS`/`NIX_NOISE_PREFIX_PATTERNS`/`OPENSUSE_NOISE_GROUPS`/`SLACKWARE_NOISE_SERIES`/`SOLUS_NOISE_PARTOF`/`GENTOO_NOISE_CATEGORIES` for which values are safe. */
@@ -306,22 +281,20 @@ export function looksLikeSupportSection(section: string | undefined): boolean {
 // equivalent synthetic desktop-file marker exists in Debian's Packages.gz,
 // so this leans on Section instead — verified by cross-tabulating every
 // real Debian/Ubuntu Section value against apps *already* known to be GUI
-// via the Fedora/openSUSE signal (real merged catalog, 228k apps: 8,342
-// had both a Debian/Ubuntu section and a Fedora/openSUSE package to check
-// against, 18.4% baseline gui rate in that population).
+// via the Fedora/openSUSE signal.
 //
-// Included — well above baseline (42-75%) *and* manually sampled clean —
-// every "not flagged gui" entry checked in these sections is either a
-// real CLI tool (ani-cli, aravis-tools-cli, ax25-apps) or a companion
-// data/plugin/server package for an app already captured elsewhere (see
+// Included — well above baseline *and* manually sampled clean — every
+// "not flagged gui" entry checked in these sections is either a real CLI
+// tool (ani-cli, aravis-tools-cli, ax25-apps) or a companion data/plugin/
+// server package for an app already captured elsewhere (see
 // GUI_SECTION_EXCLUDE_PATTERNS below), never a mislabeled real app:
 // sound, editors, video, graphics, math, science, hamradio, games,
 // contrib/games.
 //
-// Deliberately NOT included despite comparably high raw rates (42-75%) —
-// manual sampling turned up real desktop-environment theme/icon/plugin
-// packages riding along in these sections that this heuristic can't tell
-// apart from real apps by Section alone (adwaita-icon-theme, adwaita-qt6,
+// Deliberately NOT included despite comparably high raw rates — manual
+// sampling turned up real desktop-environment theme/icon/plugin packages
+// riding along in these sections that this heuristic can't tell apart
+// from real apps by Section alone (adwaita-icon-theme, adwaita-qt6,
 // breeze-icon-theme, breeze-cursor-theme, arc-kde, Numix Circle Icons,
 // thunar-font-manager, xfce4-battery-plugin, ...) — same "look at real
 // samples, not just the percentage" trap NOISE_SECTIONS' header comment
@@ -343,9 +316,7 @@ const GUI_SECTIONS = new Set([
 // ardour-lv2-plugins next to ardour, bzflag-server next to bzflag) but
 // aren't themselves a launchable GUI app — none of these suffixes are
 // caught by `looksLikeSupportPackage`'s NOISE_PATTERNS, which is scoped to
-// dev/debug/doc/lib/font/language-module naming, not this. Verified
-// against the real Debian/Ubuntu cache: 350 `-data`, 117 `-common`, 37
-// `-plugin(s)`, 43 `-server`, and 5 `-icon(s)` names across GUI_SECTIONS.
+// dev/debug/doc/lib/font/language-module naming, not this.
 const GUI_SECTION_EXCLUDE_PATTERNS: RegExp[] = [
   /-data$/,
   /-common$/,
@@ -378,11 +349,10 @@ export function looksLikeGuiPackage(name: string, section: string | undefined): 
 // gets here; `universe/games`/`multiverse/games` are listed anyway as a
 // harmless safety net in case that ever changes. Mint/Pop!_OS/Deepin/MX
 // Linux reuse Debian's unstripped pass-through, not Ubuntu's — same
-// reasoning as `looksLikeSupportSection`'s NOISE_SECTIONS. Sampled real
-// data before trusting this: all 1,178 Debian and 1,237 Ubuntu `games`-
-// section entries checked are real games or a real game's own companion
-// data/server package (0ad-data, sauerbraten-server, ...) — never
-// something unrelated.
+// reasoning as `looksLikeSupportSection`'s NOISE_SECTIONS. Real Debian
+// and Ubuntu `games`-section entries checked are always real games or a
+// real game's own companion data/server package (0ad-data,
+// sauerbraten-server, ...) — never something unrelated.
 const DEB_FAMILY_GAME_SECTIONS = new Set([
   "games",
   "contrib/games",
@@ -404,20 +374,20 @@ const DEB_FAMILY_GAME_SOURCES = new Set<PackageSourceId>([
  * across every source whose Section-equivalent field has its own games
  * grouping — the counterpart to `SourcedPackage.hasGameCategory` (Flathub/
  * AppCenter's direct AppStream signal). Each source's own vocabulary,
- * sampled against real data before trusting it, same discipline as
+ * checked against real data before trusting it, same discipline as
  * `looksLikeGuiPackage`/`looksLikeSupportSection`:
  * - Debian family (see `DEB_FAMILY_GAME_SECTIONS`/`_SOURCES`).
  * - Gentoo's `games-*` category prefix (e.g. `games-strategy`,
  *   `games-fps`) — Gentoo's own top-level category effectively *is* its
- *   app classification, unlike Debian's Section; 765 real entries
- *   sampled, all games or a game's own data/server sub-package.
- * - openSUSE's `Amusements/Games` `<rpm:group>` prefix — 251 sampled,
- *   all games (plus a couple of gaming-adjacent tools openSUSE itself
- *   groups here, e.g. `PlayOnLinux`, close enough to not chase further).
- * - Solus's `games.*`/`games` `PartOf` value — 169 sampled, all games or
+ *   app classification, unlike Debian's Section; real entries checked are
+ *   all games or a game's own data/server sub-package.
+ * - openSUSE's `Amusements/Games` `<rpm:group>` prefix — all games, plus
+ *   a couple of gaming-adjacent tools openSUSE itself groups here (e.g.
+ *   `PlayOnLinux`, close enough to not chase further).
+ * - Solus's `games.*`/`games` `PartOf` value — all games or
  *   gaming-adjacent tools Solus itself groups here (e.g. `antimicrox`,
  *   a joystick-to-keyboard mapper).
- * Not (yet) checked: Slackware's `y` series has only 3 real entries —
+ * Not (yet) checked: Slackware's `y` series has too few real entries —
  * too small a sample to trust either way, left out for now.
  */
 export function looksLikeGamePackage(

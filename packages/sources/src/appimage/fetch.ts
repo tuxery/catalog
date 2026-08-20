@@ -7,11 +7,9 @@ const FEED_URL = "https://appimage.github.io/feed.json";
 
 // GitHub's REST API: 60 req/hr unauthenticated, 5000/hr with a token —
 // ~1,100 repos x 2 calls each (existence + latest release) makes a token
-// effectively required (would take 37+ hours unauthenticated). Version
-// resolution is skipped entirely (not attempted per-repo, which would
-// burn through the unauthenticated budget in a couple minutes for
-// nothing) when GITHUB_TOKEN isn't set, same "degrade gracefully rather
-// than fail" shape as catalog.ts's missing-TURSO_DB_URL handling in `app`.
+// effectively required (37+ hours unauthenticated otherwise). Version
+// resolution is skipped entirely when GITHUB_TOKEN isn't set, rather than
+// burning through the unauthenticated budget for nothing.
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 // Concurrent, not sequential (1,100 sequential lookups would take
 // several minutes) but capped rather than firing all at once — GitHub's
@@ -37,9 +35,9 @@ interface RawFeed {
 
 /**
  * Maps raw feed items to cache rows, keeping only entries with a resolvable
- * GitHub repo — the closest thing this feed has to a stable identifier,
- * present on about 3 in 4 of the feed's ~1,400 entries; the rest are
- * dropped. Pure — no I/O — so it's the part covered by tests.
+ * GitHub repo — the closest thing this feed has to a stable identifier.
+ * Entries without one are dropped. Pure — no I/O — so it's the part
+ * covered by tests.
  */
 export function mapItems(items: RawItem[]): AppImageCacheEntry[] {
   const entries: AppImageCacheEntry[] = [];
@@ -63,12 +61,10 @@ export function mapItems(items: RawItem[]): AppImageCacheEntry[] {
 export interface RepoLookupResult {
   /**
    * `false` only for a confirmed 404 on the repo itself — deleted,
-   * renamed, or made private, i.e. the feed pointing at something that
-   * no longer exists (the "veracity" half of the
-   * "AppImage exhaustiveness and veracity" card). A repo that exists but
-   * has no releases (continuous-build-only projects, or ones that just
-   * haven't tagged one) is `exists: true` with `version: undefined` —
-   * that's a legitimate state, not a reason to drop the entry.
+   * renamed, or made private. A repo that exists but has no releases
+   * (continuous-build-only projects, or ones that just haven't tagged
+   * one) is `exists: true` with `version: undefined` — a legitimate
+   * state, not a reason to drop the entry.
    */
   exists: boolean;
   version?: string;

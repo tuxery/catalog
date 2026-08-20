@@ -12,9 +12,7 @@ export function normalize(entries: LutrisCacheEntry[]): SourcedPackage[] {
     version: "unknown",
     appId: entry.gameSlug,
     homepage: `https://lutris.net/games/${entry.gameSlug}/`,
-    // Every entry here already passed fetch.ts's runner === "linux"
-    // filter — Lutris games are games by definition, so this is
-    // unconditional, same reasoning as the GOG connector.
+    // Every entry here already passed fetch.ts's runner === "linux" filter.
     hasGameCategory: true,
   }));
 }

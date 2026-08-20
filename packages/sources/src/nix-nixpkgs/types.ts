@@ -11,8 +11,7 @@ export interface NixpkgsCacheEntry {
    * `python313Packages.absl-py`) — nixpkgs' closest thing to a stable
    * identifier. `pname` alone isn't unique: the same library commonly
    * exists under several attribute paths (different Python/Ruby/Lua
-   * versions, ...), verified against the real dump — 20,700 of 114,016
-   * unique `pname`s are used more than once.
+   * versions, ...).
    */
   attrPath: string;
   /** Upstream `pname` — the human-readable name, e.g. "akregator". */

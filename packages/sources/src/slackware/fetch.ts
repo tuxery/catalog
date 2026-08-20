@@ -4,13 +4,11 @@ import { writeNdjson } from "../_shared/ndjson";
 import type { SlackwareCacheEntry, SlackwareFetchMetadata } from "./types";
 
 // Slackware's official mirror-selection redirector — Node's fetch follows
-// its 302 to a geographically-chosen mirror transparently, same as
-// openSUSE's download.opensuse.org. A single plain-text file, no
-// per-arch/per-repo split, no compression at all (unlike every other
-// native source here) — Slackware doesn't split -dev/-doc subpackages out
-// the way Debian/Fedora do either, so its own naming convention gives the
-// existing name-pattern filter far less to catch; its "series" component
-// (below) is a real signal where the name alone isn't.
+// its 302 to a geographically-chosen mirror transparently. A single
+// plain-text file, no per-arch/per-repo split, no compression at all.
+// Slackware doesn't split -dev/-doc subpackages the way Debian/Fedora do,
+// so its "series" component (below) is a real signal where the name
+// alone isn't.
 const URL = "https://mirrors.slackware.com/slackware/slackware64-current/PACKAGES.TXT";
 
 /**

@@ -8,17 +8,14 @@ const FIELDS = "title,summary,version,channel,media,links";
 const DEVICE_SERIES = "16";
 
 // Snapcraft has no single full-catalog dump (unlike Flathub's appstream.xml.gz),
-// and /v2/snaps/find has no pagination or sort parameter (both verified —
-// `page` and `sort` are rejected outright as "Bad parameters") — every
-// query, category or keyword alike, caps at ~100 results. So this sweeps
-// two independent dimensions and merges by name: the v1 API's store
-// categories (closest thing to a browse-everything view), and a
-// single-character `q=` search per letter/digit (since results seem to be
-// title-substring matches, not just prefix, this catches snaps a category
-// sweep alone misses). Verified against the real API: categories alone
-// found 1,542 unique snaps, the letter/digit sweep alone found 2,919
-// (809 overlapping with categories), the union is 3,652 — worth doing
-// both, neither sweep subsumes the other.
+// and /v2/snaps/find has no pagination or sort parameter — `page` and
+// `sort` are rejected outright as "Bad parameters" — so every query caps
+// at ~100 results. This sweeps two independent dimensions and merges by
+// name: the v1 API's store categories (closest thing to a
+// browse-everything view), and a single-character `q=` search per
+// letter/digit (results are title-substring matches, not just prefix, so
+// this catches snaps a category sweep alone misses) — neither sweep
+// subsumes the other.
 const CATEGORIES = [
   "art-and-design",
   "books-and-reference",

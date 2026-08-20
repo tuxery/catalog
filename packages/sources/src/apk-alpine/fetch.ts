@@ -9,12 +9,10 @@ import type { AlpineCacheEntry, AlpineFetchMetadata } from "./types";
 
 // Alpine publishes one APKINDEX.tar.gz per repo/arch under "latest-stable"
 // -- a server-side alias that always resolves to the current stable
-// release, unlike Fedora/Ubuntu's hardcoded release-number fetchers (see
-// the "pin a hardcoded release" card) -- so this one doesn't need periodic
-// bumping. Two repos, "main" (Alpine-team-maintained) and "community"
-// (broader, community-maintained) -- disjoint, zero name collisions
-// verified against the real data, so a plain concatenation is enough,
-// same as openSUSE's oss/non-oss.
+// release, unlike Fedora/Ubuntu's hardcoded release-number fetchers -- so
+// this one doesn't need periodic bumping. Two repos, "main"
+// (Alpine-team-maintained) and "community" (broader, community-maintained)
+// -- disjoint, so a plain concatenation is enough.
 const ARCH = "x86_64";
 const REPOS = ["main", "community"] as const;
 const BASE = "https://dl-cdn.alpinelinux.org/alpine/latest-stable";
@@ -23,10 +21,8 @@ const BASE = "https://dl-cdn.alpinelinux.org/alpine/latest-stable";
  * Parses APKINDEX's stanza format — single-letter field prefixes
  * (`P:name`, `V:version`, `T:summary`, `U:homepage`, ...), one stanza per
  * package, blank-line separated. Unlike deb822, every field is exactly
- * one line — no continuation-line handling needed (`T`, the short
- * description, is the only description field APKINDEX has at all;
- * verified against the real index that no field spans multiple lines).
- * Pure — no I/O — so it's covered by tests, same as `mapStanzas`.
+ * one line — no continuation-line handling needed. Pure — no I/O — so
+ * it's covered by tests, same as `mapStanzas`.
  */
 export function parseApkindex(text: string): Record<string, string>[] {
   const stanzas: Record<string, string>[] = [];

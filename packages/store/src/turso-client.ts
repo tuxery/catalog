@@ -193,9 +193,9 @@ function toRow(app: AppRecord): unknown[] {
  *
  * Writes into a fresh `apps_next` table and swaps it in via `ALTER TABLE
  * ... RENAME` (an atomic metadata operation in SQLite) rather than
- * wiping `apps` in place. Inserting 226k rows takes about a minute
- * (measured against the real dataset) — without the swap, readers would
- * see an empty or half-populated table for that whole window.
+ * wiping `apps` in place — inserting the full dataset takes long enough
+ * that, without the swap, readers would see an empty or half-populated
+ * table for that whole window.
  */
 export function createTursoClient(config: TursoConfig, client?: Client): TursoClient {
   const db = client ?? createClient({ url: config.url, authToken: config.authToken });

@@ -25,17 +25,15 @@ export interface RpmPrimaryEntry {
   summary: string;
   version: string;
   homepage?: string;
-  /** RPM `<rpm:group>` value, e.g. "Development/Libraries/C and C++" — "Unspecified" on real data when the packager didn't set one (always Unspecified on Fedora in practice, ~31% of the time on openSUSE). */
+  /** RPM `<rpm:group>` value, e.g. "Development/Libraries/C and C++" — "Unspecified" on real data when the packager didn't set one (Fedora essentially always leaves it unset; openSUSE populates it more often). */
   group?: string;
   /**
    * Whether this package's `<rpm:provides>` includes a synthetic
    * `application(*.desktop)` entry — RPM tooling generates this
    * automatically for any package that ships a `.desktop` file, a
-   * near-direct "this installs a launchable GUI app" signal (verified on
-   * real data: 0ad correctly flagged on both Fedora and openSUSE). Low
-   * coverage (~3% of packages on both real Fedora and openSUSE data) but
-   * 100% precise where present — most GUI apps just don't happen to
-   * trigger this particular synthetic-provides convention, so absence
+   * near-direct "this installs a launchable GUI app" signal. Low
+   * coverage but precise where present — most GUI apps just don't happen
+   * to trigger this particular synthetic-provides convention, so absence
    * isn't evidence of "not a GUI app", only presence is meaningful.
    */
   hasDesktopFile: boolean;
@@ -69,9 +67,9 @@ export function parsePrimaryXml(xml: string): RpmPrimaryEntry[] {
     textNodeName: "#text",
     isArray: (name) => name === "package" || name === "rpm:entry",
     // Without this, fast-xml-parser silently turns purely-numeric text
-    // into a JS number — real bug hit on the actual data: a package
-    // literally named "65535" came back as the number 65535, not the
-    // string "65535". Every field here is meant to stay a string.
+    // into a JS number — a package literally named "65535" came back as
+    // the number 65535, not the string "65535". Every field here is
+    // meant to stay a string.
     parseTagValue: false,
     parseAttributeValue: false,
   });

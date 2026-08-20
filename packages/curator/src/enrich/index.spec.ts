@@ -416,4 +416,37 @@ describe("enrichApps", () => {
 
     expect(enrichApps(matched)[0]?.popularity).toBeUndefined();
   });
+
+  it("applies injected suite overrides across the whole enriched batch", () => {
+    const matched: MatchedApp[] = [
+      { id: "flatpak-flathub:org.example.Suite", packages: [pkg({ name: "Suite" })] },
+      {
+        id: "deb-debian:suite-writer",
+        packages: [pkg({ source: "deb-debian", name: "suite-writer" })],
+      },
+    ];
+
+    const apps = enrichApps(matched, [
+      {
+        suiteId: "example-suite",
+        suiteName: "Example Suite",
+        mainAppId: "flatpak-flathub:org.example.Suite",
+        components: [{ appId: "deb-debian:suite-writer", name: "Example Writer" }],
+        reason: "test",
+      },
+    ]);
+
+    expect(apps.find((app) => app.id === "flatpak-flathub:org.example.Suite")?.suite?.role).toBe(
+      "main",
+    );
+    expect(apps.find((app) => app.id === "deb-debian:suite-writer")?.suite?.role).toBe("component");
+  });
+
+  it("leaves suite undefined when no override is passed (defaults to the real overrides file, which won't match synthetic ids)", () => {
+    const matched: MatchedApp[] = [
+      { id: "aur:example", packages: [pkg({ source: "pacman-aur", name: "example" })] },
+    ];
+
+    expect(enrichApps(matched)[0]?.suite).toBeUndefined();
+  });
 });

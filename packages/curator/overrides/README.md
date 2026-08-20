@@ -29,3 +29,14 @@ judged by hand per entry, same as everything else in this file.
   `{ "a": { "source": "...", "appId": "..." }, "b": { "source": "...", "appId": "..." }, "reason": "..." }`.
 - `deny-matches.ndjson` — pairs that must never be merged even if the auto
   tiers would. Same shape as `manual-matches.ndjson`.
+
+## Enrich (`enrich/suite.ts`)
+
+- `suites.ndjson` — software suites (a bundled "main" app plus separately
+  installable "component" apps — e.g. LibreOffice/Writer/Calc/...) that
+  aren't a single-app matching decision, so don't fit `filter`/`match`'s
+  override shapes. One suite per line:
+  `{ "suiteId": "...", "suiteName": "...", "mainAppId": "...", "components": [{ "appId": "...", "name": "..." }, ...], "reason": "..." }`.
+  Deliberately not auto-detected from names — the same discipline as
+  `GENERIC_NAME_BLOCKLIST` in `match/group.ts`, curated by hand and
+  narrow rather than pattern-matched.

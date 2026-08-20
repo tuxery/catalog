@@ -151,7 +151,7 @@ describe("groupPackages", () => {
     expect(groupPackages(packages, NO_OVERRIDES)).toHaveLength(1);
   });
 
-  it("uses the real (currently empty) override files when none are passed", () => {
+  it("uses the real override files when none are passed", () => {
     const packages = [pkg({ source: "flatpak-flathub", name: "Solo", appId: "org.example.solo" })];
 
     expect(groupPackages(packages)).toHaveLength(1);

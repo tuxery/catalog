@@ -4,6 +4,7 @@ export { searchFlathub } from "./flatpak-flathub";
 export { searchAppCenter } from "./flatpak-appcenter";
 export { searchSnapcraft } from "./snap-snapcraft";
 export { searchAppImage } from "./appimage";
+export { searchManualAppImages } from "./appimage-manual";
 export { searchAur } from "./pacman-aur";
 export { searchDebian } from "./deb-debian";
 export { searchUbuntu } from "./deb-ubuntu";

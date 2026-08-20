@@ -2,18 +2,25 @@
 // rather than a bare provider name, so sources group by install mechanism
 // (the install-CTA logic cares that a .deb installs the same way regardless
 // of which distro ships it) rather than by distro/provider name alone. A
-// few exceptions keep a bare name: appimage (single provider — a prefix
-// would only earn its keep if a second AppImage seed list ever lands),
-// slackware (single format+provider today, same reasoning), and gog/lutris
-// (neither maps to a system package format at all — GOG sells DRM-free
-// installers/Galaxy client downloads, Lutris installs via its own
-// community-authored scripts — so there's no `<format>` prefix to give
-// them, same single-provider reasoning as appimage/slackware).
+// few exceptions keep a bare name: slackware (single format+provider
+// today, same reasoning), and gog/lutris (neither maps to a system
+// package format at all — GOG sells DRM-free installers/Galaxy client
+// downloads, Lutris installs via its own community-authored scripts — so
+// there's no `<format>` prefix to give them, same single-provider
+// reasoning). `appimage` itself is the one deliberate exception to its
+// own original reasoning: a second AppImage seed list (`appimage-manual`,
+// a hand-curated list for apps with no GitHub repo) has landed, exactly
+// the scenario that comment used to say would justify a rename to
+// `appimage-github` — but renaming the original now would break every
+// already-built CatalogApp id (`appimage:owner/repo`) and the cache
+// file's git history for a purely cosmetic gain, so it keeps its
+// historical bare name instead.
 export type PackageSourceId =
   | "flatpak-flathub"
   | "flatpak-appcenter"
   | "snap-snapcraft"
   | "appimage"
+  | "appimage-manual"
   | "pacman-aur"
   | "deb-debian"
   | "deb-ubuntu"

@@ -2,6 +2,7 @@ import { fileURLToPath } from "node:url";
 import { fetchAlpine } from "./apk-alpine/fetch";
 import { fetchAppCenter } from "./flatpak-appcenter/fetch";
 import { fetchAppImage } from "./appimage/fetch";
+import { fetchManualAppImages } from "./appimage-manual/fetch";
 import { fetchArch } from "./pacman-arch/fetch";
 import { fetchAur } from "./pacman-aur/fetch";
 import { fetchDebian } from "./deb-debian/fetch";
@@ -27,6 +28,7 @@ const REFRESHERS: Record<string, (cachePath: string) => Promise<number>> = {
   "flatpak-appcenter": fetchAppCenter,
   "snap-snapcraft": fetchSnapcraft,
   appimage: fetchAppImage,
+  "appimage-manual": fetchManualAppImages,
   "pacman-aur": fetchAur,
   "deb-debian": fetchDebian,
   "deb-ubuntu": fetchUbuntu,

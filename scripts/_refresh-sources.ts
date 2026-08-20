@@ -10,6 +10,7 @@ const ALL_SOURCE_IDS = [
   "flatpak-appcenter",
   "snap-snapcraft",
   "appimage",
+  "appimage-manual",
   "pacman-aur",
   "deb-debian",
   "deb-ubuntu",

@@ -14,6 +14,7 @@ table is the map, the Project is the tracked work.
 | 1b  | Other Flatpak remotes | —                    | Flatpak    | —       | ⚠️          | Not started | [2]   |
 | 2   | Snapcraft             | —                    | Snap       | 3,652   | ⚠️          | Implemented | [3]   |
 | 3   | AppImage              | —                    | AppImage   | 1,052   | ⚠️          | Implemented | [4]   |
+| 3b  | Manual AppImage seed  | —                    | AppImage   | 1       | ✅          | Implemented | [25]  |
 | 4   | GitHub Releases       | —                    | Any        | —       | ❌          | Deferred    | [5]   |
 | 5a  | AUR (Arch, community) | —                    | Native     | 117,520 | ✅          | Implemented | [6]   |
 | 5b  | Arch official         | core                 | Native     | 296     | ✅          | Implemented | [7]   |
@@ -380,6 +381,33 @@ research writeup.
     text is the chosen installer's own description (e.g. `Play
 "RollerCoaster Tycoon 2" CD edition on Linux!"`), which is what gets
     used. `packages/sources/lutris/fetch.ts`.
+25. **Manual AppImage seed** — a hand-curated, source-controlled list
+    (`packages/sources/src/appimage-manual/manual-appimages.ndjson`) for
+    software with no GitHub repo (so `appimage`'s feed+Releases-lookup
+    mechanism doesn't apply) and not covered by any other source. `fetch.ts`
+    reads and validates this static file — no network call at all — same
+    two-stage cache/normalize shape as every other source so it flows
+    through `refresh.ts`/the pipeline identically. Records `homepage`
+    (where a user goes to get the app), never a raw AppImage download
+    URL, matching `appimage`'s own precedent (its `homepage` is the
+    GitHub repo page, not a direct binary link). One entry today: pCloud
+    Drive, the official client — only unofficial third-party AUR clients
+    exist otherwise, and the real official AppImage has no GitHub repo at
+    all. Investigated resolving its actual download link for real (found
+    a working `api.pcloud.com/getpublinkdownload?code=<fixed-code>` call,
+    verified live) but rejected it — the response's `expires` field is
+    only hours out, so even caching the resolved link would go stale
+    between weekly refreshes, and it wouldn't do anything a `homepage`
+    link pointing at pCloud's own install page doesn't already do. A
+    separate `Evaluate Portable Linux Apps (portable-linux-apps.github.io)
+as a second AppImage source` card was investigated and rejected for
+    the general case (its `apps.json` has no download URL at all; the
+    real installer is `ivan-hc/AM`, which resolves each app's download by
+    running a bespoke third-party shell script per app — no safe,
+    structured way to extract a URL without executing ~1,000+ untrusted
+    scripts) — this manual seed list is deliberately narrow instead: one
+    hand-verified entry at a time, added only when a real motivating case
+    (like pCloud) turns up.
 
 ## Cross-cutting notes
 

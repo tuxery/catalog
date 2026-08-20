@@ -9,18 +9,14 @@ import type { FedoraCacheEntry, FedoraFetchMetadata } from "./types";
 // release-day snapshot) and "updates" (an overlay repo with newer package
 // versions, and occasionally packages added after release day — a real
 // dnf/yum install takes updates over Everything for any name in both).
-// Extending to other releases/archs is a straight repeat of this same
-// two-step mechanism, not a different one.
 //
 // mergeByName's per-name dedup means the merged entry count is *lower*
 // than the raw entry count from Everything alone used to be, which looks
-// like a regression at a glance but isn't: verified against the real
-// data that Everything's own primary.xml has 76,354 raw `<package>`
-// entries for only 67,430 unique names (arch/subpackage variants sharing
-// a name) — those duplicates were always silently in the cache, one
-// SourcedPackage row each, before this change. updates then adds 1,560
-// genuinely new names on top (e.g. 86box, OpenBoard) — net real coverage
-// goes up even though the raw row count goes down.
+// like a regression at a glance but isn't: Everything's primary.xml has
+// duplicate `<package>` entries for the same name (arch/subpackage
+// variants sharing a name) that were always silently collapsed to one
+// SourcedPackage row downstream; updates then adds genuinely new names on
+// top — net real coverage goes up even though the raw row count goes down.
 const ARCH = "x86_64";
 
 function repoBasesFor(release: string): string[] {
@@ -38,16 +34,13 @@ interface BodhiRelease {
 
 /**
  * Resolves the current stable release number from Bodhi's release list —
- * Fedora has no Debian-`stable`-style always-current URL alias (checked:
- * `releases/44/` is a plain numbered directory, no `releases/stable/`
- * symlink), but Bodhi's API is the real equivalent. It marks exactly the
- * currently-supported Fedora releases (not EPEL/ELN, which use the same
- * endpoint) `state: "current"` — typically two at once during the
- * overlap window after a new release ships, so this takes the higher of
- * the two, matching what a fresh install actually gets. Verified against
- * live data (2026-08-17): F43 and F44 both "current", 44 matching this
- * file's previously-hardcoded RELEASE exactly. Pure — no I/O — given an
- * already-fetched release list.
+ * Fedora has no Debian-`stable`-style always-current URL alias in the
+ * archive itself, but Bodhi's API is the real equivalent. It marks
+ * exactly the currently-supported Fedora releases (not EPEL/ELN, which
+ * use the same endpoint) `state: "current"` — typically two at once
+ * during the overlap window after a new release ships, so this takes the
+ * higher of the two, matching what a fresh install actually gets. Pure —
+ * no I/O — given an already-fetched release list.
  */
 export function resolveCurrentRelease(releases: BodhiRelease[]): string {
   const current = releases

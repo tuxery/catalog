@@ -6,26 +6,24 @@ import { fetchOdrsRatings, pickOdrsRating, type OdrsRating } from "../_shared/od
 import type { AppCenterCacheEntry, AppCenterFetchMetadata } from "./types";
 
 // elementary AppCenter is its own Flatpak remote (not Flathub) -- same
-// appstream.xml.gz mechanism, verified identical schema against real
-// data, parsing shared via _shared/appstream.ts. ~136 curated, reviewed,
-// pay-what-you-can apps built specifically for elementary OS -- a
-// genuinely distinct channel, not a reskinned Flathub subset: verified
-// against the real Flathub cache that only 32 of 147 AppCenter app IDs
-// also exist on Flathub (which the existing exact-appId matching tier
-// already merges correctly) -- the other 115 are exclusive to AppCenter.
+// appstream.xml.gz mechanism, parsing shared via _shared/appstream.ts.
+// ~136 curated, reviewed, pay-what-you-can apps built for elementary OS --
+// a genuinely distinct channel, not a reskinned Flathub subset: most
+// AppCenter app IDs don't exist on Flathub at all (the existing
+// exact-appId matching tier merges the ones that do).
 const ARCH = "x86_64";
 const REPO_BASE = `https://flatpak.elementary.io/repo/appstream/${ARCH}`;
 const APPSTREAM_URL = `${REPO_BASE}/appstream.xml.gz`;
 
 /**
  * Parses elementary AppCenter's appstream XML (already decompressed)
- * into cache rows. Mostly a thin wrapper — the actual parsing is shared
- * with Flathub in `_shared/appstream.ts` — but resolves each entry's
- * icon URL here, since that needs AppCenter's own repo base (only ~8%
- * of its real components carry a ready-to-use `remoteIconUrl`, unlike
- * Flathub's 100%, so this fallback carries most of AppCenter's real
- * icon coverage), and joins in each entry's ODRS rating (see
- * `_shared/odrs.ts`) by its `.desktop`-suffixed id. Pure — no I/O.
+ * into cache rows. Mostly a thin wrapper — parsing itself is shared with
+ * Flathub in `_shared/appstream.ts` — but resolves each entry's icon URL
+ * against AppCenter's own repo base, since most of its components have no
+ * ready-to-use `remoteIconUrl` (unlike Flathub), so this fallback carries
+ * most of AppCenter's real icon coverage. Also joins in each entry's ODRS
+ * rating (see `_shared/odrs.ts`) by its `.desktop`-suffixed id. Pure — no
+ * I/O.
  */
 export function parseAppstream(
   xml: string,

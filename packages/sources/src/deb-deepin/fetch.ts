@@ -5,27 +5,23 @@ import { writeNdjson } from "../_shared/ndjson";
 import type { DeepinCacheEntry, DeepinFetchMetadata } from "./types";
 
 // Deepin publishes deb822 Packages files (same format as Debian/Ubuntu,
-// parsed with the same _shared/deb822.ts — Deepin is a derivative) under
-// one "main" component, but unlike every other deb822 source here it
-// isn't scoped to current versions only: 71,497 raw stanzas for what's
-// really a much smaller set of unique packages, because Deepin keeps
-// every historical version in the same Packages.gz (e.g. 5 separate
-// stanzas for dde-calendar alone) rather than just the latest. Verified
-// against the real data that stanzas for the same package are always
-// listed newest-first (checked 168 multi-version dde-/deepin- packages,
-// zero out of order) — so the first stanza per name is kept, the rest
-// dropped, same "releases are newest-first" assumption Flathub's
+// parsed with the same _shared/deb822.ts) under one "main" component,
+// but unlike every other deb822 source here it isn't scoped to current
+// versions only — Deepin keeps every historical version in the same
+// Packages.gz (e.g. multiple stanzas for dde-calendar alone) rather than
+// just the latest. Stanzas for the same package are always listed
+// newest-first, so the first stanza per name is kept and the rest
+// dropped — same "releases are newest-first" assumption Flathub's
 // connector already relies on.
 //
 // Also unlike Mint (whose "main" component is a small, already-scoped
 // bucket of Mint's own software), Deepin's "main" is the whole distro
-// archive -- scoped down to genuinely Deepin-authored packages by name
-// prefix (dde-/deepin-) instead, same approach as Pop!_OS. 255 unique
-// packages on real data, including real apps (dde-calendar, dde-file-
-// manager, deepin-album, deepin-calculator, deepin-appstore, ...) mixed
-// with libraries/daemons/dev files -- filtered the same way as every
-// other Debian-derivative source (name patterns + Debian's own Section
-// vocabulary, which Deepin reuses verbatim, no new signal needed).
+// archive — scoped down to genuinely Deepin-authored packages by name
+// prefix (dde-/deepin-) instead, same approach as Pop!_OS. Real apps
+// (dde-calendar, dde-file-manager, deepin-album, deepin-calculator, ...)
+// come mixed with libraries/daemons/dev files, filtered the same way as
+// every other Debian-derivative source (name patterns + Debian's own
+// Section vocabulary, which Deepin reuses verbatim).
 const RELEASE = "apricot";
 const COMPONENT = "main";
 const ARCH = "amd64";

@@ -12,14 +12,11 @@ import type { VoidCacheEntry, VoidFetchMetadata } from "./types";
 // Void publishes repodata as a Zstandard-compressed tar (despite no file
 // extension hinting at either) containing index.plist -- an XML property
 // list (Apple/GNUstep plist format), one dict per package keyed by
-// pkgname. A genuinely different shape from every other native source
-// here (not deb822, not RPM primary.xml, not APKINDEX's single-letter
-// text format) -- parsed with the `plist` npm package rather than
-// hand-rolling a plist walker. Three repos: "main" (the default repo),
-// "nonfree" (proprietary/restricted, same split as Debian's non-free),
-// and "multilib" (32-bit compat packages, `-32bit`-suffixed names) --
-// disjoint, zero name collisions verified against the real data, so a
-// plain concatenation is enough, same as openSUSE's oss/non-oss.
+// pkgname -- parsed with the `plist` npm package rather than hand-rolling
+// a plist walker. Three repos: "main" (the default repo), "nonfree"
+// (proprietary/restricted, same split as Debian's non-free), and
+// "multilib" (32-bit compat packages, `-32bit`-suffixed names) --
+// disjoint, so a plain concatenation is enough.
 const ARCH = "x86_64";
 const REPOS = [
   { id: "main", base: "https://repo-default.voidlinux.org/current" },

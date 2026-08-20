@@ -19,12 +19,11 @@ import type { GentooCacheEntry, GentooFetchMetadata } from "./types";
 // conceptually closer to AUR's build-recipe model than a binary repo)
 // rather than a binary repo -- its own official binary package host
 // (distfiles.gentoo.org's Packages index) has no DESCRIPTION/HOMEPAGE
-// field at all, checked and confirmed on real data. Real per-package
-// metadata only lives in the Portage tree's md5-cache: pre-computed
-// ebuild variables (one file per category/package-version), bundled in
-// a periodic full-tree snapshot. The one native source needing an
-// actual XZ-decompression dependency -- Node's built-in zlib has gzip/
-// brotli/zstd but no XZ/LZMA support, unlike every other source here.
+// field at all. Real per-package metadata only lives in the Portage
+// tree's md5-cache: pre-computed ebuild variables (one file per
+// category/package-version), bundled in a periodic full-tree snapshot.
+// The one native source needing an actual XZ-decompression dependency --
+// Node's built-in zlib has gzip/brotli/zstd but no XZ/LZMA support.
 // xz-decompress is WASM-based (no native compilation), matching this
 // codebase's existing preference for portable pure-JS/WASM deps over
 // native bindings. Extraction is filtered to metadata/md5-cache/ only --
@@ -49,13 +48,11 @@ export function parseEbuildCache(content: string): Record<string, string> {
   return fields;
 }
 
-// A category/package-version filename, e.g. `0ad-0.28.0-r1` — verified
-// against the real snapshot that this pattern matches all ~32,800
-// md5-cache filenames with zero exceptions, so the package name is
-// whatever precedes the rightmost match (package names can themselves
-// contain digits/hyphens, e.g. `7zip`, so this can't just split on the
-// first or last hyphen the way Slackware's simpler `-arch-build.txz`
-// suffix can).
+// A category/package-version filename, e.g. `0ad-0.28.0-r1`. The package
+// name is whatever precedes the rightmost match, since package names can
+// themselves contain digits/hyphens (e.g. `7zip`) — this can't just
+// split on the first or last hyphen the way Slackware's simpler
+// `-arch-build.txz` suffix can.
 const CPV_PATTERN = /^(.+)-(\d+(?:\.\d+)*[a-z]?(?:_(?:alpha|beta|pre|rc|p)\d*)*(?:-r\d+)?)$/;
 
 /** Splits a md5-cache filename into package name and version. Pure — no I/O. */
@@ -71,21 +68,20 @@ const NO_SUFFIX_RANK = "4";
 
 /**
  * Best-effort Gentoo version ordering for picking "the latest" ebuild
- * per package — not a full Package Manager Specification implementation
- * (real dependency resolution isn't a goal here, only picking a
- * sensible display version). Handles the common shape: dot-separated
- * numeric segments, an optional trailing letter (`1.0a` ranks *above*
- * `1.0`, a point-release marker, unlike a `_suffix`), an optional
- * `_alpha`/`_beta`/`_pre`/`_rc`/`_p` suffix (alpha/beta/pre/rc rank
- * *below* the base version as pre-releases; `p` ranks above as a
- * post-release patch), and an optional `-rN` revision. Returns a string
- * such that plain lexicographic comparison gives the correct order —
- * segments are zero-padded and joined with a separator (`#`) that sorts
- * below both digits and `.`, so a version with fewer dot-segments still
- * sorts below one that continues with a real subsequent segment (e.g.
- * `1.0` before `1.0.1`), the one deliberate imprecision here (real
- * Portage semantics treat `1.0` and `1.0.0` as equal — not worth
- * modeling for a display-version choice). Pure — no I/O.
+ * per package — not a full Package Manager Specification implementation,
+ * only enough to pick a sensible display version. Handles the common
+ * shape: dot-separated numeric segments, an optional trailing letter
+ * (`1.0a` ranks *above* `1.0`, a point-release marker, unlike a
+ * `_suffix`), an optional `_alpha`/`_beta`/`_pre`/`_rc`/`_p` suffix
+ * (alpha/beta/pre/rc rank *below* the base version as pre-releases; `p`
+ * ranks above as a post-release patch), and an optional `-rN` revision.
+ * Returns a string such that plain lexicographic comparison gives the
+ * correct order — segments are zero-padded and joined with a separator
+ * (`#`) that sorts below both digits and `.`, so a version with fewer
+ * dot-segments still sorts below one that continues with a real
+ * subsequent segment (e.g. `1.0` before `1.0.1`). One deliberate
+ * imprecision: real Portage semantics treat `1.0` and `1.0.0` as equal,
+ * which isn't worth modeling here. Pure — no I/O.
  */
 export function versionSortKey(version: string): string {
   const revisionMatch = version.match(/-r(\d+)$/);
@@ -181,11 +177,10 @@ interface CacheFileLocation {
 /**
  * Walks the extracted md5-cache tree (one directory per category, one
  * file per package-version) and parses every entry — full-concurrency
- * `Promise.all`, same pattern Arch's connector already uses for a
- * similarly-sized (~15k) set of small per-package files: Node's fs
- * promises queue through libuv's threadpool, so this doesn't actually
- * hold thousands of file descriptors open at once despite every promise
- * starting together.
+ * `Promise.all`, same pattern Arch's connector uses for its own set of
+ * small per-package files: Node's fs promises queue through libuv's
+ * threadpool, so this doesn't actually hold thousands of file
+ * descriptors open at once despite every promise starting together.
  */
 async function readAllEntries(md5CacheDir: string): Promise<GentooCacheEntry[]> {
   const categories = await readdir(md5CacheDir, { withFileTypes: true });

@@ -3,24 +3,16 @@ import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
 import type { GogCacheEntry, GogFetchMetadata } from "./types";
 
-// GOG's catalog API (catalog.gog.com/v1/catalog) is undocumented but real,
-// public, and unauthenticated — confirmed working live and already relied
-// on by community tools (Heroic Games Launcher, Lutris) that need to
-// query GOG's own catalog themselves, not just a scraped guess.
-// `systems=linux` filters server-side to Linux-compatible products
-// (verified live: 2,658 of 12,589 total, ~21%) — inclusive, not
-// Linux-exclusive (e.g. Firewatch's own `operatingSystems` is
-// `["windows", "linux", "osx"]`), matching "can I install this on
-// Linux" rather than "Linux only", the same spirit as every other
-// source here. `limit` caps at 100 (a `limit=200` request returns a
-// real 400 "Invalid request parameters").
+// GOG's catalog API is undocumented but real and unauthenticated, already
+// relied on by community tools like Heroic/Lutris. `systems=linux` is
+// inclusive, not Linux-exclusive (e.g. Firewatch also lists windows/osx) —
+// matches "can I install this on Linux", not "Linux only". `limit` caps
+// at 100; 200 returns a 400.
 const LIMIT = 100;
 const BASE_URL = "https://catalog.gog.com/v1/catalog";
 
-// Verified live against a real screenshot URL's `{formatter}` placeholder
-// — GOG's image CDN rejects arbitrary tokens (most guesses return a real
-// 400), this one is confirmed working and a reasonable screenshot size
-// (639px wide).
+// GOG's image CDN only accepts specific `{formatter}` tokens; other guesses
+// 400. This one works and gives a reasonable screenshot width (639px).
 const SCREENSHOT_FORMATTER = "product_card_v2_mobile_slider_639";
 
 interface RawProduct {
@@ -31,7 +23,7 @@ interface RawProduct {
   storeLink?: string;
   developers?: string[];
   screenshots?: string[];
-  /** 0-50 scale (e.g. 39 = 3.9/5 stars) — verified live against GOG's own product pages. 0 when `reviewsCount` is also 0 (no reviews yet), not a real zero rating. */
+  /** 0-50 scale (e.g. 39 = 3.9/5 stars). 0 when `reviewsCount` is also 0 (no reviews yet), not a real zero rating. */
   reviewsRating?: number;
   reviewsCount?: number;
 }
@@ -41,19 +33,16 @@ interface RawCatalogPage {
   products?: RawProduct[];
 }
 
-/** Substitutes GOG's `{formatter}` size placeholder for a verified-working real image size. Pure — no I/O. */
+/** Substitutes GOG's `{formatter}` size placeholder with a working image size. Pure — no I/O. */
 export function resolveScreenshotUrl(url: string): string {
   return url.replace("{formatter}", SCREENSHOT_FORMATTER);
 }
 
 /**
- * Maps one page's raw products to cache rows, keeping only real games —
- * GOG's catalog also lists "pack" (bundle editions, e.g. "Planescape:
- * Torment: Enhanced Edition" alongside the base "Planescape: Torment")
- * and "dlc" (add-on content requiring the base game already installed)
- * product types, neither a standalone installable game the way this
- * catalog's other sources are — excluded here rather than shipping
- * near-duplicate or non-installable entries. Pure — no I/O.
+ * Maps one page's raw products to cache rows, keeping only real games.
+ * GOG's catalog also lists "pack" (bundle editions, e.g. an Enhanced
+ * Edition alongside the base game) and "dlc" product types — neither is
+ * a standalone installable game, so both are excluded here. Pure — no I/O.
  */
 export function mapProducts(products: RawProduct[]): GogCacheEntry[] {
   return products
@@ -84,10 +73,8 @@ async function fetchPage(page: number): Promise<RawCatalogPage> {
  * Downloads every Linux-compatible product from GOG's catalog API and
  * writes the normalized entries to `cachePath` as NDJSON. Paginated
  * sequentially, not concurrently — this is an undocumented API with no
- * published rate-limit guidance, and ~27 real pages at the current
- * catalog size isn't large enough to need concurrency's added risk (same
- * "be conservative against an API with no documented limits" reasoning
- * as AppImage's capped GitHub lookups). See docs/sources.md.
+ * published rate-limit guidance, so it's safer not to hammer it. See
+ * docs/sources.md.
  */
 export async function fetchGog(cachePath: string): Promise<number> {
   const first = await fetchPage(1);

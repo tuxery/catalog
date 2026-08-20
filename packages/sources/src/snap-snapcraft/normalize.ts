@@ -11,10 +11,7 @@ export function normalize(entries: SnapcraftCacheEntry[]): SourcedPackage[] {
     channel: entry.channel,
     // iconUrl is a full URL, unlike Flathub's bare filename — take just the
     // last path segment for iconFilename so the matcher compares like with
-    // like, but also keep the full URL itself (previously discarded here
-    // entirely — see the "Populate CatalogApp rich fields per source"
-    // card, which flagged this as a regression to fix before iconUrl
-    // population started).
+    // like, while still keeping the full URL for iconUrl.
     iconFilename: entry.iconUrl?.split("/").pop(),
     iconUrl: entry.iconUrl,
     homepage: entry.website,

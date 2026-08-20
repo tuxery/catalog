@@ -17,10 +17,10 @@ interface RawPackage {
  * Ranks every package with real `Popularity` (AUR's own decayed
  * usage-frequency metric — a raw float whose scale is meaningless on its
  * own) into a 0-1 percentile score comparable across sources — see
- * `SourcedPackage.popularity`. Packages with zero/no `Popularity`
- * (91,164 of 117,747 real entries — most AUR packages are simply never
- * installed via a helper that reports usage) get no score at all, not a
- * fake bottom-percentile value. Pure — no I/O.
+ * `SourcedPackage.popularity`. Packages with zero/no `Popularity` (most
+ * AUR packages, since they're simply never installed via a helper that
+ * reports usage) get no score at all, not a fake bottom-percentile value.
+ * Pure — no I/O.
  */
 export function rankPopularity(packages: RawPackage[]): Map<string, number> {
   const ranked = packages.filter(

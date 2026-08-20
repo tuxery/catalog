@@ -27,13 +27,13 @@ export interface CatalogApp {
    * by default: absence of a signal doesn't mean "not a GUI app". Two
    * signals feed this today (see `enrich/index.ts`'s `hasGuiEvidence`):
    * `SourcedPackage.hasDesktopFile` (Fedora/openSUSE's direct synthetic
-   * desktop-file marker, ~3% coverage but 100% precise where present),
-   * and Debian/Ubuntu's weaker Section-based heuristic
-   * (`looksLikeGuiPackage` in curator's filter/rules.ts, broader coverage
-   * but empirically verified against the Fedora/openSUSE signal rather
-   * than 100% precise). See the "GUI vs CLI classification" GitHub
-   * Project card for what's still missing: an Arch/AUR signal, and
-   * Flatpak/Snap/AppImage source presence as a weaker fallback.
+   * desktop-file marker, sparse coverage but precise where present), and
+   * Debian/Ubuntu's weaker Section-based heuristic (`looksLikeGuiPackage`
+   * in curator's filter/rules.ts, broader coverage but empirically
+   * verified against the Fedora/openSUSE signal rather than 100%
+   * precise). See the "GUI vs CLI classification" GitHub Project card for
+   * what's still missing: an Arch/AUR signal, and Flatpak/Snap/AppImage
+   * source presence as a weaker fallback.
    */
   kind?: "gui";
 
@@ -50,7 +50,7 @@ export interface CatalogApp {
    * menu spec's own top-level category) and `looksLikeGamePackage` in
    * curator's filter/rules.ts (Debian-family `games` Section variants,
    * Gentoo's `games-*` category, openSUSE's `Amusements/Games` group,
-   * Solus's `games.*` PartOf — each sampled against real data before
+   * Solus's `games.*` PartOf — each checked against real data before
    * trusting it, same discipline as the GUI Section heuristic). See the
    * "Apps vs games classification is missing from the data model"
    * GitHub Project card for what's still missing: category taxonomy
@@ -110,7 +110,7 @@ export interface CatalogApp {
    * A count-weighted average across every member package's own rating —
    * see `enrich/index.ts`'s `aggregateRating`. Two independent sources
    * today: GNOME's ODRS community ratings (joined into Flathub/AppCenter
-   * by AppStream id, sparse — ~6%/~4% real coverage) and GOG's own
+   * by AppStream id, sparse coverage) and GOG's own
    * `reviewsRating`/`reviewsCount` (games only). `undefined` when no
    * member package has a rating at all, never a synthetic 0. Per-source
    * detail is already available without a separate field — read each
@@ -122,7 +122,7 @@ export interface CatalogApp {
    * package's own `SourcedPackage.popularity`, see `enrich/index.ts`'s
    * `aggregatePopularity`. Not a directly meaningful percentage, only a
    * relative ranking signal for sorting a "trending" listing — AUR's
-   * decayed usage `Popularity` (bulk dump, ~23% real coverage) and
+   * decayed usage `Popularity` (bulk dump, sparse real coverage) and
    * Flathub's own "Popular" collection (top 250 only) are today's two
    * sources, both already normalized to comparable 0-1 scales before
    * reaching here. `undefined` when no member package has a score.

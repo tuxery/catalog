@@ -3,21 +3,14 @@ import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
 import type { NixpkgsCacheEntry, NixpkgsFetchMetadata } from "./types";
 
-// nixpkgs publishes one giant per-channel dump, updated continuously —
-// the closest thing to a full-catalog file this codebase has seen
-// (149,121 entries as of writing, more than AUR). The .br extension is
-// misleading: the server sends it with a real `Content-Encoding: br`
-// header, and Node's built-in fetch (like a browser) transparently
+// nixpkgs publishes one giant per-channel dump, updated continuously.
+// The .br extension is misleading: the server sends it with a real
+// `Content-Encoding: br` header, and Node's built-in fetch transparently
 // decompresses that itself — response.text() already returns plain
-// JSON, no manual zlib.brotliDecompressSync() step needed (confirmed by
-// hitting a decompression error until this was found — the naive
-// "download bytes, decompress them" approach every other connector uses
-// doesn't apply here specifically because of that header, not because
-// of anything nixpkgs-specific).
+// JSON, no manual zlib.brotliDecompressSync() step needed.
 const PACKAGES_URL = "https://channels.nixos.org/nixos-unstable/packages.json.br";
-// Only arch this repo tracks anywhere else — the dump is 149,071
-// x86_64-linux entries plus 50 i686-linux (32-bit), verified against the
-// real file.
+// Only arch this repo tracks anywhere else — the dump also has a small
+// number of i686-linux (32-bit) entries, excluded.
 const SYSTEM = "x86_64-linux";
 
 interface RawPackage {

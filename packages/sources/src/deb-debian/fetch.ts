@@ -6,12 +6,10 @@ import type { DebianCacheEntry, DebianFetchMetadata } from "./types";
 
 // Debian publishes one Packages file per suite/component/arch — this
 // fetches stable/{main,contrib,non-free,non-free-firmware}/amd64. main is
-// enabled out of the box; the other three (all license-restricted in some
-// way — non-DFSG-free software, or software that depends on non-free
-// software, or non-free firmware blobs split out of non-free in 2023)
-// need enabling first, same organizing principle as Ubuntu's
-// main/universe/restricted/multiverse. Extending to other suites/archs is
-// a straight repeat of this same shape, not a different mechanism.
+// enabled out of the box; the other three are license-restricted in some
+// way (non-DFSG-free, depends on non-free, or non-free firmware) and need
+// enabling first — same organizing principle as Ubuntu's
+// main/universe/restricted/multiverse.
 const SUITE = "stable";
 const COMPONENTS = ["main", "contrib", "non-free", "non-free-firmware"] as const;
 type DebianComponent = (typeof COMPONENTS)[number];

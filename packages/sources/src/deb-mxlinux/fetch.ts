@@ -7,16 +7,15 @@ import type { MxLinuxCacheEntry, MxLinuxFetchMetadata } from "./types";
 // MX Linux publishes deb822 Packages files (same format/parser as
 // Debian — MX Linux is a Debian derivative, using Debian's own release
 // codenames rather than its own naming scheme like Mint), one "main"
-// component covering the whole distro archive (861 packages), same
-// situation as Pop!_OS/Deepin -- scoped down to genuinely MX-authored
-// packages by name prefix ("mx", matching mx-*, mxNN-* per-release
-// artwork packages, and the mxfb-* Fluxbox-edition variants uniformly)
-// rather than the whole component. 142 packages on real data: real
-// "MX Tools" apps (mx-tweak, mx-snapshot, mx-bootrepair, mx-cleanup,
-// mx-live-usb-maker, mx-packageinstaller, mx-repo-manager, ...) mixed
-// with per-language mx-docs-*/mx-faq-*/mxfb-docs-* documentation
-// packages -- those are already caught by the existing NOISE_SECTIONS
-// filter (verified Section: doc on real data), no new signal needed.
+// component covering the whole distro archive, same situation as
+// Pop!_OS/Deepin — scoped down to genuinely MX-authored packages by name
+// prefix ("mx", matching mx-*, mxNN-* per-release artwork packages, and
+// the mxfb-* Fluxbox-edition variants uniformly) rather than the whole
+// component. Real "MX Tools" apps (mx-tweak, mx-snapshot, mx-bootrepair,
+// mx-cleanup, mx-live-usb-maker, mx-packageinstaller, mx-repo-manager,
+// ...) come mixed with per-language mx-docs-*/mx-faq-*/mxfb-docs-*
+// documentation packages, already caught by the existing NOISE_SECTIONS
+// filter (Section: doc) — no new signal needed.
 const RELEASE = "trixie";
 const COMPONENT = "main";
 const ARCH = "amd64";

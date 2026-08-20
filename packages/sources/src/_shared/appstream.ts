@@ -30,11 +30,10 @@ interface RawDeveloper {
   name?: RawText[];
 }
 
-// <p>/<li> text can carry nested inline markup (<em>, <code>, ...) — real
-// data hit this live ("app.authpass.AuthPass" has a <p><em>...</em></p>)
-// — which fast-xml-parser turns into a nested object instead of a plain
-// string. `unknown` here (extracted via `extractText`) rather than
-// `string`, since a plain string is only the common case, not guaranteed.
+// <p>/<li> text can carry nested inline markup (<em>, <code>, ...), which
+// fast-xml-parser turns into a nested object instead of a plain string.
+// `unknown` here (extracted via `extractText`) rather than `string`, since
+// a plain string is only the common case, not guaranteed.
 interface RawList {
   li?: unknown[];
 }
@@ -66,13 +65,10 @@ interface RawComponent {
   releases?: { release?: RawRelease[] };
   categories?: { category?: string[] };
   project_license?: string;
-  // Same xml:lang-repeats-per-translation shape as <name>/<summary> —
-  // real bug caught live: "io.github.aggalex.Wineglass" has both
-  // <developer_name>Alex Angelou</developer_name> and a Greek
-  // xml:lang="el" translation. Assuming a single bare string (only the
-  // common case) instead of RawText[] here meant the raw array leaked
-  // straight into SourcedPackage.developer for any component with a
-  // translated developer_name, which SQLite then refused to bind at all.
+  // Same xml:lang-repeats-per-translation shape as <name>/<summary> — a
+  // bare string assumption here let the raw array leak straight into
+  // SourcedPackage.developer for any component with a translated
+  // developer_name, which SQLite then refused to bind at all.
   developer_name?: RawText[];
   developer?: RawDeveloper;
   screenshots?: { screenshot?: RawScreenshot[] };
@@ -90,7 +86,7 @@ export interface AppstreamComponent {
   version?: string;
   /** Bare filename of a `type="cached"`/`type="stock"` icon (e.g. "org.mozilla.firefox.png") — not fetchable on its own, kept for matching purposes. See `remoteIconUrl` for a ready-to-use URL. */
   iconFilename?: string;
-  /** A `type="remote"` icon's full URL, when present — ready to use directly, no base-URL resolution needed. Not every source's repo publishes this (verified: 100% of real Flathub components do, only ~8% of AppCenter's); callers needing an icon URL for a source without it must resolve `iconFilename` against that source's own repo layout instead. */
+  /** A `type="remote"` icon's full URL, when present — ready to use directly, no base-URL resolution needed. Not every source's repo publishes this (Flathub reliably does, AppCenter rarely); callers needing an icon URL for a source without it must resolve `iconFilename` against that source's own repo layout instead. */
   remoteIconUrl?: string;
   homepage?: string;
   /** Whether `<categories>` includes the freedesktop.org menu spec's "Game" category — see `SourcedPackage.hasGameCategory`. */
@@ -103,7 +99,7 @@ export interface AppstreamComponent {
   developer?: string;
   /** `<description>`'s `<p>` paragraphs and `<ul>`/`<ol>` list items, flattened to plain text (paragraphs joined by blank lines, list items as "- " bullets) — the interleaved order between paragraphs and lists isn't preserved, only within each kind. See `SourcedPackage.longDescription`. */
   longDescription?: string;
-  /** Every screenshot's `type="source"` image URL (falling back to the first available size when there's no source-tagged one) — always a full URL already, verified against real data. See `SourcedPackage.screenshots`. */
+  /** Every screenshot's `type="source"` image URL (falling back to the first available size when there's no source-tagged one) — always a full URL already. See `SourcedPackage.screenshots`. */
   screenshots: string[];
 }
 
@@ -145,13 +141,11 @@ function pickHomepage(urls: RawUrl[] | undefined): string | undefined {
  * Resolves a component's icon to a fetchable URL — `remoteIconUrl`
  * directly when present, else `iconFilename` joined against `repoBase`
  * (that source's own repo directory, e.g.
- * `https://dl.flathub.org/repo/appstream/x86_64`), matching every real
- * AppStream repo's `icons/<size>x<size>/<filename>` layout (verified
- * live against both Flathub and elementary AppCenter). Each connector
- * passes its own `repoBase` since the shared parser doesn't know which
- * repo it's parsing. `remoteIconUrl` alone covers 100% of real Flathub
- * components; AppCenter has it on only ~8%, so the fallback carries most
- * of AppCenter's real coverage.
+ * `https://dl.flathub.org/repo/appstream/x86_64`), matching every
+ * AppStream repo's `icons/<size>x<size>/<filename>` layout. Each
+ * connector passes its own `repoBase` since the shared parser doesn't
+ * know which repo it's parsing. The fallback carries most of AppCenter's
+ * real coverage, since AppCenter rarely publishes `remoteIconUrl`.
  */
 export function resolveIconUrl(
   component: Pick<AppstreamComponent, "remoteIconUrl" | "iconFilename">,
@@ -168,10 +162,10 @@ function pickDeveloper(component: RawComponent): string | undefined {
 /**
  * Recursively concatenates every string leaf in a parsed XML value,
  * ignoring tag/attribute structure — for `<p>`/`<li>` content that's
- * either a plain string (the common case) or, when it carries nested
- * inline markup (`<em>`, `<code>`, ...), an object fast-xml-parser
- * produces instead. Attribute keys (`@_...`) are skipped since they're
- * markup metadata, not text content.
+ * either a plain string or, when it carries nested inline markup
+ * (`<em>`, `<code>`, ...), an object fast-xml-parser produces instead.
+ * Attribute keys (`@_...`) are skipped since they're markup metadata,
+ * not text content.
  */
 function extractText(value: unknown): string {
   if (typeof value === "string") return value;
@@ -186,31 +180,26 @@ function extractText(value: unknown): string {
 }
 
 // Collapses the source XML's own indentation/line-wrapping whitespace
-// inside each <p>/<li> (real data has it, e.g. GIMP's description is
-// hand-indented at ~6 spaces per line) down to single spaces, the same
-// whitespace-collapsing a browser applies to HTML text nodes — without
-// it, every wrapped line keeps its raw leading spaces in the plain-text
-// output.
+// inside each <p>/<li> down to single spaces, the same whitespace-
+// collapsing a browser applies to HTML text nodes — without it, every
+// wrapped line keeps its raw leading spaces in the plain-text output.
 function cleanText(value: unknown): string {
   return extractText(value).replace(/\s+/g, " ").trim();
 }
 
 /**
  * Flattens `<description>`'s `<p>` paragraphs and `<ul>`/`<ol>` list
- * items to plain text — real AppStream descriptions interleave both
- * (verified: "Jan" on Flathub has intro paragraphs, a "Features" `<ul>`,
- * then a closing paragraph). Paragraphs join with blank lines, list
- * items become "- " bullets; the original interleaving order between
- * paragraphs and lists isn't reconstructed (fast-xml-parser's default,
- * non-order-preserving mode groups all `<p>` together and all
- * `<ul>`/`<ol>` together), a readable approximation rather than a exact
- * reproduction.
+ * items to plain text — real AppStream descriptions interleave both.
+ * Paragraphs join with blank lines, list items become "- " bullets; the
+ * original interleaving order between paragraphs and lists isn't
+ * reconstructed (fast-xml-parser's default, non-order-preserving mode
+ * groups all `<p>` together and all `<ul>`/`<ol>` together), a readable
+ * approximation rather than an exact reproduction.
  *
  * `<description>` itself repeats once per translation, same `xml:lang`
- * pattern as `<name>`/`<summary>` — verified against real data (GIMP has
- * 30 of them) — a real bug caught live: without picking just the default
- * one first, `<p>` text from every language's block gets flattened
- * together indiscriminately.
+ * pattern as `<name>`/`<summary>` — without picking just the default one
+ * first, `<p>` text from every language's block gets flattened together
+ * indiscriminately.
  */
 function pickLongDescription(descriptions: RawDescription[] | undefined): string | undefined {
   const description = (descriptions ?? []).find(
@@ -245,10 +234,9 @@ function pickScreenshots(screenshots: { screenshot?: RawScreenshot[] } | undefin
 /**
  * Parses an AppStream repodata file (already decompressed) into cache
  * rows — shared by Flathub and elementary AppCenter, which are both
- * Flatpak remotes publishing the identical `appstream.xml.gz` format
- * (repo mechanism, not just coincidentally similar XML), the same
- * situation `deb822.ts`/`rpm-repodata.ts` share between their own
- * respective source pairs. Pure — no I/O.
+ * Flatpak remotes publishing the identical `appstream.xml.gz` format,
+ * the same situation `deb822.ts`/`rpm-repodata.ts` share between their
+ * own respective source pairs. Pure — no I/O.
  */
 export function parseAppstreamXml(xml: string): AppstreamComponent[] {
   const parser = new XMLParser({
@@ -274,10 +262,9 @@ export function parseAppstreamXml(xml: string): AppstreamComponent[] {
         "image",
       ].includes(name),
     // Without this, fast-xml-parser silently turns purely-numeric text
-    // into a JS number — bit Fedora's fetcher for real (a package named
+    // into a JS number (bit Fedora's fetcher for real: a package named
     // "65535" came back as the number 65535). Every field here is meant
-    // to stay a string; no known case in this data today, but the
-    // failure mode is silent, so defend against it here too.
+    // to stay a string, so defend against it here too.
     parseTagValue: false,
     parseAttributeValue: false,
   });
@@ -291,8 +278,8 @@ export function parseAppstreamXml(xml: string): AppstreamComponent[] {
       id: component.id ?? "",
       name: pickDefaultText(component.name) ?? "",
       summary: pickDefaultText(component.summary) ?? "",
-      // Releases are listed newest-first — verified against the real
-      // Flathub feed, not an assumption from the AppStream spec alone.
+      // Releases are listed newest-first on real data, not guaranteed by
+      // the AppStream spec alone.
       version: component.releases?.release?.[0]?.["@_version"],
       iconFilename: pickIcon(component.icon),
       remoteIconUrl: pickRemoteIconUrl(component.icon),

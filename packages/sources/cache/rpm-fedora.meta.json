@@ -1,8 +1,8 @@
 {
   "source": "rpm-fedora",
-  "fetchedAt": "2026-08-17T21:15:02.831Z",
+  "fetchedAt": "2026-08-20T23:36:13.973Z",
   "url": "https://dl.fedoraproject.org/pub/fedora/linux/releases/44/Everything/x86_64/os, https://dl.fedoraproject.org/pub/fedora/linux/updates/44/Everything/x86_64",
-  "entryCount": 68991,
+  "entryCount": 69140,
   "release": "44",
   "arch": "x86_64"
 }

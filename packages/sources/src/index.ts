@@ -12,6 +12,7 @@ export { searchFedora } from "./rpm-fedora";
 export { searchArch } from "./pacman-arch";
 export { searchNixpkgs } from "./nix-nixpkgs";
 export { searchOpenSuse } from "./rpm-opensuse";
+export { searchRpmFusion } from "./rpm-rpmfusion";
 export { searchVoid } from "./xbps-void";
 export { searchSlackware } from "./slackware";
 export { searchSolus } from "./eopkg-solus";

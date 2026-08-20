@@ -1,5 +1,5 @@
 import { XMLParser } from "fast-xml-parser";
-import { fetchText, fetchZstdText } from "./http";
+import { fetchGunzippedText, fetchText, fetchZstdText } from "./http";
 
 interface RawRpmProvidesEntry {
   "@_name"?: string;
@@ -96,12 +96,15 @@ export function parsePrimaryXml(xml: string): RpmPrimaryEntry[] {
 
 /**
  * Downloads one repo's primary.xml — repomd.xml first (to find the
- * current content-hashed `primary.xml.zst` path — RPM repos don't use a
- * fixed filename like Debian's `Packages.gz`), then that file itself,
- * Zstandard-compressed — and returns the decompressed XML text, ready
- * for `parsePrimaryXml`. Shared by Fedora and openSUSE, which were each
- * hand-rolling this identical two-step fetch before this existed —
- * `sourceLabel` (e.g. "Fedora", "openSUSE") only affects error messages.
+ * current content-hashed `primary.xml.<ext>` path — RPM repos don't use a
+ * fixed filename like Debian's `Packages.gz`), then that file itself —
+ * and returns the decompressed XML text, ready for `parsePrimaryXml`.
+ * Shared by Fedora, openSUSE, and RPM Fusion, which were each hand-rolling
+ * this identical two-step fetch before this existed — `sourceLabel` (e.g.
+ * "Fedora", "openSUSE") only affects error messages. Picks the
+ * decompressor from the location's own file extension rather than
+ * assuming one: Fedora/openSUSE publish `.zst`, RPM Fusion `.gz` — same
+ * repomd.xml/primary.xml schema, different compression per repo.
  */
 export async function fetchPrimaryXml(repoBase: string, sourceLabel: string): Promise<string> {
   const repomdXml = await fetchText(
@@ -115,5 +118,8 @@ export async function fetchPrimaryXml(repoBase: string, sourceLabel: string): Pr
   }
 
   const primaryUrl = `${repoBase}/${primaryLocation}`;
-  return fetchZstdText(primaryUrl, `${sourceLabel} primary metadata at ${primaryUrl}`);
+  const label = `${sourceLabel} primary metadata at ${primaryUrl}`;
+  if (primaryLocation.endsWith(".gz")) return fetchGunzippedText(primaryUrl, label);
+  if (primaryLocation.endsWith(".zst")) return fetchZstdText(primaryUrl, label);
+  throw new Error(`${label}: unrecognized compression (expected .gz or .zst)`);
 }

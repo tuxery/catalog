@@ -31,6 +31,7 @@ table is the map, the Project is the tracked work.
 | 5e  | Fedora                | Everything + updates | Native     | 68,990  | ✅          | Implemented | [10]  |
 | 5f  | openSUSE              | oss                  | Native     | 52,482  | ✅          | Implemented | [11]  |
 | 5f  | openSUSE              | non-oss              | Native     | 42      | ✅          | Implemented | [11]  |
+| 5l  | RPM Fusion            | free + nonfree       | Native     | 539     | ✅          | Implemented | [26]  |
 | 5g  | Alpine                | main                 | Native     | 5,961   | ✅          | Implemented | [12]  |
 | 5g  | Alpine                | community            | Native     | 22,678  | ✅          | Implemented | [12]  |
 | 5h  | Void                  | main                 | Native     | 14,746  | ✅          | Implemented | [13]  |
@@ -408,6 +409,25 @@ as a second AppImage source` card was investigated and rejected for
     scripts) — this manual seed list is deliberately narrow instead: one
     hand-verified entry at a time, added only when a real motivating case
     (like pCloud) turns up.
+26. **RPM Fusion** — the addon repo behind Fedora's own "enable
+    third-party repositories" installer option: codecs, NVIDIA drivers,
+    Steam, VLC, OBS, and other packages Fedora's own repo can't ship for
+    licensing reasons. Four repos for the current release (resolved live
+    via the same Bodhi lookup Fedora itself uses, now shared between them
+    via `_shared/fedora-release.ts`) — free, nonfree, and each one's
+    updates overlay, merged by name with updates winning, same shape as
+    `rpm-fedora`'s own Everything+updates merge. Same repomd.xml/primary.xml
+    schema as Fedora/openSUSE, but gzip-compressed rather than their
+    zstd — `_shared/rpm-repodata.ts`'s `fetchPrimaryXml` now picks the
+    decompressor from the file extension instead of assuming one, a real
+    gap this connector's own live verification caught. Unlike
+    `rpm-fedora`, keeps `<rpm:group>` (populated with real values here —
+    "Amusements/Games", "Applications/Multimedia" — not the
+    always-"Unspecified" Fedora leaves it), which also extends
+    `looksLikeGamePackage` in curator's `filter/rules.ts`: RPM Fusion
+    reuses the identical `Amusements/Games` prefix openSUSE already
+    uses, verified against real entries (gltron, stepmania,
+    doom-shareware, ...) before wiring it in. `packages/sources/rpm-rpmfusion/fetch.ts`.
 
 ## Cross-cutting notes
 

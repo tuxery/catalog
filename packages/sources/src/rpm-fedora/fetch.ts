@@ -1,4 +1,4 @@
-import { fetchOrThrow } from "../_shared/http";
+import { fetchCurrentFedoraRelease } from "../_shared/fedora-release";
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
 import { fetchPrimaryXml, parsePrimaryXml } from "../_shared/rpm-repodata";
@@ -24,44 +24,6 @@ function repoBasesFor(release: string): string[] {
     `https://dl.fedoraproject.org/pub/fedora/linux/releases/${release}/Everything/${ARCH}/os`,
     `https://dl.fedoraproject.org/pub/fedora/linux/updates/${release}/Everything/${ARCH}`,
   ];
-}
-
-interface BodhiRelease {
-  id_prefix: string;
-  version: string;
-  state: string;
-}
-
-/**
- * Resolves the current stable release number from Bodhi's release list —
- * Fedora has no Debian-`stable`-style always-current URL alias in the
- * archive itself, but Bodhi's API is the real equivalent. It marks
- * exactly the currently-supported Fedora releases (not EPEL/ELN, which
- * use the same endpoint) `state: "current"` — typically two at once
- * during the overlap window after a new release ships, so this takes the
- * higher of the two, matching what a fresh install actually gets. Pure —
- * no I/O — given an already-fetched release list.
- */
-export function resolveCurrentRelease(releases: BodhiRelease[]): string {
-  const current = releases
-    .filter((release) => release.id_prefix === "FEDORA" && release.state === "current")
-    .map((release) => Number.parseInt(release.version, 10))
-    .filter((version) => Number.isFinite(version));
-
-  if (current.length === 0) {
-    throw new Error("Bodhi reported no current Fedora release");
-  }
-
-  return String(Math.max(...current));
-}
-
-async function fetchCurrentRelease(): Promise<string> {
-  const response = await fetchOrThrow(
-    "https://bodhi.fedoraproject.org/releases/?rows_per_page=100",
-    "Bodhi releases",
-  );
-  const { releases } = (await response.json()) as { releases: BodhiRelease[] };
-  return resolveCurrentRelease(releases);
 }
 
 /**
@@ -109,13 +71,13 @@ export function mergeByName(repoEntries: FedoraCacheEntry[][]): FedoraCacheEntry
 
 /**
  * Downloads Fedora's Everything + updates repodata for the current
- * release/arch (resolved live via Bodhi — see `fetchCurrentRelease` —
+ * release/arch (resolved live via Bodhi — see `fetchCurrentFedoraRelease` —
  * rather than a hardcoded release number that would silently go stale
  * every ~6 months) and writes the merged, deduplicated entries to
  * `cachePath` as NDJSON. See docs/sources.md.
  */
 export async function fetchFedora(cachePath: string): Promise<number> {
-  const release = await fetchCurrentRelease();
+  const release = await fetchCurrentFedoraRelease();
   const repoBases = repoBasesFor(release);
   const repoEntries = await Promise.all(repoBases.map(fetchRepo));
   const entries = mergeByName(repoEntries);

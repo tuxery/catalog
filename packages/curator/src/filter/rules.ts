@@ -383,7 +383,9 @@ const DEB_FAMILY_GAME_SOURCES = new Set<PackageSourceId>([
  *   all games or a game's own data/server sub-package.
  * - openSUSE's `Amusements/Games` `<rpm:group>` prefix — all games, plus
  *   a couple of gaming-adjacent tools openSUSE itself groups here (e.g.
- *   `PlayOnLinux`, close enough to not chase further).
+ *   `PlayOnLinux`, close enough to not chase further). RPM Fusion reuses
+ *   the identical `Amusements/Games` prefix and convention — real games on
+ *   real data too (gltron, stepmania, doom-shareware, ...).
  * - Solus's `games.*`/`games` `PartOf` value — all games or
  *   gaming-adjacent tools Solus itself groups here (e.g. `antimicrox`,
  *   a joystick-to-keyboard mapper).
@@ -397,7 +399,9 @@ export function looksLikeGamePackage(
   if (section === undefined) return false;
   if (DEB_FAMILY_GAME_SOURCES.has(source)) return DEB_FAMILY_GAME_SECTIONS.has(section);
   if (source === "ebuild-gentoo") return section.startsWith("games-");
-  if (source === "rpm-opensuse") return section.startsWith("Amusements/Games");
+  if (source === "rpm-opensuse" || source === "rpm-rpmfusion") {
+    return section.startsWith("Amusements/Games");
+  }
   if (source === "eopkg-solus") return section === "games" || section.startsWith("games.");
   return false;
 }

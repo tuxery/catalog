@@ -18,6 +18,7 @@ const ALL_SOURCE_IDS = [
   "pacman-arch",
   "nix-nixpkgs",
   "rpm-opensuse",
+  "rpm-rpmfusion",
   "apk-alpine",
   "xbps-void",
   "slackware",

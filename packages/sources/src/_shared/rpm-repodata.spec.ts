@@ -1,4 +1,4 @@
-import { zstdCompressSync } from "node:zlib";
+import { gzipSync, zstdCompressSync } from "node:zlib";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { extractPrimaryLocation, fetchPrimaryXml, parsePrimaryXml } from "./rpm-repodata";
 
@@ -129,6 +129,42 @@ describe("fetchPrimaryXml", () => {
 
     expect(xml).toBe(PRIMARY_FIXTURE);
     expect(fetchMock).toHaveBeenCalledTimes(2);
+  });
+
+  it("picks gunzip instead of zstd when the location ends in .gz — RPM Fusion publishes this way, unlike Fedora/openSUSE's .zst", async () => {
+    const gzRepomd = REPOMD_FIXTURE.replace(
+      "repodata/c48e475-primary.xml.zst",
+      "repodata/c48e475-primary.xml.gz",
+    );
+    const compressedPrimary = gzipSync(Buffer.from(PRIMARY_FIXTURE, "utf8"));
+    const fetchMock = vi.fn<typeof fetch>((url) => {
+      const href = url.toString();
+      if (href === "https://example.com/repo/repodata/repomd.xml") {
+        return Promise.resolve(new Response(gzRepomd, { status: 200 }));
+      }
+      if (href === "https://example.com/repo/repodata/c48e475-primary.xml.gz") {
+        return Promise.resolve(new Response(compressedPrimary, { status: 200 }));
+      }
+      throw new Error(`unexpected URL in test: ${href}`);
+    });
+    vi.stubGlobal("fetch", fetchMock);
+
+    expect(await fetchPrimaryXml("https://example.com/repo", "Example")).toBe(PRIMARY_FIXTURE);
+  });
+
+  it("throws on an unrecognized compression extension rather than guessing", async () => {
+    const oddRepomd = REPOMD_FIXTURE.replace(
+      "repodata/c48e475-primary.xml.zst",
+      "repodata/c48e475-primary.xml.bz2",
+    );
+    vi.stubGlobal(
+      "fetch",
+      vi.fn<typeof fetch>(() => Promise.resolve(new Response(oddRepomd, { status: 200 }))),
+    );
+
+    await expect(fetchPrimaryXml("https://example.com/repo", "Example")).rejects.toThrow(
+      /unrecognized compression/,
+    );
   });
 
   it("throws a source-labeled error when repomd.xml itself fails to fetch", async () => {

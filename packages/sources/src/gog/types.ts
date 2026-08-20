@@ -14,9 +14,9 @@ export interface GogCacheEntry {
   /** Real product page URL, when the API provides one — see `fetch.ts`'s fallback for when it doesn't. */
   storeLink?: string;
   developers: string[];
-  /** Screenshot URLs with the size placeholder already resolved to a real, verified-working image — see `fetch.ts`'s `resolveScreenshotUrl`. */
+  /** Screenshot URLs with the size placeholder already resolved — see `fetch.ts`'s `resolveScreenshotUrl`. */
   screenshots: string[];
-  /** See `SourcedPackage.rating` — only set when GOG reports at least one real review (verified live: unreviewed products report `reviewsRating: 0, reviewsCount: 0`, dropped rather than kept as a fake zero rating). */
+  /** See `SourcedPackage.rating` — only set when GOG reports at least one real review; unreviewed products report `reviewsRating: 0, reviewsCount: 0`, dropped rather than kept as a fake zero rating. */
   rating?: { average: number; count: number };
 }
 

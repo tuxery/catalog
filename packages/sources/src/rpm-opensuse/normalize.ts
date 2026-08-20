@@ -8,8 +8,8 @@ export function normalize(entries: OpenSuseCacheEntry[]): SourcedPackage[] {
     description: entry.summary,
     version: entry.version,
     // openSUSE/RPM package names are unique within a repo/arch, and
-    // verified unique across oss + non-oss too (disjoint components, no
-    // overlap in the real data) — see fetch.ts.
+    // unique across oss + non-oss too since they're disjoint components
+    // with no overlap — see fetch.ts.
     appId: entry.name,
     homepage: entry.homepage,
     section: entry.group,

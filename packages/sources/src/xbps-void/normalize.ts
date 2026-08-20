@@ -16,9 +16,8 @@ export function normalize(entries: VoidCacheEntry[]): SourcedPackage[] {
     name: entry.name,
     description: entry.short_desc,
     version: extractVersion(entry.name, entry.pkgver),
-    // Void/xbps package names are unique within a repo/arch, and verified
-    // unique across main + nonfree + multilib too (disjoint, no overlap
-    // in the real data) — see fetch.ts.
+    // Void/xbps package names are unique within a repo/arch, and across
+    // main + nonfree + multilib too — see fetch.ts.
     appId: entry.name,
     homepage: entry.homepage,
   }));

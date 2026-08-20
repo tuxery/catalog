@@ -50,28 +50,19 @@ function unionByExactKey(
 // normalized name respectively), with nothing else to disambiguate —
 // safe for most names, but a short list of generic, desktop-environment-
 // style app names turn out to be reused by multiple genuinely different,
-// unrelated projects. Verified against the real dataset (each one traced
-// back to its actual constituent packages, not assumed from the name
-// alone) before excluding it from tier 2 — found via a real
-// cross-source-merge quality pass, not preemptively. Excluded from tier
-// 1 for the identical reason, added later once the same collision was
-// confirmed reachable through bare-appId sources too (AUR/Fedora/
-// Debian/... literally use the package name as appId), not because a
-// wrong merge had actually surfaced there yet:
+// unrelated projects:
 // - `calculator` — GNOME Calculator, KDE Kalk, ExpidusOS Calculator, and
-//   elementary's own Calculator are four separate projects that all
-//   happen to display as "Calculator".
+//   elementary's own Calculator: four separate projects sharing one
+//   display name.
 // - `weather` — GNOME Weather and KDE KWeather (separate projects) plus
 //   an unrelated AUR command-line weather-lookup utility.
-// - `calendar` — GNOME Calendar, elementary's own separate Calendar, the
-//   classic Unix `calendar` CLI utility, a Vim calendar plugin, an
-//   XEmacs calendar mode, and an OCaml calendar library — six unrelated
-//   things merged into one group before this fix.
-// - `contacts` / `camera` / `music` / `maps` — each pairs GNOME's own
-//   app with elementary's separate, independently-built app of the same
-//   name (not a rebrand — genuinely different codebases); `maps` also
-//   pulled in an unrelated academic "MaRDI4NFDI/maps" research-data
-//   package.
+// - `calendar` — GNOME Calendar, elementary's own Calendar, the classic
+//   Unix `calendar` CLI utility, a Vim plugin, an XEmacs mode, and an
+//   OCaml library — six unrelated things.
+// - `contacts` / `camera` / `music` / `maps` — each pairs GNOME's own app
+//   with elementary's separate, independently-built app of the same name
+//   (not a rebrand — genuinely different codebases); `maps` also pulls
+//   in an unrelated academic "MaRDI4NFDI/maps" research-data package.
 // - `notes` — nuttyartist/notes vs. GNOME's own Notes (upstream name
 //   Bijiben) — different projects sharing a generic display name.
 // - `photos` — KDE's koko image gallery, elementary's own separate
@@ -79,23 +70,26 @@ function unionByExactKey(
 //   to PHOTOS, a particle-physics simulation library — nothing to do
 //   with a photo gallery).
 // - `portfolio` — a file manager (Portfolio) vs. Portfolio Performance
-//   (an investment-tracking app) — unrelated software, not even the
-//   same category of app.
-// - `fuse` — the FUSE filesystem interface/reference implementation,
-//   the Fuse ZX Spectrum emulator, and a Perl "Fuse" module — three
-//   unrelated projects.
-// - `clock` / `mail` — KDE kclock plus an unrelated AUR clock utility
-//   and a Haskell time library; elementary's own Mail plus a Ruby email
+//   (an investment-tracking app) — unrelated software, not even the same
+//   category of app.
+// - `fuse` — the FUSE filesystem interface/reference implementation, the
+//   Fuse ZX Spectrum emulator, and a Perl "Fuse" module — three unrelated
+//   projects.
+// - `clock` / `mail` — KDE kclock plus an unrelated AUR clock utility and
+//   a Haskell time library; elementary's own Mail plus a Ruby email
 //   library — same "generic name, multiple real but unrelated matches"
 //   pattern (Gentoo's `acct-group`/`acct-user` system accounts also
-//   surfaced here, now separately excluded via
-//   `filter/rules.ts`'s `GENTOO_NOISE_CATEGORIES` before matching ever
-//   sees them).
+//   surfaced here, now separately excluded via `filter/rules.ts`'s
+//   `GENTOO_NOISE_CATEGORIES` before matching ever sees them).
+//
+// Blocked from both tiers: bare-appId sources (AUR/Fedora/Debian/...
+// literally use the package name as appId), so the same collision is
+// reachable there too, not just through normalized names.
 //
 // `terminal` was checked and NOT excluded: its only multi-source cluster
-// (void + gentoo, both "Terminal"/"terminal") turned out to be the exact
-// same GNUstep terminal-emulator project referenced from two sources —
-// a correct merge, not a bug.
+// (void + gentoo, both "Terminal"/"terminal") is the exact same GNUstep
+// terminal-emulator project referenced from two sources — a correct
+// merge, not a bug.
 const GENERIC_NAME_BLOCKLIST = new Set([
   "calculator",
   "weather",
@@ -118,14 +112,10 @@ const GENERIC_NAME_BLOCKLIST = new Set([
  * sources that hit this tier — AUR, Arch, Fedora, Debian/Ubuntu family,
  * Snapcraft, Alpine, Void, Slackware, Solus, openSUSE, Gentoo, nixpkgs —
  * use the literal, unnormalized package name as `appId`) — same
- * protection Tier 2 already had, closing a real gap: `unionByExactKey`
- * on raw `appId` alone had no defense against two of those sources
- * packaging genuinely unrelated software under one of these exact
- * generic words (the identical class of collision the blocklist's own
- * comment documents, just reachable through this tier too — confirmed
- * live: `fuse`, `weather`, `calendar`, and `notes` all currently union
- * 3-8 bare-appId sources into one group purely on this tier, today
- * correct by luck rather than by any actual guard).
+ * protection Tier 2 already had: `unionByExactKey` on raw `appId` alone
+ * had no defense against two of those sources packaging genuinely
+ * unrelated software under one of these exact generic words, the same
+ * class of collision the blocklist's own comment documents.
  */
 function tier1Key(pkg: SourcedPackage): string | undefined {
   if (!pkg.appId) return undefined;

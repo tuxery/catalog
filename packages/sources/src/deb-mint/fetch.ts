@@ -5,24 +5,16 @@ import { writeNdjson } from "../_shared/ndjson";
 import type { MintCacheEntry, MintFetchMetadata } from "./types";
 
 // Linux Mint publishes deb822 Packages files (same format as Debian/
-// Ubuntu, parsed with the same _shared/deb822.ts — Mint is a Debian/
-// Ubuntu derivative) across several components: main (Mint's own,
-// first-party apps — mintinstall, Warpinator, Hypnotix, Bulky, ...),
-// upstream (rebuilds of existing software, e.g. patched Chromium/Caja —
-// mostly redundant with Ubuntu's own coverage), import (third-party
-// proprietary convenience packages, e.g. Dropbox/Spotify — not Mint's
-// own software), and romeo/multiverse/universe (empty on real data).
-// Scoped to "main" only, matching the "genuinely unique in-house
-// software" intent this connector was added for — upstream/import are a
-// different category (rebuilds and third-party imports, not
-// Mint-authored apps), tracked as a possible follow-on rather than
-// bundled in here.
+// Ubuntu, parsed with the same _shared/deb822.ts) across several
+// components. Scoped to "main" only — Mint's own first-party apps
+// (mintinstall, Warpinator, Hypnotix, Bulky, ...) — since upstream/import
+// are rebuilds and third-party packages (patched Chromium/Caja, Dropbox,
+// Spotify), not Mint-authored software.
 //
 // HTTP, not HTTPS: matches the real, official default
 // /etc/apt/sources.list.d/official-package-repositories.list Mint ships
-// (http://packages.linuxmint.com, not https) — this isn't a workaround,
-// it's the actual supported scheme; HTTPS to this host also timed
-// out/refused the connection during development, consistent with that.
+// (http://packages.linuxmint.com) — this isn't a workaround, it's the
+// actual supported scheme.
 const RELEASE = "zena";
 const COMPONENT = "main";
 const ARCH = "amd64";

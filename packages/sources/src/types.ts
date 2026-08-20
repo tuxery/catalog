@@ -1,20 +1,16 @@
 // One id per connector folder under packages/sources/src/ — `<format>-<provider>`
 // rather than a bare provider name, so sources group by install mechanism
 // (the install-CTA logic cares that a .deb installs the same way regardless
-// of which distro ships it) rather than by distro/provider name alone. A
-// few exceptions keep a bare name: slackware (single format+provider
-// today, same reasoning), and gog/lutris (neither maps to a system
-// package format at all — GOG sells DRM-free installers/Galaxy client
-// downloads, Lutris installs via its own community-authored scripts — so
-// there's no `<format>` prefix to give them, same single-provider
-// reasoning). `appimage` itself is the one deliberate exception to its
-// own original reasoning: a second AppImage seed list (`appimage-manual`,
-// a hand-curated list for apps with no GitHub repo) has landed, exactly
-// the scenario that comment used to say would justify a rename to
-// `appimage-github` — but renaming the original now would break every
-// already-built CatalogApp id (`appimage:owner/repo`) and the cache
-// file's git history for a purely cosmetic gain, so it keeps its
-// historical bare name instead.
+// of which distro ships it) rather than by distro/provider name alone.
+// Exceptions keep a bare name: slackware (single format+provider, same
+// reasoning), and gog/lutris (neither maps to a system package format at
+// all — GOG sells DRM-free installers/Galaxy downloads, Lutris installs
+// via its own community-authored scripts — so there's no `<format>`
+// prefix to give them). `appimage` keeps its historical bare name even
+// though a second seed list (`appimage-manual`, for apps with no GitHub
+// repo) now exists too — renaming would break every already-built
+// CatalogApp id (`appimage:owner/repo`) and the cache file's git history
+// for a purely cosmetic gain.
 export type PackageSourceId =
   | "flatpak-flathub"
   | "flatpak-appcenter"
@@ -92,31 +88,25 @@ export interface SourcedPackage {
    * `games`) so it's directly comparable to Debian's bare value — Linux
    * Mint (a Debian/Ubuntu derivative publishing the identical deb822
    * format) reuses this exact vocabulary verbatim, no separate signal
-   * needed. Nixpkgs
-   * reuses this slot for its attribute-path namespace prefix instead
-   * (e.g. `python313Packages`, `kdePackages`, `rPackages`), and openSUSE
-   * for its RPM `<rpm:group>` value (a hierarchical path, e.g.
-   * `Development/Libraries/C and C++` — unlike Fedora, which uses the
-   * same RPM field but leaves it "Unspecified" on real data, openSUSE
-   * actually populates it, 69% non-empty). Differently-shaped per source
-   * (fixed vocabulary, version-numbered namespace, or hierarchical path)
-   * but the same underlying purpose. Used by `@tuxery/curator`'s filter
-   * as an additional noise signal alongside name patterns — see
-   * `filter/rules.ts`'s `looksLikeSupportSection`. Fedora and Arch's
-   * `desc` format don't populate this, and neither Alpine's `APKINDEX`
-   * format nor Void's `index.plist` have an equivalent field at all
-   * (verified against their real schemas — Alpine:
-   * P/V/A/S/I/T/U/L/o/m/t/c/D/p/i/k only; Void: architecture, homepage,
-   * license, maintainer, pkgver, provides, run_depends, shlib-requires,
-   * short_desc, source-revisions, sourcepkg only — no category/group
-   * field in either). Slackware reuses this slot for its package
+   * needed. Nixpkgs reuses this slot for its attribute-path namespace
+   * prefix instead (e.g. `python313Packages`, `kdePackages`,
+   * `rPackages`), and openSUSE for its RPM `<rpm:group>` value (a
+   * hierarchical path, e.g. `Development/Libraries/C and C++` — unlike
+   * Fedora, which uses the same RPM field but leaves it "Unspecified" on
+   * real data, openSUSE actually populates it). Differently-shaped per
+   * source (fixed vocabulary, version-numbered namespace, or
+   * hierarchical path) but the same underlying purpose. Used by
+   * `@tuxery/curator`'s filter as an additional noise signal alongside
+   * name patterns — see `filter/rules.ts`'s `looksLikeSupportSection`.
+   * Fedora and Arch's `desc` format don't populate this, and neither
+   * Alpine's `APKINDEX` format nor Void's `index.plist` have an
+   * equivalent field at all. Slackware reuses this slot for its package
    * "series" — a short component code from `PACKAGE LOCATION` (e.g. `l`
    * for libraries, `kde`, `xfce`, `y` for games), Slackware's own
    * closest thing to a Section vocabulary, though far coarser than
-   * Debian's (15 series total across the whole tree). Solus reuses this
-   * slot again for its `PartOf` value — a dotted hierarchical grouping
-   * (e.g. `games.strategy`, `programming.library`), 115 distinct values
-   * on real data, richer than Slackware's but not as strictly
+   * Debian's. Solus reuses this slot again for its `PartOf` value — a
+   * dotted hierarchical grouping (e.g. `games.strategy`,
+   * `programming.library`), richer than Slackware's but not as strictly
    * hierarchical as openSUSE's RPM Group path.
    */
   section?: string;
@@ -126,14 +116,13 @@ export interface SourcedPackage {
    * automatically for any package that ships a `.desktop` file, a
    * near-direct "this installs a launchable GUI app" signal. Only
    * Fedora and openSUSE currently populate this (both parsed via
-   * `_shared/rpm-repodata.ts`) — verified real but low-coverage on both
-   * (~3% of packages), since most GUI apps just don't happen to trigger
-   * this particular synthetic-provides convention; absence isn't
-   * evidence of "not a GUI app", only `true` is meaningful. Used by
-   * `@tuxery/curator`'s enrich stage to set `CatalogApp.kind` — see the
-   * "GUI vs CLI classification" card for the broader (not yet
-   * implemented) plan, including a weaker Debian/Ubuntu Section-based
-   * heuristic.
+   * `_shared/rpm-repodata.ts`) — low coverage but precise where present,
+   * since most GUI apps just don't happen to trigger this particular
+   * synthetic-provides convention; absence isn't evidence of "not a GUI
+   * app", only `true` is meaningful. Used by `@tuxery/curator`'s enrich
+   * stage to set `CatalogApp.kind` — see the "GUI vs CLI classification"
+   * card for the broader (not yet implemented) plan, including a weaker
+   * Debian/Ubuntu Section-based heuristic.
    */
   hasDesktopFile?: boolean;
   /**
@@ -182,9 +171,9 @@ export interface SourcedPackage {
    * evidence (never a synthetic 0/0), same positive-evidence-only
    * discipline as `hasGameCategory`. Two independent sources today:
    * Flathub/AppCenter join in GNOME's ODRS community ratings by
-   * AppStream id (see `_shared/odrs.ts` — sparse, ~6%/~4% real
-   * coverage), and GOG exposes its own `reviewsRating`/`reviewsCount`
-   * directly on its catalog API (games only). `@tuxery/curator` combines
+   * AppStream id (see `_shared/odrs.ts` — sparse real coverage), and GOG
+   * exposes its own `reviewsRating`/`reviewsCount` directly on its
+   * catalog API (games only). `@tuxery/curator` combines
    * every member package's rating into a count-weighted average for
    * `CatalogApp.rating` — see `enrich/index.ts`'s `aggregateRating`; the
    * per-source figures stay visible on each `SourcedPackage` here for a
@@ -198,13 +187,12 @@ export interface SourcedPackage {
    * entry), not a directly comparable absolute count across sources the
    * way `rating` is. Two independent sources today: AUR's own decayed
    * usage-frequency `Popularity` field (already present in the bulk
-   * metadata dump every `pacman-aur` fetch already downloads — ranked
-   * across all ~118k real entries, only the ~23% with any real votes get
-   * a score) and Flathub's own "Popular" collection API (a live top-250
-   * ranked list — apps outside it get no score, never a fake bottom
-   * value). `@tuxery/curator` averages whichever member packages have a
-   * score into `CatalogApp.popularity` — see `enrich/index.ts`'s
-   * `aggregatePopularity`.
+   * metadata dump every `pacman-aur` fetch already downloads — only
+   * entries with any real votes get a score) and Flathub's own "Popular"
+   * collection API (a live top-250 ranked list — apps outside it get no
+   * score, never a fake bottom value). `@tuxery/curator` averages
+   * whichever member packages have a score into `CatalogApp.popularity`
+   * — see `enrich/index.ts`'s `aggregatePopularity`.
    */
   popularity?: number;
 }

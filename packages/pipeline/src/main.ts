@@ -17,8 +17,8 @@ async function main() {
 
   await mkdir(dirname(OUT_PATH), { recursive: true });
   // Compact, not pretty-printed — this file is only ever machine-read
-  // (scripts/seed.ts's reuse-tier check), never manually inspected;
-  // indentation costs ~28% extra bytes/parse time for zero benefit here.
+  // (scripts/seed.ts's reuse-tier check), never manually inspected, so
+  // indentation would just cost extra bytes/parse time for no benefit.
   await writeFile(OUT_PATH, JSON.stringify(dataset));
   console.log(`Wrote ${dataset.apps.length} apps to ${OUT_PATH}.`);
 

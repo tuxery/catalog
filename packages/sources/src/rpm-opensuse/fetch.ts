@@ -14,9 +14,8 @@ import type { OpenSuseCacheEntry, OpenSuseFetchMetadata } from "./types";
 //
 // Unlike Fedora, there's no per-arch repo directory to pick — each repo's
 // primary.xml already bundles every package's `<arch>` in one file, and on
-// real data that's only ever "x86_64" or "noarch" (verified: oss's 52,482
-// entries split exactly into 24,777 x86_64 + 27,705 noarch, no i586/src/
-// other arch mixed in), so no arch filtering is needed either.
+// real data that's only ever "x86_64" or "noarch", so no arch filtering is
+// needed either.
 const REPOS = [
   { id: "oss", base: "https://download.opensuse.org/tumbleweed/repo/oss" },
   { id: "non-oss", base: "https://download.opensuse.org/tumbleweed/repo/non-oss" },

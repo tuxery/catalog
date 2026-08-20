@@ -13,17 +13,12 @@ const SEED_PATH = join(import.meta.dirname, "manual-appimages.ndjson");
 
 // Deliberately records `homepage` (where a user goes to get the app), not
 // a raw AppImage download URL — matching the `appimage` connector's own
-// precedent (its `homepage` is the GitHub repo page, not a direct binary
-// link; the install CTA always sends the user to a page, never attempts
-// a one-click file fetch). Investigated going further for the motivating
-// pCloud case: its real download link is resolved via a live call to
-// `api.pcloud.com/getpublinkdownload?code=<fixed-code>` (confirmed
-// working, verified live) rather than a static URL — the API response's
-// `expires` field is only hours out, so even a "resolve once, cache the
-// result" approach would go stale between weekly refreshes. Not worth
-// the added fetch-time complexity (and the trust question of embedding
-// pCloud's public-link code) when linking to their own install page
-// already matches how every other AppImage entry behaves.
+// precedent (its homepage is the GitHub repo page, not a direct binary
+// link). pCloud, the motivating case, resolves its real download link via
+// a live API call whose response expires in hours — even caching the
+// resolved URL would go stale between weekly refreshes, and embedding
+// pCloud's public-link code raises its own trust questions. Linking to
+// the install page instead matches how every other AppImage entry behaves.
 export function loadSeed(): ManualAppImageCacheEntry[] {
   return readNdjson<ManualAppImageCacheEntry>(SEED_PATH);
 }

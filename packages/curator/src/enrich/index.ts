@@ -2,6 +2,7 @@ import type { PackageSourceId, SourcedPackage } from "@tuxery/sources";
 import { looksLikeGamePackage, looksLikeGuiPackage } from "../filter/rules";
 import type { MatchedApp } from "../match/group";
 import { pickCategory } from "./category";
+import { applySuites, loadSuiteOverrides, type SuiteOverrideEntry } from "./suite";
 import type { CatalogApp } from "./types";
 
 /**
@@ -134,8 +135,11 @@ function aggregatePopularity(packages: SourcedPackage[]): number | undefined {
 }
 
 /** Turns grouped packages into the display-ready `CatalogApp` records the website reads — see `types.ts` for what's populated today vs. tracked as roadmap. */
-export function enrichApps(matched: MatchedApp[]): CatalogApp[] {
-  return matched.map((app) => {
+export function enrichApps(
+  matched: MatchedApp[],
+  suiteOverrides: SuiteOverrideEntry[] = loadSuiteOverrides(),
+): CatalogApp[] {
+  const apps: CatalogApp[] = matched.map((app) => {
     const representative = pickByPriority(app.packages);
 
     return {
@@ -158,4 +162,11 @@ export function enrichApps(matched: MatchedApp[]): CatalogApp[] {
       popularity: aggregatePopularity(app.packages),
     };
   });
+
+  // Cross-app, so it has to run over the fully-built array rather than
+  // per-app inside the map above — a component needs to look up its
+  // already-enriched main app (and vice versa) by id.
+  applySuites(apps, suiteOverrides);
+
+  return apps;
 }

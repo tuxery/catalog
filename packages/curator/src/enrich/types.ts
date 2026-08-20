@@ -148,4 +148,27 @@ export interface CatalogApp {
   gdprCompliant?: boolean;
   /** Manual curation only — not derived from any source, needs its own overrides-style file when picked up. */
   editorialTags?: string[];
+  /**
+   * Software-suite membership — a bundled "main" app (e.g. LibreOffice's
+   * single Flathub flatpak, which the match tiers already fold
+   * deb/Fedora's own bare `libreoffice` metapackage into) plus separately
+   * installable "component" apps (LibreOffice Writer, Calc, ...) that
+   * each source packages independently. Manual curation only, from
+   * `overrides/suites.ndjson` — see `enrich/suite.ts`'s `applySuites`
+   * and that file's own comment for why this isn't auto-detected.
+   * `undefined` for every app not part of a known suite (the vast
+   * majority). Doesn't record which sources are "bundled" vs.
+   * "component-only" as a separate field — each app's own `packages`
+   * array already answers that (a source present there installs *this*
+   * app directly).
+   */
+  suite?: {
+    id: string;
+    name: string;
+    role: "main" | "component";
+    /** Only set when `role` is `"main"`. */
+    components?: { id: string; name: string }[];
+    /** Only set when `role` is `"component"`. */
+    mainApp?: { id: string; name: string };
+  };
 }

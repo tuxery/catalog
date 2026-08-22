@@ -28,4 +28,15 @@ describe("loadFilterOverrides", () => {
     expect(overrides.keep.has("pacman-aur:libreddit")).toBe(true);
     expect(overrides.keep.has("pacman-aur:libremines")).toBe(true);
   });
+
+  it("rescues the real gnome-shell-extension-manager/-installer exceptions via keep.ndjson", () => {
+    // Regression guard for the desktop-shell-extension noise prefix (see
+    // filter/rules.ts) — these are real standalone tools, not extensions
+    // themselves.
+    const overrides = loadFilterOverrides();
+
+    expect(overrides.keep.has("deb-debian:gnome-shell-extension-manager")).toBe(true);
+    expect(overrides.keep.has("deb-ubuntu:gnome-shell-extension-manager")).toBe(true);
+    expect(overrides.keep.has("pacman-aur:gnome-shell-extension-installer")).toBe(true);
+  });
 });

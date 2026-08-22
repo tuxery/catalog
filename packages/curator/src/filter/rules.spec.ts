@@ -68,6 +68,44 @@ describe("looksLikeSupportPackage", () => {
     expect(looksLikeSupportPackage("ripgrep")).toBe(false);
     expect(looksLikeSupportPackage("0ad")).toBe(false);
   });
+
+  it("flags GNOME Shell extensions", () => {
+    expect(looksLikeSupportPackage("gnome-shell-extension-dash-to-panel")).toBe(true);
+    expect(looksLikeSupportPackage("gnome-shell-extension-appindicator")).toBe(true);
+  });
+
+  it("rescues the real GNOME Shell extension-manager/-installer tools, not extensions themselves", () => {
+    // Real standalone apps despite the noise prefix — see
+    // overrides/keep.ndjson.
+    expect(looksLikeSupportPackage("gnome-shell-extension-manager")).toBe(true);
+    expect(looksLikeSupportPackage("gnome-shell-extension-installer")).toBe(true);
+  });
+
+  it("flags KWin effects/styles/decorations, not the compositor itself", () => {
+    expect(looksLikeSupportPackage("kwin-effects-burn-my-windows")).toBe(true);
+    expect(looksLikeSupportPackage("kwin-style-breeze")).toBe(true);
+    expect(looksLikeSupportPackage("kwin-decoration-oxygen")).toBe(true);
+    expect(looksLikeSupportPackage("kwin")).toBe(false);
+    expect(looksLikeSupportPackage("kwin-x11")).toBe(false);
+    expect(looksLikeSupportPackage("kwindowsystem")).toBe(false);
+  });
+
+  it("flags Plasma applets/plasmoids in both prefix and suffix naming forms", () => {
+    expect(looksLikeSupportPackage("plasma6-applets-appgrid")).toBe(true);
+    expect(looksLikeSupportPackage("plasma-applet-commandoutput")).toBe(true);
+    expect(looksLikeSupportPackage("kalgebra-plasmoid")).toBe(true);
+    expect(looksLikeSupportPackage("kalgebra-plasma-applet")).toBe(true);
+    expect(looksLikeSupportPackage("fancontrol-plasmoid-git")).toBe(true);
+  });
+
+  it("flags only COSMIC's applet subset, not the broader cosmic-ext- prefix", () => {
+    // Verified live: cosmic-ext- also covers real standalone third-party
+    // COSMIC apps (calculator, tweaks, control-center, ...), not just
+    // panel applets — a blanket prefix would have wrongly excluded those.
+    expect(looksLikeSupportPackage("cosmic-ext-applet-weather")).toBe(true);
+    expect(looksLikeSupportPackage("cosmic-ext-calculator")).toBe(false);
+    expect(looksLikeSupportPackage("cosmic-ext-tweaks")).toBe(false);
+  });
 });
 
 describe("looksLikeSupportSection", () => {

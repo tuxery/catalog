@@ -45,6 +45,35 @@ const NOISE_PATTERNS: RegExp[] = [
   // perl, ...) is already caught by the blanket `^lib` prefix above, since
   // that convention always starts with "lib".
   /^(perl|ocaml|ghc|lua[\d.]*|R|tcl)-/,
+  // Desktop-shell extensions/widgets (GNOME Shell, KWin, Plasma, COSMIC) —
+  // need their shell/compositor as a host to do anything, same "not
+  // launchable on its own" reasoning as a library. Decided 2026-08-20:
+  // exclude for now rather than build a dedicated "Extensions" section:
+  // - `gnome-shell-extension-` — real and large (verified live: 422 AUR,
+  //   1,378 Nixpkgs, 48 Fedora, 41 Debian, among others). Two real
+  //   standalone tools happen to share the prefix despite not being
+  //   extensions themselves — `gnome-shell-extension-manager` (a GTK app)
+  //   and `-installer` (a bash script) — rescued via `overrides/keep.ndjson`.
+  // - `kwin-effect(s)-`/`kwin-style-`/`kwin-decoration-` — KWin visual
+  //   effects/window themes (kwin-effects-burn-my-windows,
+  //   kwin-style-breeze, kwin-decoration-oxygen, ...). Deliberately doesn't
+  //   match bare `kwin`/`kwin-x11`/`kwin-wayland`/`kwin-common`/etc. — the
+  //   compositor itself, a different (if also not very "launchable")
+  //   category not in scope here.
+  // - `plasma[0-9]*-applets?-` / `-plasma-applet` / `-plasmoid[-git]` —
+  //   Plasma widgets, whose naming shows up as both a prefix
+  //   (plasma6-applets-kara) and a suffix (kalgebra-plasmoid,
+  //   kclock-plasma-applet) depending on packager.
+  // - `cosmic-ext-applet-` only, not the broader `cosmic-ext-` prefix —
+  //   verified live that `cosmic-ext-` also covers real standalone
+  //   third-party COSMIC-ecosystem apps (cosmic-ext-calculator,
+  //   cosmic-ext-tweaks, cosmic-ext-control-center, ...), not just panel
+  //   applets — a blanket `cosmic-ext-` prefix would have wrongly excluded
+  //   those.
+  /^gnome-shell-extension-/,
+  /^kwin-(effects?|style|decoration)-/,
+  /^plasma\d*-applets?-|-plasma-applet$|-plasmoid(-git)?$/,
+  /^cosmic-ext-applet-/,
 ];
 
 /**

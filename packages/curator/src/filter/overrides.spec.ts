@@ -39,4 +39,17 @@ describe("loadFilterOverrides", () => {
     expect(overrides.keep.has("deb-ubuntu:gnome-shell-extension-manager")).toBe(true);
     expect(overrides.keep.has("pacman-aur:gnome-shell-extension-installer")).toBe(true);
   });
+
+  it("rescues the real SDK-toolchain exceptions via keep.ndjson", () => {
+    // Regression guard for the -sdk noise pattern (see filter/rules.ts) —
+    // dotnet-sdk, wasi-sdk, google-cloud-sdk and bare android-sdk are real
+    // CLI toolchains, not API client libraries.
+    const overrides = loadFilterOverrides();
+
+    expect(overrides.keep.has("snap-snapcraft:dotnet-sdk")).toBe(true);
+    expect(overrides.keep.has("rpm-fedora:dotnet-sdk-9.0")).toBe(true);
+    expect(overrides.keep.has("apk-alpine:wasi-sdk")).toBe(true);
+    expect(overrides.keep.has("nix-nixpkgs:google-cloud-sdk")).toBe(true);
+    expect(overrides.keep.has("pacman-aur:android-sdk")).toBe(true);
+  });
 });

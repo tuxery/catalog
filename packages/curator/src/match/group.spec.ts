@@ -46,6 +46,39 @@ describe("groupPackages", () => {
     expect(groupPackages(packages, NO_OVERRIDES)).toHaveLength(1);
   });
 
+  it("unions an AUR -git package with its unsuffixed twin, same or other source (tier 2: AUR VCS-suffix convention)", () => {
+    const packages = [
+      pkg({ source: "pacman-aur", name: "0xtools", appId: "0xtools" }),
+      pkg({ source: "pacman-aur", name: "0xtools-git", appId: "0xtools-git" }),
+    ];
+
+    const groups = groupPackages(packages, NO_OVERRIDES);
+    expect(groups).toHaveLength(1);
+    expect(groups[0]?.packages).toHaveLength(2);
+  });
+
+  it("does not union a bare AUR package with an unrelated one that merely shares a different VCS suffix", () => {
+    const packages = [
+      pkg({ source: "pacman-aur", name: "foo-svn", appId: "foo-svn" }),
+      pkg({ source: "pacman-aur", name: "foo-hg", appId: "foo-hg" }),
+    ];
+
+    // Both strip down to the same base "foo" — still a correct union,
+    // just via two different VCS backends for the same upstream project.
+    expect(groupPackages(packages, NO_OVERRIDES)).toHaveLength(1);
+  });
+
+  it("does not strip a VCS-shaped suffix from non-AUR sources", () => {
+    const packages = [
+      pkg({ source: "deb-debian", name: "widget-git", appId: undefined }),
+      pkg({ source: "deb-debian", name: "widget", appId: undefined }),
+    ];
+
+    // Debian doesn't use AUR's VCS-suffix convention — "widget-git" and
+    // "widget" could be genuinely unrelated packages, so no stripping.
+    expect(groupPackages(packages, NO_OVERRIDES)).toHaveLength(2);
+  });
+
   it("unions on appId even when names are completely different — appId is a stronger signal than name similarity", () => {
     const packages = [
       pkg({ source: "flatpak-flathub", name: "vscode", appId: "com.visualstudio.code" }),

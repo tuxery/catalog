@@ -106,6 +106,33 @@ describe("looksLikeSupportPackage", () => {
     expect(looksLikeSupportPackage("cosmic-ext-calculator")).toBe(false);
     expect(looksLikeSupportPackage("cosmic-ext-tweaks")).toBe(false);
   });
+
+  it("flags DKMS kernel modules — never launched on their own, same as a library", () => {
+    expect(looksLikeSupportPackage("nvidia-580xx-dkms")).toBe(true);
+    expect(looksLikeSupportPackage("acpi-call-dkms")).toBe(true);
+    expect(looksLikeSupportPackage("bbswitch-dkms")).toBe(true);
+    expect(looksLikeSupportPackage("8188eu-dkms-git")).toBe(true);
+    // Verified live: real driver variants tag a version/suffix after
+    // "dkms" rather than ending there (Ubuntu's own nvidia-dkms-535-open,
+    // AUR's nvidia-340xx-dkms-macbook), so the pattern can't be a strict
+    // suffix match.
+    expect(looksLikeSupportPackage("nvidia-dkms-535-open")).toBe(true);
+    expect(looksLikeSupportPackage("nvidia-340xx-dkms-macbook")).toBe(true);
+  });
+
+  it("flags SDK-shaped names — verified live: overwhelmingly per-service API client libraries or build kits, not launchable tools", () => {
+    expect(looksLikeSupportPackage("aws-sdk-cpp-accessanalyzer")).toBe(true);
+    expect(looksLikeSupportPackage("aliyun-python-sdk")).toBe(true);
+    expect(looksLikeSupportPackage("py3-sentry-sdk")).toBe(true);
+    expect(looksLikeSupportPackage("plasma-sdk")).toBe(true);
+    expect(looksLikeSupportPackage("android-sdk-build-tools")).toBe(true);
+    // The real exceptions (dotnet-sdk, wasi-sdk, google-cloud-sdk, bare
+    // android-sdk) still match this name pattern — the rescue happens via
+    // overrides/keep.ndjson, same layering as the libreoffice/
+    // gnome-shell-extension-manager exceptions elsewhere in this file.
+    expect(looksLikeSupportPackage("dotnet-sdk")).toBe(true);
+    expect(looksLikeSupportPackage("android-sdk")).toBe(true);
+  });
 });
 
 describe("looksLikeSupportSection", () => {

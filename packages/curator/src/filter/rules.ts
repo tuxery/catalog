@@ -74,6 +74,28 @@ const NOISE_PATTERNS: RegExp[] = [
   /^kwin-(effects?|style|decoration)-/,
   /^plasma\d*-applets?-|-plasma-applet$|-plasmoid(-git)?$/,
   /^cosmic-ext-applet-/,
+  // DKMS kernel modules/drivers (nvidia-580xx-dkms, acpi-call-dkms,
+  // bbswitch-dkms, nvidia-dkms-535-open, nvidia-340xx-dkms-macbook, ...)
+  // — need `insmod`/the kernel itself as a host, never launched on their
+  // own, same reasoning as a library. Verified live: 484+ in AUR alone
+  // plus Ubuntu's own nvidia-dkms-<version>[-open|-server] driver
+  // packages, no exceptions found — every sample was a driver, whether
+  // "dkms" lands as a clean suffix or has a version/variant tag after it.
+  /-dkms(-|$)/,
+  // "SDK"-named packages — verified live: overwhelmingly per-service API
+  // client libraries (aws-sdk-cpp-<service>: 400+ packages across
+  // sources, one per AWS service; aliyun-python-sdk: 490 in Nixpkgs
+  // alone; azure-sdk, py3-sentry-sdk/slack-sdk/splunk-sdk, ...) or build
+  // kits (plasma-sdk, libreoffice-sdk, the KDE/Qt Snapcraft "content
+  // snap" SDKs) — never launched, same shape as the library patterns
+  // above. Real exceptions exist and are rescued via
+  // overrides/keep.ndjson: dotnet-sdk (a real CLI toolchain — `dotnet
+  // build`/`dotnet run` — across its several per-distro naming schemes),
+  // wasi-sdk (a clang-based toolchain), google-cloud-sdk (the `gcloud`
+  // CLI), and bare android-sdk (`sdkmanager`) — but NOT its per-component
+  // sub-packages (android-sdk-build-tools-*, -platform-tools, -cmake-*),
+  // which are libraries, not the tool itself.
+  /(^|-)sdk(-|$)/,
 ];
 
 /**

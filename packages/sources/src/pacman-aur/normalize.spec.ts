@@ -22,4 +22,15 @@ describe("aur normalize", () => {
       },
     ]);
   });
+
+  it("reads a VCS-suffix package's channel from its name", () => {
+    const entry: AurCacheEntry = {
+      name: "0xtools-git",
+      description: "0x.Tools: X-Ray vision for Linux systems",
+      version: "1.0.0.r5.g1234567-1",
+      homepage: "https://github.com/tanelpoder/0xtools",
+    };
+
+    expect(normalize([entry])[0]?.channel).toBe("git");
+  });
 });

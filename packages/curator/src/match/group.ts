@@ -122,13 +122,27 @@ function tier1Key(pkg: SourcedPackage): string | undefined {
   return GENERIC_NAME_BLOCKLIST.has(normalizeName(pkg.appId)) ? undefined : pkg.appId;
 }
 
+// AUR's own submission guidelines reserve these suffixes for a
+// rolling-release snapshot build of the exact same software as the
+// unsuffixed package (verified live: 8,312 AUR name-pairs share a base
+// name this way, e.g. `0xtools`/`0xtools-git`) — not a different
+// project, unlike every other name collision this file guards against.
+// AUR-only: no equivalent convention verified elsewhere yet.
+const AUR_VCS_SUFFIX = /-(git|svn|hg|bzr|cvs)$/;
+
 /**
- * Tier 2's key function — `normalizeName`, except for `GENERIC_NAME_BLOCKLIST`
- * entries, which return `undefined` (skipped by `unionByExactKey`, same as
- * a package with no name at all) so they never union on name alone.
+ * Tier 2's key function — `normalizeName`, except:
+ * - `GENERIC_NAME_BLOCKLIST` entries return `undefined` (skipped by
+ *   `unionByExactKey`, same as a package with no name at all) so they
+ *   never union on name alone.
+ * - AUR packages ending in `AUR_VCS_SUFFIX` are keyed on their
+ *   VCS-suffix-stripped name instead, so e.g. `0xtools-git` unions with
+ *   `0xtools` (AUR's own bare package, or any other source's) rather
+ *   than staying a permanent duplicate.
  */
 function tier2Key(pkg: SourcedPackage): string | undefined {
-  const normalized = normalizeName(pkg.name);
+  const name = pkg.source === "pacman-aur" ? pkg.name.replace(AUR_VCS_SUFFIX, "") : pkg.name;
+  const normalized = normalizeName(name);
   return GENERIC_NAME_BLOCKLIST.has(normalized) ? undefined : normalized;
 }
 
@@ -147,6 +161,9 @@ function tier2Key(pkg: SourcedPackage): string | undefined {
  *    names (Flathub's "Firefox", AppImage's "GIMP") to the appId-based
  *    groups above. Skips `GENERIC_NAME_BLOCKLIST` entries — see its
  *    comment for the real cross-source false-merges that motivated it.
+ *    Also folds AUR's `-git`/`-svn`/`-hg`/`-bzr`/`-cvs` VCS-suffix
+ *    packaging convention into the same key as its unsuffixed twin — see
+ *    `tier2Key`'s comment.
  *
  * No fuzzy/scored tier: with `score.ts`'s current weights (name 0.5,
  * appId 0.35, icon 0.15) and a 0.75 threshold, any pair reaching

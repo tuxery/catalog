@@ -68,6 +68,17 @@ describe("groupPackages", () => {
     expect(groupPackages(packages, NO_OVERRIDES)).toHaveLength(1);
   });
 
+  it("unions an AUR -bin (prebuilt binary) package with its unsuffixed twin — the real zen-browser bug report", () => {
+    const packages = [
+      pkg({ source: "pacman-aur", name: "zen-browser", appId: "zen-browser" }),
+      pkg({ source: "pacman-aur", name: "zen-browser-bin", appId: "zen-browser-bin" }),
+    ];
+
+    const groups = groupPackages(packages, NO_OVERRIDES);
+    expect(groups).toHaveLength(1);
+    expect(groups[0]?.packages).toHaveLength(2);
+  });
+
   it("does not strip a VCS-shaped suffix from non-AUR sources", () => {
     const packages = [
       pkg({ source: "deb-debian", name: "widget-git", appId: undefined }),
@@ -188,5 +199,42 @@ describe("groupPackages", () => {
     const packages = [pkg({ source: "flatpak-flathub", name: "Solo", appId: "org.example.solo" })];
 
     expect(groupPackages(packages)).toHaveLength(1);
+  });
+
+  it("real-world regression: Zen Browser merges across sources, without pulling in the unrelated AUR 'zen' tool", () => {
+    // The exact user-reported bug: flatpak-flathub:app.zen_browser.zen,
+    // snap-snapcraft:zen-browser-snap, and pacman-aur:zen-browser-bin were
+    // three separate apps. Root causes, found live: (1) AUR's -bin
+    // prebuilt-binary convention wasn't stripped like -git already was,
+    // so zen-browser-bin never joined zen-browser/zen-browser-snap: fixed
+    // by AUR_VARIANT_SUFFIX. (2) Flathub's short "Zen" name was instead
+    // merging with an unrelated AUR "zen" (a C-language stress-relief
+    // tool, nothing to do with the browser) via the generic-word
+    // collision GENERIC_NAME_BLOCKLIST exists for: fixed by blocklisting
+    // "zen" and bridging Flathub's real appId to AUR's zen-browser
+    // family via overrides/manual-matches.ndjson instead.
+    const packages = [
+      pkg({ source: "flatpak-flathub", name: "Zen", appId: "app.zen_browser.zen" }),
+      pkg({ source: "snap-snapcraft", name: "Zen Browser", appId: "zen-browser-snap" }),
+      pkg({ source: "pacman-aur", name: "zen-browser", appId: "zen-browser" }),
+      pkg({ source: "pacman-aur", name: "zen-browser-bin", appId: "zen-browser-bin" }),
+      pkg({
+        source: "pacman-aur",
+        name: "zen",
+        appId: "zen",
+        description: "Reduce your stress with the C language",
+      }),
+    ];
+
+    const groups = groupPackages(packages);
+    const browserGroup = groups.find((g) =>
+      g.packages.some((p) => p.appId === "app.zen_browser.zen"),
+    );
+
+    expect(browserGroup?.packages).toHaveLength(4);
+    expect(browserGroup?.packages.some((p) => p.appId === "zen")).toBe(false);
+    expect(groups.some((g) => g.packages.length === 1 && g.packages[0]?.appId === "zen")).toBe(
+      true,
+    );
   });
 });

@@ -1,17 +1,19 @@
 import type { SourcedPackage } from "../types";
 import type { AurCacheEntry } from "./types";
 
-// AUR's own submission guidelines reserve these suffixes for a
-// rolling-release snapshot build of the exact same software as the
-// unsuffixed package (e.g. `0xtools-git` tracks `0xtools`'s upstream repo
-// directly) — not a different project. Also used by
-// `@tuxery/curator`'s match tier to merge the two into one app; see
-// `match/group.ts`'s `AUR_VCS_SUFFIX`.
-const VCS_SUFFIX = /-(git|svn|hg|bzr|cvs)$/;
+// AUR's own submission guidelines reserve these suffixes for an alternate
+// build of the exact same software as the unsuffixed package — not a
+// different project. Two conventions: `-git`/`-svn`/`-hg`/`-bzr`/`-cvs`
+// mark a rolling-release snapshot build (e.g. `0xtools-git` tracks
+// `0xtools`'s upstream repo directly); `-bin` marks a prebuilt-binary
+// build instead of building from source (e.g. `zen-browser-bin`). Also
+// used by `@tuxery/curator`'s match tier to merge each variant into its
+// base package's app; see `match/group.ts`'s `AUR_VARIANT_SUFFIX`.
+const VARIANT_SUFFIX = /-(git|svn|hg|bzr|cvs|bin)$/;
 
 export function normalize(entries: AurCacheEntry[]): SourcedPackage[] {
   return entries.map((entry) => {
-    const vcsMatch = VCS_SUFFIX.exec(entry.name);
+    const variantMatch = VARIANT_SUFFIX.exec(entry.name);
 
     return {
       source: "pacman-aur",
@@ -23,7 +25,7 @@ export function normalize(entries: AurCacheEntry[]): SourcedPackage[] {
       appId: entry.name,
       homepage: entry.homepage,
       popularity: entry.popularity,
-      channel: vcsMatch ? vcsMatch[1] : undefined,
+      channel: variantMatch ? variantMatch[1] : undefined,
     };
   });
 }

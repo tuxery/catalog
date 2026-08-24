@@ -30,6 +30,10 @@ export interface AppCenterCacheEntry {
   longDescription?: string;
   /** See `SourcedPackage.screenshots`. */
   screenshots: string[];
+  /** See `SourcedPackage.languages`. */
+  languages?: string[];
+  /** See `SourcedPackage.changelog`. */
+  changelog?: string;
   /** See `SourcedPackage.rating`. */
   rating?: { average: number; count: number };
 }

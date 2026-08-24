@@ -14,9 +14,21 @@ const FIXTURE = `<?xml version="1.0" encoding="UTF-8"?>
     <url type="bugtracker">https://bugzilla.mozilla.org/</url>
     <url type="homepage">https://www.mozilla.org/firefox/</url>
     <releases>
-      <release timestamp="1786320000" version="153.0.4"/>
+      <release timestamp="1786320000" version="153.0.4">
+        <description>
+          <p>Fixed a crash on startup.</p>
+          <ul>
+            <li>Improved tab switching speed</li>
+          </ul>
+        </description>
+      </release>
       <release timestamp="1783728000" version="152.0"/>
     </releases>
+    <languages>
+      <lang percentage="100">en_US</lang>
+      <lang percentage="87">fr</lang>
+      <lang percentage="62">de</lang>
+    </languages>
   </component>
   <component type="console-application">
     <id>org.example.Cli</id>
@@ -145,6 +157,33 @@ describe("parseAppstreamXml", () => {
     const firefox = entries.find((entry) => entry.id === "org.mozilla.firefox");
 
     expect(firefox?.version).toBe("153.0.4");
+  });
+
+  it("extracts language codes from <languages><lang>, dropping the percentage attribute", () => {
+    const firefox = entries.find((entry) => entry.id === "org.mozilla.firefox");
+
+    expect(firefox?.languages).toEqual(["en_US", "fr", "de"]);
+  });
+
+  it("leaves languages undefined when there's no <languages> at all", () => {
+    const rich = entries.find((entry) => entry.id === "org.example.RichMetadata");
+
+    expect(rich?.languages).toBeUndefined();
+  });
+
+  it("flattens the newest release's own <description> into changelog, same paragraph/list rules as longDescription", () => {
+    const firefox = entries.find((entry) => entry.id === "org.mozilla.firefox");
+
+    expect(firefox?.changelog).toContain("Fixed a crash on startup.");
+    expect(firefox?.changelog).toContain("- Improved tab switching speed");
+  });
+
+  it("leaves changelog undefined when the newest release has no description, or there are no releases at all", () => {
+    const noReleases = entries.find((entry) => entry.id === "org.example.NoReleases");
+    const rich = entries.find((entry) => entry.id === "org.example.RichMetadata");
+
+    expect(noReleases?.changelog).toBeUndefined();
+    expect(rich?.changelog).toBeUndefined();
   });
 
   it("leaves version/icon/homepage undefined when absent, rather than throwing", () => {

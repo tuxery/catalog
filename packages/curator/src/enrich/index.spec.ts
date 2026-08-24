@@ -306,7 +306,7 @@ describe("enrichApps", () => {
     expect(app?.category).toBeUndefined();
   });
 
-  it("sets iconUrl, license, developer, longDescription, and screenshots from the representative package", () => {
+  it("sets iconUrl, license, developer, longDescription, screenshots, languages, and changelog from the representative package", () => {
     const matched: MatchedApp[] = [
       {
         id: "flathub:example",
@@ -318,6 +318,8 @@ describe("enrichApps", () => {
             developer: "Example Team",
             longDescription: "A longer description.",
             screenshots: ["https://dl.flathub.org/media/example/1.png"],
+            languages: ["en_US", "fr"],
+            changelog: "Fixed a crash on startup.",
           }),
         ],
       },
@@ -329,6 +331,8 @@ describe("enrichApps", () => {
     expect(app?.developer).toBe("Example Team");
     expect(app?.longDescription).toBe("A longer description.");
     expect(app?.screenshots).toEqual(["https://dl.flathub.org/media/example/1.png"]);
+    expect(app?.languages).toEqual(["en_US", "fr"]);
+    expect(app?.changelog).toBe("Fixed a crash on startup.");
   });
 
   it("falls back to a non-representative package's rich fields, same as category — AppCenter isn't in SOURCE_PRIORITY either", () => {
@@ -363,17 +367,21 @@ describe("enrichApps", () => {
     expect(app?.developer).toBeUndefined();
     expect(app?.longDescription).toBeUndefined();
     expect(app?.screenshots).toBeUndefined();
+    expect(app?.languages).toBeUndefined();
+    expect(app?.changelog).toBeUndefined();
   });
 
-  it("leaves screenshots undefined (not an empty array) when a member package's screenshots array is empty", () => {
+  it("leaves screenshots/languages undefined (not an empty array) when a member package's array is empty", () => {
     const matched: MatchedApp[] = [
       {
         id: "flathub:example",
-        packages: [pkg({ source: "flatpak-flathub", screenshots: [] })],
+        packages: [pkg({ source: "flatpak-flathub", screenshots: [], languages: [] })],
       },
     ];
 
-    expect(enrichApps(matched)[0]?.screenshots).toBeUndefined();
+    const [app] = enrichApps(matched);
+    expect(app?.screenshots).toBeUndefined();
+    expect(app?.languages).toBeUndefined();
   });
 
   it("combines every member package's rating into one count-weighted average", () => {

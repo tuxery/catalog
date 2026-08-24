@@ -155,6 +155,24 @@ describe("looksLikeSupportPackage", () => {
     expect(looksLikeSupportPackage("firefox")).toBe(false);
     expect(looksLikeSupportPackage("vlc")).toBe(false);
   });
+
+  it("flags Alpine's -pyc precompiled-bytecode suffix — verified live: 1,864 matches, always a build artifact of an already-captured package", () => {
+    expect(looksLikeSupportPackage("py3-adblock-pyc")).toBe(true);
+    expect(looksLikeSupportPackage("py3-sqlparse-pyc")).toBe(true);
+  });
+
+  it("flags NVIDIA's per-driver-branch utilities package — verified live: 14 real matches, all \"NVIDIA drivers utilities\" bundling shared graphics libraries plus one CLI tool riding along, never itself launchable", () => {
+    expect(looksLikeSupportPackage("nvidia-utils")).toBe(true);
+    expect(looksLikeSupportPackage("nvidia-580xx-utils")).toBe(true);
+    expect(looksLikeSupportPackage("nvidia-340xx-utils")).toBe(true);
+    expect(looksLikeSupportPackage("nvidia-vulkan-utils")).toBe(true);
+    // Deliberately narrow — a blanket -utils pattern has real
+    // counter-examples (rejected elsewhere): bridge-utils, cifs-utils,
+    // alsa-utils are real standalone tools, and this pattern must not
+    // touch them.
+    expect(looksLikeSupportPackage("bridge-utils")).toBe(false);
+    expect(looksLikeSupportPackage("alsa-utils")).toBe(false);
+  });
 });
 
 describe("looksLikeSourceSpecificNoise", () => {

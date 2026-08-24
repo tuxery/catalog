@@ -134,6 +134,27 @@ describe("looksLikeSupportPackage", () => {
     expect(looksLikeSupportPackage("dotnet-sdk")).toBe(true);
     expect(looksLikeSupportPackage("android-sdk")).toBe(true);
   });
+
+  it("flags -module-suffixed names — verified live across 8 sources: GTK input-method modules, kernel modules, Node.js CommonJS modules, and host-app plugin modules, never a launchable app", () => {
+    expect(looksLikeSupportPackage("accounts-qml-module")).toBe(true);
+    expect(looksLikeSupportPackage("webcamstudio-module")).toBe(true);
+    expect(looksLikeSupportPackage("appmenu-gtk3-module")).toBe(true);
+    expect(looksLikeSupportPackage("node-is-module")).toBe(true);
+    expect(looksLikeSupportPackage("gtklock-dpms-module")).toBe(true);
+  });
+
+  it("flags language/translation-pack suffixes — verified live: a large, previously-undiscovered noise leak (271 -l10n- on Debian, 869 -langpack- on Fedora for one app alone, 190 -locale- on Ubuntu, 1,831 bare -lang on Alpine) that was burying real, well-merged apps like Firefox/VLC in search results", () => {
+    expect(looksLikeSupportPackage("firefox-esr-l10n-af")).toBe(true);
+    expect(looksLikeSupportPackage("libreoffice-l10n-ca-valencia")).toBe(true);
+    expect(looksLikeSupportPackage("firefox-locale-en")).toBe(true);
+    expect(looksLikeSupportPackage("avogadro2-langpack-en_AU")).toBe(true);
+    expect(looksLikeSupportPackage("akregator-lang")).toBe(true);
+    expect(looksLikeSupportPackage("inkscape-lang")).toBe(true);
+    // Real apps themselves are untouched — only the per-language suffix
+    // form matches.
+    expect(looksLikeSupportPackage("firefox")).toBe(false);
+    expect(looksLikeSupportPackage("vlc")).toBe(false);
+  });
 });
 
 describe("looksLikeSourceSpecificNoise", () => {

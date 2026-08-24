@@ -79,6 +79,41 @@ describe("groupPackages", () => {
     expect(groups[0]?.packages).toHaveLength(2);
   });
 
+  it("unions AUR release-channel variants (beta/nightly, with or without a build-variant suffix) with the stable build — the real Brave Origin bug report", () => {
+    const packages = [
+      pkg({ source: "pacman-aur", name: "brave-origin-bin", appId: "brave-origin-bin" }),
+      pkg({
+        source: "pacman-aur",
+        name: "brave-origin-beta-bin",
+        appId: "brave-origin-beta-bin",
+      }),
+      pkg({
+        source: "pacman-aur",
+        name: "brave-origin-nightly-bin",
+        appId: "brave-origin-nightly-bin",
+      }),
+      pkg({ source: "nix-nixpkgs", name: "brave-origin", appId: undefined }),
+    ];
+
+    // Before the fix: 4 separate apps — only "-bin" was stripped, leaving
+    // "brave-origin-beta"/"brave-origin-nightly" as unrecognized bases
+    // that never matched anything, including each other.
+    const groups = groupPackages(packages, NO_OVERRIDES);
+    expect(groups).toHaveLength(1);
+    expect(groups[0]?.packages).toHaveLength(4);
+  });
+
+  it("does not treat a -dev suffix as a release channel — collides with the unrelated Debian-style headers-package meaning", () => {
+    const packages = [
+      pkg({ source: "pacman-aur", name: "kodi-git", appId: "kodi-git" }),
+      pkg({ source: "pacman-aur", name: "kodi-git-dev", appId: "kodi-git-dev" }),
+    ];
+
+    // "kodi-git-dev" is real headers/dev-files for the kodi-git build, not
+    // a "dev channel" of it — must NOT collapse into kodi-git's group.
+    expect(groupPackages(packages, NO_OVERRIDES)).toHaveLength(2);
+  });
+
   it("does not strip a VCS-shaped suffix from non-AUR sources", () => {
     const packages = [
       pkg({ source: "deb-debian", name: "widget-git", appId: undefined }),

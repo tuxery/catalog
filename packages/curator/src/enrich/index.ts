@@ -1,6 +1,11 @@
 import type { PackageSourceId, SourcedPackage } from "@tuxery/sources";
 import { looksLikeGamePackage, looksLikeGuiPackage } from "../filter/rules";
 import type { MatchedApp } from "../match/group";
+import {
+  isAppStoreFrontend,
+  loadAppStoreFrontends,
+  type AppStoreFrontendEntry,
+} from "./app-store-frontend";
 import { pickCategory } from "./category";
 import { applySuites, loadSuiteOverrides, type SuiteOverrideEntry } from "./suite";
 import type { CatalogApp } from "./types";
@@ -138,6 +143,7 @@ function aggregatePopularity(packages: SourcedPackage[]): number | undefined {
 export function enrichApps(
   matched: MatchedApp[],
   suiteOverrides: SuiteOverrideEntry[] = loadSuiteOverrides(),
+  appStoreFrontends: AppStoreFrontendEntry[] = loadAppStoreFrontends(),
 ): CatalogApp[] {
   const apps: CatalogApp[] = matched.map((app) => {
     const representative = pickByPriority(app.packages);
@@ -150,6 +156,7 @@ export function enrichApps(
       packages: app.packages,
       kind: app.packages.some(hasGuiEvidence) ? "gui" : undefined,
       contentType: app.packages.some(hasGameEvidence) ? "game" : undefined,
+      appStoreFrontend: isAppStoreFrontend(app.packages, appStoreFrontends) ? true : undefined,
       category: pickCategoryLabel(app.packages),
       iconUrl: pickField(app.packages, (pkg) => pkg.iconUrl),
       license: pickField(app.packages, (pkg) => pkg.license),

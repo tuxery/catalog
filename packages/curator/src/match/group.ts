@@ -99,6 +99,19 @@ function unionByExactKey(
 //   generic word, then the browser's own AUR packages (`zen-browser`,
 //   `zen-browser-bin`, ...) were staying separate from it — a false
 //   merge and a false split at the same time, from two different bugs.
+// - `boxes` — Flathub's GNOME Boxes (`org.gnome.Boxes.desktop`, display
+//   name "Boxes") vs. a real, unrelated ASCII-art text tool of the exact
+//   same short name (boxes.thomasjensen.com, "textmode box- and comment
+//   drawing filter") — verified live: every one of AUR/Fedora/Nixpkgs/
+//   Gentoo/Debian/Ubuntu's own "boxes" package is that ASCII tool, none
+//   of them GNOME Boxes (which every native distro instead packages as
+//   "gnome-boxes", a different normalized name that never collided in
+//   the first place). Found live investigating the compat-warnings
+//   feature. Same as `zen`, this was a false merge and a false split at
+//   once — GNOME Boxes' own Snap/native packages, all named
+//   "gnome-boxes", were never part of this cluster and needed their own
+//   `overrides/manual-matches.ndjson` entry to reunify with Flathub's
+//   "Boxes" once the false merge was cut loose.
 const GENERIC_NAME_BLOCKLIST = new Set([
   "calculator",
   "weather",
@@ -114,6 +127,7 @@ const GENERIC_NAME_BLOCKLIST = new Set([
   "clock",
   "mail",
   "zen",
+  "boxes",
 ]);
 
 /**

@@ -128,6 +128,28 @@ const NOISE_PATTERNS: RegExp[] = [
   // <real-app-name>-lang (aisleriot-lang, akregator-lang, ark-lang,
   // inkscape-lang, ...), no counter-examples found.
   /-lang$/,
+  // Alpine's own convention for a precompiled-bytecode derivative of an
+  // existing Python package (py3-<pkg>-pyc, "Precompiled Python bytecode
+  // for py3-<pkg>") — a build artifact of a package already captured
+  // under its own name, never itself launchable, by construction (there's
+  // no such thing as a real standalone app whose whole purpose is "the
+  // .pyc files for X"). Verified live: 1,864 matches, always this exact
+  // shape, no counter-examples possible.
+  /-pyc$/,
+  // NVIDIA's own per-driver-branch "utilities" package (bare `nvidia-utils`
+  // on official Arch repos, `nvidia-<version>xx-utils` on AUR for older/
+  // alternate branches — 340xx through 580xx, plus `nvidia-vulkan-utils`)
+  // — verified live: 14 real matches, every one literally described
+  // "NVIDIA drivers utilities" with no other content, bundling shared
+  // OpenGL/Vulkan libraries (needed by the graphics stack, not launched)
+  // plus `nvidia-smi`, a CLI diagnostic tool riding along. Same
+  // "many near-identical branch-versioned variants" shape as this file's
+  // `-dkms` pattern already excludes for the same driver family.
+  // Deliberately narrow — a blanket `-utils` pattern was checked and
+  // rejected elsewhere in this file (bridge-utils, cifs-utils, alsa-utils
+  // are real standalone tools), this is scoped to the exact nvidia naming
+  // convention only.
+  /^nvidia(-(?:\d+xx|vulkan))?-utils$/,
 ];
 
 /**

@@ -1,7 +1,11 @@
 import type { SourcedPackage } from "@tuxery/sources";
 import type { FilterOverrides } from "./overrides";
 import { loadFilterOverrides, overrideKey } from "./overrides";
-import { looksLikeSupportPackage, looksLikeSupportSection } from "./rules";
+import {
+  looksLikeSourceSpecificNoise,
+  looksLikeSupportPackage,
+  looksLikeSupportSection,
+} from "./rules";
 
 /**
  * Keeps only packages that look like apps/games a user would search an
@@ -10,8 +14,9 @@ import { looksLikeSupportPackage, looksLikeSupportSection } from "./rules";
  * `overrides.exclude` always wins next (forces one out), and the auto
  * rules decide everything else — `looksLikeSupportPackage`'s name-based
  * guess, plus `looksLikeSupportSection`'s guess from Debian/Ubuntu's
- * `Section` field where it's present. See rules.ts for why both are
- * deliberately conservative.
+ * `Section` field where it's present, plus `looksLikeSourceSpecificNoise`
+ * for the handful of conventions that only mean "noise" on one specific
+ * source. See rules.ts for why all three are deliberately conservative.
  *
  * `overrides` defaults to the real `overrides/*.ndjson` files
  * (`loadFilterOverrides()`) — the parameter exists so tests can inject a
@@ -26,6 +31,7 @@ export function filterPackages(
     if (overrides.keep.has(key)) return true;
     if (overrides.exclude.has(key)) return false;
     if (looksLikeSupportSection(pkg.section)) return false;
+    if (looksLikeSourceSpecificNoise(pkg.source, pkg.name)) return false;
     return !looksLikeSupportPackage(pkg.name);
   });
 }

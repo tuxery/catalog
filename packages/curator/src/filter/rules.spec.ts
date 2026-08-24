@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import {
   looksLikeGamePackage,
   looksLikeGuiPackage,
+  looksLikeSourceSpecificNoise,
   looksLikeSupportPackage,
   looksLikeSupportSection,
 } from "./rules";
@@ -132,6 +133,37 @@ describe("looksLikeSupportPackage", () => {
     // gnome-shell-extension-manager exceptions elsewhere in this file.
     expect(looksLikeSupportPackage("dotnet-sdk")).toBe(true);
     expect(looksLikeSupportPackage("android-sdk")).toBe(true);
+  });
+});
+
+describe("looksLikeSourceSpecificNoise", () => {
+  it("flags Debian-family -source packages (shipped source code) but not the same suffix elsewhere", () => {
+    expect(looksLikeSourceSpecificNoise("deb-debian", "bbswitch-source")).toBe(true);
+    expect(looksLikeSourceSpecificNoise("deb-ubuntu", "linux-source")).toBe(true);
+    expect(looksLikeSourceSpecificNoise("deb-mint", "gcc-13-source")).toBe(true);
+    // Same suffix, different real meaning on other sources — verified
+    // live: AUR's teamtalk-client-source is a real build-variant of a
+    // real app, Nixpkgs' obs-gradient-source is a real OBS Studio input
+    // source plugin, neither is shipped source code.
+    expect(looksLikeSourceSpecificNoise("pacman-aur", "teamtalk-client-source")).toBe(false);
+    expect(looksLikeSourceSpecificNoise("nix-nixpkgs", "obs-gradient-source")).toBe(false);
+  });
+
+  it("flags Snapcraft gadget snaps (board support, not a launchable app) but not AUR/Nixpkgs' unrelated -gadget", () => {
+    expect(looksLikeSourceSpecificNoise("snap-snapcraft", "bluefield-gadget")).toBe(true);
+    expect(looksLikeSourceSpecificNoise("snap-snapcraft", "hikey-snappy-gadget")).toBe(true);
+    // kubectl-gadget is a real Kubernetes troubleshooting CLI tool.
+    expect(looksLikeSourceSpecificNoise("nix-nixpkgs", "kubectl-gadget")).toBe(false);
+  });
+
+  it("flags AUR's android-<arch>- cross-compiled libraries, not the broader android- prefix", () => {
+    expect(looksLikeSourceSpecificNoise("pacman-aur", "android-x86-64-libvdpau")).toBe(true);
+    expect(looksLikeSourceSpecificNoise("pacman-aur", "android-aarch64-ffmpeg")).toBe(true);
+    // A blanket android- prefix was checked and rejected: real standalone
+    // tools share it without an arch token (android-emulator,
+    // android-apktool, android-file-transfer, ...).
+    expect(looksLikeSourceSpecificNoise("pacman-aur", "android-emulator")).toBe(false);
+    expect(looksLikeSourceSpecificNoise("pacman-aur", "android-apktool")).toBe(false);
   });
 });
 

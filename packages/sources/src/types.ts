@@ -166,6 +166,10 @@ export interface SourcedPackage {
   longDescription?: string;
   /** Screenshot image URLs, always full URLs already. Only Flathub/AppCenter populate this today, from AppStream's `<screenshots>`. */
   screenshots?: string[];
+  /** Language codes the app is translated into (e.g. ["en_US", "de", "fr"]) — only Flathub/AppCenter populate this today, from AppStream's `<languages><lang>`. */
+  languages?: string[];
+  /** The newest release's own changelog text, flattened the same way as `longDescription` — only Flathub/AppCenter populate this today, from AppStream's `<releases><release><description>`. `undefined` when the newest release has no description (common — most releases are just a bare version tag, no notes). */
+  changelog?: string;
   /**
    * A crowd rating, when this source exposes one — `average` on a 1-5
    * scale, `count` the number of votes behind it. Only set on real

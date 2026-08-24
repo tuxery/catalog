@@ -53,6 +53,23 @@ describe("flathub normalize", () => {
     expect(normalize([entry])[0]?.version).toBe("unknown");
   });
 
+  it("carries languages and changelog through unchanged", () => {
+    const entry: FlathubCacheEntry = {
+      id: "org.example.App",
+      name: "App",
+      summary: "An app",
+      hasGameCategory: false,
+      categories: [],
+      screenshots: [],
+      languages: ["en_US", "fr"],
+      changelog: "Fixed a crash on startup.",
+    };
+
+    const result = normalize([entry])[0];
+    expect(result?.languages).toEqual(["en_US", "fr"]);
+    expect(result?.changelog).toBe("Fixed a crash on startup.");
+  });
+
   it("carries hasGameCategory through when true", () => {
     const entry: FlathubCacheEntry = {
       id: "org.example.Game",

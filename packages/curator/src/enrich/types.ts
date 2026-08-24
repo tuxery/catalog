@@ -116,7 +116,7 @@ export interface CatalogApp {
   publisher?: string;
   /** SPDX-ish license expression (e.g. "GPL-3.0+ AND LGPL-3.0+") — populated by Flathub/AppCenter's AppStream `<project_license>`. */
   license?: string;
-  /** Not sourced yet. */
+  /** Language codes the app is translated into — populated by Flathub/AppCenter's AppStream `<languages><lang>`. */
   languages?: string[];
   /** Not sourced yet — no connector captures installed/download size. */
   approxSizeBytes?: number;
@@ -150,7 +150,7 @@ export interface CatalogApp {
   reviews?: Array<{ author: string; text: string; rating: number }>;
   /** Not sourced yet. */
   features?: string[];
-  /** Not sourced yet. */
+  /** The newest release's own changelog text — populated by Flathub/AppCenter's AppStream `<releases><release><description>`. `undefined` when the newest release has no description (common — most releases are just a bare version tag). */
   changelog?: string;
   /** Not sourced yet. */
   requirements?: string;

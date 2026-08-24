@@ -150,6 +150,35 @@ const NOISE_PATTERNS: RegExp[] = [
   // are real standalone tools), this is scoped to the exact nvidia naming
   // convention only.
   /^nvidia(-(?:\d+xx|vulkan))?-utils$/,
+  // Brave's own Rust adblock-parsing engine, published on PyPI as
+  // "adblock" and re-packaged under each distro's own Python-binding
+  // naming convention (python-adblock, python3-adblock, py3-adblock,
+  // python313-adblock, python314-adblock, ...) — a real library, not the
+  // browser and not an extension, leaking identically on 5 separate
+  // sources before this pattern existed (previously excluded one exact
+  // name per source, which needed a new entry every time Python cut a
+  // new version — python315-adblock, python316-adblock, ... would each
+  // have needed its own line forever). Verified live across every
+  // source's cache: every single match of this exact compound name
+  // describes the same library, homepage always
+  // github.com/ArniDagur/python-adblock or pypi.org/project/adblock,
+  // zero counter-examples. Scoped to the *compound* name only — a bare
+  // `python\d*-` or `py3-` prefix is deliberately NOT a general pattern
+  // (checked and rejected elsewhere: too many real CLI tools use it).
+  /^(python\d*|py3)-adblock$/,
+  // profile-sync-daemon's own convention for shipping each supported
+  // browser/app's tmpfs-sync config as its own separate AUR package —
+  // verified live: 8 real matches (edge, edge-stable, floorp, librewolf,
+  // thunderbird, waterfox, zen — the real bug report that prompted
+  // checking this one — zotero), every one literally "<app> support for
+  // profile-sync-daemon", never launchable on its own (replaces what
+  // would otherwise have been an 8-line one-exact-name-per-app override).
+  // Scoped to the enumerated known suffixes, not a bare
+  // `profile-sync-daemon-` prefix — the base tool's own real build
+  // variants (`profile-sync-daemon-git`, `-openrc-git`) share that prefix
+  // and must stay untouched; profile-sync-daemon itself is a real,
+  // standalone CLI tool (syncs browser profile dirs to RAM).
+  /^profile-sync-daemon-(edge(-stable)?|floorp|librewolf|thunderbird|waterfox|zen|zotero)$/,
 ];
 
 /**

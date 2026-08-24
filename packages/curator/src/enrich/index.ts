@@ -7,6 +7,11 @@ import {
   type AppStoreFrontendEntry,
 } from "./app-store-frontend";
 import { pickCategory } from "./category";
+import {
+  getCompatWarnings,
+  loadCompatWarnings,
+  type CompatWarningEntry,
+} from "./compat-warnings";
 import { applySuites, loadSuiteOverrides, type SuiteOverrideEntry } from "./suite";
 import type { CatalogApp } from "./types";
 
@@ -144,9 +149,11 @@ export function enrichApps(
   matched: MatchedApp[],
   suiteOverrides: SuiteOverrideEntry[] = loadSuiteOverrides(),
   appStoreFrontends: AppStoreFrontendEntry[] = loadAppStoreFrontends(),
+  compatWarnings: CompatWarningEntry[] = loadCompatWarnings(),
 ): CatalogApp[] {
   const apps: CatalogApp[] = matched.map((app) => {
     const representative = pickByPriority(app.packages);
+    const warnings = getCompatWarnings(app.packages, compatWarnings);
 
     return {
       id: app.id,
@@ -169,6 +176,7 @@ export function enrichApps(
         pkg.languages && pkg.languages.length > 0 ? pkg.languages : undefined,
       ),
       changelog: pickField(app.packages, (pkg) => pkg.changelog),
+      compatibilityWarnings: warnings.length > 0 ? warnings : undefined,
       rating: aggregateRating(app.packages),
       popularity: aggregatePopularity(app.packages),
     };

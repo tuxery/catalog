@@ -189,4 +189,19 @@ export interface CatalogApp {
     /** Only set when `role` is `"component"`. */
     mainApp?: { id: string; name: string };
   };
+  /**
+   * Known packaging-format compatibility issues (e.g. GNOME Boxes losing
+   * KVM/libvirt device access under Snap confinement) — manual curation
+   * only, from `overrides/compat-warnings.ndjson` (no external source
+   * covers this — checked, see the "Evaluate external sources for
+   * per-app packaging-format compatibility issues" GitHub Project card),
+   * `enrich/compat-warnings.ts`'s `getCompatWarnings`. Each entry is
+   * scoped to the one specific `source` it affects — an app installable
+   * from both a warned source and a clean one still only warns on the
+   * affected row, not the whole app. `undefined` for every app with no
+   * known issue (the vast majority) — deliberately narrow and exact-name
+   * keyed rather than category-based, grown one verified real case at a
+   * time.
+   */
+  compatibilityWarnings?: { source: string; severity: "warning" | "info"; issue: string; fix?: string }[];
 }

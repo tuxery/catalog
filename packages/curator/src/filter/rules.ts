@@ -108,6 +108,65 @@ export function looksLikeSupportPackage(name: string): boolean {
   return NOISE_PATTERNS.some((pattern) => pattern.test(name));
 }
 
+// Debian's own packaging convention: a `-source` suffix ships the actual
+// source code (kernel-module sources for module-assistant/DKMS, compiler
+// sources, library source archives) — never a launchable app. Verified
+// live: 58 real matches on Debian alone, only one exception found
+// (`apt-show-source`, a real CLI tool that shows info *about* source
+// packages, not itself one — rescued via `overrides/keep.ndjson`).
+// Deliberately Debian-family only (Ubuntu/Mint/Pop!_OS/Deepin/MX Linux
+// share the identical deb822 packaging convention, same as this file's
+// other Debian-Section notes) — checked AUR/Nixpkgs/openSUSE/Fedora too
+// and the same suffix means something else entirely there: real OBS
+// Studio plugins (`obs-gradient-source`, a video *input* source, not
+// shipped source code), a real build-variant of a real app
+// (`teamtalk-client-source`, "built from upstream source" — the same
+// "alternate build channel" shape as AUR's own -git/-bin conventions,
+// not noise), and more, so a source-agnostic pattern would have been
+// wrong.
+const DEBIAN_FAMILY_SOURCES = new Set<PackageSourceId>([
+  "deb-debian",
+  "deb-ubuntu",
+  "deb-mint",
+  "deb-popos",
+  "deb-deepin",
+  "deb-mxlinux",
+]);
+
+// Snapcraft/Ubuntu Core's own term of art: a "gadget snap" defines a
+// board/device's boot configuration (bootloader, device tree, partition
+// layout) — infrastructure, never launched. Verified live: all 6 real
+// Snapcraft matches are board-support packages. Snapcraft-only: checked
+// AUR/Nixpkgs too and "gadget" means something unrelated there
+// (`kubectl-gadget`, a real Kubernetes troubleshooting CLI tool) — a
+// source-agnostic pattern would have excluded a real tool.
+const GADGET_SUFFIX = /-gadget$/;
+
+// AUR-specific cross-compilation convention: `android-<arch>-<name>`
+// packages are libraries built *for* Android as a compile target
+// (audio/video codecs, C++ utility libraries, UI component sets), not
+// apps — verified live, every one of a 30-entry sample across several
+// arches was a library, none launchable. Deliberately narrower than a
+// blanket `android-` prefix, which was checked and rejected: real
+// standalone tools share it too (`android-apktool`, `android-emulator`,
+// `android-file-transfer`, ...). AUR-only: verified zero matches on any
+// other source.
+const ANDROID_CROSS_COMPILE_LIB = /^android-(aarch64|armv7a|riscv64|x86-64|x86)-/;
+
+/**
+ * Source-specific noise conventions `looksLikeSupportPackage` can't catch
+ * on name alone, since the same shape means something different on other
+ * sources (Debian's `-source` vs. AUR/Nixpkgs' real "input source"
+ * plugins; Snapcraft's `-gadget` vs. Nixpkgs' real `kubectl-gadget` tool).
+ * See each pattern's own comment above for the verification behind it.
+ */
+export function looksLikeSourceSpecificNoise(source: PackageSourceId, name: string): boolean {
+  if (DEBIAN_FAMILY_SOURCES.has(source) && name.endsWith("-source")) return true;
+  if (source === "snap-snapcraft" && GADGET_SUFFIX.test(name)) return true;
+  if (source === "pacman-aur" && ANDROID_CROSS_COMPILE_LIB.test(name)) return true;
+  return false;
+}
+
 // Debian/Ubuntu's `Section` field (SourcedPackage.section — Fedora's RPM
 // Group field is unused upstream in practice, "Unspecified" on real data;
 // Arch's desc format has no equivalent at all) — an official, upstream

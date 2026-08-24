@@ -52,4 +52,15 @@ describe("loadFilterOverrides", () => {
     expect(overrides.keep.has("nix-nixpkgs:google-cloud-sdk")).toBe(true);
     expect(overrides.keep.has("pacman-aur:android-sdk")).toBe(true);
   });
+
+  it("rescues the real apt-show-source exception via keep.ndjson", () => {
+    // Regression guard for the Debian-family -source noise suffix (see
+    // filter/rules.ts's looksLikeSourceSpecificNoise) — a real CLI tool
+    // that shows info about source packages, not shipped source code
+    // itself.
+    const overrides = loadFilterOverrides();
+
+    expect(overrides.keep.has("deb-debian:apt-show-source")).toBe(true);
+    expect(overrides.keep.has("deb-ubuntu:apt-show-source")).toBe(true);
+  });
 });

@@ -16,6 +16,8 @@ export interface AppRecord {
   kind?: "gui";
   /** "game" when at least one source package has positive evidence of being a game — see `CatalogApp.contentType`'s doc comment. */
   contentType?: "game";
+  /** `true` for known app-store/package-manager frontends (GNOME Software, KDE Discover, ...) — see `CatalogApp.appStoreFrontend`'s doc comment. */
+  appStoreFrontend?: boolean;
   category?: string;
   developer?: string;
   publisher?: string;
@@ -74,6 +76,7 @@ const INSERT_COLUMNS = [
   "homepage",
   "kind",
   "content_type",
+  "app_store_frontend",
   "category",
   "developer",
   "publisher",
@@ -111,6 +114,7 @@ function appsTableSql(tableName: string): string {
       homepage TEXT,
       kind TEXT,
       content_type TEXT,
+      app_store_frontend INTEGER,
       category TEXT,
       developer TEXT,
       publisher TEXT,
@@ -157,6 +161,7 @@ function toRow(app: AppRecord): unknown[] {
     app.homepage ?? null,
     app.kind ?? null,
     app.contentType ?? null,
+    toBoolColumn(app.appStoreFrontend),
     app.category ?? null,
     app.developer ?? null,
     app.publisher ?? null,

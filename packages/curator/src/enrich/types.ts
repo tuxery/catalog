@@ -60,6 +60,24 @@ export interface CatalogApp {
   contentType?: "game";
 
   /**
+   * `true` for apps whose whole purpose is browsing/installing other
+   * software (GNOME Software, KDE Discover, Synaptic, bauh, octopi,
+   * pamac, ...) rather than end-user productivity/creativity/games —
+   * grouping them under a generic category like "Utilities" buries the
+   * pattern. Positive-evidence, same discipline as `kind`/`contentType`,
+   * but a hand-curated exact-name list (`overrides/app-store-
+   * frontends.ndjson`), not a name/description pattern — real
+   * candidates checked against live data first (verified in the "Define
+   * an 'app store / package manager frontend' category" card): each
+   * describes itself too differently ("find and install new apps",
+   * "managing your applications", "resources management", "Pacman
+   * frontend", ...) for any common phrase to match reliably, and generic
+   * names collide with unrelated packages (`discover` also matches
+   * `haskell-hspec-discover`). `undefined` for every other app.
+   */
+  appStoreFrontend?: boolean;
+
+  /**
    * A directly usable icon URL, picked from whichever member package has
    * one (`SourcedPackage.iconUrl` — see `enrich/index.ts`'s `pickField`).
    * Populated by Flathub/AppCenter (AppStream's `type="remote"` icon, or

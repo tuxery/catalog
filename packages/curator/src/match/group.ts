@@ -90,6 +90,15 @@ function unionByExactKey(
 // (void + gentoo, both "Terminal"/"terminal") is the exact same GNUstep
 // terminal-emulator project referenced from two sources — a correct
 // merge, not a bug.
+//
+// - `zen` — Flathub's Zen Browser (`app.zen_browser.zen`) vs. an
+//   unrelated AUR "zen" ("Reduce your stress with the C language...") —
+//   found live investigating a user-reported false negative (Zen Browser
+//   itself failing to merge across sources, see `overrides/manual-
+//   matches.ndjson`): the two projects were merging under this blocked
+//   generic word, then the browser's own AUR packages (`zen-browser`,
+//   `zen-browser-bin`, ...) were staying separate from it — a false
+//   merge and a false split at the same time, from two different bugs.
 const GENERIC_NAME_BLOCKLIST = new Set([
   "calculator",
   "weather",
@@ -104,6 +113,7 @@ const GENERIC_NAME_BLOCKLIST = new Set([
   "fuse",
   "clock",
   "mail",
+  "zen",
 ]);
 
 /**
@@ -122,26 +132,31 @@ function tier1Key(pkg: SourcedPackage): string | undefined {
   return GENERIC_NAME_BLOCKLIST.has(normalizeName(pkg.appId)) ? undefined : pkg.appId;
 }
 
-// AUR's own submission guidelines reserve these suffixes for a
-// rolling-release snapshot build of the exact same software as the
-// unsuffixed package (verified live: 8,312 AUR name-pairs share a base
-// name this way, e.g. `0xtools`/`0xtools-git`) — not a different
-// project, unlike every other name collision this file guards against.
-// AUR-only: no equivalent convention verified elsewhere yet.
-const AUR_VCS_SUFFIX = /-(git|svn|hg|bzr|cvs)$/;
+// AUR's own submission guidelines reserve these suffixes for an alternate
+// build of the exact same software as the unsuffixed package — not a
+// different project, unlike every other name collision this file guards
+// against. Two conventions, same effect: `-git`/`-svn`/`-hg`/`-bzr`/`-cvs`
+// mark a rolling-release snapshot build (verified live: 8,312 AUR
+// name-pairs share a base name this way, e.g. `0xtools`/`0xtools-git`);
+// `-bin` marks a prebuilt-binary build instead of building from source
+// (verified live: 4,392 pairs, e.g. `zen-browser`/`zen-browser-bin` — the
+// real bug report that prompted checking this one). AUR-only: no
+// equivalent convention verified elsewhere yet.
+const AUR_VARIANT_SUFFIX = /-(git|svn|hg|bzr|cvs|bin)$/;
 
 /**
  * Tier 2's key function — `normalizeName`, except:
  * - `GENERIC_NAME_BLOCKLIST` entries return `undefined` (skipped by
  *   `unionByExactKey`, same as a package with no name at all) so they
  *   never union on name alone.
- * - AUR packages ending in `AUR_VCS_SUFFIX` are keyed on their
- *   VCS-suffix-stripped name instead, so e.g. `0xtools-git` unions with
- *   `0xtools` (AUR's own bare package, or any other source's) rather
- *   than staying a permanent duplicate.
+ * - AUR packages ending in `AUR_VARIANT_SUFFIX` are keyed on their
+ *   suffix-stripped name instead, so e.g. `0xtools-git` or
+ *   `zen-browser-bin` unions with `0xtools`/`zen-browser` (AUR's own bare
+ *   package, or any other source's) rather than staying a permanent
+ *   duplicate.
  */
 function tier2Key(pkg: SourcedPackage): string | undefined {
-  const name = pkg.source === "pacman-aur" ? pkg.name.replace(AUR_VCS_SUFFIX, "") : pkg.name;
+  const name = pkg.source === "pacman-aur" ? pkg.name.replace(AUR_VARIANT_SUFFIX, "") : pkg.name;
   const normalized = normalizeName(name);
   return GENERIC_NAME_BLOCKLIST.has(normalized) ? undefined : normalized;
 }
@@ -161,7 +176,7 @@ function tier2Key(pkg: SourcedPackage): string | undefined {
  *    names (Flathub's "Firefox", AppImage's "GIMP") to the appId-based
  *    groups above. Skips `GENERIC_NAME_BLOCKLIST` entries — see its
  *    comment for the real cross-source false-merges that motivated it.
- *    Also folds AUR's `-git`/`-svn`/`-hg`/`-bzr`/`-cvs` VCS-suffix
+ *    Also folds AUR's `-git`/`-svn`/`-hg`/`-bzr`/`-cvs`/`-bin` build-variant
  *    packaging convention into the same key as its unsuffixed twin — see
  *    `tier2Key`'s comment.
  *

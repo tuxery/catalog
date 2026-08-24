@@ -33,4 +33,16 @@ describe("aur normalize", () => {
 
     expect(normalize([entry])[0]?.channel).toBe("git");
   });
+
+  it("reads a prebuilt-binary package's channel from its name", () => {
+    const entry: AurCacheEntry = {
+      name: "zen-browser-bin",
+      description:
+        "Official package for Zen, a privacy-focused, feature packed Firefox-based browser",
+      version: "1.21.15-1",
+      homepage: "https://zen-browser.app",
+    };
+
+    expect(normalize([entry])[0]?.channel).toBe("bin");
+  });
 });

@@ -19,12 +19,11 @@ describe("lutris normalize", () => {
         version: "unknown",
         appId: "rollercoaster-tycoon-2",
         homepage: "https://lutris.net/games/rollercoaster-tycoon-2/",
-        hasGameCategory: true,
       },
     ]);
   });
 
-  it("always sets hasGameCategory — every entry already passed fetch.ts's runner filter", () => {
+  it("never sets hasGameCategory — real bug, found live: Lutris hosts real non-game installers too (Discord), and neither of its APIs carries a genre signal to tell them apart", () => {
     const entry: LutrisCacheEntry = {
       gameId: 1,
       gameSlug: "app",
@@ -32,7 +31,7 @@ describe("lutris normalize", () => {
       description: "",
     };
 
-    expect(normalize([entry])[0]?.hasGameCategory).toBe(true);
+    expect(normalize([entry])[0]?.hasGameCategory).toBeUndefined();
   });
 
   it("builds the homepage from the game slug", () => {

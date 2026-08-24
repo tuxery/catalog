@@ -82,6 +82,16 @@ const NOISE_PATTERNS: RegExp[] = [
   // packages, no exceptions found — every sample was a driver, whether
   // "dkms" lands as a clean suffix or has a version/variant tag after it.
   /-dkms(-|$)/,
+  // `-module` suffix — verified live across 8 sources (~50+ samples, zero
+  // counter-examples): GTK input-method modules (appmenu-gtk3-module,
+  // unity-gtk-module), kernel modules (vhba-module, webcamstudio-module,
+  // "Kernel module for webcam studio's virtual webcam device"), Node.js
+  // CommonJS modules (node-is-module, node-which-module), Perl test
+  // modules, and app-specific plugin modules (gtklock-*-module,
+  // polybar-*-module, nginx-upload-module) — never a launchable app on its
+  // own, same "needs a host" shape as this file's other plugin/extension
+  // patterns.
+  /-module$/,
   // "SDK"-named packages — verified live: overwhelmingly per-service API
   // client libraries (aws-sdk-cpp-<service>: 400+ packages across
   // sources, one per AWS service; aliyun-python-sdk: 490 in Nixpkgs
@@ -96,6 +106,28 @@ const NOISE_PATTERNS: RegExp[] = [
   // sub-packages (android-sdk-build-tools-*, -platform-tools, -cmake-*),
   // which are libraries, not the tool itself.
   /(^|-)sdk(-|$)/,
+  // Language/translation-pack suffixes — verified live across many
+  // sources and host apps (Firefox, Thunderbird, LibreOffice, KDE, Qt6,
+  // avogadro2, glibc, tesseract, pgadmin4, shotcut, cockatrice,
+  // guayadeque, ...): a per-language data bundle for an app already
+  // captured under its own base name, never launchable on its own. Real
+  // scale found live, previously undiscovered: 271 `-l10n-` matches on
+  // Debian alone, 869 `-langpack-` matches on Fedora just for avogadro2,
+  // 190 `-locale-` matches on Ubuntu — searching "firefox" or "vlc"
+  // surfaced hundreds of these burying the one real, well-merged app card
+  // (Firefox/VLC themselves *are* correctly merged across ~14-20 sources
+  // each — the "missing everywhere" impression was this noise, not an
+  // actual matching gap). Requires a real language-code shape after the
+  // marker (2-3 letters, optionally `_REGION`/`-variant`) so it can't
+  // accidentally swallow an unrelated `-locale-dev`-style name — though
+  // even those are already caught by the `-dev` suffix pattern above
+  // regardless.
+  /-(l10n|langpack|locale)-[a-z]{2,3}(?:[_-][a-zA-Z]+)?$/,
+  // Alpine's own convention for the same thing, no per-language split —
+  // verified live: 1,831 matches across every source that uses it, always
+  // <real-app-name>-lang (aisleriot-lang, akregator-lang, ark-lang,
+  // inkscape-lang, ...), no counter-examples found.
+  /-lang$/,
 ];
 
 /**

@@ -53,6 +53,23 @@ describe("appcenter normalize", () => {
     expect(normalize([entry])[0]?.version).toBe("unknown");
   });
 
+  it("carries languages and changelog through unchanged", () => {
+    const entry: AppCenterCacheEntry = {
+      id: "com.example.App",
+      name: "App",
+      summary: "An app",
+      hasGameCategory: false,
+      categories: [],
+      screenshots: [],
+      languages: ["en_US", "de"],
+      changelog: "Improved startup time.",
+    };
+
+    const result = normalize([entry])[0];
+    expect(result?.languages).toEqual(["en_US", "de"]);
+    expect(result?.changelog).toBe("Improved startup time.");
+  });
+
   it("carries hasGameCategory through when true", () => {
     const entry: AppCenterCacheEntry = {
       id: "com.example.Game",

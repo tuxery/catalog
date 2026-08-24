@@ -17,6 +17,8 @@ export function normalize(entries: FlathubCacheEntry[]): SourcedPackage[] {
     developer: entry.developer,
     longDescription: entry.longDescription,
     screenshots: entry.screenshots.length > 0 ? entry.screenshots : undefined,
+    languages: entry.languages,
+    changelog: entry.changelog,
     rating: entry.rating,
     popularity: entry.popularity,
   }));

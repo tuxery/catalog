@@ -24,6 +24,15 @@ interface RawUrl {
 
 interface RawRelease {
   "@_version"?: string;
+  description?: RawDescription[];
+}
+
+interface RawLangEntry {
+  "#text"?: string;
+}
+
+interface RawLanguages {
+  lang?: RawLangEntry[];
 }
 
 interface RawDeveloper {
@@ -72,6 +81,7 @@ interface RawComponent {
   developer_name?: RawText[];
   developer?: RawDeveloper;
   screenshots?: { screenshot?: RawScreenshot[] };
+  languages?: RawLanguages;
 }
 
 /**
@@ -101,6 +111,10 @@ export interface AppstreamComponent {
   longDescription?: string;
   /** Every screenshot's `type="source"` image URL (falling back to the first available size when there's no source-tagged one) — always a full URL already. See `SourcedPackage.screenshots`. */
   screenshots: string[];
+  /** Language codes from `<languages><lang>`, e.g. ["en_US", "de", "fr"] — the completion `percentage` attribute isn't kept, just which languages exist at all. See `SourcedPackage.languages`. */
+  languages?: string[];
+  /** The newest `<release>`'s own `<description>`, flattened the same way as the component's own `<description>` — see `SourcedPackage.changelog`. `undefined` when the newest release has no description (common — many releases are just a bare `<release version="x"/>`, no notes). */
+  changelog?: string;
 }
 
 /**
@@ -220,6 +234,18 @@ function pickLongDescription(descriptions: RawDescription[] | undefined): string
   return parts.length > 0 ? parts.join("\n\n") : undefined;
 }
 
+function pickLanguages(languages: RawLanguages | undefined): string[] | undefined {
+  const codes = (languages?.lang ?? [])
+    .map((entry) => entry["#text"])
+    .filter((code): code is string => Boolean(code));
+  return codes.length > 0 ? codes : undefined;
+}
+
+/** The newest release's own changelog text — reuses `pickLongDescription`'s paragraph/list flattening, since a `<release>`'s `<description>` is the identical `<p>`/`<ul>`/`<ol>` shape as the component's own. */
+function pickChangelog(releases: { release?: RawRelease[] } | undefined): string | undefined {
+  return pickLongDescription(releases?.release?.[0]?.description);
+}
+
 function pickScreenshots(screenshots: { screenshot?: RawScreenshot[] } | undefined): string[] {
   return (screenshots?.screenshot ?? [])
     .map((screenshot) => {
@@ -260,6 +286,7 @@ export function parseAppstreamXml(xml: string): AppstreamComponent[] {
         "ol",
         "screenshot",
         "image",
+        "lang",
       ].includes(name),
     // Without this, fast-xml-parser silently turns purely-numeric text
     // into a JS number (bit Fedora's fetcher for real: a package named
@@ -290,6 +317,8 @@ export function parseAppstreamXml(xml: string): AppstreamComponent[] {
       developer: pickDeveloper(component),
       longDescription: pickLongDescription(component.description),
       screenshots: pickScreenshots(component.screenshots),
+      languages: pickLanguages(component.languages),
+      changelog: pickChangelog(component.releases),
     }))
     .filter((entry) => entry.id && entry.name);
 }

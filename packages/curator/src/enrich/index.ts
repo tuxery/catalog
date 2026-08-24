@@ -165,6 +165,10 @@ export function enrichApps(
       screenshots: pickField(app.packages, (pkg) =>
         pkg.screenshots && pkg.screenshots.length > 0 ? pkg.screenshots : undefined,
       ),
+      languages: pickField(app.packages, (pkg) =>
+        pkg.languages && pkg.languages.length > 0 ? pkg.languages : undefined,
+      ),
+      changelog: pickField(app.packages, (pkg) => pkg.changelog),
       rating: aggregateRating(app.packages),
       popularity: aggregatePopularity(app.packages),
     };

@@ -28,6 +28,10 @@ export interface FlathubCacheEntry {
   longDescription?: string;
   /** See `SourcedPackage.screenshots`. */
   screenshots: string[];
+  /** See `SourcedPackage.languages`. */
+  languages?: string[];
+  /** See `SourcedPackage.changelog`. */
+  changelog?: string;
   /** See `SourcedPackage.rating`. */
   rating?: { average: number; count: number };
   /** See `SourcedPackage.popularity`. */

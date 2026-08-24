@@ -272,4 +272,40 @@ describe("groupPackages", () => {
       true,
     );
   });
+
+  it("real-world regression: GNOME Boxes merges Flathub with Snap/native, without pulling in the unrelated 'boxes' ASCII-art tool", () => {
+    // Found live investigating the compat-warnings feature: Flathub's
+    // "Boxes" (org.gnome.Boxes.desktop) was merging with AUR/Fedora/
+    // Nixpkgs/Gentoo/Debian/Ubuntu's own "boxes" packages under the
+    // generic-word collision GENERIC_NAME_BLOCKLIST exists for — every
+    // one of those is actually boxes.thomasjensen.com, a real, unrelated
+    // ASCII-art text tool, nothing to do with virtualization. Meanwhile
+    // GNOME Boxes' own Snap/native packages (all named "gnome-boxes", a
+    // different normalized name) were never part of that cluster and
+    // stayed a separate app. Fixed by blocklisting "boxes" and bridging
+    // Flathub's real appId to Snap's gnome-boxes via
+    // overrides/manual-matches.ndjson instead.
+    const packages = [
+      pkg({ source: "flatpak-flathub", name: "Boxes", appId: "org.gnome.Boxes.desktop" }),
+      pkg({ source: "snap-snapcraft", name: "GNOME Boxes", appId: "gnome-boxes" }),
+      pkg({ source: "deb-debian", name: "gnome-boxes", appId: "gnome-boxes" }),
+      pkg({
+        source: "pacman-aur",
+        name: "boxes",
+        appId: "boxes",
+        description: "Text mode box and comment drawing filter",
+      }),
+    ];
+
+    const groups = groupPackages(packages);
+    const boxesGroup = groups.find((g) =>
+      g.packages.some((p) => p.appId === "org.gnome.Boxes.desktop"),
+    );
+
+    expect(boxesGroup?.packages).toHaveLength(3);
+    expect(boxesGroup?.packages.some((p) => p.appId === "boxes")).toBe(false);
+    expect(groups.some((g) => g.packages.length === 1 && g.packages[0]?.appId === "boxes")).toBe(
+      true,
+    );
+  });
 });

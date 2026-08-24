@@ -40,3 +40,18 @@ judged by hand per entry, same as everything else in this file.
   Deliberately not auto-detected from names — the same discipline as
   `GENERIC_NAME_BLOCKLIST` in `match/group.ts`, curated by hand and
   narrow rather than pattern-matched.
+- `app-store-frontends.ndjson` — known app-store/package-manager frontends
+  (GNOME Software, Discover, ...), which the filter can't reliably tell
+  apart from a real app by name/section alone. Shape:
+  `{ "source": "...", "name": "...", "reason": "..." }`.
+- `compat-warnings.ndjson` — known packaging-format compatibility issues
+  for one specific app on one specific source (e.g. GNOME Boxes via Snap
+  losing KVM/libvirt device access to confinement) — surfaced in `app`'s
+  install drawer next to the affected source, not a separate page. Shape:
+  `{ "source": "...", "name": "...", "severity": "warning" | "info", "issue": "...", "fix": "...", "reason": "..." }`
+  (`fix` optional — omit when there's no known workaround, just the
+  issue). Deliberately keyed by exact `{source, name}`, not a category —
+  see `filter/rules.ts`'s repeated "language ecosystem mixes real tools"
+  lesson for why a category/tag-based rule risks false positives across
+  an entire category from one real case; grows one verified case at a
+  time instead.

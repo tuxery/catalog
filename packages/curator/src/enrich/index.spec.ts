@@ -226,6 +226,35 @@ describe("enrichApps", () => {
     expect(enrichApps(notFrontend)[0]?.appStoreFrontend).toBeUndefined();
   });
 
+  it("sets compatibilityWarnings, scoped to the affected source only, when a member package is on the hand-curated list", () => {
+    const matched: MatchedApp[] = [
+      {
+        id: "flathub:boxes",
+        packages: [
+          pkg({ source: "snap-snapcraft", name: "GNOME Boxes" }),
+          pkg({ source: "flatpak-flathub", name: "Boxes" }),
+          pkg({ source: "deb-debian", name: "gnome-boxes" }),
+        ],
+      },
+    ];
+
+    const warnings = enrichApps(matched)[0]?.compatibilityWarnings;
+    expect(warnings).toHaveLength(2);
+    const sources = warnings?.map((w) => w.source) ?? [];
+    // oxlint-disable-next-line unicorn/no-array-sort -- `sources` is a fresh array; toSorted needs ES2023 lib
+    expect(sources.sort()).toEqual(["flatpak-flathub", "snap-snapcraft"]);
+    // The unaffected deb-debian source shouldn't carry a warning of its own.
+    expect(warnings?.some((w) => w.source === "deb-debian")).toBe(false);
+  });
+
+  it("leaves compatibilityWarnings undefined for an app with no known issue", () => {
+    const matched: MatchedApp[] = [
+      { id: "flathub:firefox", packages: [pkg({ source: "flatpak-flathub", name: "Firefox" })] },
+    ];
+
+    expect(enrichApps(matched)[0]?.compatibilityWarnings).toBeUndefined();
+  });
+
   it("evaluates kind and contentType independently — a GUI app group isn't assumed to be a game", () => {
     const matched: MatchedApp[] = [
       {

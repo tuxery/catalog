@@ -48,6 +48,8 @@ export interface AppRecord {
     components?: { id: string; name: string }[];
     mainApp?: { id: string; name: string };
   };
+  /** Known packaging-format compatibility issues, each scoped to the one source it affects — see `CatalogApp.compatibilityWarnings`'s doc comment. */
+  compatibilityWarnings?: { source: string; severity: "warning" | "info"; issue: string; fix?: string }[];
   packages: unknown[];
 }
 
@@ -101,6 +103,7 @@ const INSERT_COLUMNS = [
   "permissions_json",
   "editorial_tags_json",
   "suite_json",
+  "compat_warnings_json",
   "packages_json",
 ];
 
@@ -139,6 +142,7 @@ function appsTableSql(tableName: string): string {
       permissions_json TEXT,
       editorial_tags_json TEXT,
       suite_json TEXT,
+      compat_warnings_json TEXT,
       packages_json TEXT NOT NULL
     )
   `;
@@ -186,6 +190,7 @@ function toRow(app: AppRecord): unknown[] {
     toJsonColumn(app.permissions),
     toJsonColumn(app.editorialTags),
     toJsonColumn(app.suite),
+    toJsonColumn(app.compatibilityWarnings),
     JSON.stringify(app.packages),
   ];
 }

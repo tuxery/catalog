@@ -382,6 +382,17 @@ research writeup.
     text is the chosen installer's own description (e.g. `Play
 "RollerCoaster Tycoon 2" CD edition on Linux!"`), which is what gets
     used. `packages/sources/lutris/fetch.ts`.
+
+    Real bug, found live (2026-08-25): `normalize.ts` used to set
+    `hasGameCategory: true` unconditionally on every entry, on the
+    assumption that anything hosted on a "games launcher" must be a game.
+    Wrong — Lutris genuinely hosts install scripts for real non-game
+    Windows software too (Discord's own entry is one), and neither
+    `/api/installers` nor `/api/games` (checked live) carries a
+    genre/category field to tell them apart. Fixed by not setting
+    `hasGameCategory` at all — a real Lutris-only game simply won't get
+    the "Game" badge until a better signal turns up, an honest gap rather
+    than a source of false positives.
 25. **Manual AppImage seed** — a hand-curated, source-controlled list
     (`packages/sources/src/appimage-manual/manual-appimages.ndjson`) for
     software with no GitHub repo (so `appimage`'s feed+Releases-lookup

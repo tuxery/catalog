@@ -142,6 +142,19 @@ function tier1Key(pkg: SourcedPackage): string | undefined {
 // (verified live: 4,392 pairs, e.g. `zen-browser`/`zen-browser-bin` — the
 // real bug report that prompted checking this one). AUR-only: no
 // equivalent convention verified elsewhere yet.
+//
+// A release-channel word (`-beta`/`-nightly`/`-alpha`/`-canary`/
+// `-unstable`/`-preview`, optionally followed by one of the build-variant
+// suffixes above, e.g. `-beta-bin`) is the same "alternate build of the
+// same software" shape, just a different axis — verified live: 232 real
+// AUR name-pairs share a base this way (e.g. `brave-origin-bin`/
+// `brave-origin-beta-bin`/`brave-origin-nightly-bin`, the real bug report
+// that prompted checking this one — beta/nightly weren't unioning with
+// the stable build at all, staying permanent standalone duplicates while
+// `-bin` alone already worked). Deliberately excludes `-dev`, despite
+// reading like a channel word too — collides with Debian-style `-dev`
+// headers packages, a real, different, well-established meaning.
+const AUR_CHANNEL_WORD = /-(beta|nightly|alpha|canary|unstable|preview)(?:-(?:git|svn|hg|bzr|cvs|bin))?$/;
 const AUR_VARIANT_SUFFIX = /-(git|svn|hg|bzr|cvs|bin)$/;
 
 /**
@@ -149,14 +162,19 @@ const AUR_VARIANT_SUFFIX = /-(git|svn|hg|bzr|cvs|bin)$/;
  * - `GENERIC_NAME_BLOCKLIST` entries return `undefined` (skipped by
  *   `unionByExactKey`, same as a package with no name at all) so they
  *   never union on name alone.
- * - AUR packages ending in `AUR_VARIANT_SUFFIX` are keyed on their
- *   suffix-stripped name instead, so e.g. `0xtools-git` or
- *   `zen-browser-bin` unions with `0xtools`/`zen-browser` (AUR's own bare
- *   package, or any other source's) rather than staying a permanent
- *   duplicate.
+ * - AUR packages ending in a channel word (`AUR_CHANNEL_WORD`, optionally
+ *   with a build-variant suffix after it) or a bare build-variant suffix
+ *   (`AUR_VARIANT_SUFFIX`) are keyed on their suffix-stripped name
+ *   instead, so e.g. `0xtools-git`, `zen-browser-bin`, or
+ *   `brave-origin-beta-bin` unions with `0xtools`/`zen-browser`/
+ *   `brave-origin` (AUR's own bare package, or any other source's)
+ *   rather than staying a permanent duplicate.
  */
 function tier2Key(pkg: SourcedPackage): string | undefined {
-  const name = pkg.source === "pacman-aur" ? pkg.name.replace(AUR_VARIANT_SUFFIX, "") : pkg.name;
+  const name =
+    pkg.source === "pacman-aur"
+      ? pkg.name.replace(AUR_CHANNEL_WORD, "").replace(AUR_VARIANT_SUFFIX, "")
+      : pkg.name;
   const normalized = normalizeName(name);
   return GENERIC_NAME_BLOCKLIST.has(normalized) ? undefined : normalized;
 }

@@ -45,4 +45,38 @@ describe("aur normalize", () => {
 
     expect(normalize([entry])[0]?.channel).toBe("bin");
   });
+
+  it("reads a release-channel word from its name, even combined with a build-variant suffix", () => {
+    // Real bug, found live: brave-origin-beta-bin/brave-origin-nightly-bin
+    // never unioned with the stable brave-origin-bin build at all — the
+    // channel word wasn't recognized, only the trailing -bin was, so
+    // stripping just "-bin" left "brave-origin-beta"/"brave-origin-nightly",
+    // neither of which matched anything.
+    const betaBin: AurCacheEntry = {
+      name: "brave-origin-beta-bin",
+      description: "The minimalist browser from the makers of Brave (beta binary release).",
+      version: "1.94.112-1",
+      homepage: "https://brave.com/origin/download-beta",
+    };
+    expect(normalize([betaBin])[0]?.channel).toBe("beta");
+
+    const nightly: AurCacheEntry = {
+      name: "ferdium-nightly",
+      description: "All your services in one place",
+      version: "7.0.0-1",
+      homepage: "https://ferdium.org",
+    };
+    expect(normalize([nightly])[0]?.channel).toBe("nightly");
+  });
+
+  it("does not treat a -dev suffix as a release channel — collides with the unrelated Debian-style headers-package meaning", () => {
+    const entry: AurCacheEntry = {
+      name: "kodi-git-dev",
+      description: "Development files for kodi-git",
+      version: "22.0.0-1",
+      homepage: "https://kodi.tv",
+    };
+
+    expect(normalize([entry])[0]?.channel).toBeUndefined();
+  });
 });

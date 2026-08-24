@@ -173,6 +173,30 @@ describe("looksLikeSupportPackage", () => {
     expect(looksLikeSupportPackage("bridge-utils")).toBe(false);
     expect(looksLikeSupportPackage("alsa-utils")).toBe(false);
   });
+
+  it("flags Brave's adblock-parsing library under every distro's Python-binding naming convention — verified live across 5 sources, zero counter-examples, replaces what used to be a one-exact-name-per-source override that would have needed a new line every Python release", () => {
+    expect(looksLikeSupportPackage("python-adblock")).toBe(true);
+    expect(looksLikeSupportPackage("python3-adblock")).toBe(true);
+    expect(looksLikeSupportPackage("python313-adblock")).toBe(true);
+    expect(looksLikeSupportPackage("python314-adblock")).toBe(true);
+    expect(looksLikeSupportPackage("py3-adblock")).toBe(true);
+    // Scoped to the compound name only — a bare python-prefix is
+    // deliberately not a general pattern elsewhere in this file (real CLI
+    // tools use it too), so an unrelated python package must stay untouched.
+    expect(looksLikeSupportPackage("python3-requests")).toBe(false);
+  });
+
+  it("flags profile-sync-daemon's per-browser support-config packages — verified live: 8 real matches, all \"<app> support for profile-sync-daemon\", replaces what used to be a one-exact-name-per-app override", () => {
+    expect(looksLikeSupportPackage("profile-sync-daemon-zen")).toBe(true);
+    expect(looksLikeSupportPackage("profile-sync-daemon-floorp")).toBe(true);
+    expect(looksLikeSupportPackage("profile-sync-daemon-edge-stable")).toBe(true);
+    expect(looksLikeSupportPackage("profile-sync-daemon-zotero")).toBe(true);
+    // The base tool and its own real build variants must stay untouched —
+    // profile-sync-daemon itself is a real, standalone CLI tool.
+    expect(looksLikeSupportPackage("profile-sync-daemon")).toBe(false);
+    expect(looksLikeSupportPackage("profile-sync-daemon-git")).toBe(false);
+    expect(looksLikeSupportPackage("profile-sync-daemon-openrc-git")).toBe(false);
+  });
 });
 
 describe("looksLikeSourceSpecificNoise", () => {

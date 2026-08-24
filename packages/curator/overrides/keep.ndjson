@@ -74,3 +74,5 @@
 {"source": "rpm-fedora", "name": "dotnet-sdk-9.0", "reason": "Real CLI toolchain (dotnet build/dotnet run) despite the -sdk noise pattern, not a library — see filter/rules.ts's SDK-naming comment"}
 {"source": "snap-snapcraft", "name": "dotnet-sdk", "reason": "Real CLI toolchain (dotnet build/dotnet run) despite the -sdk noise pattern, not a library — see filter/rules.ts's SDK-naming comment"}
 {"source": "xbps-void", "name": "wasi-sdk", "reason": "Real clang-based CLI toolchain (WASI-targeting C/C++ compiler) despite the -sdk noise pattern, not a library — see filter/rules.ts's SDK-naming comment"}
+{"source": "deb-debian", "name": "apt-show-source", "reason": "Real standalone CLI tool (\"Shows source-package information\") despite the -source noise suffix, not a shipped-source-code package itself — see filter/rules.ts's looksLikeSourceSpecificNoise comment"}
+{"source": "deb-ubuntu", "name": "apt-show-source", "reason": "Real standalone CLI tool (\"Shows source-package information\") despite the -source noise suffix, not a shipped-source-code package itself — see filter/rules.ts's looksLikeSourceSpecificNoise comment"}

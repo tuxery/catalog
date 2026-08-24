@@ -211,6 +211,21 @@ describe("enrichApps", () => {
     expect(enrichApps(matched)[0]?.contentType).toBeUndefined();
   });
 
+  it("sets appStoreFrontend to true when a member package is on the hand-curated list, undefined otherwise", () => {
+    const frontend: MatchedApp[] = [
+      {
+        id: "deb-debian:gnome-software",
+        packages: [pkg({ source: "deb-debian", name: "gnome-software" })],
+      },
+    ];
+    const notFrontend: MatchedApp[] = [
+      { id: "flathub:firefox", packages: [pkg({ source: "flatpak-flathub", name: "Firefox" })] },
+    ];
+
+    expect(enrichApps(frontend)[0]?.appStoreFrontend).toBe(true);
+    expect(enrichApps(notFrontend)[0]?.appStoreFrontend).toBeUndefined();
+  });
+
   it("evaluates kind and contentType independently — a GUI app group isn't assumed to be a game", () => {
     const matched: MatchedApp[] = [
       {

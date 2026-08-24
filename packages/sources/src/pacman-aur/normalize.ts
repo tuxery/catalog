@@ -11,8 +11,19 @@ import type { AurCacheEntry } from "./types";
 // base package's app; see `match/group.ts`'s `AUR_VARIANT_SUFFIX`.
 const VARIANT_SUFFIX = /-(git|svn|hg|bzr|cvs|bin)$/;
 
+// A release-channel word, optionally followed by one of the build-variant
+// suffixes above (e.g. `-beta-bin`) — same "alternate build" shape as
+// `VARIANT_SUFFIX`, just a different axis (which release channel, not
+// which build method). Checked first below since it's the more specific/
+// meaningful label when both are present (`brave-origin-beta-bin`'s
+// channel is "beta", not "bin"). See `match/group.ts`'s
+// `AUR_CHANNEL_WORD` for the live verification behind this list, and why
+// `-dev` is deliberately excluded.
+const CHANNEL_WORD = /-(beta|nightly|alpha|canary|unstable|preview)(?:-(?:git|svn|hg|bzr|cvs|bin))?$/;
+
 export function normalize(entries: AurCacheEntry[]): SourcedPackage[] {
   return entries.map((entry) => {
+    const channelMatch = CHANNEL_WORD.exec(entry.name);
     const variantMatch = VARIANT_SUFFIX.exec(entry.name);
 
     return {
@@ -25,7 +36,7 @@ export function normalize(entries: AurCacheEntry[]): SourcedPackage[] {
       appId: entry.name,
       homepage: entry.homepage,
       popularity: entry.popularity,
-      channel: variantMatch ? variantMatch[1] : undefined,
+      channel: channelMatch ? channelMatch[1] : variantMatch ? variantMatch[1] : undefined,
     };
   });
 }

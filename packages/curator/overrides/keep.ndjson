@@ -76,3 +76,27 @@
 {"source": "xbps-void", "name": "wasi-sdk", "reason": "Real clang-based CLI toolchain (WASI-targeting C/C++ compiler) despite the -sdk noise pattern, not a library — see filter/rules.ts's SDK-naming comment"}
 {"source": "deb-debian", "name": "apt-show-source", "reason": "Real standalone CLI tool (\"Shows source-package information\") despite the -source noise suffix, not a shipped-source-code package itself — see filter/rules.ts's looksLikeSourceSpecificNoise comment"}
 {"source": "deb-ubuntu", "name": "apt-show-source", "reason": "Real standalone CLI tool (\"Shows source-package information\") despite the -source noise suffix, not a shipped-source-code package itself — see filter/rules.ts's looksLikeSourceSpecificNoise comment"}
+{"source":"apk-alpine","name":"libreoffice","reason":"Real standalone app despite the lib* noise prefix — see filter/rules.ts's header comment on the libre* trap"}
+{"source":"apk-alpine","name":"libreoffice-base","reason":"Real standalone app despite the lib* noise prefix — see filter/rules.ts's header comment on the libre* trap"}
+{"source":"apk-alpine","name":"libreoffice-calc","reason":"Real standalone app despite the lib* noise prefix — see filter/rules.ts's header comment on the libre* trap"}
+{"source":"apk-alpine","name":"libreoffice-draw","reason":"Real standalone app despite the lib* noise prefix — see filter/rules.ts's header comment on the libre* trap"}
+{"source":"apk-alpine","name":"libreoffice-impress","reason":"Real standalone app despite the lib* noise prefix — see filter/rules.ts's header comment on the libre* trap"}
+{"source":"apk-alpine","name":"libreoffice-writer","reason":"Real standalone app despite the lib* noise prefix — see filter/rules.ts's header comment on the libre* trap"}
+{"source":"ebuild-gentoo","name":"libreoffice","reason":"Real standalone app despite the lib* noise prefix — see filter/rules.ts's header comment on the libre* trap"}
+{"source":"ebuild-gentoo","name":"librecad","reason":"Real standalone app despite the lib* noise prefix — see filter/rules.ts's header comment on the libre* trap"}
+{"source":"eopkg-solus","name":"libreoffice-base","reason":"Real standalone app despite the lib* noise prefix — see filter/rules.ts's header comment on the libre* trap"}
+{"source":"eopkg-solus","name":"libreoffice-calc","reason":"Real standalone app despite the lib* noise prefix — see filter/rules.ts's header comment on the libre* trap"}
+{"source":"eopkg-solus","name":"libreoffice-draw","reason":"Real standalone app despite the lib* noise prefix — see filter/rules.ts's header comment on the libre* trap"}
+{"source":"eopkg-solus","name":"libreoffice-impress","reason":"Real standalone app despite the lib* noise prefix — see filter/rules.ts's header comment on the libre* trap"}
+{"source":"eopkg-solus","name":"libreoffice-writer","reason":"Real standalone app despite the lib* noise prefix — see filter/rules.ts's header comment on the libre* trap"}
+{"source":"eopkg-solus","name":"librecad","reason":"Real standalone app despite the lib* noise prefix — see filter/rules.ts's header comment on the libre* trap"}
+{"source":"nix-nixpkgs","name":"libreoffice","reason":"Real standalone app despite the lib* noise prefix — see filter/rules.ts's header comment on the libre* trap"}
+{"source":"nix-nixpkgs","name":"librecad","reason":"Real standalone app despite the lib* noise prefix — see filter/rules.ts's header comment on the libre* trap"}
+{"source":"snap-snapcraft","name":"libreoffice","reason":"Real standalone app despite the lib* noise prefix — see filter/rules.ts's header comment on the libre* trap"}
+{"source":"xbps-void","name":"libreoffice","reason":"Real standalone app despite the lib* noise prefix — see filter/rules.ts's header comment on the libre* trap"}
+{"source":"xbps-void","name":"libreoffice-base","reason":"Real standalone app despite the lib* noise prefix — see filter/rules.ts's header comment on the libre* trap"}
+{"source":"xbps-void","name":"libreoffice-calc","reason":"Real standalone app despite the lib* noise prefix — see filter/rules.ts's header comment on the libre* trap"}
+{"source":"xbps-void","name":"libreoffice-draw","reason":"Real standalone app despite the lib* noise prefix — see filter/rules.ts's header comment on the libre* trap"}
+{"source":"xbps-void","name":"libreoffice-impress","reason":"Real standalone app despite the lib* noise prefix — see filter/rules.ts's header comment on the libre* trap"}
+{"source":"xbps-void","name":"libreoffice-writer","reason":"Real standalone app despite the lib* noise prefix — see filter/rules.ts's header comment on the libre* trap"}
+{"source":"pacman-arch","name":"libreoffice-still","reason":"Real standalone app despite the lib* noise prefix — Arch's single install-everything LibreOffice meta package (maintenance-branch twin of libreoffice-fresh)"}

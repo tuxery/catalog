@@ -23,4 +23,5 @@ export { searchDeepin } from "./deb-deepin";
 export { searchMxLinux } from "./deb-mxlinux";
 export { searchGog } from "./gog";
 export { searchLutris } from "./lutris";
+export { searchGithubReleases } from "./github-releases";
 export { searchAllSources } from "./search";

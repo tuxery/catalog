@@ -5,8 +5,8 @@
 // — a narrower, more conservative first slice than trying to also map the
 // much larger, far less consistently-used Additional Categories set.
 // Cross-checked against Microsoft Store's own published taxonomy and the
-// original homepage spec's section names (productivité, musique,
-// créativité, ...) for the display labels below — full adoption of
+// original homepage spec's section names (productivity, music,
+// creativity, ...) for the display labels below — full adoption of
 // either would be overkill for Tuxery's current catalog size.
 //
 // "Game" is deliberately excluded: `CatalogApp.contentType` already

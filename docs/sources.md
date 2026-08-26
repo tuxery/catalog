@@ -15,7 +15,7 @@ table is the map, the Project is the tracked work.
 | 2   | Snapcraft             | —                    | Snap       | 3,652   | ⚠️          | Implemented | [3]   |
 | 3   | AppImage              | —                    | AppImage   | 1,052   | ⚠️          | Implemented | [4]   |
 | 3b  | Manual AppImage seed  | —                    | AppImage   | 1       | ✅          | Implemented | [25]  |
-| 4   | GitHub Releases       | —                    | Any        | —       | ❌          | Deferred    | [5]   |
+| 4   | GitHub Releases       | —                    | Any        | 498     | ❌          | Implemented | [5]   |
 | 5a  | AUR (Arch, community) | —                    | Native     | 117,520 | ✅          | Implemented | [6]   |
 | 5b  | Arch official         | core                 | Native     | 296     | ✅          | Implemented | [7]   |
 | 5b  | Arch official         | extra                | Native     | 14,906  | ✅          | Implemented | [7]   |
@@ -88,12 +88,24 @@ because a paragraph per cell made the table unreadable.
    curation — not every AppImage publisher is listed.
    `packages/sources/appimage/fetch.ts`.
 5. **GitHub Releases** (generic; `.deb`, `.rpm`, `.AppImage`, raw
-   binaries, ...) — no catalog exists; would need GitHub topic/code
-   search heuristics (e.g. `topic:linux-app`) or a curated seed list
-   (awesome-lists style). Not exhaustive by nature — scope narrowly
-   (topics) rather than attempt to crawl GitHub. Shares plumbing with
-   AppImage's per-repo Release lookup. Deferred — not convincing enough
-   yet to build; not a package.
+   binaries, ...) — no catalog exists, so this discovers candidates via
+   `api.github.com/search/repositories?q=topic:linux-app+archived:false`
+   (sorted by stars, paginated up to GitHub's 1,000-result search cap),
+   kept only if the repo also has a real tagged Release (necessary —
+   nothing to install otherwise — but not sufficient on its own: some
+   repos with the topic and a Release are packaging tooling, not an app
+   a user would launch, e.g. AppImage/AppImageKit itself, excluded via
+   `overrides/exclude.ndjson`). 1,000 candidates in, 499 with a real
+   Release, 498 after that one exclusion. `homepage` points at the
+   Release page itself, not a specific asset — no reliable per-project
+   convention for picking "the right download" across arbitrary repos.
+   Needs `GITHUB_TOKEN` (search API's own stricter 30 req/min limit is
+   still comfortably inside budget for ≤10 search pages + up to 1,000
+   per-repo Release lookups). Not exhaustive by nature (topic-tagging is
+   self-selected, and a real tagged Release undercounts too — some real
+   apps ship via a shell-installer instead, e.g. winapps-org/winapps).
+   Shares plumbing with AppImage's per-repo Release lookup.
+   `packages/sources/github-releases/fetch.ts`.
 6. **AUR** (Arch, community) — `aur.archlinux.org/packages-meta-ext-v1.json.gz`,
    a full metadata dump regenerated every ~5 min, single file, no auth.
    Full dump — the easiest native source to be exhaustive on.

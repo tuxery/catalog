@@ -10,6 +10,7 @@ import { fetchDeepin } from "./deb-deepin/fetch";
 import { fetchFedora } from "./rpm-fedora/fetch";
 import { fetchFlathub } from "./flatpak-flathub/fetch";
 import { fetchGentoo } from "./ebuild-gentoo/fetch";
+import { fetchGithubReleases } from "./github-releases/fetch";
 import { fetchGog } from "./gog/fetch";
 import { fetchLutris } from "./lutris/fetch";
 import { fetchMint } from "./deb-mint/fetch";
@@ -49,6 +50,7 @@ const REFRESHERS: Record<string, (cachePath: string) => Promise<number>> = {
   "deb-mxlinux": fetchMxLinux,
   gog: fetchGog,
   lutris: fetchLutris,
+  "github-releases": fetchGithubReleases,
 };
 
 async function main() {

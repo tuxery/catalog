@@ -38,9 +38,10 @@ jobs:
       - name: Refresh source caches
         working-directory: packages/sources
         env:
-          # AppImage's version-resolution step uses this — 5000 req/hr vs.
-          # 60 unauthenticated (see docs/sources.md's AppImage note);
-          # skipped gracefully, not a hard failure, when unset.
+          # AppImage's version-resolution step and the GitHub Releases
+          # source's own search+lookup both use this — 5000 req/hr vs. 60
+          # unauthenticated (see docs/sources.md's AppImage/GitHub Releases
+          # notes); skipped gracefully, not a hard failure, when unset.
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -uo pipefail
@@ -48,7 +49,7 @@ jobs:
           if [ -n "${{ github.event.inputs.source }}" ]; then
             sources="${{ github.event.inputs.source }}"
           else
-            sources="flatpak-flathub flatpak-appcenter snap-snapcraft appimage appimage-manual pacman-aur deb-debian deb-ubuntu rpm-fedora pacman-arch nix-nixpkgs rpm-opensuse rpm-rpmfusion apk-alpine xbps-void slackware eopkg-solus ebuild-gentoo deb-mint deb-popos deb-deepin deb-mxlinux gog lutris"
+            sources="flatpak-flathub flatpak-appcenter snap-snapcraft appimage appimage-manual pacman-aur deb-debian deb-ubuntu rpm-fedora pacman-arch nix-nixpkgs rpm-opensuse rpm-rpmfusion apk-alpine xbps-void slackware eopkg-solus ebuild-gentoo deb-mint deb-popos deb-deepin deb-mxlinux gog lutris github-releases"
           fi
 
           failed=""

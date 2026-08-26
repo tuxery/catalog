@@ -9,6 +9,7 @@ import { searchDeepin } from "./deb-deepin";
 import { searchFedora } from "./rpm-fedora";
 import { searchFlathub } from "./flatpak-flathub";
 import { searchGentoo } from "./ebuild-gentoo";
+import { searchGithubReleases } from "./github-releases";
 import { searchGog } from "./gog";
 import { searchLutris } from "./lutris";
 import { searchMint } from "./deb-mint";
@@ -55,6 +56,7 @@ export async function searchAllSources(query: string): Promise<SourcedPackage[]>
     searchMxLinux(query),
     searchGog(query),
     searchLutris(query),
+    searchGithubReleases(query),
   ]);
 
   return results.flat();

@@ -35,7 +35,8 @@ export type PackageSourceId =
   | "deb-deepin"
   | "deb-mxlinux"
   | "gog"
-  | "lutris";
+  | "lutris"
+  | "github-releases";
 
 /**
  * A single package as reported by one source, before deduplication.

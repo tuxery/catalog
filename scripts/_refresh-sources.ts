@@ -30,6 +30,7 @@ const ALL_SOURCE_IDS = [
   "deb-mxlinux",
   "gog",
   "lutris",
+  "github-releases",
 ];
 
 /** Re-fetches the given sources (default: all) via @tuxery/sources' existing `refresh` CLI, one at a time. */

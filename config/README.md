@@ -8,7 +8,8 @@ umbrella hiding five different actions behind one name.
 
 | File                                                         | Stage  | Does                                                                                                                                           |
 | ------------------------------------------------------------ | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| [`categories.json`](categories.json)                         | enrich | freedesktop category → display-label mapping (key order is also preference order)                                                              |
+| [`categories-apps.json`](categories-apps.json)               | enrich | freedesktop category → display-label mapping for non-game apps (key order is also preference order)                                            |
+| [`categories-games.json`](categories-games.json)             | enrich | freedesktop genre tag → display-label mapping for games (key order is also preference order)                                                   |
 | [`filter-keep.json`](filter-keep.json)                       | filter | rescues a package `filter/rules.ts`'s auto rules would wrongly exclude                                                                         |
 | [`filter-exclude.json`](filter-exclude.json)                 | filter | force-excludes a package the auto rules miss                                                                                                   |
 | [`match-force.json`](match-force.json)                       | match  | forces every listed source package to merge into one destination, no scoring                                                                   |
@@ -52,8 +53,8 @@ an app. Not automatable (no "has a desktop entry" / "ships an executable
 meant to be run directly" signal exists in the data model), so this has
 to be judged by hand per entry, same as everything else in this folder.
 
-Every entry in the six override-style files (everything except
-`categories.json`) needs a real `reason` so the exception is auditable
+Every entry in the seven override-style files (everything except
+`categories-apps.json`/`categories-games.json`) needs a real `reason` so the exception is auditable
 later, not just an unexplained line — each one only grows as a real case
 is found and verified, never pre-filled speculatively.
 

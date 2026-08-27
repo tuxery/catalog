@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import type { SourcedPackage } from "../../sources";
 import type { MatchedApp } from "../match/group";
+import { TO_CLASSIFY } from "./category";
 import { enrichApps } from "./index";
 
 function pkg(overrides: Partial<SourcedPackage>): SourcedPackage {
@@ -288,7 +289,7 @@ describe("enrichApps", () => {
       },
     ];
 
-    expect(enrichApps(matched)[0]?.category).toBe("Graphics & Creativity");
+    expect(enrichApps(matched)[0]?.category).toBe("Graphics & Design");
   });
 
   it("falls back to a non-representative package's categories when the representative has none", () => {
@@ -307,15 +308,15 @@ describe("enrichApps", () => {
     expect(enrichApps(matched)[0]?.category).toBe("Productivity");
   });
 
-  it("leaves category undefined when no member package has category data", () => {
+  it("falls back to To Classify when no member package has category data", () => {
     const matched: MatchedApp[] = [
       { id: "aur:example", packages: [pkg({ source: "pacman-aur", name: "example" })] },
     ];
 
-    expect(enrichApps(matched)[0]?.category).toBeUndefined();
+    expect(enrichApps(matched)[0]?.category).toBe(TO_CLASSIFY);
   });
 
-  it("leaves category undefined for a Game-only package — contentType covers that, not category", () => {
+  it("falls back to To Classify for a Game-tagged package with no recognized genre", () => {
     const matched: MatchedApp[] = [
       {
         id: "flathub:example",
@@ -332,7 +333,27 @@ describe("enrichApps", () => {
 
     const [app] = enrichApps(matched);
     expect(app?.contentType).toBe("game");
-    expect(app?.category).toBeUndefined();
+    expect(app?.category).toBe(TO_CLASSIFY);
+  });
+
+  it("maps a Game-tagged package's genre through the game taxonomy, not the app one", () => {
+    const matched: MatchedApp[] = [
+      {
+        id: "flathub:example-strategy",
+        packages: [
+          pkg({
+            source: "flatpak-flathub",
+            name: "example",
+            hasGameCategory: true,
+            categories: ["Game", "StrategyGame"],
+          }),
+        ],
+      },
+    ];
+
+    const [app] = enrichApps(matched);
+    expect(app?.contentType).toBe("game");
+    expect(app?.category).toBe("Strategy");
   });
 
   it("sets iconUrl, license, developer, longDescription, screenshots, languages, and changelog from the representative package", () => {

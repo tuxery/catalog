@@ -1,0 +1,112 @@
+{
+  "Development": "Developer Tools",
+  "IDE": "Developer Tools",
+  "WebDevelopment": "Developer Tools",
+  "RevisionControl": "Developer Tools",
+  "Debugger": "Developer Tools",
+  "GUIDesigner": "Developer Tools",
+
+  "Science": "Science",
+  "Math": "Science",
+  "Engineering": "Science",
+  "Chemistry": "Science",
+  "Physics": "Science",
+  "Astronomy": "Science",
+  "Biology": "Science",
+  "Geoscience": "Science",
+  "Geology": "Science",
+  "NumericalAnalysis": "Science",
+  "ArtificialIntelligence": "Science",
+  "Robotics": "Science",
+  "ParallelComputing": "Science",
+
+  "Education": "Education",
+  "Languages": "Education",
+
+  "Security": "Security",
+
+  "Finance": "Finance",
+  "Economy": "Finance",
+
+  "Photography": "Photo & Video",
+  "Video": "Photo & Video",
+  "AudioVideoEditing": "Photo & Video",
+  "TV": "Photo & Video",
+  "Scanning": "Photo & Video",
+  "DiscBurning": "Photo & Video",
+
+  "Audio": "Music & Audio",
+  "Music": "Music & Audio",
+  "Midi": "Music & Audio",
+  "Sequencer": "Music & Audio",
+  "Mixer": "Music & Audio",
+
+  "Graphics": "Graphics & Design",
+  "2DGraphics": "Graphics & Design",
+  "3DGraphics": "Graphics & Design",
+  "RasterGraphics": "Graphics & Design",
+  "VectorGraphics": "Graphics & Design",
+  "ImageProcessing": "Graphics & Design",
+
+  "InstantMessaging": "Internet & Communication",
+  "Chat": "Internet & Communication",
+  "Email": "Internet & Communication",
+  "FileTransfer": "Internet & Communication",
+  "WebBrowser": "Internet & Communication",
+  "P2P": "Internet & Communication",
+  "VideoConference": "Internet & Communication",
+  "IRCClient": "Internet & Communication",
+  "Telephony": "Internet & Communication",
+  "TelephonyTools": "Internet & Communication",
+  "Network": "Internet & Communication",
+
+  "Presentation": "Productivity",
+  "Spreadsheet": "Productivity",
+  "WordProcessor": "Productivity",
+  "ProjectManagement": "Productivity",
+  "Calendar": "Productivity",
+  "Office": "Productivity",
+
+  "ContactManagement": "Business",
+
+  "News": "News & Weather",
+  "Feed": "News & Weather",
+
+  "Maps": "Travel & Navigation",
+  "Geography": "Travel & Navigation",
+
+  "Documentation": "Books & Reference",
+  "Literature": "Books & Reference",
+  "Publishing": "Books & Reference",
+  "Dictionary": "Books & Reference",
+  "Translation": "Books & Reference",
+
+  "System": "System Tools",
+  "TerminalEmulator": "System Tools",
+  "Monitor": "System Tools",
+  "FileTools": "System Tools",
+  "FileManager": "System Tools",
+  "Archiving": "System Tools",
+  "Compression": "System Tools",
+  "Filesystem": "System Tools",
+  "PackageManager": "System Tools",
+  "RemoteAccess": "System Tools",
+  "ConsoleOnly": "System Tools",
+
+  "Settings": "Settings",
+  "DesktopSettings": "Settings",
+  "HardwareSettings": "Settings",
+  "Accessibility": "Settings",
+
+  "TextEditor": "Utilities",
+  "TextTools": "Utilities",
+  "Calculator": "Utilities",
+  "Clock": "Utilities",
+  "Viewer": "Utilities",
+  "OCR": "Utilities",
+
+  "AudioVideo": "Music & Audio",
+  "Player": "Music & Audio",
+
+  "Utility": "Utilities"
+}

@@ -90,15 +90,16 @@ function hasGameEvidence(pkg: SourcedPackage): boolean {
 
 /**
  * Picks a category label via `pickField`, then maps it through
- * `pickCategory`'s taxonomy — `undefined` when no member package has
- * category data, or none of it maps to a recognized Main Category. See
+ * `pickCategory`'s type-scoped taxonomy — `pickCategory` itself falls back
+ * to `TO_CLASSIFY` rather than `undefined` when no member package has
+ * category data, or none of it maps to a recognized category. See
  * `CatalogApp.category`'s doc comment.
  */
-function pickCategoryLabel(packages: SourcedPackage[]): string | undefined {
+function pickCategoryLabel(packages: SourcedPackage[], isGame: boolean): string {
   const categories = pickField(packages, (pkg) =>
     pkg.categories && pkg.categories.length > 0 ? pkg.categories : undefined,
   );
-  return categories ? pickCategory(categories) : undefined;
+  return pickCategory(categories ?? [], isGame);
 }
 
 /**
@@ -150,6 +151,7 @@ export function enrichApps(
   const apps: CatalogApp[] = matched.map((app) => {
     const representative = pickByPriority(app.packages);
     const warnings = getCompatWarnings(app.packages, compatWarnings);
+    const isGame = app.packages.some(hasGameEvidence);
 
     return {
       id: app.id,
@@ -158,9 +160,9 @@ export function enrichApps(
       homepage: representative.homepage,
       packages: app.packages,
       kind: app.packages.some(hasGuiEvidence) ? "gui" : undefined,
-      contentType: app.packages.some(hasGameEvidence) ? "game" : undefined,
+      contentType: isGame ? "game" : undefined,
       appStoreFrontend: isAppStoreFrontend(app.packages, appStoreFrontends) ? true : undefined,
-      category: pickCategoryLabel(app.packages),
+      category: pickCategoryLabel(app.packages, isGame),
       iconUrl: pickField(app.packages, (pkg) => pkg.iconUrl),
       license: pickField(app.packages, (pkg) => pkg.license),
       developer: pickField(app.packages, (pkg) => pkg.developer),

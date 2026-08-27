@@ -1,53 +1,73 @@
 import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 
-// freedesktop.org's menu spec (spec.freedesktop.org/menu-spec) registers 13
-// "Main Categories" every app is expected to carry at least one of, plus a
-// long tail of "Additional Categories" (subgenres like ArcadeGame,
-// TextEditor, WebBrowser, ...). This taxonomy uses the Main Categories only
-// — a narrower, more conservative first slice than trying to also map the
-// much larger, far less consistently-used Additional Categories set.
-// Cross-checked against Microsoft Store's own published taxonomy and the
-// original homepage spec's section names (productivity, music,
-// creativity, ...) for the display labels below — full adoption of
-// either would be overkill for Tuxery's current catalog size.
+// Two separate taxonomies, not one shared list — apps and games draw from
+// genuinely different upstream signals (freedesktop.org's Main Categories
+// for apps, its far sparser Additional Categories genre tags for games)
+// and a flat single-namespace label ("Simulation" the app vs. "Simulation"
+// the genre) would blur what's actually two different classification
+// questions. Researched against Snapcraft/Flathub/Microsoft Store/Apple
+// App Store/Google Play (2026-08-27) — every store that formalizes an
+// app/game split (Google Play's "Application type", most directly) scopes
+// categories to the type, never one shared list.
 //
-// "Game" is deliberately excluded: `CatalogApp.contentType` already
-// covers it, and genre-level game categorization (ArcadeGame, Shooter,
-// Strategy, ...) is out of scope here — see the "Apps page and Games
-// page" card, which explicitly defers that to its own, still-unresolved
-// "category taxonomy" dependency at the genre level.
-//
-// "Audio" and "Video" collapse into "AudioVideo" rather than staying
-// separate buckets: they overwhelmingly co-occur with "AudioVideo" itself
-// on real data — three near-identical buckets would fragment what's
-// really one content type.
-//
-// The mapping itself lives in `config/categories.json`, not here — no
-// TypeScript knowledge needed to add/relabel a category. Key order in
-// that file is also preference order (see `CATEGORY_PREFERENCE` below).
-const CATEGORY_LABELS: Record<string, string> = JSON.parse(
-  readFileSync(fileURLToPath(new URL("../../../config/categories.json", import.meta.url)), "utf8"),
+// The mappings themselves live in `config/categories-apps.json` and
+// `config/categories-games.json`, not here — no TypeScript knowledge
+// needed to add/relabel a category. Key order in each file is preference
+// order (see `*_CATEGORY_PREFERENCE` below) — more specific tags listed
+// before generic catch-alls.
+const APP_CATEGORY_LABELS: Record<string, string> = JSON.parse(
+  readFileSync(
+    fileURLToPath(new URL("../../../config/categories-apps.json", import.meta.url)),
+    "utf8",
+  ),
+);
+const GAME_CATEGORY_LABELS: Record<string, string> = JSON.parse(
+  readFileSync(
+    fileURLToPath(new URL("../../../config/categories-games.json", import.meta.url)),
+    "utf8",
+  ),
 );
 
-// Preference order when a package carries more than one Main Category —
-// common on real data, almost always pairing a specific category with
-// "Utility", freedesktop's own generic catch-all bucket ("small utility
-// programs" per the spec) — so Utility is ordered last, deliberately
-// losing to anything more specific in `config/categories.json`'s own key
-// order. The rest of the order isn't load-bearing in the same way but is
-// kept stable so the same package always resolves to the same category.
-const CATEGORY_PREFERENCE = Object.keys(CATEGORY_LABELS);
+const APP_CATEGORY_PREFERENCE = Object.keys(APP_CATEGORY_LABELS);
+const GAME_CATEGORY_PREFERENCE = Object.keys(GAME_CATEGORY_LABELS);
+
+// The freedesktop.org Additional Categories genre tags real game data
+// actually carries (verified live against Flathub/AppCenter's real cache,
+// 2026-08-27: 410 of 777 tagged games carry at least one, the rest have
+// only the bare "Game" Main Category or nothing recognized at all — those
+// fall to `TO_CLASSIFY` below, same as any app with no signal). Casino,
+// Casual, Music, Racing, Trivia, and Word have zero real matches in
+// today's data (no source populates them yet — Flathub/AppCenter's own
+// AppStream categories are the only per-package genre signal that exists;
+// GOG/Lutris carry no equivalent field, see `SourcedPackage`) but are
+// still real, legitimate genres a future signal could populate — kept out
+// of `config/categories-games.json` rather than force-mapped to the
+// nearest real tag, per this file's "never guessed" discipline.
+//
+// "Shooter" folds into "Action" (a real freedesktop Additional Category,
+// distinct from "ActionGame" but the same genre family in every real
+// store's own taxonomy — Steam files Shooter under Action too).
+// "BlocksGame"/"LogicGame" fold into "Puzzle" (block-stacking and logic
+// games are both puzzle games in every real store researched). "KidsGame"
+// and the freedesktop "Education" Main Category (real co-occurrence with
+// "Game" on real data) both fold into "Educational".
+export function pickCategory(categories: string[], isGame: boolean): string {
+  const present = new Set(categories);
+  const labels = isGame ? GAME_CATEGORY_LABELS : APP_CATEGORY_LABELS;
+  const preference = isGame ? GAME_CATEGORY_PREFERENCE : APP_CATEGORY_PREFERENCE;
+  const match = preference.find((category) => present.has(category));
+  return (match && labels[match]) || TO_CLASSIFY;
+}
 
 /**
- * Picks one display-ready category label from a package's raw
- * freedesktop.org category list, per `CATEGORY_PREFERENCE` — `undefined`
- * when none of its categories are a recognized Main Category (e.g.
- * Game-only, or an Additional-Category-only package neither this
- * taxonomy nor `CatalogApp.contentType` covers yet). Pure — no I/O.
+ * The fallback category for anything with no positive signal at all —
+ * `pickCategory` never returns `undefined`, so `CatalogApp.category` is
+ * always a real string and the catalog stays fully browsable by category
+ * even for the ~98% of apps that carry no Flathub/AppCenter member at all
+ * (verified live, 2026-08-27: only 3,406 of 202,979 apps do — every other
+ * source is silent on category entirely). Explicit product decision, not
+ * a stopgap: "everything must be classified, at worst as 'needs help'"
+ * rather than leaving most of the catalog with no category at all.
  */
-export function pickCategory(categories: string[]): string | undefined {
-  const present = new Set(categories);
-  const match = CATEGORY_PREFERENCE.find((category) => present.has(category));
-  return match ? CATEGORY_LABELS[match] : undefined;
-}
+export const TO_CLASSIFY = "To Classify";

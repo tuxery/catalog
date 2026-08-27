@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Enrich: app-store frontend tags",
+  "description": "Known app-store/package-manager frontends (GNOME Software, KDE Discover, Synaptic, ...) — sets CatalogApp.appStoreFrontend = true on any app carrying a matching package, see enrich/types.ts's doc comment for why. Tags a package, doesn't exclude it — it still shows up in the catalog, just labeled.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["sources", "name", "reason"],
+    "additionalProperties": false,
+    "properties": {
+      "sources": {
+        "type": "array",
+        "minItems": 1,
+        "items": { "type": "string" },
+        "description": "PackageSourceId values (<format>-<provider>, e.g. \"deb-debian\") this exact name has actually been checked on — not a wildcard across every source."
+      },
+      "name": {
+        "type": "string",
+        "description": "The exact SourcedPackage.name on every listed source."
+      },
+      "reason": {
+        "type": "string",
+        "description": "Why this is really an app-store/package-manager frontend and not a coincidental name match — required so the tag is auditable later, not just an unexplained line."
+      }
+    }
+  }
+}

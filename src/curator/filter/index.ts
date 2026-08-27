@@ -18,9 +18,10 @@ import {
  * for the handful of conventions that only mean "noise" on one specific
  * source. See rules.ts for why all three are deliberately conservative.
  *
- * `overrides` defaults to the real `config/overrides/*.ndjson` files
- * (`loadFilterOverrides()`) — the parameter exists so tests can inject a
- * small in-memory set instead of touching those files.
+ * `overrides` defaults to the real `config/filter-keep.json`/
+ * `filter-exclude.json` files (`loadFilterOverrides()`) — the parameter
+ * exists so tests can inject a small in-memory set instead of touching
+ * those files.
  */
 export function filterPackages(
   packages: SourcedPackage[],

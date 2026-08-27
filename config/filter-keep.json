@@ -1,0 +1,259 @@
+[
+  {
+    "sources": [
+      "apk-alpine",
+      "deb-debian",
+      "deb-ubuntu",
+      "ebuild-gentoo",
+      "nix-nixpkgs",
+      "rpm-fedora",
+      "snap-snapcraft",
+      "xbps-void"
+    ],
+    "name": "libreoffice",
+    "reason": "Real standalone app despite the lib* noise prefix — see filter/rules.ts's header comment on the libre* trap"
+  },
+  {
+    "sources": ["apk-alpine", "deb-debian", "deb-ubuntu", "eopkg-solus", "rpm-fedora", "xbps-void"],
+    "name": "libreoffice-base",
+    "reason": "Real standalone app despite the lib* noise prefix — see filter/rules.ts's header comment on the libre* trap"
+  },
+  {
+    "sources": ["apk-alpine", "deb-debian", "deb-ubuntu", "eopkg-solus", "rpm-fedora", "xbps-void"],
+    "name": "libreoffice-calc",
+    "reason": "Real standalone app despite the lib* noise prefix — see filter/rules.ts's header comment on the libre* trap"
+  },
+  {
+    "sources": ["apk-alpine", "deb-debian", "deb-ubuntu", "eopkg-solus", "rpm-fedora", "xbps-void"],
+    "name": "libreoffice-draw",
+    "reason": "Real standalone app despite the lib* noise prefix — see filter/rules.ts's header comment on the libre* trap"
+  },
+  {
+    "sources": ["apk-alpine", "deb-debian", "deb-ubuntu", "eopkg-solus", "rpm-fedora", "xbps-void"],
+    "name": "libreoffice-impress",
+    "reason": "Real standalone app despite the lib* noise prefix — see filter/rules.ts's header comment on the libre* trap"
+  },
+  {
+    "sources": ["apk-alpine", "deb-debian", "deb-ubuntu", "eopkg-solus", "rpm-fedora", "xbps-void"],
+    "name": "libreoffice-writer",
+    "reason": "Real standalone app despite the lib* noise prefix — see filter/rules.ts's header comment on the libre* trap"
+  },
+  {
+    "sources": [
+      "deb-debian",
+      "deb-ubuntu",
+      "ebuild-gentoo",
+      "eopkg-solus",
+      "nix-nixpkgs",
+      "pacman-arch",
+      "rpm-fedora"
+    ],
+    "name": "librecad",
+    "reason": "Real standalone app despite the lib* noise prefix — see filter/rules.ts's header comment on the libre* trap"
+  },
+  {
+    "sources": ["pacman-arch"],
+    "name": "libreoffice-fresh",
+    "reason": "Real standalone app despite the lib* noise prefix — Arch's single install-everything LibreOffice meta package"
+  },
+  {
+    "sources": ["pacman-aur"],
+    "name": "libre-commander-bin",
+    "reason": "Real standalone app despite the lib* noise prefix — see filter/rules.ts's header comment on the libre* trap"
+  },
+  {
+    "sources": ["pacman-aur"],
+    "name": "libre-menu-editor",
+    "reason": "Real standalone app despite the lib* noise prefix — see filter/rules.ts's header comment on the libre* trap"
+  },
+  {
+    "sources": ["pacman-aur"],
+    "name": "libre-trainsim-bin",
+    "reason": "Real standalone app despite the lib* noise prefix — see filter/rules.ts's header comment on the libre* trap"
+  },
+  {
+    "sources": ["pacman-arch"],
+    "name": "libredefender",
+    "reason": "Real standalone app: lightweight antivirus scanner for Linux"
+  },
+  {
+    "sources": ["pacman-aur"],
+    "name": "libredefender-git",
+    "reason": "Real standalone app: lightweight antivirus scanner for Linux"
+  },
+  {
+    "sources": ["pacman-aur"],
+    "name": "libreddit",
+    "reason": "Real standalone app: alternative private front-end to Reddit"
+  },
+  {
+    "sources": ["pacman-aur"],
+    "name": "libreelec-usb-sd-creator-git",
+    "reason": "Real standalone app: GUI for creating LibreELEC USB/SD install media"
+  },
+  {
+    "sources": ["pacman-aur"],
+    "name": "librefancontrol-bin",
+    "reason": "Real standalone app: fan control by temperature"
+  },
+  {
+    "sources": ["pacman-aur"],
+    "name": "librefang-desktop-git",
+    "reason": "Real standalone app: desktop client for the LibreFang Agent OS"
+  },
+  {
+    "sources": ["pacman-aur"],
+    "name": "librelinkupdesktop-bin",
+    "reason": "Real standalone app: desktop client fetching blood sugar data from LibreLinkUp"
+  },
+  {
+    "sources": ["pacman-aur"],
+    "name": "librem5-flash-image",
+    "reason": "Real standalone app: image flashing tool for Librem 5 devices"
+  },
+  {
+    "sources": ["pacman-aur"],
+    "name": "librem5-flash-image-git",
+    "reason": "Real standalone app: image flashing tool for Librem 5 devices"
+  },
+  {
+    "sources": ["pacman-aur"],
+    "name": "libremines",
+    "reason": "Real standalone app: FLOSS Qt-based Minesweeper game"
+  },
+  {
+    "sources": ["pacman-aur"],
+    "name": "librescc",
+    "reason": "Real standalone app: MIDI to SCC chiptune player with a GTK4 GUI"
+  },
+  {
+    "sources": ["pacman-aur"],
+    "name": "librevna-gui",
+    "reason": "Real standalone app: GUI for the LibreVNA hardware device"
+  },
+  {
+    "sources": ["pacman-aur"],
+    "name": "librevna-gui-bin",
+    "reason": "Real standalone app: GUI for the LibreVNA hardware device"
+  },
+  {
+    "sources": ["pacman-aur"],
+    "name": "librewands",
+    "reason": "Real standalone app: map editor for an ncurses RPG"
+  },
+  {
+    "sources": ["deb-debian", "deb-ubuntu"],
+    "name": "r-base",
+    "reason": "Real standalone app despite the gnu-r noise section — the R language interpreter itself, not an r-cran-* library package"
+  },
+  {
+    "sources": ["deb-debian", "deb-ubuntu"],
+    "name": "littler",
+    "reason": "Real standalone app despite the gnu-r noise section — a command-line front-end for R scripts"
+  },
+  {
+    "sources": ["rpm-opensuse"],
+    "name": "seidl",
+    "reason": "Real standalone app despite the Metapackages noise group — a lightweight client for the pint monitoring server, not a patterns-*/installation-images-* install-time metapackage"
+  },
+  {
+    "sources": ["slackware"],
+    "name": "glade",
+    "reason": "Real standalone app despite the l (libraries) noise series — a GUI UI designer tool, not a library"
+  },
+  {
+    "sources": ["eopkg-solus"],
+    "name": "dcraw",
+    "reason": "Real standalone app despite the desktop.library noise PartOf — a command-line raw photo converter, not a library"
+  },
+  {
+    "sources": ["deb-debian", "deb-ubuntu"],
+    "name": "gnome-shell-extension-manager",
+    "reason": "Real standalone GTK app (\"Utility for managing GNOME Shell Extensions\") despite the gnome-shell-extension- noise prefix, not an extension itself — see filter/rules.ts's desktop-shell-extensions comment"
+  },
+  {
+    "sources": ["pacman-aur"],
+    "name": "gnome-shell-extension-installer",
+    "reason": "Real standalone bash script (\"search and install GNOME Shell extensions\") despite the gnome-shell-extension- noise prefix, not an extension itself — see filter/rules.ts's desktop-shell-extensions comment"
+  },
+  {
+    "sources": ["apk-alpine"],
+    "name": "dotnet10-sdk",
+    "reason": "Real CLI toolchain (dotnet build/dotnet run) despite the -sdk noise pattern, not a library — see filter/rules.ts's SDK-naming comment"
+  },
+  {
+    "sources": ["apk-alpine"],
+    "name": "dotnet8-sdk",
+    "reason": "Real CLI toolchain (dotnet build/dotnet run) despite the -sdk noise pattern, not a library — see filter/rules.ts's SDK-naming comment"
+  },
+  {
+    "sources": ["apk-alpine"],
+    "name": "dotnet9-sdk",
+    "reason": "Real CLI toolchain (dotnet build/dotnet run) despite the -sdk noise pattern, not a library — see filter/rules.ts's SDK-naming comment"
+  },
+  {
+    "sources": ["apk-alpine", "xbps-void"],
+    "name": "wasi-sdk",
+    "reason": "Real clang-based CLI toolchain (WASI-targeting C/C++ compiler) despite the -sdk noise pattern, not a library — see filter/rules.ts's SDK-naming comment"
+  },
+  {
+    "sources": ["deb-debian", "deb-ubuntu", "pacman-aur"],
+    "name": "android-sdk",
+    "reason": "Real CLI toolchain (sdkmanager) despite the -sdk noise pattern, not a library — unlike its per-component sub-packages (android-sdk-build-tools-*, -platform-tools, -cmake-*), which stay excluded — see filter/rules.ts's SDK-naming comment"
+  },
+  {
+    "sources": ["deb-ubuntu", "pacman-arch", "rpm-fedora"],
+    "name": "dotnet-sdk-10.0",
+    "reason": "Real CLI toolchain (dotnet build/dotnet run) despite the -sdk noise pattern, not a library — see filter/rules.ts's SDK-naming comment"
+  },
+  {
+    "sources": ["ebuild-gentoo", "eopkg-solus", "nix-nixpkgs", "pacman-arch", "snap-snapcraft"],
+    "name": "dotnet-sdk",
+    "reason": "Real CLI toolchain (dotnet build/dotnet run) despite the -sdk noise pattern, not a library — see filter/rules.ts's SDK-naming comment"
+  },
+  {
+    "sources": ["eopkg-solus", "nix-nixpkgs"],
+    "name": "google-cloud-sdk",
+    "reason": "Real CLI toolchain (the gcloud command) despite the -sdk noise pattern, not a library — see filter/rules.ts's SDK-naming comment"
+  },
+  {
+    "sources": ["pacman-arch"],
+    "name": "dotnet-sdk-6.0",
+    "reason": "Real CLI toolchain (dotnet build/dotnet run) despite the -sdk noise pattern, not a library — see filter/rules.ts's SDK-naming comment"
+  },
+  {
+    "sources": ["pacman-arch", "rpm-fedora"],
+    "name": "dotnet-sdk-8.0",
+    "reason": "Real CLI toolchain (dotnet build/dotnet run) despite the -sdk noise pattern, not a library — see filter/rules.ts's SDK-naming comment"
+  },
+  {
+    "sources": ["pacman-arch", "rpm-fedora"],
+    "name": "dotnet-sdk-9.0",
+    "reason": "Real CLI toolchain (dotnet build/dotnet run) despite the -sdk noise pattern, not a library — see filter/rules.ts's SDK-naming comment"
+  },
+  {
+    "sources": ["pacman-aur"],
+    "name": "dotnet-sdk-2.1",
+    "reason": "Real CLI toolchain (dotnet build/dotnet run) despite the -sdk noise pattern, not a library — see filter/rules.ts's SDK-naming comment"
+  },
+  {
+    "sources": ["pacman-aur"],
+    "name": "dotnet-sdk-2.2",
+    "reason": "Real CLI toolchain (dotnet build/dotnet run) despite the -sdk noise pattern, not a library — see filter/rules.ts's SDK-naming comment"
+  },
+  {
+    "sources": ["pacman-aur"],
+    "name": "dotnet-sdk-3.0",
+    "reason": "Real CLI toolchain (dotnet build/dotnet run) despite the -sdk noise pattern, not a library — see filter/rules.ts's SDK-naming comment"
+  },
+  {
+    "sources": ["deb-debian", "deb-ubuntu"],
+    "name": "apt-show-source",
+    "reason": "Real standalone CLI tool (\"Shows source-package information\") despite the -source noise suffix, not a shipped-source-code package itself — see filter/rules.ts's looksLikeSourceSpecificNoise comment"
+  },
+  {
+    "sources": ["pacman-arch"],
+    "name": "libreoffice-still",
+    "reason": "Real standalone app despite the lib* noise prefix — Arch's single install-everything LibreOffice meta package (maintenance-branch twin of libreoffice-fresh)"
+  }
+]

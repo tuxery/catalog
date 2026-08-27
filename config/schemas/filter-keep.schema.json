@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Filter: keep list",
+  "description": "Packages filter/rules.ts's auto rules would exclude but shouldn't be — rescues a real app/game from a noise pattern that's right in general but wrong for this specific name. Litmus test: would a user launch this on its own?",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["sources", "name", "reason"],
+    "additionalProperties": false,
+    "properties": {
+      "sources": {
+        "type": "array",
+        "minItems": 1,
+        "items": { "type": "string" },
+        "description": "PackageSourceId values (<format>-<provider>, e.g. \"deb-debian\") this exact name has actually been checked on — not a wildcard across every source, since the same name can mean something else entirely elsewhere."
+      },
+      "name": {
+        "type": "string",
+        "description": "The exact SourcedPackage.name on every listed source."
+      },
+      "reason": {
+        "type": "string",
+        "description": "Why this is a real app despite matching a noise pattern — required so the exception is auditable later, not just an unexplained line."
+      }
+    }
+  }
+}

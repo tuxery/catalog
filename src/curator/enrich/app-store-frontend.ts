@@ -1,20 +1,20 @@
 import { fileURLToPath } from "node:url";
 import type { SourcedPackage } from "../../sources";
-import { readNdjson } from "../_shared/ndjson";
+import { readJson } from "../_shared/json";
 
-const APP_STORE_FRONTENDS_PATH = fileURLToPath(
-  new URL("../../../config/overrides/app-store-frontends.ndjson", import.meta.url),
+const APP_STORE_TAGS_PATH = fileURLToPath(
+  new URL("../../../config/enrich-app-store-tags.json", import.meta.url),
 );
 
 export interface AppStoreFrontendEntry {
-  source: string;
+  sources: string[];
   name: string;
   reason: string;
 }
 
-/** Loads the hand-curated app-store/package-manager frontend list (`config/overrides/app-store-frontends.ndjson`, missing file reads as empty). */
+/** Loads the hand-curated app-store/package-manager frontend tag list (`config/enrich-app-store-tags.json`, missing file reads as empty). */
 export function loadAppStoreFrontends(): AppStoreFrontendEntry[] {
-  return readNdjson<AppStoreFrontendEntry>(APP_STORE_FRONTENDS_PATH);
+  return readJson<AppStoreFrontendEntry>(APP_STORE_TAGS_PATH);
 }
 
 /**
@@ -28,6 +28,6 @@ export function isAppStoreFrontend(
   frontends: AppStoreFrontendEntry[],
 ): boolean {
   return packages.some((pkg) =>
-    frontends.some((entry) => entry.source === pkg.source && entry.name === pkg.name),
+    frontends.some((entry) => entry.name === pkg.name && entry.sources.includes(pkg.source)),
   );
 }

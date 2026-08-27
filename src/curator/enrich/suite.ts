@@ -1,10 +1,8 @@
 import { fileURLToPath } from "node:url";
-import { readNdjson } from "../_shared/ndjson";
+import { readJson } from "../_shared/json";
 import type { CatalogApp } from "./types";
 
-const SUITES_PATH = fileURLToPath(
-  new URL("../../../config/overrides/suites.ndjson", import.meta.url),
-);
+const SUITES_PATH = fileURLToPath(new URL("../../../config/enrich-suites.json", import.meta.url));
 
 export interface SuiteComponentRef {
   appId: string;
@@ -19,9 +17,9 @@ export interface SuiteOverrideEntry {
   reason: string;
 }
 
-/** Loads the hand-curated suite list (`config/overrides/suites.ndjson`, missing file reads as empty). */
+/** Loads the hand-curated suite list (`config/enrich-suites.json`, missing file reads as empty). */
 export function loadSuiteOverrides(): SuiteOverrideEntry[] {
-  return readNdjson<SuiteOverrideEntry>(SUITES_PATH);
+  return readJson<SuiteOverrideEntry>(SUITES_PATH);
 }
 
 /**

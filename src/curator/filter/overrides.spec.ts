@@ -15,10 +15,10 @@ describe("loadFilterOverrides", () => {
     expect(overrides.exclude).toBeInstanceOf(Set);
   });
 
-  it("rescues the real lib*-prefixed exceptions via keep.ndjson", () => {
+  it("rescues the real lib*-prefixed exceptions via filter-keep.json", () => {
     // Regression guard for the lib* noise-prefix inversion (see
     // filter/rules.ts) — these names would otherwise silently vanish from
-    // the catalog if keep.ndjson ever lost an entry.
+    // the catalog if filter-keep.json ever lost an entry.
     const overrides = loadFilterOverrides();
 
     expect(overrides.keep.has("deb-debian:libreoffice")).toBe(true);
@@ -29,7 +29,7 @@ describe("loadFilterOverrides", () => {
     expect(overrides.keep.has("pacman-aur:libremines")).toBe(true);
   });
 
-  it("rescues the real gnome-shell-extension-manager/-installer exceptions via keep.ndjson", () => {
+  it("rescues the real gnome-shell-extension-manager/-installer exceptions via filter-keep.json", () => {
     // Regression guard for the desktop-shell-extension noise prefix (see
     // filter/rules.ts) — these are real standalone tools, not extensions
     // themselves.
@@ -40,7 +40,7 @@ describe("loadFilterOverrides", () => {
     expect(overrides.keep.has("pacman-aur:gnome-shell-extension-installer")).toBe(true);
   });
 
-  it("rescues the real SDK-toolchain exceptions via keep.ndjson", () => {
+  it("rescues the real SDK-toolchain exceptions via filter-keep.json", () => {
     // Regression guard for the -sdk noise pattern (see filter/rules.ts) —
     // dotnet-sdk, wasi-sdk, google-cloud-sdk and bare android-sdk are real
     // CLI toolchains, not API client libraries.
@@ -53,7 +53,7 @@ describe("loadFilterOverrides", () => {
     expect(overrides.keep.has("pacman-aur:android-sdk")).toBe(true);
   });
 
-  it("rescues the real apt-show-source exception via keep.ndjson", () => {
+  it("rescues the real apt-show-source exception via filter-keep.json", () => {
     // Regression guard for the Debian-family -source noise suffix (see
     // filter/rules.ts's looksLikeSourceSpecificNoise) — a real CLI tool
     // that shows info about source packages, not shipped source code

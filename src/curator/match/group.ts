@@ -94,8 +94,8 @@ function unionByExactKey(
 // - `zen` — Flathub's Zen Browser (`app.zen_browser.zen`) vs. an
 //   unrelated AUR "zen" ("Reduce your stress with the C language...") —
 //   found live investigating a user-reported false negative (Zen Browser
-//   itself failing to merge across sources, see `config/overrides/manual-
-//   matches.ndjson`): the two projects were merging under this blocked
+//   itself failing to merge across sources, see `config/match-force.json`):
+//   the two projects were merging under this blocked
 //   generic word, then the browser's own AUR packages (`zen-browser`,
 //   `zen-browser-bin`, ...) were staying separate from it — a false
 //   merge and a false split at the same time, from two different bugs.
@@ -110,7 +110,7 @@ function unionByExactKey(
 //   feature. Same as `zen`, this was a false merge and a false split at
 //   once — GNOME Boxes' own Snap/native packages, all named
 //   "gnome-boxes", were never part of this cluster and needed their own
-//   `config/overrides/manual-matches.ndjson` entry to reunify with Flathub's
+//   `config/match-force.json` entry to reunify with Flathub's
 //   "Boxes" once the false merge was cut loose.
 const GENERIC_NAME_BLOCKLIST = new Set([
   "calculator",
@@ -198,7 +198,7 @@ function tier2Key(pkg: SourcedPackage): string | undefined {
  * Groups packages from possibly different sources into unified apps.
  * Three tiers, cheapest first:
  *
- * 0. Manual overrides (`config/overrides/manual-matches.ndjson`) — forced,
+ * 0. Manual overrides (`config/match-force.json`) — forced,
  *    ignoring deny (explicit human intent beats everything).
  * 1. Exact `appId` match — e.g. Snapcraft/Debian/AUR/Arch/Fedora all use
  *    the bare package name as appId, so "firefox" unions across all of
@@ -233,8 +233,11 @@ export function groupPackages(
   for (const pkg of packages) uf.find(packageKey(pkg));
 
   // Tier 0: manual overrides.
-  for (const entry of overrides.manual) {
-    uf.union(`${entry.a.source}:${entry.a.appId}`, `${entry.b.source}:${entry.b.appId}`);
+  for (const entry of overrides.force) {
+    const destinationKey = `${entry.destination.source}:${entry.destination.appId}`;
+    for (const ref of entry.sources) {
+      uf.union(destinationKey, `${ref.source}:${ref.appId}`);
+    }
   }
 
   // Tier 1: exact appId match.

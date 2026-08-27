@@ -6,7 +6,7 @@ import type { PackageSourceId } from "../../sources";
 // app store for. Deliberately conservative:
 // - `^lib` is a blanket noise prefix (see below) rather than a narrower
 //   soname-versioned-only check — real exceptions (LibreOffice, LibreCAD,
-//   ...) are rescued via `config/overrides/keep.ndjson` instead of trying to keep
+//   ...) are rescued via `config/filter-keep.json` instead of trying to keep
 //   excluding them by pattern, since prefix matching can't reliably tell
 //   libreoffice/librecad apart from the many other `libre*` names that are
 //   coincidentally "lib" + a word starting with "re" (libreadline,
@@ -29,7 +29,7 @@ const NOISE_PATTERNS: RegExp[] = [
   // Any `lib`-prefixed package — see this file's header comment on why a
   // narrower pattern (only soname-versioned names like libssl3) doesn't
   // scale; real exceptions are allowlisted by exact name in
-  // config/overrides/keep.ndjson instead.
+  // config/filter-keep.json instead.
   /^lib/,
   // Fedora's `-libs` suffix convention (e.g. zlib-libs) — doesn't start
   // with "lib" itself, so needs its own pattern even with the blanket
@@ -53,7 +53,7 @@ const NOISE_PATTERNS: RegExp[] = [
   //   1,378 Nixpkgs, 48 Fedora, 41 Debian, among others). Two real
   //   standalone tools happen to share the prefix despite not being
   //   extensions themselves — `gnome-shell-extension-manager` (a GTK app)
-  //   and `-installer` (a bash script) — rescued via `config/overrides/keep.ndjson`.
+  //   and `-installer` (a bash script) — rescued via `config/filter-keep.json`.
   // - `kwin-effect(s)-`/`kwin-style-`/`kwin-decoration-` — KWin visual
   //   effects/window themes (kwin-effects-burn-my-windows,
   //   kwin-style-breeze, kwin-decoration-oxygen, ...). Deliberately doesn't
@@ -99,7 +99,7 @@ const NOISE_PATTERNS: RegExp[] = [
   // kits (plasma-sdk, libreoffice-sdk, the KDE/Qt Snapcraft "content
   // snap" SDKs) — never launched, same shape as the library patterns
   // above. Real exceptions exist and are rescued via
-  // config/overrides/keep.ndjson: dotnet-sdk (a real CLI toolchain — `dotnet
+  // config/filter-keep.json: dotnet-sdk (a real CLI toolchain — `dotnet
   // build`/`dotnet run` — across its several per-distro naming schemes),
   // wasi-sdk (a clang-based toolchain), google-cloud-sdk (the `gcloud`
   // CLI), and bare android-sdk (`sdkmanager`) — but NOT its per-component
@@ -184,8 +184,8 @@ const NOISE_PATTERNS: RegExp[] = [
 /**
  * Best-effort guess that `name` is a library/dev/doc/font support package
  * rather than an app or game a user would search for — not a classifier,
- * just the auto-rule tier of filtering. See `config/overrides/keep.ndjson` and
- * `config/overrides/exclude.ndjson` for the escape hatches on either side.
+ * just the auto-rule tier of filtering. See `config/filter-keep.json` and
+ * `config/filter-exclude.json` for the escape hatches on either side.
  */
 export function looksLikeSupportPackage(name: string): boolean {
   return NOISE_PATTERNS.some((pattern) => pattern.test(name));
@@ -196,7 +196,7 @@ export function looksLikeSupportPackage(name: string): boolean {
 // sources, library source archives) — never a launchable app. Verified
 // live: 58 real matches on Debian alone, only one exception found
 // (`apt-show-source`, a real CLI tool that shows info *about* source
-// packages, not itself one — rescued via `config/overrides/keep.ndjson`).
+// packages, not itself one — rescued via `config/filter-keep.json`).
 // Deliberately Debian-family only (Ubuntu/Mint/Pop!_OS/Deepin/MX Linux
 // share the identical deb822 packaging convention, same as this file's
 // other Debian-Section notes) — checked AUR/Nixpkgs/openSUSE/Fedora too
@@ -265,7 +265,7 @@ export function looksLikeSourceSpecificNoise(source: PackageSourceId, name: stri
 // - gnu-r — almost entirely r-cran-*/r-bioc-*/r-other-* library packages;
 //   the few real exceptions (r-base itself, littler, ...) are allowlisted
 //   by exact name instead of loosening this rule — see
-//   config/overrides/keep.ndjson.
+//   config/filter-keep.json.
 //
 // Deliberately NOT included, despite being tempting (same "library
 // ecosystem" framing as the patterns above) — real standalone tools mix
@@ -334,7 +334,7 @@ const NIX_NOISE_PREFIX_PATTERNS: RegExp[] = [
   /^postgresql\d*Packages$/,
   // Plugins/extensions for a host app the user needs already installed —
   // not independently launchable, same "would a user launch this on its
-  // own" litmus test as config/overrides/README.md's keep.ndjson guidance
+  // own" litmus test as config/README.md's filter-keep.json guidance
   // (mirrors the libretro-core/browser-extension exclusions decided
   // there for AppImageHub-derived names). Verified as a safe general
   // pattern across many different host-app namespaces (fish, tmux, vim,
@@ -369,7 +369,7 @@ const NIX_NOISE_PREFIX_PATTERNS: RegExp[] = [
 // all six groups (Metapackages' "seidl", a real standalone monitoring
 // client mixed in among patterns-*/installation-images-*/skelcd-*
 // install-time metapackages — allowlisted by exact name in
-// config/overrides/keep.ndjson rather than loosening this rule, same as Debian's
+// config/filter-keep.json rather than loosening this rule, same as Debian's
 // gnu-r r-base/littler):
 // - System/Libraries — shared libraries and runtime plugins.
 // - Documentation/HTML / Documentation/Other — javadoc, manuals, API docs.
@@ -403,7 +403,7 @@ const OPENSUSE_NOISE_GROUPS = new Set([
 // Included — safe after sampling:
 // - `l` (libraries) — one real exception found (`glade`, a real
 //   standalone GUI UI designer despite the "l" series) — allowlisted by
-//   exact name in config/overrides/keep.ndjson rather than loosening this rule,
+//   exact name in config/filter-keep.json rather than loosening this rule,
 //   same as Debian's gnu-r r-base/littler and openSUSE's
 //   Metapackages/seidl.
 // - `f` (FAQs/docs — only linux-faqs, linux-howtos, both pure

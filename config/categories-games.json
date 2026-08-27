@@ -1,0 +1,16 @@
+{
+  "ActionGame": "Action",
+  "Shooter": "Action",
+  "AdventureGame": "Adventure",
+  "ArcadeGame": "Arcade",
+  "BoardGame": "Board & Cards",
+  "CardGame": "Board & Cards",
+  "BlocksGame": "Puzzle",
+  "LogicGame": "Puzzle",
+  "KidsGame": "Educational",
+  "Education": "Educational",
+  "RolePlaying": "Role-Playing",
+  "Simulation": "Simulation",
+  "SportsGame": "Sports",
+  "StrategyGame": "Strategy"
+}

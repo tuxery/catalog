@@ -332,3 +332,54 @@ describe("groupPackages", () => {
     );
   });
 });
+
+describe("buildAppId (via groupPackages' id field)", () => {
+  it("prefers Snap's own unique name over Flatpak's reverse-DNS id when a group has both", () => {
+    const packages = [
+      pkg({ source: "flatpak-flathub", name: "Firefox", appId: "org.mozilla.firefox" }),
+      pkg({ source: "snap-snapcraft", name: "Firefox", appId: "firefox" }),
+    ];
+
+    const groups = groupPackages(packages, NO_OVERRIDES);
+    expect(groups).toHaveLength(1);
+    expect(groups[0]?.id).toBe("firefox");
+  });
+
+  it("falls back to Flatpak's reverse-DNS id when there's no Snap package", () => {
+    const packages = [pkg({ source: "flatpak-flathub", name: "GIMP", appId: "org.gimp.GIMP" })];
+
+    const groups = groupPackages(packages, NO_OVERRIDES);
+    expect(groups[0]?.id).toBe("org.gimp.GIMP");
+  });
+
+  it("prefers flatpak-flathub's appId over flatpak-appcenter's when a group has both with different appIds", () => {
+    const packages = [
+      pkg({ source: "flatpak-flathub", name: "Tasks", appId: "dev.example.tasks" }),
+      pkg({ source: "flatpak-appcenter", name: "Tasks", appId: "io.elementary.tasks" }),
+    ];
+
+    const groups = groupPackages(packages, NO_OVERRIDES);
+    expect(groups[0]?.id).toBe("dev.example.tasks");
+  });
+
+  it("falls back to source:appId when there's neither Snap nor Flatpak", () => {
+    const packages = [pkg({ source: "pacman-aur", name: "0cc-famitracker", appId: undefined })];
+
+    const groups = groupPackages(packages, NO_OVERRIDES);
+    expect(groups[0]?.id).toBe("pacman-aur:0cc-famitracker");
+  });
+
+  it("normalizes a slash in the fallback tier's appId to a colon, not mixed with the source separator", () => {
+    // GitHub Releases/AppImage's owner/repo shape and Gentoo's
+    // category/name shape both carry a real "/" — verified live that
+    // ":" never occurs naturally in any real appId/name anywhere in the
+    // catalog, so it's safe to reuse as the id's only separator instead
+    // of mixing "/" and ":" in the same string.
+    const packages = [
+      pkg({ source: "github-releases", name: "Community", appId: "AkashaProject/Community" }),
+    ];
+
+    const groups = groupPackages(packages, NO_OVERRIDES);
+    expect(groups[0]?.id).toBe("github-releases:AkashaProject:Community");
+  });
+});

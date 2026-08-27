@@ -26,10 +26,9 @@ catalog/
 │   ├── match-deny.json      # forbids a specific pair from ever merging
 │   ├── enrich-app-store-tags.json    # tags known app-store/package-manager frontends
 │   ├── enrich-compat-warnings.json   # known per-source packaging-format issues
-│   ├── enrich-suites.json            # main-app + components suite relationships
-│   └── schemas/             # one JSON Schema per file above
+│   └── enrich-suites.json            # main-app + components suite relationships
 ├── docs/                  # wiki-style reference docs, one .md per topic
-├── scripts/               # seed/serve/reset-caches — the local-dev entry points
+├── scripts/               # seed/serve/reset-caches/generate-schemas
 └── src/
     ├── sources/            # connectors, one folder per upstream source
     │   ├── cache/           # git-committed NDJSON snapshot per source
@@ -38,8 +37,11 @@ catalog/
     │   └── search.ts        # searchAllSources() — fans out to every source
     ├── curator/            # catalog curation, pure functions, no I/O
     │   ├── filter/           # decides which packages belong in the catalog at all
+    │   │   └── *.schema.json  # generated from filter's Zod schemas — see config/README.md
     │   ├── match/             # groups what's left into unified apps across sources
+    │   │   └── *.schema.json  # generated from match's Zod schemas
     │   └── enrich/            # turns each group into the display-ready CatalogApp
+    │       └── *.schema.json  # generated from enrich's Zod schemas
     ├── pipeline/           # orchestrates sources + curator into a fresh dataset
     └── store/              # persistence layer (Turso/libSQL)
 ```

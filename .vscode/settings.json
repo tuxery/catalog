@@ -2,31 +2,31 @@
   "json.schemas": [
     {
       "fileMatch": ["/config/filter-keep.json"],
-      "url": "./config/schemas/filter-keep.schema.json"
+      "url": "./src/curator/filter/filter-keep.schema.json"
     },
     {
       "fileMatch": ["/config/filter-exclude.json"],
-      "url": "./config/schemas/filter-exclude.schema.json"
+      "url": "./src/curator/filter/filter-exclude.schema.json"
     },
     {
       "fileMatch": ["/config/enrich-app-store-tags.json"],
-      "url": "./config/schemas/enrich-app-store-tags.schema.json"
+      "url": "./src/curator/enrich/enrich-app-store-tags.schema.json"
     },
     {
       "fileMatch": ["/config/match-force.json"],
-      "url": "./config/schemas/match-force.schema.json"
+      "url": "./src/curator/match/match-force.schema.json"
     },
     {
       "fileMatch": ["/config/match-deny.json"],
-      "url": "./config/schemas/match-deny.schema.json"
+      "url": "./src/curator/match/match-deny.schema.json"
     },
     {
       "fileMatch": ["/config/enrich-compat-warnings.json"],
-      "url": "./config/schemas/enrich-compat-warnings.schema.json"
+      "url": "./src/curator/enrich/enrich-compat-warnings.schema.json"
     },
     {
       "fileMatch": ["/config/enrich-suites.json"],
-      "url": "./config/schemas/enrich-suites.schema.json"
+      "url": "./src/curator/enrich/enrich-suites.schema.json"
     }
   ]
 }

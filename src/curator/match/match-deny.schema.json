@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "a": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "string",
+            "description": "A PackageSourceId, e.g. \"flatpak-flathub\"."
+          },
+          "appId": {
+            "type": "string",
+            "description": "SourcedPackage.appId on that source."
+          }
+        },
+        "required": ["source", "appId"],
+        "additionalProperties": false
+      },
+      "b": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "string",
+            "description": "A PackageSourceId, e.g. \"flatpak-flathub\"."
+          },
+          "appId": {
+            "type": "string",
+            "description": "SourcedPackage.appId on that source."
+          }
+        },
+        "required": ["source", "appId"],
+        "additionalProperties": false
+      },
+      "reason": {
+        "type": "string",
+        "description": "Why these look like the same app but genuinely aren't — required so the exception is auditable later, not just an unexplained pair."
+      }
+    },
+    "required": ["a", "b", "reason"],
+    "additionalProperties": false
+  },
+  "title": "Match: deny-merge list",
+  "description": "Pairs that must never merge even if match/group.ts's auto tiers would — the counterpart to match-force.json. Deliberately pairwise, not destination+sources: there's no canonical side to a \"keep these apart\" rule."
+}

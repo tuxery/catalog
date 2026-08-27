@@ -1,28 +1,24 @@
 import { fileURLToPath } from "node:url";
-import { readNdjson } from "../_shared/ndjson";
+import { readJson } from "../_shared/json";
 import { pairKey, refKey } from "./keys";
-import type { MatchOverrideEntry } from "./types";
+import type { ForceMatchEntry, MatchOverrideEntry } from "./types";
 
-const MANUAL_PATH = fileURLToPath(
-  new URL("../../../config/overrides/manual-matches.ndjson", import.meta.url),
-);
-const DENY_PATH = fileURLToPath(
-  new URL("../../../config/overrides/deny-matches.ndjson", import.meta.url),
-);
+const FORCE_PATH = fileURLToPath(new URL("../../../config/match-force.json", import.meta.url));
+const DENY_PATH = fileURLToPath(new URL("../../../config/match-deny.json", import.meta.url));
 
 export interface MatchOverrides {
-  /** Pairs to force into the same group, applied before any scoring. */
-  manual: MatchOverrideEntry[];
+  /** Groups to force into the same app, applied before any scoring. */
+  force: ForceMatchEntry[];
   /** Pair keys (see `pairKey`) that must never be unioned by the auto tiers, no matter how well they'd score. */
   denyPairs: Set<string>;
 }
 
 /** Loads both override lists (missing files read as empty). */
 export function loadMatchOverrides(): MatchOverrides {
-  const deny = readNdjson<MatchOverrideEntry>(DENY_PATH);
+  const deny = readJson<MatchOverrideEntry>(DENY_PATH);
 
   return {
-    manual: readNdjson<MatchOverrideEntry>(MANUAL_PATH),
+    force: readJson<ForceMatchEntry>(FORCE_PATH),
     denyPairs: new Set(deny.map((entry) => pairKey(refKey(entry.a), refKey(entry.b)))),
   };
 }

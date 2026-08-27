@@ -1,0 +1,65 @@
+[
+  {
+    "sources": [
+      "apk-alpine",
+      "deb-debian",
+      "deb-ubuntu",
+      "ebuild-gentoo",
+      "eopkg-solus",
+      "nix-nixpkgs",
+      "pacman-arch",
+      "rpm-fedora",
+      "rpm-opensuse",
+      "xbps-void"
+    ],
+    "name": "gnome-software",
+    "reason": "GNOME's own software-center app (\"find and install new apps\") — verified live, real description confirms it's an app-store/package-manager frontend, not a coincidental name match; see enrich/types.ts's appStoreFrontend doc comment"
+  },
+  {
+    "sources": ["deb-debian", "deb-ubuntu", "rpm-fedora"],
+    "name": "plasma-discover",
+    "reason": "KDE Plasma's software-center app (\"Discover software management suite\") — verified live, real description confirms it's an app-store/package-manager frontend, not a coincidental name match; see enrich/types.ts's appStoreFrontend doc comment"
+  },
+  {
+    "sources": ["deb-debian", "deb-ubuntu"],
+    "name": "synaptic",
+    "reason": "Debian/Ubuntu's classic graphical package manager — verified live, real description confirms it's an app-store/package-manager frontend, not a coincidental name match; see enrich/types.ts's appStoreFrontend doc comment"
+  },
+  {
+    "sources": [
+      "deb-debian",
+      "deb-ubuntu",
+      "nix-nixpkgs",
+      "pacman-arch",
+      "rpm-fedora",
+      "rpm-opensuse"
+    ],
+    "name": "gnome-packagekit",
+    "reason": "PackageKit's own GNOME software-installation frontend — verified live, real description confirms it's an app-store/package-manager frontend, not a coincidental name match; see enrich/types.ts's appStoreFrontend doc comment"
+  },
+  {
+    "sources": ["pacman-aur"],
+    "name": "bauh",
+    "reason": "Graphical interface for managing AppImage/Flatpak/Snap/AUR/Web apps — verified live, real description confirms it's an app-store/package-manager frontend, not a coincidental name match; see enrich/types.ts's appStoreFrontend doc comment"
+  },
+  {
+    "sources": ["pacman-aur"],
+    "name": "octopi",
+    "reason": "A powerful Pacman frontend using Qt libs — verified live, real description confirms it's an app-store/package-manager frontend, not a coincidental name match; see enrich/types.ts's appStoreFrontend doc comment"
+  },
+  {
+    "sources": ["pacman-aur"],
+    "name": "pamac-classic",
+    "reason": "A Gtk3 frontend for libalpm — verified live, real description confirms it's an app-store/package-manager frontend, not a coincidental name match; see enrich/types.ts's appStoreFrontend doc comment"
+  },
+  {
+    "sources": ["deb-mint"],
+    "name": "mintinstall",
+    "reason": "Linux Mint's own Software Manager — verified live, real description confirms it's an app-store/package-manager frontend, not a coincidental name match; see enrich/types.ts's appStoreFrontend doc comment"
+  },
+  {
+    "sources": ["rpm-fedora"],
+    "name": "dnfdragora",
+    "reason": "DNF package-manager frontend from ManaTools — verified live, real description confirms it's an app-store/package-manager frontend, not a coincidental name match; see enrich/types.ts's appStoreFrontend doc comment"
+  }
+]

@@ -31,5 +31,8 @@ pnpm-debug.log*
 .vscode/*
 !.vscode/launch.json
 !.vscode/*.code-snippets
+# Shared, not personal — maps config/*.json to their JSON Schemas so every
+# contributor's editor gets live validation, see config/README.md.
+!.vscode/settings.json
 .idea
 .DS_Store

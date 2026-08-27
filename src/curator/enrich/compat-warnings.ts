@@ -1,9 +1,9 @@
 import { fileURLToPath } from "node:url";
 import type { SourcedPackage } from "../../sources";
-import { readNdjson } from "../_shared/ndjson";
+import { readJson } from "../_shared/json";
 
 const COMPAT_WARNINGS_PATH = fileURLToPath(
-  new URL("../../../config/overrides/compat-warnings.ndjson", import.meta.url),
+  new URL("../../../config/enrich-compat-warnings.json", import.meta.url),
 );
 
 export interface CompatWarningEntry {
@@ -23,9 +23,9 @@ export interface CompatWarning {
   fix?: string;
 }
 
-/** Loads the hand-curated compatibility-warning list (`config/overrides/compat-warnings.ndjson`, missing file reads as empty). */
+/** Loads the hand-curated compatibility-warning list (`config/enrich-compat-warnings.json`, missing file reads as empty). */
 export function loadCompatWarnings(): CompatWarningEntry[] {
-  return readNdjson<CompatWarningEntry>(COMPAT_WARNINGS_PATH);
+  return readJson<CompatWarningEntry>(COMPAT_WARNINGS_PATH);
 }
 
 /**

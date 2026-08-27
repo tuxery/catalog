@@ -2,17 +2,47 @@
 
 Everything in this repo meant to be tuned by hand, without needing to
 read or understand the TypeScript code around it — the answer to "where
-do I edit X" for a contributor.
+do I edit X" for a contributor. One JSON array per file, `stage-action`
+named so the file itself says what it does — no generic "overrides"
+umbrella hiding five different actions behind one name.
 
-- [`overrides/`](overrides/) — hand-curated exceptions to the curator's
-  filter/match/enrich stages (see its own `README.md` for the shape of
-  each file and when to use it).
-- `categories.json` — the freedesktop.org Main Category → display-label
-  mapping `enrich/category.ts` uses to assign each app's `category` field.
-  Key order is also preference order, for packages that carry more than
-  one Main Category (first match wins — see `enrich/category.ts`'s doc
-  comment for why `Utility`, freedesktop's generic catch-all, is listed
-  last).
+| File                                                         | Stage  | Does                                                                                                                                           |
+| ------------------------------------------------------------ | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| [`categories.json`](categories.json)                         | enrich | freedesktop category → display-label mapping (key order is also preference order)                                                              |
+| [`filter-keep.json`](filter-keep.json)                       | filter | rescues a package `filter/rules.ts`'s auto rules would wrongly exclude                                                                         |
+| [`filter-exclude.json`](filter-exclude.json)                 | filter | force-excludes a package the auto rules miss                                                                                                   |
+| [`match-force.json`](match-force.json)                       | match  | forces every listed source package to merge into one destination, no scoring                                                                   |
+| [`match-deny.json`](match-deny.json)                         | match  | forbids a specific pair from ever merging, even if the auto tiers would                                                                        |
+| [`enrich-app-store-tags.json`](enrich-app-store-tags.json)   | enrich | **tags** a package as an app-store/package-manager frontend (`CatalogApp.appStoreFrontend`) — doesn't exclude or change anything else about it |
+| [`enrich-compat-warnings.json`](enrich-compat-warnings.json) | enrich | attaches a known packaging-format compatibility warning to one specific `{source, name}`                                                       |
+| [`enrich-suites.json`](enrich-suites.json)                   | enrich | defines a software-suite relationship (one main app + separately-installable components)                                                       |
+
+Each file has a matching JSON Schema under [`schemas/`](schemas/) — see
+[`.vscode/settings.json`](../.vscode/settings.json) for the mapping. Open
+one of the files above in an editor that reads workspace JSON schemas
+(VS Code does, out of the box) and you get live autocomplete/validation,
+no separate tool needed.
+
+`sources`/`destination`/`a`/`b` fields always list `PackageSourceId`
+values (`<format>-<provider>`, e.g. `"deb-debian"`) — a value only goes
+in an entry's `sources` array once it's actually been checked on that
+source, never as a blanket "applies everywhere" wildcard, since the same
+name can mean something else entirely on a different source (see
+`filter/rules.ts`'s many per-distro examples of exactly that).
+
+**Litmus test for `filter-keep.json`**: would a user _launch_ this on
+its own? A library, plugin, extension, or engine that needs a separate
+host app/frontend to do anything (a libretro core needing RetroArch, a
+LibreOffice extension needing LibreOffice, ...) doesn't qualify, even if
+it's real, named, well-known software — same treatment as a library, not
+an app. Not automatable (no "has a desktop entry" / "ships an executable
+meant to be run directly" signal exists in the data model), so this has
+to be judged by hand per entry, same as everything else in this folder.
+
+Every entry in the six override-style files (everything except
+`categories.json`) needs a real `reason` so the exception is auditable
+later, not just an unexplained line — each one only grows as a real case
+is found and verified, never pre-filled speculatively.
 
 Not everything tunable lives here: `filter/rules.ts`'s noise-pattern
 lists (dev/debug/doc/library naming conventions, per-distro Section

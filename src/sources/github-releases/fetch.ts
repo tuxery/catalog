@@ -13,7 +13,7 @@ import type { GithubReleasesCacheEntry, GithubReleasesFetchMetadata } from "./ty
 // install otherwise) but not sufficient on its own — some repos with the
 // topic and a Release are packaging tooling, not apps a user would
 // launch (AppImageKit itself, found during scoping). Left to the same
-// filter/exclude.ndjson pipeline every other source already goes
+// filter/filter-exclude.json pipeline every other source already goes
 // through, not a bespoke precision filter here — same "ingest broadly,
 // let the shared curator pipeline sort it out" pattern as every other
 // connector.

@@ -19,7 +19,8 @@ that more cheaply than a pnpm workspace does.
 ```text
 catalog/
 ├── config/                # hand-edited tuning data — see config/README.md
-│   ├── categories.json     # freedesktop category → display-label mapping
+│   ├── categories-apps.json  # freedesktop category → display-label mapping (apps)
+│   ├── categories-games.json # freedesktop genre tag → display-label mapping (games)
 │   ├── filter-keep.json     # rescues a package the auto filter would exclude
 │   ├── filter-exclude.json  # force-excludes a package the auto filter misses
 │   ├── match-force.json     # forces packages to merge, no scoring

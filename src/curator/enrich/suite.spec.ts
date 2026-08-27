@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { TO_CLASSIFY } from "./category";
 import { applySuites, type SuiteOverrideEntry } from "./suite";
 import type { CatalogApp } from "./types";
 
@@ -7,6 +8,7 @@ function app(overrides: Partial<CatalogApp>): CatalogApp {
     id: "flatpak-flathub:org.example.App",
     name: "App",
     shortDescription: "",
+    category: TO_CLASSIFY,
     packages: [],
     ...overrides,
   };

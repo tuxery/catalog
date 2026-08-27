@@ -95,21 +95,23 @@ export interface CatalogApp {
    */
   longDescription?: string;
   /**
-   * A single display-ready category label (e.g. "Productivity",
-   * "Multimedia") — `undefined` when no member package has category
-   * data, or none of it maps to a recognized category, never guessed.
-   * Sourced from Flathub/AppCenter's AppStream `<categories>` only today
-   * (`SourcedPackage.categories`, freedesktop.org menu spec Main
-   * Categories — see `enrich/category.ts`'s `pickCategory` for the full
-   * taxonomy and its real-data verification). "Game" is deliberately
-   * excluded here — see `contentType` — and genre-level categorization
-   * (for the Games page) isn't attempted, a separate, larger, unresolved
-   * scope per the "Define the category taxonomy" GitHub Project card.
+   * A single display-ready category label — always present, never
+   * `undefined`: apps and games each draw from their own taxonomy
+   * (`enrich/category.ts`'s `pickCategory`, `config/categories-apps.json`/
+   * `config/categories-games.json`), and anything with no positive signal
+   * at all (no member package has category data, or none of it maps to a
+   * recognized category) gets `TO_CLASSIFY` ("To Classify") rather than
+   * being left uncategorized — explicit product decision: every app must
+   * be classified, at worst as "needs help." Sourced from Flathub/
+   * AppCenter's AppStream `<categories>` only today
+   * (`SourcedPackage.categories`, freedesktop.org menu spec Main +
+   * Additional Categories) — every other source is silent on category
+   * entirely, so most of the catalog resolves to `TO_CLASSIFY` for now.
    * Snapcraft's own store categories (swept at fetch time to discover
    * the catalog) aren't threaded through per-package yet — a possible
    * second signal, not done here.
    */
-  category?: string;
+  category: string;
   /** The app's actual developer/team name — populated by Flathub/AppCenter's AppStream `<developer_name>`/`<developer>`. Distro "Maintainer"/"Packager" fields exist elsewhere but denote the packager, not a reliable proxy for this. */
   developer?: string;
   /** Not sourced yet — same caveat as `developer`; no current source distinguishes a publisher from a developer at all. */

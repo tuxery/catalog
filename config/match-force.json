@@ -44,6 +44,19 @@
   },
   {
     "destination": {
+      "source": "appimage-manual",
+      "appId": "Beeper"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "beeper-v4-bin"
+      }
+    ],
+    "reason": "Same software (Beeper) as the new official beeper.com AppImage entry — AUR's beeper-bin/beeper-nightly-bin already auto-merge with it via tier2's normalized-name match (both normalize to \"beeper\"), but beeper-v4-bin's \"v4\" isn't a recognized AUR channel-word/variant-suffix component (see group.ts's AUR_CHANNEL_WORD/AUR_VARIANT_SUFFIX), so it strips down to \"beeper-v4\" instead and stays a stray. User-reported — needed for baxyz's influencer recommendations page."
+  },
+  {
+    "destination": {
       "source": "deb-debian",
       "appId": "nodejs"
     },

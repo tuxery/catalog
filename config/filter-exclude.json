@@ -28,5 +28,42 @@
     "sources": ["github-releases"],
     "name": "AppImageKit",
     "reason": "Real packaging tooling — \"Package desktop applications as AppImages\" — not itself a launchable app, despite carrying the linux-app topic and a real tagged Release. The exact precision risk flagged during this connector's own scoping (GitHub Releases connector card)."
+  },
+  {
+    "sources": [
+      "deb-debian",
+      "deb-ubuntu",
+      "eopkg-solus",
+      "nix-nixpkgs",
+      "pacman-arch",
+      "rpm-fedora",
+      "rpm-opensuse",
+      "xbps-void"
+    ],
+    "name": "0ad-data",
+    "reason": "0ad's own companion data-files package — every description literally says \"(data files)\"/\"The Data Files for 0 AD\" — not launchable on its own, the real game is the separate \"0ad\" package already in the catalog. User-reported. No safe general pattern: a bare `-data$` suffix matches 1,291 names across the whole dataset, mostly the same companion-data shape but not individually verified, so not blanket-excluded here."
+  },
+  {
+    "sources": ["deb-debian", "deb-ubuntu"],
+    "name": "0ad-data-common",
+    "reason": "Same 0ad companion data as \"0ad-data\" above — Debian/Ubuntu split it into a \"-common\" sub-part (\"Real-time strategy game of ancient warfare (common data files)\"). User-reported."
+  },
+  {
+    "sources": ["pacman-aur"],
+    "name": "0ad-data-git",
+    "reason": "AUR's git-build variant of \"0ad-data\" itself, not of \"0ad\" — match/group.ts's tier2Key strips the `-git` suffix, so this unions with the other \"0ad-data\" packages above rather than the real game. User-reported."
+  },
+  {
+    "sources": [
+      "deb-debian",
+      "deb-ubuntu",
+      "ebuild-gentoo",
+      "eopkg-solus",
+      "pacman-aur",
+      "rpm-fedora",
+      "snap-snapcraft"
+    ],
+    "name": "snapd",
+    "reason": "The snapd daemon/tooling itself — \"Daemon and tooling that enable snap packages\"/\"Service and tools for management of snap packages\" — background plumbing, not a launchable end-user app. User-reported. rpm-fedora's entry has hasDesktopFile:true despite this, so the GUI/desktop-file signal alone doesn't rescue it."
   }
 ]

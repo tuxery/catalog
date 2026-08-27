@@ -20,7 +20,14 @@ that more cheaply than a pnpm workspace does.
 catalog/
 ├── config/                # hand-edited tuning data — see config/README.md
 │   ├── categories.json     # freedesktop category → display-label mapping
-│   └── overrides/           # git-committed keep/exclude/match exceptions
+│   ├── filter-keep.json     # rescues a package the auto filter would exclude
+│   ├── filter-exclude.json  # force-excludes a package the auto filter misses
+│   ├── match-force.json     # forces packages to merge, no scoring
+│   ├── match-deny.json      # forbids a specific pair from ever merging
+│   ├── enrich-app-store-tags.json    # tags known app-store/package-manager frontends
+│   ├── enrich-compat-warnings.json   # known per-source packaging-format issues
+│   ├── enrich-suites.json            # main-app + components suite relationships
+│   └── schemas/             # one JSON Schema per file above
 ├── docs/                  # wiki-style reference docs, one .md per topic
 ├── scripts/               # seed/serve/reset-caches — the local-dev entry points
 └── src/

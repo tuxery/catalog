@@ -65,8 +65,8 @@ export interface CatalogApp {
    * pamac, ...) rather than end-user productivity/creativity/games —
    * grouping them under a generic category like "Utilities" buries the
    * pattern. Positive-evidence, same discipline as `kind`/`contentType`,
-   * but a hand-curated exact-name list (`config/overrides/app-store-
-   * frontends.ndjson`), not a name/description pattern — real
+   * but a hand-curated exact-name list (`config/enrich-app-store-
+   * tags.json`), not a name/description pattern — real
    * candidates checked against live data first (verified in the "Define
    * an 'app store / package manager frontend' category" card): each
    * describes itself too differently ("find and install new apps",
@@ -172,7 +172,7 @@ export interface CatalogApp {
    * deb/Fedora's own bare `libreoffice` metapackage into) plus separately
    * installable "component" apps (LibreOffice Writer, Calc, ...) that
    * each source packages independently. Manual curation only, from
-   * `config/overrides/suites.ndjson` — see `enrich/suite.ts`'s `applySuites`
+   * `config/enrich-suites.json` — see `enrich/suite.ts`'s `applySuites`
    * and that file's own comment for why this isn't auto-detected.
    * `undefined` for every app not part of a known suite (the vast
    * majority). Doesn't record which sources are "bundled" vs.
@@ -192,7 +192,7 @@ export interface CatalogApp {
   /**
    * Known packaging-format compatibility issues (e.g. GNOME Boxes losing
    * KVM/libvirt device access under Snap confinement) — manual curation
-   * only, from `config/overrides/compat-warnings.ndjson` (no external source
+   * only, from `config/enrich-compat-warnings.json` (no external source
    * covers this — checked, see the "Evaluate external sources for
    * per-app packaging-format compatibility issues" GitHub Project card),
    * `enrich/compat-warnings.ts`'s `getCompatWarnings`. Each entry is

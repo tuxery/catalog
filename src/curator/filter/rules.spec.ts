@@ -53,7 +53,7 @@ describe("looksLikeSupportPackage", () => {
   it("flags real apps that happen to start with lib — rescued via overrides, not by pattern", () => {
     // A bare `^lib` prefix is deliberately broad now (see filter/rules.ts's
     // header comment) — LibreOffice/LibreCAD are real exceptions, but they
-    // go through config/overrides/keep.ndjson by exact name, not a smarter regex.
+    // go through config/filter-keep.json by exact name, not a smarter regex.
     // Extending the regex to also spare them doesn't scale: 1,200+ other
     // `libre*` names are coincidentally "lib" + a word starting with "re"
     // (libreadline, librealsense, librecast, ...), not real "Libre"-branded
@@ -77,7 +77,7 @@ describe("looksLikeSupportPackage", () => {
 
   it("rescues the real GNOME Shell extension-manager/-installer tools, not extensions themselves", () => {
     // Real standalone apps despite the noise prefix — see
-    // config/overrides/keep.ndjson.
+    // config/filter-keep.json.
     expect(looksLikeSupportPackage("gnome-shell-extension-manager")).toBe(true);
     expect(looksLikeSupportPackage("gnome-shell-extension-installer")).toBe(true);
   });
@@ -129,7 +129,7 @@ describe("looksLikeSupportPackage", () => {
     expect(looksLikeSupportPackage("android-sdk-build-tools")).toBe(true);
     // The real exceptions (dotnet-sdk, wasi-sdk, google-cloud-sdk, bare
     // android-sdk) still match this name pattern — the rescue happens via
-    // config/overrides/keep.ndjson, same layering as the libreoffice/
+    // config/filter-keep.json, same layering as the libreoffice/
     // gnome-shell-extension-manager exceptions elsewhere in this file.
     expect(looksLikeSupportPackage("dotnet-sdk")).toBe(true);
     expect(looksLikeSupportPackage("android-sdk")).toBe(true);

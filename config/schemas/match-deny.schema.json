@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Match: deny-merge list",
+  "description": "Pairs that must never merge even if match/group.ts's auto tiers would — the counterpart to match-force.json. Deliberately pairwise, not destination+sources: there's no canonical side to a \"keep these apart\" rule.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["a", "b", "reason"],
+    "additionalProperties": false,
+    "properties": {
+      "a": { "$ref": "#/$defs/packageRef" },
+      "b": { "$ref": "#/$defs/packageRef" },
+      "reason": {
+        "type": "string",
+        "description": "Why these look like the same app but genuinely aren't — required so the exception is auditable later, not just an unexplained line."
+      }
+    }
+  },
+  "$defs": {
+    "packageRef": {
+      "type": "object",
+      "required": ["source", "appId"],
+      "additionalProperties": false,
+      "properties": {
+        "source": { "type": "string", "description": "A PackageSourceId, e.g. \"pacman-aur\"." },
+        "appId": { "type": "string", "description": "SourcedPackage.appId on that source." }
+      }
+    }
+  }
+}

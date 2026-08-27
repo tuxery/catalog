@@ -13,7 +13,7 @@ function pkg(overrides: Partial<SourcedPackage>): SourcedPackage {
   };
 }
 
-const NO_OVERRIDES: MatchOverrides = { manual: [], denyPairs: new Set() };
+const NO_OVERRIDES: MatchOverrides = { force: [], denyPairs: new Set() };
 
 describe("groupPackages", () => {
   it("groups packages with the same appId across sources (tier 1: exact appId)", () => {
@@ -155,11 +155,34 @@ describe("groupPackages", () => {
       }),
     ];
     const overrides: MatchOverrides = {
-      manual: [
+      force: [
         {
-          a: { source: "flatpak-flathub", appId: "org.example.a" },
-          b: { source: "pacman-aur", appId: "unrelated-looking-name" },
+          destination: { source: "flatpak-flathub", appId: "org.example.a" },
+          sources: [{ source: "pacman-aur", appId: "unrelated-looking-name" }],
           reason: "test: manually confirmed same app under very different names",
+        },
+      ],
+      denyPairs: new Set(),
+    };
+
+    expect(groupPackages(packages, overrides)).toHaveLength(1);
+  });
+
+  it("tier 0: a force entry with multiple sources unions all of them into destination", () => {
+    const packages = [
+      pkg({ source: "flatpak-flathub", name: "Main", appId: "org.example.main" }),
+      pkg({ source: "pacman-arch", name: "variant-a", appId: "variant-a" }),
+      pkg({ source: "pacman-arch", name: "variant-b", appId: "variant-b" }),
+    ];
+    const overrides: MatchOverrides = {
+      force: [
+        {
+          destination: { source: "flatpak-flathub", appId: "org.example.main" },
+          sources: [
+            { source: "pacman-arch", appId: "variant-a" },
+            { source: "pacman-arch", appId: "variant-b" },
+          ],
+          reason: "test: one destination, multiple sources merging into it",
         },
       ],
       denyPairs: new Set(),
@@ -174,7 +197,7 @@ describe("groupPackages", () => {
       pkg({ source: "pacman-aur", name: "Ambiguous", appId: "shared-id" }),
     ];
     const overrides: MatchOverrides = {
-      manual: [],
+      force: [],
       denyPairs: new Set(["flatpak-flathub:shared-id|pacman-aur:shared-id"]),
     };
 
@@ -247,7 +270,7 @@ describe("groupPackages", () => {
     // tool, nothing to do with the browser) via the generic-word
     // collision GENERIC_NAME_BLOCKLIST exists for: fixed by blocklisting
     // "zen" and bridging Flathub's real appId to AUR's zen-browser
-    // family via config/overrides/manual-matches.ndjson instead.
+    // family via config/match-force.json instead.
     const packages = [
       pkg({ source: "flatpak-flathub", name: "Zen", appId: "app.zen_browser.zen" }),
       pkg({ source: "snap-snapcraft", name: "Zen Browser", appId: "zen-browser-snap" }),
@@ -284,7 +307,7 @@ describe("groupPackages", () => {
     // different normalized name) were never part of that cluster and
     // stayed a separate app. Fixed by blocklisting "boxes" and bridging
     // Flathub's real appId to Snap's gnome-boxes via
-    // config/overrides/manual-matches.ndjson instead.
+    // config/match-force.json instead.
     const packages = [
       pkg({ source: "flatpak-flathub", name: "Boxes", appId: "org.gnome.Boxes.desktop" }),
       pkg({ source: "snap-snapcraft", name: "GNOME Boxes", appId: "gnome-boxes" }),

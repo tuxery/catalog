@@ -5,7 +5,7 @@ describe("loadMatchOverrides", () => {
   it("reads the real override files without throwing", () => {
     const overrides = loadMatchOverrides();
 
-    expect(Array.isArray(overrides.manual)).toBe(true);
+    expect(Array.isArray(overrides.force)).toBe(true);
     expect(overrides.denyPairs).toBeInstanceOf(Set);
   });
 
@@ -15,10 +15,10 @@ describe("loadMatchOverrides", () => {
     // bridges — a name-pattern fix alone couldn't close this one.
     const overrides = loadMatchOverrides();
 
-    expect(overrides.manual).toContainEqual(
+    expect(overrides.force).toContainEqual(
       expect.objectContaining({
-        a: { source: "flatpak-flathub", appId: "app.zen_browser.zen" },
-        b: { source: "pacman-aur", appId: "zen-browser" },
+        destination: { source: "flatpak-flathub", appId: "app.zen_browser.zen" },
+        sources: [{ source: "pacman-aur", appId: "zen-browser" }],
       }),
     );
   });
@@ -26,7 +26,7 @@ describe("loadMatchOverrides", () => {
   it("denies the real pCloud Drive / AUR pcloud-drive false-merge", () => {
     // Regression guard: these two normalize to the same name
     // ("pclouddrive") but are genuinely different software — see
-    // deny-matches.ndjson's own reason.
+    // match-deny.json's own reason.
     const overrides = loadMatchOverrides();
 
     expect(overrides.denyPairs.has("appimage-manual:pCloud Drive|pacman-aur:pcloud-drive")).toBe(

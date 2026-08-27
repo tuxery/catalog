@@ -41,5 +41,18 @@
       }
     ],
     "reason": "Same software (LibreOffice) — Arch's own release-channel naming (libreoffice-fresh, and its maintenance-branch twin libreoffice-still) never exact-matches any other source's bare \"libreoffice\" appId/name, so both stay stray standalone entries despite being kept (see filter-keep.json). Found during an ultra-style review pass that also uncovered the keep-list coverage gap for LibreOffice/LibreCAD across apk-alpine/ebuild-gentoo/eopkg-solus/nix-nixpkgs/snap-snapcraft/xbps-void."
+  },
+  {
+    "destination": {
+      "source": "deb-debian",
+      "appId": "nodejs"
+    },
+    "sources": [
+      {
+        "source": "snap-snapcraft",
+        "appId": "node"
+      }
+    ],
+    "reason": "Same software (Node.js) — Snap's official \"Node.js Runtime\" snap is named \"node\", not \"nodejs\" like every other source's bare-appId package (Alpine/Arch/Debian/Ubuntu/Gentoo/Nixpkgs/Slackware/Solus/Void, already unioned into one group via tier1's exact appId match), so it stays a stray standalone entry. User-reported. Fedora's nodejs20/22/24/26 deliberately NOT included here — real, separately-installable parallel major-version-stream packages (Fedora Modularity convention, no single unversioned \"nodejs\" package exists there), not duplicate names for the same install target."
   }
 ]

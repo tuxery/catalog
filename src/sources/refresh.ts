@@ -63,7 +63,7 @@ async function main() {
     return;
   }
 
-  const cachePath = fileURLToPath(new URL(`../cache/${sourceName}.ndjson`, import.meta.url));
+  const cachePath = fileURLToPath(new URL(`./cache/${sourceName}.ndjson`, import.meta.url));
   const count = await refresh(cachePath);
   console.log(`${sourceName}: wrote ${count} entries to ${cachePath}`);
 }

@@ -13,6 +13,7 @@
     "start": "tsx src/pipeline/main.ts",
     "sample": "tsx src/pipeline/sample-dataset.ts",
     "refresh": "tsx src/sources/refresh.ts",
+    "generate-schemas": "tsx scripts/generate-schemas.ts",
     "seed": "tsx scripts/seed.ts",
     "serve": "tsx scripts/serve.ts",
     "reset-caches": "tsx scripts/reset-caches.ts"
@@ -22,7 +23,8 @@
     "fast-xml-parser": "^5.10.1",
     "plist": "^5.0.0",
     "tar": "^7.5.22",
-    "xz-decompress": "^0.2.3"
+    "xz-decompress": "^0.2.3",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@types/node": "20.19.0",

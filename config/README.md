@@ -17,11 +17,24 @@ umbrella hiding five different actions behind one name.
 | [`enrich-compat-warnings.json`](enrich-compat-warnings.json) | enrich | attaches a known packaging-format compatibility warning to one specific `{source, name}`                                                       |
 | [`enrich-suites.json`](enrich-suites.json)                   | enrich | defines a software-suite relationship (one main app + separately-installable components)                                                       |
 
-Each file has a matching JSON Schema under [`schemas/`](schemas/) — see
+Each file has a matching JSON Schema, colocated with the curator code
+that defines it (`src/curator/{filter,match,enrich}/*.schema.json`, not
+under `config/` — a schema is a typing artifact, not tunable data) — see
 [`.vscode/settings.json`](../.vscode/settings.json) for the mapping. Open
 one of the files above in an editor that reads workspace JSON schemas
 (VS Code does, out of the box) and you get live autocomplete/validation,
 no separate tool needed.
+
+Every `.schema.json` is generated from a Zod schema (`pnpm
+generate-schemas`), the same one that validates the file's contents at
+load time in `_shared/json.ts`'s `readJson` — one definition backs the
+TS type, the runtime check, and the editor-facing schema, instead of
+three things to hand-keep in sync. A malformed entry now fails loud and
+points at the exact field right when it's loaded, not as a confusing
+bug somewhere downstream. Adding/changing a field means editing the
+Zod schema (in the relevant `types.ts`/`*.ts` file, not the generated
+`.schema.json`) and re-running `pnpm generate-schemas` — editing just
+an _entry_ in one of the files above never needs that.
 
 `sources`/`destination`/`a`/`b` fields always list `PackageSourceId`
 values (`<format>-<provider>`, e.g. `"deb-debian"`) — a value only goes

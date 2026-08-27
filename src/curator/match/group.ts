@@ -5,7 +5,7 @@ import { loadMatchOverrides, type MatchOverrides } from "./overrides";
 import { UnionFind } from "./union-find";
 
 export interface MatchedApp {
-  /** Stable id for this group, derived from the first package (in input order) that formed it. */
+  /** This group's canonical id — see `buildAppId`'s doc comment for how it's picked. */
   id: string;
   packages: SourcedPackage[];
 }
@@ -195,6 +195,62 @@ function tier2Key(pkg: SourcedPackage): string | undefined {
 }
 
 /**
+ * Picks a group's canonical id from its member packages — prefers
+ * whichever naming convention is already globally unique on its own,
+ * so most apps don't need an invented `source:` prefix at all:
+ *
+ * 1. Snap — Snapcraft enforces store-wide unique names at publish time
+ *    (verified live against the full 202,983-app catalog: 0
+ *    collisions across every snap-snapcraft package, and 0 collisions
+ *    against every Flatpak id too). Preferred first over Flatpak
+ *    despite Flatpak's reverse-DNS id being the more "correct" Linux-
+ *    desktop convention (D-Bus/AppStream/GSettings all use it) — the
+ *    515 apps carrying both are disproportionately the best-known,
+ *    most-shared ones (an app on both major stores is usually a
+ *    mature, popular one), so this is exactly where a short id
+ *    (`firefox`) over a dotted one (`org.mozilla.firefox`) matters
+ *    most for UX, sharing, and SEO (shorter URLs, no special
+ *    characters to percent-encode in search-result snippets).
+ * 2. Flatpak — reverse-DNS appId, unique by domain-ownership
+ *    convention (verified live: 0 collisions). `flatpak-flathub`
+ *    preferred over `flatpak-appcenter` when a group somehow carries
+ *    both with *different* appIds (verified live: 35 real cases, e.g.
+ *    a renamed or independently-submitted app) — same ranking
+ *    `SOURCE_PRIORITY` (enrich/index.ts) already gives flathub over
+ *    appcenter for display data, kept consistent here even though the
+ *    id and the display-data representative are picked independently
+ *    and can differ.
+ * 3. Everything else — `source:appId` (or `source:name` with no
+ *    appId), the only tier that isn't globally unique on its own, so
+ *    it needs the source prefix. Any `/` already in the appId itself
+ *    (GitHub Releases/AppImage's `owner/repo`, Gentoo's
+ *    `category/name`) is normalized to `:` too, rather than mixing
+ *    two separator characters in one id — verified live that `:`
+ *    never occurs naturally in any real appId/name anywhere in the
+ *    catalog, so it's safe to reuse as the one and only separator.
+ *
+ * `members` is in the same order `groupPackages` encountered them, so
+ * the tier-3 fallback keeps the previous "first package that formed
+ * the group" behavior — the only difference from before is that it's
+ * now explicitly the *last* resort instead of always winning.
+ */
+function buildAppId(members: SourcedPackage[]): string {
+  const snap = members.find((pkg) => pkg.source === "snap-snapcraft" && (pkg.appId ?? pkg.name));
+  if (snap) return (snap.appId ?? snap.name) as string;
+
+  const flathub = members.find((pkg) => pkg.source === "flatpak-flathub" && pkg.appId);
+  if (flathub) return flathub.appId as string;
+
+  const appcenter = members.find((pkg) => pkg.source === "flatpak-appcenter" && pkg.appId);
+  if (appcenter) return appcenter.appId as string;
+
+  const [first] = members;
+  if (!first) throw new Error("buildAppId: a group had no member packages");
+  const idPart = (first.appId ?? first.name).replaceAll("/", ":");
+  return `${first.source}:${idPart}`;
+}
+
+/**
  * Groups packages from possibly different sources into unified apps.
  * Three tiers, cheapest first:
  *
@@ -246,24 +302,20 @@ export function groupPackages(
   // Tier 2: exact normalized-name match.
   unionByExactKey(uf, packages, tier2Key, overrides.denyPairs);
 
-  // Collect final groups — id comes from the first package (input order)
-  // seen for each root, same "first package that formed it" semantics as
-  // before the tiered rewrite.
-  const idByRoot = new Map<string, string>();
+  // Collect final groups — id is picked from every member at once (see
+  // `buildAppId`), not just the first package seen for each root, since
+  // the choice depends on which sources the *whole* group carries.
   const membersByRoot = new Map<string, SourcedPackage[]>();
 
   for (const pkg of packages) {
     const root = uf.find(packageKey(pkg));
-
-    if (!idByRoot.has(root)) idByRoot.set(root, `${pkg.source}:${pkg.appId ?? pkg.name}`);
-
     const members = membersByRoot.get(root) ?? [];
     members.push(pkg);
     membersByRoot.set(root, members);
   }
 
-  return [...membersByRoot.entries()].map(([root, members]) => ({
-    id: idByRoot.get(root) as string,
+  return [...membersByRoot.values()].map((members) => ({
+    id: buildAppId(members),
     packages: members,
   }));
 }

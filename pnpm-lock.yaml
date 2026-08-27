@@ -23,6 +23,9 @@ importers:
       xz-decompress:
         specifier: ^0.2.3
         version: 0.2.3
+      zod:
+        specifier: ^4.4.3
+        version: 4.4.3
     devDependencies:
       '@types/node':
         specifier: 20.19.0
@@ -1175,6 +1178,9 @@ packages:
     resolution: {integrity: sha512-YgvUTfwqyc7UXVMrB+SImsVYSmTS8X/tSrtdNZMImM+n7+QTriRXyXim0mBrTXNeqzVF0KWGgHPeiyViFFrNDw==}
     engines: {node: '>=18'}
 
+  zod@4.4.3:
+    resolution: {integrity: sha512-ytENFjIJFl2UwYglde2jchW2Hwm4GJFLDiSXWdTrJQBIN9Fcyp7n4DhxJEiWNAJMV1/BqWfW/kkg71UDcHJyTQ==}
+
 snapshots:
 
   '@esbuild/aix-ppc64@0.28.2':
@@ -1964,3 +1970,5 @@ snapshots:
   xz-decompress@0.2.3: {}
 
   yallist@5.0.0: {}
+
+  zod@4.4.3: {}

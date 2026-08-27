@@ -1,25 +1,47 @@
 import { fileURLToPath } from "node:url";
+import { z } from "zod";
 import { readJson } from "../_shared/json";
 import type { CatalogApp } from "./types";
 
 const SUITES_PATH = fileURLToPath(new URL("../../../config/enrich-suites.json", import.meta.url));
 
-export interface SuiteComponentRef {
-  appId: string;
-  name: string;
-}
+const SuiteComponentRefSchema = z.object({
+  appId: z.string().describe("The component's own catalog id (source:appId)."),
+  name: z.string().describe('The component\'s display name, e.g. "LibreOffice Writer".'),
+});
 
-export interface SuiteOverrideEntry {
-  suiteId: string;
-  suiteName: string;
-  mainAppId: string;
-  components: SuiteComponentRef[];
-  reason: string;
-}
+export type SuiteComponentRef = z.infer<typeof SuiteComponentRefSchema>;
+
+const SuiteOverrideEntrySchema = z.object({
+  suiteId: z.string().describe("A stable, unique identifier for this suite (not shown to users)."),
+  suiteName: z.string().describe('The suite\'s display name, e.g. "LibreOffice".'),
+  mainAppId: z
+    .string()
+    .describe(
+      'The bundled/full-suite app\'s own catalog id (source:appId), e.g. "flatpak-flathub:org.libreoffice.LibreOffice".',
+    ),
+  components: z
+    .array(SuiteComponentRefSchema)
+    .min(1)
+    .describe("Every independently-installable component of this suite."),
+  reason: z
+    .string()
+    .describe(
+      "How this was verified — required so the grouping is auditable later, not just an unexplained line.",
+    ),
+});
+
+export type SuiteOverrideEntry = z.infer<typeof SuiteOverrideEntrySchema>;
+
+export const EnrichSuitesListSchema = z.array(SuiteOverrideEntrySchema).meta({
+  title: "Enrich: software suites",
+  description:
+    'Software suites (a bundled "main" app plus separately installable "component" apps — e.g. LibreOffice/Writer/Calc/...) that aren\'t a single-app matching decision, so don\'t fit filter/match\'s override shapes. Deliberately not auto-detected from names — curated by hand and narrow rather than pattern-matched.',
+});
 
 /** Loads the hand-curated suite list (`config/enrich-suites.json`, missing file reads as empty). */
 export function loadSuiteOverrides(): SuiteOverrideEntry[] {
-  return readJson<SuiteOverrideEntry>(SUITES_PATH);
+  return readJson(SUITES_PATH, EnrichSuitesListSchema);
 }
 
 /**

@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "destination": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "string",
+            "description": "A PackageSourceId, e.g. \"flatpak-flathub\"."
+          },
+          "appId": {
+            "type": "string",
+            "description": "SourcedPackage.appId on that source."
+          }
+        },
+        "required": ["source", "appId"],
+        "additionalProperties": false,
+        "description": "The canonical package every entry in sources merges into — usually the Flathub listing, but not required to be."
+      },
+      "sources": {
+        "minItems": 1,
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "source": {
+              "type": "string",
+              "description": "A PackageSourceId, e.g. \"flatpak-flathub\"."
+            },
+            "appId": {
+              "type": "string",
+              "description": "SourcedPackage.appId on that source."
+            }
+          },
+          "required": ["source", "appId"],
+          "additionalProperties": false
+        },
+        "description": "Every package that should merge into destination. One entry per source package — list as many as apply to this same destination rather than repeating destination across several top-level entries."
+      },
+      "reason": {
+        "type": "string",
+        "description": "Why the auto tiers can't bridge this on their own — required so the exception is auditable later, not just an unexplained group."
+      }
+    },
+    "required": ["destination", "sources", "reason"],
+    "additionalProperties": false
+  },
+  "title": "Match: force-merge list",
+  "description": "Pairs (or groups) too ambiguous for match/group.ts's auto tiers — forces every listed source package to merge into the same CatalogApp as destination, regardless of score."
+}

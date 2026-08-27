@@ -2,12 +2,10 @@ import { existsSync, mkdirSync, readFileSync } from "node:fs";
 import { spawnSync } from "node:child_process";
 import { dirname } from "node:path";
 import { fileURLToPath } from "node:url";
-import { createTursoClient, type TursoDataset } from "@tuxery/store";
+import { createTursoClient, type TursoDataset } from "../src/store";
 import { refreshSources } from "./_refresh-sources";
 
-const DATASET_PATH = fileURLToPath(
-  new URL("../packages/pipeline/dist/dataset.json", import.meta.url),
-);
+const DATASET_PATH = fileURLToPath(new URL("../dist/dataset.json", import.meta.url));
 
 // Local libSQL file — lives here, never under `app`, so no dataset bytes
 // touch that repo's filesystem even transiently.
@@ -43,7 +41,7 @@ const remote = process.argv.includes("--remote");
 if (force) refreshSources();
 
 if (force || !existsSync(DATASET_PATH)) {
-  run("pnpm", ["--filter", "@tuxery/pipeline", "start"]);
+  run("pnpm", ["run", "start"]);
 } else {
   console.log(`Reusing ${DATASET_PATH} (pass --force to re-fetch sources and rebuild).`);
 }

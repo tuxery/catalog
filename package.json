@@ -4,25 +4,33 @@
   "description": "Tuxery catalog: source connectors, matching/merge pipeline, rebuild scripts and the persisted dataset behind the app",
   "type": "module",
   "scripts": {
-    "build": "pnpm -r build",
-    "typecheck": "tsc --noEmit && pnpm -r typecheck",
-    "lint": "oxlint scripts && pnpm -r lint",
-    "test": "pnpm -r test",
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc --noEmit",
+    "lint": "oxlint .",
+    "test": "vitest run",
     "fmt": "oxfmt .",
     "fmt.check": "oxfmt --check .",
+    "start": "tsx src/pipeline/main.ts",
+    "sample": "tsx src/pipeline/sample-dataset.ts",
+    "refresh": "tsx src/sources/refresh.ts",
     "seed": "tsx scripts/seed.ts",
     "serve": "tsx scripts/serve.ts",
     "reset-caches": "tsx scripts/reset-caches.ts"
   },
   "dependencies": {
-    "@tuxery/store": "workspace:*"
+    "@libsql/client": "^0.17.4",
+    "fast-xml-parser": "^5.10.1",
+    "plist": "^5.0.0",
+    "tar": "^7.5.22",
+    "xz-decompress": "^0.2.3"
   },
   "devDependencies": {
     "@types/node": "20.19.0",
     "oxfmt": "^0.63.0",
     "oxlint": "^1.76.0",
     "tsx": "^4.20.6",
-    "typescript": "7.0.2"
+    "typescript": "7.0.2",
+    "vitest": "4.1.10"
   },
   "engines": {
     "node": ">=20.0.0"

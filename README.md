@@ -11,27 +11,35 @@ product brief, reference docs, and roadmap.
 
 ## Layout
 
+One plain package, folder-scoped rather than split across several
+`package.json`s — the only real invariant to protect is the one-way
+`sources → curator → pipeline` dependency direction, and a lint rule does
+that more cheaply than a pnpm workspace does.
+
 ```text
 catalog/
+├── config/                # hand-edited tuning data — see config/README.md
+│   ├── categories.json     # freedesktop category → display-label mapping
+│   └── overrides/           # git-committed keep/exclude/match exceptions
 ├── docs/                  # wiki-style reference docs, one .md per topic
-├── packages/
-│   ├── sources/           # @tuxery/sources — connectors, one folder per upstream source
-│   │   ├── cache/          # git-committed NDJSON snapshot per source
-│   │   ├── _shared/         # cross-source helpers (NDJSON read/write)
-│   │   ├── flathub/ snapcraft/ appimage/ ...
-│   │   └── search.ts       # searchAllSources() — fans out to every source
-│   ├── curator/            # @tuxery/curator — catalog curation
-│   │   ├── overrides/       # git-committed keep/exclude exceptions
-│   │   ├── filter/           # decides which packages belong in the catalog at all
-│   │   └── match/            # groups what's left into unified apps across sources
-│   ├── pipeline/           # @tuxery/pipeline — orchestrates sources + curator into a fresh dataset
-│   └── store/               # @tuxery/store — persistence layer (Turso/libSQL)
-├── tsconfig.base.json       # shared TS config for packages/*
-└── pnpm-workspace.yaml
+├── scripts/               # seed/serve/reset-caches — the local-dev entry points
+└── src/
+    ├── sources/            # connectors, one folder per upstream source
+    │   ├── cache/           # git-committed NDJSON snapshot per source
+    │   ├── _shared/          # cross-source helpers (NDJSON read/write)
+    │   ├── flathub/ snapcraft/ appimage/ ...
+    │   └── search.ts        # searchAllSources() — fans out to every source
+    ├── curator/            # catalog curation, pure functions, no I/O
+    │   ├── filter/           # decides which packages belong in the catalog at all
+    │   ├── match/             # groups what's left into unified apps across sources
+    │   └── enrich/            # turns each group into the display-ready CatalogApp
+    ├── pipeline/           # orchestrates sources + curator into a fresh dataset
+    └── store/              # persistence layer (Turso/libSQL)
 ```
 
 See [`docs/sources.md`](docs/sources.md) for the full per-source support
-matrix (implemented vs. roadmap).
+matrix (implemented vs. roadmap), and [`config/README.md`](config/README.md)
+for what's safe to tune without touching any TypeScript.
 
 ## Development
 
@@ -61,22 +69,19 @@ pnpm lint
 pnpm test
 ```
 
-Or scoped to one package: `pnpm --filter @tuxery/curator test`, etc.
-
 ## Status
 
-`packages/sources`, `packages/curator`, `packages/pipeline`, and
-`packages/store` have all landed. Every source except GitHub Releases
-(deferred to roadmap) is fetching real data — Flathub (3,345 apps),
-Snapcraft (1,542 snaps), AppImage (1,104 apps, no version yet), AUR
-(117,520 packages), Arch official core+extra (15,200 packages), Debian
-(68,755 packages, stable/main/amd64 only), Ubuntu (73,228 packages,
-resolute main+universe/amd64 only), and Fedora (76,354 packages, release
-44 Everything/x86_64 only) — see [`docs/sources.md`](docs/sources.md) and
-the [Tuxery GitHub Project](https://github.com/orgs/tuxery/projects/1) for
+Every source except GitHub Releases (deferred to roadmap) is fetching real
+data — Flathub (3,345 apps), Snapcraft (1,542 snaps), AppImage (1,104
+apps, no version yet), AUR (117,520 packages), Arch official core+extra
+(15,200 packages), Debian (68,755 packages, stable/main/amd64 only),
+Ubuntu (73,228 packages, resolute main+universe/amd64 only), and Fedora
+(76,354 packages, release 44 Everything/x86_64 only) — see
+[`docs/sources.md`](docs/sources.md) and the
+[Tuxery GitHub Project](https://github.com/orgs/tuxery/projects/1) for
 what's implemented vs. tracked as roadmap cards.
 
-`packages/curator`'s `filter` cuts ~54k non-app/game packages (libraries,
+The curator's `filter` stage cuts ~54k non-app/game packages (libraries,
 dev headers, docs, fonts) before matching — effective on Debian/Ubuntu
 (~33% each), much less so on AUR/Arch (~2-3%, different naming
 conventions — see the "Filter is far less effective on AUR/Arch" card).

@@ -2,7 +2,7 @@
   {
     "suiteId": "libreoffice",
     "suiteName": "LibreOffice",
-    "mainAppId": "flatpak-flathub:org.libreoffice.LibreOffice",
+    "mainAppId": "libreoffice",
     "components": [
       {
         "appId": "deb-debian:libreoffice-writer",
@@ -30,7 +30,7 @@
   {
     "suiteId": "calligra",
     "suiteName": "Calligra",
-    "mainAppId": "flatpak-flathub:org.kde.calligra",
+    "mainAppId": "org.kde.calligra",
     "components": [
       {
         "appId": "deb-debian:calligrawords",
@@ -58,7 +58,7 @@
   {
     "suiteId": "zen-browser",
     "suiteName": "Zen Browser",
-    "mainAppId": "flatpak-flathub:app.zen_browser.zen",
+    "mainAppId": "zen-browser-snap",
     "components": [
       {
         "appId": "pacman-aur:zen-browser-bitwarden",

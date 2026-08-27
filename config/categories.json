@@ -1,0 +1,14 @@
+{
+  "Development": "Developer tools",
+  "Science": "Science",
+  "Education": "Education",
+  "Graphics": "Graphics & Creativity",
+  "AudioVideo": "Multimedia",
+  "Audio": "Multimedia",
+  "Video": "Multimedia",
+  "Office": "Productivity",
+  "Network": "Internet & Communication",
+  "System": "System tools",
+  "Settings": "Settings",
+  "Utility": "Utilities"
+}

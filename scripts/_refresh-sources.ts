@@ -1,10 +1,8 @@
 import { spawnSync } from "node:child_process";
 
-// Kept as a literal list rather than importing @tuxery/sources: these
-// root scripts sit outside the pnpm workspace glob (packages/*) and shell
-// out to package CLIs instead of importing package code directly. Source
-// of truth for the set of ids is packages/sources/src/types.ts's
-// PackageSourceId union — keep this in sync with it.
+// Kept as a literal list rather than importing it: `PackageSourceId` (src/
+// sources/types.ts) is a type, not a runtime value — nothing to import.
+// Keep this in sync with that union by hand.
 const ALL_SOURCE_IDS = [
   "flatpak-flathub",
   "flatpak-appcenter",
@@ -33,11 +31,11 @@ const ALL_SOURCE_IDS = [
   "github-releases",
 ];
 
-/** Re-fetches the given sources (default: all) via @tuxery/sources' existing `refresh` CLI, one at a time. */
+/** Re-fetches the given sources (default: all) via the `refresh` script, one at a time. */
 export function refreshSources(sourceIds: string[] = ALL_SOURCE_IDS): void {
   for (const sourceId of sourceIds) {
     console.log(`Refreshing ${sourceId}...`);
-    const result = spawnSync("pnpm", ["--filter", "@tuxery/sources", "refresh", sourceId], {
+    const result = spawnSync("pnpm", ["run", "refresh", sourceId], {
       stdio: "inherit",
     });
     if (result.status !== 0) process.exit(result.status ?? 1);

@@ -9,5 +9,16 @@
       "appId": "pcloud-drive"
     },
     "reason": "Same display name (both normalize to \"pclouddrive\") but genuinely different software: appimage-manual's entry is pCloud's own official native client, AUR's pcloud-drive describes itself as \"pCloud drive. Electron edition.\" -- a third-party Electron reimplementation, not the official app. Caught live when appimage-manual first shipped (2026-08-20): Tier 2's exact-normalized-name matching merged them into one CatalogApp."
+  },
+  {
+    "a": {
+      "source": "flatpak-flathub",
+      "appId": "com.mastropaolo.www.tabela"
+    },
+    "b": {
+      "source": "flatpak-flathub",
+      "appId": "eu.cichy1173.tabela"
+    },
+    "reason": "Same display name once diacritics are transliterated (both normalize to \"tabela\" — \"Tabëla\" vs \"tabela\") but genuinely different software: com.mastropaolo's Tabëla formats tables to Markdown/HTML, eu.cichy1173's tabela shows CSV content in a table -- different developers, different homepages (mastropaolo.com vs codeberg.org/cichy1173), coincidentally similar names. Caught live verifying match/normalize.ts's removeDiacritics adoption (2026-08-28) against the full real cache — one of only 20 names whose normalized form changed at all, and the only one of those that collided with a pre-existing different app."
   }
 ]

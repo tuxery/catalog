@@ -1,3 +1,4 @@
+import { dedupeByKey } from "../_shared/dedupe";
 import { fetchCurrentFedoraRelease } from "../_shared/fedora-release";
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
@@ -62,11 +63,7 @@ async function fetchRepo(repoBase: string): Promise<FedoraCacheEntry[]> {
  * package name. Pure — no I/O.
  */
 export function mergeByName(repoEntries: FedoraCacheEntry[][]): FedoraCacheEntry[] {
-  const byName = new Map<string, FedoraCacheEntry>();
-  for (const entries of repoEntries) {
-    for (const entry of entries) byName.set(entry.name, entry);
-  }
-  return [...byName.values()];
+  return dedupeByKey(repoEntries.flat(), (entry) => entry.name);
 }
 
 /**

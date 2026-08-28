@@ -1,3 +1,4 @@
+import { parallel } from "@helpers4/promise";
 import { fetchOrThrow } from "../_shared/http";
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
@@ -108,24 +109,13 @@ export async function resolveEntries(
   lookup: (repo: string) => Promise<RepoLookupResult>,
   concurrency: number,
 ): Promise<AppImageCacheEntry[]> {
-  const results: (AppImageCacheEntry | undefined)[] = [...entries];
-  let next = 0;
-
-  async function worker() {
-    while (next < results.length) {
-      const index = next++;
-      const entry = results[index];
-      if (!entry) continue;
-      // Sequential *within* one worker is the point of this pattern — the
-      // parallelism comes from running `concurrency` workers at once (see
-      // the Promise.all below), not from awaiting everything simultaneously.
-      // eslint-disable-next-line no-await-in-loop
+  const results = await parallel(
+    entries.map((entry) => async () => {
       const result = await lookup(entry.repo);
-      results[index] = result.exists ? { ...entry, version: result.version } : undefined;
-    }
-  }
-
-  await Promise.all(Array.from({ length: Math.min(concurrency, results.length) }, worker));
+      return result.exists ? { ...entry, version: result.version } : undefined;
+    }),
+    concurrency,
+  );
   return results.filter((entry) => entry !== undefined);
 }
 

@@ -19,6 +19,8 @@
     "reset-caches": "tsx scripts/reset-caches.ts"
   },
   "dependencies": {
+    "@helpers4/array": "^3.0.7",
+    "@helpers4/promise": "^3.0.7",
     "@libsql/client": "^0.17.4",
     "fast-xml-parser": "^5.10.1",
     "plist": "^5.0.0",

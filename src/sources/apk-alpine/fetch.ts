@@ -1,10 +1,10 @@
-import { mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
-import { tmpdir } from "node:os";
+import { readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import * as tar from "tar";
 import { fetchOrThrow } from "../_shared/http";
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
+import { withTempDir } from "../_shared/tempdir";
 import type { AlpineCacheEntry, AlpineFetchMetadata } from "./types";
 
 // Alpine publishes one APKINDEX.tar.gz per repo/arch under "latest-stable"
@@ -72,17 +72,14 @@ async function fetchRepoEntries(repo: (typeof REPOS)[number]): Promise<AlpineCac
   const url = `${BASE}/${repo}/${ARCH}/APKINDEX.tar.gz`;
   const response = await fetchOrThrow(url, `Alpine repo "${repo}"`);
 
-  const workDir = await mkdtemp(join(tmpdir(), `alpine-${repo}-`));
-  try {
+  return withTempDir(`alpine-${repo}`, async (workDir) => {
     const archivePath = join(workDir, "APKINDEX.tar.gz");
     await writeFile(archivePath, Buffer.from(await response.arrayBuffer()));
     await tar.x({ file: archivePath, cwd: workDir });
 
     const text = await readFile(join(workDir, "APKINDEX"), "utf8");
     return mapStanzas(parseApkindex(text), repo);
-  } finally {
-    await rm(workDir, { recursive: true, force: true });
-  }
+  });
 }
 
 /**

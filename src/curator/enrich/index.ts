@@ -1,3 +1,4 @@
+import { meanBy, sumBy } from "@helpers4/array";
 import type { PackageSourceId, SourcedPackage } from "../../sources";
 import { looksLikeGamePackage, looksLikeGuiPackage } from "../filter/rules";
 import type { MatchedApp } from "../match/group";
@@ -121,8 +122,8 @@ function aggregateRating(
   );
   if (rated.length === 0) return undefined;
 
-  const count = rated.reduce((sum, pkg) => sum + pkg.rating.count, 0);
-  const weightedSum = rated.reduce((sum, pkg) => sum + pkg.rating.average * pkg.rating.count, 0);
+  const count = sumBy(rated, (pkg) => pkg.rating.count);
+  const weightedSum = sumBy(rated, (pkg) => pkg.rating.average * pkg.rating.count);
   return { average: weightedSum / count, count };
 }
 
@@ -138,7 +139,7 @@ function aggregatePopularity(packages: SourcedPackage[]): number | undefined {
   );
   if (scored.length === 0) return undefined;
 
-  return scored.reduce((sum, pkg) => sum + pkg.popularity, 0) / scored.length;
+  return meanBy(scored, (pkg) => pkg.popularity);
 }
 
 /** Turns grouped packages into the display-ready `CatalogApp` records the website reads — see `types.ts` for what's populated today vs. tracked as roadmap. */

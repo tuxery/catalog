@@ -11,6 +11,12 @@ importers:
       '@helpers4/array':
         specifier: ^3.0.7
         version: 3.0.7
+      '@helpers4/map':
+        specifier: ^3.0.7
+        version: 3.0.7
+      '@helpers4/object':
+        specifier: ^3.0.7
+        version: 3.0.7
       '@helpers4/promise':
         specifier: ^3.0.7
         version: 3.0.7
@@ -212,6 +218,14 @@ packages:
 
   '@helpers4/array@3.0.7':
     resolution: {integrity: sha512-k45+RjvmfY+ql9DeBxeQg9f2k/9q0AxGTCvpGBfD5hm9+4E453NFv106Jqyv3CLxHajXFNivlq4WJ27iiIJYaw==}
+    engines: {node: '>=26.0.0'}
+
+  '@helpers4/map@3.0.7':
+    resolution: {integrity: sha512-q1HXrD/vF0HmkPWO/jKd3IouXiK9E0Y01ZH7UeRQGozSISuPYioz6LQppnFPcjVdzvxtQzTEENDbPw7gRap/qA==}
+    engines: {node: '>=26.0.0'}
+
+  '@helpers4/object@3.0.7':
+    resolution: {integrity: sha512-L6QmtgtxtKZWgb2FyZ6NLKx2OnJ4EZM8ykoojDoTWZOPX+OLEtevPlpR2c4N0SVGb71ai7WKaIDYa0IucGlhVQ==}
     engines: {node: '>=26.0.0'}
 
   '@helpers4/promise@3.0.7':
@@ -1276,6 +1290,10 @@ snapshots:
     optional: true
 
   '@helpers4/array@3.0.7': {}
+
+  '@helpers4/map@3.0.7': {}
+
+  '@helpers4/object@3.0.7': {}
 
   '@helpers4/promise@3.0.7': {}
 

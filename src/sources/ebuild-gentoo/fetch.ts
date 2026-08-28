@@ -3,6 +3,7 @@ import { readdir, readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { Readable } from "node:stream";
 import { pipeline } from "node:stream/promises";
+import { groupBy } from "@helpers4/object";
 import * as tar from "tar";
 // xz-decompress ships a Webpack UMD bundle (a single `module.exports =
 // factory(...)` assignment) — Node's CJS/ESM interop can't statically
@@ -137,14 +138,10 @@ export function pickLatestVersion<T extends { version: string }>(entries: T[]): 
  * picks. Pure — no I/O.
  */
 export function pickLatestPerPackage(entries: GentooCacheEntry[]): GentooCacheEntry[] {
-  const byKey = new Map<string, GentooCacheEntry[]>();
-  for (const entry of entries) {
-    const key = `${entry.category}/${entry.name}`;
-    const group = byKey.get(key);
-    if (group) group.push(entry);
-    else byKey.set(key, [entry]);
-  }
-  return [...byKey.values()].map((group) => pickLatestVersion(group));
+  const byKey = groupBy(entries, (entry) => `${entry.category}/${entry.name}`);
+  return Object.values(byKey)
+    .filter((group): group is GentooCacheEntry[] => group !== undefined)
+    .map((group) => pickLatestVersion(group));
 }
 
 /**

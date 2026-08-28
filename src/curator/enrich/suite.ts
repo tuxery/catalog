@@ -1,4 +1,5 @@
 import { fileURLToPath } from "node:url";
+import { toMapByKey } from "@helpers4/map";
 import { z } from "zod";
 import { readJson } from "../_shared/json";
 import type { CatalogApp } from "./types";
@@ -60,7 +61,7 @@ export function loadSuiteOverrides(): SuiteOverrideEntry[] {
  * I/O — the override list is passed in already loaded.
  */
 export function applySuites(apps: CatalogApp[], suites: SuiteOverrideEntry[]): void {
-  const byId = new Map(apps.map((app) => [app.id, app]));
+  const byId = toMapByKey(apps, (app) => app.id);
 
   for (const suite of suites) {
     const mainApp = byId.get(suite.mainAppId);

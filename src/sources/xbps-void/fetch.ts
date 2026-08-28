@@ -1,5 +1,4 @@
-import { mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
-import { tmpdir } from "node:os";
+import { readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { zstdDecompressSync } from "node:zlib";
 import { parse as parsePlist } from "plist";
@@ -7,6 +6,7 @@ import * as tar from "tar";
 import { fetchOrThrow } from "../_shared/http";
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
+import { withTempDir } from "../_shared/tempdir";
 import type { VoidCacheEntry, VoidFetchMetadata } from "./types";
 
 // Void publishes repodata as a Zstandard-compressed tar (despite no file
@@ -53,8 +53,7 @@ async function fetchRepoEntries(repo: (typeof REPOS)[number]): Promise<VoidCache
   const compressed = Buffer.from(await response.arrayBuffer());
   const tarBytes = zstdDecompressSync(compressed);
 
-  const workDir = await mkdtemp(join(tmpdir(), `void-${repo.id}-`));
-  try {
+  return withTempDir(`void-${repo.id}`, async (workDir) => {
     const archivePath = join(workDir, "repodata.tar");
     await writeFile(archivePath, tarBytes);
     await tar.x({ file: archivePath, cwd: workDir });
@@ -62,9 +61,7 @@ async function fetchRepoEntries(repo: (typeof REPOS)[number]): Promise<VoidCache
     const plistXml = await readFile(join(workDir, "index.plist"), "utf8");
     const packages = parsePlist(plistXml) as unknown as PlistPackages;
     return mapPlist(packages, repo.id);
-  } finally {
-    await rm(workDir, { recursive: true, force: true });
-  }
+  });
 }
 
 /**

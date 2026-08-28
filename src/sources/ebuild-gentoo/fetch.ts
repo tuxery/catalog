@@ -1,6 +1,5 @@
 import { createWriteStream } from "node:fs";
-import { mkdtemp, readdir, readFile, rm } from "node:fs/promises";
-import { tmpdir } from "node:os";
+import { readdir, readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { Readable } from "node:stream";
 import { pipeline } from "node:stream/promises";
@@ -13,6 +12,7 @@ import xzDecompress from "xz-decompress";
 import { fetchOrThrow } from "../_shared/http";
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
+import { withTempDir } from "../_shared/tempdir";
 import type { GentooCacheEntry, GentooFetchMetadata } from "./types";
 
 // Gentoo is source-based (ebuilds compiled locally via `emerge`,
@@ -229,23 +229,19 @@ async function readAllEntries(md5CacheDir: string): Promise<GentooCacheEntry[]> 
  * `cachePath` as NDJSON. See docs/sources.md.
  */
 export async function fetchGentoo(cachePath: string): Promise<number> {
-  const workDir = await mkdtemp(join(tmpdir(), "gentoo-fetch-"));
-
-  try {
+  const entries = await withTempDir("gentoo-fetch", async (workDir) => {
     const md5CacheDir = await fetchAndExtractMd5Cache(workDir);
     const rawEntries = await readAllEntries(md5CacheDir);
-    const entries = pickLatestPerPackage(rawEntries);
+    return pickLatestPerPackage(rawEntries);
+  });
 
-    writeNdjson(cachePath, entries);
-    writeMetadata<GentooFetchMetadata>(cachePath, {
-      source: "ebuild-gentoo",
-      fetchedAt: new Date().toISOString(),
-      url: URL,
-      entryCount: entries.length,
-    });
+  writeNdjson(cachePath, entries);
+  writeMetadata<GentooFetchMetadata>(cachePath, {
+    source: "ebuild-gentoo",
+    fetchedAt: new Date().toISOString(),
+    url: URL,
+    entryCount: entries.length,
+  });
 
-    return entries.length;
-  } finally {
-    await rm(workDir, { recursive: true, force: true });
-  }
+  return entries.length;
 }

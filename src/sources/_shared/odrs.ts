@@ -1,3 +1,4 @@
+import { sumBy } from "@helpers4/array";
 import { fetchOrThrow } from "./http";
 
 // GNOME's ODRS (odrs.gnome.org) is the community ratings/reviews backend
@@ -80,7 +81,7 @@ export function pickOdrsRating(
   ].filter((rating): rating is OdrsRating => rating !== undefined);
   if (candidates.length === 0) return undefined;
 
-  const count = candidates.reduce((sum, rating) => sum + rating.count, 0);
-  const weightedSum = candidates.reduce((sum, rating) => sum + rating.average * rating.count, 0);
+  const count = sumBy(candidates, (rating) => rating.count);
+  const weightedSum = sumBy(candidates, (rating) => rating.average * rating.count);
   return { average: weightedSum / count, count };
 }

@@ -20,6 +20,9 @@ importers:
       '@helpers4/promise':
         specifier: ^3.0.7
         version: 3.0.7
+      '@helpers4/string':
+        specifier: ^3.0.7
+        version: 3.0.7
       '@libsql/client':
         specifier: ^0.17.4
         version: 0.17.4
@@ -230,6 +233,10 @@ packages:
 
   '@helpers4/promise@3.0.7':
     resolution: {integrity: sha512-OxAiH2egam0KYmYieDTHws/Vxln/DBEh9DrvCUtrHzkhOCwCRF64J7LVVtIQSEscxF/r4tK3waloJL0+VAftBw==}
+    engines: {node: '>=26.0.0'}
+
+  '@helpers4/string@3.0.7':
+    resolution: {integrity: sha512-j4/FD9TTX4JqpG8tXQ2OdPMavfZDDBHZdvaWTGHDvoQZVGFr1nCwSEvQG/unnklYJAkzAg/iHOvNu4PJAW0hzQ==}
     engines: {node: '>=26.0.0'}
 
   '@isaacs/fs-minipass@4.0.1':
@@ -1296,6 +1303,8 @@ snapshots:
   '@helpers4/object@3.0.7': {}
 
   '@helpers4/promise@3.0.7': {}
+
+  '@helpers4/string@3.0.7': {}
 
   '@isaacs/fs-minipass@4.0.1':
     dependencies:

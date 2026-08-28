@@ -1,3 +1,4 @@
+import { dedupeByKey } from "../_shared/dedupe";
 import { fetchOrThrow } from "../_shared/http";
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
@@ -98,12 +99,11 @@ export async function fetchSnapcraft(cachePath: string): Promise<number> {
     Promise.all(QUERY_CHARS.map((char) => find(`q=${char}`, `q=${char}`))),
   ]);
 
-  const byName = new Map<string, SnapcraftCacheEntry>();
-  for (const entry of mapResults([...categoryResults.flat(), ...queryResults.flat()])) {
-    byName.set(entry.name, entry);
-  }
+  const entries = dedupeByKey(
+    mapResults([...categoryResults.flat(), ...queryResults.flat()]),
+    (entry) => entry.name,
+  );
 
-  const entries = [...byName.values()];
   writeNdjson(cachePath, entries);
   writeMetadata<SnapcraftFetchMetadata>(cachePath, {
     source: "snap-snapcraft",

@@ -1,10 +1,10 @@
-import { mkdir, mkdtemp, readdir, readFile, rm, writeFile } from "node:fs/promises";
-import { tmpdir } from "node:os";
+import { mkdir, readdir, readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import * as tar from "tar";
 import { fetchOrThrow } from "../_shared/http";
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
+import { withTempDir } from "../_shared/tempdir";
 import type { ArchCacheEntry, ArchFetchMetadata } from "./types";
 
 // Arch's official, pre-built package set is "core" + "extra" + "multilib"
@@ -92,24 +92,20 @@ async function fetchRepoEntries(repo: ArchRepo, workDir: string): Promise<ArchCa
  * only ever belongs to one. See docs/sources.md.
  */
 export async function fetchArch(cachePath: string): Promise<number> {
-  const workDir = await mkdtemp(join(tmpdir(), "arch-fetch-"));
-
-  try {
+  const entries = await withTempDir("arch-fetch", async (workDir) => {
     const entriesByRepo = await Promise.all(REPOS.map((repo) => fetchRepoEntries(repo, workDir)));
-    const entries = entriesByRepo.flat();
+    return entriesByRepo.flat();
+  });
 
-    writeNdjson(cachePath, entries);
-    writeMetadata<ArchFetchMetadata>(cachePath, {
-      source: "pacman-arch",
-      fetchedAt: new Date().toISOString(),
-      url: `${MIRROR_BASE}/{${REPOS.join(",")}}/os/${ARCH}/*.db`,
-      entryCount: entries.length,
-      repos: [...REPOS],
-      arch: ARCH,
-    });
+  writeNdjson(cachePath, entries);
+  writeMetadata<ArchFetchMetadata>(cachePath, {
+    source: "pacman-arch",
+    fetchedAt: new Date().toISOString(),
+    url: `${MIRROR_BASE}/{${REPOS.join(",")}}/os/${ARCH}/*.db`,
+    entryCount: entries.length,
+    repos: [...REPOS],
+    arch: ARCH,
+  });
 
-    return entries.length;
-  } finally {
-    await rm(workDir, { recursive: true, force: true });
-  }
+  return entries.length;
 }

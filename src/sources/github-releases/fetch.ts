@@ -1,3 +1,4 @@
+import { parallel } from "@helpers4/promise";
 import { fetchOrThrow } from "../_shared/http";
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
@@ -105,21 +106,12 @@ export async function resolveEntries(
   lookup: (repo: string) => Promise<RawRelease | undefined>,
   concurrency: number,
 ): Promise<GithubReleasesCacheEntry[]> {
-  const results: (GithubReleasesCacheEntry | undefined)[] = Array.from({ length: repos.length });
-  let next = 0;
-
-  async function worker() {
-    while (next < results.length) {
-      const index = next++;
-      const repo = repos[index];
-      if (!repo?.full_name || !repo.name) continue;
-      // Sequential *within* one worker is the point — parallelism comes
-      // from running `concurrency` workers at once (see Promise.all
-      // below), not from awaiting everything simultaneously.
-      // eslint-disable-next-line no-await-in-loop
+  const results = await parallel(
+    repos.map((repo) => async (): Promise<GithubReleasesCacheEntry | undefined> => {
+      if (!repo.full_name || !repo.name) return undefined;
       const release = await lookup(repo.full_name);
-      if (!release?.tag_name) continue;
-      results[index] = {
+      if (!release?.tag_name) return undefined;
+      return {
         name: repo.name,
         description: repo.description ?? "",
         repo: repo.full_name,
@@ -128,10 +120,9 @@ export async function resolveEntries(
         releaseUrl: release.html_url ?? `https://github.com/${repo.full_name}/releases/latest`,
         stars: repo.stargazers_count ?? 0,
       };
-    }
-  }
-
-  await Promise.all(Array.from({ length: Math.min(concurrency, results.length) }, worker));
+    }),
+    concurrency,
+  );
   return results.filter((entry) => entry !== undefined);
 }
 

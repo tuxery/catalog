@@ -62,18 +62,9 @@ export function getCompatWarnings(
   packages: SourcedPackage[],
   entries: CompatWarningEntry[],
 ): CompatWarning[] {
-  const warnings: CompatWarning[] = [];
-  for (const pkg of packages) {
-    for (const entry of entries) {
-      if (entry.source === pkg.source && entry.name === pkg.name) {
-        warnings.push({
-          source: entry.source,
-          severity: entry.severity,
-          issue: entry.issue,
-          fix: entry.fix,
-        });
-      }
-    }
-  }
-  return warnings;
+  return packages.flatMap((pkg) =>
+    entries
+      .filter((entry) => entry.source === pkg.source && entry.name === pkg.name)
+      .map(({ source, severity, issue, fix }) => ({ source, severity, issue, fix })),
+  );
 }

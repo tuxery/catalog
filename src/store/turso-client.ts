@@ -1,3 +1,4 @@
+import { chunk } from "@helpers4/array";
 import { createClient, type Client } from "@libsql/client";
 
 /**
@@ -220,15 +221,14 @@ export function createTursoClient(config: TursoConfig, client?: Client): TursoCl
       await db.execute(`DROP TABLE IF EXISTS apps_next`);
       await db.execute(appsTableSql("apps_next"));
 
-      // Sequential on purpose: each iteration already batches BATCH_SIZE
-      // rows into one round trip; firing all batches concurrently would
-      // just open many parallel connections against the same DB for no
-      // real throughput gain.
-      for (let i = 0; i < dataset.apps.length; i += BATCH_SIZE) {
-        const chunk = dataset.apps.slice(i, i + BATCH_SIZE);
+      // Sequential on purpose: each batch already groups BATCH_SIZE rows
+      // into one round trip; firing all batches concurrently would just
+      // open many parallel connections against the same DB for no real
+      // throughput gain.
+      for (const batch of chunk(dataset.apps, BATCH_SIZE)) {
         // eslint-disable-next-line no-await-in-loop
         await db.batch(
-          chunk.map((app) => ({
+          batch.map((app) => ({
             sql: `INSERT INTO apps_next (${INSERT_COLUMNS.join(", ")}) VALUES (${INSERT_COLUMNS.map(() => "?").join(", ")})`,
             args: toRow(app) as never[],
           })),

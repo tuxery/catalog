@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Website/UI bug (not a data problem)
+    url: https://github.com/tuxery/app/issues/new/choose
+    about: Broken layout, a page that won't load, or anything else about the website itself rather than the catalog's data.

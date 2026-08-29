@@ -1,0 +1,31 @@
+name: Add a distro, source, or app/game
+description: Request a new distro connector, packaging source, or a specific app/game that's missing from the catalog
+title: "[add] "
+labels: ["enhancement"]
+body:
+  - type: dropdown
+    id: category
+    attributes:
+      label: What are you requesting?
+      options:
+        - A distro / Linux distribution
+        - A packaging source (Flatpak remote, Snap-like store, package manager, ...)
+        - A specific app or game
+        - Something else
+    validations:
+      required: true
+  - type: input
+    id: name
+    attributes:
+      label: Name
+      description: The distro, source, or app/game's name.
+      placeholder: e.g. "Manjaro", "Flathub", "Blender"
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: Homepage, package manager, why it's worth adding — anything relevant.
+    validations:
+      required: false

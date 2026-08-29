@@ -1,0 +1,30 @@
+name: Report a data problem
+description: An app or game's listing is wrong, missing, or duplicated — or a distro/source behaves incorrectly
+title: "[data] "
+labels: ["bug"]
+body:
+  - type: dropdown
+    id: category
+    attributes:
+      label: What's affected?
+      options:
+        - An app or game's listing (wrong info, wrong category, ...)
+        - Two apps that should merge into one (or shouldn't have)
+        - A distro/source's install instructions or availability
+        - Something else
+    validations:
+      required: true
+  - type: input
+    id: link
+    attributes:
+      label: Link
+      description: A link to the affected app/game page on Tuxery, if applicable.
+    validations:
+      required: false
+  - type: textarea
+    id: description
+    attributes:
+      label: What's wrong?
+      description: What you expected vs. what you actually saw.
+    validations:
+      required: true

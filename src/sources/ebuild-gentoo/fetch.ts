@@ -4,6 +4,7 @@ import { join } from "node:path";
 import { Readable } from "node:stream";
 import { pipeline } from "node:stream/promises";
 import { groupBy } from "@helpers4/object";
+import { compare } from "@helpers4/version";
 import * as tar from "tar";
 // xz-decompress ships a Webpack UMD bundle (a single `module.exports =
 // factory(...)` assignment) — Node's CJS/ESM interop can't statically
@@ -64,49 +65,6 @@ export function parseCpvFilename(fileName: string): { name: string; version: str
   return name !== undefined && version !== undefined ? { name, version } : undefined;
 }
 
-const SUFFIX_RANK: Record<string, string> = { alpha: "0", beta: "1", pre: "2", rc: "3", p: "5" };
-const NO_SUFFIX_RANK = "4";
-
-/**
- * Best-effort Gentoo version ordering for picking "the latest" ebuild
- * per package — not a full Package Manager Specification implementation,
- * only enough to pick a sensible display version. Handles the common
- * shape: dot-separated numeric segments, an optional trailing letter
- * (`1.0a` ranks *above* `1.0`, a point-release marker, unlike a
- * `_suffix`), an optional `_alpha`/`_beta`/`_pre`/`_rc`/`_p` suffix
- * (alpha/beta/pre/rc rank *below* the base version as pre-releases; `p`
- * ranks above as a post-release patch), and an optional `-rN` revision.
- * Returns a string such that plain lexicographic comparison gives the
- * correct order — segments are zero-padded and joined with a separator
- * (`#`) that sorts below both digits and `.`, so a version with fewer
- * dot-segments still sorts below one that continues with a real
- * subsequent segment (e.g. `1.0` before `1.0.1`). One deliberate
- * imprecision: real Portage semantics treat `1.0` and `1.0.0` as equal,
- * which isn't worth modeling here. Pure — no I/O.
- */
-export function versionSortKey(version: string): string {
-  const revisionMatch = version.match(/-r(\d+)$/);
-  const revision = revisionMatch?.[1] ? Number(revisionMatch[1]) : 0;
-  const base = revisionMatch ? version.slice(0, version.length - revisionMatch[0].length) : version;
-
-  const suffixMatch = base.match(/_(alpha|beta|pre|rc|p)(\d*)$/);
-  const suffixKind = suffixMatch?.[1];
-  const suffixRank = suffixKind ? (SUFFIX_RANK[suffixKind] ?? NO_SUFFIX_RANK) : NO_SUFFIX_RANK;
-  const suffixNumber = suffixMatch?.[2] ? Number(suffixMatch[2]) : 0;
-  const numericAndLetter = suffixMatch ? base.slice(0, base.length - suffixMatch[0].length) : base;
-
-  const letterMatch = numericAndLetter.match(/[a-z]$/);
-  const letter = letterMatch?.[0] ?? "";
-  const numeric = letter ? numericAndLetter.slice(0, -1) : numericAndLetter;
-
-  const paddedSegments = numeric
-    .split(".")
-    .map((segment) => segment.padStart(10, "0"))
-    .join(".");
-
-  return `${paddedSegments}#${letter}#${suffixRank}${String(suffixNumber).padStart(4, "0")}#${String(revision).padStart(4, "0")}`;
-}
-
 // Live ebuilds (upstream VCS HEAD, not a pinned release) — Portage
 // deliberately treats "9999" as the highest possible version so
 // `emerge` always offers it when explicitly targeted, which would
@@ -120,15 +78,15 @@ function isLiveVersion(version: string): boolean {
 
 /**
  * Picks the best entry to represent a package from all its cached
- * versions — the highest by `versionSortKey`, preferring any real
- * pinned release over a live ("9999") ebuild when both exist. Pure — no
- * I/O.
+ * versions — the highest by Gentoo/Portage version ordering, preferring
+ * any real pinned release over a live ("9999") ebuild when both exist.
+ * Pure — no I/O.
  */
 export function pickLatestVersion<T extends { version: string }>(entries: T[]): T {
   const pinnedReleases = entries.filter((entry) => !isLiveVersion(entry.version));
   const candidates = pinnedReleases.length > 0 ? pinnedReleases : entries;
   return candidates.reduce((best, entry) =>
-    versionSortKey(entry.version) > versionSortKey(best.version) ? entry : best,
+    compare(entry.version, best.version, "gentoo") > 0 ? entry : best,
   );
 }
 

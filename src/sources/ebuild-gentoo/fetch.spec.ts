@@ -4,7 +4,6 @@ import {
   parseEbuildCache,
   pickLatestPerPackage,
   pickLatestVersion,
-  versionSortKey,
 } from "./fetch";
 
 describe("parseEbuildCache", () => {
@@ -58,31 +57,6 @@ describe("parseCpvFilename", () => {
   });
 });
 
-describe("versionSortKey", () => {
-  it("orders dot-separated numeric segments correctly, including different lengths", () => {
-    expect(versionSortKey("0.27.1") < versionSortKey("0.28.0")).toBe(true);
-    expect(versionSortKey("1.0") < versionSortKey("1.0.1")).toBe(true);
-  });
-
-  it("ranks a -rN revision above the unrevised version", () => {
-    expect(versionSortKey("0.28.0") < versionSortKey("0.28.0-r1")).toBe(true);
-  });
-
-  it("ranks a trailing letter above the plain version, but a _suffix below it", () => {
-    expect(versionSortKey("1.0") < versionSortKey("1.0a")).toBe(true);
-    expect(versionSortKey("1.0_alpha") < versionSortKey("1.0")).toBe(true);
-    expect(versionSortKey("1.0_alpha") < versionSortKey("1.0a")).toBe(true);
-  });
-
-  it("orders alpha < beta < pre < rc < release < p", () => {
-    expect(versionSortKey("1.0_alpha") < versionSortKey("1.0_beta")).toBe(true);
-    expect(versionSortKey("1.0_beta") < versionSortKey("1.0_pre")).toBe(true);
-    expect(versionSortKey("1.0_pre") < versionSortKey("1.0_rc")).toBe(true);
-    expect(versionSortKey("1.0_rc") < versionSortKey("1.0")).toBe(true);
-    expect(versionSortKey("1.0") < versionSortKey("1.0_p1")).toBe(true);
-  });
-});
-
 describe("pickLatestVersion", () => {
   it("picks the highest real version", () => {
     const entries = [{ version: "0.27.1" }, { version: "0.28.0" }, { version: "0.28.0-r1" }];
@@ -96,6 +70,11 @@ describe("pickLatestVersion", () => {
 
   it("falls back to the live version when it's the only one", () => {
     expect(pickLatestVersion([{ version: "9999" }])).toEqual({ version: "9999" });
+  });
+
+  it("ranks a trailing letter above the plain version, but a _suffix below it", () => {
+    const entries = [{ version: "1.0" }, { version: "1.0a" }, { version: "1.0_alpha" }];
+    expect(pickLatestVersion(entries)).toEqual({ version: "1.0a" });
   });
 });
 

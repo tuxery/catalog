@@ -2,7 +2,17 @@ import { dedupeByKey } from "../_shared/dedupe";
 import { fetchOrThrow } from "../_shared/http";
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
+import type { StoreCollectionTag } from "../types";
 import type { SnapcraftCacheEntry, SnapcraftFetchMetadata } from "./types";
+
+// Snapcraft's own hand-picked "featured" collection — distinct from the
+// `category=featured` store category already swept below (that's one
+// bucket among many in the general merge, with no memory of which
+// category an app came from); this hits the same endpoint the card
+// verified live, tagging matches with `SourcedPackage.storeCollections` instead.
+// ~100 snaps, no pagination param accepted (same ceiling as every other
+// `find` call here).
+const FEATURED_PARAMS = "featured=true";
 
 const FIND_URL = "https://api.snapcraft.io/v2/snaps/find";
 const FIELDS = "title,summary,version,channel,media,links";
@@ -76,6 +86,20 @@ export function mapResults(results: RawResult[]): SnapcraftCacheEntry[] {
     }));
 }
 
+/** Tags each entry `["featured"]` when its name is in the featured-collection sweep's result set, `undefined` otherwise. Pure — no I/O. */
+export function applyFeaturedTag(
+  entries: SnapcraftCacheEntry[],
+  featuredNames: Set<string>,
+): SnapcraftCacheEntry[] {
+  return entries.map((entry) =>
+    Object.assign(entry, {
+      storeCollections: featuredNames.has(entry.name)
+        ? (["featured"] satisfies StoreCollectionTag[])
+        : undefined,
+    }),
+  );
+}
+
 async function find(params: string, label: string): Promise<RawResult[]> {
   const url = `${FIND_URL}?${params}&fields=${FIELDS}`;
   const response = await fetchOrThrow(url, `Snapcraft "${label}"`, {
@@ -94,15 +118,18 @@ async function find(params: string, label: string): Promise<RawResult[]> {
  * enumerate the full store).
  */
 export async function fetchSnapcraft(cachePath: string): Promise<number> {
-  const [categoryResults, queryResults] = await Promise.all([
+  const [categoryResults, queryResults, featuredResults] = await Promise.all([
     Promise.all(CATEGORIES.map((category) => find(`category=${category}`, category))),
     Promise.all(QUERY_CHARS.map((char) => find(`q=${char}`, `q=${char}`))),
+    find(FEATURED_PARAMS, "featured"),
   ]);
 
-  const entries = dedupeByKey(
+  const featuredNames = new Set(featuredResults.map((result) => result.name).filter(Boolean));
+  const deduped = dedupeByKey(
     mapResults([...categoryResults.flat(), ...queryResults.flat()]),
     (entry) => entry.name,
   );
+  const entries = applyFeaturedTag(deduped, featuredNames);
 
   writeNdjson(cachePath, entries);
   writeMetadata<SnapcraftFetchMetadata>(cachePath, {

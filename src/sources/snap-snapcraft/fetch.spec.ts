@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { mapResults } from "./fetch";
+import { applyFeaturedTag, mapResults } from "./fetch";
+import type { SnapcraftCacheEntry } from "./types";
 
 describe("mapResults", () => {
   it("maps a result to a SnapcraftCacheEntry", () => {
@@ -53,5 +54,23 @@ describe("mapResults", () => {
 
   it("drops results without a name", () => {
     expect(mapResults([{ name: "" }])).toEqual([]);
+  });
+});
+
+function entry(name: string): SnapcraftCacheEntry {
+  return { name, title: name, summary: "", version: "unknown", channel: "stable" };
+}
+
+describe("applyFeaturedTag", () => {
+  it("tags entries whose name is in the featured set", () => {
+    const tagged = applyFeaturedTag([entry("code"), entry("spotify")], new Set(["code"]));
+
+    expect(tagged.find((e) => e.name === "code")?.storeCollections).toEqual(["featured"]);
+    expect(tagged.find((e) => e.name === "spotify")?.storeCollections).toBeUndefined();
+  });
+
+  it("leaves storeCollections undefined for an empty featured set", () => {
+    const tagged = applyFeaturedTag([entry("code")], new Set());
+    expect(tagged[0]?.storeCollections).toBeUndefined();
   });
 });

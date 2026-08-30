@@ -10,9 +10,9 @@ table is the map, the Project is the tracked work.
 
 | #   | Source                | Component            | Format     | Count   | Exhaustive? | Status      | Notes |
 | --- | --------------------- | -------------------- | ---------- | ------- | ----------- | ----------- | ----- |
-| 1   | Flathub               | —                    | Flatpak    | 3,345   | ✅          | Implemented | [1]   |
+| 1   | Flathub               | —                    | Flatpak    | 3,363   | ✅          | Implemented | [1]   |
 | 1b  | Other Flatpak remotes | —                    | Flatpak    | —       | ⚠️          | Not started | [2]   |
-| 2   | Snapcraft             | —                    | Snap       | 3,652   | ⚠️          | Implemented | [3]   |
+| 2   | Snapcraft             | —                    | Snap       | 3,662   | ⚠️          | Implemented | [3]   |
 | 3   | AppImage              | —                    | AppImage   | 1,052   | ⚠️          | Implemented | [4]   |
 | 3b  | Manual AppImage seed  | —                    | AppImage   | 1       | ✅          | Implemented | [25]  |
 | 4   | GitHub Releases       | —                    | Any        | 498     | ❌          | Implemented | [5]   |
@@ -57,7 +57,14 @@ because a paragraph per cell made the table unreadable.
 1. **Flathub** — `dl.flathub.org/repo/appstream/x86_64/appstream.xml.gz`,
    the appstream repodata Flatpak clients themselves consume. Single
    gzipped XML file, no auth, no pagination. The canonical catalog —
-   exhaustive by construction. `src/sources/flatpak-flathub/fetch.ts`.
+   exhaustive by construction. Also joins in Flathub's own
+   `/api/v2/collection/{verified,recently-added,recently-updated}`
+   (`page`/`per_page` must both be passed together — either alone 400s,
+   despite the OpenAPI spec listing them as independently optional) as
+   `SourcedPackage.storeCollections` tags — "verified" pages through the
+   full list (a real status, not a top-N ranking), the two recency feeds
+   stay top-250 like `popular` already is.
+   `src/sources/flatpak-flathub/fetch.ts`.
 2. **Other Flatpak remotes** (GNOME nightly, KDE `kdeapps`, Fedora's own
    flatpak remote, ...) — same appstream.xml.gz mechanism per remote,
    different host. Not investigated yet; mostly nightly/testing builds,
@@ -71,7 +78,11 @@ because a paragraph per cell made the table unreadable.
    and `q=` for every letter/digit — verified neither sweep subsumes the
    other (1,542 vs. 2,919 unique snaps, only 809 overlapping; union
    3,652). Still an approximation, not a dump — no known way to actually
-   enumerate the full store. `src/sources/snap-snapcraft/fetch.ts`.
+   enumerate the full store. A third sweep, `?featured=true` (~100 hand-
+   picked snaps), tags matches as `SourcedPackage.storeCollections:
+["featured"]` rather than folding into the general merge untraceably —
+   distinct from the `category=featured` store category already part of
+   the merge above. `src/sources/snap-snapcraft/fetch.ts`.
 4. **AppImage** — [`appimage.github.io/feed.json`](https://appimage.github.io/feed.json)
    (community-curated — not to be confused with the separate,
    bot-gated AppImageHub.com, investigated as a second source and found

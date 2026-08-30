@@ -1,5 +1,5 @@
-import { meanBy, sumBy } from "@helpers4/array";
-import type { PackageSourceId, SourcedPackage } from "../../sources";
+import { meanBy, sumBy, unique } from "@helpers4/array";
+import type { PackageSourceId, SourcedPackage, StoreCollectionTag } from "../../sources";
 import { looksLikeGamePackage, looksLikeGuiPackage } from "../filter/rules";
 import type { MatchedApp } from "../match/group";
 import {
@@ -142,6 +142,16 @@ function aggregatePopularity(packages: SourcedPackage[]): number | undefined {
   return meanBy(scored, (pkg) => pkg.popularity);
 }
 
+/**
+ * The union of every member package's store-collection tags, deduplicated
+ * — an app verified on Flathub AND featured on Snapcraft carries both.
+ * `undefined` when no member package has any (never an empty array).
+ */
+function aggregateStoreCollections(packages: SourcedPackage[]): StoreCollectionTag[] | undefined {
+  const tags = unique(packages.flatMap((pkg) => pkg.storeCollections ?? []));
+  return tags.length > 0 ? tags : undefined;
+}
+
 /** Turns grouped packages into the display-ready `CatalogApp` records the website reads — see `types.ts` for what's populated today vs. tracked as roadmap. */
 export function enrichApps(
   matched: MatchedApp[],
@@ -178,6 +188,7 @@ export function enrichApps(
       compatibilityWarnings: warnings.length > 0 ? warnings : undefined,
       rating: aggregateRating(app.packages),
       popularity: aggregatePopularity(app.packages),
+      storeCollections: aggregateStoreCollections(app.packages),
     };
   });
 

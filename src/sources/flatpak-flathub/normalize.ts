@@ -21,5 +21,6 @@ export function normalize(entries: FlathubCacheEntry[]): SourcedPackage[] {
     changelog: entry.changelog,
     rating: entry.rating,
     popularity: entry.popularity,
+    storeCollections: entry.storeCollections,
   }));
 }

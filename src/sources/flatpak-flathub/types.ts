@@ -1,4 +1,5 @@
 import type { FetchMetadata } from "../_shared/metadata";
+import type { StoreCollectionTag } from "../types";
 
 /**
  * One `<component>` entry from Flathub's appstream repodata
@@ -36,6 +37,8 @@ export interface FlathubCacheEntry {
   rating?: { average: number; count: number };
   /** See `SourcedPackage.popularity`. */
   popularity?: number;
+  /** See `SourcedPackage.storeCollections`. */
+  storeCollections?: StoreCollectionTag[];
 }
 
 export interface FlathubFetchMetadata extends FetchMetadata {

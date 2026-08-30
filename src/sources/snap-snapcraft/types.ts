@@ -1,4 +1,5 @@
 import type { FetchMetadata } from "../_shared/metadata";
+import type { StoreCollectionTag } from "../types";
 
 /**
  * One entry from `api.snapcraft.io/v2/snaps/find`, the shape cached after
@@ -15,6 +16,8 @@ export interface SnapcraftCacheEntry {
   channel: string;
   iconUrl?: string;
   website?: string;
+  /** See `SourcedPackage.storeCollections` — only ever `["featured"]` or `undefined` here, Snapcraft has no verified/recently-added/updated collection API. */
+  storeCollections?: StoreCollectionTag[];
 }
 
 export interface SnapcraftFetchMetadata extends FetchMetadata {

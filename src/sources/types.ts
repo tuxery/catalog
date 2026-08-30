@@ -201,4 +201,23 @@ export interface SourcedPackage {
    * — see `enrich/index.ts`'s `aggregatePopularity`.
    */
   popularity?: number;
+  /**
+   * Collection tags this package appears in, when the source publishes
+   * real curation rather than an algorithmic ranking — unlike
+   * `popularity` (a ranked score), these are membership flags: an app
+   * either is or isn't in a given collection. Three sources today:
+   * Flathub's own "verified" (developer-identity-verified, the full
+   * list, not just a top-N), "recently-added", and "recently-updated"
+   * collections (both top-250 ranked feeds, same "not a full census"
+   * scope as `popularity`'s own Flathub source), and Snapcraft's
+   * "featured" collection (`?featured=true`, ~100 hand-picked snaps).
+   * `undefined`/empty means "not sourced", never "not featured". Not to
+   * be confused with `CatalogApp.editorialTags` — that one is
+   * Tuxery's *own*, manually-curated picks (an overrides file, not yet
+   * built); this one is what the upstream sources themselves already
+   * curate, ingested as-is.
+   */
+  storeCollections?: StoreCollectionTag[];
 }
+
+export type StoreCollectionTag = "verified" | "recently-added" | "recently-updated" | "featured";

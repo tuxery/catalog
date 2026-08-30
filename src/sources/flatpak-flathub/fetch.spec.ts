@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { parseAppstream, rankPopularity } from "./fetch";
+import { buildStoreCollectionTags, parseAppstream, rankPopularity } from "./fetch";
 
 const FIXTURE = `<?xml version="1.0" encoding="UTF-8"?>
 <components version="0.8" origin="flathub">
@@ -80,6 +80,21 @@ describe("parseAppstream", () => {
 
     expect(entry?.rating).toBeUndefined();
   });
+
+  it("threads storeCollections tags through by id, leaving untagged ids undefined", () => {
+    const tagged = parseAppstream(
+      FIXTURE,
+      ODRS_RATINGS,
+      POPULARITY_RANKS,
+      new Map([["org.mozilla.firefox", ["verified", "recently-updated"]]]),
+    );
+
+    expect(tagged.find((e) => e.id === "org.mozilla.firefox")?.storeCollections).toEqual([
+      "verified",
+      "recently-updated",
+    ]);
+    expect(tagged.find((e) => e.id === "org.example.RemoteIcon")?.storeCollections).toBeUndefined();
+  });
 });
 
 describe("rankPopularity", () => {
@@ -100,5 +115,23 @@ describe("rankPopularity", () => {
   it("scores the sole hit as 1 rather than dividing by zero", () => {
     const ranks = rankPopularity([{ app_id: "only" }]);
     expect(ranks.get("only")).toBe(1);
+  });
+});
+
+describe("buildStoreCollectionTags", () => {
+  it("tags each id with the collection(s) it appears in", () => {
+    const tags = buildStoreCollectionTags([
+      { tag: "verified", ids: ["a", "b"] },
+      { tag: "recently-added", ids: ["b", "c"] },
+    ]);
+
+    expect(tags.get("a")).toEqual(["verified"]);
+    expect(tags.get("b")).toEqual(["verified", "recently-added"]);
+    expect(tags.get("c")).toEqual(["recently-added"]);
+    expect(tags.has("d")).toBe(false);
+  });
+
+  it("returns an empty map for no collections", () => {
+    expect(buildStoreCollectionTags([]).size).toBe(0);
   });
 });

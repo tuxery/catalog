@@ -1,4 +1,4 @@
-import type { SourcedPackage } from "../../sources";
+import type { SourcedPackage, StoreCollectionTag } from "../../sources";
 
 /**
  * The unified app record the website consumes — one per `MatchedApp`
@@ -148,6 +148,17 @@ export interface CatalogApp {
    * reaching here. `undefined` when no member package has a score.
    */
   popularity?: number;
+  /**
+   * The union of every member package's own
+   * `SourcedPackage.storeCollections` tags — see `enrich/index.ts`'s
+   * `aggregateStoreCollections`. Two independent sources today: Flathub's
+   * "verified"/"recently-added"/"recently-updated" collections and
+   * Snapcraft's "featured" one. `undefined` when no member package
+   * carries any tag. Not to be confused with `editorialTags` below —
+   * that one is Tuxery's own manual curation, this one is upstream
+   * sources' own, ingested as-is.
+   */
+  storeCollections?: StoreCollectionTag[];
   /** Not sourced yet — no upstream store API among current sources exposes reviews. */
   reviews?: Array<{ author: string; text: string; rating: number }>;
   /** Not sourced yet. */
@@ -166,7 +177,7 @@ export interface CatalogApp {
   inAppPurchases?: boolean;
   /** No upstream signal in any current source — likely editorial/manual, not auto-extractable. */
   gdprCompliant?: boolean;
-  /** Manual curation only — not derived from any source, needs its own overrides-style file when picked up. */
+  /** Manual curation only — not derived from any source, needs its own overrides-style file when picked up. See `storeCollections` above for the upstream-sourced counterpart (Flathub/Snapcraft's own collections) that already reduces this one's scope. */
   editorialTags?: string[];
   /**
    * Software-suite membership — a bundled "main" app (e.g. LibreOffice's

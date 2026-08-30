@@ -490,6 +490,32 @@ describe("enrichApps", () => {
     expect(enrichApps(matched)[0]?.popularity).toBeUndefined();
   });
 
+  it("unions store-collection tags across member packages, deduplicated", () => {
+    const matched: MatchedApp[] = [
+      {
+        id: "flathub:example",
+        packages: [
+          pkg({ source: "flatpak-flathub", storeCollections: ["verified", "recently-updated"] }),
+          pkg({ source: "snap-snapcraft", storeCollections: ["featured", "verified"] }),
+        ],
+      },
+    ];
+
+    expect(enrichApps(matched)[0]?.storeCollections).toEqual([
+      "verified",
+      "recently-updated",
+      "featured",
+    ]);
+  });
+
+  it("leaves storeCollections undefined when no member package has any tag", () => {
+    const matched: MatchedApp[] = [
+      { id: "aur:example", packages: [pkg({ source: "pacman-aur", name: "example" })] },
+    ];
+
+    expect(enrichApps(matched)[0]?.storeCollections).toBeUndefined();
+  });
+
   it("applies injected suite overrides across the whole enriched batch", () => {
     const matched: MatchedApp[] = [
       { id: "flatpak-flathub:org.example.Suite", packages: [pkg({ name: "Suite" })] },

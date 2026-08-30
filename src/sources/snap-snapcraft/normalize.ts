@@ -15,5 +15,6 @@ export function normalize(entries: SnapcraftCacheEntry[]): SourcedPackage[] {
     iconFilename: entry.iconUrl?.split("/").pop(),
     iconUrl: entry.iconUrl,
     homepage: entry.website,
+    storeCollections: entry.storeCollections,
   }));
 }

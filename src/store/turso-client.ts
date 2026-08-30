@@ -41,6 +41,8 @@ export interface AppRecord {
   features?: string[];
   permissions?: string[];
   editorialTags?: string[];
+  /** Upstream store collections this app appears in (Flathub's verified/recently-added/recently-updated, Snapcraft's featured) — see `CatalogApp.storeCollections`'s doc comment. Distinct from `editorialTags` above (Tuxery's own manual curation). */
+  storeCollections?: string[];
   /** Software-suite membership (a bundled "main" app plus its separately-installable "component" apps) — see `CatalogApp.suite`'s doc comment. */
   suite?: {
     id: string;
@@ -108,6 +110,7 @@ const INSERT_COLUMNS = [
   "features_json",
   "permissions_json",
   "editorial_tags_json",
+  "store_collections_json",
   "suite_json",
   "compat_warnings_json",
   "packages_json",
@@ -147,6 +150,7 @@ function appsTableSql(tableName: string): string {
       features_json TEXT,
       permissions_json TEXT,
       editorial_tags_json TEXT,
+      store_collections_json TEXT,
       suite_json TEXT,
       compat_warnings_json TEXT,
       packages_json TEXT NOT NULL
@@ -195,6 +199,7 @@ function toRow(app: AppRecord): unknown[] {
     toJsonColumn(app.features),
     toJsonColumn(app.permissions),
     toJsonColumn(app.editorialTags),
+    toJsonColumn(app.storeCollections),
     toJsonColumn(app.suite),
     toJsonColumn(app.compatibilityWarnings),
     JSON.stringify(app.packages),

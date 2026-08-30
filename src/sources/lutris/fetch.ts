@@ -1,3 +1,4 @@
+import { dedupeByKey } from "../_shared/dedupe";
 import { fetchOrThrow } from "../_shared/http";
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
@@ -18,10 +19,13 @@ const BASE_URL = "https://lutris.net/api/installers";
 interface RawInstaller {
   game_id?: number;
   game_slug?: string;
+  slug?: string;
   name?: string;
   runner?: string;
   published?: boolean;
   description?: string | null;
+  /** Storefront/method label, e.g. "GOG", "Steam", "CD + nGlide" — see `LutrisCacheEntry.version`'s doc comment. */
+  version?: string | null;
 }
 
 interface RawInstallersPage {
@@ -30,29 +34,33 @@ interface RawInstallersPage {
 }
 
 /**
- * Filters to published, native-Linux installers and deduplicates down
- * to one row per game — a game often has several installers (different
- * versions/methods), and the game-level fields (name, slug) are the
- * same across all of a game's installers, so it doesn't matter which
- * one is kept. Pure — no I/O.
+ * Filters to published, native-Linux installers, keeping one row per
+ * installer rather than collapsing to one per game — a game often has
+ * several (different storefronts/methods, e.g. a "GOG" and a "Steam"
+ * installer), each a genuinely different install path worth surfacing
+ * on its own (see `LutrisCacheEntry`'s doc comment). Deduplicated by
+ * `installerSlug` (each installer's own unique id) as a defensive
+ * measure against duplicate entries across paginated sweeps, not
+ * because duplicates are expected. Pure — no I/O.
  */
 export function mapInstallers(installers: RawInstaller[]): LutrisCacheEntry[] {
-  const byGameId = new Map<number, LutrisCacheEntry>();
+  const entries: LutrisCacheEntry[] = [];
 
   for (const installer of installers) {
     if (installer.runner !== "linux" || !installer.published) continue;
-    if (!installer.game_id || !installer.game_slug || !installer.name) continue;
-    if (byGameId.has(installer.game_id)) continue;
+    if (!installer.game_id || !installer.game_slug || !installer.name || !installer.slug) continue;
 
-    byGameId.set(installer.game_id, {
+    entries.push({
       gameId: installer.game_id,
       gameSlug: installer.game_slug,
+      installerSlug: installer.slug,
       name: installer.name,
       description: installer.description ?? "",
+      version: installer.version ?? undefined,
     });
   }
 
-  return [...byGameId.values()];
+  return dedupeByKey(entries, (entry) => entry.installerSlug);
 }
 
 async function fetchPage(url: string): Promise<RawInstallersPage> {

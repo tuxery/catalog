@@ -8,10 +8,15 @@ export function normalize(entries: LutrisCacheEntry[]): SourcedPackage[] {
     description: entry.description,
     // No real version concept here — a Lutris installer's own "version"
     // field names the install variant/method (e.g. "CD + Windows 98"),
-    // not a software release, so it isn't threaded through.
+    // not a software release — that's `channel` below instead.
     version: "unknown",
-    appId: entry.gameSlug,
+    // The installer's own slug, not the game's — unique per installer,
+    // needed since a game can now carry several `SourcedPackage`s (one
+    // per installer), same "one appId per genuinely different install"
+    // discipline as AUR's official/-git/-bin variants.
+    appId: entry.installerSlug,
     homepage: `https://lutris.net/games/${entry.gameSlug}/`,
+    channel: entry.version,
     // NOT hasGameCategory: true — real bug, found live: Lutris hosts
     // install scripts for plenty of non-game Windows software people run
     // via Wine (Discord, Battle.net's own client, ...), not just games,

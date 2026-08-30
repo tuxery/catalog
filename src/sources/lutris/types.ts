@@ -1,19 +1,24 @@
 import type { FetchMetadata } from "../_shared/metadata";
 
 /**
- * One game with a published, native-Linux (`runner: "linux"`) install
- * script from Lutris's installers API, the shape cached after parsing.
- * Deliberately close to the upstream fields rather than the normalized
- * `SourcedPackage` — see `normalize.ts`. Not the installer itself (there
- * can be several per game, deduplicated to one row in `fetch.ts`), just
- * the game-level fields every one of a game's installers shares.
+ * One published, native-Linux (`runner: "linux"`) installer from Lutris's
+ * installers API, the shape cached after parsing. Deliberately close to
+ * the upstream fields rather than the normalized `SourcedPackage` — see
+ * `normalize.ts`. One row per installer, not per game — a game often has
+ * several (different storefronts/methods), each kept rather than
+ * collapsed, since each installs differently and needs its own account
+ * (a "GOG" installer needs a GOG account, "Steam" needs Steam, ...).
  */
 export interface LutrisCacheEntry {
   gameId: number;
   gameSlug: string;
+  /** This installer's own unique slug (e.g. `frozen-synapse-gog`) — unlike `gameSlug`, which every installer of the same game shares, this one's distinct per installer. Lutris's closest thing to a per-package id. */
+  installerSlug: string;
   name: string;
-  /** The chosen installer's own description, e.g. "Play \"X\" on Linux!" — installer-specific text, the closest thing to a game description this API exposes. */
+  /** This installer's own description, e.g. "Play \"X\" on Linux!" — installer-specific text, the closest thing to a game description this API exposes. */
   description: string;
+  /** The installer's own storefront/method label as Lutris names it (e.g. "GOG", "Steam", "CD + nGlide") — not a software version, Lutris's closest thing to a build-channel tag (see `normalize.ts`). `undefined` when Lutris leaves it blank. */
+  version?: string;
 }
 
 export interface LutrisFetchMetadata extends FetchMetadata {

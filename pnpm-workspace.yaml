@@ -1,2 +1,9 @@
 allowBuilds:
   esbuild: true
+minimumReleaseAgeExclude:
+  - "@helpers4/array@3.0.9"
+  - "@helpers4/map@3.0.9"
+  - "@helpers4/object@3.0.9"
+  - "@helpers4/promise@3.0.9"
+  - "@helpers4/string@3.0.9"
+  - "@helpers4/version@3.0.9"

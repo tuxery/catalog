@@ -17,7 +17,7 @@ describe("normalizeName", () => {
     expect(normalizeName("Protégé")).toBe("protege");
   });
 
-  it("resolves the trademark symbol to its NFKD compatibility decomposition (\"TM\"), not a special case coded here", () => {
+  it('resolves the trademark symbol to its NFKD compatibility decomposition ("TM"), not a special case coded here', () => {
     expect(normalizeName("EVERSPACE™")).toBe("everspacetm");
   });
 

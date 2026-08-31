@@ -1,5 +1,6 @@
 import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
+import { z } from "zod";
 
 // Two separate taxonomies, not one shared list — apps and games draw from
 // genuinely different upstream signals (freedesktop.org's Main Categories
@@ -12,20 +13,83 @@ import { fileURLToPath } from "node:url";
 // categories to the type, never one shared list.
 //
 // The mappings themselves live in `config/categories-apps.json` and
-// `config/categories-games.json`, not here — no TypeScript knowledge
-// needed to add/relabel a category. Key order in each file is preference
-// order (see `*_CATEGORY_PREFERENCE` below) — more specific tags listed
-// before generic catch-alls.
-const APP_CATEGORY_LABELS: Record<string, string> = JSON.parse(
-  readFileSync(
-    fileURLToPath(new URL("../../../config/categories-apps.json", import.meta.url)),
-    "utf8",
+// `config/categories-games.json`, not here — mapping an additional
+// freedesktop key onto an *existing* label, or relabeling one, needs no
+// TypeScript change. Key order in each file is preference order (see
+// `*_CATEGORY_PREFERENCE` below) — more specific tags listed before
+// generic catch-alls. The label *values* are locked to the enums below,
+// though — introducing a genuinely new category is a bigger decision
+// (affects the browse page, needs an icon, ...) than a JSON edit, and a
+// closed enum also catches an accidental respelling of an existing label
+// (e.g. "Photos & Video") that would otherwise silently create an orphan
+// category nothing else ever resolves to.
+const APP_CATEGORY_LABEL_VALUES = [
+  "Developer Tools",
+  "Science",
+  "Education",
+  "Security",
+  "Finance",
+  "Photo & Video",
+  "Music & Audio",
+  "Graphics & Design",
+  "Internet & Communication",
+  "Productivity",
+  "Business",
+  "News & Weather",
+  "Travel & Navigation",
+  "Books & Reference",
+  "System Tools",
+  "Settings",
+  "Utilities",
+] as const;
+
+const GAME_CATEGORY_LABEL_VALUES = [
+  "Action",
+  "Adventure",
+  "Arcade",
+  "Board & Cards",
+  "Puzzle",
+  "Educational",
+  "Role-Playing",
+  "Simulation",
+  "Sports",
+  "Strategy",
+] as const;
+
+/** `config/categories-apps.json`'s own label vocabulary — see `AppCategoryLabel`/`APP_CATEGORY_LABEL_VALUES` above for why it's a closed set. */
+export const AppCategoryLabelSchema = z.enum(APP_CATEGORY_LABEL_VALUES);
+export type AppCategoryLabel = z.infer<typeof AppCategoryLabelSchema>;
+
+/** `config/categories-games.json`'s own genre-label vocabulary, same closed-set reasoning as `AppCategoryLabelSchema`. */
+export const GameCategoryLabelSchema = z.enum(GAME_CATEGORY_LABEL_VALUES);
+export type GameCategoryLabel = z.infer<typeof GameCategoryLabelSchema>;
+
+export const CategoriesAppsSchema = z.record(z.string(), AppCategoryLabelSchema).meta({
+  title: "Categories: apps",
+  description:
+    "freedesktop.org Main Category key → display label, for non-game apps. Key order is preference order (more specific tags before generic catch-alls) — see pickCategory. Values are locked to CatalogApp's own known category set.",
+});
+
+export const CategoriesGamesSchema = z.record(z.string(), GameCategoryLabelSchema).meta({
+  title: "Categories: games",
+  description:
+    "freedesktop.org Additional Category genre tag → display label, for games. Key order is preference order — see pickCategory. Values are locked to CatalogApp's own known game-genre set.",
+});
+
+const APP_CATEGORY_LABELS: Record<string, AppCategoryLabel> = CategoriesAppsSchema.parse(
+  JSON.parse(
+    readFileSync(
+      fileURLToPath(new URL("../../../config/categories-apps.json", import.meta.url)),
+      "utf8",
+    ),
   ),
 );
-const GAME_CATEGORY_LABELS: Record<string, string> = JSON.parse(
-  readFileSync(
-    fileURLToPath(new URL("../../../config/categories-games.json", import.meta.url)),
-    "utf8",
+const GAME_CATEGORY_LABELS: Record<string, GameCategoryLabel> = CategoriesGamesSchema.parse(
+  JSON.parse(
+    readFileSync(
+      fileURLToPath(new URL("../../../config/categories-games.json", import.meta.url)),
+      "utf8",
+    ),
   ),
 );
 

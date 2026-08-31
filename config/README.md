@@ -8,8 +8,8 @@ umbrella hiding five different actions behind one name.
 
 | File                                                         | Stage  | Does                                                                                                                                           |
 | ------------------------------------------------------------ | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| [`categories-apps.json`](categories-apps.json)               | enrich | freedesktop category → display-label mapping for non-game apps (key order is also preference order)                                            |
-| [`categories-games.json`](categories-games.json)             | enrich | freedesktop genre tag → display-label mapping for games (key order is also preference order)                                                   |
+| [`categories-apps.json`](categories-apps.json)               | enrich | freedesktop category → display-label mapping for non-game apps (key order is also preference order, values locked to a closed enum)            |
+| [`categories-games.json`](categories-games.json)             | enrich | freedesktop genre tag → display-label mapping for games (key order is also preference order, values locked to a closed enum)                   |
 | [`filter-keep.json`](filter-keep.json)                       | filter | rescues a package `filter/rules.ts`'s auto rules would wrongly exclude                                                                         |
 | [`filter-exclude.json`](filter-exclude.json)                 | filter | force-excludes a package the auto rules miss                                                                                                   |
 | [`match-force.json`](match-force.json)                       | match  | forces every listed source package to merge into one destination, no scoring                                                                   |
@@ -29,7 +29,10 @@ no separate tool needed.
 
 Every `.schema.json` is generated from a Zod schema (`pnpm
 generate-schemas`), the same one that validates the file's contents at
-load time in `_shared/json.ts`'s `readJson` — one definition backs the
+load time — `_shared/json.ts`'s `readJson` for the eight override-style
+files, a direct parse in `enrich/category.ts` for
+`categories-apps.json`/`categories-games.json` (a required base
+taxonomy, not an optional override list) — one definition backs the
 TS type, the runtime check, and the editor-facing schema, instead of
 three things to hand-keep in sync. A malformed entry now fails loud and
 points at the exact field right when it's loaded, not as a confusing

@@ -30,10 +30,10 @@ describe("matchCategoryRule", () => {
 
   it("returns the first matching rule, earlier entries winning over later ones", () => {
     const ordered: CategoryRuleEntry[] = [
-      { pattern: "proton-ge*", category: "Games", reason: "test" },
+      { pattern: "proton-ge*", category: "Science", reason: "test" },
       { pattern: "proton*", category: "Utilities", reason: "test" },
     ];
-    expect(matchCategoryRule(["proton-ge-custom"], ordered)).toBe("Games");
+    expect(matchCategoryRule(["proton-ge-custom"], ordered)).toBe("Science");
   });
 
   it("returns undefined when no rule matches", () => {

@@ -375,6 +375,25 @@ const NOISE_PATTERNS: RegExp[] = [
   // openSUSE's own name-prefix convention for sources with no comparable
   // Section signal. Verified live: 70 real matches, all binding metadata.
   /^typelib-/,
+  // LibreOffice's own per-language thesaurus-data convention (mythes-gl,
+  // mythes-lb, ...) — same shape as this file's dict-/hunspell-/aspell-
+  // patterns. Verified live: 45 real matches, all thesaurus data.
+  /^mythes-/,
+  // Font packages using "woff-" (uncompressed-adjacent WOFF font family
+  // bundles) not already caught by this file's `^woff2-` pattern —
+  // verified live: 45 real matches, all font families.
+  /^woff-/,
+  // Adobe's own font/character-mapping-data packages (adobe-source-han-
+  // mono-hk-fonts, adobe-mappings-cmap, adobe-dng-lcp, ...) — scoped
+  // narrowly by suffix/prefix, not a blanket `^adobe-` (checked and
+  // rejected: adobe-reader-11 and Adobe-Connect-Linux are real standalone
+  // apps sharing the prefix, adobe-afdko/adobe-bin2c-git are real dev
+  // tools). Verified live: 39 real matches across these four shapes, zero
+  // counter-examples.
+  /^adobe-.*-fonts$/,
+  /^adobe-.*-otc$/,
+  /^adobe-mappings-/,
+  /^adobe-dng-/,
 ];
 
 /**

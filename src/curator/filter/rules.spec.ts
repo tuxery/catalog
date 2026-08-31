@@ -319,6 +319,11 @@ describe("looksLikeSupportPackage", () => {
     expect(looksLikeSupportPackage("xfonts-base")).toBe(true);
     expect(looksLikeSupportPackage("hyphen-de")).toBe(true);
   });
+
+  it("flags TeX Live's texmf-dist-* distribution-bundle convention and GObject introspection typelib- binding metadata", () => {
+    expect(looksLikeSupportPackage("texmf-dist-latex")).toBe(true);
+    expect(looksLikeSupportPackage("typelib-1_0-ICal-3_0")).toBe(true);
+  });
 });
 
 describe("looksLikeSourceSpecificNoise", () => {

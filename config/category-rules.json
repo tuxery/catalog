@@ -733,5 +733,190 @@
     "pattern": "jetty-*",
     "category": "Developer Tools",
     "reason": "Jetty's own module ecosystem (jetty-alpn-client, jetty-servlets, ...), same reasoning as uwsgi-*."
+  },
+  {
+    "pattern": "linux-*",
+    "category": "System Tools",
+    "reason": "Linux kernel image/module/driver packages (linux-image-oracle, linux-xanmod-bore, linux-modules-nvidia-590-open-generic-hwe-24.04, ...) — core system infrastructure."
+  },
+  {
+    "pattern": "plymouth-*",
+    "category": "Settings",
+    "reason": "Plymouth's own boot-splash theme ecosystem — desktop/boot visual customization, same reasoning as gtk2-*/xcursor-*."
+  },
+  {
+    "pattern": "firefox-*",
+    "category": "Internet & Communication",
+    "reason": "Firefox's own extension ecosystem — matches freedesktop's own WebBrowser key, already mapped to Internet & Communication."
+  },
+  {
+    "pattern": "gtk-*",
+    "category": "Settings",
+    "reason": "GTK's own theme/tooling ecosystem (gtk-theme-solarc-git, gtk-doc-tools, ...) — predominantly desktop theming, same reasoning as gtk2-*."
+  },
+  {
+    "pattern": "prometheus-*",
+    "category": "System Tools",
+    "reason": "Prometheus's own per-service exporter ecosystem (prometheus-redis-exporter-bin, prometheus-nextcloud-exporter, ...) — each a real, independently launchable monitoring daemon."
+  },
+  {
+    "pattern": "collectd-*",
+    "category": "System Tools",
+    "reason": "collectd's own plugin ecosystem, same reasoning as prometheus-*."
+  },
+  {
+    "pattern": "pcp-*",
+    "category": "System Tools",
+    "reason": "Performance Co-Pilot's own PMDA/tool ecosystem (pcp-pmda-redis, pcp-import-iostat2pcp, ...), same reasoning as prometheus-*."
+  },
+  {
+    "pattern": "monitoring-*",
+    "category": "System Tools",
+    "reason": "The monitoring-plugins project's own Nagios/Icinga check-plugin ecosystem, same reasoning as prometheus-*."
+  },
+  {
+    "pattern": "nagios-*",
+    "category": "System Tools",
+    "reason": "Nagios's own check-plugin ecosystem, same reasoning as monitoring-*."
+  },
+  {
+    "pattern": "zabbix-*",
+    "category": "System Tools",
+    "reason": "Zabbix's own agent/server/frontend ecosystem, same reasoning as prometheus-*."
+  },
+  {
+    "pattern": "puppet-*",
+    "category": "Developer Tools",
+    "reason": "Puppet's own module ecosystem (puppet-module-puppetlabs-augeas-core, ...) — IT-automation developer/ops tooling, same reasoning as ansible-*."
+  },
+  {
+    "pattern": "leechcraft-*",
+    "category": "Internet & Communication",
+    "reason": "LeechCraft (a real modular internet client)'s own module ecosystem."
+  },
+  {
+    "pattern": "cyrus-*",
+    "category": "Security",
+    "reason": "Cyrus SASL's own authentication-mechanism plugin ecosystem."
+  },
+  {
+    "pattern": "freeswitch-*",
+    "category": "Internet & Communication",
+    "reason": "FreeSWITCH's own telephony module/sound ecosystem, same reasoning as asterisk-*/kamailio-*."
+  },
+  {
+    "pattern": "glassfish-*",
+    "category": "Developer Tools",
+    "reason": "GlassFish's own Java-EE-server component ecosystem."
+  },
+  {
+    "pattern": "squid-*",
+    "category": "System Tools",
+    "reason": "Squid's own proxy-server ecosystem, including its own language packs."
+  },
+  {
+    "pattern": "apertium-*",
+    "category": "Books & Reference",
+    "reason": "Apertium's own machine-translation linguistic-data ecosystem — matches freedesktop's own Translation key, already mapped to Books & Reference."
+  },
+  {
+    "pattern": "piper-*",
+    "category": "Music & Audio",
+    "reason": "Piper's own per-language/voice text-to-speech data ecosystem, same reasoning as rhvoice-*/mbrola-*."
+  },
+  {
+    "pattern": "latex-*",
+    "category": "Books & Reference",
+    "reason": "LaTeX-ecosystem tooling/data not already caught by filter/rules.ts's texlive-/texmf-dist- patterns (latex-mk, latex-flatten, latex-cjk-chinese-arphic-*, ...) — document-typesetting domain, matches apertium-*'s Books & Reference reasoning."
+  },
+  {
+    "pattern": "nginx-*",
+    "category": "System Tools",
+    "reason": "The remaining real nginx-ecosystem packages after filter/rules.ts's narrower nginx-mod- exclusion (nginx-light, nginx-sso, nginx-libunit, ...) — web/proxy server infrastructure."
+  },
+  {
+    "pattern": "vulkan-*",
+    "category": "Developer Tools",
+    "reason": "Vulkan's own developer-tooling ecosystem (vulkan-caps-viewer-git, vulkan-tools, vulkan-utility-libraries-git, ...) — graphics API development."
+  },
+  {
+    "pattern": "qt-*",
+    "category": "Developer Tools",
+    "reason": "Qt's own tooling ecosystem (qt-installer-framework, qt-aseman, ...) — a real dev framework, distinct from the already-excluded qt5-/qt6- internal-component prefixes."
+  },
+  {
+    "pattern": "aws-*",
+    "category": "Developer Tools",
+    "reason": "AWS's own SDK/CLI-tooling ecosystem (aws-saml, ...) — cloud developer tooling."
+  },
+  {
+    "pattern": "mono-*",
+    "category": "Developer Tools",
+    "reason": "Mono's own .NET-runtime tooling ecosystem (mono-utils, mono-msbuild-sdkresolver-git, ...)."
+  },
+  {
+    "pattern": "jakarta-*",
+    "category": "Developer Tools",
+    "reason": "Jakarta EE's own Java-API-specification ecosystem (jakarta-saaj, ...)."
+  },
+  {
+    "pattern": "protoc-*",
+    "category": "Developer Tools",
+    "reason": "Protocol Buffers' own compiler-plugin ecosystem."
+  },
+  {
+    "pattern": "pytest-*",
+    "category": "Developer Tools",
+    "reason": "pytest's own plugin ecosystem — Python testing-framework developer tooling."
+  },
+  {
+    "pattern": "pypy3-*",
+    "category": "Developer Tools",
+    "reason": "PyPy's own per-package-set ecosystem — an alternative Python implementation, developer tooling."
+  },
+  {
+    "pattern": "raku-*",
+    "category": "Developer Tools",
+    "reason": "Raku (formerly Perl 6)'s own module ecosystem (raku-tap-harness, ...)."
+  },
+  {
+    "pattern": "opensearch-*",
+    "category": "Developer Tools",
+    "reason": "OpenSearch's own plugin ecosystem (opensearch-geospatial-plugin, opensearch-alerting-plugin, ...) — search-engine developer/ops tooling."
+  },
+  {
+    "pattern": "catppuccin-*",
+    "category": "Settings",
+    "reason": "The Catppuccin theme project's own per-app theme ecosystem — desktop visual customization, same reasoning as gtk2-*/plymouth-*."
+  },
+  {
+    "pattern": "avisynth-*",
+    "category": "Photo & Video",
+    "reason": "AviSynth's own video-processing plugin ecosystem, same reasoning as vapoursynth-*."
+  },
+  {
+    "pattern": "dns01proxy-*",
+    "category": "Security",
+    "reason": "dns01proxy's own per-DNS-provider ACME DNS-01 proxy-server ecosystem — certificate/ACME infrastructure, matches cyrus-*'s Security reasoning."
+  },
+  {
+    "pattern": "xdg-*",
+    "category": "Settings",
+    "reason": "The xdg-desktop-portal's own per-desktop-environment backend ecosystem — desktop integration infrastructure, same family as gnome-*/kde-*."
+  },
+  {
+    "pattern": "bumblebee-*",
+    "category": "Settings",
+    "reason": "bumblebee-status (a real i3/Sway statusbar generator)'s own widget-module ecosystem, same reasoning as i3-*/sway-*."
+  },
+  {
+    "pattern": "vcvrack-*",
+    "category": "Music & Audio",
+    "reason": "VCV Rack (a real modular-synthesizer app)'s own module-pack ecosystem."
+  },
+  {
+    "pattern": "flexmark-*",
+    "category": "Developer Tools",
+    "reason": "Flexmark's own Java Markdown-processing library ecosystem."
   }
 ]

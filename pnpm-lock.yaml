@@ -11,6 +11,9 @@ importers:
       '@helpers4/array':
         specifier: ^3.0.9
         version: 3.0.9
+      '@helpers4/function':
+        specifier: ^3.0.9
+        version: 3.0.9
       '@helpers4/map':
         specifier: ^3.0.9
         version: 3.0.9
@@ -224,6 +227,10 @@ packages:
 
   '@helpers4/array@3.0.9':
     resolution: {integrity: sha512-mxk8YaGIP+CaTfiMxTqpETZ55TFRnCBCbb+DuAoLMt9JEVg3b4gXqZlODe2yYOsRCbwlJXYyeV7iAzLtwQ8G5g==}
+    engines: {node: '>=26.0.0'}
+
+  '@helpers4/function@3.0.9':
+    resolution: {integrity: sha512-seKlg+1T5KXkonmQUqxD+YAzxP+fzFdvPlHsDVqyh7nHuL1soOfvt37SbaxXXCJk3QZ06gkENKAUab0SDlo51Q==}
     engines: {node: '>=26.0.0'}
 
   '@helpers4/map@3.0.9':
@@ -1304,6 +1311,8 @@ snapshots:
     optional: true
 
   '@helpers4/array@3.0.9': {}
+
+  '@helpers4/function@3.0.9': {}
 
   '@helpers4/map@3.0.9': {}
 

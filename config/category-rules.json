@@ -53,5 +53,85 @@
     "pattern": "matlab*",
     "category": "Science",
     "reason": "MATLAB itself (a real, well-known numerical-computation app with no upstream category since it's proprietary/AUR-only) plus its real toolboxes (matlab-dipimage, ...) — the per-release GCC-version-pin meta-packages riding the same prefix are excluded separately (filter/rules.ts), not classified."
+  },
+  {
+    "pattern": "python*",
+    "category": "Developer Tools",
+    "reason": "Product decision (2026-08-31): 'To Classify' must trend toward zero, not sit at the vast majority of the catalog — an approximate-but-plausible category beats none. Python's own PyPI-mirror package family (python-*, python3-*, python313-*, ...) is overwhelmingly libraries/bindings, previously left unclassified specifically because filter/rules.ts's exclusion logic couldn't trust it (real CLI tools like python3-pip ride the same prefix) — but a library is still a developer-facing artifact either way, so Developer Tools is a defensible category even where it isn't a launchable app. 28,781 real matches."
+  },
+  {
+    "pattern": "py3-*",
+    "category": "Developer Tools",
+    "reason": "Alpine's own Python-binding prefix, same reasoning as python*."
+  },
+  {
+    "pattern": "ruby*",
+    "category": "Developer Tools",
+    "reason": "Same reasoning as python* — Ruby's own gem/library ecosystem (ruby-*, rubygem-*, ruby4-*, ...), overwhelmingly developer-facing libraries. 2,185 real matches."
+  },
+  {
+    "pattern": "rubygem-*",
+    "category": "Developer Tools",
+    "reason": "Fedora's own RubyGems-mirror prefix, same reasoning as ruby*."
+  },
+  {
+    "pattern": "node-*",
+    "category": "Developer Tools",
+    "reason": "Same reasoning as python*/ruby* — Node.js's own npm-mirror library ecosystem. 2,131 real matches across node-*/nodejs-*."
+  },
+  {
+    "pattern": "nodejs-*",
+    "category": "Developer Tools",
+    "reason": "Fedora/Solus's own Node.js-ecosystem prefix, same reasoning as node-*."
+  },
+  {
+    "pattern": "php*",
+    "category": "Developer Tools",
+    "reason": "Same reasoning as python*/ruby*/node* — PHP's own PECL/Composer-mirror library ecosystem (php-*, php83-*, ...), plus the interpreter/daemon/package-manager packages themselves (php-cli, php-fpm, composer) which already belong there anyway. 1,806 real matches."
+  },
+  {
+    "pattern": "haskell-*",
+    "category": "Developer Tools",
+    "reason": "Debian's own Hackage-mirror prefix — same reasoning as python*/ruby*/node*/php* (Fedora's own ghc- prefix for the identical ecosystem is excluded as noise instead, see filter/rules.ts, since it never mixes in real tools the way this one does). 1,345 real matches."
+  },
+  {
+    "pattern": "gcc*",
+    "category": "Developer Tools",
+    "reason": "The GCC toolchain family (gcc, g++, gobjc++, gfortran, gdc, gccgo, gm2, gnat, and their per-version/per-target variants) — compilers and their own support packages, unambiguously developer-facing even where not independently launchable. 2,162 real matches across the whole family."
+  },
+  {
+    "pattern": "g++*",
+    "category": "Developer Tools",
+    "reason": "Part of the GCC toolchain family, same reasoning as gcc*."
+  },
+  {
+    "pattern": "gobjc++*",
+    "category": "Developer Tools",
+    "reason": "Part of the GCC toolchain family, same reasoning as gcc*."
+  },
+  {
+    "pattern": "gfortran*",
+    "category": "Developer Tools",
+    "reason": "Part of the GCC toolchain family, same reasoning as gcc*."
+  },
+  {
+    "pattern": "gdc*",
+    "category": "Developer Tools",
+    "reason": "Part of the GCC toolchain family (the D-language frontend), same reasoning as gcc*."
+  },
+  {
+    "pattern": "gccgo*",
+    "category": "Developer Tools",
+    "reason": "Part of the GCC toolchain family (the Go frontend), same reasoning as gcc*."
+  },
+  {
+    "pattern": "gm2*",
+    "category": "Developer Tools",
+    "reason": "Part of the GCC toolchain family (the Modula-2 frontend), same reasoning as gcc*."
+  },
+  {
+    "pattern": "gnat*",
+    "category": "Developer Tools",
+    "reason": "Part of the GCC toolchain family (the Ada frontend), same reasoning as gcc*."
   }
 ]

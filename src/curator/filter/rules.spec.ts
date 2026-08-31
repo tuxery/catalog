@@ -344,6 +344,18 @@ describe("looksLikeSupportPackage", () => {
     expect(looksLikeSupportPackage("Adobe-Connect-Linux")).toBe(false);
     expect(looksLikeSupportPackage("adobe-afdko")).toBe(false);
   });
+
+  it("flags a generic font- prefix, not the small handful of real standalone tools sharing it", () => {
+    expect(looksLikeSupportPackage("font-inter")).toBe(true);
+    expect(looksLikeSupportPackage("font-iosevka")).toBe(true);
+    expect(looksLikeSupportPackage("font-editor")).toBe(true);
+    expect(looksLikeSupportPackage("font-validator")).toBe(true);
+  });
+
+  it("flags Ubuntu's own language-pack- leading-prefix translation convention", () => {
+    expect(looksLikeSupportPackage("language-pack-gnome-de")).toBe(true);
+    expect(looksLikeSupportPackage("language-pack-th-base")).toBe(true);
+  });
 });
 
 describe("looksLikeSourceSpecificNoise", () => {

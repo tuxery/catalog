@@ -1183,5 +1183,10 @@
     "pattern": "nemo-*",
     "category": "Settings",
     "reason": "Nemo (Cinnamon's file manager)'s own extension ecosystem, same reasoning as nautilus-*/caja-*."
+  },
+  {
+    "pattern": "cross-*",
+    "category": "Developer Tools",
+    "reason": "Cross-compilation toolchain packages (cross-armv7l-linux-musleabihf-libc, cross-hppa-gcc16-bootstrap, cross-ia64-binutils, ...) — same GCC/binutils toolchain family as gcc*/binutils*, just targeting a foreign Linux architecture instead of the native one."
   }
 ]

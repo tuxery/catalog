@@ -21,6 +21,20 @@ import type { PackageSourceId } from "../../sources";
 //   don't have this problem — their prefixed packages are overwhelmingly
 //   modules/libraries, not user-facing tools, unlike Rust/Go's real
 //   CLI-tool culture.
+// - Checked and rejected this round, same Rust/Go trap: `python\d*-`/`py3-`
+//   (python3-pip, python-shandy-sqlfmt, and other real CLI tools ride the
+//   same prefix as the library ecosystem), `ruby\d*-`/`rubygem-`
+//   (ruby-foreman, ruby-guard, ruby-nanoc-cli, ...), `node-`/`nodejs-`
+//   (nodejs-electron, nodejs-ember-cli, nodejs-forever, ...), `php\d*-`
+//   (php\d\d-cli/-fpm/-composer are the interpreter/daemon/package-manager
+//   themselves, not noise), and Debian's own `haskell-` prefix
+//   (haskell-threadscope, haskell-hakyll, haskell-cabal-install-solver,
+//   ...) — a different, unsafe convention from Fedora's `ghc-` prefix
+//   below, which stays safe for the same ecosystem. `xorg-` was checked
+//   too and only partially rejected — real diagnostic tools (xorg-xev,
+//   xorg-xwininfo, xorg-transset) share the bare prefix with real noise,
+//   so only the unambiguous `xorg-x11-drv-`/`xorg-fonts-`/`xorg-util-macros`
+//   sub-conventions are excluded below, not `xorg-` itself.
 const NOISE_PATTERNS: RegExp[] = [
   // Development headers, debug symbols, documentation (Debian/Ubuntu-style
   // suffixes) and their Fedora-style equivalents (-devel, -debuginfo,
@@ -179,6 +193,85 @@ const NOISE_PATTERNS: RegExp[] = [
   // and must stay untouched; profile-sync-daemon itself is a real,
   // standalone CLI tool (syncs browser profile dirs to RAM).
   /^profile-sync-daemon-(edge(-stable)?|floorp|librewolf|thunderbird|waterfox|zen|zotero)$/,
+  // GNU R's CRAN/Bioconductor/other package-repository naming convention
+  // (r-cran-*, r-bioc-*, r-other-*) — the non-Debian equivalent of this
+  // file's own "gnu-r" Section rule below (NOISE_SECTIONS), for sources
+  // without a comparable Section field (Fedora, openSUSE, AUR, ...) that
+  // still use this exact name prefix for the same CRAN/Bioconductor
+  // mirror. Verified live: 106 real matches, all library packages, zero
+  // counter-examples (r-cran-getopt's "command-line parsing
+  // functionality" is a library *for* an R script's own CLI parsing, not
+  // itself launchable).
+  /^r-(cran|bioc|other)-/,
+  // MinGW's Windows cross-compilation target packages (mingw32-*,
+  // mingw64-*) — unlike every other pattern in this file, these aren't
+  // excluded because they're *likely* a library, they're excluded because
+  // the binary they produce targets Windows and by construction cannot run
+  // on the Linux host at all, whatever it is (even mingw32-gcc,
+  // mingw64-gvnc-tools, mingw32-theora-tools — all "tool"-sounding by
+  // name — are still cross-compiled *for Windows*, not something a Linux
+  // user would search a Linux app catalog for). Verified live: 889 real
+  // matches, every one Windows-target by its own description.
+  /^mingw(32|64)-/,
+  // Qt5/Qt6 framework's own internal component packages (qt5-multimedia,
+  // qt6-qtbase-mysql, ...) — real Qt-based apps never carry this prefix
+  // themselves (kate, dolphin, calibre, ...), same "library ecosystem, not
+  // an app" shape as this file's perl-/ocaml-/ghc- pattern above, and the
+  // same conclusion Nixpkgs' own `qt6Packages` prefix already reached
+  // below. Verified live: 781 real matches, all Qt library/tool/doc/
+  // example sub-packages; the handful of real standalone developer tools
+  // mixed in (qt5-qmake, qt5-qdbusviewer, qt6-qdbusviewer,
+  // qt6-tools-qdbus) are rescued via config/filter-keep.json rather than
+  // loosening this rule.
+  /^qt[56]-/,
+  // KDE Frameworks 6's own component packages (kf6-kio, kf6-kwallet, ...)
+  // — same shape as qt5-/qt6- above, real KDE apps (kate, dolphin, okular)
+  // never carry this prefix. Verified live: 360 real matches, all
+  // framework/tool/doc sub-packages, no real standalone exception found.
+  /^kf6-/,
+  // Emacs Lisp Package Archive packages (elpa-treemacs, elpa-org-bullets,
+  // ...) — need Emacs itself as a host to do anything, same "not
+  // launchable on its own" reasoning as this file's gnome-shell-extension-/
+  // kwin- patterns above. Verified live: 416 real matches; every sampled
+  // "suspect" (elpa-ledger, elpa-sxiv, ...) turned out to be an Emacs-mode
+  // wrapper *around* an already-separately-packaged real tool, not the
+  // tool itself.
+  /^elpa-/,
+  // Hunspell/MySpell spell-check dictionary packages (hunspell-es,
+  // myspell-en_JM, ...) — per-language word lists, never launchable.
+  // Verified live: 455 real matches, zero counter-examples.
+  /^(hunspell|myspell)-/,
+  // Fedora's own leading-prefix convention for the same locale/font-pack
+  // concept this file's `-(l10n|langpack|locale)-` and `-lang` suffix
+  // patterns above already catch as a suffix (langpacks-core-am,
+  // langpacks-fonts-mai, ...). Verified live: 301 real matches, zero
+  // counter-examples.
+  /^langpacks?-/,
+  // SELinux policy module packages (selinux-ipmitool, selinux-wireguard,
+  // ...) — need SELinux itself as a host, same reasoning as this file's
+  // -dkms pattern above. Verified live: 326 real matches; the one real
+  // exception (selinux-tools, a genuine sysadmin CLI toolkit despite the
+  // prefix) is rescued via config/filter-keep.json.
+  /^selinux-/,
+  // TeX Live's own macro/style/class package convention (texlive-euler,
+  // texlive-supertabular, ...) — same "library ecosystem" shape as this
+  // file's R/Perl/OCaml/Haskell/Lua/Tcl patterns above, just not yet
+  // covered by name. Verified live: 5,514 real matches, overwhelmingly
+  // LaTeX packages/styles/classes with no standalone entry point; a
+  // handful of real standalone conversion/viewer tools TeX Live also
+  // ships under the same prefix (texlive-dvipng, -epspdf, -a2ping,
+  // -pdfpc) are rescued via config/filter-keep.json rather than loosening
+  // this rule.
+  /^texlive-/,
+  // Xorg's own driver/font/build-macro sub-conventions — unlike the bare
+  // `xorg-` prefix (checked and rejected, see this file's header comment),
+  // these three are unambiguous: `xorg-x11-drv-*` are kernel/X11 input or
+  // video drivers (verified live: 29 real matches, all drivers),
+  // `xorg-fonts-*` are bitmap font packages (17 real matches, all fonts),
+  // and `xorg-util-macros` is a single Autotools build-macro package.
+  /^xorg-x11-drv-/,
+  /^xorg-fonts-/,
+  /^xorg-util-macros$/,
 ];
 
 /**

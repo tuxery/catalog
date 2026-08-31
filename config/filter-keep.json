@@ -255,5 +255,50 @@
     "sources": ["pacman-arch"],
     "name": "libreoffice-still",
     "reason": "Real standalone app despite the lib* noise prefix — Arch's single install-everything LibreOffice meta package (maintenance-branch twin of libreoffice-fresh)"
+  },
+  {
+    "sources": ["rpm-fedora", "rpm-opensuse"],
+    "name": "texlive-dvipng",
+    "reason": "Real standalone DVI-to-PNG/GIF converter despite the texlive- noise prefix, not a LaTeX macro package — see filter/rules.ts's texlive- comment"
+  },
+  {
+    "sources": ["rpm-fedora", "rpm-opensuse"],
+    "name": "texlive-epspdf",
+    "reason": "Real standalone PostScript/EPS/PDF converter despite the texlive- noise prefix — see filter/rules.ts's texlive- comment"
+  },
+  {
+    "sources": ["rpm-fedora", "rpm-opensuse"],
+    "name": "texlive-a2ping",
+    "reason": "Real standalone PS/PDF/EPS converter despite the texlive- noise prefix — see filter/rules.ts's texlive- comment"
+  },
+  {
+    "sources": ["rpm-fedora", "rpm-opensuse"],
+    "name": "texlive-pdfpc",
+    "reason": "Real standalone presentation viewer despite the texlive- noise prefix — see filter/rules.ts's texlive- comment"
+  },
+  {
+    "sources": ["deb-debian", "deb-ubuntu", "xbps-void"],
+    "name": "qt5-qmake",
+    "reason": "Real standalone Makefile-generator dev tool despite the qt5- noise prefix — see filter/rules.ts's qt5-/qt6- comment"
+  },
+  {
+    "sources": ["rpm-fedora", "apk-alpine"],
+    "name": "qt5-qdbusviewer",
+    "reason": "Real standalone D-Bus debugger/viewer despite the qt5- noise prefix — see filter/rules.ts's qt5-/qt6- comment"
+  },
+  {
+    "sources": ["rpm-fedora"],
+    "name": "qt6-qdbusviewer",
+    "reason": "Real standalone D-Bus debugger/viewer despite the qt6- noise prefix — see filter/rules.ts's qt5-/qt6- comment"
+  },
+  {
+    "sources": ["rpm-opensuse"],
+    "name": "qt6-tools-qdbus",
+    "reason": "Real standalone D-Bus command-line client despite the qt6- noise prefix — see filter/rules.ts's qt5-/qt6- comment"
+  },
+  {
+    "sources": ["rpm-opensuse"],
+    "name": "selinux-tools",
+    "reason": "Real standalone SELinux sysadmin CLI toolkit despite the selinux- noise prefix — see filter/rules.ts's selinux- comment"
   }
 ]

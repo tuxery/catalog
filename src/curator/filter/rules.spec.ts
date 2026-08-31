@@ -197,6 +197,51 @@ describe("looksLikeSupportPackage", () => {
     expect(looksLikeSupportPackage("profile-sync-daemon-git")).toBe(false);
     expect(looksLikeSupportPackage("profile-sync-daemon-openrc-git")).toBe(false);
   });
+
+  it("flags GNU R's CRAN/Bioconductor/other name-prefix convention, the non-Debian equivalent of the gnu-r Section rule", () => {
+    expect(looksLikeSupportPackage("r-cran-getopt")).toBe(true);
+    expect(looksLikeSupportPackage("r-bioc-hilbertvis")).toBe(true);
+    expect(looksLikeSupportPackage("r-other-something")).toBe(true);
+  });
+
+  it("flags MinGW's Windows cross-compilation target packages — never runnable on the Linux host regardless of name", () => {
+    expect(looksLikeSupportPackage("mingw32-gcc")).toBe(true);
+    expect(looksLikeSupportPackage("mingw64-gvnc-tools")).toBe(true);
+  });
+
+  it("flags Qt5/Qt6 and KDE Frameworks 6's own internal component packages", () => {
+    expect(looksLikeSupportPackage("qt5-multimedia")).toBe(true);
+    expect(looksLikeSupportPackage("qt6-qtbase-mysql")).toBe(true);
+    expect(looksLikeSupportPackage("kf6-kio")).toBe(true);
+  });
+
+  it("flags Emacs Lisp Package Archive packages — need Emacs itself as a host", () => {
+    expect(looksLikeSupportPackage("elpa-treemacs")).toBe(true);
+  });
+
+  it("flags Hunspell/MySpell dictionaries and Fedora's langpacks- prefix", () => {
+    expect(looksLikeSupportPackage("hunspell-es")).toBe(true);
+    expect(looksLikeSupportPackage("myspell-en_JM")).toBe(true);
+    expect(looksLikeSupportPackage("langpacks-core-am")).toBe(true);
+    expect(looksLikeSupportPackage("langpack-fr")).toBe(true);
+  });
+
+  it("flags SELinux policy module packages — need SELinux itself as a host", () => {
+    expect(looksLikeSupportPackage("selinux-wireguard")).toBe(true);
+  });
+
+  it("flags TeX Live's macro/style/class package convention", () => {
+    expect(looksLikeSupportPackage("texlive-euler")).toBe(true);
+    expect(looksLikeSupportPackage("texlive-supertabular")).toBe(true);
+  });
+
+  it("flags only Xorg's unambiguous driver/font/build-macro sub-conventions, not the bare xorg- prefix real diagnostic tools also use", () => {
+    expect(looksLikeSupportPackage("xorg-x11-drv-wacom")).toBe(true);
+    expect(looksLikeSupportPackage("xorg-fonts-100dpi-otb")).toBe(true);
+    expect(looksLikeSupportPackage("xorg-util-macros")).toBe(true);
+    expect(looksLikeSupportPackage("xorg-xev")).toBe(false);
+    expect(looksLikeSupportPackage("xorg-xwininfo")).toBe(false);
+  });
 });
 
 describe("looksLikeSourceSpecificNoise", () => {

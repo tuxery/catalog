@@ -33,6 +33,8 @@ export interface FlathubCacheEntry {
   languages?: string[];
   /** See `SourcedPackage.changelog`. */
   changelog?: string;
+  /** See `SourcedPackage.lastUpdated`. */
+  lastUpdated?: string;
   /** See `SourcedPackage.rating`. */
   rating?: { average: number; count: number };
   /** See `SourcedPackage.popularity`. */

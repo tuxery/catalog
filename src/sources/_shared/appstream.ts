@@ -24,6 +24,7 @@ interface RawUrl {
 
 interface RawRelease {
   "@_version"?: string;
+  "@_timestamp"?: string;
   description?: RawDescription[];
 }
 
@@ -115,6 +116,8 @@ export interface AppstreamComponent {
   languages?: string[];
   /** The newest `<release>`'s own `<description>`, flattened the same way as the component's own `<description>` — see `SourcedPackage.changelog`. `undefined` when the newest release has no description (common — many releases are just a bare `<release version="x"/>`, no notes). */
   changelog?: string;
+  /** The newest `<release>`'s own `@_timestamp` (Unix epoch seconds), converted to an ISO date string — see `SourcedPackage.lastUpdated`. `undefined` when the newest release has no timestamp, or the value doesn't parse as a real number. */
+  lastUpdated?: string;
 }
 
 /**
@@ -246,6 +249,15 @@ function pickChangelog(releases: { release?: RawRelease[] } | undefined): string
   return pickLongDescription(releases?.release?.[0]?.description);
 }
 
+/** The newest release's own `@_timestamp`, converted from Unix epoch seconds to an ISO date string. `undefined` when missing or not a real positive number — `parseAttributeValue: false` (see `parseAppstreamXml`) means this always arrives as a string, never pre-parsed. */
+function pickLastUpdated(releases: { release?: RawRelease[] } | undefined): string | undefined {
+  const raw = releases?.release?.[0]?.["@_timestamp"];
+  if (!raw) return undefined;
+  const seconds = Number(raw);
+  if (!Number.isFinite(seconds) || seconds <= 0) return undefined;
+  return new Date(seconds * 1000).toISOString();
+}
+
 function pickScreenshots(screenshots: { screenshot?: RawScreenshot[] } | undefined): string[] {
   return (screenshots?.screenshot ?? [])
     .map((screenshot) => {
@@ -319,6 +331,7 @@ export function parseAppstreamXml(xml: string): AppstreamComponent[] {
       screenshots: pickScreenshots(component.screenshots),
       languages: pickLanguages(component.languages),
       changelog: pickChangelog(component.releases),
+      lastUpdated: pickLastUpdated(component.releases),
     }))
     .filter((entry) => entry.id && entry.name);
 }

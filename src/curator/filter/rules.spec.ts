@@ -356,6 +356,11 @@ describe("looksLikeSupportPackage", () => {
     expect(looksLikeSupportPackage("language-pack-gnome-de")).toBe(true);
     expect(looksLikeSupportPackage("language-pack-th-base")).toBe(true);
   });
+
+  it("flags LibreOffice's autocorr- per-language autocorrection-rules convention", () => {
+    expect(looksLikeSupportPackage("autocorr-de")).toBe(true);
+    expect(looksLikeSupportPackage("autocorr-fr")).toBe(true);
+  });
 });
 
 describe("looksLikeSourceSpecificNoise", () => {

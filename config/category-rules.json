@@ -1038,5 +1038,150 @@
     "pattern": "youtube-*",
     "category": "Internet & Communication",
     "reason": "YouTube-client tooling (youtube-tv-desktop-app, youtube-upload-git, youtube-tui, ...) — web-service client software."
+  },
+  {
+    "pattern": "google-cloud-*",
+    "category": "Developer Tools",
+    "reason": "Google Cloud's own SDK/client-library ecosystem (google-cloud-sdk, google-cloud-cpp-storagecontrol, ...) — deliberately narrower than a blanket google-* (checked and rejected: too heterogeneous, mixing cloud libraries with fonts and installers under one prefix)."
+  },
+  {
+    "pattern": "kwin-*",
+    "category": "Settings",
+    "reason": "KWin compositor's own plugin/script ecosystem, same desktop-configuration reasoning as i3-*/sway-*/hyprland-*."
+  },
+  {
+    "pattern": "kubernetes-*",
+    "category": "Developer Tools",
+    "reason": "Kubernetes's own component ecosystem, same reasoning as kubectl-*."
+  },
+  {
+    "pattern": "kubernetes1*",
+    "category": "Developer Tools",
+    "reason": "Kubernetes's own per-major-version prefix, same reasoning as kubernetes-*."
+  },
+  {
+    "pattern": "cockpit-*",
+    "category": "System Tools",
+    "reason": "Cockpit (a real web-based server admin UI)'s own plugin ecosystem (cockpit-ha-cluster, cockpit-zfs, ...)."
+  },
+  {
+    "pattern": "ukui-*",
+    "category": "Settings",
+    "reason": "UKUI desktop's own component ecosystem, same reasoning as gnome-*/kde-*."
+  },
+  {
+    "pattern": "dde-*",
+    "category": "Settings",
+    "reason": "Deepin Desktop Environment's own component ecosystem, same reasoning as ukui-*."
+  },
+  {
+    "pattern": "uim-*",
+    "category": "Utilities",
+    "reason": "UIM's own input-method ecosystem, same reasoning as fcitx5-*/ibus-*/rime-*."
+  },
+  {
+    "pattern": "keepass*",
+    "category": "Security",
+    "reason": "KeePass (a real password manager)'s own plugin/locale ecosystem."
+  },
+  {
+    "pattern": "matrix-*",
+    "category": "Internet & Communication",
+    "reason": "Matrix protocol clients/servers (matrix-commander-gael, matrix-tuwunel, ...) — real chat/communication software."
+  },
+  {
+    "pattern": "terraform-*",
+    "category": "Developer Tools",
+    "reason": "Terraform's own provider/tooling ecosystem (terraform-docs-bin, terraform-provider-cloudflare, ...) — infrastructure-as-code developer tooling."
+  },
+  {
+    "pattern": "bacula-*",
+    "category": "System Tools",
+    "reason": "Bacula (a real network backup tool)'s own component ecosystem, same reasoning as this file's earlier Archiving/Backup precedent."
+  },
+  {
+    "pattern": "breeze-*",
+    "category": "Settings",
+    "reason": "The Breeze theme's own cursor/GTK/icon-theme ecosystem — desktop visual customization, same reasoning as gtk2-*/xcursor-*."
+  },
+  {
+    "pattern": "gtk3-*",
+    "category": "Settings",
+    "reason": "GTK3's own theme ecosystem (gtk3-metatheme-numix, gtk3-metatheme-breeze6, ...), same reasoning as gtk2-*."
+  },
+  {
+    "pattern": "whisper-*",
+    "category": "Music & Audio",
+    "reason": "OpenAI Whisper speech-to-text tooling (whisper-dictate-git, whisper-ctranslate2, ...) — audio-domain content, same family as piper-*/rhvoice-* (text-to-speech's counterpart)."
+  },
+  {
+    "pattern": "pandoc-*",
+    "category": "Books & Reference",
+    "reason": "Pandoc's own filter/data ecosystem (pandoc-crossref-bin, pandoc-latex-fontsize, ...) — document-conversion tooling, matches latex-*/apertium-*'s Books & Reference reasoning."
+  },
+  {
+    "pattern": "sdl-*",
+    "category": "Developer Tools",
+    "reason": "SDL's own tooling/library ecosystem (sdl-jstest, sdl-gamecontrollerdb-git, ...) — real game/multimedia developer library."
+  },
+  {
+    "pattern": "fish-*",
+    "category": "System Tools",
+    "reason": "Fish shell's own plugin ecosystem, same reasoning as zsh-*."
+  },
+  {
+    "pattern": "freeradius-*",
+    "category": "Security",
+    "reason": "FreeRADIUS's own module ecosystem — network-authentication infrastructure."
+  },
+  {
+    "pattern": "apache2-*",
+    "category": "System Tools",
+    "reason": "Apache HTTP Server's own module ecosystem (apache2-mod_evasive, apache2-http2, ...), same reasoning as nginx-*."
+  },
+  {
+    "pattern": "eselect-*",
+    "category": "System Tools",
+    "reason": "Gentoo's eselect own module ecosystem (eselect-lapack, eselect-ctags, ...) — system symlink/configuration management."
+  },
+  {
+    "pattern": "abiword-*",
+    "category": "Productivity",
+    "reason": "AbiWord (a real word processor)'s own plugin ecosystem — matches freedesktop's own WordProcessor key, already mapped to Productivity."
+  },
+  {
+    "pattern": "nbdkit-*",
+    "category": "System Tools",
+    "reason": "nbdkit's own plugin ecosystem (nbdkit-curl-plugin, nbdkit-guestfs-plugin, ...) — network block device/storage infrastructure."
+  },
+  {
+    "pattern": "graphite-*",
+    "category": "Settings",
+    "reason": "The Graphite GTK theme's own variant ecosystem — desktop visual customization, same reasoning as gtk2-*/breeze-*."
+  },
+  {
+    "pattern": "hare-*",
+    "category": "Developer Tools",
+    "reason": "Hare's own library-binding ecosystem — a real programming language and its developer tooling."
+  },
+  {
+    "pattern": "xf86-*",
+    "category": "System Tools",
+    "reason": "Arch/Gentoo's own Xorg video/input driver naming convention (xf86-video-siliconmotion, xf86-input-mouse, ...), same driver family as xorg-x11-drv-."
+  },
+  {
+    "pattern": "xserver-*",
+    "category": "System Tools",
+    "reason": "Debian's own Xorg X server/driver naming convention (xserver-xorg-video-nouveau, ...), same driver family as xf86-*/xorg-x11-drv-."
+  },
+  {
+    "pattern": "faenza-*",
+    "category": "Settings",
+    "reason": "The Faenza icon theme's own variant ecosystem, same reasoning as gtk2-*/breeze-*."
+  },
+  {
+    "pattern": "nemo-*",
+    "category": "Settings",
+    "reason": "Nemo (Cinnamon's file manager)'s own extension ecosystem, same reasoning as nautilus-*/caja-*."
   }
 ]

@@ -23,5 +23,7 @@ export function normalize(entries: FlathubCacheEntry[]): SourcedPackage[] {
     rating: entry.rating,
     popularity: entry.popularity,
     storeCollections: entry.storeCollections,
+    installsTotal: entry.installsTotal,
+    installsLast7Days: entry.installsLast7Days,
   }));
 }

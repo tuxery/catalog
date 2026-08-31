@@ -1,4 +1,4 @@
-import { meanBy, sumBy, unique } from "@helpers4/array";
+import { meanBy, sum, sumBy, unique } from "@helpers4/array";
 import type { PackageSourceId, SourcedPackage, StoreCollectionTag } from "../../sources";
 import { looksLikeGamePackage, looksLikeGuiPackage } from "../filter/rules";
 import type { MatchedApp } from "../match/group";
@@ -168,6 +168,21 @@ function aggregateLastUpdated(packages: SourcedPackage[]): string | undefined {
   return dated.reduce((latest, date) => (date > latest ? date : latest));
 }
 
+/**
+ * Sums a numeric field across every member package that has one — unlike
+ * `aggregatePopularity`'s mean (a 0-1 percentile score, not additive
+ * across sources), install counts from independent sources genuinely add
+ * up. `undefined` when no member package reports the field at all, never
+ * a synthetic 0.
+ */
+function sumField(
+  packages: SourcedPackage[],
+  getField: (pkg: SourcedPackage) => number | undefined,
+): number | undefined {
+  const values = packages.map(getField).filter((value): value is number => value !== undefined);
+  return values.length > 0 ? sum(values) : undefined;
+}
+
 /** Turns grouped packages into the display-ready `CatalogApp` records the website reads — see `types.ts` for what's populated today vs. tracked as roadmap. */
 export function enrichApps(
   matched: MatchedApp[],
@@ -202,6 +217,8 @@ export function enrichApps(
       ),
       changelog: pickField(app.packages, (pkg) => pkg.changelog),
       lastUpdated: aggregateLastUpdated(app.packages),
+      installsTotal: sumField(app.packages, (pkg) => pkg.installsTotal),
+      installsLast7Days: sumField(app.packages, (pkg) => pkg.installsLast7Days),
       compatibilityWarnings: warnings.length > 0 ? warnings : undefined,
       rating: aggregateRating(app.packages),
       popularity: aggregatePopularity(app.packages),

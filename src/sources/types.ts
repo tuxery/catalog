@@ -218,6 +218,22 @@ export interface SourcedPackage {
    * curate, ingested as-is.
    */
   storeCollections?: StoreCollectionTag[];
+  /**
+   * Lifetime install count from this source's own stats, when it exposes
+   * one — Flathub's `/api/v2/stats/<appId>` today (`installs_total`),
+   * verified live (Firefox: 12M+). Snapcraft's `v2/snaps/info/<name>`
+   * confirmed to NOT expose an equivalent figure.
+   */
+  installsTotal?: number;
+  /**
+   * The last 7 days' worth of installs, summed from this source's own
+   * daily time series — Flathub's `installs_per_day`. The actual ranking
+   * signal for a "Download trends" listing; `installsTotal` alone would
+   * always favor old, long-established apps over ones genuinely
+   * popular *right now*. `undefined` when the source has fewer than 7
+   * days of history yet (a very recently published app).
+   */
+  installsLast7Days?: number;
 }
 
 export type StoreCollectionTag = "verified" | "recently-added" | "recently-updated" | "featured";

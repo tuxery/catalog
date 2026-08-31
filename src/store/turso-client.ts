@@ -45,6 +45,9 @@ export interface AppRecord {
   editorialTags?: string[];
   /** Upstream store collections this app appears in (Flathub's verified/recently-added/recently-updated, Snapcraft's featured) — see `CatalogApp.storeCollections`'s doc comment. Distinct from `editorialTags` above (Tuxery's own manual curation). */
   storeCollections?: string[];
+  /** Lifetime + last-7-day install counts (Flathub's own stats API today) — see `CatalogApp.installsTotal`/`installsLast7Days` doc comments. */
+  installsTotal?: number;
+  installsLast7Days?: number;
   /** Software-suite membership (a bundled "main" app plus its separately-installable "component" apps) — see `CatalogApp.suite`'s doc comment. */
   suite?: {
     id: string;
@@ -114,6 +117,8 @@ const INSERT_COLUMNS = [
   "permissions_json",
   "editorial_tags_json",
   "store_collections_json",
+  "installs_total",
+  "installs_last_7_days",
   "suite_json",
   "compat_warnings_json",
   "packages_json",
@@ -155,6 +160,8 @@ function appsTableSql(tableName: string): string {
       permissions_json TEXT,
       editorial_tags_json TEXT,
       store_collections_json TEXT,
+      installs_total INTEGER,
+      installs_last_7_days INTEGER,
       suite_json TEXT,
       compat_warnings_json TEXT,
       packages_json TEXT NOT NULL
@@ -205,6 +212,8 @@ function toRow(app: AppRecord): unknown[] {
     toJsonColumn(app.permissions),
     toJsonColumn(app.editorialTags),
     toJsonColumn(app.storeCollections),
+    app.installsTotal ?? null,
+    app.installsLast7Days ?? null,
     toJsonColumn(app.suite),
     toJsonColumn(app.compatibilityWarnings),
     JSON.stringify(app.packages),

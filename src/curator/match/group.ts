@@ -154,8 +154,7 @@ function tier1Key(pkg: SourcedPackage): string | undefined {
 // name-pairs share a base name this way, e.g. `0xtools`/`0xtools-git`);
 // `-bin` marks a prebuilt-binary build instead of building from source
 // (verified live: 4,392 pairs, e.g. `zen-browser`/`zen-browser-bin` — the
-// real bug report that prompted checking this one). AUR-only: no
-// equivalent convention verified elsewhere yet.
+// real bug report that prompted checking this one).
 //
 // A release-channel word (`-beta`/`-nightly`/`-alpha`/`-canary`/
 // `-unstable`/`-preview`, optionally followed by one of the build-variant
@@ -168,28 +167,42 @@ function tier1Key(pkg: SourcedPackage): string | undefined {
 // `-bin` alone already worked). Deliberately excludes `-dev`, despite
 // reading like a channel word too — collides with Debian-style `-dev`
 // headers packages, a real, different, well-established meaning.
-const AUR_CHANNEL_WORD =
+//
+// Gentoo has its own, independent version of this same "-bin" convention
+// (its own ebuilds, not shared with AUR's) — a prebuilt-binary ebuild
+// alongside a build-from-source one under the same base name, e.g.
+// `www-client/firefox-bin` next to `www-client/firefox` (the real bug
+// report that prompted checking this one: `firefox-bin` showing up as
+// its own standalone "To Classify" entry instead of merging into the
+// main Firefox app). Verified live against the real cache: 122 Gentoo
+// package names end in `-bin`, 26 have an exact same-category non-`-bin`
+// twin to merge with (the rest are standalone binary-only packages with
+// no source-built twin, correctly left alone); the `-git`/`-cvs`/`-beta`
+// conventions exist too, just far rarer (7/2/3 packages). Same regexes,
+// same reasoning, just a second source added to the check below.
+const CHANNEL_WORD_SUFFIX =
   /-(beta|nightly|alpha|canary|unstable|preview)(?:-(?:git|svn|hg|bzr|cvs|bin))?$/;
-const AUR_VARIANT_SUFFIX = /-(git|svn|hg|bzr|cvs|bin)$/;
+const VARIANT_SUFFIX = /-(git|svn|hg|bzr|cvs|bin)$/;
+const SOURCES_WITH_VARIANT_SUFFIXES = new Set(["pacman-aur", "ebuild-gentoo"]);
 
 /**
  * Tier 2's key function — `normalizeName`, except:
  * - `GENERIC_NAME_BLOCKLIST` entries return `undefined` (skipped by
  *   `unionByExactKey`, same as a package with no name at all) so they
  *   never union on name alone.
- * - AUR packages ending in a channel word (`AUR_CHANNEL_WORD`, optionally
- *   with a build-variant suffix after it) or a bare build-variant suffix
- *   (`AUR_VARIANT_SUFFIX`) are keyed on their suffix-stripped name
- *   instead, so e.g. `0xtools-git`, `zen-browser-bin`, or
- *   `brave-origin-beta-bin` unions with `0xtools`/`zen-browser`/
- *   `brave-origin` (AUR's own bare package, or any other source's)
- *   rather than staying a permanent duplicate.
+ * - AUR/Gentoo packages ending in a channel word (`CHANNEL_WORD_SUFFIX`,
+ *   optionally with a build-variant suffix after it) or a bare
+ *   build-variant suffix (`VARIANT_SUFFIX`) are keyed on their
+ *   suffix-stripped name instead, so e.g. `0xtools-git`, `zen-browser-bin`,
+ *   `firefox-bin`, or `brave-origin-beta-bin` unions with
+ *   `0xtools`/`zen-browser`/`firefox`/`brave-origin` (that source's own
+ *   bare package, or any other source's) rather than staying a permanent
+ *   duplicate.
  */
 function tier2Key(pkg: SourcedPackage): string | undefined {
-  const name =
-    pkg.source === "pacman-aur"
-      ? pkg.name.replace(AUR_CHANNEL_WORD, "").replace(AUR_VARIANT_SUFFIX, "")
-      : pkg.name;
+  const name = SOURCES_WITH_VARIANT_SUFFIXES.has(pkg.source)
+    ? pkg.name.replace(CHANNEL_WORD_SUFFIX, "").replace(VARIANT_SUFFIX, "")
+    : pkg.name;
   const normalized = normalizeName(name);
   return GENERIC_NAME_BLOCKLIST.has(normalized) ? undefined : normalized;
 }

@@ -7,7 +7,8 @@ import {
   loadAppStoreFrontends,
   type AppStoreFrontendEntry,
 } from "./app-store-frontend";
-import { pickCategory } from "./category";
+import { pickCategory, TO_CLASSIFY } from "./category";
+import { loadCategoryRules, matchCategoryRule, type CategoryRuleEntry } from "./category-rules";
 import { getCompatWarnings, loadCompatWarnings, type CompatWarningEntry } from "./compat-warnings";
 import { applySuites, loadSuiteOverrides, type SuiteOverrideEntry } from "./suite";
 import type { CatalogApp } from "./types";
@@ -91,16 +92,27 @@ function hasGameEvidence(pkg: SourcedPackage): boolean {
 
 /**
  * Picks a category label via `pickField`, then maps it through
- * `pickCategory`'s type-scoped taxonomy — `pickCategory` itself falls back
- * to `TO_CLASSIFY` rather than `undefined` when no member package has
- * category data, or none of it maps to a recognized category. See
- * `CatalogApp.category`'s doc comment.
+ * `pickCategory`'s type-scoped taxonomy. When no member package has any
+ * upstream category data at all, falls back to `categoryRules` (see
+ * `category-rules.ts` — a name-pattern signal for well-known product
+ * families no upstream source classifies, e.g. Wine/Proton compatibility
+ * tools) before finally giving up to `TO_CLASSIFY`. Games skip the
+ * name-pattern fallback: `categoryRules` only ever holds app-taxonomy
+ * labels, never a `categories-games.json` genre.
  */
-function pickCategoryLabel(packages: SourcedPackage[], isGame: boolean): string {
+function pickCategoryLabel(
+  packages: SourcedPackage[],
+  isGame: boolean,
+  categoryRules: CategoryRuleEntry[],
+): string {
   const categories = pickField(packages, (pkg) =>
     pkg.categories && pkg.categories.length > 0 ? pkg.categories : undefined,
   );
-  return pickCategory(categories ?? [], isGame);
+  const picked = pickCategory(categories ?? [], isGame);
+  if (picked !== TO_CLASSIFY || isGame) return picked;
+
+  const names = packages.map((pkg) => pkg.name);
+  return matchCategoryRule(names, categoryRules) ?? TO_CLASSIFY;
 }
 
 /**
@@ -189,6 +201,7 @@ export function enrichApps(
   suiteOverrides: SuiteOverrideEntry[] = loadSuiteOverrides(),
   appStoreFrontends: AppStoreFrontendEntry[] = loadAppStoreFrontends(),
   compatWarnings: CompatWarningEntry[] = loadCompatWarnings(),
+  categoryRules: CategoryRuleEntry[] = loadCategoryRules(),
 ): CatalogApp[] {
   const apps: CatalogApp[] = matched.map((app) => {
     const representative = pickByPriority(app.packages);
@@ -204,7 +217,7 @@ export function enrichApps(
       kind: app.packages.some(hasGuiEvidence) ? "gui" : undefined,
       contentType: isGame ? "game" : undefined,
       appStoreFrontend: isAppStoreFrontend(app.packages, appStoreFrontends) ? true : undefined,
-      category: pickCategoryLabel(app.packages, isGame),
+      category: pickCategoryLabel(app.packages, isGame, categoryRules),
       iconUrl: pickField(app.packages, (pkg) => pkg.iconUrl),
       approxSizeBytes: pickField(app.packages, (pkg) => pkg.approxSizeBytes),
       license: pickField(app.packages, (pkg) => pkg.license),

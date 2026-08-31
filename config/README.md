@@ -17,6 +17,7 @@ umbrella hiding five different actions behind one name.
 | [`enrich-app-store-tags.json`](enrich-app-store-tags.json)   | enrich | **tags** a package as an app-store/package-manager frontend (`CatalogApp.appStoreFrontend`) — doesn't exclude or change anything else about it |
 | [`enrich-compat-warnings.json`](enrich-compat-warnings.json) | enrich | attaches a known packaging-format compatibility warning to one specific `{source, name}`                                                       |
 | [`enrich-suites.json`](enrich-suites.json)                   | enrich | defines a software-suite relationship (one main app + separately-installable components)                                                       |
+| [`category-rules.json`](category-rules.json)                 | enrich | name-pattern → category, for apps with no upstream category signal at all (checked before falling back to "To Classify")                       |
 
 Each file has a matching JSON Schema, colocated with the curator code
 that defines it (`src/curator/{filter,match,enrich}/*.schema.json`, not
@@ -53,7 +54,7 @@ an app. Not automatable (no "has a desktop entry" / "ships an executable
 meant to be run directly" signal exists in the data model), so this has
 to be judged by hand per entry, same as everything else in this folder.
 
-Every entry in the seven override-style files (everything except
+Every entry in the eight override-style files (everything except
 `categories-apps.json`/`categories-games.json`) needs a real `reason` so the exception is auditable
 later, not just an unexplained line — each one only grows as a real case
 is found and verified, never pre-filled speculatively.

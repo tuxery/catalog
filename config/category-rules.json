@@ -1,0 +1,27 @@
+[
+  {
+    "pattern": "wine*",
+    "category": "Utilities",
+    "reason": "Windows-compatibility-layer tooling (Wine itself and its many real forks/variants — wine-cachyos, wine-asahi-git, WineZGUI, ...) — verified live: no upstream category source ever covers these, but the family is coherent and unambiguous by name."
+  },
+  {
+    "pattern": "proton*",
+    "category": "Utilities",
+    "reason": "Proton (Valve's own Wine fork) and its real variants/managers — proton-cachyos-native, ProtonUp-Qt, ProtonPlus, ... — same Windows-compatibility-layer family as wine*, verified live."
+  },
+  {
+    "pattern": "bottles*",
+    "category": "Utilities",
+    "reason": "Bottles, a real standalone Wine-prefix manager, plus its bottles-unwrapped build variant."
+  },
+  {
+    "pattern": "lutris*",
+    "category": "Utilities",
+    "reason": "Lutris, a real standalone open-gaming-platform launcher, plus its real build variants/frontends (lutris-unwrapped, lutris-gamepad-ui-git, ...)."
+  },
+  {
+    "pattern": "steam*",
+    "category": "Utilities",
+    "reason": "Steam and its real companion launchers/tools (Steam Link, steam-appimage, steam-acolyte, ...) — same \"Windows/game-launching tooling\" family as wine*/proton*/lutris*/bottles*."
+  }
+]

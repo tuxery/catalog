@@ -27,6 +27,10 @@
     {
       "fileMatch": ["/config/enrich-suites.json"],
       "url": "./src/curator/enrich/enrich-suites.schema.json"
+    },
+    {
+      "fileMatch": ["/config/category-rules.json"],
+      "url": "./src/curator/enrich/category-rules.schema.json"
     }
   ]
 }

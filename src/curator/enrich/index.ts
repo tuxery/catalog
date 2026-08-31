@@ -97,6 +97,22 @@ function hasGameEvidence(pkg: SourcedPackage): boolean {
 }
 
 /**
+ * The first non-`undefined` result of applying `fn` to each item, in
+ * order — like `items.map(fn).find(Boolean)`, but stops calling `fn` once
+ * a match is found instead of mapping the whole array first. `pkg.length`
+ * is small (a handful of packages per app) so this rarely matters on its
+ * own, but `pickCategoryLabel` below chains several of these per app
+ * across the whole catalog, so the short-circuit adds up.
+ */
+function firstDefined<T, R>(items: T[], fn: (item: T) => R | undefined): R | undefined {
+  for (const item of items) {
+    const result = fn(item);
+    if (result !== undefined) return result;
+  }
+  return undefined;
+}
+
+/**
  * Picks a category label via `pickField`, then maps it through
  * `pickCategory`'s type-scoped taxonomy. When no member package has any
  * upstream category data at all:
@@ -127,22 +143,20 @@ function pickCategoryLabel(
   if (picked !== TO_CLASSIFY) return picked;
 
   if (isGame) {
-    const genreMatch = packages.map(gameGenreFromGentooSection).find((genre) => genre);
-    return genreMatch ?? TO_CLASSIFY;
+    return firstDefined(packages, gameGenreFromGentooSection) ?? TO_CLASSIFY;
   }
 
   const names = packages.map((pkg) => pkg.name);
   const nameMatch = matchCategoryRule(names, categoryRules);
   if (nameMatch) return nameMatch;
 
-  const sectionMatch = packages
-    .map(
-      (pkg) =>
-        categoryFromDebianSection(pkg) ??
-        categoryFromGentooSection(pkg) ??
-        categoryFromOpenSuseGroup(pkg),
-    )
-    .find((category) => category);
+  const sectionMatch = firstDefined(
+    packages,
+    (pkg) =>
+      categoryFromDebianSection(pkg) ??
+      categoryFromGentooSection(pkg) ??
+      categoryFromOpenSuseGroup(pkg),
+  );
   return sectionMatch ?? TO_CLASSIFY;
 }
 

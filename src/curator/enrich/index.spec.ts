@@ -373,6 +373,43 @@ describe("enrichApps", () => {
     expect(app?.category).toBe(TO_CLASSIFY);
   });
 
+  it("falls back to a Debian/Ubuntu Section-based category when no upstream category and no category-rules.json name match exist", () => {
+    const matched: MatchedApp[] = [
+      {
+        id: "debian:obs-studio",
+        packages: [pkg({ source: "deb-debian", name: "OBS Studio", section: "video" })],
+      },
+    ];
+
+    expect(enrichApps(matched)[0]?.category).toBe("Photo & Video");
+  });
+
+  it("prefers a category-rules.json name match over a Debian Section-based one", () => {
+    const matched: MatchedApp[] = [
+      {
+        id: "deb-debian:proton-something",
+        packages: [pkg({ source: "deb-debian", name: "proton-something", section: "video" })],
+      },
+    ];
+
+    expect(enrichApps(matched)[0]?.category).toBe("Utilities");
+  });
+
+  it("does not apply a Debian Section-based category match to a game", () => {
+    const matched: MatchedApp[] = [
+      {
+        id: "deb-debian:example-game",
+        packages: [
+          pkg({ source: "deb-debian", name: "example", section: "video", hasGameCategory: true }),
+        ],
+      },
+    ];
+
+    const [app] = enrichApps(matched);
+    expect(app?.contentType).toBe("game");
+    expect(app?.category).toBe(TO_CLASSIFY);
+  });
+
   it("maps a Game-tagged package's genre through the game taxonomy, not the app one", () => {
     const matched: MatchedApp[] = [
       {

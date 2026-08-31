@@ -36,10 +36,25 @@ export function loadCategoryRules(): CategoryRuleEntry[] {
   return readJson(CATEGORY_RULES_PATH, CategoryRulesListSchema);
 }
 
-/** Escapes every regex metacharacter except the glob's own `*`, then turns that into `.*`. */
+// Compiling a pattern is the expensive part (relative to the match test
+// itself), and `matchCategoryRule` runs once per uncategorized app across
+// the whole catalog (tens of thousands of calls) against the same fixed
+// rule list every time — recompiling every pattern's RegExp on every call
+// would mean millions of redundant compilations for a set of patterns
+// that never changes at runtime. Cached by pattern string rather than by
+// rule object so two different rules that happen to share a pattern
+// string (none do today, but nothing stops it) still share one compile.
+const globRegExpCache = new Map<string, RegExp>();
+
+/** Escapes every regex metacharacter except the glob's own `*`, then turns that into `.*` — memoized, see `globRegExpCache`. */
 function globToRegExp(pattern: string): RegExp {
+  const cached = globRegExpCache.get(pattern);
+  if (cached) return cached;
+
   const escaped = pattern.replace(/[.+?^${}()|[\]\\]/g, "\\$&").replace(/\*/g, ".*");
-  return new RegExp(`^${escaped}$`, "i");
+  const regExp = new RegExp(`^${escaped}$`, "i");
+  globRegExpCache.set(pattern, regExp);
+  return regExp;
 }
 
 /**

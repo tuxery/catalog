@@ -418,6 +418,11 @@ const NOISE_PATTERNS: RegExp[] = [
   // mythes-/hunspell- patterns. Verified live: 38 real matches, all
   // autocorrection rule sets.
   /^autocorr-/,
+  // Google's own Noto font-family packages (google-noto-sans-lao-vf-
+  // fonts, google-noto-color-emoji-fonts, ...) — real typefaces, same
+  // reasoning as this file's other font patterns. Verified live: 331 real
+  // matches, all Noto font families.
+  /^google-noto-/,
 ];
 
 /**

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "propertyNames": {
+    "type": "string"
+  },
+  "additionalProperties": {
+    "type": "string",
+    "enum": [
+      "Action",
+      "Adventure",
+      "Arcade",
+      "Board & Cards",
+      "Puzzle",
+      "Educational",
+      "Role-Playing",
+      "Simulation",
+      "Sports",
+      "Strategy"
+    ]
+  },
+  "title": "Categories: games",
+  "description": "freedesktop.org Additional Category genre tag → display label, for games. Key order is preference order — see pickCategory. Values are locked to CatalogApp's own known game-genre set."
+}

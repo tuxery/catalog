@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "propertyNames": {
+    "type": "string"
+  },
+  "additionalProperties": {
+    "type": "string",
+    "enum": [
+      "Developer Tools",
+      "Science",
+      "Education",
+      "Security",
+      "Finance",
+      "Photo & Video",
+      "Music & Audio",
+      "Graphics & Design",
+      "Internet & Communication",
+      "Productivity",
+      "Business",
+      "News & Weather",
+      "Travel & Navigation",
+      "Books & Reference",
+      "System Tools",
+      "Settings",
+      "Utilities"
+    ]
+  },
+  "title": "Categories: apps",
+  "description": "freedesktop.org Main Category key → display label, for non-game apps. Key order is preference order (more specific tags before generic catch-alls) — see pickCategory. Values are locked to CatalogApp's own known category set."
+}

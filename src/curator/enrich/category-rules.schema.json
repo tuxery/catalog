@@ -10,7 +10,26 @@
       },
       "category": {
         "type": "string",
-        "description": "One of config/categories-apps.json's own display labels (not a freedesktop key) — this is a last-resort signal for apps with no upstream category at all, so it writes the label directly."
+        "enum": [
+          "Developer Tools",
+          "Science",
+          "Education",
+          "Security",
+          "Finance",
+          "Photo & Video",
+          "Music & Audio",
+          "Graphics & Design",
+          "Internet & Communication",
+          "Productivity",
+          "Business",
+          "News & Weather",
+          "Travel & Navigation",
+          "Books & Reference",
+          "System Tools",
+          "Settings",
+          "Utilities"
+        ],
+        "description": "One of config/categories-apps.json's own display labels (not a freedesktop key) — this is a last-resort signal for apps with no upstream category at all, so it writes the label directly. Never a categories-games.json genre — see category-rules.ts's doc comment on why games skip this fallback entirely."
       },
       "reason": {
         "type": "string",

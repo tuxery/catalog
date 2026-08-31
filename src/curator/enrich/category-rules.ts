@@ -1,6 +1,7 @@
 import { fileURLToPath } from "node:url";
 import { z } from "zod";
 import { readJson } from "../_shared/json";
+import { AppCategoryLabelSchema, type AppCategoryLabel } from "./category";
 
 const CATEGORY_RULES_PATH = fileURLToPath(
   new URL("../../../config/category-rules.json", import.meta.url),
@@ -12,11 +13,9 @@ const CategoryRuleEntrySchema = z.object({
     .describe(
       'A simple glob matched case-insensitively against every package name in the app\'s group (not just its display name) — "*" means "any characters", everything else is literal. E.g. "proton*" matches "proton", "ProtonPlus", and "proton-cachyos-native" alike.',
     ),
-  category: z
-    .string()
-    .describe(
-      "One of config/categories-apps.json's own display labels (not a freedesktop key) — this is a last-resort signal for apps with no upstream category at all, so it writes the label directly.",
-    ),
+  category: AppCategoryLabelSchema.describe(
+    "One of config/categories-apps.json's own display labels (not a freedesktop key) — this is a last-resort signal for apps with no upstream category at all, so it writes the label directly. Never a categories-games.json genre — see category-rules.ts's doc comment on why games skip this fallback entirely.",
+  ),
   reason: z
     .string()
     .describe(
@@ -50,7 +49,10 @@ function globToRegExp(pattern: string): RegExp {
  * names, or `undefined` if none do. Pure — no I/O — so it's the part
  * covered by tests.
  */
-export function matchCategoryRule(names: string[], rules: CategoryRuleEntry[]): string | undefined {
+export function matchCategoryRule(
+  names: string[],
+  rules: CategoryRuleEntry[],
+): AppCategoryLabel | undefined {
   for (const rule of rules) {
     const regExp = globToRegExp(rule.pattern);
     if (names.some((name) => regExp.test(name))) return rule.category;

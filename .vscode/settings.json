@@ -31,6 +31,14 @@
     {
       "fileMatch": ["/config/category-rules.json"],
       "url": "./src/curator/enrich/category-rules.schema.json"
+    },
+    {
+      "fileMatch": ["/config/categories-apps.json"],
+      "url": "./src/curator/enrich/categories-apps.schema.json"
+    },
+    {
+      "fileMatch": ["/config/categories-games.json"],
+      "url": "./src/curator/enrich/categories-games.schema.json"
     }
   ]
 }

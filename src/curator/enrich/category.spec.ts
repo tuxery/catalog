@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { pickCategory, TO_CLASSIFY } from "./category";
+import { CategoriesAppsSchema, CategoriesGamesSchema, pickCategory, TO_CLASSIFY } from "./category";
 
 describe("pickCategory — apps", () => {
   it("maps a single recognized category to its display label", () => {
@@ -77,5 +77,27 @@ describe("pickCategory — games", () => {
     // meaning in the game taxonomy — a game that (unusually) also carries
     // one shouldn't resolve through the wrong map.
     expect(pickCategory(["Game", "Office"], true)).toBe(TO_CLASSIFY);
+  });
+});
+
+describe("CategoriesAppsSchema/CategoriesGamesSchema", () => {
+  it("accepts a real, already-known display label", () => {
+    expect(() => CategoriesAppsSchema.parse({ Development: "Developer Tools" })).not.toThrow();
+    expect(() => CategoriesGamesSchema.parse({ ActionGame: "Action" })).not.toThrow();
+  });
+
+  it("rejects a value that isn't one of the closed set of known labels — catches a respelling like 'Photos & Video' before it becomes a silent orphan category", () => {
+    expect(() => CategoriesAppsSchema.parse({ Development: "Dev Tools" })).toThrow(
+      "Invalid option",
+    );
+    expect(() => CategoriesGamesSchema.parse({ ActionGame: "Action Games" })).toThrow(
+      "Invalid option",
+    );
+  });
+
+  it("allows any key at all — freedesktop tag vocabulary is open-ended, only the label side is locked", () => {
+    expect(() =>
+      CategoriesAppsSchema.parse({ SomeBrandNewFreedesktopKey: "Utilities" }),
+    ).not.toThrow();
   });
 });

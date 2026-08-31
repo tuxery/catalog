@@ -568,5 +568,170 @@
     "pattern": "rhvoice-*",
     "category": "Music & Audio",
     "reason": "RHVoice's own per-language text-to-speech voice-data ecosystem — speech synthesis, audio-domain content."
+  },
+  {
+    "pattern": "dbus-*",
+    "category": "System Tools",
+    "reason": "D-Bus's own component/binding ecosystem — core system IPC infrastructure."
+  },
+  {
+    "pattern": "blender-*",
+    "category": "Graphics & Design",
+    "reason": "Blender's own addon ecosystem (blender-plugin-gaffer-git, blender-plugin-vrm-addon-git, ...)."
+  },
+  {
+    "pattern": "opencv-*",
+    "category": "Developer Tools",
+    "reason": "OpenCV's own module ecosystem (opencv-mcc, ...) — a real computer-vision developer library."
+  },
+  {
+    "pattern": "clang*",
+    "category": "Developer Tools",
+    "reason": "The Clang/LLVM toolchain's own component ecosystem (clang-tools-22, clangd, clang-analyzer18, ...)."
+  },
+  {
+    "pattern": "boost-*",
+    "category": "Developer Tools",
+    "reason": "Boost's own per-component library ecosystem (boost-program-options, boost-random, ...) — deliberately anchored on the hyphen so it doesn't catch the unrelated \"booster-gtk-themes\"."
+  },
+  {
+    "pattern": "boost1*",
+    "category": "Developer Tools",
+    "reason": "Boost's own per-major-version prefix (boost1.84-json, ...), same reasoning as boost-*."
+  },
+  {
+    "pattern": "dotnet-*",
+    "category": "Developer Tools",
+    "reason": ".NET's own runtime/SDK build ecosystem (dotnet-runtime-3.1-bin, dotnet-hostfxr-9.0, ...)."
+  },
+  {
+    "pattern": "mpv-*",
+    "category": "Photo & Video",
+    "reason": "MPV's own plugin/shader ecosystem (mpv-uosc, mpv-shim-default-shaders, ...)."
+  },
+  {
+    "pattern": "rocm-*",
+    "category": "Developer Tools",
+    "reason": "AMD ROCm's own compute-stack component ecosystem (rocm-transferbench, ...) — GPU-compute developer tooling."
+  },
+  {
+    "pattern": "hip-*",
+    "category": "Developer Tools",
+    "reason": "AMD HIP (Heterogeneous-Compute Interface for Portability)'s own component ecosystem, same reasoning as rocm-*."
+  },
+  {
+    "pattern": "mariadb-*",
+    "category": "Developer Tools",
+    "reason": "MariaDB's own server/connector/plugin ecosystem, same reasoning as postgresql*."
+  },
+  {
+    "pattern": "i3-*",
+    "category": "Settings",
+    "reason": "The i3 tiling window manager's own config/utility ecosystem, same desktop-configuration reasoning as gnome-*/kde-*."
+  },
+  {
+    "pattern": "sway-*",
+    "category": "Settings",
+    "reason": "The Sway tiling compositor's own config ecosystem, same reasoning as i3-*."
+  },
+  {
+    "pattern": "hyprland-*",
+    "category": "Settings",
+    "reason": "The Hyprland compositor's own plugin/config ecosystem, same reasoning as i3-*/sway-*."
+  },
+  {
+    "pattern": "samba-*",
+    "category": "System Tools",
+    "reason": "Samba's own SMB/CIFS/AD-domain tooling ecosystem — network file-sharing infrastructure."
+  },
+  {
+    "pattern": "wordpress-*",
+    "category": "Developer Tools",
+    "reason": "WordPress's own plugin ecosystem (wordpress-plugin-jetpack, wordpress-plugin-breeze, ...) — website-building/extension tooling."
+  },
+  {
+    "pattern": "gstreamer-*",
+    "category": "Music & Audio",
+    "reason": "GStreamer's own longer-form plugin/tool naming convention (gstreamer-editing-services, ...), same reasoning as gst-*/gst1-*."
+  },
+  {
+    "pattern": "gstreamer1*",
+    "category": "Music & Audio",
+    "reason": "GStreamer 1.x's own plugin naming convention (gstreamer1-plugins-bad-free, ...), same reasoning as gstreamer-*."
+  },
+  {
+    "pattern": "openldap-*",
+    "category": "System Tools",
+    "reason": "OpenLDAP's own server/overlay/backend ecosystem — directory-service network infrastructure, same family as samba-*."
+  },
+  {
+    "pattern": "eclipse-*",
+    "category": "Developer Tools",
+    "reason": "Eclipse IDE's own plugin ecosystem (eclipse-emf, eclipse-pde, eclipse-ecj, ...)."
+  },
+  {
+    "pattern": "kubectl-*",
+    "category": "Developer Tools",
+    "reason": "kubectl's own plugin ecosystem (kubectl-neat-diff, kubectl-ktop, ...) — Kubernetes developer/ops tooling."
+  },
+  {
+    "pattern": "grub-*",
+    "category": "System Tools",
+    "reason": "GRUB's own theme/utility ecosystem (grub-theme-opensuse, grub-utils, grub-secureboot-scripts, ...) — bootloader infrastructure."
+  },
+  {
+    "pattern": "grub2-*",
+    "category": "System Tools",
+    "reason": "GRUB 2's own naming convention, same reasoning as grub-*."
+  },
+  {
+    "pattern": "systemd-*",
+    "category": "System Tools",
+    "reason": "systemd's own service/timer/utility ecosystem (systemd-zpool-scrub, systemd-cloud-watch, ...) — core system infrastructure."
+  },
+  {
+    "pattern": "xcursor-*",
+    "category": "Settings",
+    "reason": "Cursor-theme packages (xcursor-osx-elcap, xcursor-hackneyed-light, ...) — desktop visual customization, same reasoning as gtk2-*."
+  },
+  {
+    "pattern": "mkinitcpio-*",
+    "category": "System Tools",
+    "reason": "mkinitcpio's own hook ecosystem (mkinitcpio-authentication, mkinitcpio-live-boot, ...) — boot/initramfs infrastructure."
+  },
+  {
+    "pattern": "globus-*",
+    "category": "Science",
+    "reason": "Grid Community Toolkit (Globus)'s own component ecosystem — scientific/research grid-computing infrastructure."
+  },
+  {
+    "pattern": "mbrola-*",
+    "category": "Music & Audio",
+    "reason": "MBROLA's own per-language/voice text-to-speech data ecosystem, same reasoning as rhvoice-*."
+  },
+  {
+    "pattern": "ansible-*",
+    "category": "Developer Tools",
+    "reason": "Ansible's own module/collection ecosystem (ansible-collection-chocolatey-chocolatey, ansible-aur, ...) — IT-automation developer/ops tooling."
+  },
+  {
+    "pattern": "alsa-*",
+    "category": "Music & Audio",
+    "reason": "ALSA's own plugin/config ecosystem (alsa-plugins-a52, alsa-ucm-conf-asahi, ...) — Linux audio-subsystem infrastructure."
+  },
+  {
+    "pattern": "plank-*",
+    "category": "Settings",
+    "reason": "Plank (a real desktop dock app)'s own theme/docklet ecosystem, same desktop-customization reasoning as gtk2-*/xcursor-*."
+  },
+  {
+    "pattern": "gdal-*",
+    "category": "Science",
+    "reason": "GDAL (Geospatial Data Abstraction Library)'s own driver/data ecosystem — GIS/geospatial-science infrastructure."
+  },
+  {
+    "pattern": "jetty-*",
+    "category": "Developer Tools",
+    "reason": "Jetty's own module ecosystem (jetty-alpn-client, jetty-servlets, ...), same reasoning as uwsgi-*."
   }
 ]

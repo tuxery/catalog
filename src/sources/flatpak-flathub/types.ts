@@ -45,6 +45,8 @@ export interface FlathubCacheEntry {
   installsTotal?: number;
   /** See `SourcedPackage.installsLast7Days`. */
   installsLast7Days?: number;
+  /** See `SourcedPackage.approxSizeBytes`. */
+  approxSizeBytes?: number;
 }
 
 export interface FlathubFetchMetadata extends FetchMetadata {

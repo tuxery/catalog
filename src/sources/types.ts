@@ -234,6 +234,14 @@ export interface SourcedPackage {
    * days of history yet (a very recently published app).
    */
   installsLast7Days?: number;
+  /**
+   * Approximate download size in bytes, when the source exposes one —
+   * Flathub's own `/api/v2/summary/<appId>` (`branches.stable.download_size`,
+   * the same `stable` build `flatpak install` targets by default), verified
+   * live (Firefox: ~125MB). No other current source exposes an equivalent
+   * figure.
+   */
+  approxSizeBytes?: number;
 }
 
 export type StoreCollectionTag = "verified" | "recently-added" | "recently-updated" | "featured";

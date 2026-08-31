@@ -135,24 +135,36 @@ async function fetchStoreCollectionTags(): Promise<Map<string, StoreCollectionTa
   ]);
 }
 
-// Flathub's own per-app download-stats API — public, unauthenticated, one
-// request per app id (no bulk/list endpoint exists — checked the full
-// OpenAPI spec, only /stats/{app_id} and a global /stats/ with no
-// per-app breakdown). No documented rate limit, but 3,300+ apps' worth
-// of individual requests still deserves the same concurrency cap
-// AppImage's GitHub repo-existence lookups already use, not a bare
-// `Promise.all` firing every request at once.
+// Flathub's own per-app stats + summary APIs — public, unauthenticated,
+// one request per app id each (no bulk/list endpoint for either — checked
+// the full OpenAPI spec: /stats/{app_id} and /summary/{app_id}, plus a
+// global /stats/ with no per-app breakdown). No documented rate limit,
+// but 3,300+ apps' worth of individual requests still deserves the same
+// concurrency cap AppImage's GitHub repo-existence lookups already use,
+// not a bare `Promise.all` firing every request at once. Both endpoints
+// fetched together per app (not two separate concurrency-bounded passes)
+// to halve the wall-clock time.
 const STATS_BASE_URL = "https://flathub.org/api/v2/stats";
-const STATS_CONCURRENCY = 20;
+const SUMMARY_BASE_URL = "https://flathub.org/api/v2/summary";
+const EXTRAS_CONCURRENCY = 20;
 
 interface RawStats {
   installs_total?: number;
   installs_per_day?: Record<string, number>;
 }
 
-export interface DownloadStats {
-  installsTotal: number;
+// Only `stable` branch's download_size is kept — the same build the
+// `flatpak install` command in this app's own install-methods.ts targets,
+// not e.g. a beta branch's (usually larger, different footprint) size.
+interface RawSummary {
+  download_size?: number;
+  branches?: Record<string, { download_size?: number }>;
+}
+
+export interface FlathubAppExtras {
+  installsTotal?: number;
   installsLast7Days?: number;
+  approxSizeBytes?: number;
 }
 
 /**
@@ -173,48 +185,50 @@ export function sumLast7Days(installsPerDay: Record<string, number>): number | u
   return days.slice(-7).reduce((total, day) => total + (installsPerDay[day] ?? 0), 0);
 }
 
-/** Maps one app's raw stats response — `undefined` when the total itself is missing (an id Flathub doesn't recognize, or a genuinely stats-free app). Pure — no I/O. */
-export function toDownloadStats(raw: RawStats): DownloadStats | undefined {
-  if (raw.installs_total === undefined) return undefined;
-
+/** Maps one app's raw stats + summary responses into the combined shape — either can independently be `undefined` (a fetch failure, or an id one endpoint doesn't recognize while the other does). Pure — no I/O. */
+export function toAppExtras(
+  stats: RawStats | undefined,
+  summary: RawSummary | undefined,
+): FlathubAppExtras {
   return {
-    installsTotal: raw.installs_total,
-    installsLast7Days: raw.installs_per_day ? sumLast7Days(raw.installs_per_day) : undefined,
+    installsTotal: stats?.installs_total,
+    installsLast7Days: stats?.installs_per_day ? sumLast7Days(stats.installs_per_day) : undefined,
+    approxSizeBytes: summary?.branches?.stable?.download_size ?? summary?.download_size,
   };
 }
 
-async function fetchDownloadStats(appId: string): Promise<DownloadStats | undefined> {
-  const response = await fetch(`${STATS_BASE_URL}/${encodeURIComponent(appId)}`);
+async function fetchJson<T>(url: string): Promise<T | undefined> {
+  const response = await fetch(url);
   if (!response.ok) return undefined;
+  return (await response.json()) as T;
+}
 
-  return toDownloadStats((await response.json()) as RawStats);
+async function fetchAppExtras(appId: string): Promise<FlathubAppExtras> {
+  const id = encodeURIComponent(appId);
+  const [stats, summary] = await Promise.all([
+    fetchJson<RawStats>(`${STATS_BASE_URL}/${id}`),
+    fetchJson<RawSummary>(`${SUMMARY_BASE_URL}/${id}`),
+  ]);
+  return toAppExtras(stats, summary);
 }
 
 /**
- * Resolves every entry's download stats, `concurrency` at a time — same
- * "bounded concurrency, not a raw Promise.all" shape as AppImage's
+ * Resolves every entry's stats + summary data, `concurrency` at a time —
+ * same "bounded concurrency, not a raw Promise.all" shape as AppImage's
  * `resolveEntries`, injected here for the same reason (testable without
- * hitting the real API). An entry with no stats (fetch failure, or an id
- * Flathub's stats endpoint doesn't recognize) is kept, just without the
- * two new fields — this never drops an app the way AppImage's repo-gone
+ * hitting the real API). An entry with no data on either endpoint (fetch
+ * failure, or an id Flathub doesn't recognize) is kept, just without the
+ * new fields — this never drops an app the way AppImage's repo-gone
  * check does, since "no stats" isn't evidence the listing itself is
  * wrong.
  */
-export async function resolveDownloadStats(
+export async function resolveAppExtras(
   entries: FlathubCacheEntry[],
-  lookup: (appId: string) => Promise<DownloadStats | undefined>,
+  lookup: (appId: string) => Promise<FlathubAppExtras>,
   concurrency: number,
 ): Promise<FlathubCacheEntry[]> {
   return parallel(
-    entries.map((entry) => async () => {
-      const stats = await lookup(entry.id);
-      return stats
-        ? Object.assign(entry, {
-            installsTotal: stats.installsTotal,
-            installsLast7Days: stats.installsLast7Days,
-          })
-        : entry;
-    }),
+    entries.map((entry) => async () => Object.assign(entry, await lookup(entry.id))),
     concurrency,
   );
 }
@@ -258,7 +272,7 @@ export async function fetchFlathub(cachePath: string): Promise<number> {
     fetchStoreCollectionTags(),
   ]);
   const parsed = parseAppstream(xml, odrsRatings, popularityRanks, storeCollectionTags);
-  const entries = await resolveDownloadStats(parsed, fetchDownloadStats, STATS_CONCURRENCY);
+  const entries = await resolveAppExtras(parsed, fetchAppExtras, EXTRAS_CONCURRENCY);
 
   writeNdjson(cachePath, entries);
   writeMetadata<FlathubFetchMetadata>(cachePath, {

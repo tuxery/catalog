@@ -3,9 +3,10 @@ import {
   buildStoreCollectionTags,
   parseAppstream,
   rankPopularity,
-  resolveDownloadStats,
+  resolveAppExtras,
   sumLast7Days,
-  toDownloadStats,
+  toAppExtras,
+  type FlathubAppExtras,
 } from "./fetch";
 import type { FlathubCacheEntry } from "./types";
 
@@ -171,26 +172,45 @@ describe("sumLast7Days", () => {
   });
 });
 
-describe("toDownloadStats", () => {
-  it("maps installs_total and sums the last 7 days", () => {
+describe("toAppExtras", () => {
+  it("maps installs_total, sums the last 7 days, and picks the stable branch's download_size", () => {
     const perDay = Object.fromEntries(
       Array.from({ length: 8 }, (_, i) => [`2026-08-${20 + i}`, 10]),
     );
 
-    expect(toDownloadStats({ installs_total: 500, installs_per_day: perDay })).toEqual({
+    expect(
+      toAppExtras(
+        { installs_total: 500, installs_per_day: perDay },
+        { branches: { stable: { download_size: 125_546_324 }, beta: { download_size: 999 } } },
+      ),
+    ).toEqual({
       installsTotal: 500,
       installsLast7Days: 70,
+      approxSizeBytes: 125_546_324,
     });
   });
 
-  it("returns undefined when installs_total itself is missing", () => {
-    expect(toDownloadStats({ installs_per_day: { "2026-08-26": 10 } })).toBeUndefined();
+  it("falls back to the top-level download_size when there's no stable branch entry", () => {
+    expect(toAppExtras(undefined, { download_size: 42, branches: {} })).toEqual({
+      installsTotal: undefined,
+      installsLast7Days: undefined,
+      approxSizeBytes: 42,
+    });
+  });
+
+  it("leaves every field undefined when both responses are undefined (both endpoints failed)", () => {
+    expect(toAppExtras(undefined, undefined)).toEqual({
+      installsTotal: undefined,
+      installsLast7Days: undefined,
+      approxSizeBytes: undefined,
+    });
   });
 
   it("leaves installsLast7Days undefined when there's no daily series at all", () => {
-    expect(toDownloadStats({ installs_total: 500 })).toEqual({
+    expect(toAppExtras({ installs_total: 500 }, undefined)).toEqual({
       installsTotal: 500,
       installsLast7Days: undefined,
+      approxSizeBytes: undefined,
     });
   });
 });
@@ -199,27 +219,27 @@ function statsEntry(id: string): FlathubCacheEntry {
   return { id, name: id, summary: "", hasGameCategory: false, categories: [], screenshots: [] };
 }
 
-async function lookupById(id: string): Promise<{ installsTotal: number } | undefined> {
+async function lookupById(id: string): Promise<FlathubAppExtras> {
   return { installsTotal: id === "a" ? 100 : 200 };
 }
 
-async function lookupNothing(): Promise<undefined> {
-  return undefined;
+async function lookupNothing(): Promise<FlathubAppExtras> {
+  return {};
 }
 
-describe("resolveDownloadStats", () => {
-  it("attaches each entry's resolved stats", async () => {
+describe("resolveAppExtras", () => {
+  it("attaches each entry's resolved extras", async () => {
     const entries = [statsEntry("a"), statsEntry("b")];
 
-    const resolved = await resolveDownloadStats(entries, lookupById, 2);
+    const resolved = await resolveAppExtras(entries, lookupById, 2);
 
     expect(resolved.map((e) => e.installsTotal)).toEqual([100, 200]);
   });
 
-  it("keeps an entry with no stats, just without the two new fields", async () => {
+  it("keeps an entry with no extras, just without the new fields", async () => {
     const entries = [statsEntry("no-stats")];
 
-    const resolved = await resolveDownloadStats(entries, lookupNothing, 2);
+    const resolved = await resolveAppExtras(entries, lookupNothing, 2);
 
     expect(resolved).toHaveLength(1);
     expect(resolved[0]?.installsTotal).toBeUndefined();

@@ -25,5 +25,6 @@ export function normalize(entries: FlathubCacheEntry[]): SourcedPackage[] {
     storeCollections: entry.storeCollections,
     installsTotal: entry.installsTotal,
     installsLast7Days: entry.installsLast7Days,
+    approxSizeBytes: entry.approxSizeBytes,
   }));
 }

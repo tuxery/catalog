@@ -352,6 +352,17 @@ const NOISE_PATTERNS: RegExp[] = [
   // pattern caused on its first pass, caught by the same before/after
   // pipeline diff this whole session's changes are verified with.
   /^(aspell|ispell)-(?!(?:git|svn|hg|bzr|cvs|bin)$)/,
+  // dict/dictd's own per-dictionary data convention (dict-freedict-tur-
+  // deu, dict-gcide, dict-moby-thesaurus, ...) — data files for the dictd
+  // server/client, never launchable, same shape as this file's stardict-/
+  // hunspell-/aspell- patterns. Verified live: 272 real matches, doesn't
+  // match bare `dict` (the real dictd client program).
+  /^dict-/,
+  // Font/hyphenation-data conventions not already caught by this file's
+  // `^(ttf|fonts|otf)-` prefix pattern — woff2-/xfonts- (font files) and
+  // hyphen- (hyphenation-pattern data). Verified live: 218 real matches
+  // across all three, zero counter-examples.
+  /^(woff2|xfonts|hyphen)-/,
 ];
 
 /**

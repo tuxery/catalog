@@ -133,5 +133,100 @@
     "pattern": "gnat*",
     "category": "Developer Tools",
     "reason": "Part of the GCC toolchain family (the Ada frontend), same reasoning as gcc*."
+  },
+  {
+    "pattern": "golang-*",
+    "category": "Developer Tools",
+    "reason": "Debian/Fedora's own Go-module-mirror prefix (golang-github-*, golang-cfssl, ...) — same reasoning as python*/ruby*/node*/php*/haskell-*."
+  },
+  {
+    "pattern": "go-*",
+    "category": "Developer Tools",
+    "reason": "Same reasoning as golang-* — mostly real standalone Go CLI tools (go-size-analyzer, go-fac-git, go-andotp, ...) riding a shorter prefix convention."
+  },
+  {
+    "pattern": "cargo-*",
+    "category": "Developer Tools",
+    "reason": "Rust's own Cargo-subcommand naming convention (cargo-semver-checks, cargo-pgrx, cargo-apk-git, ...) — real standalone dev-tooling extensions for the cargo CLI."
+  },
+  {
+    "pattern": "rust-*",
+    "category": "Developer Tools",
+    "reason": "Rust toolchain components and real Rust-ecosystem tools (rust-std, rust-1.93-gdb, rust-federation-tester, ...)."
+  },
+  {
+    "pattern": "cpp-*",
+    "category": "Developer Tools",
+    "reason": "GCC's own C-preprocessor per-target packages (cpp-16-loongarch64-linux-gnu, ...) plus real C++ dev tooling (cpp-interop-clang-repl, cpp-utilities) — same toolchain family as gcc*, just not sharing that literal prefix."
+  },
+  {
+    "pattern": "cl-*",
+    "category": "Developer Tools",
+    "reason": "Common Lisp's own library-mirror prefix (cl-babel, cl-uffi-tests, ...), including ROS's own Lisp-binding packages (cl-visualization-msgs, cl-std-srvs, ...)."
+  },
+  {
+    "pattern": "erlang-*",
+    "category": "Developer Tools",
+    "reason": "Erlang's own Hex-mirror library prefix (erlang-ssl_verify_fun, erlang-p1_utils, ...), same reasoning as python*/ruby*/node*."
+  },
+  {
+    "pattern": "chicken-*",
+    "category": "Developer Tools",
+    "reason": "Chicken Scheme's own Egg-mirror library prefix (chicken-srfi-141, chicken-ncurses, ...), same reasoning as python*/ruby*/node*."
+  },
+  {
+    "pattern": "dpdk*",
+    "category": "Developer Tools",
+    "reason": "DPDK (Data Plane Development Kit), a real high-performance-networking developer library/toolkit, plus its many per-target driver sub-packages (dpdk-crypto-mlx5, dpdk-net-memif, ...)."
+  },
+  {
+    "pattern": "binutils*",
+    "category": "Developer Tools",
+    "reason": "GNU binutils and its many per-cross-target packages (binutils-ia64-linux-gnu, binutils-riscv-none-elf, ...) — real developer toolchain components."
+  },
+  {
+    "pattern": "r-*",
+    "category": "Science",
+    "reason": "GNU R's own Bioconductor-package-mirror prefix outside the already-excluded r-cran-/r-bioc-/r-other- convention (see filter/rules.ts) — real bioinformatics/genomics R packages (r-cogito, r-granulator, r-rnbeads, ...)."
+  },
+  {
+    "pattern": "ros-*",
+    "category": "Science",
+    "reason": "ROS (Robot Operating System) packages/libraries — robotics software, matching freedesktop's own Robotics category, which already maps to Science."
+  },
+  {
+    "pattern": "ros2-*",
+    "category": "Science",
+    "reason": "ROS 2's own per-distro-release prefix (ros2-humble-*, ...), same reasoning as ros-*."
+  },
+  {
+    "pattern": "gap-*",
+    "category": "Science",
+    "reason": "GAP (a real computational-algebra system) and its own package ecosystem (gap-pkg-normalizinterface, gap-pkg-fining, ...)."
+  },
+  {
+    "pattern": "epson*",
+    "category": "System Tools",
+    "reason": "Epson's own per-printer/scanner-model driver packages (epson-inkjet-printer-workforce-320-sx218, epson-laser-printer-al-m8150dn, epson-perfection-v10-v100-scanner-driver-aio, ...) — same family as brother-*."
+  },
+  {
+    "pattern": "sane-*",
+    "category": "System Tools",
+    "reason": "SANE's own per-scanner-model backend driver packages (sane-backend-mustek, sane-backend-hs2p, ...) — same \"hardware driver\" family as brother-*/epson*."
+  },
+  {
+    "pattern": "pipewire*",
+    "category": "Music & Audio",
+    "reason": "PipeWire, the real low-latency audio/video router/processor, and its own module/plugin ecosystem."
+  },
+  {
+    "pattern": "pam-*",
+    "category": "Security",
+    "reason": "PAM (Pluggable Authentication Modules) authentication-module packages (pam-oauth2, pam-winbind, ...) — security/authentication infrastructure."
+  },
+  {
+    "pattern": "tryton*",
+    "category": "Business",
+    "reason": "Tryton, a real business/ERP application platform, and its own module ecosystem (tryton-modules-account-deposit, tryton-modules-production, ...)."
   }
 ]

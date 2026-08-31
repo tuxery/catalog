@@ -1438,5 +1438,135 @@
     "pattern": "google-android-*",
     "category": "Developer Tools",
     "reason": "Google's own Android SDK/NDK per-version installer ecosystem (google-android-platform-21-installer, google-android-ndk-r25c-installer, ...) — deliberately narrower than a blanket google- (checked and rejected as too heterogeneous, same reasoning as google-cloud-*)."
+  },
+  {
+    "pattern": "krb5-*",
+    "category": "Security",
+    "reason": "MIT Kerberos's own plugin/tooling ecosystem — network-authentication infrastructure."
+  },
+  {
+    "pattern": "llama-*",
+    "category": "Developer Tools",
+    "reason": "The llama.cpp AI-inference ecosystem (llama-server, llama-swap, ...) — today's local-LLM developer tooling."
+  },
+  {
+    "pattern": "prosody-*",
+    "category": "Internet & Communication",
+    "reason": "Prosody (a real XMPP server)'s own module ecosystem, same reasoning as freeswitch-*/kamailio-*."
+  },
+  {
+    "pattern": "bazel-*",
+    "category": "Developer Tools",
+    "reason": "Bazel's own rules/workspace ecosystem — a real build system, developer tooling."
+  },
+  {
+    "pattern": "kvantum-*",
+    "category": "Settings",
+    "reason": "Kvantum (a real Qt5/Qt6/KDE/LXQt theme engine)'s own theme ecosystem, same reasoning as gtk2-*/breeze-*."
+  },
+  {
+    "pattern": "silo-*",
+    "category": "Internet & Communication",
+    "reason": "Real standalone single-site-shell wrapper apps for web services (silo-whatsapp, silo-telegram, silo-office365, silo-primevideo, ...)."
+  },
+  {
+    "pattern": "tmux-*",
+    "category": "System Tools",
+    "reason": "tmux's own plugin/theme ecosystem, same reasoning as zsh-*/fish-*."
+  },
+  {
+    "pattern": "virtualbox-*",
+    "category": "System Tools",
+    "reason": "VirtualBox's own guest-tools/component ecosystem — virtualization infrastructure, same reasoning as qemu-*/app-emulation (Gentoo)."
+  },
+  {
+    "pattern": "weechat-*",
+    "category": "Internet & Communication",
+    "reason": "WeeChat (a real IRC client)'s own script/plugin ecosystem."
+  },
+  {
+    "pattern": "awesome-*",
+    "category": "Settings",
+    "reason": "The Awesome window manager's own widget/config ecosystem, same reasoning as i3-*/sway-*/hyprland-*."
+  },
+  {
+    "pattern": "pulseaudio-*",
+    "category": "Music & Audio",
+    "reason": "PulseAudio's own plugin/tooling ecosystem — Linux audio-subsystem infrastructure, same reasoning as alsa-*."
+  },
+  {
+    "pattern": "canon-*",
+    "category": "System Tools",
+    "reason": "Canon's own per-printer-model driver packages, same family as brother-*/epson*/cnijfilter*."
+  },
+  {
+    "pattern": "incus-*",
+    "category": "System Tools",
+    "reason": "Incus's own container/VM-manager tooling ecosystem, same reasoning as virtualbox-*/qemu-*."
+  },
+  {
+    "pattern": "godot-*",
+    "category": "Developer Tools",
+    "reason": "Godot Engine's own version-manager/export-template/package-manager ecosystem — a real game engine, developer tooling."
+  },
+  {
+    "pattern": "numix-*",
+    "category": "Settings",
+    "reason": "The Numix icon/GTK-theme project's own theme ecosystem, same reasoning as gtk2-*/breeze-*."
+  },
+  {
+    "pattern": "github-*",
+    "category": "Developer Tools",
+    "reason": "GitHub-related tooling (github-act-runner, github-exporter, github-backup, ...)."
+  },
+  {
+    "pattern": "riscv64-*",
+    "category": "Developer Tools",
+    "reason": "RISC-V cross-compilation toolchain packages, same reasoning as cross-*/gcc*."
+  },
+  {
+    "pattern": "rpm-*",
+    "category": "System Tools",
+    "reason": "RPM's own tooling/plugin ecosystem (rpm-builder, rpm-plugin-systemd-inhibit, ...) — matches freedesktop's own PackageManager key, already mapped to System Tools."
+  },
+  {
+    "pattern": "plexus-*",
+    "category": "Developer Tools",
+    "reason": "Apache Plexus's own Java-build-component ecosystem."
+  },
+  {
+    "pattern": "sblim-*",
+    "category": "System Tools",
+    "reason": "SBLIM's own CIM/WBEM system-management ecosystem."
+  },
+  {
+    "pattern": "neutron-*",
+    "category": "System Tools",
+    "reason": "OpenStack Neutron's own networking-service ecosystem, same reasoning as openstack-*."
+  },
+  {
+    "pattern": "translatelocally*",
+    "category": "Books & Reference",
+    "reason": "TranslateLocally's own per-language-pair model ecosystem — matches apertium-*/latex-*'s document/translation-domain reasoning."
+  },
+  {
+    "pattern": "omarchy-*",
+    "category": "Settings",
+    "reason": "Omarchy (an Arch-based desktop distribution/config framework)'s own theme/widget/command ecosystem — desktop customization, same reasoning as gnome-*/kde-*."
+  },
+  {
+    "pattern": "fence-*",
+    "category": "System Tools",
+    "reason": "Pacemaker's own fence-agent ecosystem — cluster/high-availability infrastructure."
+  },
+  {
+    "pattern": "tree-sitter-*",
+    "category": "Developer Tools",
+    "reason": "tree-sitter's own per-language grammar ecosystem — editor/IDE parsing infrastructure, developer tooling."
+  },
+  {
+    "pattern": "education-*",
+    "category": "Education",
+    "reason": "Debian Edu's own per-level/per-desktop application-bundle ecosystem (education-preschool, education-primaryschool, ...) — children's/school educational software by design, same reasoning as sugar-*."
   }
 ]

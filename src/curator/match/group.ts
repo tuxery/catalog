@@ -112,6 +112,20 @@ function unionByExactKey(
 //   "gnome-boxes", were never part of this cluster and needed their own
 //   `config/match-force.json` entry to reunify with Flathub's
 //   "Boxes" once the false merge was cut loose.
+// - `singularity` / `ace` / `bass` — found live investigating three
+//   miscategorized "To Classify" entries surfaced while adding
+//   Gentoo-Section-based category inference (`enrich/category-section.ts`):
+//   the real HPC container platform (AUR/Fedora/Nixpkgs' "singularity-ce",
+//   "singularity-git") merging with an unrelated real game Debian/Ubuntu/
+//   Gentoo package as bare "singularity" (Debian/Ubuntu's own Section for
+//   it is literally "games") — the "-git" suffix stripping this file's
+//   own AUR/Gentoo variant-suffix handling applies made the collision
+//   worse, not better, in this one case, normalizing "singularity-git"
+//   straight into the unrelated game's own bare name. "ace" collides
+//   Gentoo's own Perl ACE framework (`dev-perl` section) with an unrelated
+//   Gentoo "games-board" package of the same short name; "bass" collides
+//   an AUR/Arch macro assembler with an unrelated Gentoo "games-rpg"
+//   package, also of the same short name.
 const GENERIC_NAME_BLOCKLIST = new Set([
   "calculator",
   "weather",
@@ -128,6 +142,9 @@ const GENERIC_NAME_BLOCKLIST = new Set([
   "mail",
   "zen",
   "boxes",
+  "singularity",
+  "ace",
+  "bass",
 ]);
 
 /**

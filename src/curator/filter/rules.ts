@@ -594,16 +594,33 @@ const SOLUS_NOISE_PARTOF = new Set([
 
 // Gentoo reuses the same `section` slot for its top-level category (e.g.
 // `games-strategy`, `dev-libs`) — same trap as everywhere else for most
-// categories (dev-*/app-* mix real tools with libraries), but two are
+// categories (dev-*/app-* mix real tools with libraries), but several are
 // unambiguous no matter how sampled: `acct-group`/`acct-user` (every one
 // a "System group: X"/"A group for Y" system-account definition — not
 // software at all, discovered because they were surviving the filter and
 // polluting cross-source name matches, e.g. "acct-group/clock" merging
-// into the real "Clock" app group) and `virtual` (every one a "Virtual
-// for X" dependency-resolution abstraction Portage uses to pick between
+// into the real "Clock" app group), `virtual` (every one a "Virtual for
+// X" dependency-resolution abstraction Portage uses to pick between
 // providers, e.g. `virtual/jre`, `virtual/editor` — never a real
-// launchable package itself).
-const GENTOO_NOISE_CATEGORIES = new Set(["acct-group", "acct-user", "virtual"]);
+// launchable package itself), and five more found live sweeping the
+// broader "To Classify" set for the same shape this file already
+// excludes elsewhere by name: `sec-keys` (openpgp-keys-* signing-key
+// bundles, same as noise everywhere else), `app-dicts` (per-language
+// aspell/mecab dictionary data), `x11-themes` (backgrounds/icon themes/
+// skins, not apps), `media-fonts` (font files), and `app-emacs` (Emacs
+// Lisp packages — needs Emacs itself as a host, same reasoning as this
+// file's `elpa-` pattern, which is Debian/Fedora's name for the identical
+// concept).
+const GENTOO_NOISE_CATEGORIES = new Set([
+  "acct-group",
+  "acct-user",
+  "virtual",
+  "sec-keys",
+  "app-dicts",
+  "x11-themes",
+  "media-fonts",
+  "app-emacs",
+]);
 
 /** Best-effort guess from Debian/Ubuntu's `Section` field, nixpkgs' attribute-path prefix, openSUSE's `<rpm:group>` value, Slackware's package series, Solus's `PartOf` value, or Gentoo's category, alongside `looksLikeSupportPackage`'s name-based guess — see this file's comments on `NOISE_SECTIONS`/`NIX_NOISE_PREFIX_PATTERNS`/`OPENSUSE_NOISE_GROUPS`/`SLACKWARE_NOISE_SERIES`/`SOLUS_NOISE_PARTOF`/`GENTOO_NOISE_CATEGORIES` for which values are safe. */
 export function looksLikeSupportSection(section: string | undefined): boolean {

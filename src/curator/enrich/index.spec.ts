@@ -516,6 +516,31 @@ describe("enrichApps", () => {
     expect(enrichApps(matched)[0]?.storeCollections).toBeUndefined();
   });
 
+  it("picks the most recent lastUpdated across member packages, not the highest-priority source's", () => {
+    const matched: MatchedApp[] = [
+      {
+        id: "flathub:example",
+        packages: [
+          // flatpak-flathub outranks flatpak-appcenter in source priority,
+          // but its date here is the *older* one — the max must win, not
+          // pickField's usual priority pick.
+          pkg({ source: "flatpak-flathub", lastUpdated: "2026-01-01T00:00:00.000Z" }),
+          pkg({ source: "flatpak-appcenter", lastUpdated: "2026-08-10T00:00:00.000Z" }),
+        ],
+      },
+    ];
+
+    expect(enrichApps(matched)[0]?.lastUpdated).toBe("2026-08-10T00:00:00.000Z");
+  });
+
+  it("leaves lastUpdated undefined when no member package has one", () => {
+    const matched: MatchedApp[] = [
+      { id: "aur:example", packages: [pkg({ source: "pacman-aur", name: "example" })] },
+    ];
+
+    expect(enrichApps(matched)[0]?.lastUpdated).toBeUndefined();
+  });
+
   it("applies injected suite overrides across the whole enriched batch", () => {
     const matched: MatchedApp[] = [
       { id: "flatpak-flathub:org.example.Suite", packages: [pkg({ name: "Suite" })] },

@@ -165,6 +165,15 @@ export interface CatalogApp {
   features?: string[];
   /** The newest release's own changelog text — populated by Flathub/AppCenter's AppStream `<releases><release><description>`. `undefined` when the newest release has no description (common — most releases are just a bare version tag). */
   changelog?: string;
+  /**
+   * The most recent `SourcedPackage.lastUpdated` across every member
+   * package — see `enrich/index.ts`'s `aggregateLastUpdated`. Populated
+   * by Flathub/AppCenter's AppStream `<releases><release>` timestamp
+   * today (each source's *own* newest release date, not "when Tuxery
+   * last refreshed its cache" — no connector else exposes an equivalent
+   * field). `undefined` when no member package has one.
+   */
+  lastUpdated?: string;
   /** Not sourced yet. */
   requirements?: string;
   /** Not sourced yet — e.g. Flatpak permissions are declared per-app upstream, not fetched today. */

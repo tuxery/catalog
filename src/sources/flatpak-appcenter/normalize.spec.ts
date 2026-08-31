@@ -70,6 +70,20 @@ describe("appcenter normalize", () => {
     expect(result?.changelog).toBe("Improved startup time.");
   });
 
+  it("carries lastUpdated through unchanged", () => {
+    const entry: AppCenterCacheEntry = {
+      id: "com.example.App",
+      name: "App",
+      summary: "An app",
+      hasGameCategory: false,
+      categories: [],
+      screenshots: [],
+      lastUpdated: "2021-08-15T00:00:00.000Z",
+    };
+
+    expect(normalize([entry])[0]?.lastUpdated).toBe("2021-08-15T00:00:00.000Z");
+  });
+
   it("carries hasGameCategory through when true", () => {
     const entry: AppCenterCacheEntry = {
       id: "com.example.Game",

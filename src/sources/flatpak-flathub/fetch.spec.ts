@@ -50,8 +50,11 @@ describe("parseAppstream", () => {
       developer: undefined,
       longDescription: undefined,
       screenshots: [],
+      changelog: undefined,
+      lastUpdated: "2026-08-10T00:00:00.000Z",
       rating: { average: 3.9, count: 778 },
       popularity: 0.9,
+      storeCollections: undefined,
     });
   });
 

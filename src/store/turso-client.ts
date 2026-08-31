@@ -27,6 +27,8 @@ export interface AppRecord {
   approxSizeBytes?: number;
   changelog?: string;
   requirements?: string;
+  /** The most recent release date across member packages, when at least one has one — see `CatalogApp.lastUpdated`'s doc comment. */
+  lastUpdated?: string;
   rating?: { average: number; count: number };
   /** Trending/popularity signal (0-1), when at least one source has one — see `CatalogApp.popularity`'s doc comment. */
   popularity?: number;
@@ -95,6 +97,7 @@ const INSERT_COLUMNS = [
   "approx_size_bytes",
   "changelog",
   "requirements",
+  "last_updated",
   "rating_average",
   "rating_count",
   "popularity",
@@ -135,6 +138,7 @@ function appsTableSql(tableName: string): string {
       approx_size_bytes INTEGER,
       changelog TEXT,
       requirements TEXT,
+      last_updated TEXT,
       rating_average REAL,
       rating_count INTEGER,
       popularity REAL,
@@ -184,6 +188,7 @@ function toRow(app: AppRecord): unknown[] {
     app.approxSizeBytes ?? null,
     app.changelog ?? null,
     app.requirements ?? null,
+    app.lastUpdated ?? null,
     app.rating?.average ?? null,
     app.rating?.count ?? null,
     app.popularity ?? null,

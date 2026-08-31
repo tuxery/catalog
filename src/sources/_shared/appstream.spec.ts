@@ -186,6 +186,20 @@ describe("parseAppstreamXml", () => {
     expect(rich?.changelog).toBeUndefined();
   });
 
+  it("converts the newest release's @_timestamp (Unix epoch seconds) to an ISO date string", () => {
+    const firefox = entries.find((entry) => entry.id === "org.mozilla.firefox");
+
+    // The *newest* (first) release's timestamp (1786320000), not the
+    // older second release's (1783728000).
+    expect(firefox?.lastUpdated).toBe("2026-08-10T00:00:00.000Z");
+  });
+
+  it("leaves lastUpdated undefined when there are no releases, or the newest one has no timestamp", () => {
+    const noReleases = entries.find((entry) => entry.id === "org.example.NoReleases");
+
+    expect(noReleases?.lastUpdated).toBeUndefined();
+  });
+
   it("leaves version/icon/homepage undefined when absent, rather than throwing", () => {
     const noReleases = entries.find((entry) => entry.id === "org.example.NoReleases");
 

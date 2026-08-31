@@ -152,6 +152,22 @@ function aggregateStoreCollections(packages: SourcedPackage[]): StoreCollectionT
   return tags.length > 0 ? tags : undefined;
 }
 
+/**
+ * The most recent `lastUpdated` across every member package — a max, not
+ * `pickField`'s source-priority pick, since an older release from a
+ * higher-priority source shouldn't shadow a genuinely newer one from
+ * elsewhere. ISO date strings sort correctly as plain strings.
+ * `undefined` when no member package has one at all.
+ */
+function aggregateLastUpdated(packages: SourcedPackage[]): string | undefined {
+  const dated = packages
+    .map((pkg) => pkg.lastUpdated)
+    .filter((date): date is string => date !== undefined);
+  if (dated.length === 0) return undefined;
+
+  return dated.reduce((latest, date) => (date > latest ? date : latest));
+}
+
 /** Turns grouped packages into the display-ready `CatalogApp` records the website reads — see `types.ts` for what's populated today vs. tracked as roadmap. */
 export function enrichApps(
   matched: MatchedApp[],
@@ -185,6 +201,7 @@ export function enrichApps(
         pkg.languages && pkg.languages.length > 0 ? pkg.languages : undefined,
       ),
       changelog: pickField(app.packages, (pkg) => pkg.changelog),
+      lastUpdated: aggregateLastUpdated(app.packages),
       compatibilityWarnings: warnings.length > 0 ? warnings : undefined,
       rating: aggregateRating(app.packages),
       popularity: aggregatePopularity(app.packages),

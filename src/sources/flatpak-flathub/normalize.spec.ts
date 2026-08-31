@@ -70,6 +70,20 @@ describe("flathub normalize", () => {
     expect(result?.changelog).toBe("Fixed a crash on startup.");
   });
 
+  it("carries lastUpdated through unchanged", () => {
+    const entry: FlathubCacheEntry = {
+      id: "org.example.App",
+      name: "App",
+      summary: "An app",
+      hasGameCategory: false,
+      categories: [],
+      screenshots: [],
+      lastUpdated: "2026-08-10T00:00:00.000Z",
+    };
+
+    expect(normalize([entry])[0]?.lastUpdated).toBe("2026-08-10T00:00:00.000Z");
+  });
+
   it("carries hasGameCategory through when true", () => {
     const entry: FlathubCacheEntry = {
       id: "org.example.Game",

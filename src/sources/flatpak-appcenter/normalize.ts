@@ -19,6 +19,7 @@ export function normalize(entries: AppCenterCacheEntry[]): SourcedPackage[] {
     screenshots: entry.screenshots.length > 0 ? entry.screenshots : undefined,
     languages: entry.languages,
     changelog: entry.changelog,
+    lastUpdated: entry.lastUpdated,
     rating: entry.rating,
   }));
 }

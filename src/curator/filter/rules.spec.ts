@@ -150,6 +150,10 @@ describe("looksLikeSupportPackage", () => {
     expect(looksLikeSupportPackage("avogadro2-langpack-en_AU")).toBe(true);
     expect(looksLikeSupportPackage("akregator-lang")).toBe(true);
     expect(looksLikeSupportPackage("inkscape-lang")).toBe(true);
+    // Arch/AUR/Void's own -i18n- marker for the same concept — found
+    // investigating the real firefox-bin bug report, 608 real matches.
+    expect(looksLikeSupportPackage("firefox-esr-i18n-af")).toBe(true);
+    expect(looksLikeSupportPackage("firefox-developer-edition-i18n-zh-cm")).toBe(true);
     // Real apps themselves are untouched — only the per-language suffix
     // form matches.
     expect(looksLikeSupportPackage("firefox")).toBe(false);

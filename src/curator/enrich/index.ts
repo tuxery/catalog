@@ -9,7 +9,11 @@ import {
 } from "./app-store-frontend";
 import { pickCategory, TO_CLASSIFY } from "./category";
 import { loadCategoryRules, matchCategoryRule, type CategoryRuleEntry } from "./category-rules";
-import { categoryFromDebianSection } from "./category-section";
+import {
+  categoryFromDebianSection,
+  categoryFromGentooSection,
+  gameGenreFromGentooSection,
+} from "./category-section";
 import { getCompatWarnings, loadCompatWarnings, type CompatWarningEntry } from "./compat-warnings";
 import { applySuites, loadSuiteOverrides, type SuiteOverrideEntry } from "./suite";
 import type { CatalogApp } from "./types";
@@ -94,14 +98,20 @@ function hasGameEvidence(pkg: SourcedPackage): boolean {
 /**
  * Picks a category label via `pickField`, then maps it through
  * `pickCategory`'s type-scoped taxonomy. When no member package has any
- * upstream category data at all, falls back in order to `categoryRules`
- * (see `category-rules.ts` — a name-pattern signal for well-known product
- * families no upstream source classifies, e.g. Wine/Proton compatibility
- * tools) and then `categoryFromDebianSection` (see `category-section.ts`
- * — Debian/Ubuntu's own Section field, for the handful of values already
- * known to be GUI-predictive) before finally giving up to `TO_CLASSIFY`.
- * Games skip both fallbacks: neither one ever holds a
- * `categories-games.json` genre, only app-taxonomy labels.
+ * upstream category data at all:
+ * - For a game, falls back to `gameGenreFromGentooSection` (see
+ *   `category-section.ts` — Gentoo's own `games-*` subcategory, e.g.
+ *   games-arcade/games-rpg/games-board, already used to *detect* a game
+ *   via `looksLikeGamePackage`, specific enough on several values to also
+ *   predict a `categories-games.json` genre).
+ * - For an app, falls back in order to `categoryRules` (see
+ *   `category-rules.ts` — a name-pattern signal for well-known product
+ *   families no upstream source classifies, e.g. Wine/Proton compatibility
+ *   tools), then `categoryFromDebianSection`/`categoryFromGentooSection`
+ *   (Debian/Ubuntu's own Section field and Gentoo's own top-level
+ *   category, for the values already known to reliably predict a specific
+ *   category).
+ * Either path finally gives up to `TO_CLASSIFY`.
  */
 function pickCategoryLabel(
   packages: SourcedPackage[],
@@ -112,13 +122,20 @@ function pickCategoryLabel(
     pkg.categories && pkg.categories.length > 0 ? pkg.categories : undefined,
   );
   const picked = pickCategory(categories ?? [], isGame);
-  if (picked !== TO_CLASSIFY || isGame) return picked;
+  if (picked !== TO_CLASSIFY) return picked;
+
+  if (isGame) {
+    const genreMatch = packages.map(gameGenreFromGentooSection).find((genre) => genre);
+    return genreMatch ?? TO_CLASSIFY;
+  }
 
   const names = packages.map((pkg) => pkg.name);
   const nameMatch = matchCategoryRule(names, categoryRules);
   if (nameMatch) return nameMatch;
 
-  const sectionMatch = packages.map(categoryFromDebianSection).find((category) => category);
+  const sectionMatch = packages
+    .map((pkg) => categoryFromDebianSection(pkg) ?? categoryFromGentooSection(pkg))
+    .find((category) => category);
   return sectionMatch ?? TO_CLASSIFY;
 }
 

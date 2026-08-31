@@ -430,6 +430,33 @@ describe("enrichApps", () => {
     expect(app?.category).toBe("Strategy");
   });
 
+  it("falls back to a Gentoo games-* subcategory genre when no upstream genre exists", () => {
+    const matched: MatchedApp[] = [
+      {
+        id: "gentoo:gnubg",
+        packages: [pkg({ source: "ebuild-gentoo", name: "gnubg", section: "games-board" })],
+      },
+    ];
+
+    const [app] = enrichApps(matched);
+    expect(app?.contentType).toBe("game");
+    expect(app?.category).toBe("Board & Cards");
+  });
+
+  it("does not apply a Gentoo games-* genre fallback to a non-game app", () => {
+    const matched: MatchedApp[] = [
+      {
+        id: "gentoo:example",
+        packages: [pkg({ source: "ebuild-gentoo", name: "example", section: "media-sound" })],
+      },
+    ];
+
+    // media-sound isn't a games-* section, so gameGenreFromGentooSection
+    // never applies regardless — this app should resolve through the
+    // Gentoo app-category fallback instead.
+    expect(enrichApps(matched)[0]?.category).toBe("Music & Audio");
+  });
+
   it("sets iconUrl, license, developer, longDescription, screenshots, languages, changelog, and approxSizeBytes from the representative package", () => {
     const matched: MatchedApp[] = [
       {

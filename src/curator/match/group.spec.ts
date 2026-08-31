@@ -233,6 +233,31 @@ describe("groupPackages", () => {
     expect(groupPackages(packages, NO_OVERRIDES)).toHaveLength(2);
   });
 
+  it("does not union singularity/ace/bass — real bug found live via category-section.ts miscategorizing the unrelated projects merged under these generic names", () => {
+    const singularity = [
+      pkg({ source: "pacman-aur", name: "singularity-ce", appId: "singularity-ce" }),
+      pkg({ source: "deb-debian", name: "singularity", appId: "singularity", section: "games" }),
+    ];
+    expect(groupPackages(singularity, NO_OVERRIDES)).toHaveLength(2);
+
+    const ace = [
+      pkg({ source: "ebuild-gentoo", name: "Ace", appId: "dev-perl/Ace", section: "dev-perl" }),
+      pkg({
+        source: "ebuild-gentoo",
+        name: "ace",
+        appId: "games-board/ace",
+        section: "games-board",
+      }),
+    ];
+    expect(groupPackages(ace, NO_OVERRIDES)).toHaveLength(2);
+
+    const bass = [
+      pkg({ source: "pacman-arch", name: "bass", appId: "bass" }),
+      pkg({ source: "ebuild-gentoo", name: "bass", appId: "games-rpg/bass", section: "games-rpg" }),
+    ];
+    expect(groupPackages(bass, NO_OVERRIDES)).toHaveLength(2);
+  });
+
   it("still unions a blocklisted name via tier 1 (exact appId) when appId genuinely matches", () => {
     const packages = [
       pkg({ source: "flatpak-flathub", name: "Calculator", appId: "org.gnome.Calculator" }),

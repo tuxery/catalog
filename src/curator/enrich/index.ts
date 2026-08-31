@@ -9,6 +9,7 @@ import {
 } from "./app-store-frontend";
 import { pickCategory, TO_CLASSIFY } from "./category";
 import { loadCategoryRules, matchCategoryRule, type CategoryRuleEntry } from "./category-rules";
+import { categoryFromDebianSection } from "./category-section";
 import { getCompatWarnings, loadCompatWarnings, type CompatWarningEntry } from "./compat-warnings";
 import { applySuites, loadSuiteOverrides, type SuiteOverrideEntry } from "./suite";
 import type { CatalogApp } from "./types";
@@ -93,12 +94,14 @@ function hasGameEvidence(pkg: SourcedPackage): boolean {
 /**
  * Picks a category label via `pickField`, then maps it through
  * `pickCategory`'s type-scoped taxonomy. When no member package has any
- * upstream category data at all, falls back to `categoryRules` (see
- * `category-rules.ts` — a name-pattern signal for well-known product
+ * upstream category data at all, falls back in order to `categoryRules`
+ * (see `category-rules.ts` — a name-pattern signal for well-known product
  * families no upstream source classifies, e.g. Wine/Proton compatibility
- * tools) before finally giving up to `TO_CLASSIFY`. Games skip the
- * name-pattern fallback: `categoryRules` only ever holds app-taxonomy
- * labels, never a `categories-games.json` genre.
+ * tools) and then `categoryFromDebianSection` (see `category-section.ts`
+ * — Debian/Ubuntu's own Section field, for the handful of values already
+ * known to be GUI-predictive) before finally giving up to `TO_CLASSIFY`.
+ * Games skip both fallbacks: neither one ever holds a
+ * `categories-games.json` genre, only app-taxonomy labels.
  */
 function pickCategoryLabel(
   packages: SourcedPackage[],
@@ -112,7 +115,11 @@ function pickCategoryLabel(
   if (picked !== TO_CLASSIFY || isGame) return picked;
 
   const names = packages.map((pkg) => pkg.name);
-  return matchCategoryRule(names, categoryRules) ?? TO_CLASSIFY;
+  const nameMatch = matchCategoryRule(names, categoryRules);
+  if (nameMatch) return nameMatch;
+
+  const sectionMatch = packages.map(categoryFromDebianSection).find((category) => category);
+  return sectionMatch ?? TO_CLASSIFY;
 }
 
 /**

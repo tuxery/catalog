@@ -289,6 +289,23 @@ describe("looksLikeSupportPackage", () => {
     expect(looksLikeSupportPackage("matlab")).toBe(false);
     expect(looksLikeSupportPackage("matlab-dipimage")).toBe(false);
   });
+
+  it("flags shell tab-completion scripts across every source, not the real shells sharing a similar name", () => {
+    expect(looksLikeSupportPackage("docker-stable-fish-completion")).toBe(true);
+    expect(looksLikeSupportPackage("kubens-bash-completion")).toBe(true);
+    expect(looksLikeSupportPackage("mcphost-bash-completion")).toBe(true);
+    expect(looksLikeSupportPackage("bash-git")).toBe(false);
+    expect(looksLikeSupportPackage("fish-git")).toBe(false);
+    expect(looksLikeSupportPackage("zsh-git")).toBe(false);
+    expect(looksLikeSupportPackage("tcsh-git")).toBe(false);
+  });
+
+  it("flags Aspell/Ispell's per-language dictionary-data convention, not the real ispell program or aspell's own real AUR VCS-build variant", () => {
+    expect(looksLikeSupportPackage("aspell-ky")).toBe(true);
+    expect(looksLikeSupportPackage("ispell-brazilian")).toBe(true);
+    expect(looksLikeSupportPackage("ispell")).toBe(false);
+    expect(looksLikeSupportPackage("aspell-git")).toBe(false);
+  });
 });
 
 describe("looksLikeSourceSpecificNoise", () => {

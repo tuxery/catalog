@@ -12,6 +12,7 @@ import { loadCategoryRules, matchCategoryRule, type CategoryRuleEntry } from "./
 import {
   categoryFromDebianSection,
   categoryFromGentooSection,
+  categoryFromOpenSuseGroup,
   gameGenreFromGentooSection,
 } from "./category-section";
 import { getCompatWarnings, loadCompatWarnings, type CompatWarningEntry } from "./compat-warnings";
@@ -107,10 +108,11 @@ function hasGameEvidence(pkg: SourcedPackage): boolean {
  * - For an app, falls back in order to `categoryRules` (see
  *   `category-rules.ts` — a name-pattern signal for well-known product
  *   families no upstream source classifies, e.g. Wine/Proton compatibility
- *   tools), then `categoryFromDebianSection`/`categoryFromGentooSection`
- *   (Debian/Ubuntu's own Section field and Gentoo's own top-level
- *   category, for the values already known to reliably predict a specific
- *   category).
+ *   tools), then `categoryFromDebianSection`/`categoryFromGentooSection`/
+ *   `categoryFromOpenSuseGroup` (Debian/Ubuntu's Section field, Gentoo's
+ *   top-level category, and openSUSE/RPM Fusion's `<rpm:group>` value —
+ *   each source's own package-classification field, for the values
+ *   already known to reliably predict a specific category).
  * Either path finally gives up to `TO_CLASSIFY`.
  */
 function pickCategoryLabel(
@@ -134,7 +136,12 @@ function pickCategoryLabel(
   if (nameMatch) return nameMatch;
 
   const sectionMatch = packages
-    .map((pkg) => categoryFromDebianSection(pkg) ?? categoryFromGentooSection(pkg))
+    .map(
+      (pkg) =>
+        categoryFromDebianSection(pkg) ??
+        categoryFromGentooSection(pkg) ??
+        categoryFromOpenSuseGroup(pkg),
+    )
     .find((category) => category);
   return sectionMatch ?? TO_CLASSIFY;
 }

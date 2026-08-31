@@ -55,10 +55,13 @@ const NOISE_PATTERNS: RegExp[] = [
   /^(ttf|fonts|otf)-/,
   // Perl/OCaml/Haskell/Lua/R/Tcl module packages — Fedora-style prefix
   // naming (perl-DBI, ocaml-astring, ghc-Cabal, lua-cqueues, R-DBI,
-  // tcl-snack). The Debian-style equivalent (libwww-perl, libxml-simple-
-  // perl, ...) is already caught by the blanket `^lib` prefix above, since
-  // that convention always starts with "lib".
-  /^(perl|ocaml|ghc|lua[\d.]*|R|tcl)-/,
+  // tcl-snack), including Fedora's own per-GHC-version variant
+  // (ghc9.10-base, ghc9.2-Cabal-prof, ...) — verified live: 704 real
+  // matches, same library-package shape as bare `ghc-`, no CLI-tool trap.
+  // The Debian-style equivalent (libwww-perl, libxml-simple-perl, ...) is
+  // already caught by the blanket `^lib` prefix above, since that
+  // convention always starts with "lib".
+  /^(perl|ocaml|ghc[\d.]*|lua[\d.]*|R|tcl)-/,
   // Desktop-shell extensions/widgets (GNOME Shell, KWin, Plasma, COSMIC) —
   // need their shell/compositor as a host to do anything, same "not
   // launchable on its own" reasoning as a library. Decided 2026-08-20:

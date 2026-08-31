@@ -79,6 +79,26 @@ describe("groupPackages", () => {
     expect(groups[0]?.packages).toHaveLength(2);
   });
 
+  it("unions a Gentoo -bin ebuild with its build-from-source twin — the real firefox-bin bug report", () => {
+    const packages = [
+      pkg({ source: "ebuild-gentoo", name: "firefox", appId: undefined }),
+      pkg({ source: "ebuild-gentoo", name: "firefox-bin", appId: undefined }),
+    ];
+
+    const groups = groupPackages(packages, NO_OVERRIDES);
+    expect(groups).toHaveLength(1);
+    expect(groups[0]?.packages).toHaveLength(2);
+  });
+
+  it("unions a Gentoo -bin package with a same-named package from an unrelated source too, not just within Gentoo", () => {
+    const packages = [
+      pkg({ source: "flatpak-flathub", name: "Firefox", appId: "org.mozilla.firefox" }),
+      pkg({ source: "ebuild-gentoo", name: "firefox-bin", appId: undefined }),
+    ];
+
+    expect(groupPackages(packages, NO_OVERRIDES)).toHaveLength(1);
+  });
+
   it("unions AUR release-channel variants (beta/nightly, with or without a build-variant suffix) with the stable build — the real Brave Origin bug report", () => {
     const packages = [
       pkg({ source: "pacman-aur", name: "brave-origin-bin", appId: "brave-origin-bin" }),
@@ -265,7 +285,7 @@ describe("groupPackages", () => {
     // three separate apps. Root causes, found live: (1) AUR's -bin
     // prebuilt-binary convention wasn't stripped like -git already was,
     // so zen-browser-bin never joined zen-browser/zen-browser-snap: fixed
-    // by AUR_VARIANT_SUFFIX. (2) Flathub's short "Zen" name was instead
+    // by VARIANT_SUFFIX. (2) Flathub's short "Zen" name was instead
     // merging with an unrelated AUR "zen" (a C-language stress-relief
     // tool, nothing to do with the browser) via the generic-word
     // collision GENERIC_NAME_BLOCKLIST exists for: fixed by blocklisting

@@ -8,7 +8,7 @@ import type { AurCacheEntry } from "./types";
 // `0xtools`'s upstream repo directly); `-bin` marks a prebuilt-binary
 // build instead of building from source (e.g. `zen-browser-bin`). Also
 // used by the curator module's match tier to merge each variant into its
-// base package's app; see `match/group.ts`'s `AUR_VARIANT_SUFFIX`.
+// base package's app; see `match/group.ts`'s `VARIANT_SUFFIX`.
 const VARIANT_SUFFIX = /-(git|svn|hg|bzr|cvs|bin)$/;
 
 // A release-channel word, optionally followed by one of the build-variant
@@ -17,7 +17,7 @@ const VARIANT_SUFFIX = /-(git|svn|hg|bzr|cvs|bin)$/;
 // which build method). Checked first below since it's the more specific/
 // meaningful label when both are present (`brave-origin-beta-bin`'s
 // channel is "beta", not "bin"). See `match/group.ts`'s
-// `AUR_CHANNEL_WORD` for the live verification behind this list, and why
+// `CHANNEL_WORD_SUFFIX` for the live verification behind this list, and why
 // `-dev` is deliberately excluded.
 const CHANNEL_WORD =
   /-(beta|nightly|alpha|canary|unstable|preview)(?:-(?:git|svn|hg|bzr|cvs|bin))?$/;

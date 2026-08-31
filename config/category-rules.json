@@ -1393,5 +1393,45 @@
     "pattern": "harrison-*",
     "category": "Music & Audio",
     "reason": "Harrison Consoles' own LV2/VST audio-plugin ecosystem, same reasoning as lv2-*/vcvrack-*."
+  },
+  {
+    "pattern": "ubuntu-*",
+    "category": "Settings",
+    "reason": "Ubuntu's own wallpaper/default-settings/desktop-metapackage ecosystem — desktop branding/customization, same reasoning as ubuntustudio-*/gnome-*."
+  },
+  {
+    "pattern": "deepin-*",
+    "category": "Settings",
+    "reason": "Deepin's own desktop-environment component ecosystem (deepin-deb-installer, deepin-font-manager, deepin-default-settings, ...), same reasoning as ukui-*/dde-*."
+  },
+  {
+    "pattern": "fedora-*",
+    "category": "Settings",
+    "reason": "Fedora's own release-identity/spin/background ecosystem — desktop branding, same reasoning as ubuntu-*."
+  },
+  {
+    "pattern": "arch-*",
+    "category": "Settings",
+    "reason": "Arch Linux's own branding/utility ecosystem (arch-backup, arch-chroot, arch-update-full, ...), same reasoning as ubuntu-*/fedora-*."
+  },
+  {
+    "pattern": "mx-*",
+    "category": "Settings",
+    "reason": "MX Linux's own tooling/branding ecosystem (mx-viewer, mx-cleanup, mx-boot-repair, ...), same reasoning as ubuntu-*/deepin-*."
+  },
+  {
+    "pattern": "mint-*",
+    "category": "Settings",
+    "reason": "Linux Mint's own wallpaper/metapackage ecosystem, same reasoning as ubuntu-*."
+  },
+  {
+    "pattern": "opensuse-*",
+    "category": "Settings",
+    "reason": "openSUSE's own repo/release/icon-theme ecosystem — desktop branding, same reasoning as ubuntu-*/fedora-* (matches case-insensitively, so it also covers the project's own \"openSUSE-\" capitalization)."
+  },
+  {
+    "pattern": "debian-*",
+    "category": "Settings",
+    "reason": "Debian's own installer/branding/tooling ecosystem, same reasoning as ubuntu-*/fedora-*."
   }
 ]

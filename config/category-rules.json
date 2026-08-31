@@ -228,5 +228,130 @@
     "pattern": "tryton*",
     "category": "Business",
     "reason": "Tryton, a real business/ERP application platform, and its own module ecosystem (tryton-modules-account-deposit, tryton-modules-production, ...)."
+  },
+  {
+    "pattern": "postgresql*",
+    "category": "Developer Tools",
+    "reason": "PostgreSQL's own per-major-version extension ecosystem (postgresql16-timescaledb, postgresql-17-plpgsql-check, ...) — developer-facing database extensions/tooling."
+  },
+  {
+    "pattern": "java-*",
+    "category": "Developer Tools",
+    "reason": "JDK/JRE runtime variants, source bundles, and dev-tooling plugins (java-17-openj9-headless, java-21-openjdk-src, java-runtime-decompiler-asmtools-plugin, ...)."
+  },
+  {
+    "pattern": "maven-*",
+    "category": "Developer Tools",
+    "reason": "Apache Maven's own build-tool component ecosystem (maven-resolver-transport-wagon, maven-archetype-common, ...)."
+  },
+  {
+    "pattern": "apache-*",
+    "category": "Developer Tools",
+    "reason": "Apache Software Foundation's own Java-ecosystem tools/libraries (apache-pdfbox, apache-cxf, apache-ant-contrib, ...)."
+  },
+  {
+    "pattern": "fcitx5-*",
+    "category": "Utilities",
+    "reason": "Fcitx5's own input-method-engine/addon ecosystem — real text-input tooling, matching the existing TextTools -> Utilities precedent."
+  },
+  {
+    "pattern": "fcitx-*",
+    "category": "Utilities",
+    "reason": "Fcitx (the earlier version)'s own input-method ecosystem, same reasoning as fcitx5-*."
+  },
+  {
+    "pattern": "ibus-*",
+    "category": "Utilities",
+    "reason": "IBus's own input-method-engine ecosystem (ibus-mozc, ibus-table-chinese-easy, ...), same reasoning as fcitx5-*."
+  },
+  {
+    "pattern": "rime-*",
+    "category": "Utilities",
+    "reason": "Rime's own input-method-schema ecosystem, same reasoning as fcitx5-*."
+  },
+  {
+    "pattern": "asterisk-*",
+    "category": "Internet & Communication",
+    "reason": "Asterisk's own telephony-module ecosystem — matches freedesktop's own Telephony/TelephonyTools keys, already mapped to Internet & Communication."
+  },
+  {
+    "pattern": "kamailio-*",
+    "category": "Internet & Communication",
+    "reason": "Kamailio (a real SIP server)'s own module ecosystem, same reasoning as asterisk-*."
+  },
+  {
+    "pattern": "opensips-*",
+    "category": "Internet & Communication",
+    "reason": "OpenSIPS (a real SIP server)'s own module ecosystem, same reasoning as asterisk-*."
+  },
+  {
+    "pattern": "vapoursynth-*",
+    "category": "Photo & Video",
+    "reason": "VapourSynth's own video-processing plugin ecosystem (vapoursynth-plugin-lsmashsource-git, ...)."
+  },
+  {
+    "pattern": "gst-*",
+    "category": "Music & Audio",
+    "reason": "GStreamer's own plugin ecosystem (gst-plugins-rs-rsrtp, gst-plugin-viper4linux-git, ...) — audio/video pipeline components."
+  },
+  {
+    "pattern": "gst1-*",
+    "category": "Music & Audio",
+    "reason": "GStreamer 1.x's own plugin naming convention, same reasoning as gst-*."
+  },
+  {
+    "pattern": "uwsgi-*",
+    "category": "Developer Tools",
+    "reason": "uWSGI's own plugin ecosystem (uwsgi-plugin-carbon, uwsgi-router-rewrite, ...) — web-application-server developer tooling."
+  },
+  {
+    "pattern": "networkmanager-*",
+    "category": "System Tools",
+    "reason": "NetworkManager's own VPN-plugin/applet ecosystem (NetworkManager-applet-openvpn, networkmanager-vpn-plugin-openvpn, ...)."
+  },
+  {
+    "pattern": "nvidia-*",
+    "category": "System Tools",
+    "reason": "NVIDIA's own driver/GPU-configuration tooling not already caught by filter/rules.ts's narrower nvidia-utils pattern (nvidia-settings-bsb, nvidia-container-toolkit, nvidia-primus-vk-common, ...)."
+  },
+  {
+    "pattern": "llvm*",
+    "category": "Developer Tools",
+    "reason": "The LLVM/Clang toolchain and its own component ecosystem (llvm-test, llvm18-gtest, llvm-mingw-w64-toolchain-ucrt-bin, ...)."
+  },
+  {
+    "pattern": "cairo-*",
+    "category": "Utilities",
+    "reason": "Cairo-Dock (a real desktop dock app) and its own plugin ecosystem, plus real standalone Cairo-adjacent utilities (cairo-clock, cairo-profiler-bin)."
+  },
+  {
+    "pattern": "guile-*",
+    "category": "Developer Tools",
+    "reason": "GNU Guile's own library-binding ecosystem (guile-gcrypt, guile-cairo, guile-opengl, ...)."
+  },
+  {
+    "pattern": "jupyter*",
+    "category": "Developer Tools",
+    "reason": "Jupyter's own kernel/extension ecosystem (jupyter-nbconvert, jupyter-octave_kernel, jupyterhub-sudospawner, ...) — notebook/data-science developer tooling."
+  },
+  {
+    "pattern": "luajit*",
+    "category": "Developer Tools",
+    "reason": "LuaJIT's own library-binding ecosystem (luajit-luacheck, luajit-sdl2-git, ...)."
+  },
+  {
+    "pattern": "proftpd-*",
+    "category": "Internet & Communication",
+    "reason": "ProFTPD (a real FTP server)'s own module ecosystem — matches freedesktop's own FileTransfer key, already mapped to Internet & Communication."
+  },
+  {
+    "pattern": "idris-*",
+    "category": "Developer Tools",
+    "reason": "Idris's own library ecosystem (idris-prelude, idris-lens, idris-yaml, ...)."
+  },
+  {
+    "pattern": "nix-*",
+    "category": "Developer Tools",
+    "reason": "Nix's own real standalone tooling ecosystem (nix-eval-jobs, nix-melt, nix-serve-ng, nix-converter, ...) — not the Nixpkgs attribute-set noise filter/rules.ts already excludes, real per-tool AUR/distro packages."
   }
 ]

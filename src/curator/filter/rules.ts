@@ -413,6 +413,11 @@ const NOISE_PATTERNS: RegExp[] = [
   // middle that pattern can't match. Verified live: 392 real matches, all
   // language packs.
   /^language-pack-/,
+  // LibreOffice's own per-language autocorrection-rules data convention
+  // (autocorr-af, autocorr-de, ...) — same shape as this file's dict-/
+  // mythes-/hunspell- patterns. Verified live: 38 real matches, all
+  // autocorrection rule sets.
+  /^autocorr-/,
 ];
 
 /**

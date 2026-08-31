@@ -1188,5 +1188,110 @@
     "pattern": "cross-*",
     "category": "Developer Tools",
     "reason": "Cross-compilation toolchain packages (cross-armv7l-linux-musleabihf-libc, cross-hppa-gcc16-bootstrap, cross-ia64-binutils, ...) — same GCC/binutils toolchain family as gcc*/binutils*, just targeting a foreign Linux architecture instead of the native one."
+  },
+  {
+    "pattern": "nextcloud3*",
+    "category": "Internet & Communication",
+    "reason": "Nextcloud's own per-major-version app-name prefix (nextcloud32-recommendations, nextcloud33-activity, ...), same reasoning as nextcloud-*."
+  },
+  {
+    "pattern": "xlibre-*",
+    "category": "System Tools",
+    "reason": "XLibre (a real X.Org fork)'s own driver/server ecosystem, same driver family as xf86-*/xserver-*/xorg-x11-drv-."
+  },
+  {
+    "pattern": "waybar-*",
+    "category": "Settings",
+    "reason": "Waybar (a real Wayland statusbar)'s own module ecosystem, same reasoning as bumblebee-*/i3-*."
+  },
+  {
+    "pattern": "evolution-*",
+    "category": "Internet & Communication",
+    "reason": "GNOME Evolution's own plugin ecosystem (evolution-quill, evolution-plugin-spamassassin, ...), same reasoning as claws-*/dovecot-*."
+  },
+  {
+    "pattern": "gedit-*",
+    "category": "Utilities",
+    "reason": "gedit's own plugin ecosystem, same reasoning as vim-*/emacs-*/neovim-*."
+  },
+  {
+    "pattern": "deadbeef-*",
+    "category": "Music & Audio",
+    "reason": "DeaDBeeF (a real audio player)'s own plugin ecosystem."
+  },
+  {
+    "pattern": "discord-*",
+    "category": "Internet & Communication",
+    "reason": "Discord-related client/tooling ecosystem (discord-ptb, discord-chat-exporter-cli, ...)."
+  },
+  {
+    "pattern": "mupen64plus-*",
+    "category": "System Tools",
+    "reason": "Mupen64Plus (a real N64 emulator)'s own plugin/frontend ecosystem, same reasoning as app-emulation (Gentoo)/qemu-*."
+  },
+  {
+    "pattern": "wayland-*",
+    "category": "System Tools",
+    "reason": "Wayland-ecosystem tooling (wayland-proxy-virtwl, wayland-screenshot-yad, wayland-cedilla-fix, ...) — display-server infrastructure."
+  },
+  {
+    "pattern": "baresip-*",
+    "category": "Internet & Communication",
+    "reason": "baresip (a real modular SIP user-agent)'s own module ecosystem, same telephony reasoning as asterisk-*/kamailio-*."
+  },
+  {
+    "pattern": "btrfs-*",
+    "category": "System Tools",
+    "reason": "Btrfs's own tooling ecosystem — filesystem infrastructure, same family as zfs-*."
+  },
+  {
+    "pattern": "cmake-*",
+    "category": "Developer Tools",
+    "reason": "CMake's own documentation/module ecosystem — build-system developer tooling."
+  },
+  {
+    "pattern": "lv2-*",
+    "category": "Music & Audio",
+    "reason": "LV2's own audio-plugin ecosystem (lv2-swh-plugins, lv2-x42-plugins, ...), same reasoning as vcvrack-*/alsa-*."
+  },
+  {
+    "pattern": "octave-*",
+    "category": "Science",
+    "reason": "GNU Octave's own package ecosystem — numerical-computation software, same domain as matlab*."
+  },
+  {
+    "pattern": "osmo-*",
+    "category": "Internet & Communication",
+    "reason": "Osmocom's own mobile/telecom-protocol-stack ecosystem (osmo-bsc, osmo-pcu, ...) — matches freedesktop's own Telephony key, already mapped to Internet & Communication."
+  },
+  {
+    "pattern": "remmina-*",
+    "category": "System Tools",
+    "reason": "Remmina (a real remote-desktop client)'s own protocol-plugin ecosystem — matches freedesktop's own RemoteAccess key, already mapped to System Tools."
+  },
+  {
+    "pattern": "mysql-*",
+    "category": "Developer Tools",
+    "reason": "MySQL's own server/client/tooling ecosystem, same reasoning as postgresql*/mariadb-*."
+  },
+  {
+    "pattern": "bluez-*",
+    "category": "System Tools",
+    "reason": "BlueZ's own tooling ecosystem (bluez-btmgmt, bluez-btmon, ...) — Bluetooth-stack infrastructure."
+  },
+  {
+    "pattern": "kea-*",
+    "category": "System Tools",
+    "reason": "Kea's own DHCP-server tooling ecosystem — network infrastructure, same family as openldap-*/samba-*."
+  },
+  {
+    "pattern": "mcp-*",
+    "category": "Developer Tools",
+    "reason": "MCP (Model Context Protocol)'s own server/tooling ecosystem (mcp-fetch-go-bin, mcp-manager-bin, ...) — AI-integration developer tooling."
+  },
+  {
+    "pattern": "ubuntustudio-*",
+    "category": "Settings",
+    "reason": "Ubuntu Studio's own meta-package/wallpaper/settings ecosystem — desktop customization, same reasoning as gnome-*/kde-*."
   }
 ]

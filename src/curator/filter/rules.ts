@@ -216,15 +216,17 @@ const NOISE_PATTERNS: RegExp[] = [
   // itself launchable).
   /^r-(cran|bioc|other)-/,
   // MinGW's Windows cross-compilation target packages (mingw32-*,
-  // mingw64-*) — unlike every other pattern in this file, these aren't
-  // excluded because they're *likely* a library, they're excluded because
-  // the binary they produce targets Windows and by construction cannot run
-  // on the Linux host at all, whatever it is (even mingw32-gcc,
-  // mingw64-gvnc-tools, mingw32-theora-tools — all "tool"-sounding by
-  // name — are still cross-compiled *for Windows*, not something a Linux
-  // user would search a Linux app catalog for). Verified live: 889 real
-  // matches, every one Windows-target by its own description.
-  /^mingw(32|64)-/,
+  // mingw64-*, and Fedora's own hyphenated mingw-w64-* spelling for the
+  // identical convention) — unlike every other pattern in this file,
+  // these aren't excluded because they're *likely* a library, they're
+  // excluded because the binary they produce targets Windows and by
+  // construction cannot run on the Linux host at all, whatever it is
+  // (even mingw32-gcc, mingw64-gvnc-tools, mingw-w64-pybind11 — all
+  // "tool"/"library"-sounding by name — are still cross-compiled *for
+  // Windows*, not something a Linux user would search a Linux app catalog
+  // for). Verified live: 889 real mingw32-/mingw64- matches plus 707 real
+  // mingw-w64- matches, every one Windows-target by its own description.
+  /^mingw(32|64|-w64)-/,
   // Qt5/Qt6 framework's own internal component packages (qt5-multimedia,
   // qt6-qtbase-mysql, ...) — real Qt-based apps never carry this prefix
   // themselves (kate, dolphin, calibre, ...), same "library ecosystem, not

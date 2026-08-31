@@ -211,6 +211,7 @@ describe("looksLikeSupportPackage", () => {
   it("flags MinGW's Windows cross-compilation target packages — never runnable on the Linux host regardless of name", () => {
     expect(looksLikeSupportPackage("mingw32-gcc")).toBe(true);
     expect(looksLikeSupportPackage("mingw64-gvnc-tools")).toBe(true);
+    expect(looksLikeSupportPackage("mingw-w64-pybind11")).toBe(true);
   });
 
   it("flags Qt5/Qt6 and KDE Frameworks 6's own internal component packages", () => {

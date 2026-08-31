@@ -356,7 +356,7 @@ describe("enrichApps", () => {
     expect(app?.category).toBe("Strategy");
   });
 
-  it("sets iconUrl, license, developer, longDescription, screenshots, languages, and changelog from the representative package", () => {
+  it("sets iconUrl, license, developer, longDescription, screenshots, languages, changelog, and approxSizeBytes from the representative package", () => {
     const matched: MatchedApp[] = [
       {
         id: "flathub:example",
@@ -370,6 +370,7 @@ describe("enrichApps", () => {
             screenshots: ["https://dl.flathub.org/media/example/1.png"],
             languages: ["en_US", "fr"],
             changelog: "Fixed a crash on startup.",
+            approxSizeBytes: 125_546_324,
           }),
         ],
       },
@@ -383,6 +384,7 @@ describe("enrichApps", () => {
     expect(app?.screenshots).toEqual(["https://dl.flathub.org/media/example/1.png"]);
     expect(app?.languages).toEqual(["en_US", "fr"]);
     expect(app?.changelog).toBe("Fixed a crash on startup.");
+    expect(app?.approxSizeBytes).toBe(125_546_324);
   });
 
   it("falls back to a non-representative package's rich fields, same as category — AppCenter isn't in SOURCE_PRIORITY either", () => {

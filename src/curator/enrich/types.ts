@@ -120,7 +120,7 @@ export interface CatalogApp {
   license?: string;
   /** Language codes the app is translated into — populated by Flathub/AppCenter's AppStream `<languages><lang>`. */
   languages?: string[];
-  /** Not sourced yet — no connector captures installed/download size. */
+  /** Download size in bytes — populated by Flathub's own `/api/v2/summary/<appId>` (the `stable` branch's `download_size`). No other current source exposes an equivalent figure. */
   approxSizeBytes?: number;
   /** Screenshot image URLs — populated by Flathub/AppCenter's AppStream `<screenshots>`. */
   screenshots?: string[];

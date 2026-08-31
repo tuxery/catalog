@@ -101,6 +101,20 @@ describe("flathub normalize", () => {
     expect(result?.installsLast7Days).toBe(45_000);
   });
 
+  it("carries approxSizeBytes through unchanged", () => {
+    const entry: FlathubCacheEntry = {
+      id: "org.example.App",
+      name: "App",
+      summary: "An app",
+      hasGameCategory: false,
+      categories: [],
+      screenshots: [],
+      approxSizeBytes: 125_546_324,
+    };
+
+    expect(normalize([entry])[0]?.approxSizeBytes).toBe(125_546_324);
+  });
+
   it("carries hasGameCategory through when true", () => {
     const entry: FlathubCacheEntry = {
       id: "org.example.Game",

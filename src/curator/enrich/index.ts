@@ -206,6 +206,7 @@ export function enrichApps(
       appStoreFrontend: isAppStoreFrontend(app.packages, appStoreFrontends) ? true : undefined,
       category: pickCategoryLabel(app.packages, isGame),
       iconUrl: pickField(app.packages, (pkg) => pkg.iconUrl),
+      approxSizeBytes: pickField(app.packages, (pkg) => pkg.approxSizeBytes),
       license: pickField(app.packages, (pkg) => pkg.license),
       developer: pickField(app.packages, (pkg) => pkg.developer),
       longDescription: pickField(app.packages, (pkg) => pkg.longDescription),

@@ -363,6 +363,18 @@ const NOISE_PATTERNS: RegExp[] = [
   // hyphen- (hyphenation-pattern data). Verified live: 218 real matches
   // across all three, zero counter-examples.
   /^(woff2|xfonts|hyphen)-/,
+  // TeX Live's own distribution-bundle packaging convention
+  // (texmf-dist-langspanish, texmf-dist-latex, ...) — the same LaTeX
+  // macro-package content this file's `^texlive-` pattern already
+  // excludes, just packaged as per-collection texmf-dist-* bundles
+  // instead. Verified live: 82 real matches, all TeX Live collections.
+  /^texmf-dist-/,
+  // GObject introspection binding-metadata packages (typelib-1_0-ICal-
+  // 3_0, typelib-srpm-macros, ...) — the same concept as this file's
+  // NOISE_SECTIONS "introspection" Debian Section value below, just
+  // openSUSE's own name-prefix convention for sources with no comparable
+  // Section signal. Verified live: 70 real matches, all binding metadata.
+  /^typelib-/,
 ];
 
 /**

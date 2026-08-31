@@ -53,4 +53,19 @@ describe("snapcraft normalize", () => {
 
     expect(normalize([entry])[0]?.iconUrl).toBe("https://dashboard.snapcraft.io/icons/spotify.png");
   });
+
+  it("carries categories and hasGameCategory through unchanged — already translated by fetch.ts's applyCategories", () => {
+    const entry: SnapcraftCacheEntry = {
+      name: "0ad",
+      title: "0 A.D.",
+      summary: "Real-time strategy game of ancient warfare",
+      version: "unknown",
+      channel: "stable",
+      hasGameCategory: true,
+    };
+
+    const result = normalize([entry])[0];
+    expect(result?.hasGameCategory).toBe(true);
+    expect(result?.categories).toBeUndefined();
+  });
 });

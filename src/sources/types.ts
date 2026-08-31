@@ -131,7 +131,9 @@ export interface SourcedPackage {
    * Whether this package's upstream metadata directly tags it as a game
    * — Flathub/AppCenter's AppStream `<categories><category>Game</category>`
    * (the freedesktop.org menu spec's own top-level category, parsed via
-   * `_shared/appstream.ts`), a direct first-party signal. Used alongside
+   * `_shared/appstream.ts`), or Snapcraft's own dedicated "games" store
+   * category (see snap-snapcraft/fetch.ts's `applyCategories`) — a direct
+   * first-party signal either way. Used alongside
    * the curator module's Section-based heuristic (Debian-family `games`
    * sections, Gentoo's `games-*` category, openSUSE's `Amusements/Games`
    * group, Solus's `games.*` PartOf) to set `CatalogApp.contentType` —
@@ -142,9 +144,15 @@ export interface SourcedPackage {
   hasGameCategory?: boolean;
   /**
    * Every raw freedesktop.org menu spec category value from this
-   * package's upstream metadata (e.g. `["AudioVideo", "Player"]`) — only
-   * Flathub/AppCenter currently populate this (parsed via
-   * `_shared/appstream.ts`). Used by the curator module's enrich stage
+   * package's upstream metadata (e.g. `["AudioVideo", "Player"]`) —
+   * Flathub/AppCenter populate this from AppStream (parsed via
+   * `_shared/appstream.ts`); Snapcraft populates it too, translated from
+   * its own, differently-shaped store-category vocabulary to the closest
+   * matching freedesktop tag (see snap-snapcraft/fetch.ts's
+   * `SNAP_CATEGORY_TO_FREEDESKTOP` — only the categories verified to line
+   * up cleanly are translated, most of Snapcraft's vocabulary has no
+   * equivalent and is left untranslated). Used by the curator module's
+   * enrich stage
    * (`pickCategory` in `enrich/category.ts`) to set `CatalogApp.category`
    * — undefined/empty here means "not sourced", not "no category".
    */

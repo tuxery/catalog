@@ -52,6 +52,38 @@ const CATEGORIES = [
 
 const QUERY_CHARS = [..."abcdefghijklmnopqrstuvwxyz0123456789"];
 
+// Snapcraft's own store-category vocabulary (development, art-and-design,
+// ...) doesn't share freedesktop.org's category vocabulary the rest of the
+// catalog's classifier expects (SourcedPackage.categories, enrich/
+// category.ts's pickCategory) — most of it doesn't map cleanly onto ours
+// at all. Checked live and rejected: devices-and-iot and health-and-fitness
+// (no equivalent category exists), entertainment (mixes media players,
+// downloaders, a terminal toy, and a real-time-strategy game — too vague
+// to place), personalisation (mixes disk-cleaners and a graphical shell in
+// with actual wallpapers/themes), server-and-cloud (Kubernetes/infra/
+// sysadmin tooling, a different concept from our desktop-scoped "System
+// Tools"), featured (not a real category, already its own storeCollections
+// tag above). Only the mappings below were verified live to line up
+// closely enough with an existing freedesktop key to reuse it outright —
+// no new category or config file needed, pickCategory picks it up
+// unchanged since it's keyed by the same freedesktop vocabulary Flathub/
+// AppCenter already populate this field with.
+const SNAP_CATEGORY_TO_FREEDESKTOP: Record<string, string> = {
+  "art-and-design": "Graphics",
+  "books-and-reference": "Documentation",
+  development: "Development",
+  education: "Education",
+  finance: "Finance",
+  "music-and-audio": "Audio",
+  "news-and-weather": "News",
+  "photo-and-video": "Photography",
+  productivity: "Office",
+  science: "Science",
+  security: "Security",
+  social: "Chat",
+  utilities: "Utility",
+};
+
 interface RawMedia {
   type?: string;
   url?: string;
@@ -100,6 +132,45 @@ export function applyFeaturedTag(
   );
 }
 
+/**
+ * Translates each swept Snap store category into the freedesktop-equivalent
+ * tag `pickCategory` already understands (see `SNAP_CATEGORY_TO_FREEDESKTOP`
+ * above), and separately flags the dedicated "games" category as
+ * `hasGameCategory` — Snap's own vocabulary has no game-genre granularity
+ * to translate onto `GAME_CATEGORY_LABELS`. A snap can legitimately appear
+ * under more than one category sweep, so `categories` can carry more than
+ * one tag. Pure — no I/O — so it's the part covered by tests.
+ */
+export function applyCategories(
+  entries: SnapcraftCacheEntry[],
+  namesByCategory: Map<string, string[]>,
+): SnapcraftCacheEntry[] {
+  const freedesktopByName = new Map<string, Set<string>>();
+  const gameNames = new Set<string>();
+
+  for (const [category, names] of namesByCategory) {
+    if (category === "games") {
+      for (const name of names) gameNames.add(name);
+      continue;
+    }
+    const freedesktop = SNAP_CATEGORY_TO_FREEDESKTOP[category];
+    if (!freedesktop) continue;
+    for (const name of names) {
+      const tags = freedesktopByName.get(name) ?? new Set<string>();
+      tags.add(freedesktop);
+      freedesktopByName.set(name, tags);
+    }
+  }
+
+  return entries.map((entry) => {
+    const tags = freedesktopByName.get(entry.name);
+    return Object.assign(entry, {
+      categories: tags ? [...tags] : undefined,
+      hasGameCategory: gameNames.has(entry.name) || undefined,
+    });
+  });
+}
+
 async function find(params: string, label: string): Promise<RawResult[]> {
   const url = `${FIND_URL}?${params}&fields=${FIELDS}`;
   const response = await fetchOrThrow(url, `Snapcraft "${label}"`, {
@@ -125,11 +196,17 @@ export async function fetchSnapcraft(cachePath: string): Promise<number> {
   ]);
 
   const featuredNames = new Set(featuredResults.map((result) => result.name).filter(Boolean));
+  const namesByCategory = new Map(
+    CATEGORIES.map((category, i) => [
+      category,
+      (categoryResults[i] ?? []).map((result) => result.name).filter(Boolean),
+    ]),
+  );
   const deduped = dedupeByKey(
     mapResults([...categoryResults.flat(), ...queryResults.flat()]),
     (entry) => entry.name,
   );
-  const entries = applyFeaturedTag(deduped, featuredNames);
+  const entries = applyCategories(applyFeaturedTag(deduped, featuredNames), namesByCategory);
 
   writeNdjson(cachePath, entries);
   writeMetadata<SnapcraftFetchMetadata>(cachePath, {

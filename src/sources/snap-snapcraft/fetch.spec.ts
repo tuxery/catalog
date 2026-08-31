@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { applyFeaturedTag, mapResults } from "./fetch";
+import { applyCategories, applyFeaturedTag, mapResults } from "./fetch";
 import type { SnapcraftCacheEntry } from "./types";
 
 describe("mapResults", () => {
@@ -72,5 +72,48 @@ describe("applyFeaturedTag", () => {
   it("leaves storeCollections undefined for an empty featured set", () => {
     const tagged = applyFeaturedTag([entry("code")], new Set());
     expect(tagged[0]?.storeCollections).toBeUndefined();
+  });
+});
+
+describe("applyCategories", () => {
+  it("translates a swept Snap category to its freedesktop-equivalent tag", () => {
+    const tagged = applyCategories([entry("gimp")], new Map([["art-and-design", ["gimp"]]]));
+
+    expect(tagged[0]?.categories).toEqual(["Graphics"]);
+    expect(tagged[0]?.hasGameCategory).toBeUndefined();
+  });
+
+  it("carries more than one freedesktop tag when a snap swept under multiple categories", () => {
+    const tagged = applyCategories(
+      [entry("krita")],
+      new Map([
+        ["art-and-design", ["krita"]],
+        ["photo-and-video", ["krita"]],
+      ]),
+    );
+
+    expect(tagged[0]?.categories).toEqual(expect.arrayContaining(["Graphics", "Photography"]));
+    expect(tagged[0]?.categories).toHaveLength(2);
+  });
+
+  it("flags the dedicated games category as hasGameCategory, not as a categories tag", () => {
+    const tagged = applyCategories([entry("0ad")], new Map([["games", ["0ad"]]]));
+
+    expect(tagged[0]?.hasGameCategory).toBe(true);
+    expect(tagged[0]?.categories).toBeUndefined();
+  });
+
+  it("ignores a swept category with no freedesktop equivalent", () => {
+    const tagged = applyCategories([entry("chezmoi")], new Map([["personalisation", ["chezmoi"]]]));
+
+    expect(tagged[0]?.categories).toBeUndefined();
+    expect(tagged[0]?.hasGameCategory).toBeUndefined();
+  });
+
+  it("leaves an unswept entry untouched", () => {
+    const tagged = applyCategories([entry("code")], new Map([["development", ["other-snap"]]]));
+
+    expect(tagged[0]?.categories).toBeUndefined();
+    expect(tagged[0]?.hasGameCategory).toBeUndefined();
   });
 });

@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "@helpers4/array": "^3.0.9",
+    "@helpers4/function": "^3.0.9",
     "@helpers4/map": "^3.0.9",
     "@helpers4/object": "^3.0.9",
     "@helpers4/promise": "^3.0.9",

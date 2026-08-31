@@ -1,4 +1,5 @@
 import { fileURLToPath } from "node:url";
+import { memoize } from "@helpers4/function";
 import { z } from "zod";
 import { readJson } from "../_shared/json";
 import { AppCategoryLabelSchema, type AppCategoryLabel } from "./category";
@@ -41,21 +42,14 @@ export function loadCategoryRules(): CategoryRuleEntry[] {
 // the whole catalog (tens of thousands of calls) against the same fixed
 // rule list every time — recompiling every pattern's RegExp on every call
 // would mean millions of redundant compilations for a set of patterns
-// that never changes at runtime. Cached by pattern string rather than by
-// rule object so two different rules that happen to share a pattern
-// string (none do today, but nothing stops it) still share one compile.
-const globRegExpCache = new Map<string, RegExp>();
-
-/** Escapes every regex metacharacter except the glob's own `*`, then turns that into `.*` — memoized, see `globRegExpCache`. */
-function globToRegExp(pattern: string): RegExp {
-  const cached = globRegExpCache.get(pattern);
-  if (cached) return cached;
-
+// that never changes at runtime. `@helpers4/function`'s `memoize` caches
+// by (JSON-stringified) argument, i.e. by pattern string here, so two
+// different rules that happen to share a pattern string (none do today,
+// but nothing stops it) still share one compile.
+const globToRegExp = memoize((pattern: string): RegExp => {
   const escaped = pattern.replace(/[.+?^${}()|[\]\\]/g, "\\$&").replace(/\*/g, ".*");
-  const regExp = new RegExp(`^${escaped}$`, "i");
-  globRegExpCache.set(pattern, regExp);
-  return regExp;
-}
+  return new RegExp(`^${escaped}$`, "i");
+});
 
 /**
  * The first rule (in file order — earlier entries win, same "more specific

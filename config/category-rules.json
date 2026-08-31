@@ -918,5 +918,125 @@
     "pattern": "flexmark-*",
     "category": "Developer Tools",
     "reason": "Flexmark's own Java Markdown-processing library ecosystem."
+  },
+  {
+    "pattern": "unity-*",
+    "category": "Settings",
+    "reason": "Unity desktop's own lens/control-panel ecosystem, same desktop-configuration reasoning as gnome-*/kde-*."
+  },
+  {
+    "pattern": "pantheon-*",
+    "category": "Settings",
+    "reason": "elementary OS's Pantheon desktop's own component ecosystem, same reasoning as unity-*."
+  },
+  {
+    "pattern": "elementary-*",
+    "category": "Settings",
+    "reason": "elementary OS's own app/settings-daemon ecosystem, same reasoning as pantheon-*."
+  },
+  {
+    "pattern": "cinnamon-*",
+    "category": "Settings",
+    "reason": "Cinnamon desktop's own applet/theme ecosystem, same reasoning as gnome-*/kde-*."
+  },
+  {
+    "pattern": "caja-*",
+    "category": "Settings",
+    "reason": "Caja (MATE's file manager)'s own extension ecosystem, same reasoning as nautilus-*."
+  },
+  {
+    "pattern": "dovecot-*",
+    "category": "Internet & Communication",
+    "reason": "Dovecot (a real IMAP/POP3 mail server)'s own plugin ecosystem, same reasoning as claws-*/pidgin-*."
+  },
+  {
+    "pattern": "avahi-*",
+    "category": "System Tools",
+    "reason": "Avahi's own service-discovery tooling ecosystem — core network infrastructure."
+  },
+  {
+    "pattern": "cnijfilter*",
+    "category": "System Tools",
+    "reason": "Canon's own per-printer-model driver packages, same family as brother-*/epson*."
+  },
+  {
+    "pattern": "cups-*",
+    "category": "System Tools",
+    "reason": "CUPS's own client/server/config ecosystem — the core Linux printing system infrastructure."
+  },
+  {
+    "pattern": "zfs-*",
+    "category": "System Tools",
+    "reason": "ZFS's own tooling ecosystem (zfs-undelete, zfs-utils-py, ...) — storage/filesystem infrastructure."
+  },
+  {
+    "pattern": "ceph-*",
+    "category": "System Tools",
+    "reason": "Ceph's own storage-cluster tooling ecosystem, same reasoning as zfs-*."
+  },
+  {
+    "pattern": "slurm-*",
+    "category": "System Tools",
+    "reason": "Slurm's own HPC-cluster job-scheduler tooling ecosystem."
+  },
+  {
+    "pattern": "dracut-*",
+    "category": "System Tools",
+    "reason": "dracut's own initramfs-module ecosystem, same reasoning as mkinitcpio-*."
+  },
+  {
+    "pattern": "apt-*",
+    "category": "System Tools",
+    "reason": "APT's own tooling ecosystem (apt-dater, apt-cacher-ng, apt-move, ...) — matches freedesktop's own PackageManager key, already mapped to System Tools."
+  },
+  {
+    "pattern": "ffmpeg-*",
+    "category": "Photo & Video",
+    "reason": "FFmpeg's own tooling ecosystem (ffmpeg-audio-thumbnailer, ffmpeg-decklink, ...)."
+  },
+  {
+    "pattern": "openssh-*",
+    "category": "Security",
+    "reason": "OpenSSH's own server/client/tooling ecosystem — secure remote access infrastructure."
+  },
+  {
+    "pattern": "pass-*",
+    "category": "Security",
+    "reason": "pass (the standard Unix password manager)'s own extension ecosystem (pass-coffin, pass-tessen, ...)."
+  },
+  {
+    "pattern": "vala-*",
+    "category": "Developer Tools",
+    "reason": "Vala's own tooling ecosystem (vala-lint-git, ...) — a real programming language and its developer tooling."
+  },
+  {
+    "pattern": "ant-*",
+    "category": "Developer Tools",
+    "reason": "Apache Ant's own optional-tasks ecosystem (ant-commons-net, ant-apache-bcel, ...)."
+  },
+  {
+    "pattern": "jackson-*",
+    "category": "Developer Tools",
+    "reason": "Jackson's own Java JSON-library-ecosystem component packages."
+  },
+  {
+    "pattern": "mkdocs-*",
+    "category": "Developer Tools",
+    "reason": "MkDocs's own plugin/theme ecosystem — documentation-site-generator developer tooling."
+  },
+  {
+    "pattern": "proj-*",
+    "category": "Science",
+    "reason": "PROJ's own cartographic-projection data ecosystem (proj-data-ca, proj-data-world, ...) — geospatial/GIS infrastructure, same reasoning as gdal-*."
+  },
+  {
+    "pattern": "collabora-*",
+    "category": "Productivity",
+    "reason": "Collabora Online (a real LibreOffice-based collaborative office suite)'s own per-language server/desktop ecosystem — matches freedesktop's own Office key, already mapped to Productivity."
+  },
+  {
+    "pattern": "youtube-*",
+    "category": "Internet & Communication",
+    "reason": "YouTube-client tooling (youtube-tv-desktop-app, youtube-upload-git, youtube-tui, ...) — web-service client software."
   }
 ]

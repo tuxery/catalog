@@ -324,6 +324,21 @@ describe("looksLikeSupportPackage", () => {
     expect(looksLikeSupportPackage("texmf-dist-latex")).toBe(true);
     expect(looksLikeSupportPackage("typelib-1_0-ICal-3_0")).toBe(true);
   });
+
+  it("flags LibreOffice's mythes- thesaurus-data convention and woff- font packages", () => {
+    expect(looksLikeSupportPackage("mythes-gl")).toBe(true);
+    expect(looksLikeSupportPackage("woff-fira-code")).toBe(true);
+  });
+
+  it("flags Adobe's own font/character-mapping-data packages, not the real apps/tools sharing the prefix", () => {
+    expect(looksLikeSupportPackage("adobe-source-han-mono-hk-fonts")).toBe(true);
+    expect(looksLikeSupportPackage("adobe-source-han-super-otc")).toBe(true);
+    expect(looksLikeSupportPackage("adobe-mappings-cmap")).toBe(true);
+    expect(looksLikeSupportPackage("adobe-dng-lcp")).toBe(true);
+    expect(looksLikeSupportPackage("adobe-reader-11")).toBe(false);
+    expect(looksLikeSupportPackage("Adobe-Connect-Linux")).toBe(false);
+    expect(looksLikeSupportPackage("adobe-afdko")).toBe(false);
+  });
 });
 
 describe("looksLikeSourceSpecificNoise", () => {

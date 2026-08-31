@@ -1293,5 +1293,105 @@
     "pattern": "ubuntustudio-*",
     "category": "Settings",
     "reason": "Ubuntu Studio's own meta-package/wallpaper/settings ecosystem — desktop customization, same reasoning as gnome-*/kde-*."
+  },
+  {
+    "pattern": "claude-*",
+    "category": "Developer Tools",
+    "reason": "Claude AI's own desktop-app/CLI-tooling ecosystem (claude-desktop, claude-code-router, claude-tap-git, ...) — predominantly AI-coding-assistant developer tooling."
+  },
+  {
+    "pattern": "kicad-*",
+    "category": "Science",
+    "reason": "KiCad (a real electronic-design-automation suite)'s own tooling ecosystem — matches freedesktop's own Engineering key, already mapped to Science."
+  },
+  {
+    "pattern": "niri-*",
+    "category": "Settings",
+    "reason": "Niri (a real scrollable-tiling Wayland compositor)'s own tooling ecosystem, same reasoning as sway-*/hyprland-*/i3-*."
+  },
+  {
+    "pattern": "coc-*",
+    "category": "Utilities",
+    "reason": "coc.nvim (a real Neovim completion engine)'s own extension ecosystem, same reasoning as neovim-*/vim-*."
+  },
+  {
+    "pattern": "yt-*",
+    "category": "Internet & Communication",
+    "reason": "yt-dlp/youtube-dl-based client tooling (yt-dlg, yt-cli, yt-beats, ...), same reasoning as youtube-*."
+  },
+  {
+    "pattern": "bareos-*",
+    "category": "System Tools",
+    "reason": "Bareos (a real network-backup tool, a Bacula fork)'s own component ecosystem, same reasoning as bacula-*."
+  },
+  {
+    "pattern": "cmus-*",
+    "category": "Music & Audio",
+    "reason": "cmus (a real console music player)'s own plugin ecosystem."
+  },
+  {
+    "pattern": "gnustep-*",
+    "category": "Developer Tools",
+    "reason": "GNUstep's own framework/library ecosystem — a real Objective-C application framework."
+  },
+  {
+    "pattern": "greetd-*",
+    "category": "Settings",
+    "reason": "greetd's own greeter ecosystem, same reasoning as sddm-*/lightdm-*."
+  },
+  {
+    "pattern": "icingaweb2-*",
+    "category": "System Tools",
+    "reason": "Icinga Web 2's own module ecosystem — monitoring infrastructure, same reasoning as nagios-*/zabbix-*."
+  },
+  {
+    "pattern": "mdbook-*",
+    "category": "Developer Tools",
+    "reason": "mdBook's own preprocessor/plugin ecosystem, same reasoning as mkdocs-*."
+  },
+  {
+    "pattern": "openstack-*",
+    "category": "System Tools",
+    "reason": "OpenStack's own tooling ecosystem (openstack-pkg-tools, openstack-proxy-node, ...) — cloud infrastructure management."
+  },
+  {
+    "pattern": "opencl-*",
+    "category": "Developer Tools",
+    "reason": "OpenCL's own driver/tooling ecosystem (opencl-caps-viewer, opencl-nvidia-575xx, ...) — GPU-compute API family, same reasoning as vulkan-*."
+  },
+  {
+    "pattern": "nss-*",
+    "category": "System Tools",
+    "reason": "NSS (Name Service Switch)'s own plugin ecosystem (nss-mdns, nss-docker, ...) — core system name-resolution infrastructure."
+  },
+  {
+    "pattern": "thunderbird-*",
+    "category": "Internet & Communication",
+    "reason": "Thunderbird's own extension ecosystem, same reasoning as firefox-*."
+  },
+  {
+    "pattern": "akonadi-*",
+    "category": "Internet & Communication",
+    "reason": "Akonadi (KDE's PIM storage framework)'s own backend ecosystem — mail/contacts/calendar storage, same family as evolution-*/dovecot-*."
+  },
+  {
+    "pattern": "compiz-*",
+    "category": "Settings",
+    "reason": "Compiz compositor's own plugin ecosystem, same reasoning as kwin-*."
+  },
+  {
+    "pattern": "connman-*",
+    "category": "System Tools",
+    "reason": "ConnMan's own plugin ecosystem, same reasoning as networkmanager-*."
+  },
+  {
+    "pattern": "gitlab-*",
+    "category": "Developer Tools",
+    "reason": "GitLab's own tooling ecosystem (gitlab-workhorse, gitlab-shell, gitlab-inbox-bin, ...)."
+  },
+  {
+    "pattern": "harrison-*",
+    "category": "Music & Audio",
+    "reason": "Harrison Consoles' own LV2/VST audio-plugin ecosystem, same reasoning as lv2-*/vcvrack-*."
   }
 ]

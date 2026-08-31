@@ -1568,5 +1568,70 @@
     "pattern": "education-*",
     "category": "Education",
     "reason": "Debian Edu's own per-level/per-desktop application-bundle ecosystem (education-preschool, education-primaryschool, ...) — children's/school educational software by design, same reasoning as sugar-*."
+  },
+  {
+    "pattern": "polkit-*",
+    "category": "Security",
+    "reason": "PolicyKit's own binding/tooling ecosystem — system-authorization infrastructure."
+  },
+  {
+    "pattern": "flatpak-*",
+    "category": "Developer Tools",
+    "reason": "Flatpak's own dev-tooling ecosystem (flatpak-go-mod, flatpak-xdg-utils-tests, ...) — application-sandboxing developer tooling."
+  },
+  {
+    "pattern": "asus-*",
+    "category": "System Tools",
+    "reason": "ASUS's own per-device driver/utility ecosystem (asus-numberpad-driver-g533-git, asus-wmi-screenpad-ctl, ...) — hardware infrastructure."
+  },
+  {
+    "pattern": "gvfs-*",
+    "category": "System Tools",
+    "reason": "GVfs's own backend ecosystem — GNOME's virtual-filesystem infrastructure, same reasoning as kio-*."
+  },
+  {
+    "pattern": "kio-*",
+    "category": "System Tools",
+    "reason": "KIO's own slave/backend ecosystem — KDE's virtual-filesystem infrastructure, same reasoning as gvfs-*."
+  },
+  {
+    "pattern": "jack-*",
+    "category": "Music & Audio",
+    "reason": "JACK Audio Connection Kit's own tooling ecosystem."
+  },
+  {
+    "pattern": "phonon-*",
+    "category": "Music & Audio",
+    "reason": "Phonon's own backend ecosystem — KDE's multimedia-framework infrastructure."
+  },
+  {
+    "pattern": "protobuf-*",
+    "category": "Developer Tools",
+    "reason": "Protocol Buffers' own compiler/language-binding ecosystem."
+  },
+  {
+    "pattern": "purple-*",
+    "category": "Internet & Communication",
+    "reason": "libpurple's own protocol-plugin ecosystem (purple-discord-git, purple-teams-git, ...) — instant-messaging infrastructure, same family as pidgin-*."
+  },
+  {
+    "pattern": "supercollider-*",
+    "category": "Music & Audio",
+    "reason": "SuperCollider (a real real-time audio-synthesis language/environment)'s own plugin ecosystem."
+  },
+  {
+    "pattern": "sphinx-*",
+    "category": "Developer Tools",
+    "reason": "Sphinx's own theme/extension ecosystem — Python documentation-generator developer tooling, same reasoning as mkdocs-*/mdbook-*."
+  },
+  {
+    "pattern": "lucene-*",
+    "category": "Developer Tools",
+    "reason": "Apache Lucene's own module ecosystem — a real search-indexing developer library."
+  },
+  {
+    "pattern": "aur-*",
+    "category": "Developer Tools",
+    "reason": "AUR-tooling ecosystem (aur-security-auditor, aur-out-of-date, aur-scanner-rc, ...) — AUR-package developer/maintainer tooling."
   }
 ]

@@ -353,5 +353,220 @@
     "pattern": "nix-*",
     "category": "Developer Tools",
     "reason": "Nix's own real standalone tooling ecosystem (nix-eval-jobs, nix-melt, nix-serve-ng, nix-converter, ...) — not the Nixpkgs attribute-set noise filter/rules.ts already excludes, real per-tool AUR/distro packages."
+  },
+  {
+    "pattern": "gnome-*",
+    "category": "Settings",
+    "reason": "GNOME desktop's own theme/extension/applet ecosystem (gnome-shell-theme-elegance-orange-git, gnome-tuner-tweaks, ...), plus real standalone GNOME apps that also share the prefix — matches the yast2-* -> Settings precedent for desktop-environment configuration/customization."
+  },
+  {
+    "pattern": "kde-*",
+    "category": "Settings",
+    "reason": "KDE desktop's own ecosystem, same reasoning as gnome-*."
+  },
+  {
+    "pattern": "kf5-*",
+    "category": "Settings",
+    "reason": "KDE Frameworks 5's own component ecosystem, same reasoning as gnome-*/kde-*."
+  },
+  {
+    "pattern": "plasma-*",
+    "category": "Settings",
+    "reason": "KDE Plasma's own widget/applet ecosystem, same reasoning as gnome-*/kde-*."
+  },
+  {
+    "pattern": "plasma6-*",
+    "category": "Settings",
+    "reason": "KDE Plasma 6's own widget/applet ecosystem, same reasoning as plasma-*."
+  },
+  {
+    "pattern": "xfce4-*",
+    "category": "Settings",
+    "reason": "Xfce desktop's own panel-plugin ecosystem, same reasoning as gnome-*/kde-*."
+  },
+  {
+    "pattern": "mate-*",
+    "category": "Settings",
+    "reason": "MATE desktop's own ecosystem, same reasoning as gnome-*/kde-*."
+  },
+  {
+    "pattern": "budgie-*",
+    "category": "Settings",
+    "reason": "Budgie desktop's own applet ecosystem, same reasoning as gnome-*/kde-*."
+  },
+  {
+    "pattern": "cosmic-*",
+    "category": "Settings",
+    "reason": "System76's COSMIC desktop's own app/applet/settings ecosystem, same reasoning as gnome-*/kde-*."
+  },
+  {
+    "pattern": "lomiri-*",
+    "category": "Settings",
+    "reason": "Ubuntu Touch's Lomiri desktop's own component ecosystem, same reasoning as gnome-*/kde-*."
+  },
+  {
+    "pattern": "lxqt-*",
+    "category": "Settings",
+    "reason": "LXQt desktop's own component ecosystem, same reasoning as gnome-*/kde-*."
+  },
+  {
+    "pattern": "sddm-*",
+    "category": "Settings",
+    "reason": "SDDM display-manager's own theme/config ecosystem, same desktop-configuration reasoning as gnome-*/kde-*."
+  },
+  {
+    "pattern": "lightdm-*",
+    "category": "Settings",
+    "reason": "LightDM display-manager's own greeter/theme ecosystem, same reasoning as sddm-*."
+  },
+  {
+    "pattern": "gtk2-*",
+    "category": "Settings",
+    "reason": "GTK2 theme/engine ecosystem (gtk2-metatheme-bluebird, gtk2-engines-aurora, ...) — desktop visual customization, same reasoning as gnome-*/kde-*."
+  },
+  {
+    "pattern": "vim-*",
+    "category": "Utilities",
+    "reason": "Vim's own plugin ecosystem — real text-editing tooling, matching the existing TextEditor -> Utilities precedent."
+  },
+  {
+    "pattern": "emacs-*",
+    "category": "Utilities",
+    "reason": "Debian's own Emacs package-ecosystem prefix (distinct from Fedora's elpa- and Gentoo's app-emacs conventions, already excluded as noise) — same reasoning as vim-*."
+  },
+  {
+    "pattern": "neovim-*",
+    "category": "Utilities",
+    "reason": "Neovim's own plugin ecosystem, same reasoning as vim-*."
+  },
+  {
+    "pattern": "rofi-*",
+    "category": "Utilities",
+    "reason": "Rofi (a real application launcher)'s own plugin/theme ecosystem."
+  },
+  {
+    "pattern": "zsh-*",
+    "category": "System Tools",
+    "reason": "Zsh's own plugin ecosystem (zsh-notify-git, zsh-antidote, ...) — shell customization, matches freedesktop's own ConsoleOnly key, already mapped to System Tools."
+  },
+  {
+    "pattern": "busybox-*",
+    "category": "System Tools",
+    "reason": "BusyBox's own applet ecosystem (busybox-syslogd, busybox-crond, ...) — core system utilities."
+  },
+  {
+    "pattern": "git-*",
+    "category": "Developer Tools",
+    "reason": "Git's own subcommand/tooling ecosystem (git-archive-all, git-credential-rbw, git-crecord, ...) — real developer version-control tooling."
+  },
+  {
+    "pattern": "xorg-*",
+    "category": "System Tools",
+    "reason": "The remaining real Xorg client utilities after filter/rules.ts's narrower xorg-x11-drv-/xorg-fonts-/xorg-util-macros exclusions (xorg-xdpyinfo, xorg-setxkbmap, xorg-xdriinfo, xorg-xrefresh, ...) — same family as this file's own x11-apps (Gentoo) mapping."
+  },
+  {
+    "pattern": "obs-*",
+    "category": "Photo & Video",
+    "reason": "OBS Studio's own plugin ecosystem (obs-spectralizer, obs-backgroundremoval, obs-kinect-bin, ...)."
+  },
+  {
+    "pattern": "vdr-*",
+    "category": "Photo & Video",
+    "reason": "VDR (Video Disk Recorder)'s own plugin ecosystem (vdr-femon, vdr-zappilot, ...)."
+  },
+  {
+    "pattern": "vlc-*",
+    "category": "Photo & Video",
+    "reason": "VLC's own plugin ecosystem (vlc-plugins-video-output, ...)."
+  },
+  {
+    "pattern": "kodi-*",
+    "category": "Photo & Video",
+    "reason": "Kodi's own addon ecosystem (kodi-addon-inputstream-ffmpegdirect, kodi-addon-vfs-sacd, ...)."
+  },
+  {
+    "pattern": "gimp-*",
+    "category": "Graphics & Design",
+    "reason": "GIMP's own plugin ecosystem."
+  },
+  {
+    "pattern": "geany-*",
+    "category": "Developer Tools",
+    "reason": "Geany (a real lightweight IDE)'s own plugin ecosystem."
+  },
+  {
+    "pattern": "android-*",
+    "category": "Developer Tools",
+    "reason": "Android SDK's own tool/platform-image ecosystem (android-tools, android-emulator, android-platform-16, ...) — developer tooling for building/testing Android software."
+  },
+  {
+    "pattern": "gambas3-*",
+    "category": "Developer Tools",
+    "reason": "Gambas3 (a real BASIC-like RAD IDE)'s own component ecosystem."
+  },
+  {
+    "pattern": "abseil*",
+    "category": "Developer Tools",
+    "reason": "Abseil, Google's real C++ common-libraries project, and its own component packages."
+  },
+  {
+    "pattern": "openjdk-*",
+    "category": "Developer Tools",
+    "reason": "OpenJDK's own per-version JRE/JDK build ecosystem, same reasoning as java-*."
+  },
+  {
+    "pattern": "kernel-*",
+    "category": "System Tools",
+    "reason": "Kernel module/firmware/header packages (kernel-firmware-ueagle, kernel-modules, kernel-headers-musl-i386, ...) — core system components."
+  },
+  {
+    "pattern": "openwrt-*",
+    "category": "System Tools",
+    "reason": "OpenWrt router-firmware toolchain packages — niche but real, System-Tools-appropriate."
+  },
+  {
+    "pattern": "rsyslog-*",
+    "category": "System Tools",
+    "reason": "rsyslog's own module ecosystem (rsyslog-hiredis, rsyslog-openssl, ...) — system logging infrastructure."
+  },
+  {
+    "pattern": "mesa-*",
+    "category": "System Tools",
+    "reason": "Mesa's own graphics-driver ecosystem (mesa-vulkan-lavapipe, mesa-gl, ...) — infrastructure, not a creative tool."
+  },
+  {
+    "pattern": "nautilus-*",
+    "category": "System Tools",
+    "reason": "GNOME Files (Nautilus)'s own extension ecosystem — matches freedesktop's own FileManager key, already mapped to System Tools."
+  },
+  {
+    "pattern": "nextcloud-*",
+    "category": "Internet & Communication",
+    "reason": "Nextcloud's own app ecosystem (nextcloud-app-calendar_resource_management, nextcloud-app-oidc, ...) — cloud collaboration/communication software."
+  },
+  {
+    "pattern": "chromium-*",
+    "category": "Internet & Communication",
+    "reason": "Chromium's own extension ecosystem — matches freedesktop's own WebBrowser key, already mapped to Internet & Communication."
+  },
+  {
+    "pattern": "claws-*",
+    "category": "Internet & Communication",
+    "reason": "Claws Mail's own plugin ecosystem (claws-mail-plugins-rssyl, claws-mail-bsfilter-plugin, ...) — email client tooling."
+  },
+  {
+    "pattern": "pidgin-*",
+    "category": "Internet & Communication",
+    "reason": "Pidgin's own plugin ecosystem (pidgin-sipe-git, pidgin-meshtastic-git, ...) — instant-messaging client tooling."
+  },
+  {
+    "pattern": "sugar-*",
+    "category": "Education",
+    "reason": "Sugar Learning Platform (One Laptop Per Child)'s own activity ecosystem (sugar-read, sugar-deducto, ...) — children's educational software by design."
+  },
+  {
+    "pattern": "rhvoice-*",
+    "category": "Music & Audio",
+    "reason": "RHVoice's own per-language text-to-speech voice-data ecosystem — speech synthesis, audio-domain content."
   }
 ]

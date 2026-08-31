@@ -307,6 +307,18 @@ describe("looksLikeSupportPackage", () => {
     expect(looksLikeSupportPackage("ispell")).toBe(false);
     expect(looksLikeSupportPackage("aspell-git")).toBe(false);
   });
+
+  it("flags dict/dictd's per-dictionary data convention, not the real dictd client", () => {
+    expect(looksLikeSupportPackage("dict-freedict-tur-deu")).toBe(true);
+    expect(looksLikeSupportPackage("dict-gcide")).toBe(true);
+    expect(looksLikeSupportPackage("dict")).toBe(false);
+  });
+
+  it("flags woff2-/xfonts-/hyphen- font and hyphenation data conventions", () => {
+    expect(looksLikeSupportPackage("woff2-noto")).toBe(true);
+    expect(looksLikeSupportPackage("xfonts-base")).toBe(true);
+    expect(looksLikeSupportPackage("hyphen-de")).toBe(true);
+  });
 });
 
 describe("looksLikeSourceSpecificNoise", () => {

@@ -159,6 +159,19 @@ export interface CatalogApp {
    * sources' own, ingested as-is.
    */
   storeCollections?: StoreCollectionTag[];
+  /**
+   * The sum of every member package's own `installsTotal`, when at least
+   * one has one — see `enrich/index.ts`'s `aggregateInstalls`. Flathub
+   * only today. `undefined` when no member package reports installs.
+   */
+  installsTotal?: number;
+  /**
+   * The sum of every member package's own `installsLast7Days` — the
+   * "Download trends" homepage row's actual ranking signal, see
+   * `installsTotal`'s doc comment for why a weekly figure matters
+   * separately from the lifetime total.
+   */
+  installsLast7Days?: number;
   /** Not sourced yet — no upstream store API among current sources exposes reviews. */
   reviews?: Array<{ author: string; text: string; rating: number }>;
   /** Not sourced yet. */

@@ -84,6 +84,23 @@ describe("flathub normalize", () => {
     expect(normalize([entry])[0]?.lastUpdated).toBe("2026-08-10T00:00:00.000Z");
   });
 
+  it("carries installsTotal and installsLast7Days through unchanged", () => {
+    const entry: FlathubCacheEntry = {
+      id: "org.example.App",
+      name: "App",
+      summary: "An app",
+      hasGameCategory: false,
+      categories: [],
+      screenshots: [],
+      installsTotal: 12_000_000,
+      installsLast7Days: 45_000,
+    };
+
+    const result = normalize([entry])[0];
+    expect(result?.installsTotal).toBe(12_000_000);
+    expect(result?.installsLast7Days).toBe(45_000);
+  });
+
   it("carries hasGameCategory through when true", () => {
     const entry: FlathubCacheEntry = {
       id: "org.example.Game",

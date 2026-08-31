@@ -541,6 +541,36 @@ describe("enrichApps", () => {
     expect(enrichApps(matched)[0]?.lastUpdated).toBeUndefined();
   });
 
+  it("sums installsTotal and installsLast7Days across member packages, unlike popularity's mean", () => {
+    const matched: MatchedApp[] = [
+      {
+        id: "flathub:example",
+        packages: [
+          pkg({
+            source: "flatpak-flathub",
+            installsTotal: 1_000_000,
+            installsLast7Days: 5_000,
+          }),
+          pkg({ source: "flatpak-appcenter", installsTotal: 200_000, installsLast7Days: 800 }),
+        ],
+      },
+    ];
+
+    const app = enrichApps(matched)[0];
+    expect(app?.installsTotal).toBe(1_200_000);
+    expect(app?.installsLast7Days).toBe(5_800);
+  });
+
+  it("leaves installsTotal/installsLast7Days undefined when no member package reports either", () => {
+    const matched: MatchedApp[] = [
+      { id: "aur:example", packages: [pkg({ source: "pacman-aur", name: "example" })] },
+    ];
+
+    const app = enrichApps(matched)[0];
+    expect(app?.installsTotal).toBeUndefined();
+    expect(app?.installsLast7Days).toBeUndefined();
+  });
+
   it("applies injected suite overrides across the whole enriched batch", () => {
     const matched: MatchedApp[] = [
       { id: "flatpak-flathub:org.example.Suite", packages: [pkg({ name: "Suite" })] },

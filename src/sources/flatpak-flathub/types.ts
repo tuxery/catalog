@@ -41,6 +41,10 @@ export interface FlathubCacheEntry {
   popularity?: number;
   /** See `SourcedPackage.storeCollections`. */
   storeCollections?: StoreCollectionTag[];
+  /** See `SourcedPackage.installsTotal`. */
+  installsTotal?: number;
+  /** See `SourcedPackage.installsLast7Days`. */
+  installsLast7Days?: number;
 }
 
 export interface FlathubFetchMetadata extends FetchMetadata {

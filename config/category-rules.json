@@ -1433,5 +1433,10 @@
     "pattern": "debian-*",
     "category": "Settings",
     "reason": "Debian's own installer/branding/tooling ecosystem, same reasoning as ubuntu-*/fedora-*."
+  },
+  {
+    "pattern": "google-android-*",
+    "category": "Developer Tools",
+    "reason": "Google's own Android SDK/NDK per-version installer ecosystem (google-android-platform-21-installer, google-android-ndk-r25c-installer, ...) — deliberately narrower than a blanket google- (checked and rejected as too heterogeneous, same reasoning as google-cloud-*)."
   }
 ]

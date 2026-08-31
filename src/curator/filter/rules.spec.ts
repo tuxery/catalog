@@ -361,6 +361,11 @@ describe("looksLikeSupportPackage", () => {
     expect(looksLikeSupportPackage("autocorr-de")).toBe(true);
     expect(looksLikeSupportPackage("autocorr-fr")).toBe(true);
   });
+
+  it("flags Google's Noto font-family packages", () => {
+    expect(looksLikeSupportPackage("google-noto-color-emoji-fonts")).toBe(true);
+    expect(looksLikeSupportPackage("google-noto-sans-lao-vf-fonts")).toBe(true);
+  });
 });
 
 describe("looksLikeSourceSpecificNoise", () => {

@@ -246,6 +246,49 @@ describe("looksLikeSupportPackage", () => {
     expect(looksLikeSupportPackage("xorg-xev")).toBe(false);
     expect(looksLikeSupportPackage("xorg-xwininfo")).toBe(false);
   });
+
+  it("flags openSUSE's YaST2 -trans- translation packages, the same shape as -l10n-/-langpack-/-locale-/-i18n-", () => {
+    expect(looksLikeSupportPackage("yast2-trans-fr")).toBe(true);
+    expect(looksLikeSupportPackage("yast2-trans-en_GB")).toBe(true);
+  });
+
+  it("flags Nginx's own module-package convention, not the bare package or real standalone tools that merely mention nginx", () => {
+    expect(looksLikeSupportPackage("nginx-mod-vts")).toBe(true);
+    expect(looksLikeSupportPackage("nginx-mainline-mod-rtmp")).toBe(true);
+    expect(looksLikeSupportPackage("nginx")).toBe(false);
+    expect(looksLikeSupportPackage("nginx-config-formatter")).toBe(false);
+  });
+
+  it("flags Tesseract OCR's per-language/per-script trained-data convention, not the real tools sharing its prefix", () => {
+    expect(looksLikeSupportPackage("tesseract-data-best-heb")).toBe(true);
+    expect(looksLikeSupportPackage("tesseract-script-hangul")).toBe(true);
+    expect(looksLikeSupportPackage("tesseract-osd")).toBe(true);
+    expect(looksLikeSupportPackage("tesseract-langpack-chi_sim_vert")).toBe(true);
+    expect(looksLikeSupportPackage("tesseract-ocr")).toBe(false);
+    expect(looksLikeSupportPackage("tesseract-gui")).toBe(false);
+    expect(looksLikeSupportPackage("tesseract-game")).toBe(false);
+    expect(looksLikeSupportPackage("tesseract-matrix")).toBe(false);
+  });
+
+  it("flags fortune-mod's quote-collection data packages and StarDict's dictionary-data packages, not their real base tools", () => {
+    expect(looksLikeSupportPackage("fortune-mod-kaamelott")).toBe(true);
+    expect(looksLikeSupportPackage("stardict-freedict-eng-fra")).toBe(true);
+    expect(looksLikeSupportPackage("stardict")).toBe(false);
+  });
+
+  it("flags Certbot's per-DNS-provider plugins, not the base client or its other real plugins", () => {
+    expect(looksLikeSupportPackage("certbot-dns-gandi")).toBe(true);
+    expect(looksLikeSupportPackage("certbot")).toBe(false);
+    expect(looksLikeSupportPackage("certbot-dns")).toBe(false);
+    expect(looksLikeSupportPackage("certbot-nginx-git")).toBe(false);
+  });
+
+  it("flags MATLAB's per-release GCC-version-pin meta-packages, not the base app or its real toolboxes", () => {
+    expect(looksLikeSupportPackage("matlab-r2024a-gcc-fortran-meta")).toBe(true);
+    expect(looksLikeSupportPackage("matlab-r2023b-gcc8-meta")).toBe(true);
+    expect(looksLikeSupportPackage("matlab")).toBe(false);
+    expect(looksLikeSupportPackage("matlab-dipimage")).toBe(false);
+  });
 });
 
 describe("looksLikeSourceSpecificNoise", () => {

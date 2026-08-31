@@ -143,8 +143,12 @@ const NOISE_PATTERNS: RegExp[] = [
   // <lang> language packs standing as their own "To Classify" entries —
   // same shape as the -l10n-/-langpack-/-locale- markers above, verified
   // live: every single match across pacman-aur/pacman-arch/xbps-void is a
-  // language pack, no counter-examples.
-  /-(l10n|langpack|locale|i18n)-[a-z]{2,3}(?:[_-][a-zA-Z]+)?$/,
+  // language pack, no counter-examples. openSUSE's YaST2's own marker —
+  // `-trans-` — found the same way, sweeping the broader "To Classify"
+  // set for more of this shape: 78 real yast2-trans-<lang> matches, no
+  // counter-examples (one incidental non-YaST2 match, rime-project-trans-
+  // bin, is itself a dictionary data file too).
+  /-(l10n|langpack|locale|i18n|trans)-[a-z]{2,3}(?:[_-][a-zA-Z]+)?$/,
   // Alpine's own convention for the same thing, no per-language split —
   // verified live: 1,831 matches across every source that uses it, always
   // <real-app-name>-lang (aisleriot-lang, akregator-lang, ark-lang,
@@ -280,6 +284,51 @@ const NOISE_PATTERNS: RegExp[] = [
   /^xorg-x11-drv-/,
   /^xorg-fonts-/,
   /^xorg-util-macros$/,
+  // Nginx's own module-package convention (nginx-mod-vts, nginx-mainline-
+  // mod-rtmp, ...) — needs nginx itself as a host, same "not launchable on
+  // its own" reasoning as this file's -module pattern above, just under
+  // nginx's own naming rather than a bare `-module` suffix. Verified live:
+  // 153 real matches, all modules; deliberately doesn't match the bare
+  // `nginx`/`nginx-mainline` packages themselves, nor real standalone
+  // tools that merely mention nginx (nginx-config-formatter,
+  // nginx-language-server, ...), which don't share this exact shape.
+  /^nginx(-mainline)?-mod(ule)?-/,
+  // Tesseract OCR's own per-language/per-script trained-data convention
+  // (tesseract-data-best-heb, tesseract-script-hangul, tesseract-osd,
+  // tesseract-langpack-chi_sim_vert, ...) — data files, never launchable,
+  // same shape as this file's dictionary/langpack patterns. Verified
+  // live: 725 real matches; deliberately doesn't match the handful of
+  // real standalone tools riding the same bare prefix (tesseract-ocr
+  // itself, tesseract-gui, tesseract-server, tesseract-game — an
+  // unrelated FPS, tesseract-matrix — an unrelated Matrix chat client).
+  /^tesseract-(data|ocr|script|langpack)-|^tesseract-(equ|osd|common|tools|data)$/,
+  // fortune-mod's own per-quote-collection package convention (fortune-
+  // mod-lambda, fortune-mod-kaamelott, ...) — a data file for the fortune
+  // command, never launchable on its own. Verified live: 98 real matches,
+  // all quote collections.
+  /^fortune-mod-/,
+  // StarDict's own per-language dictionary-data convention (stardict-cz,
+  // stardict-freedict-eng-fra, ...) — data files, never launchable;
+  // doesn't match bare `stardict` (the real dictionary application
+  // itself) since that name has no trailing `-`. Verified live: 109 real
+  // matches, all dictionary data.
+  /^stardict-/,
+  // Certbot's own per-DNS-provider plugin convention (certbot-dns-gandi,
+  // certbot-dns-porkbun, ...) — needs certbot itself as a host, same
+  // "not launchable on its own" reasoning as this file's -module pattern.
+  // Verified live: 39 real matches, all DNS-01 plugins; deliberately
+  // doesn't match bare `certbot`/`certbot-dns` (the real ACME client
+  // and its DNS-integrations umbrella package) or its other real plugins
+  // (certbot-nginx-git, certbot-apache-git, ...), which don't share this
+  // exact shape.
+  /^certbot-dns-[a-z]/,
+  // MATLAB's own per-release GCC-version-pin meta-package convention on
+  // AUR (matlab-r2024a-gcc-fortran-meta, matlab-r2023b-gcc8-meta, ...) —
+  // pins which GCC version to build MEX files against for one MATLAB
+  // release, never itself launchable. Verified live: 68 real matches, all
+  // build-toolchain pins; doesn't match bare `matlab` or real toolboxes
+  // riding the same prefix (matlab-dipimage, ...).
+  /^matlab-r\d{4}[ab]?-gcc/,
 ];
 
 /**

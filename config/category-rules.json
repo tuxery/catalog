@@ -23,5 +23,35 @@
     "pattern": "steam*",
     "category": "Utilities",
     "reason": "Steam and its real companion launchers/tools (Steam Link, steam-appimage, steam-acolyte, ...) — same \"Windows/game-launching tooling\" family as wine*/proton*/lutris*/bottles*."
+  },
+  {
+    "pattern": "brother-*",
+    "category": "System Tools",
+    "reason": "Brother's own per-printer-model CUPS/LPR driver packages (brother-dcp-l2660dw, brother-hll2360d, ...) — verified live: 556 real matches, every one a driver for a specific real Brother printer/scanner model, no upstream category source ever covers these."
+  },
+  {
+    "pattern": "qemu-*",
+    "category": "System Tools",
+    "reason": "QEMU's own per-target-architecture emulator binaries (qemu-user-riscv64, qemu-system-s390x-hwe, ...) — verified live: each one a real, independently launchable emulator, not a library; no upstream category source covers these."
+  },
+  {
+    "pattern": "docker*",
+    "category": "Developer Tools",
+    "reason": "Docker's own ecosystem of real standalone CLI tools (docker-compose, docker-autocompose, dockerfmt, docker-machine-driver-*, ...) — verified live: predominantly real, independently launchable tools; a minority are shell-completion/credential-helper companions, accepted the same way Wine/Proton's own companion packages are."
+  },
+  {
+    "pattern": "yast2-*",
+    "category": "Settings",
+    "reason": "openSUSE YaST2's own per-subsystem configuration modules (yast2-bootloader, yast2-auth-client, yast2-apparmor, ...) — verified live: each one a real, distinct configurable subsystem reachable from the YaST control center, same \"system configuration\" concept as DesktopSettings/HardwareSettings already map to. yast2-trans-<lang> translation packages are excluded separately (filter/rules.ts), not classified."
+  },
+  {
+    "pattern": "indi-*",
+    "category": "Science",
+    "reason": "INDI's own per-device astronomy driver packages (indi-orion-ssg3, indi-gpsnmea, indi-limesdr, ...) — verified live: 135 real matches, every one a driver for a specific real telescope/camera/GPS/etc. device; requires the hyphen so it doesn't catch unrelated \"indicator\"/\"indicators\" packages."
+  },
+  {
+    "pattern": "matlab*",
+    "category": "Science",
+    "reason": "MATLAB itself (a real, well-known numerical-computation app with no upstream category since it's proprietary/AUR-only) plus its real toolboxes (matlab-dipimage, ...) — the per-release GCC-version-pin meta-packages riding the same prefix are excluded separately (filter/rules.ts), not classified."
   }
 ]

@@ -50,6 +50,11 @@ describe("looksLikeSupportPackage", () => {
     expect(looksLikeSupportPackage("tcl-snack")).toBe(true);
   });
 
+  it("flags Fedora's own per-GHC-version variant of the ghc- module-package convention", () => {
+    expect(looksLikeSupportPackage("ghc9.10-base")).toBe(true);
+    expect(looksLikeSupportPackage("ghc9.2-Cabal-prof")).toBe(true);
+  });
+
   it("flags real apps that happen to start with lib — rescued via overrides, not by pattern", () => {
     // A bare `^lib` prefix is deliberately broad now (see filter/rules.ts's
     // header comment) — LibreOffice/LibreCAD are real exceptions, but they

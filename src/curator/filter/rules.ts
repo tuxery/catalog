@@ -397,6 +397,22 @@ const NOISE_PATTERNS: RegExp[] = [
   /^adobe-.*-otc$/,
   /^adobe-mappings-/,
   /^adobe-dng-/,
+  // A generic "font-" prefix (font-inter, font-iosevka, font-jetbrains-
+  // mono, ...) — real typefaces, same "not a launchable app" reasoning as
+  // this file's other font patterns, just not caught by the leading
+  // ttf-/fonts-/otf- shape. Verified live: 371 real matches; the small
+  // handful of real standalone tools riding the same prefix (font-editor,
+  // font-line, font-validator, font-v) are rescued via
+  // config/filter-keep.json rather than loosening this rule.
+  /^font-/,
+  // Ubuntu's own per-desktop/per-language translation-pack convention
+  // (language-pack-gnome-de, language-pack-th-base, language-pack-kde-sv,
+  // ...) — the same langpack concept this file's `-(l10n|langpack|
+  // locale|i18n|trans)-` suffix pattern already catches, just as a
+  // leading prefix with an extra desktop-environment component in the
+  // middle that pattern can't match. Verified live: 392 real matches, all
+  // language packs.
+  /^language-pack-/,
 ];
 
 /**

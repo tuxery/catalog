@@ -300,5 +300,43 @@
     "sources": ["rpm-opensuse"],
     "name": "selinux-tools",
     "reason": "Real standalone SELinux sysadmin CLI toolkit despite the selinux- noise prefix — see filter/rules.ts's selinux- comment"
+  },
+  {
+    "sources": ["pacman-aur"],
+    "name": "font-editor",
+    "reason": "Real standalone font-editing GUI app despite the font- noise prefix — see filter/rules.ts's font- comment"
+  },
+  {
+    "sources": ["pacman-aur"],
+    "name": "font-line",
+    "reason": "Real standalone font-metrics CLI tool despite the font- noise prefix — see filter/rules.ts's font- comment"
+  },
+  {
+    "sources": ["pacman-aur"],
+    "name": "font-validator",
+    "reason": "Real standalone font-validation CLI tool despite the font- noise prefix — see filter/rules.ts's font- comment"
+  },
+  {
+    "sources": ["deb-ubuntu", "pacman-arch", "nix-nixpkgs"],
+    "name": "font-v",
+    "reason": "Real standalone font-version CLI tool despite the font- noise prefix — see filter/rules.ts's font- comment"
+  },
+  {
+    "sources": ["pacman-aur"],
+    "name": "font-manager-git",
+    "reason": "Real standalone GTK font-management app (Font Manager) despite the font- noise prefix — see filter/rules.ts's font- comment"
+  },
+  {
+    "sources": [
+      "deb-debian",
+      "deb-ubuntu",
+      "pacman-arch",
+      "nix-nixpkgs",
+      "rpm-opensuse",
+      "apk-alpine",
+      "eopkg-solus"
+    ],
+    "name": "font-manager",
+    "reason": "Real standalone GTK font-management app (Font Manager) despite the font- noise prefix — see filter/rules.ts's font- comment"
   }
 ]

@@ -18,6 +18,10 @@ export interface SnapcraftCacheEntry {
   website?: string;
   /** See `SourcedPackage.storeCollections` — only ever `["featured"]` or `undefined` here, Snapcraft has no verified/recently-added/updated collection API. */
   storeCollections?: StoreCollectionTag[];
+  /** See `SourcedPackage.categories` — already translated from Snap's own store-category vocabulary to the freedesktop-equivalent tags `pickCategory` understands, see fetch.ts's `SNAP_CATEGORY_TO_FREEDESKTOP`. */
+  categories?: string[];
+  /** See `SourcedPackage.hasGameCategory` — set from the dedicated "games" store category sweep, which has no genre granularity to translate. */
+  hasGameCategory?: boolean;
 }
 
 export interface SnapcraftFetchMetadata extends FetchMetadata {

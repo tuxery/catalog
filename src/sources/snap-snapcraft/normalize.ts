@@ -16,5 +16,7 @@ export function normalize(entries: SnapcraftCacheEntry[]): SourcedPackage[] {
     iconUrl: entry.iconUrl,
     homepage: entry.website,
     storeCollections: entry.storeCollections,
+    categories: entry.categories,
+    hasGameCategory: entry.hasGameCategory,
   }));
 }

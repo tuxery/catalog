@@ -336,6 +336,43 @@ describe("enrichApps", () => {
     expect(app?.category).toBe(TO_CLASSIFY);
   });
 
+  it("falls back to a category-rules.json name-pattern match when no member package has any category data", () => {
+    const matched: MatchedApp[] = [
+      {
+        id: "aur:proton-cachyos-native",
+        packages: [pkg({ source: "pacman-aur", name: "proton-cachyos-native" })],
+      },
+    ];
+
+    expect(enrichApps(matched)[0]?.category).toBe("Utilities");
+  });
+
+  it("prefers real upstream category data over a category-rules.json name match", () => {
+    const matched: MatchedApp[] = [
+      {
+        id: "flathub:proton-something",
+        packages: [
+          pkg({ source: "flatpak-flathub", name: "proton-something", categories: ["Science"] }),
+        ],
+      },
+    ];
+
+    expect(enrichApps(matched)[0]?.category).toBe("Science");
+  });
+
+  it("does not apply a category-rules.json name match to a game — the ruleset only ever holds app-taxonomy labels", () => {
+    const matched: MatchedApp[] = [
+      {
+        id: "aur:proton-game",
+        packages: [pkg({ source: "pacman-aur", name: "proton-game", hasGameCategory: true })],
+      },
+    ];
+
+    const [app] = enrichApps(matched);
+    expect(app?.contentType).toBe("game");
+    expect(app?.category).toBe(TO_CLASSIFY);
+  });
+
   it("maps a Game-tagged package's genre through the game taxonomy, not the app one", () => {
     const matched: MatchedApp[] = [
       {

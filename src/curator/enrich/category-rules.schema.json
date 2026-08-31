@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "pattern": {
+        "type": "string",
+        "description": "A simple glob matched case-insensitively against every package name in the app's group (not just its display name) — \"*\" means \"any characters\", everything else is literal. E.g. \"proton*\" matches \"proton\", \"ProtonPlus\", and \"proton-cachyos-native\" alike."
+      },
+      "category": {
+        "type": "string",
+        "description": "One of config/categories-apps.json's own display labels (not a freedesktop key) — this is a last-resort signal for apps with no upstream category at all, so it writes the label directly."
+      },
+      "reason": {
+        "type": "string",
+        "description": "Why this family belongs in this category — required so the rule is auditable later, not just an unexplained line."
+      }
+    },
+    "required": ["pattern", "category", "reason"],
+    "additionalProperties": false
+  },
+  "title": "Enrich: category rules",
+  "description": "Hand-curated name-pattern → category rules for apps with no upstream category signal at all (no Flathub/AppCenter/Snapcraft category, so pickCategory would otherwise fall straight to \"To Classify\") — first matching rule wins, checked in order. The simple, no-TypeScript-required way to teach the catalog a well-known product family (e.g. Wine/Proton compatibility tools) it has no other way to classify."
+}

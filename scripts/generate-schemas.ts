@@ -4,6 +4,7 @@ import { z } from "zod";
 import { FilterExcludeListSchema, FilterKeepListSchema } from "../src/curator/filter/types";
 import { MatchDenyListSchema, MatchForceListSchema } from "../src/curator/match/types";
 import { AppStoreTagsListSchema } from "../src/curator/enrich/app-store-frontend";
+import { CategoryRulesListSchema } from "../src/curator/enrich/category-rules";
 import { CompatWarningsListSchema } from "../src/curator/enrich/compat-warnings";
 import { EnrichSuitesListSchema } from "../src/curator/enrich/suite";
 
@@ -37,6 +38,10 @@ const SCHEMAS: { schema: z.ZodType; outFile: string }[] = [
     outFile: "../src/curator/enrich/enrich-compat-warnings.schema.json",
   },
   { schema: EnrichSuitesListSchema, outFile: "../src/curator/enrich/enrich-suites.schema.json" },
+  {
+    schema: CategoryRulesListSchema,
+    outFile: "../src/curator/enrich/category-rules.schema.json",
+  },
 ];
 
 for (const { schema, outFile } of SCHEMAS) {

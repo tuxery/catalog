@@ -135,8 +135,16 @@ const NOISE_PATTERNS: RegExp[] = [
   // marker (2-3 letters, optionally `_REGION`/`-variant`) so it can't
   // accidentally swallow an unrelated `-locale-dev`-style name — though
   // even those are already caught by the `-dev` suffix pattern above
-  // regardless.
-  /-(l10n|langpack|locale)-[a-z]{2,3}(?:[_-][a-zA-Z]+)?$/,
+  // regardless. Arch/AUR/Void's own marker word for the identical concept
+  // — `-i18n-` — found live investigating a real "firefox-bin isn't
+  // classified" bug report: turned out to be a real firefox-bin merge gap
+  // (fixed separately, see match/group.ts), but the same search also
+  // surfaced 608 firefox-esr-i18n-<lang>/firefox-developer-edition-i18n-
+  // <lang> language packs standing as their own "To Classify" entries —
+  // same shape as the -l10n-/-langpack-/-locale- markers above, verified
+  // live: every single match across pacman-aur/pacman-arch/xbps-void is a
+  // language pack, no counter-examples.
+  /-(l10n|langpack|locale|i18n)-[a-z]{2,3}(?:[_-][a-zA-Z]+)?$/,
   // Alpine's own convention for the same thing, no per-language split —
   // verified live: 1,831 matches across every source that uses it, always
   // <real-app-name>-lang (aisleriot-lang, akregator-lang, ark-lang,

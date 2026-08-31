@@ -155,3 +155,66 @@ export function gameGenreFromGentooSection(pkg: SourcedPackage): GameCategoryLab
   if (pkg.source !== "ebuild-gentoo" || !pkg.section) return undefined;
   return GENTOO_GAME_SECTION_TO_GENRE[pkg.section];
 }
+
+// openSUSE's own hierarchical `<rpm:group>` value (SourcedPackage.section)
+// — far richer than Debian's flat vocabulary (244 distinct values seen
+// live in "To Classify" alone). Three leaf namespaces were verified
+// uniform enough across every child to trust by prefix: Productivity/
+// Scientific/* (Math, Physics, ... -> Science), Productivity/Multimedia/
+// Sound/* (Players, Utilities -> Music & Audio), Productivity/Graphics/*
+// (Viewers, Other -> Graphics & Design). The rest are exact leaf matches,
+// verified individually the same way as everywhere else in this file:
+// - `Productivity/Text/Editors`/`Productivity/Text/Utilities` -> Utilities
+//   (same TextEditor/TextTools precedent as Debian's own "editors"
+//   mapping); deliberately NOT `Productivity/Text/Spell` — that's
+//   aspell-/ispell- dictionary data, already excluded via filter/rules.ts.
+// - `Productivity/Networking/Security`/`Productivity/Security` -> Security.
+// - `Development/Tools/Version Control`/`Development/Tools/Debuggers` ->
+//   Developer Tools (gitslave/forgejo-longterm, lldb/valgrind-git/
+//   cgdb-git — real tools, unlike the broader Development/* namespace
+//   this file already rejects elsewhere for mixing in libraries).
+// - `System/X11/Utilities`/`Productivity/File utilities`/`Productivity/
+//   Networking/Diagnostic`/`Hardware/Printing`/`Productivity/Archiving/
+//   Backup` -> System Tools (real X11 client apps, file utilities,
+//   network diagnostics, printer drivers/PPDs — same family brother-*/
+//   qemu-*/category-rules.json already covers — and backup tools).
+// Deliberately NOT included, checked and rejected — too mixed with
+// libraries/plugins/server daemons to trust by group alone: Development/
+// Languages/*, Development/Libraries/*, System/Monitoring (mostly
+// per-framework monitoring-plugin modules, same trap as the nagios/
+// zabbix/prometheus ecosystems this session already rejected),
+// Productivity/Databases/Tools (PostgreSQL/MySQL extension modules,
+// needs a database server as host), Productivity/Networking/Web/Servers
+// (Tomcat/Jetty server modules, infrastructure not consumer apps),
+// Productivity/Networking/Other, Productivity/Multimedia/Other,
+// Productivity/Clustering/*.
+const OPENSUSE_GROUP_TO_APP_CATEGORY: Partial<Record<string, AppCategoryLabel>> = {
+  "Productivity/Text/Editors": "Utilities",
+  "Productivity/Text/Utilities": "Utilities",
+  "Productivity/Networking/Security": "Security",
+  "Productivity/Security": "Security",
+  "Development/Tools/Version Control": "Developer Tools",
+  "Development/Tools/Debuggers": "Developer Tools",
+  "System/X11/Utilities": "System Tools",
+  "Productivity/File utilities": "System Tools",
+  "Productivity/Networking/Diagnostic": "System Tools",
+  "Hardware/Printing": "System Tools",
+  "Productivity/Archiving/Backup": "System Tools",
+};
+
+const OPENSUSE_GROUP_PREFIX_TO_APP_CATEGORY: [prefix: string, category: AppCategoryLabel][] = [
+  ["Productivity/Scientific/", "Science"],
+  ["Productivity/Multimedia/Sound/", "Music & Audio"],
+  ["Productivity/Graphics/", "Graphics & Design"],
+];
+
+/** A category inferred from an openSUSE/RPM Fusion package's own `<rpm:group>` value — see `OPENSUSE_GROUP_TO_APP_CATEGORY`/`OPENSUSE_GROUP_PREFIX_TO_APP_CATEGORY` above for the live-data research behind each mapping. */
+export function categoryFromOpenSuseGroup(pkg: SourcedPackage): AppCategoryLabel | undefined {
+  if (pkg.source !== "rpm-opensuse" && pkg.source !== "rpm-rpmfusion") return undefined;
+  if (!pkg.section) return undefined;
+  const exact = OPENSUSE_GROUP_TO_APP_CATEGORY[pkg.section];
+  if (exact) return exact;
+  return OPENSUSE_GROUP_PREFIX_TO_APP_CATEGORY.find(([prefix]) =>
+    pkg.section?.startsWith(prefix),
+  )?.[1];
+}

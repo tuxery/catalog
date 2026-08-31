@@ -3,6 +3,7 @@ import type { SourcedPackage } from "../../sources";
 import {
   categoryFromDebianSection,
   categoryFromGentooSection,
+  categoryFromOpenSuseGroup,
   gameGenreFromGentooSection,
 } from "./category-section";
 
@@ -165,6 +166,88 @@ describe("gameGenreFromGentooSection", () => {
     expect(
       gameGenreFromGentooSection(
         pkg({ source: "deb-debian", name: "example", section: "games-arcade" }),
+      ),
+    ).toBeUndefined();
+  });
+});
+
+describe("categoryFromOpenSuseGroup", () => {
+  it("maps Productivity/Scientific/*, Productivity/Multimedia/Sound/*, and Productivity/Graphics/* by prefix", () => {
+    expect(
+      categoryFromOpenSuseGroup(
+        pkg({
+          source: "rpm-opensuse",
+          name: "jaxodraw",
+          section: "Productivity/Scientific/Physics",
+        }),
+      ),
+    ).toBe("Science");
+    expect(
+      categoryFromOpenSuseGroup(
+        pkg({
+          source: "rpm-opensuse",
+          name: "shine",
+          section: "Productivity/Multimedia/Sound/Utilities",
+        }),
+      ),
+    ).toBe("Music & Audio");
+    expect(
+      categoryFromOpenSuseGroup(
+        pkg({ source: "rpm-opensuse", name: "djvu2pdf", section: "Productivity/Graphics/Other" }),
+      ),
+    ).toBe("Graphics & Design");
+  });
+
+  it("maps exact leaf groups to their app-taxonomy category", () => {
+    expect(
+      categoryFromOpenSuseGroup(
+        pkg({ source: "rpm-opensuse", name: "lldb", section: "Development/Tools/Debuggers" }),
+      ),
+    ).toBe("Developer Tools");
+    expect(
+      categoryFromOpenSuseGroup(
+        pkg({ source: "rpm-opensuse", name: "clamav-git", section: "Productivity/Security" }),
+      ),
+    ).toBe("Security");
+    expect(
+      categoryFromOpenSuseGroup(
+        pkg({ source: "rpm-opensuse", name: "wmctrl", section: "System/X11/Utilities" }),
+      ),
+    ).toBe("System Tools");
+  });
+
+  it("does not map Productivity/Text/Spell — dictionary data, excluded separately via filter/rules.ts", () => {
+    expect(
+      categoryFromOpenSuseGroup(
+        pkg({ source: "rpm-opensuse", name: "aspell-ky", section: "Productivity/Text/Spell" }),
+      ),
+    ).toBeUndefined();
+  });
+
+  it("applies to RPM Fusion too — same <rpm:group> vocabulary as openSUSE", () => {
+    expect(
+      categoryFromOpenSuseGroup(
+        pkg({ source: "rpm-rpmfusion", name: "example", section: "Development/Tools/Debuggers" }),
+      ),
+    ).toBe("Developer Tools");
+  });
+
+  it("does not apply to other sources reusing the section slot for unrelated vocabularies", () => {
+    expect(
+      categoryFromOpenSuseGroup(
+        pkg({ source: "deb-debian", name: "example", section: "Development/Tools/Debuggers" }),
+      ),
+    ).toBeUndefined();
+  });
+
+  it("returns undefined for an unmapped group (e.g. Development/Languages/Python, too mixed with libraries)", () => {
+    expect(
+      categoryFromOpenSuseGroup(
+        pkg({
+          source: "rpm-opensuse",
+          name: "example",
+          section: "Development/Languages/Python",
+        }),
       ),
     ).toBeUndefined();
   });

@@ -329,6 +329,27 @@ const NOISE_PATTERNS: RegExp[] = [
   // build-toolchain pins; doesn't match bare `matlab` or real toolboxes
   // riding the same prefix (matlab-dipimage, ...).
   /^matlab-r\d{4}[ab]?-gcc/,
+  // Shell tab-completion script packages (docker-stable-fish-completion,
+  // kubens-bash-completion, mcphost-bash-completion, ...) — need the real
+  // tool already installed as a host, same "not launchable on its own"
+  // reasoning as this file's -module pattern; found live sweeping
+  // openSUSE's own "System/Shells" Section for a category signal, but the
+  // convention turned out to be cross-source, not openSUSE-specific.
+  // Verified live: 1,501 real matches across every source, overwhelmingly
+  // apk-alpine/rpm-opensuse; doesn't match the real shells themselves
+  // (bash-git, fish-git, zsh-git, tcsh-git, mksh, scsh-git, ...), which
+  // don't share this exact suffix shape.
+  /-(bash|fish|zsh)-completion$/,
+  // Aspell/Ispell's own per-language dictionary-data convention
+  // (aspell-ky, ispell-brazilian, ...) — same shape as this file's
+  // existing hunspell-/myspell- pattern, just a different spell-checker
+  // engine; found the same way as the completion-script pattern above.
+  // Verified live: 230 real matches across every source; doesn't match
+  // bare `ispell` (the real spell-checker program itself), nor `aspell`'s
+  // own real AUR VCS-build variant `aspell-git` — a real regression this
+  // pattern caused on its first pass, caught by the same before/after
+  // pipeline diff this whole session's changes are verified with.
+  /^(aspell|ispell)-(?!(?:git|svn|hg|bzr|cvs|bin)$)/,
 ];
 
 /**

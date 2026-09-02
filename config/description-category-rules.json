@@ -748,5 +748,105 @@
     "pattern": "\\bpdf (viewer|reader)\\b",
     "category": "Utilities",
     "reason": "Description explicitly identifies it as a PDF viewer/reader -- matches config/categories-apps.json's own \"Viewer\" -> Utilities freedesktop mapping. Verified live: 40 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bscreensaver\\b",
+    "category": "Settings",
+    "reason": "Description explicitly identifies it as a screensaver -- desktop-appearance/idle-behavior configuration. Verified live: 49 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bkeyboard layout\\b",
+    "category": "Settings",
+    "reason": "Description explicitly identifies it as keyboard-layout software -- matches config/categories-apps.json's own \"HardwareSettings\" -> Settings freedesktop mapping. Verified live: 53 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\binput method\\b",
+    "category": "Settings",
+    "reason": "Description explicitly identifies it as an input method (IME) -- same hardware/input-configuration reasoning as keyboard layout above. Verified live: 108 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bfile sync(hronization)?\\b",
+    "category": "Internet & Communication",
+    "reason": "Description explicitly identifies it as a file-synchronization client -- matches config/categories-apps.json's own \"FileTransfer\" -> Internet & Communication freedesktop mapping. Verified live: 20 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bcloud storage\\b",
+    "category": "Internet & Communication",
+    "reason": "Description explicitly identifies it as a cloud-storage client -- same reasoning as file sync above. Verified live: 44 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bweb server\\b",
+    "category": "System Tools",
+    "reason": "Description explicitly identifies it as a web server -- network-service infrastructure. Verified live: 104 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bssh server\\b",
+    "category": "System Tools",
+    "reason": "Description explicitly identifies it as an SSH server -- same infrastructure reasoning as web server above. Verified live: 20 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bftp server\\b",
+    "category": "System Tools",
+    "reason": "Description explicitly identifies it as an FTP server -- same infrastructure reasoning as web server above. Verified live: 10 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bproxy server\\b",
+    "category": "System Tools",
+    "reason": "Description explicitly identifies it as a proxy server -- same infrastructure reasoning as web server above. Verified live: 50 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bdns server\\b",
+    "category": "System Tools",
+    "reason": "Description explicitly identifies it as a DNS server -- same infrastructure reasoning as web server above. Verified live: 66 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bhabit tracker\\b",
+    "category": "Productivity",
+    "reason": "Description explicitly identifies it as a habit tracker. Verified live: 5 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bpomodoro\\b",
+    "category": "Productivity",
+    "reason": "Description explicitly identifies it as a Pomodoro-technique timer/productivity tool. Verified live: 74 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bweather (app|forecast)\\b",
+    "category": "News & Weather",
+    "reason": "Description explicitly identifies it as a weather app/forecast tool. Verified live: 13 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bfont manager\\b",
+    "category": "Settings",
+    "reason": "Description explicitly identifies it as a font manager -- same hardware/appearance-configuration reasoning as keyboard layout above. Verified live: 3 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bdisplay manager\\b",
+    "category": "System Tools",
+    "reason": "Description explicitly identifies it as a display manager (login-screen/greeter infrastructure) -- verified live: 49 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\blogin manager\\b",
+    "category": "System Tools",
+    "reason": "Description explicitly identifies it as a login manager -- same infrastructure reasoning as display manager above. Verified live: 23 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bpower management\\b",
+    "category": "Settings",
+    "reason": "Description explicitly identifies it as power-management software -- most real matches are GUI control panels (e.g. a GTK4/Libadwaita interface for cpupower) rather than bare background daemons. Verified live: 37 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bbrightness (control|manager)\\b",
+    "category": "Settings",
+    "reason": "Description explicitly identifies it as brightness-control software -- same hardware-settings reasoning as keyboard layout above. Verified live: 7 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\b(volume|audio) control\\b",
+    "category": "Settings",
+    "reason": "Description explicitly identifies it as system volume/audio-device control (not music playback) -- same hardware-settings reasoning as keyboard layout above. Verified live: 24 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bbluetooth manager\\b",
+    "category": "Settings",
+    "reason": "Description explicitly identifies it as a Bluetooth manager -- same hardware-settings reasoning as keyboard layout above. Verified live: 9 real matches, zero unrelated collisions."
   }
 ]

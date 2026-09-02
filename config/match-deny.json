@@ -20,5 +20,55 @@
       "appId": "eu.cichy1173.tabela"
     },
     "reason": "Same display name once diacritics are transliterated (both normalize to \"tabela\" — \"Tabëla\" vs \"tabela\") but genuinely different software: com.mastropaolo's Tabëla formats tables to Markdown/HTML, eu.cichy1173's tabela shows CSV content in a table -- different developers, different homepages (mastropaolo.com vs codeberg.org/cichy1173), coincidentally similar names. Caught live verifying match/normalize.ts's removeDiacritics adoption (2026-08-28) against the full real cache — one of only 20 names whose normalized form changed at all, and the only one of those that collided with a pre-existing different app."
+  },
+  {
+    "a": { "source": "flatpak-flathub", "appId": "io.github.mmp.Vice" },
+    "b": { "source": "flatpak-flathub", "appId": "net.sf.VICE" },
+    "reason": "Flathub carries two genuinely different apps both displaying as \"Vice\"/\"VICE\": io.github.mmp.Vice is an air traffic control simulator, net.sf.VICE is the real, unrelated VICE multi-platform Commodore 8-bit emulator -- same bare normalized name (\"vice\"), coincidence only. net.sf.VICE is also the real emulator's own canonical id (see config/match-force.json, which reattaches Debian/Ubuntu/Arch/Nix/RPM Fusion/Void/Solus/Gentoo/AUR's vice-svn to it). Same generic-name-collision shape as group.ts's GENERIC_NAME_BLOCKLIST entries (singularity/ace/bass), but unlike those the real emulator legitimately uses the bare colliding name everywhere (including on Flathub itself), so blocklisting \"vice\" globally would explode its correct multi-source merge instead of fixing this one false one -- needs a per-pair deny against every real member instead (see the sibling entries below, one per source since union-find only needs one surviving edge into the merged cluster to pull the ATC simulator back in). Found live surfaced while working the games \"To Classify\" bucket (2026-09-02): the merged group carried both a game and an emulator, with hasGameCategory only true for the Flathub ATC-simulator side."
+  },
+  {
+    "a": { "source": "flatpak-flathub", "appId": "io.github.mmp.Vice" },
+    "b": { "source": "deb-debian", "appId": "vice" },
+    "reason": "Same false merge as the net.sf.VICE entry above -- Debian packages the real VICE emulator under the same bare \"vice\" name, already tier1-merged with Ubuntu/Arch/Nix/RPM Fusion/Void/Solus via their own identical bare appId."
+  },
+  {
+    "a": { "source": "flatpak-flathub", "appId": "io.github.mmp.Vice" },
+    "b": { "source": "deb-ubuntu", "appId": "vice" },
+    "reason": "Same false merge as the net.sf.VICE entry above -- Ubuntu packages the real VICE emulator under the same bare \"vice\" name, and union-find only needs one surviving edge into that already-merged 8-source cluster to pull Flathub's unrelated ATC simulator back in, so every real member needs its own deny pair against it."
+  },
+  {
+    "a": { "source": "flatpak-flathub", "appId": "io.github.mmp.Vice" },
+    "b": { "source": "pacman-arch", "appId": "vice" },
+    "reason": "Same false merge as the net.sf.VICE entry above -- Arch packages the real VICE emulator under the same bare \"vice\" name."
+  },
+  {
+    "a": { "source": "flatpak-flathub", "appId": "io.github.mmp.Vice" },
+    "b": { "source": "nix-nixpkgs", "appId": "vice" },
+    "reason": "Same false merge as the net.sf.VICE entry above -- Nixpkgs packages the real VICE emulator under the same bare \"vice\" name."
+  },
+  {
+    "a": { "source": "flatpak-flathub", "appId": "io.github.mmp.Vice" },
+    "b": { "source": "rpm-rpmfusion", "appId": "vice" },
+    "reason": "Same false merge as the net.sf.VICE entry above -- RPM Fusion packages the real VICE emulator under the same bare \"vice\" name."
+  },
+  {
+    "a": { "source": "flatpak-flathub", "appId": "io.github.mmp.Vice" },
+    "b": { "source": "xbps-void", "appId": "vice" },
+    "reason": "Same false merge as the net.sf.VICE entry above -- Void packages the real VICE emulator under the same bare \"vice\" name."
+  },
+  {
+    "a": { "source": "flatpak-flathub", "appId": "io.github.mmp.Vice" },
+    "b": { "source": "eopkg-solus", "appId": "vice" },
+    "reason": "Same false merge as the net.sf.VICE entry above -- Solus packages the real VICE emulator under the same bare \"vice\" name."
+  },
+  {
+    "a": { "source": "flatpak-flathub", "appId": "io.github.mmp.Vice" },
+    "b": { "source": "ebuild-gentoo", "appId": "app-emulation/vice" },
+    "reason": "Same false merge as the net.sf.VICE entry above -- Gentoo packages the real VICE emulator as app-emulation/vice (its appId folds in the category, per ebuild-gentoo/normalize.ts, but its bare display name is still \"vice\", which is what collides at tier 2)."
+  },
+  {
+    "a": { "source": "flatpak-flathub", "appId": "io.github.mmp.Vice" },
+    "b": { "source": "pacman-aur", "appId": "vice-svn" },
+    "reason": "Same false merge as the net.sf.VICE entry above -- AUR's vice-svn is the rolling-release build of the same real VICE emulator (its -svn suffix is a build-variant marker, not a different project, per group.ts's VARIANT_SUFFIX handling). Denying this pair also stops it from ever reaching the real emulator cluster on its own (its tier-1 appId is \"vice-svn\", not \"vice\"), so it's reattached explicitly via config/match-force.json instead."
   }
 ]

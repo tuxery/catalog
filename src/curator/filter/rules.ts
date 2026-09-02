@@ -489,6 +489,20 @@ const NOISE_PATTERNS: RegExp[] = [
   // out ahead of config/category-rules.json's broader "root-*" entry,
   // same shape as intel-*-fonts/adwaita-fonts above.
   /^root-font-files$/,
+  // The CPAN "XML-*" Perl-module naming convention, exactly as Gentoo
+  // mirrors each distribution's own capitalized name verbatim rather than
+  // lowercasing it behind a "perl-" prefix like other distros do (dev-perl/
+  // XML-Atom, not perl-xml-atom) — this file's existing `^perl-` pattern
+  // never reaches this shape. Also covers the lowercase "xml-*" library
+  // packages other sources use for the same or adjacent XML-tooling
+  // libraries (xml-commons-*, xml-conduit, xml-maven-plugin, ...). Real
+  // standalone CLI tools riding the same prefix (xml-coreutils,
+  // xml-twig-tools, xml-security-c-bin/-utils) are rescued via
+  // config/filter-keep.json instead of narrowing this further. Surfaced
+  // live investigating the apps "To Classify" bucket (2026-09-02): 87
+  // real matches, all Perl/Haskell/OCaml/Java XML-processing libraries
+  // except the four rescued tools.
+  /^xml-/i,
 ];
 
 /**

@@ -1198,5 +1198,60 @@
     "pattern": "\\bvnc client\\b",
     "category": "System Tools",
     "reason": "Description explicitly identifies it as a VNC client -- same reasoning as the existing remote desktop entry. Verified live: 14 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\blanguage server\\b",
+    "category": "Developer Tools",
+    "reason": "Description explicitly identifies it as a Language Server Protocol implementation. Verified live: 220 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bmcp server\\b",
+    "category": "Developer Tools",
+    "reason": "Description explicitly identifies it as a Model Context Protocol (MCP) server -- AI-agent developer tooling. Verified live: 58 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bapi server\\b",
+    "category": "Developer Tools",
+    "reason": "Description explicitly identifies it as an API server. Verified live: 44 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bsql server\\b",
+    "category": "Developer Tools",
+    "reason": "Description explicitly identifies it as SQL-Server-related software -- same reasoning as the existing SQL/database client entries. Verified live: 25 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bapplication server\\b",
+    "category": "Developer Tools",
+    "reason": "Description explicitly identifies it as an application server. Verified live: 24 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bmedia server\\b",
+    "category": "Photo & Video",
+    "reason": "Description explicitly identifies it as a media (DLNA/UPnP) server. Verified live: 46 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bminecraft server\\b",
+    "category": "Utilities",
+    "reason": "Description explicitly identifies it as a Minecraft server management/installer tool -- a management utility, not the game itself. Verified live: 32 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bfile server\\b",
+    "category": "System Tools",
+    "reason": "Description explicitly identifies it as a file server. Verified live: 27 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\birc server\\b",
+    "category": "Internet & Communication",
+    "reason": "Description explicitly identifies it as an IRC server -- same reasoning as the existing IRC client entry. Verified live: 10 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bmonitoring daemon\\b",
+    "category": "System Tools",
+    "reason": "Description explicitly identifies it as a monitoring daemon. Verified live: 19 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bwallpaper daemon\\b",
+    "category": "Settings",
+    "reason": "Description explicitly identifies it as a wallpaper daemon -- same desktop-theming reasoning as the existing wallpaper manager/changer entry. Verified live: 18 real matches, zero unrelated collisions."
   }
 ]

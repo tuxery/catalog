@@ -2588,5 +2588,10 @@
     "pattern": "pzl_*",
     "category": "Puzzle",
     "reason": "A single coherent AUR puzzle-game suite (pzl_sudoku, pzl_sokoban, pzl_wordladder, pzl_common's shared data, ...) -- unlike most entries in this file, a wildcard is safe here since every real member of the family (42 verified) is a logic/word puzzle or that suite's own data package. See filter/rules.ts's looksLikeGamePackage pzl_ prefix, which is what makes these games at all."
+  },
+  {
+    "pattern": "openra-*",
+    "category": "Strategy",
+    "reason": "AUR's OpenRA mod ecosystem (openra-ca-git, openra-ra2-git, openra-yr-git, ...) -- every one of the 18 real members is a real-time-strategy mod for the OpenRA engine (mostly Command & Conquer/Red Alert/Tiberian Sun reimaginings), same genre as OpenRA itself. See filter/rules.ts's looksLikeGamePackage openra- prefix, which is what makes these games at all."
   }
 ]

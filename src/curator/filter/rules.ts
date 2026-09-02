@@ -899,6 +899,15 @@ const DEB_FAMILY_GAME_SOURCES = new Set<PackageSourceId>([
  *   `pzl_common` data package, same "no Section field, name is the only
  *   signal" reasoning as `gog-`. Verified live: 42 real matches, every one
  *   a real logic/word puzzle (or that suite's own data package).
+ * - AUR's own `minetest-` and `openra-` name prefixes — individual
+ *   community subgames/mods for the Minetest voxel-sandbox engine and
+ *   the OpenRA real-time-strategy engine, neither of which carries a
+ *   Section field on AUR any more than gog-/pzl_ do. Verified live:
+ *   93 real matches, every one a real Minetest subgame (minetest-alter,
+ *   minetest-arcade3d, ...) or OpenRA mod (openra-ca-git, openra-d2-git,
+ *   ...) — the base engines themselves (bare `minetest`/`openra`) are
+ *   already detected via Flathub's own hasGameCategory, unaffected by
+ *   this prefix check.
  * Not (yet) checked: Slackware's `y` series has too few real entries —
  * too small a sample to trust either way, left out for now.
  */
@@ -907,7 +916,15 @@ export function looksLikeGamePackage(
   section: string | undefined,
   name: string,
 ): boolean {
-  if (source === "pacman-aur" && (name.startsWith("gog-") || name.startsWith("pzl_"))) return true;
+  if (
+    source === "pacman-aur" &&
+    (name.startsWith("gog-") ||
+      name.startsWith("pzl_") ||
+      name.startsWith("minetest-") ||
+      name.startsWith("openra-"))
+  ) {
+    return true;
+  }
   if (section === undefined) return false;
   if (DEB_FAMILY_GAME_SOURCES.has(source)) return DEB_FAMILY_GAME_SECTIONS.has(section);
   if (source === "ebuild-gentoo") return section.startsWith("games-");

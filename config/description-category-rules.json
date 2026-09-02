@@ -1308,5 +1308,35 @@
     "pattern": "\\bsecrets manager\\b",
     "category": "Security",
     "reason": "Description explicitly identifies it as a secrets manager. Verified live: 11 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "(?<!g-)\\bcode generator\\b",
+    "category": "Developer Tools",
+    "reason": "Description explicitly identifies it as a source-code generator -- negative lookbehind excludes \"G-code generator\" (3D-printer/CNC tooling, a real and common false positive found live: 6 of 48 raw matches). Verified live: 42 real matches after the exclusion, zero remaining unrelated collisions."
+  },
+  {
+    "pattern": "\\bparser generator\\b",
+    "category": "Developer Tools",
+    "reason": "Description explicitly identifies it as a parser generator. Verified live: 42 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bdocumentation generator\\b",
+    "category": "Developer Tools",
+    "reason": "Description explicitly identifies it as a documentation generator. Verified live: 18 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\b(binary|hex(adecimal)?) editor\\b",
+    "category": "Developer Tools",
+    "reason": "Description explicitly identifies it as a binary/hex editor -- same reasoning as the existing hex editor entry, broadened to catch \"binary editor\"/\"hexadecimal editor\" phrasing too. Verified live: 15 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bpassphrase generator\\b",
+    "category": "Security",
+    "reason": "Description explicitly identifies it as a passphrase generator -- same reasoning as the existing password generator entry. Verified live: 10 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bepub converter\\b",
+    "category": "Books & Reference",
+    "reason": "Description explicitly identifies it as an EPUB converter. Verified live: 9 real matches, zero unrelated collisions."
   }
 ]

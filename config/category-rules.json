@@ -1733,5 +1733,35 @@
     "pattern": "google-alloydb-auth-proxy",
     "category": "System Tools",
     "reason": "\"Utility for connecting securely to your AlloyDB instances\" — same Google Cloud infrastructure-tooling family as the other google-*-guest/-agent entries above."
+  },
+  {
+    "pattern": "fp-*",
+    "category": "Developer Tools",
+    "reason": "The Free Pascal compiler/IDE/unit-library ecosystem (fp-compiler, fp-ide, fp-units-*, ...) plus Flathub's own packaging-tooling scripts (fp-build-git, fp-stats-git) — verified live: 57 real matches, zero unrelated collisions, all developer-facing."
+  },
+  {
+    "pattern": "wl-beta",
+    "category": "Internet & Communication",
+    "reason": "Wanderlust, a real standalone Emacs mail/news reader (\"wl\" is its own name, unrelated to the Wayland wl-* prefix below) — this exact-match entry must stay ordered before wl-* to win first."
+  },
+  {
+    "pattern": "wl-pprint-annotated",
+    "category": "Developer Tools",
+    "reason": "A Haskell pretty-printer library, not a launchable app — genuinely unrelated to the Wayland wl-* family below despite the shared prefix, carved out the same way as wl-beta above."
+  },
+  {
+    "pattern": "wl-*",
+    "category": "Utilities",
+    "reason": "The Wayland-ecosystem desktop-utility naming convention (clipboard managers, color pickers, screenshot tools, gamma/brightness control, idle inhibitors, autoclickers, ...) — verified live: 44 real matches, only two genuine unrelated collisions (wl-beta, wl-pprint-annotated), both carved out above."
+  },
+  {
+    "pattern": "dh-dyndns-git",
+    "category": "System Tools",
+    "reason": "\"Dynamic DNS script for DreamHost\" — genuinely unrelated to Debian's debhelper (dh-*) ecosystem below despite the shared prefix, so this exact-match entry must stay ordered before dh-* to win first."
+  },
+  {
+    "pattern": "dh-*",
+    "category": "Developer Tools",
+    "reason": "Debian's own debhelper build-system addon ecosystem (dh-golang, dh-python, dh-cargo, dh-make, ...) — package-building developer tooling. Verified live: 58 real matches, only one genuine unrelated collision (dh-dyndns-git), carved out above."
   }
 ]

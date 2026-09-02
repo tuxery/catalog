@@ -830,7 +830,14 @@ const SOLUS_NOISE_PARTOF = new Set([
 // skins, not apps), `media-fonts` (font files), and `app-emacs` (Emacs
 // Lisp packages — needs Emacs itself as a host, same reasoning as this
 // file's `elpa-` pattern, which is Debian/Fedora's name for the identical
-// concept).
+// concept). One more found live investigating the apps "To Classify"
+// bucket (2026-09-02): `dev-perl` (the whole CPAN-mirroring category
+// this file's `^XML-`/`^Dist-`/`^Class-` patterns above only chip away
+// at a few naming shapes of) — 1,776 real matches, overwhelmingly Perl
+// distribution modules, no host app of their own; the one real
+// exception found (`Perl-Tidy`, which ships the standalone `perltidy`
+// script) is rescued via `config/filter-keep.json` rather than trying
+// to carve exceptions out of the category wholesale.
 const GENTOO_NOISE_CATEGORIES = new Set([
   "acct-group",
   "acct-user",
@@ -840,6 +847,7 @@ const GENTOO_NOISE_CATEGORIES = new Set([
   "x11-themes",
   "media-fonts",
   "app-emacs",
+  "dev-perl",
 ]);
 
 /** Best-effort guess from Debian/Ubuntu's `Section` field, nixpkgs' attribute-path prefix, openSUSE's `<rpm:group>` value, Slackware's package series, Solus's `PartOf` value, or Gentoo's category, alongside `looksLikeSupportPackage`'s name-based guess — see this file's comments on `NOISE_SECTIONS`/`NIX_NOISE_PREFIX_PATTERNS`/`OPENSUSE_NOISE_GROUPS`/`SLACKWARE_NOISE_SERIES`/`SOLUS_NOISE_PARTOF`/`GENTOO_NOISE_CATEGORIES` for which values are safe. */

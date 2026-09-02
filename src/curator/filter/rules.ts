@@ -466,6 +466,16 @@ const NOISE_PATTERNS: RegExp[] = [
   // matches, all real OCaml PPX rewriter libraries (Gentoo's own dev-ml
   // category for every one sampled).
   /^ppx_/,
+  // Intel's own two typeface packages (intel-clear-sans-fonts,
+  // intel-one-mono-fonts) — carved out ahead of config/category-rules.json's
+  // broader "intel-*" entry (drivers/firmware/developer tooling), same
+  // "exclude the font before the family rule sees it" shape as
+  // adwaita-fonts vs. adwaita*.
+  /^intel-.*-fonts$/,
+  // Pop!_OS's own "Pop Fonts" package — carved out ahead of
+  // config/category-rules.json's broader "pop-*" entry, same shape as
+  // intel-*-fonts/adwaita-fonts above.
+  /^pop-fonts$/,
 ];
 
 /**

@@ -1708,5 +1708,30 @@
     "pattern": "pop-*",
     "category": "System Tools",
     "reason": "System76's Pop!_OS own distro-integration family — desktop/theme metapackages (pop-gtk-theme, pop-icon-theme, pop-de-cosmic, ...), the installer/upgrader/launcher stack (pop-installer, pop-upgrade, pop-launcher, pop-system-updater, ...), and hardware/vendor support (pop-hp-vendor, pop-default-settings-zram, ...). Bare \"pop\" and the pop3/popcorn/popeye/popfile/poppler/popstation/... word-collision zone are NOT covered by this pattern (no hyphen after \"pop\" — verified live, only pop-cli/pop-to-8bit share the hyphenated shape without being Pop!_OS, carved out above); pop-fonts is excluded before filtering ever reaches this stage (see filter/rules.ts). 26 real Pop!_OS matches."
+  },
+  {
+    "pattern": "google-compute-engine*",
+    "category": "System Tools",
+    "reason": "Google Compute Engine's own Linux guest-environment tooling (google-compute-engine, its -guest-configs/-rsyslog/-udev/-oslogin sub-packages) — bare \"google-*\" itself is far too heterogeneous to classify in one go (spans fonts, Java/C++/Python developer libraries, unofficial G Suite desktop wrappers, security scanners, ...), so this stays scoped to the cloud-guest sub-family specifically."
+  },
+  {
+    "pattern": "google-guest-*",
+    "category": "System Tools",
+    "reason": "Google Compute Engine's newer guest-environment package naming (google-guest-agent, google-guest-configs, google-guest-oslogin, ...) — same cloud-guest family as google-compute-engine*, just a renamed convention."
+  },
+  {
+    "pattern": "google-osconfig-agent",
+    "category": "System Tools",
+    "reason": "Google Cloud's OS Config guest agent — same cloud-guest family as google-compute-engine*/google-guest-*."
+  },
+  {
+    "pattern": "google-disk-expand",
+    "category": "System Tools",
+    "reason": "\"Expands root partition in Google Cloud instances\" — same cloud-guest family as google-compute-engine*/google-guest-*."
+  },
+  {
+    "pattern": "google-alloydb-auth-proxy",
+    "category": "System Tools",
+    "reason": "\"Utility for connecting securely to your AlloyDB instances\" — same Google Cloud infrastructure-tooling family as the other google-*-guest/-agent entries above."
   }
 ]

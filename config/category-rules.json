@@ -1883,5 +1883,30 @@
     "pattern": "uutils*",
     "category": "Utilities",
     "reason": "The uutils project's Rust reimplementations of classic UNIX utilities (uutils-coreutils, uutils-diffutils, uutils-awk-git, ...) — verified live: 19 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "transmission*",
+    "category": "Internet & Communication",
+    "reason": "The Transmission BitTorrent client across its many real GUI/CLI frontends, forks, and companion tools (transmission-gtk, transmission-qt, transmissionic-bin, transmission-web-control-git, ...) — verified live: 29 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "tpm2-*",
+    "category": "Security",
+    "reason": "The TPM 2.0 utility ecosystem (tpm2-tools, tpm2-abrmd, tpm2-initramfs-tool, ...) — hardware-backed security tooling. Verified live: 27 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "spirv-*",
+    "category": "Developer Tools",
+    "reason": "The SPIR-V shader-tooling ecosystem (spirv-cross, SPIRV-Tools, SPIRV-LLVM-Translator, ...) — graphics-developer infrastructure. Verified live: 22 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "nfs-browser-bin",
+    "category": "Internet & Communication",
+    "reason": "方德安全浏览器 (\"FSecure Browser\"), a real Chinese web browser — genuinely unrelated to the NFS network-filesystem family below despite sharing the nfs- prefix, so this exact-match entry must stay ordered before nfs-* to win first."
+  },
+  {
+    "pattern": "nfs-*",
+    "category": "System Tools",
+    "reason": "The NFS network-filesystem client/server tooling ecosystem (nfs-ganesha, nfs-utils-rdma-client/-server, nfs-common, ...) — verified live: 27 real matches, one genuine unrelated collision (nfs-browser-bin) carved out above."
   }
 ]

@@ -2013,5 +2013,20 @@
     "pattern": "arc-*",
     "category": "Settings",
     "reason": "The Arc GTK/icon/KDE theme family and its many per-app skins (arc-theme, arc-icon-theme, arc-kde-konsole, arc-gotham-gtk-theme-git, ...) — same desktop-theming reasoning as yaru*/adwaita*/tela*/papirus*/oxygen*. Verified live: 22 real matches after the four genuine unrelated collisions above are carved out."
+  },
+  {
+    "pattern": "django-*",
+    "category": "Developer Tools",
+    "reason": "The Django Python web-framework's own plugin/tooling ecosystem (django-recaptcha, django-registration, django-template-lsp, ...) — verified live: 28 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "qca-*",
+    "category": "Developer Tools",
+    "reason": "The Qt Cryptographic Architecture's own per-Qt-version library/plugin ecosystem (qca-qt5, qca-qt6-utils, qca-qt5-gcrypt, ...) — verified live: 27 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "xcb-*",
+    "category": "Developer Tools",
+    "reason": "The XCB (X protocol C-language Binding) library/protocol ecosystem (xcb-util, xcb-proto, xcb-util-cursor, ...) — verified live: 28 real matches, zero unrelated collisions."
   }
 ]

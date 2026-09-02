@@ -1633,5 +1633,20 @@
     "pattern": "aur-*",
     "category": "Developer Tools",
     "reason": "AUR-tooling ecosystem (aur-security-auditor, aur-out-of-date, aur-scanner-rc, ...) — AUR-package developer/maintainer tooling."
+  },
+  {
+    "pattern": "switchboard*",
+    "category": "Settings",
+    "reason": "elementary OS's own Switchboard system-settings app (\"The Pantheon Control Center\") and its plug ecosystem (switchboard-plug-bluetooth, switchboard-plug-network, ...) — verified live: 30 real matches, all Switchboard itself or one of its settings plugs, no upstream category source covers any of them."
+  },
+  {
+    "pattern": "yaru*",
+    "category": "Settings",
+    "reason": "Ubuntu Community's own Yaru theme family (yaru-gtk-theme, yaru-icon-theme, yaru-sound-theme, its Colors/Remix forks, ...) — a coherent, unambiguous desktop-theming product family, verified live: 28 real matches, all Yaru itself or a Yaru-derived theme."
+  },
+  {
+    "pattern": "adwaita*",
+    "category": "Settings",
+    "reason": "GNOME's own Adwaita GTK/icon/cursor theme family and its Qt-bending styles (adwaita-icon-theme, adwaita-qt5/6, adwaita-dark, ...) — same desktop-theming reasoning as yaru*. Verified live: 29 real matches, all theme/style packages; the separate adwaita-fonts typeface family is excluded before filtering ever reaches this stage (see filter/rules.ts)."
   }
 ]

@@ -423,6 +423,28 @@ const NOISE_PATTERNS: RegExp[] = [
   // reasoning as this file's other font patterns. Verified live: 331 real
   // matches, all Noto font families.
   /^google-noto-/,
+  // AUR/Nixpkgs/Void's own bare "noto-fonts-"/"noto-font-" convention
+  // (noto-fonts-cjk-vf, noto-fonts-ar, ...) and the separate "nerd-fonts-"
+  // family (nerd-fonts-jetbrains-mono, nerd-fonts-noto-sans-mono, patched
+  // programming-font variants of Noto/other typefaces) — not caught by
+  // this file's `^font-`/`^google-noto-` patterns, which both require a
+  // different prefix shape. Surfaced live investigating the apps "To
+  // Classify" bucket (2026-09-02): 152 real matches across apk-alpine/
+  // nix-nixpkgs/pacman-arch/pacman-aur/slackware/xbps-void, all real
+  // typefaces (verified against nix-nixpkgs's own descriptions, all
+  // literally starting "Nerd Fonts: ..." or naming a Noto script/weight).
+  /^noto-fonts?-/,
+  /^nerd-fonts-/,
+  // GNOME's own Adwaita typeface family (adwaita-fonts, adwaita-fonts-mono/
+  // -sans/-all/-ttf, Fedora's inverted adwaita-mono-fonts/adwaita-sans-fonts)
+  // — real fonts, not the separate Adwaita GTK/icon/cursor THEME family
+  // (adwaita-icon-theme, adwaita-qt5/6, ...), which stays a real
+  // categorizable app family instead (see config/category-rules.json's
+  // "adwaita*" entry). Surfaced live investigating the apps "To Classify"
+  // bucket (2026-09-02): 11 real matches across apk-alpine/ebuild-gentoo/
+  // eopkg-solus/nix-nixpkgs/pacman-arch/rpm-fedora/rpm-opensuse/slackware/
+  // xbps-void, all real typefaces.
+  /^adwaita-(fonts|mono-fonts|sans-fonts)/,
 ];
 
 /**

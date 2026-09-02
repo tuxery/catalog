@@ -348,5 +348,25 @@
     "sources": ["deb-debian", "deb-ubuntu"],
     "name": "task-spooler",
     "reason": "Real standalone CLI batch-queue tool despite the task- tasksel noise prefix — see filter/rules.ts's TASKSEL_PREFIX comment"
+  },
+  {
+    "sources": ["pacman-aur"],
+    "name": "xml-coreutils",
+    "reason": "Real standalone CLI tool collection despite the xml- Perl/library noise prefix — see filter/rules.ts's xml- comment"
+  },
+  {
+    "sources": ["deb-debian", "deb-ubuntu"],
+    "name": "xml-twig-tools",
+    "reason": "Real standalone CLI tool collection despite the xml- Perl/library noise prefix — see filter/rules.ts's xml- comment"
+  },
+  {
+    "sources": ["rpm-opensuse"],
+    "name": "xml-security-c-bin",
+    "reason": "Real standalone CLI utilities despite the xml- Perl/library noise prefix — see filter/rules.ts's xml- comment"
+  },
+  {
+    "sources": ["deb-debian", "deb-ubuntu"],
+    "name": "xml-security-c-utils",
+    "reason": "Real standalone CLI utilities despite the xml- Perl/library noise prefix — see filter/rules.ts's xml- comment"
   }
 ]

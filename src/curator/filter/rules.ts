@@ -485,6 +485,10 @@ const NOISE_PATTERNS: RegExp[] = [
   // investigating the apps "To Classify" bucket (2026-09-02): 23 real
   // matches, all real Google-published typefaces.
   /^google-.*fonts/,
+  // CERN ROOT's own bundled font collection (root-font-files) — carved
+  // out ahead of config/category-rules.json's broader "root-*" entry,
+  // same shape as intel-*-fonts/adwaita-fonts above.
+  /^root-font-files$/,
 ];
 
 /**

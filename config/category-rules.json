@@ -1803,5 +1803,15 @@
     "pattern": "pure*",
     "category": "Developer Tools",
     "reason": "The Pure functional-programming-language interpreter and its own module/binding ecosystem (pure-ffi, pure-gtk, pure-sql3, pure-meta-*, ...) — same \"approximate-but-plausible\" reasoning as fp-*/dh-*: most members are libraries rather than independently launchable, but the family is coherent and unambiguously developer-facing. Verified live: 48 real matches, two genuine unrelated collisions (pure-ftpd*, pure-prompt) carved out above; pure-eval (a Python library) and pure-studio-git (an Electron text editor) are close enough to Developer Tools anyway to leave uncarved."
+  },
+  {
+    "pattern": "syslog-ng*",
+    "category": "System Tools",
+    "reason": "syslog-ng, a real standalone next-generation logging daemon, plus its entire destination/plugin ecosystem (syslog-ng-mod-*, syslog-ng-kafka, syslog-ng-python, ...) — verified live: 58 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "arm-*",
+    "category": "Developer Tools",
+    "reason": "The ARM cross-compilation toolchain family (arm-none-eabi-gcc, arm-linux-gnueabihf-gdb, arm-gnu-toolchain-*, ARM Trusted Firmware, ...) — same reasoning as gcc*/ga68*. Verified live: 49 real matches; one minor imprecision left uncarved (arm-fdisk, an Acorn-machine disk-partitioning tool, still technical/ARM-adjacent enough to leave as-is)."
   }
 ]

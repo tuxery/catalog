@@ -1138,5 +1138,65 @@
     "pattern": "\\bsticky notes\\b",
     "category": "Productivity",
     "reason": "Description explicitly identifies it as a sticky-notes app. Verified live: 9 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bmail client\\b",
+    "category": "Internet & Communication",
+    "reason": "Description explicitly identifies it as a mail client -- catches real matches the existing \"email client\" entry misses (different word). Verified live: 24 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bsftp client\\b",
+    "category": "Internet & Communication",
+    "reason": "Description explicitly identifies it as an SFTP client -- same reasoning as the existing FTP client entry. Verified live: 11 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\btwitter client\\b",
+    "category": "Internet & Communication",
+    "reason": "Description explicitly identifies it as a Twitter client. Verified live: 10 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bbittorrent client\\b",
+    "category": "Internet & Communication",
+    "reason": "Description explicitly identifies it as a BitTorrent client -- catches real matches the existing \"torrent client\" entry misses (different word). Verified live: 39 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bdiscord client\\b",
+    "category": "Internet & Communication",
+    "reason": "Description explicitly identifies it as a Discord client. Verified live: 20 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bdatabase client\\b",
+    "category": "Developer Tools",
+    "reason": "Description explicitly identifies it as a database client -- same reasoning as the existing SQL client entry. Verified live: 21 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bgit client\\b",
+    "category": "Developer Tools",
+    "reason": "Description explicitly identifies it as a Git client. Verified live: 18 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bmqtt client\\b",
+    "category": "Developer Tools",
+    "reason": "Description explicitly identifies it as an MQTT client. Verified live: 12 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bhttp client\\b",
+    "category": "Developer Tools",
+    "reason": "Description explicitly identifies it as an HTTP client. Verified live: 27 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bdns client\\b",
+    "category": "System Tools",
+    "reason": "Description explicitly identifies it as a DNS client. Verified live: 26 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bdhcp client\\b",
+    "category": "System Tools",
+    "reason": "Description explicitly identifies it as a DHCP client. Verified live: 10 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bvnc client\\b",
+    "category": "System Tools",
+    "reason": "Description explicitly identifies it as a VNC client -- same reasoning as the existing remote desktop entry. Verified live: 14 real matches, zero unrelated collisions."
   }
 ]

@@ -543,6 +543,11 @@ const NOISE_PATTERNS: RegExp[] = [
   // Surfaced live investigating the apps "To Classify" bucket
   // (2026-09-02): 30 real matches, all real Greek typefaces.
   /^gfs-.*fonts/i,
+  // BPG's own Georgian typeface family (bpg-algeti-fonts,
+  // bpg-classic-fonts, bpg-courier-fonts, ...) — real fonts. Surfaced
+  // live investigating the apps "To Classify" bucket (2026-09-02): 33
+  // real matches, all real Georgian typefaces.
+  /^bpg-.*fonts/i,
 ];
 
 /**

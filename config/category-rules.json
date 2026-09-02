@@ -1978,5 +1978,40 @@
     "pattern": "ps2-*",
     "category": "Developer Tools",
     "reason": "The PlayStation 2 homebrew-development toolchain (ps2-ee/ps2-iop compilers, ported libraries like ps2-freetype/ps2-expat, ...) — verified live: 30 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "xde-*",
+    "category": "System Tools",
+    "reason": "The X Desktop Environment's own bundled component family (xde-desktop, xde-applets, xde-menu, ...) — same \"DE's own component family\" reasoning as pop-*/cutefish-*. Verified live: 23 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "gh-*",
+    "category": "Developer Tools",
+    "reason": "The GitHub CLI (`gh`)'s own third-party extension ecosystem (gh-dash, gh-notify, gh-poi, gh-stack, ...) — verified live: 27 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "arc-client",
+    "category": "Utilities",
+    "reason": "\"A Tool that allows you to remotely control your VRChat avatar parameters\" — genuinely unrelated to the Arc GTK/icon theme family below despite sharing the arc- prefix, so this exact-match entry must stay ordered before arc-* to win first."
+  },
+  {
+    "pattern": "arc-unit-mocha*",
+    "category": "Developer Tools",
+    "reason": "A real xUnit/Clover test runner for Arcanist — genuinely unrelated to the Arc theme family below, carved out the same way as arc-client above."
+  },
+  {
+    "pattern": "arc-welder-bin",
+    "category": "Utilities",
+    "reason": "\"Anti Stutter Libraries and Binaries\" — genuinely unrelated to the Arc theme family below, carved out the same way as arc-client above."
+  },
+  {
+    "pattern": "arc-unpacker",
+    "category": "Utilities",
+    "reason": "\"CLI tool for extracting images and sounds from visual novels\" — genuinely unrelated to the Arc theme family below, carved out the same way as arc-client above."
+  },
+  {
+    "pattern": "arc-*",
+    "category": "Settings",
+    "reason": "The Arc GTK/icon/KDE theme family and its many per-app skins (arc-theme, arc-icon-theme, arc-kde-konsole, arc-gotham-gtk-theme-git, ...) — same desktop-theming reasoning as yaru*/adwaita*/tela*/papirus*/oxygen*. Verified live: 22 real matches after the four genuine unrelated collisions above are carved out."
   }
 ]

@@ -29,14 +29,18 @@
           "Settings",
           "Utilities"
         ],
-        "description": "One of config/categories-apps.json's own display labels (not a freedesktop key) — this is a last-resort signal for apps with no upstream category at all, so it writes the label directly. Never a categories-games.json genre — see category-rules.ts's doc comment on why games skip this fallback entirely."
+        "description": "One of config/categories-apps.json's own display labels (not a freedesktop key) — this is a last-resort signal for apps with no upstream category at all, so it writes the label directly. Never a categories-games.json genre — games have their own equivalent file, config/game-category-rules.json (see game-category-rules.ts), since the two taxonomies are disjoint closed enums."
       },
       "reason": {
         "type": "string",
         "description": "Why this family belongs in this category — required so the rule is auditable later, not just an unexplained line."
       }
     },
-    "required": ["pattern", "category", "reason"],
+    "required": [
+      "pattern",
+      "category",
+      "reason"
+    ],
     "additionalProperties": false
   },
   "title": "Enrich: category rules",

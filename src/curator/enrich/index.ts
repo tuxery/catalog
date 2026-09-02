@@ -10,6 +10,11 @@ import {
 import { pickCategory, TO_CLASSIFY } from "./category";
 import { loadCategoryRules, matchCategoryRule, type CategoryRuleEntry } from "./category-rules";
 import {
+  loadGameCategoryRules,
+  matchGameCategoryRule,
+  type GameCategoryRuleEntry,
+} from "./game-category-rules";
+import {
   categoryFromDebianSection,
   categoryFromGentooSection,
   categoryFromOpenSuseGroup,
@@ -116,11 +121,14 @@ function firstDefined<T, R>(items: T[], fn: (item: T) => R | undefined): R | und
  * Picks a category label via `pickField`, then maps it through
  * `pickCategory`'s type-scoped taxonomy. When no member package has any
  * upstream category data at all:
- * - For a game, falls back to `gameGenreFromGentooSection` (see
+ * - For a game, falls back in order to `gameGenreFromGentooSection` (see
  *   `category-section.ts` — Gentoo's own `games-*` subcategory, e.g.
  *   games-arcade/games-rpg/games-board, already used to *detect* a game
  *   via `looksLikeGamePackage`, specific enough on several values to also
- *   predict a `categories-games.json` genre).
+ *   predict a `categories-games.json` genre), then `gameCategoryRules`
+ *   (see `game-category-rules.ts` — a name-pattern signal hand-curated
+ *   from each game's own description, for well-known titles no upstream
+ *   source tags with a genre at all).
  * - For an app, falls back in order to `categoryRules` (see
  *   `category-rules.ts` — a name-pattern signal for well-known product
  *   families no upstream source classifies, e.g. Wine/Proton compatibility
@@ -135,6 +143,7 @@ function pickCategoryLabel(
   packages: SourcedPackage[],
   isGame: boolean,
   categoryRules: CategoryRuleEntry[],
+  gameCategoryRules: GameCategoryRuleEntry[],
 ): string {
   const categories = pickField(packages, (pkg) =>
     pkg.categories && pkg.categories.length > 0 ? pkg.categories : undefined,
@@ -143,7 +152,10 @@ function pickCategoryLabel(
   if (picked !== TO_CLASSIFY) return picked;
 
   if (isGame) {
-    return firstDefined(packages, gameGenreFromGentooSection) ?? TO_CLASSIFY;
+    const sectionGenre = firstDefined(packages, gameGenreFromGentooSection);
+    if (sectionGenre) return sectionGenre;
+    const names = packages.map((pkg) => pkg.name);
+    return matchGameCategoryRule(names, gameCategoryRules) ?? TO_CLASSIFY;
   }
 
   const names = packages.map((pkg) => pkg.name);
@@ -247,6 +259,7 @@ export function enrichApps(
   appStoreFrontends: AppStoreFrontendEntry[] = loadAppStoreFrontends(),
   compatWarnings: CompatWarningEntry[] = loadCompatWarnings(),
   categoryRules: CategoryRuleEntry[] = loadCategoryRules(),
+  gameCategoryRules: GameCategoryRuleEntry[] = loadGameCategoryRules(),
 ): CatalogApp[] {
   const apps: CatalogApp[] = matched.map((app) => {
     const representative = pickByPriority(app.packages);
@@ -262,7 +275,7 @@ export function enrichApps(
       kind: app.packages.some(hasGuiEvidence) ? "gui" : undefined,
       contentType: isGame ? "game" : undefined,
       appStoreFrontend: isAppStoreFrontend(app.packages, appStoreFrontends) ? true : undefined,
-      category: pickCategoryLabel(app.packages, isGame, categoryRules),
+      category: pickCategoryLabel(app.packages, isGame, categoryRules, gameCategoryRules),
       iconUrl: pickField(app.packages, (pkg) => pkg.iconUrl),
       approxSizeBytes: pickField(app.packages, (pkg) => pkg.approxSizeBytes),
       license: pickField(app.packages, (pkg) => pkg.license),

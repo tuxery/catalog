@@ -538,6 +538,11 @@ const NOISE_PATTERNS: RegExp[] = [
   // shape as intel-*-fonts/adwaita-fonts above. Surfaced live
   // investigating the apps "To Classify" bucket (2026-09-02).
   /^oxygen-(fonts|mono-fonts|sans-fonts)/,
+  // The Greek Font Society's own typeface family (gfs-ambrosia-fonts,
+  // gfs-baskerville-fonts, gfs-complutum-fonts, ...) — real fonts.
+  // Surfaced live investigating the apps "To Classify" bucket
+  // (2026-09-02): 30 real matches, all real Greek typefaces.
+  /^gfs-.*fonts/i,
 ];
 
 /**

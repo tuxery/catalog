@@ -1008,5 +1008,70 @@
     "pattern": "\\bshell prompt\\b",
     "category": "System Tools",
     "reason": "Description explicitly identifies it as a shell-prompt customization tool. Verified live: 6 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bdownload manager\\b",
+    "category": "Internet & Communication",
+    "reason": "Description explicitly identifies it as a download manager. Verified live: 47 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\b(home automation|smart home)\\b",
+    "category": "System Tools",
+    "reason": "Description explicitly identifies it as home-automation/smart-home infrastructure software. Verified live: 35 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bnetwork scanner\\b",
+    "category": "Security",
+    "reason": "Description explicitly identifies it as a network scanner. Verified live: 13 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bpacket sniffer\\b",
+    "category": "Security",
+    "reason": "Description explicitly identifies it as a packet sniffer. Verified live: 5 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bkeylogger\\b",
+    "category": "Security",
+    "reason": "Description explicitly identifies it as a keylogger. Verified live: 5 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bspam filter\\b",
+    "category": "Security",
+    "reason": "Description explicitly identifies it as a spam filter. Verified live: 18 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bvpn server\\b",
+    "category": "Security",
+    "reason": "Description explicitly identifies it as a VPN server -- same reasoning as the existing VPN client entry. Verified live: 3 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bmacro recorder\\b",
+    "category": "Utilities",
+    "reason": "Description explicitly identifies it as a macro recorder. Verified live: 5 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bhotkey (manager|daemon)\\b",
+    "category": "Settings",
+    "reason": "Description explicitly identifies it as a global-hotkey daemon -- same hardware/input-configuration reasoning as keyboard layout above. Verified live: 9 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bprinter (management|driver|utility)\\b",
+    "category": "System Tools",
+    "reason": "Description explicitly identifies it as printer driver/management software -- hardware driver, same reasoning as this project's existing driver classifications. Verified live: 72 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bchatbot\\b",
+    "category": "Internet & Communication",
+    "reason": "Description explicitly identifies it as a chatbot -- messaging-platform-adjacent software. Verified live: 11 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bvoice assistant\\b",
+    "category": "Utilities",
+    "reason": "Description explicitly identifies it as a voice assistant. Verified live: 6 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\biot\\b",
+    "category": "System Tools",
+    "reason": "Description explicitly identifies it as IoT (Internet of Things) infrastructure software -- hub servers, MQTT brokers, device-management platforms. Verified live: 44 real matches, zero unrelated collisions."
   }
 ]

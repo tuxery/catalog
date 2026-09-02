@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "pattern": {
+        "type": "string",
+        "description": "A JavaScript regular expression source string, matched case-insensitively against the app's own `shortDescription` (never `longDescription` — verified live that longer prose produces real false positives from incidental phrases, e.g. an invoicing app mentioning \"save it... from your web browser\"). Always a multi-word phrase with `\\b` word boundaries, never a bare generic word — single words like \"editor\"/\"player\"/\"manager\" mean different things in different categories."
+      },
+      "category": {
+        "type": "string",
+        "enum": [
+          "Developer Tools",
+          "Science",
+          "Education",
+          "Security",
+          "Finance",
+          "Photo & Video",
+          "Music & Audio",
+          "Graphics & Design",
+          "Internet & Communication",
+          "Productivity",
+          "Business",
+          "News & Weather",
+          "Travel & Navigation",
+          "Books & Reference",
+          "System Tools",
+          "Settings",
+          "Utilities"
+        ],
+        "description": "One of config/categories-apps.json's own display labels — this is the last-resort signal for apps with no upstream category, no category-rules.json name match, and no Debian/Gentoo/openSUSE section match either."
+      },
+      "reason": {
+        "type": "string",
+        "description": "Why this phrase reliably predicts this category — required so the rule is auditable later, not just an unexplained line."
+      }
+    },
+    "required": [
+      "pattern",
+      "category",
+      "reason"
+    ],
+    "additionalProperties": false
+  },
+  "title": "Enrich: description category rules",
+  "description": "Hand-curated keyword-phrase → category rules matched against an app's own shortDescription, for apps with no upstream category, no category-rules.json name match, and no distro-Section match either — the last resort before \"To Classify\". First matching rule wins, checked in order (a few entries are deliberately ordered first as priority overrides for a phrase that means two different things, e.g. \"task manager\" the to-do app vs. \"task manager\" the Windows-style process monitor — see those entries' own reasons). Every entry was verified live against a real sample of matches before being added, same discipline as category-rules.json, just against description text instead of package names — richer signal, less precise, so kept as the last resort in the fallback chain."
+}

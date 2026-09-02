@@ -2583,5 +2583,10 @@
     "pattern": "gog-unrest",
     "category": "Role-Playing",
     "reason": "Description identifies it as a role-playing game (\"Adventure RPG set in ancient India, focused on story and choices\") -- an AUR community-packaged GOG.com game installer wrapper (see filter/rules.ts's looksLikeGamePackage gog- prefix), found via the apps \"To Classify\" bucket review (2026-09-02)."
+  },
+  {
+    "pattern": "pzl_*",
+    "category": "Puzzle",
+    "reason": "A single coherent AUR puzzle-game suite (pzl_sudoku, pzl_sokoban, pzl_wordladder, pzl_common's shared data, ...) -- unlike most entries in this file, a wildcard is safe here since every real member of the family (42 verified) is a logic/word puzzle or that suite's own data package. See filter/rules.ts's looksLikeGamePackage pzl_ prefix, which is what makes these games at all."
   }
 ]

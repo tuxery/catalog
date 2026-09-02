@@ -1658,5 +1658,20 @@
     "pattern": "elephant*",
     "category": "Utilities",
     "reason": "Elephant, a real standalone application-launcher framework, plus its own provider-plugin ecosystem (elephant-bitwarden, elephant-clipboard, elephant-files, ...) — same \"application launcher\" reasoning as rofi-*. Verified live: 32 real matches."
+  },
+  {
+    "pattern": "tela*",
+    "category": "Settings",
+    "reason": "The Tela icon theme family (tela-icon-theme, its Circle variant's many color builds, ...) — same desktop-theming reasoning as yaru*/adwaita*. Verified live: 21 real matches, all Tela itself or a Tela-derived icon theme."
+  },
+  {
+    "pattern": "kube",
+    "category": "Internet & Communication",
+    "reason": "Kube, a real standalone KDE groupware/PIM client (\"based on QtQuick and Sink\") — genuinely unrelated to the huge Kubernetes ecosystem below despite the identical bare name, so this exact-match entry must stay ordered before kube* to win first."
+  },
+  {
+    "pattern": "kube*",
+    "category": "Developer Tools",
+    "reason": "The Kubernetes CLI/tooling ecosystem (kubectl plugins, kubeadm, kube-apiserver, kubeval, kubeshark, ...) — verified live: 140+ real matches, overwhelmingly real Kubernetes-adjacent developer tooling; the one genuine name collision (bare \"kube\", the KDE groupware client) is carved out by its own entry above."
   }
 ]

@@ -338,5 +338,10 @@
     ],
     "name": "font-manager",
     "reason": "Real standalone GTK font-management app (Font Manager) despite the font- noise prefix — see filter/rules.ts's font- comment"
+  },
+  {
+    "sources": ["pacman-aur", "nix-nixpkgs"],
+    "name": "sil-q",
+    "reason": "Real standalone roguelike game (a Tolkien-themed Angband variant) despite the sil- noise prefix — see filter/rules.ts's sil- comment"
   }
 ]

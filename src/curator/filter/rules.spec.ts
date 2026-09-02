@@ -397,6 +397,17 @@ describe("looksLikeSourceSpecificNoise", () => {
     expect(looksLikeSourceSpecificNoise("pacman-aur", "android-emulator")).toBe(false);
     expect(looksLikeSourceSpecificNoise("pacman-aur", "android-apktool")).toBe(false);
   });
+
+  it("flags Debian-family task- tasksel metapackages, not AUR/Nixpkgs' real task- apps", () => {
+    expect(looksLikeSourceSpecificNoise("deb-debian", "task-arabic")).toBe(true);
+    expect(looksLikeSourceSpecificNoise("deb-debian", "task-french-kde-desktop")).toBe(true);
+    expect(looksLikeSourceSpecificNoise("deb-ubuntu", "task-laptop")).toBe(true);
+    expect(looksLikeSourceSpecificNoise("deb-ubuntu", "task-ssh-server")).toBe(true);
+    // Real standalone apps that happen to share the task- prefix on
+    // sources with no tasksel convention at all.
+    expect(looksLikeSourceSpecificNoise("pacman-aur", "task-manager")).toBe(false);
+    expect(looksLikeSourceSpecificNoise("nix-nixpkgs", "task-keeper")).toBe(false);
+  });
 });
 
 describe("looksLikeSupportSection", () => {

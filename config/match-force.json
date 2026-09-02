@@ -88,5 +88,22 @@
       }
     ],
     "reason": "Same software (the real VICE Commodore 8-bit emulator) across sources: Flathub's own net.sf.VICE listing, Debian's bare \"vice\" (already tier1-merged with Ubuntu/Arch/Nix/RPM Fusion/Void/Solus via their own identical bare appId, no force needed for those), Gentoo's category-qualified app-emulation/vice, and AUR's rolling-release vice-svn build. All of these normalize to the same bare \"vice\" name Flathub's OTHER, unrelated \"Vice\" (io.github.mmp.Vice, an air traffic control simulator) also shares — see config/match-deny.json's io.github.mmp.Vice entries, which is why tier2's normalized-name bridge is deliberately blocked for this whole family and each real member needs reattaching here instead. Picking net.sf.VICE as the force destination (rather than a distro package) gives the real emulator a clean Flathub-appId id instead of an arbitrary source:appId fallback. Found live surfaced while working the games \"To Classify\" bucket (2026-09-02)."
+  },
+  {
+    "destination": {
+      "source": "pacman-aur",
+      "appId": "elm-bin"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "elm-git"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "elmPackages.elm"
+      }
+    ],
+    "reason": "Same software (the Elm programming-language compiler) across sources -- AUR's elm-git is its rolling-release build, Nixpkgs' elmPackages.elm the same compiler under nixpkgs' own attribute-path convention. The new config/match-deny.json entries separating this cluster from AUR's unrelated bare \"elm\" (The Elm Mail System, a real terminal mail client sharing the identical normalized name) also block these two from ever reaching each other or the compiler's own AUR binary build on their own, since tier2's \"elm\" representative was that mail client. Found live investigating the apps \"To Classify\" bucket (2026-09-02) while adding the elm-* category rule."
   }
 ]

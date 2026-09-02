@@ -1,0 +1,687 @@
+[
+  {
+    "pattern": "\\b(npm|node\\.?js|python|ruby|rust|cargo|scheme|fortran|language) package manager\\b",
+    "category": "Developer Tools",
+    "reason": "A programming-language-ecosystem package manager (npm/cargo/pip-style), not a general OS package manager -- checked before the broader \"package manager\" rule below so this wins first."
+  },
+  {
+    "pattern": "\\btask manager\\b.*\\b(system monitor|performance monitoring|process explorer|windows task manager|htop|resource monitor)\\b",
+    "category": "System Tools",
+    "reason": "Windows-Task-Manager-style process/resource monitor, not a to-do productivity app -- checked before the broader \"task manager\" rule below so this wins first."
+  },
+  {
+    "pattern": "\\b(system monitor|htop|resource monitor)\\b.*\\btask manager\\b",
+    "category": "System Tools",
+    "reason": "Same disambiguation as the task-manager entry above, phrase order reversed."
+  },
+  {
+    "pattern": "\\bpassword manager\\b",
+    "category": "Security",
+    "reason": "Description explicitly identifies it as a password manager."
+  },
+  {
+    "pattern": "\\btwo.?factor authentication\\b",
+    "category": "Security",
+    "reason": "Description explicitly identifies it as two-factor authentication software."
+  },
+  {
+    "pattern": "\\bvpn client\\b",
+    "category": "Security",
+    "reason": "Description explicitly identifies it as a VPN client."
+  },
+  {
+    "pattern": "\\bencrypt(ion|ed) (files?|messages?|disk|volume)\\b",
+    "category": "Security",
+    "reason": "Description explicitly identifies it as encryption software."
+  },
+  {
+    "pattern": "\\bvulnerability scann",
+    "category": "Security",
+    "reason": "Description explicitly identifies it as a vulnerability scanner."
+  },
+  {
+    "pattern": "\\bpenetration testing\\b",
+    "category": "Security",
+    "reason": "Description explicitly identifies it as a penetration-testing tool."
+  },
+  {
+    "pattern": "\\bantivirus\\b",
+    "category": "Security",
+    "reason": "Description explicitly identifies it as antivirus software."
+  },
+  {
+    "pattern": "\\bfirewall (app|manager|configuration)\\b",
+    "category": "Security",
+    "reason": "Description explicitly identifies it as firewall software."
+  },
+  {
+    "pattern": "\\bopenpgp\\b",
+    "category": "Security",
+    "reason": "Description explicitly identifies it as OpenPGP-related security software."
+  },
+  {
+    "pattern": "\\bmalware (scan|detection)\\b",
+    "category": "Security",
+    "reason": "Description explicitly identifies it as malware-scanning software."
+  },
+  {
+    "pattern": "\\bintrusion detection\\b",
+    "category": "Security",
+    "reason": "Description explicitly identifies it as an intrusion-detection tool."
+  },
+  {
+    "pattern": "\\bport scann",
+    "category": "Security",
+    "reason": "Description explicitly identifies it as a port scanner."
+  },
+  {
+    "pattern": "\\bpersonal finance\\b",
+    "category": "Finance",
+    "reason": "Description explicitly identifies it as personal-finance software."
+  },
+  {
+    "pattern": "\\bexpense tracker\\b",
+    "category": "Finance",
+    "reason": "Description explicitly identifies it as an expense tracker."
+  },
+  {
+    "pattern": "\\bbudget(ing)? (app|tool|manager)\\b",
+    "category": "Finance",
+    "reason": "Description explicitly identifies it as budgeting software."
+  },
+  {
+    "pattern": "\\binvoicing (software|app|tool)\\b",
+    "category": "Finance",
+    "reason": "Description explicitly identifies it as invoicing software."
+  },
+  {
+    "pattern": "\\baccounting software\\b",
+    "category": "Finance",
+    "reason": "Description explicitly identifies it as accounting software."
+  },
+  {
+    "pattern": "\\bcryptocurrency wallet\\b",
+    "category": "Finance",
+    "reason": "Description explicitly identifies it as a cryptocurrency wallet."
+  },
+  {
+    "pattern": "\\bstock (market|portfolio) (tracker|tool)\\b",
+    "category": "Finance",
+    "reason": "Description explicitly identifies it as a stock-market tracker."
+  },
+  {
+    "pattern": "\\bpoint.of.sale\\b",
+    "category": "Finance",
+    "reason": "Description explicitly identifies it as point-of-sale software."
+  },
+  {
+    "pattern": "\\bphoto editor\\b",
+    "category": "Photo & Video",
+    "reason": "Description explicitly identifies it as a photo editor."
+  },
+  {
+    "pattern": "\\bimage editor\\b",
+    "category": "Photo & Video",
+    "reason": "Description explicitly identifies it as an image editor."
+  },
+  {
+    "pattern": "\\bvideo editor\\b",
+    "category": "Photo & Video",
+    "reason": "Description explicitly identifies it as a video editor."
+  },
+  {
+    "pattern": "\\bvideo player\\b",
+    "category": "Photo & Video",
+    "reason": "Description explicitly identifies it as a video player."
+  },
+  {
+    "pattern": "\\bphoto viewer\\b",
+    "category": "Photo & Video",
+    "reason": "Description explicitly identifies it as a photo viewer."
+  },
+  {
+    "pattern": "\\bimage viewer\\b",
+    "category": "Photo & Video",
+    "reason": "Description explicitly identifies it as an image viewer."
+  },
+  {
+    "pattern": "\\bscreenshot tool\\b",
+    "category": "Photo & Video",
+    "reason": "Description explicitly identifies it as a screenshot tool."
+  },
+  {
+    "pattern": "\\bvideo converter\\b",
+    "category": "Photo & Video",
+    "reason": "Description explicitly identifies it as a video converter."
+  },
+  {
+    "pattern": "\\bphoto management\\b",
+    "category": "Photo & Video",
+    "reason": "Description explicitly identifies it as photo-management software."
+  },
+  {
+    "pattern": "\\bmedia player\\b",
+    "category": "Photo & Video",
+    "reason": "Description explicitly identifies it as a media player."
+  },
+  {
+    "pattern": "\\bdvd ripper\\b",
+    "category": "Photo & Video",
+    "reason": "Description explicitly identifies it as a DVD ripper."
+  },
+  {
+    "pattern": "\\bimage gallery\\b",
+    "category": "Photo & Video",
+    "reason": "Description explicitly identifies it as an image gallery."
+  },
+  {
+    "pattern": "\\bscreen recorder\\b",
+    "category": "Photo & Video",
+    "reason": "Description explicitly identifies it as a screen recorder."
+  },
+  {
+    "pattern": "\\bmusic player\\b",
+    "category": "Music & Audio",
+    "reason": "Description explicitly identifies it as a music player."
+  },
+  {
+    "pattern": "\\baudio editor\\b",
+    "category": "Music & Audio",
+    "reason": "Description explicitly identifies it as an audio editor."
+  },
+  {
+    "pattern": "\\bsound editor\\b",
+    "category": "Music & Audio",
+    "reason": "Description explicitly identifies it as a sound editor."
+  },
+  {
+    "pattern": "\\bmusic production\\b",
+    "category": "Music & Audio",
+    "reason": "Description explicitly identifies it as music-production software."
+  },
+  {
+    "pattern": "\\bdigital audio workstation\\b",
+    "category": "Music & Audio",
+    "reason": "Description explicitly identifies it as a digital audio workstation."
+  },
+  {
+    "pattern": "\\baudio player\\b",
+    "category": "Music & Audio",
+    "reason": "Description explicitly identifies it as an audio player."
+  },
+  {
+    "pattern": "\\bpodcast (app|client|player)\\b",
+    "category": "Music & Audio",
+    "reason": "Description explicitly identifies it as a podcast app."
+  },
+  {
+    "pattern": "\\bmusic streaming\\b",
+    "category": "Music & Audio",
+    "reason": "Description explicitly identifies it as a music-streaming app/client."
+  },
+  {
+    "pattern": "\\bmidi (sequencer|editor)\\b",
+    "category": "Music & Audio",
+    "reason": "Description explicitly identifies it as MIDI software."
+  },
+  {
+    "pattern": "\\baudio recording\\b",
+    "category": "Music & Audio",
+    "reason": "Description explicitly identifies it as audio-recording software."
+  },
+  {
+    "pattern": "\\binternet radio\\b",
+    "category": "Music & Audio",
+    "reason": "Description explicitly identifies it as an internet-radio app."
+  },
+  {
+    "pattern": "\\baudio mixer\\b",
+    "category": "Music & Audio",
+    "reason": "Description explicitly identifies it as an audio mixer."
+  },
+  {
+    "pattern": "\\bvector graphics (editor|software)\\b",
+    "category": "Graphics & Design",
+    "reason": "Description explicitly identifies it as vector-graphics software."
+  },
+  {
+    "pattern": "\\b3d model(l)?ing\\b",
+    "category": "Graphics & Design",
+    "reason": "Description explicitly identifies it as 3D-modeling software."
+  },
+  {
+    "pattern": "\\bcad software\\b",
+    "category": "Graphics & Design",
+    "reason": "Description explicitly identifies it as CAD software."
+  },
+  {
+    "pattern": "\\bdigital painting\\b",
+    "category": "Graphics & Design",
+    "reason": "Description explicitly identifies it as digital-painting software."
+  },
+  {
+    "pattern": "\\bgraphic design\\b",
+    "category": "Graphics & Design",
+    "reason": "Description explicitly identifies it as graphic-design software."
+  },
+  {
+    "pattern": "\\bicon editor\\b",
+    "category": "Graphics & Design",
+    "reason": "Description explicitly identifies it as an icon editor."
+  },
+  {
+    "pattern": "\\bfont editor\\b",
+    "category": "Graphics & Design",
+    "reason": "Description explicitly identifies it as a font editor."
+  },
+  {
+    "pattern": "\\bvector illustration\\b",
+    "category": "Graphics & Design",
+    "reason": "Description explicitly identifies it as vector-illustration software."
+  },
+  {
+    "pattern": "\\b3d rendering\\b",
+    "category": "Graphics & Design",
+    "reason": "Description explicitly identifies it as 3D-rendering software."
+  },
+  {
+    "pattern": "\\bpixel art (editor|tool)\\b",
+    "category": "Graphics & Design",
+    "reason": "Description explicitly identifies it as a pixel-art editor."
+  },
+  {
+    "pattern": "\\bweb browser\\b",
+    "category": "Internet & Communication",
+    "reason": "Description explicitly identifies it as a web browser."
+  },
+  {
+    "pattern": "\\bemail client\\b",
+    "category": "Internet & Communication",
+    "reason": "Description explicitly identifies it as an email client."
+  },
+  {
+    "pattern": "\\bchat client\\b",
+    "category": "Internet & Communication",
+    "reason": "Description explicitly identifies it as a chat client."
+  },
+  {
+    "pattern": "\\bmessaging app\\b",
+    "category": "Internet & Communication",
+    "reason": "Description explicitly identifies it as a messaging app."
+  },
+  {
+    "pattern": "\\bvideo conferenc",
+    "category": "Internet & Communication",
+    "reason": "Description explicitly identifies it as video-conferencing software."
+  },
+  {
+    "pattern": "\\birc client\\b",
+    "category": "Internet & Communication",
+    "reason": "Description explicitly identifies it as an IRC client."
+  },
+  {
+    "pattern": "\\bftp client\\b",
+    "category": "Internet & Communication",
+    "reason": "Description explicitly identifies it as an FTP client."
+  },
+  {
+    "pattern": "\\btorrent client\\b",
+    "category": "Internet & Communication",
+    "reason": "Description explicitly identifies it as a torrent client."
+  },
+  {
+    "pattern": "\\brss (feed )?reader\\b",
+    "category": "Internet & Communication",
+    "reason": "Description explicitly identifies it as an RSS reader."
+  },
+  {
+    "pattern": "\\binstant messaging\\b",
+    "category": "Internet & Communication",
+    "reason": "Description explicitly identifies it as instant-messaging software."
+  },
+  {
+    "pattern": "\\bvoip\\b",
+    "category": "Internet & Communication",
+    "reason": "Description explicitly identifies it as VoIP software."
+  },
+  {
+    "pattern": "\\bxmpp client\\b",
+    "category": "Internet & Communication",
+    "reason": "Description explicitly identifies it as an XMPP client."
+  },
+  {
+    "pattern": "\\bmatrix client\\b",
+    "category": "Internet & Communication",
+    "reason": "Description explicitly identifies it as a Matrix client."
+  },
+  {
+    "pattern": "\\busenet\\b",
+    "category": "Internet & Communication",
+    "reason": "Description explicitly identifies it as Usenet-related software."
+  },
+  {
+    "pattern": "\\bnote.taking (app|tool)\\b",
+    "category": "Productivity",
+    "reason": "Description explicitly identifies it as a note-taking app."
+  },
+  {
+    "pattern": "\\bto.do list\\b",
+    "category": "Productivity",
+    "reason": "Description explicitly identifies it as a to-do list app."
+  },
+  {
+    "pattern": "\\btask manager\\b",
+    "category": "Productivity",
+    "reason": "Description explicitly identifies it as a (to-do-style) task manager."
+  },
+  {
+    "pattern": "\\bcalendar app\\b",
+    "category": "Productivity",
+    "reason": "Description explicitly identifies it as a calendar app."
+  },
+  {
+    "pattern": "\\bword processor\\b",
+    "category": "Productivity",
+    "reason": "Description explicitly identifies it as a word processor."
+  },
+  {
+    "pattern": "\\bspreadsheet (app|editor|software)\\b",
+    "category": "Productivity",
+    "reason": "Description explicitly identifies it as spreadsheet software."
+  },
+  {
+    "pattern": "\\bpresentation software\\b",
+    "category": "Productivity",
+    "reason": "Description explicitly identifies it as presentation software."
+  },
+  {
+    "pattern": "\\bproject management\\b",
+    "category": "Productivity",
+    "reason": "Description explicitly identifies it as project-management software."
+  },
+  {
+    "pattern": "\\boffice suite\\b",
+    "category": "Productivity",
+    "reason": "Description explicitly identifies it as an office suite."
+  },
+  {
+    "pattern": "\\bpdf editor\\b",
+    "category": "Productivity",
+    "reason": "Description explicitly identifies it as a PDF editor."
+  },
+  {
+    "pattern": "\\bkanban board\\b",
+    "category": "Productivity",
+    "reason": "Description explicitly identifies it as a kanban-board app."
+  },
+  {
+    "pattern": "\\bcustomer relationship management\\b",
+    "category": "Business",
+    "reason": "Description explicitly identifies it as CRM software."
+  },
+  {
+    "pattern": "\\bcrm (software|system)\\b",
+    "category": "Business",
+    "reason": "Description explicitly identifies it as CRM software."
+  },
+  {
+    "pattern": "\\binventory management\\b",
+    "category": "Business",
+    "reason": "Description explicitly identifies it as inventory-management software."
+  },
+  {
+    "pattern": "\\bgps navigation\\b",
+    "category": "Travel & Navigation",
+    "reason": "Description explicitly identifies it as GPS-navigation software."
+  },
+  {
+    "pattern": "\\bflight tracker\\b",
+    "category": "Travel & Navigation",
+    "reason": "Description explicitly identifies it as a flight tracker."
+  },
+  {
+    "pattern": "\\btravel planner\\b",
+    "category": "Travel & Navigation",
+    "reason": "Description explicitly identifies it as a travel planner."
+  },
+  {
+    "pattern": "\\bpublic transit\\b",
+    "category": "Travel & Navigation",
+    "reason": "Description explicitly identifies it as public-transit software."
+  },
+  {
+    "pattern": "\\boffline maps\\b",
+    "category": "Travel & Navigation",
+    "reason": "Description explicitly identifies it as an offline-maps app."
+  },
+  {
+    "pattern": "\\be.?book reader\\b",
+    "category": "Books & Reference",
+    "reason": "Description explicitly identifies it as an ebook reader."
+  },
+  {
+    "pattern": "\\bdictionary application\\b",
+    "category": "Books & Reference",
+    "reason": "Description explicitly identifies it as a dictionary application."
+  },
+  {
+    "pattern": "\\bencyclopedia\\b",
+    "category": "Books & Reference",
+    "reason": "Description explicitly identifies it as encyclopedia software."
+  },
+  {
+    "pattern": "\\bcomic book reader\\b",
+    "category": "Books & Reference",
+    "reason": "Description explicitly identifies it as a comic-book reader."
+  },
+  {
+    "pattern": "\\bmanga reader\\b",
+    "category": "Books & Reference",
+    "reason": "Description explicitly identifies it as a manga reader."
+  },
+  {
+    "pattern": "\\bsystem monitor\\b",
+    "category": "System Tools",
+    "reason": "Description explicitly identifies it as a system monitor."
+  },
+  {
+    "pattern": "\\bdisk usage (analyzer|analysis)\\b",
+    "category": "System Tools",
+    "reason": "Description explicitly identifies it as a disk-usage analyzer."
+  },
+  {
+    "pattern": "\\bbackup (tool|software|utility)\\b",
+    "category": "System Tools",
+    "reason": "Description explicitly identifies it as backup software."
+  },
+  {
+    "pattern": "\\bprocess manager\\b",
+    "category": "System Tools",
+    "reason": "Description explicitly identifies it as a process manager."
+  },
+  {
+    "pattern": "\\bpackage manager\\b",
+    "category": "System Tools",
+    "reason": "Description explicitly identifies it as a package manager."
+  },
+  {
+    "pattern": "\\bsystem information (tool|viewer)\\b",
+    "category": "System Tools",
+    "reason": "Description explicitly identifies it as a system-information tool."
+  },
+  {
+    "pattern": "\\blog viewer\\b",
+    "category": "System Tools",
+    "reason": "Description explicitly identifies it as a log viewer."
+  },
+  {
+    "pattern": "\\bnetwork monitor\\b",
+    "category": "System Tools",
+    "reason": "Description explicitly identifies it as a network monitor."
+  },
+  {
+    "pattern": "\\bpartition (editor|manager)\\b",
+    "category": "System Tools",
+    "reason": "Description explicitly identifies it as a disk-partition tool."
+  },
+  {
+    "pattern": "\\bdisk clon(e|ing)\\b",
+    "category": "System Tools",
+    "reason": "Description explicitly identifies it as disk-cloning software."
+  },
+  {
+    "pattern": "\\btheme manager\\b",
+    "category": "Settings",
+    "reason": "Description explicitly identifies it as a theme manager."
+  },
+  {
+    "pattern": "\\bwallpaper (manager|changer)\\b",
+    "category": "Settings",
+    "reason": "Description explicitly identifies it as a wallpaper manager."
+  },
+  {
+    "pattern": "\\bsystem settings (panel|app)\\b",
+    "category": "Settings",
+    "reason": "Description explicitly identifies it as a system-settings panel."
+  },
+  {
+    "pattern": "\\bcalculator (app|application)\\b",
+    "category": "Utilities",
+    "reason": "Description explicitly identifies it as a calculator app."
+  },
+  {
+    "pattern": "\\bclipboard manager\\b",
+    "category": "Utilities",
+    "reason": "Description explicitly identifies it as a clipboard manager."
+  },
+  {
+    "pattern": "\\barchive manager\\b",
+    "category": "Utilities",
+    "reason": "Description explicitly identifies it as an archive manager."
+  },
+  {
+    "pattern": "\\bfile manager\\b",
+    "category": "Utilities",
+    "reason": "Description explicitly identifies it as a file manager."
+  },
+  {
+    "pattern": "\\btext editor\\b",
+    "category": "Utilities",
+    "reason": "Description explicitly identifies it as a text editor -- matches config/categories-apps.json's own \"TextEditor\" -> Utilities freedesktop mapping."
+  },
+  {
+    "pattern": "\\bunit converter\\b",
+    "category": "Utilities",
+    "reason": "Description explicitly identifies it as a unit converter."
+  },
+  {
+    "pattern": "\\bqr code (scanner|generator)\\b",
+    "category": "Utilities",
+    "reason": "Description explicitly identifies it as a QR-code tool."
+  },
+  {
+    "pattern": "\\bintegrated development environment\\b",
+    "category": "Developer Tools",
+    "reason": "Description explicitly identifies it as an IDE."
+  },
+  {
+    "pattern": "\\bcode editor\\b",
+    "category": "Developer Tools",
+    "reason": "Description explicitly identifies it as a code editor."
+  },
+  {
+    "pattern": "\\bsource code editor\\b",
+    "category": "Developer Tools",
+    "reason": "Description explicitly identifies it as a source-code editor."
+  },
+  {
+    "pattern": "\\bversion control (system)?\\b",
+    "category": "Developer Tools",
+    "reason": "Description explicitly identifies it as version-control software."
+  },
+  {
+    "pattern": "\\bstatic (code )?analysis\\b",
+    "category": "Developer Tools",
+    "reason": "Description explicitly identifies it as a static-analysis tool."
+  },
+  {
+    "pattern": "\\bapi client\\b",
+    "category": "Developer Tools",
+    "reason": "Description explicitly identifies it as an API client."
+  },
+  {
+    "pattern": "\\bdatabase (management|client|admin) (tool|software)\\b",
+    "category": "Developer Tools",
+    "reason": "Description explicitly identifies it as a database-management tool."
+  },
+  {
+    "pattern": "\\bregex tester\\b",
+    "category": "Developer Tools",
+    "reason": "Description explicitly identifies it as a regex tester."
+  },
+  {
+    "pattern": "\\bjson (viewer|formatter)\\b",
+    "category": "Developer Tools",
+    "reason": "Description explicitly identifies it as a JSON viewer/formatter."
+  },
+  {
+    "pattern": "\\bhex editor\\b",
+    "category": "Developer Tools",
+    "reason": "Description explicitly identifies it as a hex editor."
+  },
+  {
+    "pattern": "\\bdebugging tool\\b",
+    "category": "Developer Tools",
+    "reason": "Description explicitly identifies it as a debugging tool."
+  },
+  {
+    "pattern": "\\beducational (game|app|tool|software) for (kids|children)\\b",
+    "category": "Education",
+    "reason": "Description explicitly identifies it as educational software for kids."
+  },
+  {
+    "pattern": "\\blanguage learning\\b",
+    "category": "Education",
+    "reason": "Description explicitly identifies it as language-learning software."
+  },
+  {
+    "pattern": "\\bflashcard (app|tool)\\b",
+    "category": "Education",
+    "reason": "Description explicitly identifies it as a flashcard app."
+  },
+  {
+    "pattern": "\\btyping tutor\\b",
+    "category": "Education",
+    "reason": "Description explicitly identifies it as a typing tutor."
+  },
+  {
+    "pattern": "\\bscientific (computing|visualization|calculator)\\b",
+    "category": "Science",
+    "reason": "Description explicitly identifies it as scientific-computing software."
+  },
+  {
+    "pattern": "\\bnumerical (computing|analysis)\\b",
+    "category": "Science",
+    "reason": "Description explicitly identifies it as numerical-computing software."
+  },
+  {
+    "pattern": "\\bmolecular (visualization|modeling)\\b",
+    "category": "Science",
+    "reason": "Description explicitly identifies it as molecular-visualization software."
+  },
+  {
+    "pattern": "\\bgenome (sequencing|analysis)\\b",
+    "category": "Science",
+    "reason": "Description explicitly identifies it as genome-analysis software."
+  },
+  {
+    "pattern": "\\bastronomy software\\b",
+    "category": "Science",
+    "reason": "Description explicitly identifies it as astronomy software."
+  },
+  {
+    "pattern": "\\bstatistical (analysis|computing)\\b",
+    "category": "Science",
+    "reason": "Description explicitly identifies it as statistical-analysis software."
+  }
+]

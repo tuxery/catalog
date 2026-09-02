@@ -20,6 +20,11 @@ import {
   categoryFromOpenSuseGroup,
   gameGenreFromGentooSection,
 } from "./category-section";
+import {
+  loadDescriptionCategoryRules,
+  matchDescriptionCategoryRule,
+  type DescriptionCategoryRuleEntry,
+} from "./description-category-rules";
 import { getCompatWarnings, loadCompatWarnings, type CompatWarningEntry } from "./compat-warnings";
 import { applySuites, loadSuiteOverrides, type SuiteOverrideEntry } from "./suite";
 import type { CatalogApp } from "./types";
@@ -136,7 +141,11 @@ function firstDefined<T, R>(items: T[], fn: (item: T) => R | undefined): R | und
  *   `categoryFromOpenSuseGroup` (Debian/Ubuntu's Section field, Gentoo's
  *   top-level category, and openSUSE/RPM Fusion's `<rpm:group>` value —
  *   each source's own package-classification field, for the values
- *   already known to reliably predict a specific category).
+ *   already known to reliably predict a specific category), then
+ *   `descriptionCategoryRules` (see `description-category-rules.ts` — a
+ *   hand-curated, sampled-and-verified keyword-phrase signal against the
+ *   app's own `shortDescription`, the last and least precise resort
+ *   before giving up).
  * Either path finally gives up to `TO_CLASSIFY`.
  */
 function pickCategoryLabel(
@@ -144,6 +153,8 @@ function pickCategoryLabel(
   isGame: boolean,
   categoryRules: CategoryRuleEntry[],
   gameCategoryRules: GameCategoryRuleEntry[],
+  descriptionCategoryRules: DescriptionCategoryRuleEntry[],
+  shortDescription: string,
 ): string {
   const categories = pickField(packages, (pkg) =>
     pkg.categories && pkg.categories.length > 0 ? pkg.categories : undefined,
@@ -169,7 +180,9 @@ function pickCategoryLabel(
       categoryFromGentooSection(pkg) ??
       categoryFromOpenSuseGroup(pkg),
   );
-  return sectionMatch ?? TO_CLASSIFY;
+  if (sectionMatch) return sectionMatch;
+
+  return matchDescriptionCategoryRule(shortDescription, descriptionCategoryRules) ?? TO_CLASSIFY;
 }
 
 /**
@@ -260,22 +273,31 @@ export function enrichApps(
   compatWarnings: CompatWarningEntry[] = loadCompatWarnings(),
   categoryRules: CategoryRuleEntry[] = loadCategoryRules(),
   gameCategoryRules: GameCategoryRuleEntry[] = loadGameCategoryRules(),
+  descriptionCategoryRules: DescriptionCategoryRuleEntry[] = loadDescriptionCategoryRules(),
 ): CatalogApp[] {
   const apps: CatalogApp[] = matched.map((app) => {
     const representative = pickByPriority(app.packages);
+    const shortDescription = pickDescription(app.packages);
     const warnings = getCompatWarnings(app.packages, compatWarnings);
     const isGame = app.packages.some(hasGameEvidence);
 
     return {
       id: app.id,
       name: representative.name,
-      shortDescription: pickDescription(app.packages),
+      shortDescription,
       homepage: representative.homepage,
       packages: app.packages,
       kind: app.packages.some(hasGuiEvidence) ? "gui" : undefined,
       contentType: isGame ? "game" : undefined,
       appStoreFrontend: isAppStoreFrontend(app.packages, appStoreFrontends) ? true : undefined,
-      category: pickCategoryLabel(app.packages, isGame, categoryRules, gameCategoryRules),
+      category: pickCategoryLabel(
+        app.packages,
+        isGame,
+        categoryRules,
+        gameCategoryRules,
+        descriptionCategoryRules,
+        shortDescription,
+      ),
       iconUrl: pickField(app.packages, (pkg) => pkg.iconUrl),
       approxSizeBytes: pickField(app.packages, (pkg) => pkg.approxSizeBytes),
       license: pickField(app.packages, (pkg) => pkg.license),

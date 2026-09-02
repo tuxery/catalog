@@ -1908,5 +1908,15 @@
     "pattern": "nfs-*",
     "category": "System Tools",
     "reason": "The NFS network-filesystem client/server tooling ecosystem (nfs-ganesha, nfs-utils-rdma-client/-server, nfs-common, ...) — verified live: 27 real matches, one genuine unrelated collision (nfs-browser-bin) carved out above."
+  },
+  {
+    "pattern": "bitcoin*",
+    "category": "Finance",
+    "reason": "The Bitcoin reference client/daemon family across its real forks and per-component packages (bitcoin-qt, bitcoin-cli, bitcoin-abc, ...) — verified live: 32 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "docbook*",
+    "category": "Developer Tools",
+    "reason": "The DocBook XML/SGML documentation-toolchain ecosystem (docbook-xsl-ns, docbook-to-man, docbook2mdoc, ...) — verified live: 35 real matches, zero unrelated collisions."
   }
 ]

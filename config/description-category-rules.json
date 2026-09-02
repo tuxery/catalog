@@ -1253,5 +1253,60 @@
     "pattern": "\\bwallpaper daemon\\b",
     "category": "Settings",
     "reason": "Description explicitly identifies it as a wallpaper daemon -- same desktop-theming reasoning as the existing wallpaper manager/changer entry. Verified live: 18 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bsession manager\\b",
+    "category": "Developer Tools",
+    "reason": "Description explicitly identifies it as a session manager -- most real matches are terminal/AI-coding-agent session managers or cloud-instance connection tools. Verified live: 44 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bconnection manager\\b",
+    "category": "System Tools",
+    "reason": "Description explicitly identifies it as a connection manager (Bluetooth/VPN/remote connections). Verified live: 35 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bversion manager\\b",
+    "category": "Developer Tools",
+    "reason": "Description explicitly identifies it as a programming-language version manager (asdf/nvm-style). Verified live: 40 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bboot manager\\b",
+    "category": "System Tools",
+    "reason": "Description explicitly identifies it as a boot manager. Verified live: 26 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bdocument viewer\\b",
+    "category": "Utilities",
+    "reason": "Description explicitly identifies it as a document viewer -- matches config/categories-apps.json's own \"Viewer\" -> Utilities freedesktop mapping. Verified live: 31 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bdotfiles? manager\\b",
+    "category": "Developer Tools",
+    "reason": "Description explicitly identifies it as a dotfiles manager -- developer configuration-management tooling. Verified live: 32 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bplugin manager\\b",
+    "category": "Utilities",
+    "reason": "Description explicitly identifies it as a plugin manager. Verified live: 20 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bproject manager\\b",
+    "category": "Developer Tools",
+    "reason": "Description explicitly identifies it as a programming-project manager (real matches are all language-specific: C/C++, Common Lisp, ...), not a general task/project-management app. Verified live: 14 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bdependency manager\\b",
+    "category": "Developer Tools",
+    "reason": "Description explicitly identifies it as a dependency manager. Verified live: 20 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\brepository manager\\b",
+    "category": "System Tools",
+    "reason": "Description explicitly identifies it as a (distro) repository manager. Verified live: 16 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bsecrets manager\\b",
+    "category": "Security",
+    "reason": "Description explicitly identifies it as a secrets manager. Verified live: 11 real matches, zero unrelated collisions."
   }
 ]

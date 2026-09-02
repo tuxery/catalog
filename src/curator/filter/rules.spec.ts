@@ -551,6 +551,14 @@ describe("looksLikeSupportSection", () => {
     expect(looksLikeSupportSection("app-xemacs")).toBe(true);
   });
 
+  it("flags Gentoo's app-doc/kde-frameworks/x11-libs/net-libs/sys-libs categories", () => {
+    expect(looksLikeSupportSection("app-doc")).toBe(true);
+    expect(looksLikeSupportSection("kde-frameworks")).toBe(true);
+    expect(looksLikeSupportSection("x11-libs")).toBe(true);
+    expect(looksLikeSupportSection("net-libs")).toBe(true);
+    expect(looksLikeSupportSection("sys-libs")).toBe(true);
+  });
+
   it("does not flag Gentoo's other categories", () => {
     expect(looksLikeSupportSection("games-strategy")).toBe(false);
     expect(looksLikeSupportSection("dev-libs")).toBe(false);

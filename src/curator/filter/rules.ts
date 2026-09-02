@@ -503,6 +503,16 @@ const NOISE_PATTERNS: RegExp[] = [
   // real matches, all Perl/Haskell/OCaml/Java XML-processing libraries
   // except the four rescued tools.
   /^xml-/i,
+  // Debian/Fedora/Arch's own "pick a default implementation" metapackage
+  // convention — per-language font selectors (default-fonts-ar,
+  // default-fonts-cjk-mono, ...) plus generic default-X selectors
+  // (default-jdk, default-mysql-server, default-d-compiler,
+  // default-editor, default-cursors) — none of these install anything
+  // launchable themselves, they just pull in whatever the distro
+  // currently considers the default X. Verified live: 86 real matches
+  // across deb-debian/deb-ubuntu/pacman-arch/rpm-fedora, all metapackage
+  // selectors, zero real standalone apps found.
+  /^default-/,
 ];
 
 /**

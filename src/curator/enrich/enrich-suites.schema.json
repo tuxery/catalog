@@ -31,7 +31,10 @@
               "description": "The component's display name, e.g. \"LibreOffice Writer\"."
             }
           },
-          "required": ["appId", "name"],
+          "required": [
+            "appId",
+            "name"
+          ],
           "additionalProperties": false
         },
         "description": "Every independently-installable component of this suite."
@@ -41,7 +44,13 @@
         "description": "How this was verified — required so the grouping is auditable later, not just an unexplained line."
       }
     },
-    "required": ["suiteId", "suiteName", "mainAppId", "components", "reason"],
+    "required": [
+      "suiteId",
+      "suiteName",
+      "mainAppId",
+      "components",
+      "reason"
+    ],
     "additionalProperties": false
   },
   "title": "Enrich: software suites",

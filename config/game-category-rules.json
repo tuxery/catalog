@@ -1,0 +1,2367 @@
+[
+  {
+    "pattern": "Blurble",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"Word guessing game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "blurble",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"Word guessing game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "blurble-git",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"Word guessing game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Albion Online",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"MMORPG open medieval fantasy game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "BrickBuster",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"A brick-breaker game, fun and addictive!\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Missile Math",
+    "category": "Action",
+    "reason": "Description identifies it as a action game (\"A plane flying shooter game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Celeste 64",
+    "category": "Action",
+    "reason": "Description identifies it as a action game (\"Celeste 64: Fragments of the Mountain\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "celeste64",
+    "category": "Action",
+    "reason": "Description identifies it as a action game (\"Celeste 64: Fragments of the Mountain\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "celeste64-bin",
+    "category": "Action",
+    "reason": "Description identifies it as a action game (\"Celeste 64: Fragments of the Mountain\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "celeste64-git",
+    "category": "Action",
+    "reason": "Description identifies it as a action game (\"Celeste 64: Fragments of the Mountain\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "FaFa Runner",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"Enjoy smooth gameplay, stunning graphics, and endless fun\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "fafarunner-bin",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"Enjoy smooth gameplay, stunning graphics, and endless fun\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Mindustry",
+    "category": "Strategy",
+    "reason": "Description identifies it as a strategy game (\"Mindustry: A sandbox tower-defense game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "mindustry",
+    "category": "Strategy",
+    "reason": "Description identifies it as a strategy game (\"Mindustry: A sandbox tower-defense game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "mindustry-bin",
+    "category": "Strategy",
+    "reason": "Description identifies it as a strategy game (\"Mindustry: A sandbox tower-defense game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "mindustry-git",
+    "category": "Strategy",
+    "reason": "Description identifies it as a strategy game (\"Mindustry: A sandbox tower-defense game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "mindustry-server",
+    "category": "Strategy",
+    "reason": "Description identifies it as a strategy game (\"Mindustry: A sandbox tower-defense game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "mindustry-server-bin",
+    "category": "Strategy",
+    "reason": "Description identifies it as a strategy game (\"Mindustry: A sandbox tower-defense game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "mindustry-server-git",
+    "category": "Strategy",
+    "reason": "Description identifies it as a strategy game (\"Mindustry: A sandbox tower-defense game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Paint Spill",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"The color-filling puzzle game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Cow's Revenge",
+    "category": "Action",
+    "reason": "Description identifies it as a action game (\"Indie Platformer Pixel Art Game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "CoreChess",
+    "category": "Board & Cards",
+    "reason": "Description identifies it as a board or card game (\"Open source chess GUI for chess engines\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Brogue CE",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"Brogue: Community Edition - a community-lead fork of the much-loved minimalist roguelike game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "brogue-ce",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"Brogue: Community Edition - a community-lead fork of the much-loved minimalist roguelike game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "brogue-ce-git",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"Brogue: Community Edition - a community-lead fork of the much-loved minimalist roguelike game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Flippy",
+    "category": "Board & Cards",
+    "reason": "Description identifies it as a board or card game (\"A clone of the classic board game Reversi\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "RuneScape",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"A free-to-play fantasy MMORPG\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Remnants of the Precursors",
+    "category": "Strategy",
+    "reason": "Description identifies it as a strategy game (\"A polished modernization of the original Master of Orion Strategy game from 1993.\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "SlugChess",
+    "category": "Board & Cards",
+    "reason": "Description identifies it as a board or card game (\"Chess with Fog-of-War and shuffled officers\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Space Station 14",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"Multiplayer disaster simulator\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "PUM Lite",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"Play solo RPGs and write stories\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Hearts",
+    "category": "Board & Cards",
+    "reason": "Description identifies it as a board or card game (\"Avoid taking tricks with hearts\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Microwave Man",
+    "category": "Action",
+    "reason": "Description identifies it as a action game (\"Play as an appliance\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "The Amazing Rules Of TAROT",
+    "category": "Board & Cards",
+    "reason": "Description identifies it as a board or card game (\"Play a game of Tarot against the artificial intelligence\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "An Adventurer's Gallantry",
+    "category": "Adventure",
+    "reason": "Description identifies it as a adventure game (\"Disgraced knight Oren gets a second chance as an adventurer in this fantasy visual novel\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Humanity Must Perish",
+    "category": "Adventure",
+    "reason": "Description identifies it as a adventure game (\"An android high school girl prepares to destroy humanity in this comedic visual novel\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Max Massacre",
+    "category": "Adventure",
+    "reason": "Description identifies it as a adventure game (\"A visual novel set in a monster-filled fantasy world\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Sable's Grimoire (Demo)",
+    "category": "Adventure",
+    "reason": "Description identifies it as a adventure game (\"Monster girl visual novel which takes place in a magic academy\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Wander No More",
+    "category": "Adventure",
+    "reason": "Description identifies it as a adventure game (\"A visual novel telling the story of a rogue samurai\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Tanks of Freedom",
+    "category": "Strategy",
+    "reason": "Description identifies it as a strategy game (\"Indie Turn Based Strategy in Isometric Pixel Art\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "tanks-of-freedom",
+    "category": "Strategy",
+    "reason": "Description identifies it as a strategy game (\"Indie Turn Based Strategy in Isometric Pixel Art\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Beyond All Reason",
+    "category": "Strategy",
+    "reason": "Description identifies it as a strategy game (\"Total Annihilation Inspired RTS\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "beyond-all-reason",
+    "category": "Strategy",
+    "reason": "Description identifies it as a strategy game (\"Total Annihilation Inspired RTS\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "beyondallreason",
+    "category": "Strategy",
+    "reason": "Description identifies it as a strategy game (\"Total Annihilation Inspired RTS\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "beyondallreason-git",
+    "category": "Strategy",
+    "reason": "Description identifies it as a strategy game (\"Total Annihilation Inspired RTS\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Shapebound",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"A relaxing polyomino puzzle game for GNOME\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Cortex Command Community Project",
+    "category": "Strategy",
+    "reason": "Description identifies it as a strategy game (\"2D shooter/RTS with fully destructible terrain\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Gargoyle",
+    "category": "Adventure",
+    "reason": "Description identifies it as a adventure game (\"An Interactive Fiction Player\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "gargoyle",
+    "category": "Adventure",
+    "reason": "Description identifies it as a adventure game (\"An Interactive Fiction Player\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "gargoyle-bin",
+    "category": "Adventure",
+    "reason": "Description identifies it as a adventure game (\"An Interactive Fiction Player\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "gargoyle-git",
+    "category": "Adventure",
+    "reason": "Description identifies it as a adventure game (\"An Interactive Fiction Player\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "go-minesweeper",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"A minesweeper game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Hexkudo",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"Find your path in a maze of numbers\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Tower Oops!",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"A modern GTK4 port of the classic \"Crazy Towers\" puzzle game.\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "LibreQuake",
+    "category": "Action",
+    "reason": "Description identifies it as a action game (\"Cosmic horror first-person shooter\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "TriPeaks",
+    "category": "Board & Cards",
+    "reason": "Description identifies it as a board or card game (\"A Tri Peaks solitaire game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Vice",
+    "category": "Simulation",
+    "reason": "Description identifies it as a simulation game (\"Air Traffic Control Simulator\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Hydra Castle Labyrinth",
+    "category": "Action",
+    "reason": "Description identifies it as a action game (\"A modern Linux port of the \"metroidvania\" game Hydra Castle Labyrinth\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "OceanPop",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"A relaxing match 3 puzzle game with a twist\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Space Nerds in Space",
+    "category": "Simulation",
+    "reason": "Description identifies it as a simulation game (\"Spaceship bridge simulator\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "AntWare",
+    "category": "Action",
+    "reason": "Description identifies it as a action game (\"An FPS game.\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Sudoku Solver",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"A simple Sudoku Sovler\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "sudoku-solver",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"A simple Sudoku Sovler\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "sudoku-solver-git",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"A simple Sudoku Sovler\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Skippy The Bot",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"Skippy is on an epic quest to unravel its true destiny\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Shooting Pactris",
+    "category": "Action",
+    "reason": "Description identifies it as a action game (\"A coop retro game with Tetris, Pacman and shmup gameplay.\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Little Brats!",
+    "category": "Simulation",
+    "reason": "Description identifies it as a simulation game (\"A playground simulator\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "TORCS",
+    "category": "Simulation",
+    "reason": "Description identifies it as a simulation game (\"The Open Racing Car Simulator\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "torcs",
+    "category": "Simulation",
+    "reason": "Description identifies it as a simulation game (\"The Open Racing Car Simulator\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Hexen II: Hammer of Thyrion",
+    "category": "Action",
+    "reason": "Description identifies it as a action game (\"A modernized source port of Hexen II\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Veloren",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"Veloren is an action RPG set in a vast fantasy world made of voxels\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "veloren",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"Veloren is an action RPG set in a vast fantasy world made of voxels\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "veloren-bin",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"Veloren is an action RPG set in a vast fantasy world made of voxels\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "veloren-git",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"Veloren is an action RPG set in a vast fantasy world made of voxels\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "veloren-nightly",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"Veloren is an action RPG set in a vast fantasy world made of voxels\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "veloren-nightly-bin",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"Veloren is an action RPG set in a vast fantasy world made of voxels\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "2048",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"Block sliding puzzle game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Roll 'm Up",
+    "category": "Arcade",
+    "reason": "Description identifies it as a arcade game (\"Classic pinball game from late 90s.\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Roll'm Up",
+    "category": "Arcade",
+    "reason": "Description identifies it as a arcade game (\"Classic pinball game from late 90s.\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Dungeon Crawl Stone Soup",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"Roguelike dungeon exploration game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Make Them Fall",
+    "category": "Arcade",
+    "reason": "Description identifies it as a arcade game (\"It is a multilevel arcade game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Math Hurdler",
+    "category": "Educational",
+    "reason": "Description identifies it as a educational game (\"Engaging math game for children\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Pukllanapac",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"A sliding-puzzle game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Turtle in a Pond",
+    "category": "Strategy",
+    "reason": "Description identifies it as a strategy game (\"Surround the turtle before it runs of the screen\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Tuxemon",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"Tuxemon is a free, open source monster-fighting RPG.\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Colorful",
+    "category": "Action",
+    "reason": "Description identifies it as a action game (\"Side-view shooter game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "colorful",
+    "category": "Action",
+    "reason": "Description identifies it as a action game (\"Side-view shooter game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "SokoGrump",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"Sokoban-like logic game featuring the Grumpy Cat\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Kublit",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"Brand new original puzzle game from 69 Studios\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Spiderbro",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"A spider puzzle game!\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "BilligSweeper",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"A cheap clone of Minesweeper\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "billig-sweeper",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"A cheap clone of Minesweeper\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "billig-sweeper-git",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"A cheap clone of Minesweeper\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "kspaceduel",
+    "category": "Arcade",
+    "reason": "Description identifies it as a arcade game (\"Space Arcade Game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "kspaceduel-git",
+    "category": "Arcade",
+    "reason": "Description identifies it as a arcade game (\"Space Arcade Game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "knavalbattle",
+    "category": "Board & Cards",
+    "reason": "Description identifies it as a board or card game (\"battleship board game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "ROTA",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"Gravity Bending Puzzle Platformer Game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Star Ruler 2",
+    "category": "Strategy",
+    "reason": "Description identifies it as a strategy game (\"A massive scale 4X/RTS set in space\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "starruler2-git",
+    "category": "Strategy",
+    "reason": "Description identifies it as a strategy game (\"A massive scale 4X/RTS set in space\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Linux Tycoon",
+    "category": "Simulation",
+    "reason": "Description identifies it as a simulation game (\"Linux Tycoon for DOS\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "ArrowEscape",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"A calm arrow-untangling puzzle\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Terminal Solitaire",
+    "category": "Board & Cards",
+    "reason": "Description identifies it as a board or card game (\"A terminal-based Klondike Solitaire game.\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Kajongg",
+    "category": "Board & Cards",
+    "reason": "Description identifies it as a board or card game (\"Mahjong tile game from China\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "kajongg",
+    "category": "Board & Cards",
+    "reason": "Description identifies it as a board or card game (\"Mahjong tile game from China\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "qcheckers",
+    "category": "Board & Cards",
+    "reason": "Description identifies it as a board or card game (\"Checkers game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Foobillard-plus",
+    "category": "Simulation",
+    "reason": "Description identifies it as a simulation game (\"Billard game simulator\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "foobillardplus",
+    "category": "Simulation",
+    "reason": "Description identifies it as a simulation game (\"Billard game simulator\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Planet Blupi",
+    "category": "Adventure",
+    "reason": "Description identifies it as a adventure game (\"<p>Planet Blupi is a strategy and adventure game. It subtly blends action with thought-provoking challenges. Behind the quiet and gentle facade, you&apos;ll enjoy a fascinating diversion full of surprises.</p>\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Planet_Blupi",
+    "category": "Adventure",
+    "reason": "Description identifies it as a adventure game (\"<p>Planet Blupi is a strategy and adventure game. It subtly blends action with thought-provoking challenges. Behind the quiet and gentle facade, you&apos;ll enjoy a fascinating diversion full of surprises.</p>\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "planetblupi",
+    "category": "Adventure",
+    "reason": "Description identifies it as a adventure game (\"<p>Planet Blupi is a strategy and adventure game. It subtly blends action with thought-provoking challenges. Behind the quiet and gentle facade, you&apos;ll enjoy a fascinating diversion full of surprises.</p>\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "planetblupi-bin",
+    "category": "Adventure",
+    "reason": "Description identifies it as a adventure game (\"<p>Planet Blupi is a strategy and adventure game. It subtly blends action with thought-provoking challenges. Behind the quiet and gentle facade, you&apos;ll enjoy a fascinating diversion full of surprises.</p>\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "glulxe",
+    "category": "Adventure",
+    "reason": "Description identifies it as a adventure game (\"Interpreter for glulx interactive fiction\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "7kaa",
+    "category": "Strategy",
+    "reason": "Description identifies it as a strategy game (\"Seven Kingdoms: Ancient Adversaries is a real-time strategy (RTS) computer game developed by Trevor Chan\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "ace-of-penguins",
+    "category": "Board & Cards",
+    "reason": "Description identifies it as a board or card game (\"A set of Unix/X solitaire games.\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "amoebax",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"A cute and addictive action-puzzle game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Apotris",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"A block stacking puzzle game for the Game Boy Advance (Linux port)\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "apotris",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"A block stacking puzzle game for the Game Boy Advance (Linux port)\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "apotris-git",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"A block stacking puzzle game for the Game Boy Advance (Linux port)\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "ardentryst",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"An action/RPG sidescoller with a focus on story and character development\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "ardentryst-git",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"An action/RPG sidescoller with a focus on story and character development\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "arx-libertatis",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"Cross-platform port of Arx Fatalis, a first-person role-playing game (executables only)\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "arx-libertatis-bin",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"Cross-platform port of Arx Fatalis, a first-person role-playing game (executables only)\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "arx-libertatis-git",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"Cross-platform port of Arx Fatalis, a first-person role-playing game (executables only)\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "atomiks",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"Atomiks is a faithful remake of, and a tribute to, Atomix, a classic puzzle game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Barony",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"Barony is the premier first-person roguelike with cooperative play\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "barony",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"Barony is the premier first-person roguelike with cooperative play\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "berusky-data",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"A logic game based on the puzzle game Sokoban - data files\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "berusky2",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"A logic game based on the puzzle game Sokoban.\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "berusky2-data",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"A logic game based on the puzzle game Sokoban (Data files).\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "biniax2",
+    "category": "Arcade",
+    "reason": "Description identifies it as a arcade game (\"Arcade game : match two similar fruits, and they will disappear, just clear your way and avoid being blocked\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "bluemoon",
+    "category": "Board & Cards",
+    "reason": "Description identifies it as a board or card game (\"Artificial Intelligence for Reiner Knizia's Blue Moon card game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "boohu",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"Break Out Of Hareka's Underground, a roguelike game.\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "boohu-git",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"Break Out Of Hareka's Underground, a roguelike game.\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Bos Wars",
+    "category": "Strategy",
+    "reason": "Description identifies it as a strategy game (\"Futuristic real-time strategy game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "boswars",
+    "category": "Strategy",
+    "reason": "Description identifies it as a strategy game (\"Futuristic real-time strategy game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Brogue",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"Roguelike game (Brogue Community Edition)\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "brogue",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"Roguelike game (Brogue Community Edition)\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "brutalchess",
+    "category": "Board & Cards",
+    "reason": "Description identifies it as a board or card game (\"Chess game inspired by 'Battle Chess'. Features full 3D graphics.\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "btanks",
+    "category": "Arcade",
+    "reason": "Description identifies it as a arcade game (\"Fast 2d tank arcade game with multiplayer and split-screen modes.\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "btanks-data",
+    "category": "Arcade",
+    "reason": "Description identifies it as a arcade game (\"Fast 2d tank arcade game with multiplayer and split-screen modes (data).\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Cataclysm-DDA",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"A post-apocalyptic roguelike.\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "cataclysm-dda",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"A post-apocalyptic roguelike.\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "cataclysm-dda-git",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"A post-apocalyptic roguelike.\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "CaveExpress",
+    "category": "Action",
+    "reason": "Description identifies it as a action game (\"Classic 2D platformer with physics-based gameplay and dozens of levels\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "caveexpress",
+    "category": "Action",
+    "reason": "Description identifies it as a action game (\"Classic 2D platformer with physics-based gameplay and dozens of levels\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Cendric",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"RPG game of a boy with no memory who discovers the magical world of Admantris.\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "cendric",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"RPG game of a boy with no memory who discovers the magical world of Admantris.\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "cendric-git",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"RPG game of a boy with no memory who discovers the magical world of Admantris.\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "chroma",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"Abstract puzzle game.\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "chromono",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"A very circular color puzzle game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "csmash",
+    "category": "Sports",
+    "reason": "Description identifies it as a sports game (\"A 3D table tennis game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "cube2",
+    "category": "Action",
+    "reason": "Description identifies it as a action game (\"Cube 2: Sauerbraten is a free and open-source Arena-FPS game. Its gameplay is similar to games like Quake, Doom or Unreal Tournament.\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "cube2-bin",
+    "category": "Action",
+    "reason": "Description identifies it as a action game (\"Cube 2: Sauerbraten is a free and open-source Arena-FPS game. Its gameplay is similar to games like Quake, Doom or Unreal Tournament.\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "curseofwar",
+    "category": "Strategy",
+    "reason": "Description identifies it as a strategy game (\"Fast-paced RTS/Action game with ncurses interface\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "curseofwar-sdl",
+    "category": "Strategy",
+    "reason": "Description identifies it as a strategy game (\"Fast-paced RTS/Action game with ncurses interface\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "dealers-choice",
+    "category": "Board & Cards",
+    "reason": "Description identifies it as a board or card game (\"Online Multiplayer Stud and Draw Poker, Texas Hold'em and Omaha\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "domino-chain",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"Clone of the puzzle game Pushover (Amiga).\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "dreamchess",
+    "category": "Board & Cards",
+    "reason": "Description identifies it as a board or card game (\"An open source chess game. It comes with its own engine called Dreamer\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "einstein",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"Remake of old DOS game Sherlock which was inspired by Albert Einstein's puzzle\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Escape Goat",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"Escape Goat is a puzzle platformer about a goat\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "escapegoat",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"Escape Goat is a puzzle platformer about a goat\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "fairy-stockfish",
+    "category": "Board & Cards",
+    "reason": "Description identifies it as a board or card game (\"Chess engine with support for Xiangqi, Shogi, Janggi, and many other variants\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "fairy-stockfish-git",
+    "category": "Board & Cards",
+    "reason": "Description identifies it as a board or card game (\"Chess engine with support for Xiangqi, Shogi, Janggi, and many other variants\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "fairymax",
+    "category": "Board & Cards",
+    "reason": "Description identifies it as a board or card game (\"An engine playing chess variants\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Fantasy General",
+    "category": "Strategy",
+    "reason": "Description identifies it as a strategy game (\"A turn-based strategy game set in a high fantasy world.\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "fantasy-general-gog",
+    "category": "Strategy",
+    "reason": "Description identifies it as a strategy game (\"A turn-based strategy game set in a high fantasy world.\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "flare-engine",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"Free/Libre Action Roleplaying Engine\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "flare-engine-git",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"Free/Libre Action Roleplaying Engine\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "flare-game",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"Fantasy action RPG using the FLARE engine\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "flare-game-git",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"Fantasy action RPG using the FLARE engine\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "freealchemist",
+    "category": "Arcade",
+    "reason": "Description identifies it as a arcade game (\"A simple arcade game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "freegish",
+    "category": "Action",
+    "reason": "Description identifies it as a action game (\"Free version of gish, a physics platformer\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "freegish-git",
+    "category": "Action",
+    "reason": "Description identifies it as a action game (\"Free version of gish, a physics platformer\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "freesweep",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"a console minesweeper-style game written in C for *nix\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "freesweep-git",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"a console minesweeper-style game written in C for *nix\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "frogatto",
+    "category": "Action",
+    "reason": "Description identifies it as a action game (\"An old-school 2d platformer game, starring a certain quixotic frog\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "frogatto-git",
+    "category": "Action",
+    "reason": "Description identifies it as a action game (\"An old-school 2d platformer game, starring a certain quixotic frog\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "frogatto-data",
+    "category": "Action",
+    "reason": "Description identifies it as a action game (\"An old-school 2d platformer game, starring a certain quixotic frog (data files)\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "gearhead",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"A rougelike mecha role playing game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "gearhead2",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"A rougelike mecha role playing game, second game in the GearHead series\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "gigalomania",
+    "category": "Strategy",
+    "reason": "Description identifies it as a strategy game (\"2D real time strategy game that is a clone of Mega-Lo-Mania\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "golly",
+    "category": "Simulation",
+    "reason": "Description identifies it as a simulation game (\"A simulator for Conway's Game of Life and other cellular automata\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "gplanarity",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"A simple puzzle game involving untangling planar graphs for fun and prizes\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "gplanarity-svn",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"A simple puzzle game involving untangling planar graphs for fun and prizes\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "gshisen.app",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"Shisen-sho puzzle game for GNUstep\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "gweled",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"A puzzle game similar to Bejeweled or Diamond Mine\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Hammerwatch",
+    "category": "Action",
+    "reason": "Description identifies it as a action game (\"A hack and slash action adventure, set in a fantasy pixel art environment\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "hammerwatch",
+    "category": "Action",
+    "reason": "Description identifies it as a action game (\"A hack and slash action adventure, set in a fantasy pixel art environment\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "hex-a-hop",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"A puzzle game based on hexagonal tiles\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "hex-a-hop-git",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"A puzzle game based on hexagonal tiles\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "hoichess",
+    "category": "Board & Cards",
+    "reason": "Description identifies it as a board or card game (\"Xboard compatible chess engine and xiangqi (Chinese chess) engine\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Human Resource Machine",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"Assembler programming puzzle game by the makers of WorldOfGoo - game sold separately\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "humanresourcemachine",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"Assembler programming puzzle game by the makers of WorldOfGoo - game sold separately\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Indivisible",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"Action/RPG prototype\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "indivisible-prototype",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"Action/RPG prototype\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "KeeperRL",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"Dungeon Keeper and Dwarf Fortress inspired dungeon simulator built on top of roguelike mechanics.\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "keeperrl",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"Dungeon Keeper and Dwarf Fortress inspired dungeon simulator built on top of roguelike mechanics.\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "keeperrl-git",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"Dungeon Keeper and Dwarf Fortress inspired dungeon simulator built on top of roguelike mechanics.\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "koules",
+    "category": "Arcade",
+    "reason": "Description identifies it as a arcade game (\"A fast arcade game based on fundamental law of bodies attraction\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Legend of Grimrock",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"A 3D grid-based dungeon crawler inspired by classic 1980s and 1990s action role-playing games Dungeon Master, Eye of the Beholder and Ultima Underworld.\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "legend-of-grimrock",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"A 3D grid-based dungeon crawler inspired by classic 1980s and 1990s action role-playing games Dungeon Master, Eye of the Beholder and Ultima Underworld.\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "lordsawar",
+    "category": "Strategy",
+    "reason": "Description identifies it as a strategy game (\"Turn-based strategy game for controling of as many cities as possible\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "ManaPlus",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"Free OpenSource 2D MMORPG client for Evol Online, The mana world and similar servers\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "manaplus",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"Free OpenSource 2D MMORPG client for Evol Online, The mana world and similar servers\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "morris",
+    "category": "Board & Cards",
+    "reason": "Description identifies it as a board or card game (\"An implementation of the board game Nine Men's Morris\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "mu-cade",
+    "category": "Action",
+    "reason": "Description identifies it as a action game (\"abstract shoot-em-up game, similar to Geometry Wars\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "nethack-x11",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"Single-player roguelike dungeon exploration game (X11 version)\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "nudoku",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"ncurses based sudoku game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "nudoku-git",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"ncurses based sudoku game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "open-adventure",
+    "category": "Adventure",
+    "reason": "Description identifies it as a adventure game (\"Port of the 'Colossal Cave Adventure' text-based adventure game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "opencity",
+    "category": "Simulation",
+    "reason": "Description identifies it as a simulation game (\"A simple 3D city simulation game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Open Surge",
+    "category": "Action",
+    "reason": "Description identifies it as a action game (\"Open Surge is a fun 2D retro platformer inspired by Sonic games, and a game creation system.\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "opensurge",
+    "category": "Action",
+    "reason": "Description identifies it as a action game (\"Open Surge is a fun 2D retro platformer inspired by Sonic games, and a game creation system.\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "overgod",
+    "category": "Action",
+    "reason": "Description identifies it as a action game (\"overgod is a shoot em up space game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "parsec47",
+    "category": "Action",
+    "reason": "Description identifies it as a action game (\"Fast-paced retro shoot'em up in an abstract world\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "pax-britannica",
+    "category": "Strategy",
+    "reason": "Description identifies it as a strategy game (\"A one-button real-time strategy game for up to 4 players\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "peg-solitaire",
+    "category": "Board & Cards",
+    "reason": "Description identifies it as a board or card game (\"game for one player involving movement of pegs on a board\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "pegsolitaire",
+    "category": "Board & Cards",
+    "reason": "Description identifies it as a board or card game (\"game for one player involving movement of pegs on a board\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "phlipple",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"A puzzle game which goal is to reduce a 3D shape to a single square. Elimination of squares is done by flipping edges around just like in a cardboard box.\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "phlipple-svn",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"A puzzle game which goal is to reduce a 3D shape to a single square. Elimination of squares is done by flipping edges around just like in a cardboard box.\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "picpuz",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"'jigsaw puzzle' program.\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "pinball",
+    "category": "Arcade",
+    "reason": "Description identifies it as a arcade game (\"The Emilia Pinball Project strives to fulfil your needs for a great pinball game in Linux\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Pingus",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"A Lemmings clone, i.e. a level-based puzzle game (development version)\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "pingus",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"A Lemmings clone, i.e. a level-based puzzle game (development version)\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "pingus-git",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"A Lemmings clone, i.e. a level-based puzzle game (development version)\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "purity",
+    "category": "Action",
+    "reason": "Description identifies it as a action game (\"An abstract first-person shooter built on the Quake3 engine.\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "puzzle-jigsaw",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"Tiling puzzle that requires the assembly mosaiced pieces\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "quadra",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"An addictive action puzzle game with single player and multiplayer capabilities (Internet or LAN)\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "quadra-git",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"An addictive action puzzle game with single player and multiplayer capabilities (Internet or LAN)\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Ren'Py",
+    "category": "Adventure",
+    "reason": "Description identifies it as a adventure game (\"Visual novel engine Ren'Py along with its platdeps libs\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "renpy",
+    "category": "Adventure",
+    "reason": "Description identifies it as a adventure game (\"Visual novel engine Ren'Py along with its platdeps libs\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "renpy-git",
+    "category": "Adventure",
+    "reason": "Description identifies it as a adventure game (\"Visual novel engine Ren'Py along with its platdeps libs\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "RimWorld",
+    "category": "Simulation",
+    "reason": "Description identifies it as a simulation game (\"A sci-fi colony simulation game driven by an intelligent AI storyteller.\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "rimworld",
+    "category": "Simulation",
+    "reason": "Description identifies it as a simulation game (\"A sci-fi colony simulation game driven by an intelligent AI storyteller.\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "sar2",
+    "category": "Simulation",
+    "reason": "Description identifies it as a simulation game (\"Open source helicopter simulator\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Shadowrun Returns",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"a science fantasy turn based tactical role-playing game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "shadowrun-returns",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"a science fantasy turn based tactical role-playing game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "sjaakii",
+    "category": "Board & Cards",
+    "reason": "Description identifies it as a board or card game (\"A XBoard chess engine that can play normal chess as well as a number of other games and chess variants\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "stratagus",
+    "category": "Strategy",
+    "reason": "Description identifies it as a strategy game (\"A free cross-platform real-time strategy gaming engine\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "stratagus-git",
+    "category": "Strategy",
+    "reason": "Description identifies it as a strategy game (\"A free cross-platform real-time strategy gaming engine\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "The Fall",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"Adventure, puzzle, and side-scroller action game (requires full copy of the game)\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "thefall",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"Adventure, puzzle, and side-scroller action game (requires full copy of the game)\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "torcs-data",
+    "category": "Simulation",
+    "reason": "Description identifies it as a simulation game (\"A 3D racing cars simulator using OpenGL\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Torus Trooper",
+    "category": "Action",
+    "reason": "Description identifies it as a action game (\"Fast-paced abstract scrolling shooter game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "torus-trooper",
+    "category": "Action",
+    "reason": "Description identifies it as a action game (\"Fast-paced abstract scrolling shooter game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "tty-solitaire",
+    "category": "Board & Cards",
+    "reason": "Description identifies it as a board or card game (\"An ncurses-based Klondike solitaire clone\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "tty-solitaire-git",
+    "category": "Board & Cards",
+    "reason": "Description identifies it as a board or card game (\"An ncurses-based Klondike solitaire clone\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "unknown-horizons",
+    "category": "Strategy",
+    "reason": "Description identifies it as a strategy game (\"2D realtime strategy simulation with an emphasis on economy and city building.\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "unknown-horizons-git",
+    "category": "Strategy",
+    "reason": "Description identifies it as a strategy game (\"2D realtime strategy simulation with an emphasis on economy and city building.\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Vangers",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"The video game that combines elements of the racing and role-playing genres\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "vangers",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"The video game that combines elements of the racing and role-playing genres\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "vangers-git",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"The video game that combines elements of the racing and role-playing genres\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "vectoroids",
+    "category": "Arcade",
+    "reason": "Description identifies it as a arcade game (\"Clone of the classic arcade game \"Asteroids\" by Atari\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "VVVVVV",
+    "category": "Action",
+    "reason": "Description identifies it as a action game (\"A retro-styled 2D platformer\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "vvvvvv",
+    "category": "Action",
+    "reason": "Description identifies it as a action game (\"A retro-styled 2D platformer\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "vvvvvv-git",
+    "category": "Action",
+    "reason": "Description identifies it as a action game (\"A retro-styled 2D platformer\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "wolf3d-shareware",
+    "category": "Action",
+    "reason": "Description identifies it as a action game (\"Classic first person shooter, shareware episode data\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "World of Goo",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"A physics based puzzle/construction game (requires copy of the full game).\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "worldofgoo",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"A physics based puzzle/construction game (requires copy of the full game).\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "xdemineur",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"A minesweeper game for the X Window System.\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "xshogi",
+    "category": "Board & Cards",
+    "reason": "Description identifies it as a board or card game (\"A computer program that plays the game of Shogi, also known as Japanese Chess.\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "3dchess",
+    "category": "Board & Cards",
+    "reason": "Description identifies it as a board or card game (\"Play chess across 3 boards!\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "adarkroom",
+    "category": "Adventure",
+    "reason": "Description identifies it as a adventure game (\"web-based text adventure game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "allure",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"near-future Sci-Fi roguelike and tactical squad game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "angrydd",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"Angry Drunken Dwarves - falling blocks puzzle game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "atom4",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"Original two-player color puzzle game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "atomix-data",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"puzzle game for building molecules out of separate atoms -- data\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "beneath-a-steel-sky",
+    "category": "Adventure",
+    "reason": "Description identifies it as a adventure game (\"classic 2D point and click science fiction adventure game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "biloba-data",
+    "category": "Board & Cards",
+    "reason": "Description identifies it as a board or card game (\"data package for biloba turn based strategy board game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "brainparty-data",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"36 puzzle games for all the family -- game data\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "cataclysm-dda-curses",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"post-apocalyptic roguelike game - curses interface\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Cataclysm-DDA-data",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"post-apocalyptic roguelike game - data files\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "cataclysm-dda-data",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"post-apocalyptic roguelike game - data files\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "cataclysm-dda-sdl",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"post-apocalyptic roguelike game - SDL interface\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "caveexpress-data",
+    "category": "Action",
+    "reason": "Description identifies it as a action game (\"2D platformer with physics-based gameplay --data\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "cavepacker",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"sokoban game with network based multiplayer gaming\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "cavepacker-data",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"sokoban game with network based multiplayer gaming --data\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "chroma-curses",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"Abstract puzzle game - terminal version\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "chroma-data",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"Abstract puzzle game - data files\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "colobot-common",
+    "category": "Strategy",
+    "reason": "Description identifies it as a strategy game (\"educational programming strategy game - data\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "colobot-common-sounds",
+    "category": "Strategy",
+    "reason": "Description identifies it as a strategy game (\"educational programming strategy game - sounds and music\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "colobot-common-textures",
+    "category": "Strategy",
+    "reason": "Description identifies it as a strategy game (\"educational programming strategy game - textures\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "crawl-common",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"Dungeon Crawl, a text-based roguelike game (data files)\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "crawl-tiles",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"Dungeon Crawl, a roguelike game, tiles version\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "crawl-tiles-data",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"Dungeon Crawl, a text-based roguelike game (tile data files)\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "criticalmass-data",
+    "category": "Action",
+    "reason": "Description identifies it as a action game (\"Shoot-em-up a la galaxian (data files)\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "dodgindiamond2",
+    "category": "Arcade",
+    "reason": "Description identifies it as a arcade game (\"Little shoot-'em-up arcade game for one or two players\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "dossizola",
+    "category": "Board & Cards",
+    "reason": "Description identifies it as a board or card game (\"Isola board game with nice graphics\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "drascula-french",
+    "category": "Adventure",
+    "reason": "Description identifies it as a adventure game (\"classic 2D point and click adventure game -- French version\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "drascula-german",
+    "category": "Adventure",
+    "reason": "Description identifies it as a adventure game (\"classic 2D point and click adventure game -- German version\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "drascula-italian",
+    "category": "Adventure",
+    "reason": "Description identifies it as a adventure game (\"classic 2D point and click adventure game -- Italian version\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "drascula-music",
+    "category": "Adventure",
+    "reason": "Description identifies it as a adventure game (\"classic 2D point and click adventure game -- music files\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "drascula-spanish",
+    "category": "Adventure",
+    "reason": "Description identifies it as a adventure game (\"classic 2D point and click adventure game -- Spanish version\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "enemylines3",
+    "category": "Action",
+    "reason": "Description identifies it as a action game (\"semi-abstract first person 3d-shooter game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "enemylines7",
+    "category": "Action",
+    "reason": "Description identifies it as a action game (\"first person 3d-shooter game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "ethereal-chess",
+    "category": "Board & Cards",
+    "reason": "Description identifies it as a board or card game (\"UCI-compliant chess engine\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "etw",
+    "category": "Sports",
+    "reason": "Description identifies it as a sports game (\"arcade-style soccer game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "fillets-ng",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"puzzle game about witty fish saving the world sokoban-style\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "flight-of-the-amazon-queen",
+    "category": "Adventure",
+    "reason": "Description identifies it as a adventure game (\"classic 2D point and click fantasy adventure game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "flightgear-data-ai",
+    "category": "Simulation",
+    "reason": "Description identifies it as a simulation game (\"FlightGear Flight Simulator -- standard AI data\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "flightgear-data-all",
+    "category": "Simulation",
+    "reason": "Description identifies it as a simulation game (\"FlightGear Flight Simulator - virtual package\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "flightgear-data-base",
+    "category": "Simulation",
+    "reason": "Description identifies it as a simulation game (\"FlightGear Flight Simulator -- base files\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "flightgear-data-models",
+    "category": "Simulation",
+    "reason": "Description identifies it as a simulation game (\"FlightGear Flight Simulator -- standard models\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "fltk1.3-games",
+    "category": "Board & Cards",
+    "reason": "Description identifies it as a board or card game (\"Fast Light Toolkit - example games: checkers, sudoku\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "fltk1.4-games",
+    "category": "Board & Cards",
+    "reason": "Description identifies it as a board or card game (\"Fast Light Toolkit - example games: checkers, sudoku\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "freeciv-client-extras",
+    "category": "Strategy",
+    "reason": "Description identifies it as a strategy game (\"Civilization turn based strategy game (miscellaneous extras)\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "freeciv-client-gtk3",
+    "category": "Strategy",
+    "reason": "Description identifies it as a strategy game (\"Civilization turn based strategy game (GTK 3 client)\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "freeciv-client-gtk4",
+    "category": "Strategy",
+    "reason": "Description identifies it as a strategy game (\"Civilization turn based strategy game (GTK 4 client)\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "freeciv-client-qt",
+    "category": "Strategy",
+    "reason": "Description identifies it as a strategy game (\"Civilization turn based strategy game (Qt client)\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "freeciv-client-sdl",
+    "category": "Strategy",
+    "reason": "Description identifies it as a strategy game (\"Civilization turn based strategy game (SDL client)\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "freeciv-data",
+    "category": "Strategy",
+    "reason": "Description identifies it as a strategy game (\"Civilization turn based strategy game (data)\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "freeciv-ruleset-tools",
+    "category": "Strategy",
+    "reason": "Description identifies it as a strategy game (\"Civilization turn based strategy game (ruleset tools)\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "freeciv-server",
+    "category": "Strategy",
+    "reason": "Description identifies it as a strategy game (\"Civilization turn based strategy game (server files)\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "freedink-engine",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"humorous top-down adventure and role-playing game (engine)\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "freedroid-data",
+    "category": "Action",
+    "reason": "Description identifies it as a action game (\"Data files for freedroid - a strategic shoot-em up\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "freegish-data",
+    "category": "Arcade",
+    "reason": "Description identifies it as a arcade game (\"data for the FreeGish arcade game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "gargoyle-free",
+    "category": "Adventure",
+    "reason": "Description identifies it as a adventure game (\"graphical player for Interactive Fiction games\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "gearhead-sdl",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"roguelike mecha role playing game, SDL version\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "gearhead2-SDL",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"roguelike mecha role playing game in space\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "gearhead2-sdl",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"roguelike mecha role playing game in space\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "geki2",
+    "category": "Action",
+    "reason": "Description identifies it as a action game (\"Xenon-like vertical shoot'em-up\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "geki3",
+    "category": "Action",
+    "reason": "Description identifies it as a action game (\"R-Type-like horizontal shoot'em-up\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "gemdropx",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"Gem Drop X is an interesting one-player puzzle game for X11\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "glaurung",
+    "category": "Board & Cards",
+    "reason": "Description identifies it as a board or card game (\"free UCI chess engine, to calculate chess moves\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "glob2",
+    "category": "Strategy",
+    "reason": "Description identifies it as a strategy game (\"innovative Real Time Strategy game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "glob2-data",
+    "category": "Strategy",
+    "reason": "Description identifies it as a strategy game (\"innovative Real Time Strategy game - data files\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "glpeces",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"Tangram (puzzle) game clone\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "glpeces-data",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"Data files for glpeces (Tangram puzzle)\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "gnubg-data",
+    "category": "Board & Cards",
+    "reason": "Description identifies it as a board or card game (\"data files for GNU Backgammon\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "hachu",
+    "category": "Board & Cards",
+    "reason": "Description identifies it as a board or card game (\"AI engine for many Shogi and Chess variants, including Chu, Sho, and Dai Shogi\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "ii-esu",
+    "category": "Action",
+    "reason": "Description identifies it as a action game (\"shooter game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "ioquake3-server",
+    "category": "Action",
+    "reason": "Description identifies it as a action game (\"Engine for 3D first person shooter games - server and common files\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "ironseed",
+    "category": "Adventure",
+    "reason": "Description identifies it as a adventure game (\"science-fiction exploration/strategy adventure game in space\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "ironseed-data",
+    "category": "Adventure",
+    "reason": "Description identifies it as a adventure game (\"science-fiction exploration/strategy adventure game in space - data files\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "jester",
+    "category": "Board & Cards",
+    "reason": "Description identifies it as a board or card game (\"board game similar to Othello\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "jigzo",
+    "category": "Educational",
+    "reason": "Description identifies it as a educational game (\"Photo puzzle game for children\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "jigzo-data",
+    "category": "Educational",
+    "reason": "Description identifies it as a educational game (\"data of Photo puzzle game for children\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "kcheckers",
+    "category": "Board & Cards",
+    "reason": "Description identifies it as a board or card game (\"Checkers boardgame\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "lgeneral-data",
+    "category": "Strategy",
+    "reason": "Description identifies it as a strategy game (\"strategy game in the tradition of Panzer General -- data\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "lightyears",
+    "category": "Strategy",
+    "reason": "Description identifies it as a strategy game (\"single player real-time strategy game with steampunk sci-fi\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "lincity-ng-data",
+    "category": "Simulation",
+    "reason": "Description identifies it as a simulation game (\"Media files for the city simulator game LinCity-NG\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "lmemory",
+    "category": "Board & Cards",
+    "reason": "Description identifies it as a board or card game (\"Children's game based on the \"memory\" card game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "lskat-data",
+    "category": "Board & Cards",
+    "reason": "Description identifies it as a board or card game (\"Lieutnant Skat card game - data files\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "lure-of-the-temptress",
+    "category": "Adventure",
+    "reason": "Description identifies it as a adventure game (\"classic 2D point and click fantasy adventure game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "mancala",
+    "category": "Board & Cards",
+    "reason": "Description identifies it as a board or card game (\"Implementation of the simple board game called Mancala\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "monsterz",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"arcade puzzle game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "naev-data",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"2D action/rpg space game - game data\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "neverputt",
+    "category": "Sports",
+    "reason": "Description identifies it as a sports game (\"3D miniature golf game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "ogamesim",
+    "category": "Simulation",
+    "reason": "Description identifies it as a simulation game (\"Console Ogame Simulator\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "omega-rpg",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"text-based roguelike game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "opencity-data",
+    "category": "Simulation",
+    "reason": "Description identifies it as a simulation game (\"data for opencity, a 3D city simulator game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "openssn",
+    "category": "Simulation",
+    "reason": "Description identifies it as a simulation game (\"modern submarine tactical simulator\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "openssn-data",
+    "category": "Simulation",
+    "reason": "Description identifies it as a simulation game (\"modern submarine tactical simulator (data)\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "palapeli-data",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"data files for palapeli jigsaw puzzle game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "pathogen",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"Puzzle game about matching 3D model structures\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "pathological",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"puzzle game involving paths and marbles\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "pinball-table-gnu",
+    "category": "Arcade",
+    "reason": "Description identifies it as a arcade game (\"GNU Pinball table for emilia pinball\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "pinball-table-gnu-data",
+    "category": "Arcade",
+    "reason": "Description identifies it as a arcade game (\"GNU Pinball table data used by plugin\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "pinball-table-hurd",
+    "category": "Arcade",
+    "reason": "Description identifies it as a arcade game (\"HURD Pinball table for emilia pinball\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "pinball-table-hurd-data",
+    "category": "Arcade",
+    "reason": "Description identifies it as a arcade game (\"HURD Pinball table data used by plugin\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "pioneers-console",
+    "category": "Board & Cards",
+    "reason": "Description identifies it as a board or card game (\"Settlers of Catan board game - console parts\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "pioneers-console-data",
+    "category": "Board & Cards",
+    "reason": "Description identifies it as a board or card game (\"Settlers of Catan board game - data files for console parts\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "pioneers-data",
+    "category": "Board & Cards",
+    "reason": "Description identifies it as a board or card game (\"Settlers of Catan board game - data files\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "pioneers-metaserver",
+    "category": "Board & Cards",
+    "reason": "Description identifies it as a board or card game (\"Settlers of Catan board game - metaserver\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "primrose",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"compelling tile-placement puzzle game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "domino-chain-music",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"Fun puzzle game with dominos, music files\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "pysiogame",
+    "category": "Educational",
+    "reason": "Description identifies it as a educational game (\"educational activity pack for kids\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "colossal-cave-adventure",
+    "category": "Adventure",
+    "reason": "Description identifies it as a adventure game (\"Colossal Cave Adventure game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "qonk",
+    "category": "Strategy",
+    "reason": "Description identifies it as a strategy game (\"Small build-and-conquer strategy game with very simple rules\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "rafkill",
+    "category": "Action",
+    "reason": "Description identifies it as a action game (\"vertical shoot'em-up similar to Raptor: Call of the Shadows\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "raincat",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"2D puzzle game featuring a fuzzy little cat\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "raincat-data",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"2D puzzle game featuring a fuzzy little cat - data files\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "redeclipse-common",
+    "category": "Action",
+    "reason": "Description identifies it as a action game (\"common config files for the Red Eclipse FPS game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "redeclipse-data",
+    "category": "Action",
+    "reason": "Description identifies it as a action game (\"data for the Red Eclipse FPS game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "ri-li-data",
+    "category": "Simulation",
+    "reason": "Description identifies it as a simulation game (\"toy train simulation game - data files\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "sdl-ball-data",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"brick-breaking game like DX-Ball/Arkanoid - data files\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "sgt-puzzles",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"Simon Tatham's Portable Puzzle Collection - 1-player puzzle games\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "simutrans-data",
+    "category": "Simulation",
+    "reason": "Description identifies it as a simulation game (\"transportation simulator (base data)\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "simutrans-pak64",
+    "category": "Simulation",
+    "reason": "Description identifies it as a simulation game (\"transportation simulator (data files)\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "skladnik",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"Japanese warehouse keeper sokoban game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "starfighter-data",
+    "category": "Action",
+    "reason": "Description identifies it as a action game (\"2D scrolling shooter game -- data files\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "starvoyager",
+    "category": "Arcade",
+    "reason": "Description identifies it as a arcade game (\"2D space arcade game, themed around 'Star Trek' - binary\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "starvoyager-data",
+    "category": "Arcade",
+    "reason": "Description identifies it as a arcade game (\"2D space arcade game, themed around 'Star Trek' - data files\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "tatan",
+    "category": "Action",
+    "reason": "Description identifies it as a action game (\"pointing STG shooter game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "toga2",
+    "category": "Board & Cards",
+    "reason": "Description identifies it as a board or card game (\"computer chess engine, calculates chess moves\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "tuxmath-data",
+    "category": "Educational",
+    "reason": "Description identifies it as a educational game (\"math game for kids with Tux -- data files\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "val-and-rick",
+    "category": "Action",
+    "reason": "Description identifies it as a action game (\"shooter game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "val-and-rick-data",
+    "category": "Action",
+    "reason": "Description identifies it as a action game (\"shooter game - game data\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "vodovod",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"puzzle game, you must lead the water to the storage tank\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "wesnoth-1.18",
+    "category": "Strategy",
+    "reason": "Description identifies it as a strategy game (\"fantasy turn-based strategy game (branch 1.18)\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "wesnoth-core",
+    "category": "Strategy",
+    "reason": "Description identifies it as a strategy game (\"fantasy turn-based strategy game (transitional package)\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "widelands-data",
+    "category": "Strategy",
+    "reason": "Description identifies it as a strategy game (\"fantasy real-time strategy game (data files)\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "wing",
+    "category": "Arcade",
+    "reason": "Description identifies it as a arcade game (\"Galaga-like arcade game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "wmpuzzle",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"WindowMaker dock app 4x4 puzzle\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "wordwarvi-sound",
+    "category": "Action",
+    "reason": "Description identifies it as a action game (\"retro-styled side-scrolling shoot'em up arcade game [Sound Files]\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "xbomb",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"'minesweeper' game with squares, hexagons or triangles\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "xbubble-data",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"Data files for XBubble, a nice Puzzle Bubble clone\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "xchain",
+    "category": "Strategy",
+    "reason": "Description identifies it as a strategy game (\"strategy game for 2-4 players\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "xshisen",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"Shisen-sho puzzle game for X11\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "xsok",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"generic Sokoban game for X11\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "xsol",
+    "category": "Board & Cards",
+    "reason": "Description identifies it as a board or card game (\"Solitaire game for the X Window system\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "xye",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"puzzle game - get all the gems in the room\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "zaz-data",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"arcade action puzzle game - game data\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "crafty-bitmaps",
+    "category": "Board & Cards",
+    "reason": "Description identifies it as a board or card game (\"bitmap images for crafty chess game annotation mode\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "crafty-books-medium",
+    "category": "Board & Cards",
+    "reason": "Description identifies it as a board or card game (\"Medium size opening books for the crafty chess engine\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "crafty-books-medtosmall",
+    "category": "Board & Cards",
+    "reason": "Description identifies it as a board or card game (\"Medium-to-small size opening books for crafty chess engine\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "crafty-books-small",
+    "category": "Board & Cards",
+    "reason": "Description identifies it as a board or card game (\"Small-size opening books for crafty chess engine\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Quake",
+    "category": "Action",
+    "reason": "Description identifies it as a action game (\"classic gothic/horror-themed first person shooter\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "quake",
+    "category": "Action",
+    "reason": "Description identifies it as a action game (\"classic gothic/horror-themed first person shooter\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "quake-server",
+    "category": "Action",
+    "reason": "Description identifies it as a action game (\"classic first person shooter - server and init script\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "openrct2-openmsx",
+    "category": "Simulation",
+    "reason": "Description identifies it as a simulation game (\"New versions of the songs from RollerCoaster Tycoon 2\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "play.it-puzzle",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"./play.it game scripts collection - Puzzle games\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "angband-audio",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"Sound files for the roguelike game angband\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "out-of-order",
+    "category": "Adventure",
+    "reason": "Description identifies it as a adventure game (\"comedy science fiction adventure game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "zangband-data",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"A single-player, text-based, roguelike game (datafiles)\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "bve-train-br-class-323",
+    "category": "Simulation",
+    "reason": "Description identifies it as a simulation game (\"British Rail Class 323 EMU train (for OpenBVE rail simulator)\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "bve-train-br-class-323-3dcab",
+    "category": "Simulation",
+    "reason": "Description identifies it as a simulation game (\"British Rail Class 323 EMU train 3D cab (for OpenBVE rail simulator)\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "freecell.app",
+    "category": "Board & Cards",
+    "reason": "Description identifies it as a board or card game (\"Solitaire for GNUstep\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "funguloids",
+    "category": "Simulation",
+    "reason": "Description identifies it as a simulation game (\"space-flying-mushroom-picking-simulator game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "funguloids-data",
+    "category": "Simulation",
+    "reason": "Description identifies it as a simulation game (\"space-flying-mushroom-picking-simulator game (data files)\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "micropolis-data",
+    "category": "Simulation",
+    "reason": "Description identifies it as a simulation game (\"real-time city management simulator - data\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "opensurge-data",
+    "category": "Action",
+    "reason": "Description identifies it as a action game (\"Fun 2D retro platformer inspired by Sonic games - Game data\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "spring-mods-kernelpanic",
+    "category": "Strategy",
+    "reason": "Description identifies it as a strategy game (\"The Kernel Panic game for the Spring engine, a fast-paced RTS with no economy\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "sudoku.app",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"solve Sudokus\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "play.it-rpg",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"./play.it collection - Role-playing games\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "black-hole-solver",
+    "category": "Board & Cards",
+    "reason": "Description identifies it as a board or card game (\"The Black Hole Solitaire Solver Executable\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "freeciv-qt",
+    "category": "Strategy",
+    "reason": "Description identifies it as a strategy game (\"A multi-player strategy game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "freedoom-freedm",
+    "category": "Action",
+    "reason": "Description identifies it as a action game (\"Doom styled first person shooter deathmatch game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "puzzles",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"A collection of one-player puzzle games\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "wesnoth-data",
+    "category": "Strategy",
+    "reason": "Description identifies it as a strategy game (\"Turn-based strategy game with a fantasy theme\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "wesnoth-server",
+    "category": "Strategy",
+    "reason": "Description identifies it as a strategy game (\"Turn-based strategy game with a fantasy theme\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "construo",
+    "category": "Simulation",
+    "reason": "Description identifies it as a simulation game (\"Masses and springs simulation game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "asteroids3D",
+    "category": "Action",
+    "reason": "Description identifies it as a action game (\"First-person shooter blowing up asteroids\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "khunphan",
+    "category": "Board & Cards",
+    "reason": "Description identifies it as a board or card game (\"Traditional Thai Puzzle Board Game in 3D with Wooden Blocks\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "sudoku-sensei",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"Enjoy playing with Sudoku boards designed by yourself\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "xgalaga-sdl",
+    "category": "Action",
+    "reason": "Description identifies it as a action game (\"Classic single screen vertical shoot em up SDL\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "xquarto",
+    "category": "Board & Cards",
+    "reason": "Description identifies it as a board or card game (\"Xquarto is a board game designed for the X windows environment\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "lucidlife",
+    "category": "Simulation",
+    "reason": "Description identifies it as a simulation game (\"A Conway's Life simulator written in GTK+2 - fork from Gtklife\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "usolitaire",
+    "category": "Board & Cards",
+    "reason": "Description identifies it as a board or card game (\"solitaire in your terminal\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "bff-or-die",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"Time travelling alien couch co-op puzzle game for 1-4 players\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "gfifteen",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"Graphical implementation of the sliding puzzle game fifteen\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "glightoff",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"Simple (but not so easy to solve!) puzzle game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "greedy",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"fun little ncurses puzzle game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "penguzzle",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"Tcl/Tk variant of the well-known 15-puzzle game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "rezerwar",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"Puzzle game like the known tetromino and the average pipe games\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "sdl-jewels",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"Swap and match 3 or more jewels in a line in order to score points\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "syzygy",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"Narrative meta-puzzle game\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "world-of-goo-demo",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"Puzzle game with a strong emphasis on physics (demo version)\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "world-of-goo-gog",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"A puzzle game with a strong emphasis on physics (GOG edition)\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "world-of-goo-hb",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"A puzzle game with a strong emphasis on physics (Humble Bundle edition)\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "xlogical",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"Puzzle game based on the Logical! game released on the Commodore Amiga\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "xpired",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"Sokoban-styled puzzle game with lots more action\") -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Epic Pinball: The Complete Collection",
+    "category": "Arcade",
+    "reason": "Description identifies it as a arcade game -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Encased: A Sci-Fi Post-Apocalyptic RPG",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "ATOM RPG: Trudograd",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "ATOM RPG: Post-apocalyptic indie game",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Oh...Sir! The Insult Simulator",
+    "category": "Simulation",
+    "reason": "Description identifies it as a simulation game -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Oh...Sir!! The Insult Simulator",
+    "category": "Simulation",
+    "reason": "Description identifies it as a simulation game -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Airline Tycoon Deluxe",
+    "category": "Simulation",
+    "reason": "Description identifies it as a simulation game -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Transport Tycoon Deluxe",
+    "category": "Simulation",
+    "reason": "Description identifies it as a simulation game -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Masterplan Tycoon",
+    "category": "Simulation",
+    "reason": "Description identifies it as a simulation game -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "The Zachtronics Solitaire Collection",
+    "category": "Board & Cards",
+    "reason": "Description identifies it as a board or card game -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Save Room - Organization Puzzle",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Sacred Fire: A Role Playing Game",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Hentai Jigsaw Puzzle 2",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Dark Fantasy 2: Jigsaw Puzzle",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Hentai Jigsaw Puzzle",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Cultist Simulator",
+    "category": "Simulation",
+    "reason": "Description identifies it as a simulation game -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "DROD RPG: Tendry's Tale",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Pinball World",
+    "category": "Arcade",
+    "reason": "Description identifies it as a arcade game -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Battle Chess",
+    "category": "Board & Cards",
+    "reason": "Description identifies it as a board or card game -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "Battle Chess II: Chinese Chess",
+    "category": "Board & Cards",
+    "reason": "Description identifies it as a board or card game -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "D&D Stronghold: Kingdom Simulator",
+    "category": "Simulation",
+    "reason": "Description identifies it as a simulation game -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  }
+]

@@ -1838,5 +1838,50 @@
     "pattern": "lazarus*",
     "category": "Developer Tools",
     "reason": "Lazarus, the Delphi-like IDE for Free Pascal, plus its own per-toolkit/per-version build variants (lazarus-qt6, lazarus-gtk2, lazarus-4.0, ...) — same Free Pascal ecosystem as the existing fp-* entry, just its own separate product name. Verified live: 27 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "mopidy*",
+    "category": "Music & Audio",
+    "reason": "Mopidy, a real standalone extensible music server, plus its entire extension ecosystem (mopidy-bandcamp, mopidy-alarmclock, mopidy-advanced-scrobbler, ...) — verified live: 30 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "znc*",
+    "category": "Internet & Communication",
+    "reason": "ZNC, a real standalone advanced IRC bouncer, plus its module ecosystem (znc-backlog, znc-chanfilter-git, ...) — verified live: 25 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "arduino*",
+    "category": "Developer Tools",
+    "reason": "The Arduino embedded-development toolchain (arduino-cli, arduino-builder, its per-board cores and library bindings) — verified live: 25 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "redis*",
+    "category": "Developer Tools",
+    "reason": "Redis's own client/tooling/module ecosystem (redis-cli, redis-graph, redis-cell, ...) — same reasoning as the existing postgresql*/mariadb-*/mysql-* database entries. Verified live: 25 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "buildbot*",
+    "category": "Developer Tools",
+    "reason": "Buildbot, a real standalone continuous-integration framework, plus its worker/master sub-packages (buildbot-worker, buildbot-master-ec2, ...) — verified live: 20 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "shadowsocks*",
+    "category": "Security",
+    "reason": "The Shadowsocks secure-proxy client/server family across its several independent reimplementations (shadowsocks-go, shadowsocks-gtk-rs, shadowsocks-electron-bin, ...) — verified live: 27 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "cutefish-*",
+    "category": "System Tools",
+    "reason": "CutefishOS's own bundled desktop-environment component family (cutefish-core, cutefish-dock, cutefish-filemanager, cutefish-calculator, ...) — same \"DE's own component family\" reasoning as the existing pop-* entry, approximate on the exact per-app category boundary but coherent and unambiguous by name. Verified live: 17 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "s6*",
+    "category": "System Tools",
+    "reason": "s6, a real standalone UNIX process-supervision suite, plus its utils/docs sub-packages (s6-linux-utils-musl, s6-man-pages, ...) — verified live: 27 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "uutils*",
+    "category": "Utilities",
+    "reason": "The uutils project's Rust reimplementations of classic UNIX utilities (uutils-coreutils, uutils-diffutils, uutils-awk-git, ...) — verified live: 19 real matches, zero unrelated collisions."
   }
 ]

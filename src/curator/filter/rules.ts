@@ -531,6 +531,22 @@ const DEBIAN_FAMILY_SOURCES = new Set<PackageSourceId>([
 // source-agnostic pattern would have excluded a real tool.
 const GADGET_SUFFIX = /-gadget$/;
 
+// Debian's own "tasksel" metapackage convention: `task-<language>`
+// (task-arabic, task-french, ...) and its `-desktop`/`-kde-desktop`/
+// `-gnome-desktop` variants select a whole language environment or
+// desktop for bulk install during setup — never a launchable app.
+// Verified live: 230 real matches on Debian, 233 on Ubuntu (Mint/Pop!_OS/
+// Deepin/MX Linux carry none at all), covering every language plus
+// non-language tasksel selectors (task-laptop, task-ssh-server,
+// task-web-server, task-astro-blend, task-blendsel, ...). Exactly one
+// real exception found on both Debian and Ubuntu — `task-spooler`, a
+// genuine standalone CLI batch-queue tool that happens to share the
+// prefix — rescued via `config/filter-keep.json` rather than narrowing
+// this to a language-name allowlist. Source-specific because AUR/
+// Nixpkgs/Fedora's own `task-*` packages (task-manager, task-spooler-cpu,
+// task-keeper, task-master-ai, ...) are real apps, not tasksel selectors.
+const TASKSEL_PREFIX = /^task-/;
+
 // AUR-specific cross-compilation convention: `android-<arch>-<name>`
 // packages are libraries built *for* Android as a compile target
 // (audio/video codecs, C++ utility libraries, UI component sets), not
@@ -551,6 +567,7 @@ const ANDROID_CROSS_COMPILE_LIB = /^android-(aarch64|armv7a|riscv64|x86-64|x86)-
  */
 export function looksLikeSourceSpecificNoise(source: PackageSourceId, name: string): boolean {
   if (DEBIAN_FAMILY_SOURCES.has(source) && name.endsWith("-source")) return true;
+  if (DEBIAN_FAMILY_SOURCES.has(source) && TASKSEL_PREFIX.test(name)) return true;
   if (source === "snap-snapcraft" && GADGET_SUFFIX.test(name)) return true;
   if (source === "pacman-aur" && ANDROID_CROSS_COMPILE_LIB.test(name)) return true;
   return false;

@@ -343,5 +343,10 @@
     "sources": ["pacman-aur", "nix-nixpkgs"],
     "name": "sil-q",
     "reason": "Real standalone roguelike game (a Tolkien-themed Angband variant) despite the sil- noise prefix — see filter/rules.ts's sil- comment"
+  },
+  {
+    "sources": ["deb-debian", "deb-ubuntu"],
+    "name": "task-spooler",
+    "reason": "Real standalone CLI batch-queue tool despite the task- tasksel noise prefix — see filter/rules.ts's TASKSEL_PREFIX comment"
   }
 ]

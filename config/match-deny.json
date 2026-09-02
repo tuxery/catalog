@@ -70,5 +70,20 @@
     "a": { "source": "flatpak-flathub", "appId": "io.github.mmp.Vice" },
     "b": { "source": "pacman-aur", "appId": "vice-svn" },
     "reason": "Same false merge as the net.sf.VICE entry above -- AUR's vice-svn is the rolling-release build of the same real VICE emulator (its -svn suffix is a build-variant marker, not a different project, per group.ts's VARIANT_SUFFIX handling). Denying this pair also stops it from ever reaching the real emulator cluster on its own (its tier-1 appId is \"vice-svn\", not \"vice\"), so it's reattached explicitly via config/match-force.json instead."
+  },
+  {
+    "a": { "source": "pacman-aur", "appId": "elm" },
+    "b": { "source": "pacman-aur", "appId": "elm-bin" },
+    "reason": "AUR's bare \"elm\" is The Elm Mail System (a real, unrelated terminal mail client, also packaged by Slackware under the identical bare name) while elm-bin is the Elm programming-language compiler's official binary build -- same generic-name-collision shape as the Vice/VICE entries above, found live investigating the apps \"To Classify\" bucket (2026-09-02) while adding the elm-* category rule. Denying this pair also stops elm-bin from ever reaching the real mail client, so the compiler cluster is reattached explicitly via config/match-force.json instead."
+  },
+  {
+    "a": { "source": "pacman-aur", "appId": "elm" },
+    "b": { "source": "pacman-aur", "appId": "elm-git" },
+    "reason": "Same false merge as the elm-bin entry above -- AUR's elm-git is the same Elm compiler's rolling-release build (its -git suffix is a build-variant marker, not a different project)."
+  },
+  {
+    "a": { "source": "pacman-aur", "appId": "elm" },
+    "b": { "source": "nix-nixpkgs", "appId": "elmPackages.elm" },
+    "reason": "Same false merge as the elm-bin entry above -- Nixpkgs' elmPackages.elm is the same Elm compiler, packaged under a name (bare \"elm\") that collides with the mail client's identical bare display name once normalized."
   }
 ]

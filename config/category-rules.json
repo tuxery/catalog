@@ -1938,5 +1938,35 @@
     "pattern": "llama.cpp*",
     "category": "Developer Tools",
     "reason": "llama.cpp, a real standalone LLM inference engine, across its many real hardware-backend build variants (llama.cpp-cuda, llama.cpp-clblast, llama.cpp-cublas-git, ...) — verified live: 27 real matches, zero unrelated collisions. Bare \"microsoft*\"/\"llama*\" were checked and rejected: too heterogeneous (browsers, games, auth brokers, unrelated libraries all share those bare prefixes)."
+  },
+  {
+    "pattern": "marble*",
+    "category": "Travel & Navigation",
+    "reason": "KDE's Marble virtual-globe/maps app and its plugin/map-data ecosystem (marble-maps, marble-behaim, marble-maps-googlemaps-git, ...) — verified live: 29 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "elm-*",
+    "category": "Developer Tools",
+    "reason": "The Elm programming-language toolchain (elm-compiler, elm-format, elm-test, elm-language-server, ...) — verified live: 27 real matches, zero unrelated collisions. Deliberately doesn't touch bare \"elm\" (a real, unrelated mail client, \"The Elm Mail System\") since the hyphen in this pattern already excludes it."
+  },
+  {
+    "pattern": "elm",
+    "category": "Internet & Communication",
+    "reason": "The Elm Mail System, a real standalone terminal mail client (Slackware/AUR) — genuinely unrelated to the Elm programming-language toolchain above despite the shared bare name, now correctly split into its own group by the new config/match-deny.json/match-force.json entries."
+  },
+  {
+    "pattern": "wps-*",
+    "category": "Productivity",
+    "reason": "WPS Office (Kingsoft Office)'s own edition/component family (wps-office-365, its edu/fonts/mime sub-packages, ...) — verified live: 27 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "azure-*",
+    "category": "Developer Tools",
+    "reason": "Microsoft Azure's own CLI/SDK/tooling ecosystem (azure-functions-core-tools, azure-dev-cli, azure-storage-cpp, ...) — verified live: 25 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "aspnet*",
+    "category": "Developer Tools",
+    "reason": "The ASP.NET Core runtime/targeting-pack family across its many per-version binaries (aspnet-runtime-3.1-bin, aspnet-targeting-pack-3.0, ...) — verified live: 38 real matches, zero unrelated collisions."
   }
 ]

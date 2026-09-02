@@ -2033,5 +2033,10 @@
     "pattern": "gpu-*",
     "category": "System Tools",
     "reason": "GPU hardware stress-testing/management tooling (gpu-burn, gpu-control, gpu-passthrough-manager, ...) — verified live: 21 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "thunar-*",
+    "category": "Utilities",
+    "reason": "Thunar (XFCE's file manager)'s own functional context-menu/integration plugin ecosystem (thunar-archive-plugin, thunar-dropbox, thunar-vcs-plugin, thunar-volman, ...) — resolved the same way as the existing switchboard-plug-*/wingpanel-indicator-* entries: a mainstream host app's own functional plugins are categorized under a fitting label rather than excluded as noise (unlike gnome-shell-extension-/kwin-effects-, which are purely cosmetic desktop-shell widgets). Verified live: 26 real matches, zero unrelated collisions."
   }
 ]

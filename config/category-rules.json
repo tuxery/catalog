@@ -1688,5 +1688,25 @@
     "pattern": "psi-plus*",
     "category": "Internet & Communication",
     "reason": "Psi+, a real standalone XMPP messenger client, plus its own plugin/resource ecosystem (psi-plus-mediaplugin, psi-plus-resources, ...) — bare \"psi-*\" itself is too heterogeneous to classify in one go (an unrelated pressure-stall-information notifier, a probabilistic-programming research tool, and unrelated LV2 audio plugins all share the prefix), so this stays scoped to the psi-plus sub-family specifically. Verified live: 6 real matches."
+  },
+  {
+    "pattern": "intel-*",
+    "category": "System Tools",
+    "reason": "Intel's own hardware driver/firmware family (intel-gpu-firmware, intel-media-driver, intel-ethernet-*, intel-ipu6-camera-*, ...) plus its developer-facing oneAPI toolkit (intel-advisor-standalone, intel-graphics-compiler, intel-llvm, ...) — same \"approximate-but-plausible beats none\" call already made for python-* (config/category-rules.json's own precedent): every one of the 141 real matches is unambiguously Intel-branded, drivers/firmware dominate, and the oneAPI-toolkit minority is still developer-adjacent infrastructure, not a genuinely unrelated project riding the prefix. The separate intel-*-fonts typefaces are excluded before filtering ever reaches this stage (see filter/rules.ts)."
+  },
+  {
+    "pattern": "pop-cli",
+    "category": "Developer Tools",
+    "reason": "\"An all-in-one tool for Polkadot development\" — genuinely unrelated to Pop!_OS despite sharing the pop- prefix, so this exact-match entry must stay ordered before pop* to win first."
+  },
+  {
+    "pattern": "pop-to-8bit",
+    "category": "Music & Audio",
+    "reason": "\"Python library for music and audio analysis\" — genuinely unrelated to Pop!_OS despite sharing the pop- prefix, same carve-out reasoning as pop-cli above."
+  },
+  {
+    "pattern": "pop-*",
+    "category": "System Tools",
+    "reason": "System76's Pop!_OS own distro-integration family — desktop/theme metapackages (pop-gtk-theme, pop-icon-theme, pop-de-cosmic, ...), the installer/upgrader/launcher stack (pop-installer, pop-upgrade, pop-launcher, pop-system-updater, ...), and hardware/vendor support (pop-hp-vendor, pop-default-settings-zram, ...). Bare \"pop\" and the pop3/popcorn/popeye/popfile/poppler/popstation/... word-collision zone are NOT covered by this pattern (no hyphen after \"pop\" — verified live, only pop-cli/pop-to-8bit share the hyphenated shape without being Pop!_OS, carved out above); pop-fonts is excluded before filtering ever reaches this stage (see filter/rules.ts). 26 real Pop!_OS matches."
   }
 ]

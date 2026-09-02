@@ -1768,5 +1768,25 @@
     "pattern": "root-*",
     "category": "Science",
     "reason": "CERN's ROOT data-analysis framework and its entire module ecosystem (root-core, root-tree-*, root-roofit-*, root-tmva-*, root-geom-*, ...) — verified live: 122 real matches, every single one a real ROOT component, zero unrelated collisions despite \"root\" being about as generic a word as exists. The bundled root-font-files typeface is excluded before filtering ever reaches this stage (see filter/rules.ts)."
+  },
+  {
+    "pattern": "pg-*",
+    "category": "Developer Tools",
+    "reason": "PostgreSQL's own extension/tooling ecosystem under the abbreviated pg- naming convention (pg-activity, pg-tui, pg-safeupdate, ...) — same reasoning as the existing postgresql* entry, just a shorter prefix real Postgres tooling also uses. Verified live: 14 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "pg_*",
+    "category": "Developer Tools",
+    "reason": "Same PostgreSQL extension/tooling ecosystem as pg-* above, under Postgres's own underscore naming convention for extensions specifically (pg_cron, pg_partman, pg_repack, ...) — verified live: 44 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "gz-models",
+    "category": "Utilities",
+    "reason": "\"HiRes 3D Models for GZDoom\" — genuinely unrelated to the Gazebo robotics-simulation family below despite sharing the gz- prefix, so this exact-match entry must stay ordered before gz-* to win first."
+  },
+  {
+    "pattern": "gz-*",
+    "category": "Science",
+    "reason": "The Gazebo robotics-simulation framework (gz-sim, the real launchable simulator) and its entire supporting-library ecosystem (gz-physics, gz-rendering, gz-sensors, gz-transport, its per-release-codename toolbox meta-packages gz-harmonic/gz-ionic/gz-jetty/gz-garden, ...) — same \"Science\" reasoning as CERN's ROOT above. Verified live: 60 real matches, one genuine unrelated collision (gz-models, a GZDoom asset pack) carved out above."
   }
 ]

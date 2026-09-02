@@ -513,6 +513,14 @@ const NOISE_PATTERNS: RegExp[] = [
   // across deb-debian/deb-ubuntu/pacman-arch/rpm-fedora, all metapackage
   // selectors, zero real standalone apps found.
   /^default-/,
+  // Man-page translation/documentation packages (man-pages-ar, man-pages-fr,
+  // man-pages-postgresql-ja, man-pages-posix, ...) — pure documentation,
+  // never a launchable app, same reasoning as this file's `-docs?` suffix
+  // pattern just as a prefix instead. Deliberately doesn't touch bare
+  // "man" (the real command itself) or "man-db-*" (man-db's own service
+  // components). Surfaced live investigating the apps "To Classify"
+  // bucket (2026-09-02): 34 real matches, all documentation packages.
+  /^man-pages(-|$)/i,
 ];
 
 /**

@@ -368,5 +368,10 @@
     "sources": ["deb-debian", "deb-ubuntu"],
     "name": "xml-security-c-utils",
     "reason": "Real standalone CLI utilities despite the xml- Perl/library noise prefix — see filter/rules.ts's xml- comment"
+  },
+  {
+    "sources": ["ebuild-gentoo"],
+    "name": "Perl-Tidy",
+    "reason": "Ships the real standalone perltidy CLI script despite the dev-perl noise category — see filter/rules.ts's GENTOO_NOISE_CATEGORIES comment"
   }
 ]

@@ -542,6 +542,10 @@ describe("looksLikeSupportSection", () => {
     expect(looksLikeSupportSection("virtual")).toBe(true);
   });
 
+  it("flags Gentoo's dev-perl category (the whole CPAN-mirroring namespace)", () => {
+    expect(looksLikeSupportSection("dev-perl")).toBe(true);
+  });
+
   it("does not flag Gentoo's other categories", () => {
     expect(looksLikeSupportSection("games-strategy")).toBe(false);
     expect(looksLikeSupportSection("dev-libs")).toBe(false);

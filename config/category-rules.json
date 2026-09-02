@@ -1968,5 +1968,15 @@
     "pattern": "aspnet*",
     "category": "Developer Tools",
     "reason": "The ASP.NET Core runtime/targeting-pack family across its many per-version binaries (aspnet-runtime-3.1-bin, aspnet-targeting-pack-3.0, ...) — verified live: 38 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "qml-*",
+    "category": "Developer Tools",
+    "reason": "The QML/Qt Quick developer ecosystem (qml-language-server-bin, qml-module-org-kde-kirigami2, its bindings/tooling, ...) — verified live: 30 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "ps2-*",
+    "category": "Developer Tools",
+    "reason": "The PlayStation 2 homebrew-development toolchain (ps2-ee/ps2-iop compilers, ported libraries like ps2-freetype/ps2-expat, ...) — verified live: 30 real matches, zero unrelated collisions."
   }
 ]

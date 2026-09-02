@@ -928,5 +928,85 @@
     "pattern": "\\bfile compress",
     "category": "Utilities",
     "reason": "Description explicitly identifies it as a file compressor -- same archive-management reasoning as the existing archive manager entry. Verified live: 6 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\blinter\\b",
+    "category": "Developer Tools",
+    "reason": "Description explicitly identifies it as a code linter. Verified live: 112 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bformatter\\b",
+    "category": "Developer Tools",
+    "reason": "Description explicitly identifies it as a code formatter. Verified live: 161 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bbuild (tool|system)\\b",
+    "category": "Developer Tools",
+    "reason": "Description explicitly identifies it as a software build tool/system. Verified live: 188 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\btest(ing)? framework\\b",
+    "category": "Developer Tools",
+    "reason": "Description explicitly identifies it as a testing framework. Verified live: 118 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bweb framework\\b",
+    "category": "Developer Tools",
+    "reason": "Description explicitly identifies it as a web framework. Verified live: 24 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\btemplate engine\\b",
+    "category": "Developer Tools",
+    "reason": "Description explicitly identifies it as a template engine. Verified live: 28 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bload testing\\b",
+    "category": "Developer Tools",
+    "reason": "Description explicitly identifies it as a load-testing tool. Verified live: 24 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bbenchmark(ing)? tool\\b",
+    "category": "Developer Tools",
+    "reason": "Description explicitly identifies it as a benchmarking tool. Verified live: 31 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bmonitoring tool\\b",
+    "category": "System Tools",
+    "reason": "Description explicitly identifies it as a monitoring tool -- most real matches are hardware/system monitors (e.g. GPU temperature/fan-speed monitoring). Verified live: 47 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\blog analyzer\\b",
+    "category": "Developer Tools",
+    "reason": "Description explicitly identifies it as a log analyzer. Verified live: 9 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\b(text.to.speech|speech.to.text)\\b",
+    "category": "Utilities",
+    "reason": "Description explicitly identifies it as text-to-speech/speech-to-text software. Verified live: 82 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bocr\\b",
+    "category": "Utilities",
+    "reason": "Description explicitly identifies it as OCR (optical character recognition) software -- matches config/categories-apps.json's own \"OCR\" -> Utilities freedesktop mapping. Verified live: 63 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bsubtitle (editor|tool|generator)\\b",
+    "category": "Photo & Video",
+    "reason": "Description explicitly identifies it as a subtitle editor/tool. Verified live: 10 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bscreen magnifier\\b",
+    "category": "Settings",
+    "reason": "Description explicitly identifies it as a screen magnifier -- matches config/categories-apps.json's own \"Accessibility\" -> Settings freedesktop mapping. Verified live: 5 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bcron (job|scheduler)\\b",
+    "category": "System Tools",
+    "reason": "Description explicitly identifies it as cron-related scheduling software. Verified live: 5 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bshell prompt\\b",
+    "category": "System Tools",
+    "reason": "Description explicitly identifies it as a shell-prompt customization tool. Verified live: 6 real matches, zero unrelated collisions."
   }
 ]

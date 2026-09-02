@@ -651,4 +651,14 @@ describe("looksLikeGamePackage", () => {
     expect(looksLikeGamePackage("pacman-aur", undefined, "pzl_sudoku")).toBe(true);
     expect(looksLikeGamePackage("pacman-aur", undefined, "pzl_common")).toBe(true);
   });
+
+  it("flags AUR's minetest- and openra- name prefixes (community subgames/mods)", () => {
+    expect(looksLikeGamePackage("pacman-aur", undefined, "minetest-arcade3d")).toBe(true);
+    expect(looksLikeGamePackage("pacman-aur", undefined, "openra-ca-git")).toBe(true);
+  });
+
+  it("does not flag the bare minetest/openra engine names via this prefix check", () => {
+    expect(looksLikeGamePackage("pacman-aur", undefined, "minetest")).toBe(false);
+    expect(looksLikeGamePackage("pacman-aur", undefined, "openra")).toBe(false);
+  });
 });

@@ -1648,5 +1648,15 @@
     "pattern": "adwaita*",
     "category": "Settings",
     "reason": "GNOME's own Adwaita GTK/icon/cursor theme family and its Qt-bending styles (adwaita-icon-theme, adwaita-qt5/6, adwaita-dark, ...) — same desktop-theming reasoning as yaru*. Verified live: 29 real matches, all theme/style packages; the separate adwaita-fonts typeface family is excluded before filtering ever reaches this stage (see filter/rules.ts)."
+  },
+  {
+    "pattern": "lighttpd*",
+    "category": "System Tools",
+    "reason": "lighttpd, a real standalone web server, plus its own module ecosystem (lighttpd-mod-deflate, lighttpd-mod-webdav, ...) — same \"web/proxy server infrastructure\" reasoning as nginx-*/apache2-*. Verified live: 30 real matches."
+  },
+  {
+    "pattern": "elephant*",
+    "category": "Utilities",
+    "reason": "Elephant, a real standalone application-launcher framework, plus its own provider-plugin ecosystem (elephant-bitwarden, elephant-clipboard, elephant-files, ...) — same \"application launcher\" reasoning as rofi-*. Verified live: 32 real matches."
   }
 ]

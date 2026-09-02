@@ -1813,5 +1813,30 @@
     "pattern": "arm-*",
     "category": "Developer Tools",
     "reason": "The ARM cross-compilation toolchain family (arm-none-eabi-gcc, arm-linux-gnueabihf-gdb, arm-gnu-toolchain-*, ARM Trusted Firmware, ...) — same reasoning as gcc*/ga68*. Verified live: 49 real matches; one minor imprecision left uncarved (arm-fdisk, an Acorn-machine disk-partitioning tool, still technical/ARM-adjacent enough to leave as-is)."
+  },
+  {
+    "pattern": "papirus*",
+    "category": "Settings",
+    "reason": "The Papirus icon theme family (papirus-folder-icons, its per-app theme variants for Claws Mail/FileZilla, its KDE color-scheme port, ...) — same desktop-theming reasoning as yaru*/adwaita*/tela*. Verified live: 23 real matches, all Papirus itself or a Papirus-derived theme."
+  },
+  {
+    "pattern": "oxygen*",
+    "category": "Settings",
+    "reason": "KDE's own Oxygen style/icon/cursor/sound theme family (oxygen-icon-theme, oxygen-gtk+3, oxygen6-decoration, ...) — same desktop-theming reasoning as yaru*/adwaita*/tela*/papirus*. Verified live: 25 real matches, all Oxygen theme components; the separate oxygen-fonts typeface family is excluded before filtering ever reaches this stage (see filter/rules.ts)."
+  },
+  {
+    "pattern": "openrgb*",
+    "category": "Utilities",
+    "reason": "OpenRGB, a real standalone RGB-lighting control app that doesn't depend on manufacturer software, plus its own plugin/SDK ecosystem (openrgb-plugin-effects, openrgb-cppsdk-git, ...) — verified live: 24 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "wingpanel*",
+    "category": "Settings",
+    "reason": "elementary OS's own Wingpanel top-panel app and its indicator ecosystem (wingpanel-indicator-bluetooth, wingpanel-indicator-datetime, ...) — same \"Pantheon system UI\" family as switchboard*. Verified live: 20 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "lazarus*",
+    "category": "Developer Tools",
+    "reason": "Lazarus, the Delphi-like IDE for Free Pascal, plus its own per-toolkit/per-version build variants (lazarus-qt6, lazarus-gtk2, lazarus-4.0, ...) — same Free Pascal ecosystem as the existing fp-* entry, just its own separate product name. Verified live: 27 real matches, zero unrelated collisions."
   }
 ]

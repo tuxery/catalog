@@ -476,6 +476,15 @@ const NOISE_PATTERNS: RegExp[] = [
   // config/category-rules.json's broader "pop-*" entry, same shape as
   // intel-*-fonts/adwaita-fonts above.
   /^pop-fonts$/,
+  // Google's own bare typeface family (google-fonts, google-fonts-ttf,
+  // google-roboto-*-fonts, google-droid-*-fonts, google-arimo-fonts,
+  // google-crosextra-caladea-fonts, ...) — distinct from the already-
+  // excluded `^google-noto-` family (a Google typeface too, just its own
+  // separate naming convention). Real fonts, not launchable apps, same
+  // reasoning as every other font pattern in this file. Surfaced live
+  // investigating the apps "To Classify" bucket (2026-09-02): 23 real
+  // matches, all real Google-published typefaces.
+  /^google-.*fonts/,
 ];
 
 /**

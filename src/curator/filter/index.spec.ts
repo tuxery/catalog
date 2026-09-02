@@ -67,4 +67,28 @@ describe("filterPackages", () => {
 
     expect(filterPackages(packages, overrides)).toHaveLength(1);
   });
+
+  it("drops a package via its own description even when its name looks fine", () => {
+    // The exact kind of gap the description signal exists for — a
+    // name-pattern check alone would never catch this (no lib/-dev shape
+    // in the name itself).
+    const packages = [
+      pkg({ name: "pyparsing", description: "Python library for creating PEG parsers" }),
+      pkg({ name: "firefox", description: "Web browser" }),
+    ];
+
+    expect(filterPackages(packages).map((p) => p.name)).toEqual(["firefox"]);
+  });
+
+  it("keep overrides win over the description signal too", () => {
+    const packages = [
+      pkg({ source: "deb-debian", name: "pyparsing", description: "Python library for creating PEG parsers" }),
+    ];
+    const overrides = {
+      keep: new Set(["deb-debian:pyparsing"]),
+      exclude: new Set<string>(),
+    };
+
+    expect(filterPackages(packages, overrides)).toHaveLength(1);
+  });
 });

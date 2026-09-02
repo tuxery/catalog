@@ -572,6 +572,55 @@ export function looksLikeSupportPackage(name: string): boolean {
   return NOISE_PATTERNS.some((pattern) => pattern.test(name));
 }
 
+// Phrases a package's own description uses to describe itself as a
+// library/binding/module/dev-package — a signal `looksLikeSupportPackage`'s
+// name patterns can't reach when the noise doesn't show up in the name
+// itself (no `lib` prefix, no `-dev`/`-devel` suffix). Surfaced live
+// investigating the apps "To Classify" bucket (2026-09-02), each verified
+// against real random samples before being added:
+// - `library for` / `a .* library` — 1,497 real matches, essentially all
+//   real programming libraries (one soft exception found, cmdstan, which
+//   also describes itself as "The command line interface to Stan" in the
+//   same sentence — accepted as the same class of minor imprecision this
+//   file already tolerates elsewhere, e.g. arm-fdisk under category-rules.json's
+//   arm-* entry).
+// - `bindings for` — 288 real matches, zero exceptions found (language
+//   bindings for another library, never launchable on their own).
+// - `module for` — 351 real matches, zero exceptions found (kernel/PAM/Qt/
+//   SELinux modules, all needing a host).
+// - `development files` — 939 real matches, zero exceptions found; this is
+//   the exact text openSUSE/other RPM-family sources put in a `-devel`
+//   package's own description, but many of those packages append an
+//   architecture suffix after the marker (`foo-devel-32bit`), which slips
+//   past this file's `-(dev|devel|...)$` *name* suffix pattern since
+//   "devel" is no longer the final segment — the description text doesn't
+//   have that problem.
+// Deliberately NOT included after checking: `implementation of` (823 real
+// matches, but a real exception rate too high to trust blanket — e.g. a
+// real Home Assistant packaging phrases itself as "A snap implementation
+// of the Home Assistant AiO") and `wrapper for` (326 real matches, but
+// roughly half are real standalone wrapper apps, not libraries — e.g. a
+// sandboxing tool for AI coding agents, a game auto-downloader).
+const SUPPORT_DESCRIPTION_PATTERNS: RegExp[] = [
+  /\blibrary for\b/i,
+  /\bbindings for\b/i,
+  /\bmodule for\b/i,
+  /\bdevelopment files\b/i,
+];
+
+/**
+ * Best-effort guess from a package's own `description` text that it's a
+ * library/binding/module/dev-package rather than an app or game — the
+ * description-text counterpart to `looksLikeSupportPackage`'s name-based
+ * guess, for the noise that doesn't show up in the name itself. Same
+ * conservative discipline: only phrases verified live against real random
+ * samples first, see this function's own comment above for what was
+ * checked and rejected.
+ */
+export function looksLikeSupportDescription(description: string): boolean {
+  return SUPPORT_DESCRIPTION_PATTERNS.some((pattern) => pattern.test(description));
+}
+
 // Debian's own packaging convention: a `-source` suffix ships the actual
 // source code (kernel-module sources for module-assistant/DKMS, compiler
 // sources, library source archives) — never a launchable app. Verified

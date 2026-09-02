@@ -3,6 +3,7 @@ import {
   looksLikeGamePackage,
   looksLikeGuiPackage,
   looksLikeSourceSpecificNoise,
+  looksLikeSupportDescription,
   looksLikeSupportPackage,
   looksLikeSupportSection,
 } from "./rules";
@@ -365,6 +366,35 @@ describe("looksLikeSupportPackage", () => {
   it("flags Google's Noto font-family packages", () => {
     expect(looksLikeSupportPackage("google-noto-color-emoji-fonts")).toBe(true);
     expect(looksLikeSupportPackage("google-noto-sans-lao-vf-fonts")).toBe(true);
+  });
+});
+
+describe("looksLikeSupportDescription", () => {
+  it("flags a package that describes itself as a library, regardless of its name", () => {
+    expect(looksLikeSupportDescription("A Python library for creating PEG parsers")).toBe(true);
+    expect(looksLikeSupportDescription("Library for text rendering with SDL")).toBe(true);
+  });
+
+  it("flags language bindings", () => {
+    expect(looksLikeSupportDescription("Python bindings for wxWidgets")).toBe(true);
+  });
+
+  it("flags a module needing a host", () => {
+    expect(looksLikeSupportDescription("PAM module for calling snapper")).toBe(true);
+  });
+
+  it("flags development-files packages even past an architecture suffix a name-pattern check would miss", () => {
+    // "syncthingtray-devel-32bit" doesn't end in "-devel" (it ends in
+    // "-32bit"), so looksLikeSupportPackage's name suffix pattern can't
+    // catch it — the description text doesn't have that problem.
+    expect(
+      looksLikeSupportDescription("Tray application for Syncthing - development files (32bit)"),
+    ).toBe(true);
+  });
+
+  it("does not flag a real app's description", () => {
+    expect(looksLikeSupportDescription("Web browser")).toBe(false);
+    expect(looksLikeSupportDescription("A fast, easy, and free BitTorrent client")).toBe(false);
   });
 });
 

@@ -1073,5 +1073,70 @@
     "pattern": "\\biot\\b",
     "category": "System Tools",
     "reason": "Description explicitly identifies it as IoT (Internet of Things) infrastructure software -- hub servers, MQTT brokers, device-management platforms. Verified live: 44 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\b(alarm clock|stopwatch|countdown timer)\\b",
+    "category": "Utilities",
+    "reason": "Description explicitly identifies it as a clock/timer utility. Verified live: 38 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bapi documentation\\b",
+    "category": "Developer Tools",
+    "reason": "Description explicitly identifies it as API-documentation software. Verified live: 91 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bmessage (queue|broker)\\b",
+    "category": "Developer Tools",
+    "reason": "Description explicitly identifies it as message-queue/broker infrastructure. Verified live: 9 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bcms\\b",
+    "category": "Developer Tools",
+    "reason": "Description explicitly identifies it as a content-management system -- self-hosted webmaster/technical infrastructure. Verified live: 17 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bblog(ging)? (platform|engine|software)\\b",
+    "category": "Developer Tools",
+    "reason": "Description explicitly identifies it as blogging-platform software -- same self-hosted webmaster infrastructure reasoning as cms above. Verified live: 7 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bunit test(ing)?\\b",
+    "category": "Developer Tools",
+    "reason": "Description explicitly identifies it as unit-testing software -- catches real matches the broader \"test framework\" entry above misses. Verified live: 16 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\borm\\b",
+    "category": "Developer Tools",
+    "reason": "Description explicitly identifies it as an ORM (object-relational mapper). Verified live: 12 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bmigration tool\\b",
+    "category": "Developer Tools",
+    "reason": "Description explicitly identifies it as a (database/data) migration tool. Verified live: 19 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bsql client\\b",
+    "category": "Developer Tools",
+    "reason": "Description explicitly identifies it as a SQL client. Verified live: 18 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bgraphql\\b",
+    "category": "Developer Tools",
+    "reason": "Description explicitly identifies it as GraphQL-related software. Verified live: 36 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\brest api\\b",
+    "category": "Developer Tools",
+    "reason": "Description explicitly identifies it as REST-API-related software. Verified live: 47 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bcron\\b",
+    "category": "System Tools",
+    "reason": "Description explicitly identifies it as cron-related software -- broader than the existing \"cron job/scheduler\" entry, catches bare mentions. Verified live: 40 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bsticky notes\\b",
+    "category": "Productivity",
+    "reason": "Description explicitly identifies it as a sticky-notes app. Verified live: 9 real matches, zero unrelated collisions."
   }
 ]

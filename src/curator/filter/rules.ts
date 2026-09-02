@@ -51,8 +51,11 @@ const NOISE_PATTERNS: RegExp[] = [
   /-libs$/,
   // Static-library variant packages.
   /-static$/,
-  // Fonts.
-  /^(ttf|fonts|otf)-/,
+  // Fonts. `ttc-` (TrueType Collection) added live investigating the
+  // apps "To Classify" bucket (2026-09-02): 50 real matches (mostly
+  // Iosevka's own coding-typeface variant family), zero non-font
+  // exceptions.
+  /^(ttf|fonts|otf|ttc)-/,
   // Perl/OCaml/Haskell/Lua/R/Tcl module packages — Fedora-style prefix
   // naming (perl-DBI, ocaml-astring, ghc-Cabal, lua-cqueues, R-DBI,
   // tcl-snack), including Fedora's own per-GHC-version variant

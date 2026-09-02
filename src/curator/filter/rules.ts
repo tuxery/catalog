@@ -837,7 +837,14 @@ const SOLUS_NOISE_PARTOF = new Set([
 // distribution modules, no host app of their own; the one real
 // exception found (`Perl-Tidy`, which ships the standalone `perltidy`
 // script) is rescued via `config/filter-keep.json` rather than trying
-// to carve exceptions out of the category wholesale.
+// to carve exceptions out of the category wholesale. Two more of the
+// same "needs a host editor, not launchable on its own" shape as
+// app-emacs found alongside it: `app-vim` (Vim plugins — syntax
+// highlighting, statuslines, language-specific tooling, all needing Vim
+// itself) and `app-xemacs` (XEmacs Lisp packages, same concept as
+// app-emacs for the XEmacs fork specifically). Verified live: 189 real
+// app-vim matches, 130 real app-xemacs matches, no exceptions found in
+// either.
 const GENTOO_NOISE_CATEGORIES = new Set([
   "acct-group",
   "acct-user",
@@ -847,6 +854,8 @@ const GENTOO_NOISE_CATEGORIES = new Set([
   "x11-themes",
   "media-fonts",
   "app-emacs",
+  "app-vim",
+  "app-xemacs",
   "dev-perl",
 ]);
 

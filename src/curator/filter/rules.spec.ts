@@ -546,6 +546,11 @@ describe("looksLikeSupportSection", () => {
     expect(looksLikeSupportSection("dev-perl")).toBe(true);
   });
 
+  it("flags Gentoo's app-vim/app-xemacs categories (editor plugins, need their host)", () => {
+    expect(looksLikeSupportSection("app-vim")).toBe(true);
+    expect(looksLikeSupportSection("app-xemacs")).toBe(true);
+  });
+
   it("does not flag Gentoo's other categories", () => {
     expect(looksLikeSupportSection("games-strategy")).toBe(false);
     expect(looksLikeSupportSection("dev-libs")).toBe(false);

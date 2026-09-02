@@ -1918,5 +1918,25 @@
     "pattern": "docbook*",
     "category": "Developer Tools",
     "reason": "The DocBook XML/SGML documentation-toolchain ecosystem (docbook-xsl-ns, docbook-to-man, docbook2mdoc, ...) — verified live: 35 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "spotify*",
+    "category": "Music & Audio",
+    "reason": "Spotify's own client plus the real third-party adblock/control/backup tooling built around it (spotify-adblock, spotify-control, spotify-backup-git, ...) — verified live: 32 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "janus-*",
+    "category": "Developer Tools",
+    "reason": "Janus, a real standalone general-purpose WebRTC server/gateway, plus its event-handler plugin ecosystem (janus-eventhandlers-mqtt, janus-eventhandlers-gelf, ...) — verified live: 28 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "vmware*",
+    "category": "System Tools",
+    "reason": "VMware's own client/tooling ecosystem (vmware-horizon-client, vmware-govc-bin, vmware-auto-unlocker, ...) — virtualization/remote-desktop infrastructure. Verified live: 27 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "llama.cpp*",
+    "category": "Developer Tools",
+    "reason": "llama.cpp, a real standalone LLM inference engine, across its many real hardware-backend build variants (llama.cpp-cuda, llama.cpp-clblast, llama.cpp-cublas-git, ...) — verified live: 27 real matches, zero unrelated collisions. Bare \"microsoft*\"/\"llama*\" were checked and rejected: too heterogeneous (browsers, games, auth brokers, unrelated libraries all share those bare prefixes)."
   }
 ]

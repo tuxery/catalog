@@ -1673,5 +1673,20 @@
     "pattern": "kube*",
     "category": "Developer Tools",
     "reason": "The Kubernetes CLI/tooling ecosystem (kubectl plugins, kubeadm, kube-apiserver, kubeval, kubeshark, ...) — verified live: 140+ real matches, overwhelmingly real Kubernetes-adjacent developer tooling; the one genuine name collision (bare \"kube\", the KDE groupware client) is carved out by its own entry above."
+  },
+  {
+    "pattern": "acf-*",
+    "category": "System Tools",
+    "reason": "Alpine's own ACF (a web-based system-administration framework) and its per-service admin-panel modules (acf-asterisk, acf-chrony, acf-apk-tools, ...) — verified live: 58 real matches, all Alpine sysadmin tooling."
+  },
+  {
+    "pattern": "ga68*",
+    "category": "Developer Tools",
+    "reason": "GNU's Algol 68 compiler frontend (ga68, and its per-version/per-target variants ga68-15-aarch64-linux-gnu, ...) — part of the GCC toolchain family, same reasoning as gcc*/gccgo*, just a prefix that pattern doesn't reach. Verified live: 63 real matches."
+  },
+  {
+    "pattern": "psi-plus*",
+    "category": "Internet & Communication",
+    "reason": "Psi+, a real standalone XMPP messenger client, plus its own plugin/resource ecosystem (psi-plus-mediaplugin, psi-plus-resources, ...) — bare \"psi-*\" itself is too heterogeneous to classify in one go (an unrelated pressure-stall-information notifier, a probabilistic-programming research tool, and unrelated LV2 audio plugins all share the prefix), so this stays scoped to the psi-plus sub-family specifically. Verified live: 6 real matches."
   }
 ]

@@ -598,14 +598,31 @@ export function looksLikeSupportPackage(name: string): boolean {
 // Deliberately NOT included after checking: `implementation of` (823 real
 // matches, but a real exception rate too high to trust blanket — e.g. a
 // real Home Assistant packaging phrases itself as "A snap implementation
-// of the Home Assistant AiO") and `wrapper for` (326 real matches, but
+// of the Home Assistant AiO"), `wrapper for` (326 real matches, but
 // roughly half are real standalone wrapper apps, not libraries — e.g. a
-// sandboxing tool for AI coding agents, a game auto-downloader).
+// sandboxing tool for AI coding agents, a game auto-downloader), and
+// `command line (tool|interface) for` (414 real matches, but this one
+// would have excluded curl itself — "command line tool for transferring
+// data with URL syntax" — real standalone CLI tools describe themselves
+// this way just as often as ambiguous ones; too risky to exclude real
+// apps entirely, unlike the milder harm of a miscategorization).
+//
+// `plugin for` / `extension for` / `framework for` / `addon for` (729 /
+// 160 / 380 / 23 real matches) added alongside the original four: same
+// "needs a host, not launchable on its own" litmus as a library, each
+// verified live against real random samples first, zero exceptions found
+// in any (Nagios/Roundcube/browser plugins, VSCode/Nautilus/MediaWiki
+// extensions, C++/Tcl application frameworks, Kodi/Blender/Allegro
+// addons).
 const SUPPORT_DESCRIPTION_PATTERNS: RegExp[] = [
   /\blibrary for\b/i,
   /\bbindings for\b/i,
   /\bmodule for\b/i,
   /\bdevelopment files\b/i,
+  /\bplugin for\b/i,
+  /\bextension for\b/i,
+  /\bframework for\b/i,
+  /\baddon for\b/i,
 ];
 
 /**

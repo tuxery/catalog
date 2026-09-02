@@ -2028,5 +2028,10 @@
     "pattern": "xcb-*",
     "category": "Developer Tools",
     "reason": "The XCB (X protocol C-language Binding) library/protocol ecosystem (xcb-util, xcb-proto, xcb-util-cursor, ...) — verified live: 28 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "gpu-*",
+    "category": "System Tools",
+    "reason": "GPU hardware stress-testing/management tooling (gpu-burn, gpu-control, gpu-passthrough-manager, ...) — verified live: 21 real matches, zero unrelated collisions."
   }
 ]

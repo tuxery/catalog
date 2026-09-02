@@ -548,6 +548,15 @@ const NOISE_PATTERNS: RegExp[] = [
   // live investigating the apps "To Classify" bucket (2026-09-02): 33
   // real matches, all real Georgian typefaces.
   /^bpg-.*fonts/i,
+  // Debian's own "Debian Games" tasksel genre-bucket metapackages
+  // (games-arcade, games-puzzle, games-rpg, games-tasks itself literally
+  // described as "Debian Games tasks for tasksel", ...) — same shape as
+  // this file's task-/default- exclusions, never a launchable app.
+  // Surfaced live investigating the apps "To Classify" bucket
+  // (2026-09-02): 28 real matches (27 on Debian/Ubuntu plus Fedora's
+  // equivalent games-menus submenu-categorization file), all metapackage
+  // or menu-structure selectors, zero real standalone apps found.
+  /^games-/,
 ];
 
 /**

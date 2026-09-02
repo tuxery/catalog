@@ -1788,5 +1788,20 @@
     "pattern": "gz-*",
     "category": "Science",
     "reason": "The Gazebo robotics-simulation framework (gz-sim, the real launchable simulator) and its entire supporting-library ecosystem (gz-physics, gz-rendering, gz-sensors, gz-transport, its per-release-codename toolbox meta-packages gz-harmonic/gz-ionic/gz-jetty/gz-garden, ...) — same \"Science\" reasoning as CERN's ROOT above. Verified live: 60 real matches, one genuine unrelated collision (gz-models, a GZDoom asset pack) carved out above."
+  },
+  {
+    "pattern": "pure-ftpd*",
+    "category": "System Tools",
+    "reason": "Pure-FTPd, a real standalone FTP server, plus its own auth-backend/init-script sub-packages — genuinely unrelated to the Pure functional-programming-language ecosystem below despite sharing the pure- prefix, so this entry must stay ordered before pure* to win first."
+  },
+  {
+    "pattern": "pure-prompt",
+    "category": "Utilities",
+    "reason": "A real standalone Zsh prompt theme — genuinely unrelated to the Pure language ecosystem below, carved out the same way as pure-ftpd* above."
+  },
+  {
+    "pattern": "pure*",
+    "category": "Developer Tools",
+    "reason": "The Pure functional-programming-language interpreter and its own module/binding ecosystem (pure-ffi, pure-gtk, pure-sql3, pure-meta-*, ...) — same \"approximate-but-plausible\" reasoning as fp-*/dh-*: most members are libraries rather than independently launchable, but the family is coherent and unambiguously developer-facing. Verified live: 48 real matches, two genuine unrelated collisions (pure-ftpd*, pure-prompt) carved out above; pure-eval (a Python library) and pure-studio-git (an Electron text editor) are close enough to Developer Tools anyway to leave uncarved."
   }
 ]

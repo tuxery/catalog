@@ -521,6 +521,17 @@ const NOISE_PATTERNS: RegExp[] = [
   // components). Surfaced live investigating the apps "To Classify"
   // bucket (2026-09-02): 34 real matches, all documentation packages.
   /^man-pages(-|$)/i,
+  // Two more CPAN capitalized-namespace conventions Gentoo mirrors
+  // verbatim, same shape as the XML-* entry above — dist-git (lowercase,
+  // Fedora's real DistGit source-control CLI) and class-widgets-bin
+  // (lowercase, a real desktop app) are deliberately untouched since
+  // this only matches the capitalized "Dist-"/"Class-" form. Surfaced
+  // live investigating the apps "To Classify" bucket (2026-09-02): 59
+  // real Dist-* matches (the Dist::Zilla release-tooling ecosystem) and
+  // 54 real Class-* matches (Perl OOP/accessor-generation utility
+  // modules), all libraries, zero non-Perl collisions in either.
+  /^Dist-/,
+  /^Class-/,
 ];
 
 /**

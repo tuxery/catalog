@@ -2363,5 +2363,225 @@
     "pattern": "D&D Stronghold: Kingdom Simulator",
     "category": "Simulation",
     "reason": "Description identifies it as a simulation game -- no upstream genre tag exists for this app, found via games \"To Classify\" review (2026-09-02)."
+  },
+  {
+    "pattern": "gog-bastion",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"An action role-playing game set in a lush imaginative world\") -- an AUR community-packaged GOG.com game installer wrapper (see filter/rules.ts's looksLikeGamePackage gog- prefix), found via the apps \"To Classify\" bucket review (2026-09-02)."
+  },
+  {
+    "pattern": "gog-book-of-hours",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"Elegant, melancholy, combat-free RPG set in an occult library\") -- an AUR community-packaged GOG.com game installer wrapper (see filter/rules.ts's looksLikeGamePackage gog- prefix), found via the apps \"To Classify\" bucket review (2026-09-02)."
+  },
+  {
+    "pattern": "gog-crawl",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"The dungeon crawler where your friends control the monsters\") -- an AUR community-packaged GOG.com game installer wrapper (see filter/rules.ts's looksLikeGamePackage gog- prefix), found via the apps \"To Classify\" bucket review (2026-09-02)."
+  },
+  {
+    "pattern": "gog-crypt-of-the-necrodancer",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"A roguelike rhythm game! Move on the beat to navigate ever changing dungeons\") -- an AUR community-packaged GOG.com game installer wrapper (see filter/rules.ts's looksLikeGamePackage gog- prefix), found via the apps \"To Classify\" bucket review (2026-09-02)."
+  },
+  {
+    "pattern": "gog-dandara-trials-of-fear-edition",
+    "category": "Action",
+    "reason": "Description identifies it as a action game (\"Gravity-defying 2D metroidvania platformer\") -- an AUR community-packaged GOG.com game installer wrapper (see filter/rules.ts's looksLikeGamePackage gog- prefix), found via the apps \"To Classify\" bucket review (2026-09-02)."
+  },
+  {
+    "pattern": "gog-darkest-dungeon",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"Darkest Dungeon is a challenging gothic roguelike turn-based RPG about the psychological stresses of adventuring\") -- an AUR community-packaged GOG.com game installer wrapper (see filter/rules.ts's looksLikeGamePackage gog- prefix), found via the apps \"To Classify\" bucket review (2026-09-02)."
+  },
+  {
+    "pattern": "gog-drova-forsaken-kin",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"Pixel art action RPG inspired by Celtic mythology and Gothic\") -- an AUR community-packaged GOG.com game installer wrapper (see filter/rules.ts's looksLikeGamePackage gog- prefix), found via the apps \"To Classify\" bucket review (2026-09-02)."
+  },
+  {
+    "pattern": "gog-enter-the-gungeon",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"Fast-paced bullet hell dungeon crawler with roguelike elements\") -- an AUR community-packaged GOG.com game installer wrapper (see filter/rules.ts's looksLikeGamePackage gog- prefix), found via the apps \"To Classify\" bucket review (2026-09-02)."
+  },
+  {
+    "pattern": "gog-ftl",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"Spaceship simulation roguelike-like. Take your ship and crew through a randomly generated galaxy filled with glory and bitter defeat\") -- an AUR community-packaged GOG.com game installer wrapper (see filter/rules.ts's looksLikeGamePackage gog- prefix), found via the apps \"To Classify\" bucket review (2026-09-02)."
+  },
+  {
+    "pattern": "gog-hollow-knight",
+    "category": "Action",
+    "reason": "Description identifies it as a action game (\"Challenging 2D side-scrolling Metroidvania soulslike game\") -- an AUR community-packaged GOG.com game installer wrapper (see filter/rules.ts's looksLikeGamePackage gog- prefix), found via the apps \"To Classify\" bucket review (2026-09-02)."
+  },
+  {
+    "pattern": "gog-icewind-dale-enhanced-edition",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"Icewind Dale: Enhanced Edition is a classic RPG running through the Spine of the World of the Forgotten Realms. GOG Version. Linux native\") -- an AUR community-packaged GOG.com game installer wrapper (see filter/rules.ts's looksLikeGamePackage gog- prefix), found via the apps \"To Classify\" bucket review (2026-09-02)."
+  },
+  {
+    "pattern": "gog-inscryption",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"Roguelike deck-building game\") -- an AUR community-packaged GOG.com game installer wrapper (see filter/rules.ts's looksLikeGamePackage gog- prefix), found via the apps \"To Classify\" bucket review (2026-09-02)."
+  },
+  {
+    "pattern": "gog-inscryption-demo",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"Roguelike deck-building game. , uses Wine\") -- an AUR community-packaged GOG.com game installer wrapper (see filter/rules.ts's looksLikeGamePackage gog- prefix), found via the apps \"To Classify\" bucket review (2026-09-02)."
+  },
+  {
+    "pattern": "gog-into-the-breach",
+    "category": "Strategy",
+    "reason": "Description identifies it as a strategy game (\"Mecha turn based strategy game\") -- an AUR community-packaged GOG.com game installer wrapper (see filter/rules.ts's looksLikeGamePackage gog- prefix), found via the apps \"To Classify\" bucket review (2026-09-02)."
+  },
+  {
+    "pattern": "gog-moo",
+    "category": "Strategy",
+    "reason": "Description identifies it as a strategy game (\"Master of Orion is a turn-based, 4X science fiction strategy game\") -- an AUR community-packaged GOG.com game installer wrapper (see filter/rules.ts's looksLikeGamePackage gog- prefix), found via the apps \"To Classify\" bucket review (2026-09-02)."
+  },
+  {
+    "pattern": "gog-moo-ii",
+    "category": "Strategy",
+    "reason": "Description identifies it as a strategy game (\"Master of Orion II: Battle at Antares is a 4X turn-based strategy game set in space\") -- an AUR community-packaged GOG.com game installer wrapper (see filter/rules.ts's looksLikeGamePackage gog- prefix), found via the apps \"To Classify\" bucket review (2026-09-02)."
+  },
+  {
+    "pattern": "gog-night-in-the-woods",
+    "category": "Adventure",
+    "reason": "Description identifies it as a adventure game (\"Adventure game focused on exploration, story, and character, starring college dropout Mae Borowski\") -- an AUR community-packaged GOG.com game installer wrapper (see filter/rules.ts's looksLikeGamePackage gog- prefix), found via the apps \"To Classify\" bucket review (2026-09-02)."
+  },
+  {
+    "pattern": "gog-pillars_of_eternity_ii_deadfire",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"Pursue a rogue god over land and sea in the sequel to the RPG Pillars of Eternity\") -- an AUR community-packaged GOG.com game installer wrapper (see filter/rules.ts's looksLikeGamePackage gog- prefix), found via the apps \"To Classify\" bucket review (2026-09-02)."
+  },
+  {
+    "pattern": "gog-pine",
+    "category": "Simulation",
+    "reason": "Description identifies it as a simulation game (\"Pine is an open world action adventure simulation game\") -- an AUR community-packaged GOG.com game installer wrapper (see filter/rules.ts's looksLikeGamePackage gog- prefix), found via the apps \"To Classify\" bucket review (2026-09-02)."
+  },
+  {
+    "pattern": "gog-pony-island",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"Suspense puzzle game in disguise\") -- an AUR community-packaged GOG.com game installer wrapper (see filter/rules.ts's looksLikeGamePackage gog- prefix), found via the apps \"To Classify\" bucket review (2026-09-02)."
+  },
+  {
+    "pattern": "gog-powers-in-the-basement",
+    "category": "Adventure",
+    "reason": "Description identifies it as a adventure game (\"Point-and-click adventure, reminiscent of 80s and 90s classics\") -- an AUR community-packaged GOG.com game installer wrapper (see filter/rules.ts's looksLikeGamePackage gog- prefix), found via the apps \"To Classify\" bucket review (2026-09-02)."
+  },
+  {
+    "pattern": "gog-pyre",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"A party-based RPG in which you lead a band of exiles to freedom\") -- an AUR community-packaged GOG.com game installer wrapper (see filter/rules.ts's looksLikeGamePackage gog- prefix), found via the apps \"To Classify\" bucket review (2026-09-02)."
+  },
+  {
+    "pattern": "gog-quest-for-infamy",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"Quest For Infamy is a role-playing adventure game where you assume the identity of Mr. Roehm - a scoundrel who is on the run from his latest scrape. GOG Version. Linux native\") -- an AUR community-packaged GOG.com game installer wrapper (see filter/rules.ts's looksLikeGamePackage gog- prefix), found via the apps \"To Classify\" bucket review (2026-09-02)."
+  },
+  {
+    "pattern": "gog-risk-of-rain",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"Risk of Rain is an action platformer with roguelike elements\") -- an AUR community-packaged GOG.com game installer wrapper (see filter/rules.ts's looksLikeGamePackage gog- prefix), found via the apps \"To Classify\" bucket review (2026-09-02)."
+  },
+  {
+    "pattern": "gog-scott-whiskers-in-the-search-for-mr-fumbleclaw",
+    "category": "Adventure",
+    "reason": "Description identifies it as a adventure game (\"Point-and-click adventure about cats, Star Trek, and life itself\") -- an AUR community-packaged GOG.com game installer wrapper (see filter/rules.ts's looksLikeGamePackage gog- prefix), found via the apps \"To Classify\" bucket review (2026-09-02)."
+  },
+  {
+    "pattern": "gog-shortest-trip-to-earth",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"a roguelike spaceship simulator featuring exploration, ship management, game-influencing decision-making and real-time tactical battles\") -- an AUR community-packaged GOG.com game installer wrapper (see filter/rules.ts's looksLikeGamePackage gog- prefix), found via the apps \"To Classify\" bucket review (2026-09-02)."
+  },
+  {
+    "pattern": "gog-slay-the-princess",
+    "category": "Adventure",
+    "reason": "Description identifies it as a adventure game (\"Choice-driven psychological horror visual novel\") -- an AUR community-packaged GOG.com game installer wrapper (see filter/rules.ts's looksLikeGamePackage gog- prefix), found via the apps \"To Classify\" bucket review (2026-09-02)."
+  },
+  {
+    "pattern": "gog-slay-the-princess-demo",
+    "category": "Adventure",
+    "reason": "Description identifies it as a adventure game (\"Choice-driven psychological horror visual novel\") -- an AUR community-packaged GOG.com game installer wrapper (see filter/rules.ts's looksLikeGamePackage gog- prefix), found via the apps \"To Classify\" bucket review (2026-09-02)."
+  },
+  {
+    "pattern": "gog-slender-threads",
+    "category": "Adventure",
+    "reason": "Description identifies it as a adventure game (\"Point-and-click thriller adventure\") -- an AUR community-packaged GOG.com game installer wrapper (see filter/rules.ts's looksLikeGamePackage gog- prefix), found via the apps \"To Classify\" bucket review (2026-09-02)."
+  },
+  {
+    "pattern": "gog-slender-threads-prologue",
+    "category": "Adventure",
+    "reason": "Description identifies it as a adventure game (\"Point-and-click thriller adventure\") -- an AUR community-packaged GOG.com game installer wrapper (see filter/rules.ts's looksLikeGamePackage gog- prefix), found via the apps \"To Classify\" bucket review (2026-09-02)."
+  },
+  {
+    "pattern": "gog-stellaris",
+    "category": "Strategy",
+    "reason": "Description identifies it as a strategy game (\"A strategy game with space exploration at its core\") -- an AUR community-packaged GOG.com game installer wrapper (see filter/rules.ts's looksLikeGamePackage gog- prefix), found via the apps \"To Classify\" bucket review (2026-09-02)."
+  },
+  {
+    "pattern": "gog-sudden-strike-4",
+    "category": "Strategy",
+    "reason": "Description identifies it as a strategy game (\"A historical real time strategy game. Commanding the Allied, German or Soviet troops\") -- an AUR community-packaged GOG.com game installer wrapper (see filter/rules.ts's looksLikeGamePackage gog- prefix), found via the apps \"To Classify\" bucket review (2026-09-02)."
+  },
+  {
+    "pattern": "gog-sudden-strike-4-complete-collection",
+    "category": "Strategy",
+    "reason": "Description identifies it as a strategy game (\"The complete collection of historical real time strategy game, which include all available addons\") -- an AUR community-packaged GOG.com game installer wrapper (see filter/rules.ts's looksLikeGamePackage gog- prefix), found via the apps \"To Classify\" bucket review (2026-09-02)."
+  },
+  {
+    "pattern": "gog-superliminal",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"First-person puzzle game based on forced perspective and optical illusions\") -- an AUR community-packaged GOG.com game installer wrapper (see filter/rules.ts's looksLikeGamePackage gog- prefix), found via the apps \"To Classify\" bucket review (2026-09-02)."
+  },
+  {
+    "pattern": "gog-the-will-of-arthur-flabbington",
+    "category": "Adventure",
+    "reason": "Description identifies it as a adventure game (\"Comedy point-and-click adventure. Find your uncle’s lost treasure with the help of a reluctant sidekick\") -- an AUR community-packaged GOG.com game installer wrapper (see filter/rules.ts's looksLikeGamePackage gog- prefix), found via the apps \"To Classify\" bucket review (2026-09-02)."
+  },
+  {
+    "pattern": "gog-the-witcher-2-assassins-of-kings",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"Enjoy a captivating story, dynamic combat system and beautiful graphics in the second installment in the RPG saga about the Witcher, Geralt of Rivia\") -- an AUR community-packaged GOG.com game installer wrapper (see filter/rules.ts's looksLikeGamePackage gog- prefix), found via the apps \"To Classify\" bucket review (2026-09-02)."
+  },
+  {
+    "pattern": "gog-thimbleweedpark",
+    "category": "Adventure",
+    "reason": "Description identifies it as a adventure game (\"Neo-noir mystery point-and-click adventure set in 1987\") -- an AUR community-packaged GOG.com game installer wrapper (see filter/rules.ts's looksLikeGamePackage gog- prefix), found via the apps \"To Classify\" bucket review (2026-09-02)."
+  },
+  {
+    "pattern": "gog-three-minutes-to-eight",
+    "category": "Adventure",
+    "reason": "Description identifies it as a adventure game (\"Pixel art adventure game. The protagonist is destined to meet their demise at precisely 07:57 PM\") -- an AUR community-packaged GOG.com game installer wrapper (see filter/rules.ts's looksLikeGamePackage gog- prefix), found via the apps \"To Classify\" bucket review (2026-09-02)."
+  },
+  {
+    "pattern": "gog-through-the-darkest-of-times",
+    "category": "Strategy",
+    "reason": "Description identifies it as a strategy game (\"Historical resistance strategy game set in the Third Reich. , uses Wine\") -- an AUR community-packaged GOG.com game installer wrapper (see filter/rules.ts's looksLikeGamePackage gog- prefix), found via the apps \"To Classify\" bucket review (2026-09-02)."
+  },
+  {
+    "pattern": "gog-train-fever",
+    "category": "Simulation",
+    "reason": "Description identifies it as a simulation game (\"Railroad-focused business simulation game with procedural content and a sophisticated city simulation\") -- an AUR community-packaged GOG.com game installer wrapper (see filter/rules.ts's looksLikeGamePackage gog- prefix), found via the apps \"To Classify\" bucket review (2026-09-02)."
+  },
+  {
+    "pattern": "gog-trans-neuronica",
+    "category": "Puzzle",
+    "reason": "Description identifies it as a puzzle game (\"Puzzle game about making connections both figuratively and literally\") -- an AUR community-packaged GOG.com game installer wrapper (see filter/rules.ts's looksLikeGamePackage gog- prefix), found via the apps \"To Classify\" bucket review (2026-09-02)."
+  },
+  {
+    "pattern": "gog-transistor",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"A sci-fi themed action RPG that invites you to wield an extraordinary weapon\") -- an AUR community-packaged GOG.com game installer wrapper (see filter/rules.ts's looksLikeGamePackage gog- prefix), found via the apps \"To Classify\" bucket review (2026-09-02)."
+  },
+  {
+    "pattern": "gog-truberbrook",
+    "category": "Adventure",
+    "reason": "Description identifies it as a adventure game (\"Mystery sci-fi adventure game with handmade scenery\") -- an AUR community-packaged GOG.com game installer wrapper (see filter/rules.ts's looksLikeGamePackage gog- prefix), found via the apps \"To Classify\" bucket review (2026-09-02)."
+  },
+  {
+    "pattern": "gog-unrest",
+    "category": "Role-Playing",
+    "reason": "Description identifies it as a role-playing game (\"Adventure RPG set in ancient India, focused on story and choices\") -- an AUR community-packaged GOG.com game installer wrapper (see filter/rules.ts's looksLikeGamePackage gog- prefix), found via the apps \"To Classify\" bucket review (2026-09-02)."
   }
 ]

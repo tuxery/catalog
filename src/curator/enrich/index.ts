@@ -91,14 +91,14 @@ function hasGuiEvidence(pkg: SourcedPackage): boolean {
 
 /**
  * Positive-evidence-only game signal: Flathub/AppCenter's direct
- * `hasGameCategory`, or `looksLikeGamePackage`'s Section-based heuristic
- * (see that function's doc comment for which sources it applies to).
- * Never assumed "app" by default; see `CatalogApp.contentType`'s doc
- * comment.
+ * `hasGameCategory`, or `looksLikeGamePackage`'s Section/name-based
+ * heuristic (see that function's doc comment for which sources it
+ * applies to). Never assumed "app" by default; see `CatalogApp.contentType`'s
+ * doc comment.
  */
 function hasGameEvidence(pkg: SourcedPackage): boolean {
   if (pkg.hasGameCategory) return true;
-  return looksLikeGamePackage(pkg.source, pkg.section);
+  return looksLikeGamePackage(pkg.source, pkg.section, pkg.name);
 }
 
 /**

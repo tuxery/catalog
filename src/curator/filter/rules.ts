@@ -865,13 +865,23 @@ const DEB_FAMILY_GAME_SOURCES = new Set<PackageSourceId>([
  * - Solus's `games.*`/`games` `PartOf` value — all games or
  *   gaming-adjacent tools Solus itself groups here (e.g. `antimicrox`,
  *   a joystick-to-keyboard mapper).
+ * - AUR's own `gog-` name prefix (AUR carries no Section-equivalent field
+ *   at all, so this is a name check, not a section one) — community
+ *   packaging wrappers around a real GOG.com game installer (gog-deponia,
+ *   gog-stardew-valley, gog-x4_foundations, ...). Surfaced live
+ *   investigating the apps "To Classify" bucket (2026-09-02): 146 real
+ *   matches, every one sampled a real GOG game (including several whose
+ *   own description doesn't use the word "game" at all, e.g.
+ *   gog-a-short-hike, gog-hypnospace-outlaw), zero false positives.
  * Not (yet) checked: Slackware's `y` series has too few real entries —
  * too small a sample to trust either way, left out for now.
  */
 export function looksLikeGamePackage(
   source: PackageSourceId,
   section: string | undefined,
+  name: string,
 ): boolean {
+  if (source === "pacman-aur" && name.startsWith("gog-")) return true;
   if (section === undefined) return false;
   if (DEB_FAMILY_GAME_SOURCES.has(source)) return DEB_FAMILY_GAME_SECTIONS.has(section);
   if (source === "ebuild-gentoo") return section.startsWith("games-");

@@ -586,50 +586,64 @@ describe("looksLikeGuiPackage", () => {
 
 describe("looksLikeGamePackage", () => {
   it("flags Debian's games section, bare and component-prefixed", () => {
-    expect(looksLikeGamePackage("deb-debian", "games")).toBe(true);
-    expect(looksLikeGamePackage("deb-debian", "contrib/games")).toBe(true);
-    expect(looksLikeGamePackage("deb-debian", "non-free/games")).toBe(true);
+    expect(looksLikeGamePackage("deb-debian", "games", "some-package")).toBe(true);
+    expect(looksLikeGamePackage("deb-debian", "contrib/games", "some-package")).toBe(true);
+    expect(looksLikeGamePackage("deb-debian", "non-free/games", "some-package")).toBe(true);
   });
 
   it("flags Ubuntu's games section (bare, since normalize.ts strips the component prefix)", () => {
-    expect(looksLikeGamePackage("deb-ubuntu", "games")).toBe(true);
+    expect(looksLikeGamePackage("deb-ubuntu", "games", "some-package")).toBe(true);
   });
 
   it("flags Mint/Pop!_OS/Deepin/MX Linux reusing Debian's unstripped vocabulary", () => {
-    expect(looksLikeGamePackage("deb-mint", "games")).toBe(true);
-    expect(looksLikeGamePackage("deb-popos", "games")).toBe(true);
-    expect(looksLikeGamePackage("deb-deepin", "games")).toBe(true);
-    expect(looksLikeGamePackage("deb-mxlinux", "games")).toBe(true);
+    expect(looksLikeGamePackage("deb-mint", "games", "some-package")).toBe(true);
+    expect(looksLikeGamePackage("deb-popos", "games", "some-package")).toBe(true);
+    expect(looksLikeGamePackage("deb-deepin", "games", "some-package")).toBe(true);
+    expect(looksLikeGamePackage("deb-mxlinux", "games", "some-package")).toBe(true);
   });
 
   it("flags Gentoo's games-* category prefix", () => {
-    expect(looksLikeGamePackage("ebuild-gentoo", "games-strategy")).toBe(true);
-    expect(looksLikeGamePackage("ebuild-gentoo", "games-fps")).toBe(true);
-    expect(looksLikeGamePackage("ebuild-gentoo", "dev-libs")).toBe(false);
+    expect(looksLikeGamePackage("ebuild-gentoo", "games-strategy", "some-package")).toBe(true);
+    expect(looksLikeGamePackage("ebuild-gentoo", "games-fps", "some-package")).toBe(true);
+    expect(looksLikeGamePackage("ebuild-gentoo", "dev-libs", "some-package")).toBe(false);
   });
 
   it("flags openSUSE's Amusements/Games group prefix", () => {
-    expect(looksLikeGamePackage("rpm-opensuse", "Amusements/Games/Strategy/Real Time")).toBe(true);
-    expect(looksLikeGamePackage("rpm-opensuse", "Amusements/Graphics")).toBe(false);
+    expect(looksLikeGamePackage("rpm-opensuse", "Amusements/Games/Strategy/Real Time", "some-package")).toBe(true);
+    expect(looksLikeGamePackage("rpm-opensuse", "Amusements/Graphics", "some-package")).toBe(false);
   });
 
   it("flags RPM Fusion's identical Amusements/Games group prefix", () => {
-    expect(looksLikeGamePackage("rpm-rpmfusion", "Amusements/Games")).toBe(true);
-    expect(looksLikeGamePackage("rpm-rpmfusion", "Applications/Multimedia")).toBe(false);
+    expect(looksLikeGamePackage("rpm-rpmfusion", "Amusements/Games", "some-package")).toBe(true);
+    expect(looksLikeGamePackage("rpm-rpmfusion", "Applications/Multimedia", "some-package")).toBe(false);
   });
 
   it("flags Solus's games/games.* PartOf value", () => {
-    expect(looksLikeGamePackage("eopkg-solus", "games")).toBe(true);
-    expect(looksLikeGamePackage("eopkg-solus", "games.strategy")).toBe(true);
-    expect(looksLikeGamePackage("eopkg-solus", "programming.library")).toBe(false);
+    expect(looksLikeGamePackage("eopkg-solus", "games", "some-package")).toBe(true);
+    expect(looksLikeGamePackage("eopkg-solus", "games.strategy", "some-package")).toBe(true);
+    expect(looksLikeGamePackage("eopkg-solus", "programming.library", "some-package")).toBe(false);
   });
 
   it("does not apply any distro's games vocabulary to a source it doesn't belong to", () => {
-    expect(looksLikeGamePackage("rpm-fedora", "games")).toBe(false);
-    expect(looksLikeGamePackage("pacman-aur", "games-strategy")).toBe(false);
+    expect(looksLikeGamePackage("rpm-fedora", "games", "some-package")).toBe(false);
+    expect(looksLikeGamePackage("pacman-aur", "games-strategy", "some-package")).toBe(false);
   });
 
   it("does not flag an absent section", () => {
-    expect(looksLikeGamePackage("deb-debian", undefined)).toBe(false);
+    expect(looksLikeGamePackage("deb-debian", undefined, "some-package")).toBe(false);
+  });
+
+  it("flags AUR's gog- name prefix even with no section at all", () => {
+    expect(looksLikeGamePackage("pacman-aur", undefined, "gog-stardew-valley")).toBe(true);
+    expect(looksLikeGamePackage("pacman-aur", undefined, "gog-a-short-hike")).toBe(true);
+  });
+
+  it("does not flag an unrelated AUR package that merely contains \"gog\"", () => {
+    expect(looksLikeGamePackage("pacman-aur", undefined, "gogs")).toBe(false);
+    expect(looksLikeGamePackage("pacman-aur", undefined, "mongodb")).toBe(false);
+  });
+
+  it("does not apply the gog- prefix to a different source", () => {
+    expect(looksLikeGamePackage("deb-debian", undefined, "gog-stardew-valley")).toBe(false);
   });
 });

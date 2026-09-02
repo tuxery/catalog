@@ -872,7 +872,20 @@ const SOLUS_NOISE_PARTOF = new Set([
 // itself) and `app-xemacs` (XEmacs Lisp packages, same concept as
 // app-emacs for the XEmacs fork specifically). Verified live: 189 real
 // app-vim matches, 130 real app-xemacs matches, no exceptions found in
-// either.
+// either. Five more found live sweeping other Gentoo categories for the
+// same "whole category is noise" shape as dev-perl (2026-09-02):
+// `app-doc` (pure documentation/manuals/references — devmanual, tldp-howto,
+// python-docs, ... — 46 real matches, zero launchable apps), `kde-frameworks`
+// (KDE's own Frameworks library modules — karchive, kcoreaddons, solid,
+// ... — 78 real matches, every one a dependency library, none launchable
+// on its own), and three library-only categories whose real content
+// mostly already rides the existing `^lib` prefix but that also catch
+// non-`lib`-prefixed library packages that prefix pattern misses
+// (fltk, qscintilla, wxGTK, gtk-vnc, tdb, zlib, readline, ...):
+// `x11-libs` (103 real matches), `net-libs` (178 real matches), `sys-libs`
+// (81 real matches) — each hand-checked for a real standalone app hiding
+// among them via a "gui/viewer/player/editor, not a library/framework"
+// keyword sweep, zero exceptions found in any of the five.
 const GENTOO_NOISE_CATEGORIES = new Set([
   "acct-group",
   "acct-user",
@@ -884,6 +897,11 @@ const GENTOO_NOISE_CATEGORIES = new Set([
   "app-emacs",
   "app-vim",
   "app-xemacs",
+  "app-doc",
+  "kde-frameworks",
+  "x11-libs",
+  "net-libs",
+  "sys-libs",
   "dev-perl",
 ]);
 

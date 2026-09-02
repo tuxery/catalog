@@ -646,4 +646,9 @@ describe("looksLikeGamePackage", () => {
   it("does not apply the gog- prefix to a different source", () => {
     expect(looksLikeGamePackage("deb-debian", undefined, "gog-stardew-valley")).toBe(false);
   });
+
+  it("flags AUR's pzl_ name prefix (the pzl puzzle-suite) even with no section at all", () => {
+    expect(looksLikeGamePackage("pacman-aur", undefined, "pzl_sudoku")).toBe(true);
+    expect(looksLikeGamePackage("pacman-aur", undefined, "pzl_common")).toBe(true);
+  });
 });

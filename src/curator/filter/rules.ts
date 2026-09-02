@@ -445,6 +445,27 @@ const NOISE_PATTERNS: RegExp[] = [
   // eopkg-solus/nix-nixpkgs/pacman-arch/rpm-fedora/rpm-opensuse/slackware/
   // xbps-void, all real typefaces.
   /^adwaita-(fonts|mono-fonts|sans-fonts)/,
+  // SIL International's own typeface family (sil-abyssinica, sil-doulos,
+  // sil-charis, sil-gentium-*, its -fonts-all/-fonts-doc/-fonts-common
+  // sub-packages, ...) — real fonts, no consistent "fonts" substring to
+  // anchor on (several ship as bare sil-<name> with the word "font" only
+  // in their description), so this is a blanket `sil-` prefix like `^lib`
+  // above, with the one real exception (`sil-q`, an unrelated real
+  // roguelike game) rescued via config/filter-keep.json rather than
+  // narrowing the pattern. Surfaced live investigating the apps "To
+  // Classify" bucket (2026-09-02): 50 real matches across apk-alpine/
+  // nix-nixpkgs/rpm-fedora/xbps-void, all real SIL typefaces.
+  /^sil-/,
+  // Jane Street's OCaml PPX (preprocessor extension) ecosystem
+  // (ppx_deriving, ppx_compare, ppx_assert, ...) — build-time syntax-
+  // extension libraries, not launchable apps, same reasoning as this
+  // file's other language-ecosystem patterns; uses an underscore instead
+  // of the hyphen this file's `^(perl|ocaml|ghc[\d.]*|lua[\d.]*|R|tcl)-`
+  // pattern requires, so it needs its own entry. Surfaced live
+  // investigating the apps "To Classify" bucket (2026-09-02): 45+ real
+  // matches, all real OCaml PPX rewriter libraries (Gentoo's own dev-ml
+  // category for every one sampled).
+  /^ppx_/,
 ];
 
 /**
@@ -873,6 +894,11 @@ const DEB_FAMILY_GAME_SOURCES = new Set<PackageSourceId>([
  *   matches, every one sampled a real GOG game (including several whose
  *   own description doesn't use the word "game" at all, e.g.
  *   gog-a-short-hike, gog-hypnospace-outlaw), zero false positives.
+ * - AUR's own `pzl_` name prefix — a single coherent puzzle-game suite
+ *   (pzl_sudoku, pzl_sokoban, pzl_wordladder, ...) with a shared
+ *   `pzl_common` data package, same "no Section field, name is the only
+ *   signal" reasoning as `gog-`. Verified live: 42 real matches, every one
+ *   a real logic/word puzzle (or that suite's own data package).
  * Not (yet) checked: Slackware's `y` series has too few real entries —
  * too small a sample to trust either way, left out for now.
  */
@@ -881,7 +907,7 @@ export function looksLikeGamePackage(
   section: string | undefined,
   name: string,
 ): boolean {
-  if (source === "pacman-aur" && name.startsWith("gog-")) return true;
+  if (source === "pacman-aur" && (name.startsWith("gog-") || name.startsWith("pzl_"))) return true;
   if (section === undefined) return false;
   if (DEB_FAMILY_GAME_SOURCES.has(source)) return DEB_FAMILY_GAME_SECTIONS.has(section);
   if (source === "ebuild-gentoo") return section.startsWith("games-");

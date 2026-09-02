@@ -848,5 +848,85 @@
     "pattern": "\\bbluetooth manager\\b",
     "category": "Settings",
     "reason": "Description explicitly identifies it as a Bluetooth manager -- same hardware-settings reasoning as keyboard layout above. Verified live: 9 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bdatabase server\\b",
+    "category": "System Tools",
+    "reason": "Description explicitly identifies it as a database server -- same server-infrastructure reasoning as web/ssh/ftp/dns server. Verified live: 12 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bmail server\\b",
+    "category": "System Tools",
+    "reason": "Description explicitly identifies it as a mail server -- same server-infrastructure reasoning as web/ssh/ftp/dns server. Verified live: 16 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bvirtual machine\\b",
+    "category": "Developer Tools",
+    "reason": "Description explicitly identifies it as virtual-machine software -- development/testing infrastructure. Verified live: 101 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bcontainer (runtime|engine|management)\\b",
+    "category": "Developer Tools",
+    "reason": "Description explicitly identifies it as container (Docker-style) infrastructure. Verified live: 35 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bgit (server|hosting)\\b",
+    "category": "Developer Tools",
+    "reason": "Description explicitly identifies it as Git server/hosting software. Verified live: 5 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bstatic site generator\\b",
+    "category": "Developer Tools",
+    "reason": "Description explicitly identifies it as a static-site generator. Verified live: 50 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bpassword generator\\b",
+    "category": "Security",
+    "reason": "Description explicitly identifies it as a password generator. Verified live: 40 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\brecipe (manager|app|organizer)\\b",
+    "category": "Productivity",
+    "reason": "Description explicitly identifies it as a recipe manager. Verified live: 5 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\b(journal(ing)?|diary) app\\b",
+    "category": "Productivity",
+    "reason": "Description explicitly identifies it as a journal/diary app. Verified live: 7 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bbrowser extension\\b",
+    "category": "Internet & Communication",
+    "reason": "Description explicitly identifies it as a web-browser extension. Verified live: 22 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bscreen (sharing|share)\\b",
+    "category": "Internet & Communication",
+    "reason": "Description explicitly identifies it as screen-sharing/remote-collaboration software. Verified live: 21 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bfile transfer\\b",
+    "category": "Internet & Communication",
+    "reason": "Description explicitly identifies it as file-transfer software -- matches config/categories-apps.json's own \"FileTransfer\" freedesktop mapping. Verified live: 61 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bremote desktop\\b",
+    "category": "System Tools",
+    "reason": "Description explicitly identifies it as remote-desktop software -- matches config/categories-apps.json's own \"RemoteAccess\" -> System Tools freedesktop mapping. Verified live: 40 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bmarkdown (editor|viewer)\\b",
+    "category": "Productivity",
+    "reason": "Description explicitly identifies it as a Markdown editor/viewer -- a writing/note-taking tool. Verified live: 84 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bcolor picker\\b",
+    "category": "Utilities",
+    "reason": "Description explicitly identifies it as a color picker. Verified live: 36 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bfile compress",
+    "category": "Utilities",
+    "reason": "Description explicitly identifies it as a file compressor -- same archive-management reasoning as the existing archive manager entry. Verified live: 6 real matches, zero unrelated collisions."
   }
 ]

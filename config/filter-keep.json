@@ -388,5 +388,10 @@
     "sources": ["pacman-aur"],
     "name": "wps-office-365-edu-fonts",
     "reason": "WPS Office's own font sub-package, deliberately kept visible under config/category-rules.json's wps-office-365* family entry rather than treated as noise — see filter/rules.ts's generic -fonts$ comment"
+  },
+  {
+    "sources": ["nix-nixpkgs"],
+    "name": "sqlite3-to-mysql",
+    "reason": "Real standalone SQLite-to-MySQL conversion CLI despite the -mysql noise suffix — see filter/rules.ts's -mysql$ comment"
   }
 ]

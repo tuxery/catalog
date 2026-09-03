@@ -1,21 +1,25 @@
 name: Publish dataset to Turso
 
-# Opening a PR against main deploys the current dataset to Turso dev, so a
-# reviewer can see the real effect of a classification/config change (or a
-# scheduled cache-refresh PR, see refresh-sources.yml) before it lands.
-# Merging to main deploys it to prod. Both jobs run `pnpm seed` with no
-# --force, so neither one ever hits a real upstream source — they only
-# rebuild dist/dataset.json from the git-committed src/sources/cache/
-# *.ndjson and push the result to Turso. See catalog/AGENTS.md's Local dev
-# section for what --dev/--prod actually do.
+# Opening a PR against main deploys the current dataset to Turso preview
+# (the same DB Cloudflare's preview Worker reads), so a reviewer can see
+# the real effect of a classification/config change (or a scheduled
+# cache-refresh PR, see refresh-sources.yml) before it lands. Merging to
+# main deploys it to prod. Both jobs run `pnpm seed` with no --force, so
+# neither one ever hits a real upstream source — they only rebuild
+# dist/dataset.json from the git-committed src/sources/cache/*.ndjson and
+# push the result to Turso. See catalog/AGENTS.md's Local dev section for
+# what --preview/--prod actually do. There is no hosted "Turso dev" DB —
+# local dev emulates a local SQLite file instead (`pnpm seed`/`pnpm serve`,
+# no flag), so this workflow only ever targets preview or prod.
 #
-# Secrets are repo-level (DEV_*/PROD_* prefixed) rather than scoped to the
-# `dev`/`prod` Environments below, even though each job still declares its
-# Environment (for the deployment-history view in the GitHub UI) — the
-# token used to provision this repo only had the "Secrets" permission, not
-# "Environments", so Environment-scoped secrets couldn't be set from here.
-# Revisit if that's ever fixed: rename back to TURSO_DB_URL/
-# TURSO_DB_AUTH_TOKEN under each Environment's own secret store instead.
+# Secrets are repo-level (PREVIEW_*/PROD_* prefixed) rather than scoped to
+# the `preview`/`prod` Environments below, even though each job still
+# declares its Environment (for the deployment-history view in the GitHub
+# UI) — the token used to provision this repo only had the "Secrets"
+# permission, not "Environments", so Environment-scoped secrets couldn't
+# be set from here. Revisit if that's ever fixed: rename back to
+# TURSO_DB_URL/TURSO_DB_AUTH_TOKEN under each Environment's own secret
+# store instead.
 on:
   pull_request:
     branches: [main]
@@ -26,14 +30,14 @@ permissions:
   contents: read
 
 jobs:
-  publish-dev:
+  publish-preview:
     if: github.event_name == 'pull_request'
-    name: Publish to Turso dev
+    name: Publish to Turso preview
     runs-on: ubuntu-latest
-    environment: dev
+    environment: preview
     timeout-minutes: 15
     concurrency:
-      group: catalog-publish-dev-${{ github.event.pull_request.number }}
+      group: catalog-publish-preview-${{ github.event.pull_request.number }}
       cancel-in-progress: true
     steps:
       - uses: actions/checkout@v7
@@ -42,11 +46,11 @@ jobs:
         with:
           node-version: "24"
 
-      - name: Seed Turso dev
+      - name: Seed Turso preview
         env:
-          TURSO_DB_URL: ${{ secrets.DEV_TURSO_DB_URL }}
-          TURSO_DB_AUTH_TOKEN: ${{ secrets.DEV_TURSO_DB_AUTH_TOKEN }}
-        run: pnpm seed --dev
+          TURSO_DB_URL: ${{ secrets.PREVIEW_TURSO_DB_URL }}
+          TURSO_DB_AUTH_TOKEN: ${{ secrets.PREVIEW_TURSO_DB_AUTH_TOKEN }}
+        run: pnpm seed --preview
 
   publish-prod:
     if: github.event_name == 'push'
@@ -54,10 +58,10 @@ jobs:
     runs-on: ubuntu-latest
     environment: prod
     timeout-minutes: 15
-    # Never cancelled mid-write, unlike publish-dev above — a prod deploy
-    # in progress should finish (the Turso client's publish() does an
-    # atomic apps_next -> apps rename, so a superseded run finishing late
-    # would otherwise race a newer one for that rename).
+    # Never cancelled mid-write, unlike publish-preview above — a prod
+    # deploy in progress should finish (the Turso client's publish() does
+    # an atomic apps_next -> apps rename, so a superseded run finishing
+    # late would otherwise race a newer one for that rename).
     concurrency:
       group: catalog-publish-prod
       cancel-in-progress: false

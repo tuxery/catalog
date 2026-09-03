@@ -102,31 +102,38 @@ similar, so it can be modified independently later.
 Three commands, three terminals, mirroring prod (this repo populates and
 serves the DB, `app`'s Worker only ever queries it — `app` never starts
 database infrastructure itself, the same way you wouldn't start a Spring
-Boot server from an Angular CLI command). Two modes, picked independently
-by passing `--remote` or not:
+Boot server from an Angular CLI command). There is no hosted "Turso dev"
+database — local dev always emulates a local SQLite file instead (an
+earlier `--remote`/`--dev` mode that published straight to a real hosted
+dev DB was retired 2026-09-03 in favor of this):
 
-- **Local (default)**:
-  1. `pnpm seed` (this repo) builds/reuses the dataset and writes it into
-     a local libSQL database file. One-shot — writes and exits, no side
-     effects beyond that file. Three tiers, cheapest first: reuse
-     `dist/dataset.json` if it already exists; else rebuild it from the
-     git-committed source caches (`pnpm start`, no network); `pnpm seed
---force` skips both and re-fetches every source fresh first.
-  2. `pnpm serve` (this repo) runs a local `turso dev` server (part of
-     the Turso CLI) in front of that file — foreground, blocking, its own
-     terminal. A Workers isolate can't open a SQLite file directly, so
-     this repo (owning the data) is the one that fronts it with a server,
-     speaking the same libSQL HTTP protocol `catalog.ts` uses against the
-     real hosted DB in prod.
-  3. `app`'s `pnpm dev` connects to that server. Unlimited reads/writes,
-     no network, for fast iteration.
-- **Remote**: `pnpm seed --remote` publishes straight to the real hosted
-  Turso dev DB instead (no `pnpm serve` needed — Turso already serves
-  it); `app`'s `pnpm dev --remote` points the Worker at it directly. Real
-  network latency, real quotas — closer to how prod actually behaves.
-  Credentials come from `/workspaces/.dev/.env`
-  (`TURSO_DB_URL`/`TURSO_DB_AUTH_TOKEN`), shared with `app`'s side rather
-  than duplicated per repo.
+1. `pnpm seed` (this repo) builds/reuses the dataset and writes it into
+   a local libSQL database file. One-shot — writes and exits, no side
+   effects beyond that file. Three tiers, cheapest first: reuse
+   `dist/dataset.json` if it already exists; else rebuild it from the
+   git-committed source caches (`pnpm start`, no network); `pnpm seed
+   --force` skips both and re-fetches every source fresh first.
+2. `pnpm serve` (this repo) runs a local `turso dev` server (part of
+   the Turso CLI) in front of that file — foreground, blocking, its own
+   terminal. A Workers isolate can't open a SQLite file directly, so
+   this repo (owning the data) is the one that fronts it with a server,
+   speaking the same libSQL HTTP protocol `catalog.ts` uses against a
+   real hosted DB in preview/prod.
+3. `app`'s `pnpm dev` connects to that server. Unlimited reads/writes,
+   no network, for fast iteration.
+
+Two real hosted DBs exist beyond local dev, both reached the same way —
+`pnpm seed --preview`/`--prod` publish straight to them (no `pnpm serve`
+needed — Turso already serves them), reading credentials from
+`/workspaces/.dev/.env.preview`/`.env.prod`
+(`TURSO_DB_URL`/`TURSO_DB_AUTH_TOKEN`), shared with `app`'s side rather
+than duplicated per repo:
+
+- **preview**: backs Cloudflare's preview Worker deployment. Also what
+  `.github/workflows/publish.yml` publishes to on every PR against
+  `main`, so a reviewer sees the real effect of a change before it lands.
+- **prod**: backs the production Worker. What `publish.yml` publishes to
+  on merge to `main`.
 
 `pnpm reset-caches` refreshes `src/sources/cache/*.ndjson` alone, without
 rebuilding the dataset or seeding anything, for periodic cache maintenance

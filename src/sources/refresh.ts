@@ -6,6 +6,7 @@ import { fetchManualAppImages } from "./appimage-manual/fetch";
 import { fetchArch } from "./pacman-arch/fetch";
 import { fetchAur } from "./pacman-aur/fetch";
 import { fetchDebian } from "./deb-debian/fetch";
+import { fetchDebianAppstream } from "./deb-debian-appstream/fetch";
 import { fetchDeepin } from "./deb-deepin/fetch";
 import { fetchFedora } from "./rpm-fedora/fetch";
 import { fetchFlathub } from "./flatpak-flathub/fetch";
@@ -50,6 +51,7 @@ const REFRESHERS: Record<string, (cachePath: string) => Promise<number>> = {
   "deb-popos": fetchPopOs,
   "deb-deepin": fetchDeepin,
   "deb-mxlinux": fetchMxLinux,
+  "deb-debian-appstream": fetchDebianAppstream,
   gog: fetchGog,
   lutris: fetchLutris,
   "github-releases": fetchGithubReleases,

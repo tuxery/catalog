@@ -22,6 +22,7 @@ export { searchMint } from "./deb-mint";
 export { searchPopOs } from "./deb-popos";
 export { searchDeepin } from "./deb-deepin";
 export { searchMxLinux } from "./deb-mxlinux";
+export { searchDebianAppstream } from "./deb-debian-appstream";
 export { searchGog } from "./gog";
 export { searchLutris } from "./lutris";
 export { searchGithubReleases } from "./github-releases";

@@ -56,6 +56,7 @@ const SOURCE_PRIORITY: PackageSourceId[] = [
   "snap-snapcraft",
   "appimage",
   "rpm-opensuse-appstream",
+  "deb-debian-appstream",
 ];
 
 function pickByPriority(packages: SourcedPackage[]): SourcedPackage {

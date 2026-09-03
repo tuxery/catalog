@@ -35,6 +35,7 @@ export type PackageSourceId =
   | "deb-popos"
   | "deb-deepin"
   | "deb-mxlinux"
+  | "deb-debian-appstream"
   | "gog"
   | "lutris"
   | "github-releases";

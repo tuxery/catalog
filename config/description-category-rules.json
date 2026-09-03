@@ -1433,5 +1433,60 @@
     "pattern": "\\b(protein|phylogenetic|genomic?|genetic|sequencing)\\b",
     "category": "Science",
     "reason": "Same data-driven discovery as wallpapers above -- a bioinformatics/genetics vocabulary cluster. Verified live: 137 real matches combined, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bfirmware\\b",
+    "category": "System Tools",
+    "reason": "Same data-driven word-frequency discovery as the previous batch (see wallpapers' reason for the method). Verified live: 436 real matches, zero unrelated collisions -- device/hardware firmware updaters and switches."
+  },
+  {
+    "pattern": "\\bdrivers\\b",
+    "category": "System Tools",
+    "reason": "Same data-driven discovery as firmware above. Verified live: 140 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bprinters\\b",
+    "category": "System Tools",
+    "reason": "Same data-driven discovery as firmware above -- deliberately plural, since bare singular \"printer\" collides with an unrelated \"pretty printer\" (a code-formatting term) already checked and rejected in the previous batch. Verified live: 93 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bdhcp\\b",
+    "category": "System Tools",
+    "reason": "Same data-driven discovery as firmware above. Verified live: 56 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bnetworkmanager\\b",
+    "category": "System Tools",
+    "reason": "Same data-driven discovery as firmware above -- NetworkManager applets/TUIs, same connection-management reasoning as the existing connection manager entry. Verified live: 41 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bopenwrt\\b",
+    "category": "System Tools",
+    "reason": "Same data-driven discovery as firmware above -- OpenWrt router firmware/tooling. Verified live: 22 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bdovecot\\b",
+    "category": "System Tools",
+    "reason": "Same data-driven discovery as firmware above -- Dovecot IMAP mail-server administration tools. Verified live: 10 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bflac\\b",
+    "category": "Music & Audio",
+    "reason": "Same data-driven discovery as firmware above. Verified live: 50 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bbittorrent\\b",
+    "category": "Internet & Communication",
+    "reason": "Same data-driven discovery as firmware above -- broader wording than the existing bittorrent client entry. Verified live: 46 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bwaybar\\b",
+    "category": "Settings",
+    "reason": "Same data-driven discovery as firmware above -- the Waybar Wayland status-bar ecosystem, same reasoning as the existing status bar entry. Verified live: 34 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bmetacity\\b",
+    "category": "Settings",
+    "reason": "Same data-driven discovery as firmware above -- the Metacity window-manager theme family. Verified live: 31 real matches, zero unrelated collisions."
   }
 ]

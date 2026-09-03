@@ -1853,5 +1853,30 @@
     "pattern": "\\boctave\\b",
     "category": "Science",
     "reason": "GNU Octave/MATLAB numerical-computing scripts and toolboxes (circstat, ctb-git, fsl-palm, ...). Verified live: 20 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\btoolchain\\b",
+    "category": "Developer Tools",
+    "reason": "Cross-compilation/build toolchains not caught by the *-toolchain name-suffix pattern (aarch64-none-linux-gnu-gcc-*, act-stdlib-git, ...). Verified live: 139 real matches, mostly clean (a couple of looser fits like amoxide-bin's \"per toolchain\" alias manager accepted)."
+  },
+  {
+    "pattern": "\\bsnes\\b",
+    "category": "System Tools",
+    "reason": "SNES-related ROM/patch/compression tooling (asar-git, exhal-git, pvsneslib-git, ...). Verified live: 17 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bemacs\\b",
+    "category": "Utilities",
+    "reason": "Emacs packages/extensions (eask-cli, auctex, bbdb, ...). Verified live: 103 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bneovim\\b",
+    "category": "Utilities",
+    "reason": "Neovim GUIs/wrappers/tools not caught by the *-vim name pattern (burrow, eovim, fvim, goneovim-bin, ...). Verified live: 63 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bplasma\\b",
+    "category": "Settings",
+    "reason": "KDE Plasma desktop-integration tooling (4ztexdock-git, adguard-tray, aerothemeplasma-desktop-git, ...). Verified live: 148 real matches; a small accepted minority use \"plasma\" in the physics sense (e.g. SciQLOP's spacecraft plasma data)."
   }
 ]

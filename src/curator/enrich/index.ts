@@ -132,6 +132,21 @@ const GAME_ADJACENT_TOOL_DESCRIPTION_PATTERNS: RegExp[] = [
   /\bgame launcher\b/i,
   /\bmod (launcher|manager)\b/i,
   /\bmodpack\b/i,
+  // Bare "launcher"/"generator"/"assistant" — unlike description-
+  // category-rules.json's app-side rules, these are safe as BARE words
+  // here specifically because this check only ever runs on a package
+  // already suspected to be a game (hasGameEvidence already true); the
+  // apps-side ambiguity (a desktop launcher, an AI platform launcher)
+  // doesn't apply to a pool that's already game-flagged. Verified live
+  // against the games "To Classify" pool (2026-09-03): "launcher" 21/21
+  // real tools; "generator" 11/12 (one acceptable edge case, a Minetest
+  // map-generator *mod*); "assistant" 2/2. Deliberately NOT "editor" or
+  // "manager" — sampled and rejected, each has a real counter-example
+  // that's genuinely a game with an editor/manager feature mentioned in
+  // passing (minetest-solar-plains-invector, pacman4console).
+  /\blauncher\b/i,
+  /\bgenerator\b/i,
+  /\bassistant\b/i,
 ];
 
 /**

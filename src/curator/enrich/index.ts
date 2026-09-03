@@ -140,13 +140,26 @@ const GAME_ADJACENT_TOOL_DESCRIPTION_PATTERNS: RegExp[] = [
   // doesn't apply to a pool that's already game-flagged. Verified live
   // against the games "To Classify" pool (2026-09-03): "launcher" 21/21
   // real tools; "generator" 11/12 (one acceptable edge case, a Minetest
-  // map-generator *mod*); "assistant" 2/2. Deliberately NOT "editor" or
-  // "manager" — sampled and rejected, each has a real counter-example
-  // that's genuinely a game with an editor/manager feature mentioned in
-  // passing (minetest-solar-plains-invector, pacman4console).
+  // map-generator *mod*); "assistant" 2/2.
   /\blauncher\b/i,
   /\bgenerator\b/i,
   /\bassistant\b/i,
+];
+
+// "editor"/"manager" have exactly two real counter-examples each
+// (minetest-solar-plains-invector, pacman4console — both genuinely games
+// with an editor/manager feature mentioned in passing), so they're kept
+// out of the blanket list above and instead scoped to skip these two
+// exact names, rather than dropping two otherwise-clean 15/13 and 3/1
+// signals entirely.
+const GAME_ADJACENT_TOOL_DESCRIPTION_NAME_EXCEPTIONS = new Set([
+  "minetest-solar-plains-invector",
+  "pacman4console",
+]);
+
+const GAME_ADJACENT_TOOL_DESCRIPTION_NAME_SCOPED_PATTERNS: RegExp[] = [
+  /\beditor\b/i,
+  /\bmanager\b/i,
 ];
 
 /**
@@ -157,9 +170,19 @@ const GAME_ADJACENT_TOOL_DESCRIPTION_PATTERNS: RegExp[] = [
  * packages with no secondary freedesktop category at all (a bare "Game"
  * Main Category, or no categories field whatsoever) that still describe
  * themselves unambiguously as a launcher/emulator/mod-manager in prose.
+ * `names` (every member package's own name) is only consulted for the
+ * name-scoped "editor"/"manager" patterns' two known exceptions.
  */
-function isGameAdjacentToolDescription(shortDescription: string): boolean {
-  return GAME_ADJACENT_TOOL_DESCRIPTION_PATTERNS.some((pattern) => pattern.test(shortDescription));
+function isGameAdjacentToolDescription(shortDescription: string, names: string[]): boolean {
+  if (GAME_ADJACENT_TOOL_DESCRIPTION_PATTERNS.some((pattern) => pattern.test(shortDescription))) {
+    return true;
+  }
+  if (names.some((name) => GAME_ADJACENT_TOOL_DESCRIPTION_NAME_EXCEPTIONS.has(name))) {
+    return false;
+  }
+  return GAME_ADJACENT_TOOL_DESCRIPTION_NAME_SCOPED_PATTERNS.some((pattern) =>
+    pattern.test(shortDescription),
+  );
 }
 
 /**
@@ -356,7 +379,11 @@ export function enrichApps(
     const isGame =
       app.packages.some(hasGameEvidence) &&
       !isGameAdjacentToolCategory(categories) &&
-      (hasKnownGameGenre || !isGameAdjacentToolDescription(shortDescription));
+      (hasKnownGameGenre ||
+        !isGameAdjacentToolDescription(
+          shortDescription,
+          app.packages.map((pkg) => pkg.name),
+        ));
 
     return {
       id: app.id,

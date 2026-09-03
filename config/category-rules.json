@@ -2053,5 +2053,35 @@
     "pattern": "*.lv2",
     "category": "Music & Audio",
     "reason": "Same per-plugin LV2 audio-plugin family as the \"*-lv2\" entry above, using the dotted naming convention instead (aether.lv2, fatfrog.lv2, ...). Verified live: 15 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "*-vst",
+    "category": "Music & Audio",
+    "reason": "Per-plugin VST/VST2 audio-plugin packages named <plugin>-vst (blacksun-vst, dssi-vst, wolf-shaper-vst, ...) — same audio-plugin-format family as this file's *-lv2/*.lv2 entries. Verified live: 24 real matches; one accepted false positive (coq9.1-VST, Coq's \"Verified Software Toolchain\", an unrelated formal-verification project whose name happens to end the same way)."
+  },
+  {
+    "pattern": "*.vst",
+    "category": "Music & Audio",
+    "reason": "Same VST plugin family as \"*-vst\" above, dotted naming convention (guitarix.vst, ...). Verified live: 1 real match."
+  },
+  {
+    "pattern": "*-vst3",
+    "category": "Music & Audio",
+    "reason": "Per-plugin VST3 audio-plugin packages named <plugin>-vst3 (jsinflator-vst3, reevr-vst3, zl-compressor-vst3, ...) — same family as \"*-vst\" above, VST3 generation. Verified live: 22 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "*-clap",
+    "category": "Music & Audio",
+    "reason": "Per-plugin CLAP (CLever Audio Plugin) audio-plugin packages named <plugin>-clap (jc303-clap, stochas-clap, wolf-shaper-clap, ...) — same audio-plugin-format family as \"*-vst\"/\"*-lv2\" above. Verified live: 14 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "*-icons",
+    "category": "Settings",
+    "reason": "Icon-theme packages named <theme>-icons (antudark-icons, awoken-icons, contemporary-icons, ...) — same desktop-theming family as this file's other icon-theme entries (adwaita*/oxygen*/yaru*/...), just for one-off themes with no shared vendor prefix. Verified live: 35 real matches; two accepted false positives (generate-app-icons, an icon-generation CLI, and ls-icons, a coreutils ls fork that prints icons — neither is itself an icon theme)."
+  },
+  {
+    "pattern": "*-vim",
+    "category": "Utilities",
+    "reason": "Vim syntax-highlighting/completion/config packages named <project>-vim (espeak-ng-vim, mercurial-vim, ocp-indent-vim, ...) — editor tooling, same taxonomy bucket as this file's other TextTools-shaped entries. Verified live: 21 real matches; htop-vim (a Vim-keybinding fork of htop) is a looser fit but still plausibly Utilities rather than a genuinely wrong category."
   }
 ]

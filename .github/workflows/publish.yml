@@ -1,16 +1,25 @@
 name: Publish dataset to Turso
 
-# Opening a PR against main deploys the current dataset to Turso preview
-# (the same DB Cloudflare's preview Worker reads), so a reviewer can see
-# the real effect of a classification/config change (or a scheduled
-# cache-refresh PR, see refresh-sources.yml) before it lands. Merging to
-# main deploys it to prod. Both jobs run `pnpm seed` with no --force, so
-# neither one ever hits a real upstream source — they only rebuild
-# dist/dataset.json from the git-committed src/sources/cache/*.ndjson and
-# push the result to Turso. See catalog/AGENTS.md's Local dev section for
-# what --preview/--prod actually do. There is no hosted "Turso dev" DB —
-# local dev emulates a local SQLite file instead (`pnpm seed`/`pnpm serve`,
-# no flag), so this workflow only ever targets preview or prod.
+# Manual-only, on purpose (2026-09-03): this used to auto-publish on
+# every PR (to preview) and every merge to main (to prod), but each
+# publish does a full 168k-row bulk insert plus a from-scratch rebuild of
+# all 9 indexes — real write volume, not free. Turso's write quota got
+# burned fast once this was combined with the classification work's
+# commit cadence (multiple PRs/merges a day, each triggering a full
+# reseed) on top of the read-quota incident from the same week. Kept as
+# workflow_dispatch so a publish is still one click away, just never
+# automatic. Re-enable the pull_request/push triggers (see git history
+# for the exact `on:` block) once there's a real signal for how often a
+# publish is actually needed rather than firing on every PR/merge
+# regardless of whether the dataset meaningfully changed.
+#
+# `pnpm seed` never hits a real upstream source regardless of trigger —
+# it only rebuilds dist/dataset.json from the git-committed
+# src/sources/cache/*.ndjson and pushes the result to Turso. See
+# catalog/AGENTS.md's Local dev section for what --preview/--prod
+# actually do. There is no hosted "Turso dev" DB — local dev emulates a
+# local SQLite file instead (`pnpm seed`/`pnpm serve`, no flag), so this
+# workflow only ever targets preview or prod.
 #
 # Secrets are repo-level (PREVIEW_*/PROD_* prefixed) rather than scoped to
 # the `preview`/`prod` Environments below, even though each job still
@@ -21,24 +30,26 @@ name: Publish dataset to Turso
 # TURSO_DB_URL/TURSO_DB_AUTH_TOKEN under each Environment's own secret
 # store instead.
 on:
-  pull_request:
-    branches: [main]
-  push:
-    branches: [main]
+  workflow_dispatch:
+    inputs:
+      target:
+        description: "Which database to publish to"
+        required: true
+        type: choice
+        options:
+          - preview
+          - prod
 
 permissions:
   contents: read
 
 jobs:
   publish-preview:
-    if: github.event_name == 'pull_request'
+    if: github.event.inputs.target == 'preview'
     name: Publish to Turso preview
     runs-on: ubuntu-latest
     environment: preview
     timeout-minutes: 15
-    concurrency:
-      group: catalog-publish-preview-${{ github.event.pull_request.number }}
-      cancel-in-progress: true
     steps:
       - uses: actions/checkout@v7
 
@@ -53,18 +64,11 @@ jobs:
         run: pnpm seed --preview
 
   publish-prod:
-    if: github.event_name == 'push'
+    if: github.event.inputs.target == 'prod'
     name: Publish to Turso prod
     runs-on: ubuntu-latest
     environment: prod
     timeout-minutes: 15
-    # Never cancelled mid-write, unlike publish-preview above — a prod
-    # deploy in progress should finish (the Turso client's publish() does
-    # an atomic apps_next -> apps rename, so a superseded run finishing
-    # late would otherwise race a newer one for that rename).
-    concurrency:
-      group: catalog-publish-prod
-      cancel-in-progress: false
     steps:
       - uses: actions/checkout@v7
 

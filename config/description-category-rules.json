@@ -2063,5 +2063,45 @@
     "pattern": "\\bmod (manager|launcher|loader)\\b|\\bmodpacks?\\b",
     "category": "System Tools",
     "reason": "Game mod/modpack managers (Outer Wilds Mod Manager, FTB Electron App) — the app-side counterpart to the game-adjacent-tool rules, for packages that never got game-flagged in the first place. Verified live."
+  },
+  {
+    "pattern": "\\baur helper\\b|\\bpacman wrapper\\b",
+    "category": "System Tools",
+    "reason": "AUR helpers / pacman wrappers (apac, auh, aurget, arts) — PackageManager reasoning, same family as the apt-* name rules. Verified live against the apps \"To Classify\" pool (2026-09-03): 81 real matches, all AUR helpers."
+  },
+  {
+    "pattern": "\\bsystem information\\b",
+    "category": "System Tools",
+    "reason": "System-information fetch tools (archey3, betterfetch, customfetch — the fastfetch/neofetch family). Verified live: 57 real matches, all system-info tools."
+  },
+  {
+    "pattern": "\\bham radio\\b",
+    "category": "Internet & Communication",
+    "reason": "Amateur-radio tooling (adif log converters, chirp, cqrlog) — same hamradio/Telephony reasoning as Debian's own hamradio section mapping. Verified live: 51 real matches, all radio tooling."
+  },
+  {
+    "pattern": "\\bkernel modules?\\b",
+    "category": "System Tools",
+    "reason": "Kernel-module packages and module-management daemons (asix drivers, batman-adv, kchaos). Verified live: 63 real matches, all kernel/driver tooling."
+  },
+  {
+    "pattern": "\\bcryptocurrenc|\\bdigital currency\\b|\\bcrypto (coin|wallet)\\b",
+    "category": "Finance",
+    "reason": "Cryptocurrency wallets/nodes/CLI toolkits (Blackcoin More, BYTZ, coinevo-core, ioncoin) — same Finance reasoning as the existing personal-finance rules. Verified live: 111 real matches, all crypto software."
+  },
+  {
+    "pattern": "\\bgame engines?\\b",
+    "category": "Developer Tools",
+    "reason": "Game-development engines (Solar2D, Godot, arcan, anura) — tools for MAKING games, a developer resource, not a game; deliberately not a game genre. Verified live: 73 real matches, all engines."
+  },
+  {
+    "pattern": "\\bdevelopment environment\\b|\\bide\\b",
+    "category": "Developer Tools",
+    "reason": "IDEs and integrated development environments (Aleo Studio, jx-ide, Wing, QML Creator, Eclipse PDE). Verified live: 273 real matches, overwhelmingly IDEs; \\bide\\b is safe in this pool after the existing language-ecosystem filters."
+  },
+  {
+    "pattern": "\\bpackage managers?\\b",
+    "category": "System Tools",
+    "reason": "Multi-package-manager frontends (meta-package-manager, pacapt, gpk) — broader than the existing language-package-manager rule, same PackageManager reasoning. Verified live: 11 real matches."
   }
 ]

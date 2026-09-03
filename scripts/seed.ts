@@ -8,17 +8,24 @@ import { refreshSources } from "./_refresh-sources";
 const DATASET_PATH = fileURLToPath(new URL("../dist/dataset.json", import.meta.url));
 
 // Local libSQL file — lives here, never under `app`, so no dataset bytes
-// touch that repo's filesystem even transiently.
+// touch that repo's filesystem even transiently. This is local dev's only
+// mode now — there is no hosted "Turso dev" database any more (see
+// PREVIEW_ENV_PATH below): a Workers isolate can't open a SQLite file
+// directly, so `app`'s local dev points at the `turso dev` HTTP server
+// `pnpm serve` runs in front of this same file instead.
 const LOCAL_DB_PATH = fileURLToPath(new URL("../.turso-state/local.db", import.meta.url));
 
-// Shared credentials for the real hosted Turso DBs, used by --remote/--dev.
+// Credentials for the two real hosted Turso DBs, used by --preview/--prod.
 // One file per environment, read by both repos (`app`'s scripts/dev.mjs
-// parses the dev one the same way) so there's a single place to update
-// rather than drifting copies. Neither is committed — real credentials,
-// per-environment. Only exist in the local devcontainer; CI has no such
-// files and relies on the `process.env` fallback in `resolveTursoEnv`
-// below instead (GitHub Actions injects secrets that way).
-const SHARED_ENV_PATH = "/workspaces/.dev/.env";
+// parses these the same way) so there's a single place to update rather
+// than drifting copies. Neither is committed — real credentials, per
+// environment. Only exist in the local devcontainer; CI has no such files
+// and relies on the `process.env` fallback in `resolveTursoEnv` below
+// instead (GitHub Actions injects secrets that way). "preview" backs
+// Cloudflare's preview Worker (also the PR-triggered publish target —
+// see .github/workflows/publish.yml); "prod" backs the production Worker,
+// unchanged.
+const PREVIEW_ENV_PATH = "/workspaces/.dev/.env.preview";
 const PROD_ENV_PATH = "/workspaces/.dev/.env.prod";
 
 function run(cmd: string, args: string[]): void {
@@ -40,7 +47,7 @@ function readSharedEnv(path: string): Record<string, string> {
 }
 
 /**
- * Turso credentials for --remote/--dev/--prod: the shared env file if it
+ * Turso credentials for --preview/--prod: the shared env file if it
  * exists and has TURSO_DB_URL (the local devcontainer case), else
  * `process.env` directly (the CI case — GitHub Actions secrets arrive
  * this way, not as a file at `envPath`).
@@ -55,13 +62,8 @@ function resolveTursoEnv(envPath: string): Record<string, string | undefined> {
 
 const force = process.argv.includes("--force");
 const prod = process.argv.includes("--prod");
-// `--dev` is an alias for `--remote` — same target (the real hosted Turso
-// dev DB), just a name that reads symmetrically with `--prod` for CI/new
-// call sites. `--remote` stays the primary documented name (shared with
-// `app`'s own `pnpm dev --remote`, same concept there) — this isn't a
-// rename, just a second spelling.
-const dev = process.argv.includes("--dev");
-const remote = process.argv.includes("--remote") || dev || prod;
+const preview = process.argv.includes("--preview");
+const remote = preview || prod;
 
 if (force) refreshSources();
 
@@ -74,8 +76,8 @@ if (force || !existsSync(DATASET_PATH)) {
 const dataset = JSON.parse(readFileSync(DATASET_PATH, "utf8")) as TursoDataset;
 
 if (remote) {
-  const mode = prod ? "prod" : dev ? "dev" : "remote";
-  const envPath = prod ? PROD_ENV_PATH : SHARED_ENV_PATH;
+  const mode = prod ? "prod" : "preview";
+  const envPath = prod ? PROD_ENV_PATH : PREVIEW_ENV_PATH;
   const env = resolveTursoEnv(envPath);
   if (!env.TURSO_DB_URL) {
     console.error(`--${mode} requires TURSO_DB_URL in ${envPath} or the environment.`);

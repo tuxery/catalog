@@ -158,6 +158,17 @@ export interface SourcedPackage {
    */
   categories?: string[];
   /**
+   * The source's own free-form tags for this package, when it exposes
+   * any — AUR's packager-submitted `Keywords` today (e.g.
+   * `["game", "wine"]`). Deliberately passed through verbatim: this is
+   * a free-form vocabulary, not a controlled one, so interpretation
+   * (which tags are trustworthy signals for what) lives in the curator
+   * module, which verifies per-keyword against real samples before
+   * trusting any of them — same discipline as `section`'s per-value
+   * mappings. `undefined`/empty means "not sourced", not "untagged".
+   */
+  keywords?: string[];
+  /**
    * A directly usable icon URL — distinct from `iconFilename` (a bare
    * filename, not fetchable on its own). Only Snapcraft (a full URL from
    * its own API, previously discarded down to just a filename — see the

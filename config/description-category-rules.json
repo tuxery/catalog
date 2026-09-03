@@ -1798,5 +1798,50 @@
     "pattern": "\\bmodpack\\b",
     "category": "System Tools",
     "reason": "Modpack installer/management tools, mostly Minecraft (ftb-app, packrinth, pakku-mc, ...). Verified live: 17 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bbindings\\b",
+    "category": "Developer Tools",
+    "reason": "Language-binding packages for a library/API (afb-binding-git, comedilib's Python bindings, ...). Verified live: 182 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bpostgresql\\b",
+    "category": "Developer Tools",
+    "reason": "PostgreSQL client/tooling apps (Postbird's GUI client, wal-e, bucardo replication, ...). Verified live: 176 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bnagios\\b",
+    "category": "System Tools",
+    "reason": "Nagios/Icinga monitoring-plugin scripts (check_docker_container, check_smartmon-git, ...). Verified live: 29 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bgrub\\b",
+    "category": "System Tools",
+    "reason": "GRUB bootloader tooling (grub4dos, grubforge, multios-usb-bin, ...). Verified live: 33 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bxorg\\b",
+    "category": "System Tools",
+    "reason": "Xorg/X11 desktop-session tooling (Xorg-version fan control, EDID generators, XOrg trackpad daemons, ...). Verified live: 25 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bgrafana\\b",
+    "category": "System Tools",
+    "reason": "Grafana observability/dashboard tooling (grafanactl-bin, grizzly, loki-cli, ...). Verified live: 22 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bopenbox\\b",
+    "category": "Settings",
+    "reason": "Openbox window-manager theme/config tooling (bunsen-themes-git, hotbox-git, labwc-menu-generator-git, ...). Verified live: 36 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\blocker\\b",
+    "category": "Settings",
+    "reason": "Screen/session locker utilities (light-locker-git, lumalock, gllock-git, ...). Verified live: 17 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bclap\\b",
+    "category": "Music & Audio",
+    "reason": "CLAP (CLever Audio Plugin) format tooling and plugins not caught by the *-clap name-suffix pattern (clap-host, nih-plug-git, yabridge-bin, ...) -- checked for the Rust clap CLI-argument-parser crate collision feared earlier this session, but zero such matches actually appear in the remaining To Classify pool. Verified live: 22 real matches, zero unrelated collisions."
   }
 ]

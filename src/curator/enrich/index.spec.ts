@@ -201,6 +201,67 @@ describe("enrichApps", () => {
     expect(enrichApps(matched)[0]?.contentType).toBe("game");
   });
 
+  it("overrides contentType to undefined (app) when Game co-occurs with a tool category and no game genre resolves", () => {
+    const matched: MatchedApp[] = [
+      {
+        id: "flathub:heroic",
+        packages: [
+          pkg({
+            source: "flatpak-flathub",
+            name: "Heroic",
+            description: "Play Epic, GOG and Amazon Games",
+            categories: ["Game", "PackageManager"],
+            hasGameCategory: true,
+          }),
+        ],
+      },
+    ];
+
+    const app = enrichApps(matched)[0];
+    expect(app?.contentType).toBeUndefined();
+    expect(app?.category).toBe("System Tools");
+  });
+
+  it("does not override contentType when Game co-occurs with a real game-genre category", () => {
+    const matched: MatchedApp[] = [
+      {
+        id: "flathub:example",
+        packages: [
+          pkg({
+            source: "flatpak-flathub",
+            name: "Example",
+            categories: ["Game", "StrategyGame", "Utility"],
+            hasGameCategory: true,
+          }),
+        ],
+      },
+    ];
+
+    const app = enrichApps(matched)[0];
+    expect(app?.contentType).toBe("game");
+    expect(app?.category).toBe("Strategy");
+  });
+
+  it("overrides contentType to undefined (app) when a game-tagged package's own description names a game-adjacent tool", () => {
+    const matched: MatchedApp[] = [
+      {
+        id: "flathub:some-emulator",
+        packages: [
+          pkg({
+            source: "flatpak-flathub",
+            name: "Some Emulator",
+            description: "A Super Nintendo emulator",
+            hasGameCategory: true,
+          }),
+        ],
+      },
+    ];
+
+    const app = enrichApps(matched)[0];
+    expect(app?.contentType).toBeUndefined();
+    expect(app?.category).toBe("System Tools");
+  });
+
   it("leaves contentType undefined when no member package has game evidence", () => {
     const matched: MatchedApp[] = [
       {

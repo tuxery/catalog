@@ -113,6 +113,40 @@ function hasGameEvidence(pkg: SourcedPackage): boolean {
   return looksLikeGamePackage(pkg.source, pkg.section, pkg.name);
 }
 
+// The same "tool for a game, not a game" phrases already verified live
+// as description-category-rules.json entries (System Tools: emulators,
+// Minecraft/general game launchers, mod launchers/managers, modpacks) —
+// duplicated here as raw patterns rather than cross-referencing the JSON
+// file by category label, since `isGameAdjacentToolDescription` needs to
+// run before `pickCategoryLabel` even sees whether isGame is true, at a
+// point where reusing the loaded rule list by name would be more
+// indirection than three small regexes are worth. Keep these two in sync
+// if either changes: a phrase added here should almost always get the
+// matching description-category-rules.json entry too (and vice versa),
+// since the whole point is that once a game-tagged package is
+// reclassified as an app, the SAME phrase resolves it to a real category
+// immediately rather than landing back in "To Classify".
+const GAME_ADJACENT_TOOL_DESCRIPTION_PATTERNS: RegExp[] = [
+  /^(?!.*\b(?:vst3?|lv2|clap)\b).*\bemulat/i,
+  /\bminecraft\b.*\blaunch|\blaunch\w*\b.*\bminecraft\b/i,
+  /\bgame launcher\b/i,
+  /\bmod (launcher|manager)\b/i,
+  /\bmodpack\b/i,
+];
+
+/**
+ * True when a game-tagged package's own `shortDescription` uses one of
+ * the phrases already known to describe a tool *for* games rather than a
+ * game — the description-text counterpart to
+ * `isGameAdjacentToolCategory`'s categories-based check, for the many
+ * packages with no secondary freedesktop category at all (a bare "Game"
+ * Main Category, or no categories field whatsoever) that still describe
+ * themselves unambiguously as a launcher/emulator/mod-manager in prose.
+ */
+function isGameAdjacentToolDescription(shortDescription: string): boolean {
+  return GAME_ADJACENT_TOOL_DESCRIPTION_PATTERNS.some((pattern) => pattern.test(shortDescription));
+}
+
 /**
  * The first non-`undefined` result of applying `fn` to each item, in
  * order — like `items.map(fn).find(Boolean)`, but stops calling `fn` once
@@ -303,7 +337,11 @@ export function enrichApps(
       pickField(app.packages, (pkg) =>
         pkg.categories && pkg.categories.length > 0 ? pkg.categories : undefined,
       ) ?? [];
-    const isGame = app.packages.some(hasGameEvidence) && !isGameAdjacentToolCategory(categories);
+    const hasKnownGameGenre = pickCategory(categories, true) !== TO_CLASSIFY;
+    const isGame =
+      app.packages.some(hasGameEvidence) &&
+      !isGameAdjacentToolCategory(categories) &&
+      (hasKnownGameGenre || !isGameAdjacentToolDescription(shortDescription));
 
     return {
       id: app.id,

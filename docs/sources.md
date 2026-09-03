@@ -48,6 +48,8 @@ table is the map, the Project is the tracked work.
 | 7e  | MX Linux              | main                 | Native     | 142     | ⚠️          | Implemented | [22]  |
 | 8a  | GOG                   | Linux-compat.        | Storefront | 1,342   | ⚠️          | Implemented | [23]  |
 | 8b  | Lutris                | published, linux     | Script     | 1,795   | ⚠️          | Implemented | [24]  |
+| 9a  | Debian AppStream      | main+contrib+nonfree | Enrichment | 2,109   | ⚠️          | Implemented | [27]  |
+| 9b  | openSUSE AppStream    | oss+non-oss          | Enrichment | 887     | ⚠️          | Implemented | [28]  |
 
 ## Notes on each row
 
@@ -463,6 +465,43 @@ as a second AppImage source` card was investigated and rejected for
     reuses the identical `Amusements/Games` prefix openSUSE already
     uses, verified against real entries (gltron, stepmania,
     doom-shareware, ...) before wiring it in. `src/sources/rpm-rpmfusion/fetch.ts`.
+27. **Debian AppStream (DEP-11)** — not a new install channel but the
+    distro's own per-package app metadata layer, published as
+    `dists/<suite>/<component>/dep11/Components-<arch>.yml.gz` for
+    main/contrib/non-free (Ubuntu ships the identical format, so the
+    parser is shared: `_shared/dep11.ts`, same cross-source reason as
+    `deb822.ts`). Hand-rolled parser rather than a YAML dependency: the
+    DEP-11 shape is flat and machine-generated, only the consumed subset
+    of keys is read, and unknown blocks are skipped by indentation until
+    the next column-0 key — verified against the real 545k-line
+    `dists/stable/main` file (2,062 components parsed in ~70ms; spot
+    checks gitg/Secrets/gammaray). Only untranslated `C:` entries are
+    read, like `_shared/appstream.ts`; `Description` block scalars are
+    flattened from HTML with the same paragraph/list conventions the XML
+    path produces. `Icon: remote:`/`source-image:` urls resolve against
+    the document's own `MediaBaseUrl`; `cached`/`stock` icons and
+    screenshot thumbnails are theme/filename data with no fetchable URL
+    and are ignored. Components join the catalog by binary package name
+    (`Package:`) via the exact-appId tier — enrichment, never a standalone
+    listing. Verified live against the real files before wiring in:
+    2,109 components, 1,338 with a usable icon url, 817 with screenshots,
+    606 with a developer, 2,054 with categories. Measured on the merged
+    catalog (2026-09-03): +612 apps gaining an icon, +112 a developer,
+    +147 screenshots, −122 "To Classify", and ~198 previously-separate
+    groups merging where a DEP-11 human display name bridges two
+    bare-package-name groups (GENERIC_NAME_BLOCKLIST guards the generic
+    names; sampled merges all genuine — Ptyxis, Dialect, TuxGuitar, ...).
+    `src/sources/deb-debian-appstream/fetch.ts`.
+28. **openSUSE AppStream** — the RPM-native equivalent of [27]: Tumbleweed
+    publishes an `appdata` + `appdata-icons` pair in each repo's
+    repomd.xml (location discovered from the repomd itself — the
+    content-hash filename changes on every refresh, same as
+    `primary.xml`), keyed by `<pkgname>` so components join the
+    `rpm-opensuse` listing by exact appId. Parsed by the shared
+    `_shared/appstream.ts` (the Flatpak parser — same AppStream XML
+    schema), extended to thread `<pkgname>`/`<source_pkgname>` through.
+    oss + non-oss: 887 components, 847 joining the merged catalog.
+    `src/sources/rpm-opensuse-appstream/fetch.ts`.
 
 ## Cross-cutting notes
 

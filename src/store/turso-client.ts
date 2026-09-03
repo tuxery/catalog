@@ -199,6 +199,21 @@ const APPS_INDEXES_SQL = [
   `CREATE INDEX idx_apps_popularity ON apps_next(popularity)`,
   `CREATE INDEX idx_apps_last_updated ON apps_next(last_updated)`,
   `CREATE INDEX idx_apps_installs_last_7_days ON apps_next(installs_last_7_days)`,
+  // Composites for getTrendingApps/getNewApps/getDownloadTrendingApps's
+  // exact `WHERE <col> IS NOT NULL [AND content_type = ?] ORDER BY <col>
+  // DESC` shape — without these, a typeFilter'd trending query resolves
+  // the content_type half via idx_apps_content_type but still pays for a
+  // temp B-tree sort on the filtered rows (verified live via EXPLAIN
+  // QUERY PLAN, 2026-09-03, right after applying the six indexes above
+  // directly to prod: already a massive improvement over a full scan,
+  // but not fully index-order for these three). Free to add — pure DDL,
+  // no runtime cost beyond a slightly larger table on disk, and this
+  // repo just got burned once on "good enough" leaving read amplification
+  // on the table, so closing the gap all the way rather than leaving it
+  // partial.
+  `CREATE INDEX idx_apps_content_type_popularity ON apps_next(content_type, popularity)`,
+  `CREATE INDEX idx_apps_content_type_last_updated ON apps_next(content_type, last_updated)`,
+  `CREATE INDEX idx_apps_content_type_installs_last_7_days ON apps_next(content_type, installs_last_7_days)`,
 ];
 
 function toBoolColumn(value: boolean | undefined): number | null {

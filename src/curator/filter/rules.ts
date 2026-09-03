@@ -560,6 +560,19 @@ const NOISE_PATTERNS: RegExp[] = [
   // equivalent games-menus submenu-categorization file), all metapackage
   // or menu-structure selectors, zero real standalone apps found.
   /^games-/,
+  // A generic "-fonts"/"-font" SUFFIX (as opposed to this file's many
+  // leading-prefix font patterns above) — catches per-typeface AUR/Nix/
+  // distro packages that don't share a common prefix (alerque-libertinus-
+  // fonts, un-core-batang-fonts, ibm-plex-sans-fonts, ...). Surfaced
+  // data-driven mining the apps "To Classify" bucket (2026-09-03): 701
+  // real matches, all real typefaces/icon-fonts/emoji-fonts — zero
+  // standalone-tool counter-examples beyond the three rescued via
+  // config/filter-keep.json (rofi-theme-fonts is a Rofi theme collection
+  // despite the name, and wps-office-365-fonts/-edu-fonts are WPS
+  // Office's own font sub-packages that the existing wps-office-365*
+  // category-rules.json entry deliberately keeps visible as part of that
+  // app family rather than treating as noise).
+  /-fonts?$/,
 ];
 
 /**

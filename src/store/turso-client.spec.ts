@@ -63,11 +63,16 @@ describe("createTursoClient", () => {
         executedSql.some((sql) => sql.includes(`CREATE INDEX`) && sql.includes(`(${column})`)),
       ).toBe(true);
     }
-    expect(
-      executedSql.some(
-        (sql) => sql.includes("CREATE INDEX") && sql.includes("(content_type, category)"),
-      ),
-    ).toBe(true);
+    for (const composite of [
+      "(content_type, category)",
+      "(content_type, popularity)",
+      "(content_type, last_updated)",
+      "(content_type, installs_last_7_days)",
+    ]) {
+      expect(
+        executedSql.some((sql) => sql.includes("CREATE INDEX") && sql.includes(composite)),
+      ).toBe(true);
+    }
 
     // Every index statement targets apps_next (so it carries over through
     // the rename), and none run before the table + data exist.

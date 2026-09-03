@@ -17,7 +17,9 @@ import {
 import {
   categoryFromDebianSection,
   categoryFromGentooSection,
+  categoryFromNixScope,
   categoryFromOpenSuseGroup,
+  categoryFromSlackwareSeries,
   categoryFromSolusPartOf,
   gameGenreFromGentooSection,
   gameGenreFromSolusSection,
@@ -233,10 +235,12 @@ function firstDefined<T, R>(items: T[], fn: (item: T) => R | undefined): R | und
  *   `category-rules.ts` — a name-pattern signal for well-known product
  *   families no upstream source classifies, e.g. Wine/Proton compatibility
  *   tools), then `categoryFromDebianSection`/`categoryFromGentooSection`/
- *   `categoryFromOpenSuseGroup`/`categoryFromSolusPartOf` (Debian/Ubuntu's
+ *   `categoryFromOpenSuseGroup`/`categoryFromSolusPartOf`/
+ *   `categoryFromSlackwareSeries`/`categoryFromNixScope` (Debian/Ubuntu's
  *   Section field, Gentoo's top-level category, openSUSE/RPM Fusion's
- *   `<rpm:group>` value, and Solus's own `PartOf` value — each source's
- *   own package-classification field, for the values already known to
+ *   `<rpm:group>` value, Solus's own `PartOf` value, Slackware's package
+ *   series, and nixpkgs' attribute-path prefix — each source's own
+ *   package-classification field, for the values already known to
  *   reliably predict a specific category), then
  *   `descriptionCategoryRules` (see `description-category-rules.ts` — a
  *   hand-curated, sampled-and-verified keyword-phrase signal against the
@@ -281,7 +285,9 @@ function pickCategoryLabel(
       categoryFromDebianSection(pkg) ??
       categoryFromGentooSection(pkg) ??
       categoryFromOpenSuseGroup(pkg) ??
-      categoryFromSolusPartOf(pkg),
+      categoryFromSolusPartOf(pkg) ??
+      categoryFromSlackwareSeries(pkg) ??
+      categoryFromNixScope(pkg),
   );
   if (sectionMatch) return sectionMatch;
 

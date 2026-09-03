@@ -1194,6 +1194,23 @@ const DEB_FAMILY_GAME_SOURCES = new Set<PackageSourceId>([
  * classification instead lets their own description (e.g. "emulator")
  * resolve them to a real category via the existing rules.
  */
+/**
+ * True when a package's name carries one of the companion-suffix
+ * conventions (`-data`/`-common`/`-plugins?`/`-server`/`-icons?`) that
+ * mark it as riding along under the same section as the real app it
+ * belongs to (0ad-data next to 0ad, ardour-lv2-plugins next to ardour,
+ * bzflag-server next to bzflag) rather than being a launchable app
+ * itself. The counterpart gate for section-based *category* assignment
+ * beyond `looksLikeGuiPackage`'s GUI-predictive sections — same
+ * exclusions, without the GUI_SECTIONS membership requirement, so the
+ * much larger CLI-flavored Debian/Ubuntu sections (utils/net/admin/...)
+ * can still resolve to a category while their companion packages stay
+ * out (they resolve via the companion-name inheritance pass instead).
+ */
+export function looksLikeCompanionPackage(name: string): boolean {
+  return GUI_SECTION_EXCLUDE_PATTERNS.some((pattern) => pattern.test(name));
+}
+
 export function looksLikeGamePackage(
   source: PackageSourceId,
   section: string | undefined,
@@ -1219,5 +1236,12 @@ export function looksLikeGamePackage(
   if (source === "eopkg-solus") {
     return (section === "games" || section.startsWith("games.")) && section !== "games.emulator";
   }
+  // Slackware's own "y" package series is, by Slackware's own definition,
+  // the games series (descent1/2, doom, bsdgames, frozen-bubble, ...) —
+  // the same series-level evidence class as Gentoo's games-* categories
+  // and Debian's games sections above. No per-package genre exists in the
+  // series system, so these fall through to the genre fallback chain
+  // (Gentoo/Solus sections don't apply, then name/description rules).
+  if (source === "slackware") return section === "y";
   return false;
 }

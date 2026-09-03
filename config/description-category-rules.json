@@ -1367,7 +1367,7 @@
   {
     "pattern": "\\bwallpapers?\\b",
     "category": "Settings",
-    "reason": "Discovered via a data-driven pass: found by checking which words are disproportionately common in already-classified apps' own descriptions, then verified live against the still-unclassified matches (271) — overwhelmingly wallpaper collections/managers/downloaders, same desktop-theming reasoning as the existing wallpaper manager/changer/daemon entries."
+    "reason": "Discovered via a data-driven pass: found by checking which words are disproportionately common in already-classified apps' own descriptions, then verified live against the still-unclassified matches (271) \u2014 overwhelmingly wallpaper collections/managers/downloaders, same desktop-theming reasoning as the existing wallpaper manager/changer/daemon entries."
   },
   {
     "pattern": "\\bxfce\\b",
@@ -1573,5 +1573,205 @@
     "pattern": "\\bwordlist\\b",
     "category": "Security",
     "reason": "Same data-driven discovery as theme above -- password/security wordlist generators (pentesting tooling). Verified live: 23 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bladspa\\b",
+    "category": "Music & Audio",
+    "reason": "LADSPA audio plugin format tooling. Verified live: 62 matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bgenome\\b",
+    "category": "Science",
+    "reason": "Genomics/bioinformatics tooling (genome browsers, assembly, annotation). Verified live: 23 matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bqemu\\b",
+    "category": "System Tools",
+    "reason": "QEMU emulation/virtualization tooling. Verified live: 41 matches; one incidental mention inside a fuzzer's changelog-style description accepted as noise."
+  },
+  {
+    "pattern": "\\binitramfs\\b",
+    "category": "System Tools",
+    "reason": "Initramfs generators and boot-time tooling. Verified live: 40 matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bbtrfs\\b",
+    "category": "System Tools",
+    "reason": "Btrfs filesystem tooling (backup, dedup, snapshots). Verified live: 64 matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bsoapysdr\\b",
+    "category": "Internet & Communication",
+    "reason": "SoapySDR software-defined-radio tooling. Verified live: 15 matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bfediverse\\b",
+    "category": "Internet & Communication",
+    "reason": "Fediverse (Mastodon/Lemmy/etc.) clients and tooling. Verified live: 10 matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\btransceiver\\b",
+    "category": "Internet & Communication",
+    "reason": "Radio transceiver control/programming tooling. Verified live: 16 matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\brime\\b",
+    "category": "Utilities",
+    "reason": "Rime Chinese input-method engine tooling. Verified live: 17 matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bpinyin\\b",
+    "category": "Utilities",
+    "reason": "Pinyin input-method tooling. Verified live: 13 matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bulogd\\b",
+    "category": "Security",
+    "reason": "ulogd netfilter userspace logging daemon extensions. Verified live: 7 matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bruby\\b",
+    "category": "Developer Tools",
+    "reason": "Ruby-language developer tooling. Verified live: 213 matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bkubernetes\\b",
+    "category": "Developer Tools",
+    "reason": "Kubernetes cluster tooling. Verified live: 232 matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bjson\\b",
+    "category": "Developer Tools",
+    "reason": "JSON developer tooling (parsers, formatters, JWT tools). Verified live: 379 matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bparser\\b",
+    "category": "Developer Tools",
+    "reason": "Parsing libraries/tools across languages and formats. Verified live: 403 matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bjavascript\\b",
+    "category": "Developer Tools",
+    "reason": "JavaScript-language developer tooling and frameworks. Verified live: 207 matches; a handful of incidentally-JS-tagged games accepted as noise."
+  },
+  {
+    "pattern": "\\bdrum\\b",
+    "category": "Music & Audio",
+    "reason": "Drum machine/sampler plugins. Verified live: 26 matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bsynth\\b",
+    "category": "Music & Audio",
+    "reason": "Synthesizer plugins (broader than the existing \"synthesizer\" phrase rule above). Verified live: 49 matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bpenetration\\b",
+    "category": "Security",
+    "reason": "Penetration-testing and network-tunneling tooling (broader than the existing \"penetration testing\" phrase rule above). Verified live: 15 matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bshadowsocks\\b",
+    "category": "Security",
+    "reason": "Shadowsocks proxy/tunnel tooling. Verified live: 24 matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bnextcloud\\b",
+    "category": "Internet & Communication",
+    "reason": "Nextcloud server distributions and sync tooling. Verified live: 20 matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bthunderbird\\b",
+    "category": "Internet & Communication",
+    "reason": "Thunderbird email client and forks. Verified live: 18 matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bconferencing\\b",
+    "category": "Internet & Communication",
+    "reason": "Video/audio conferencing tooling. Verified live: 12 matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bmailboxes\\b",
+    "category": "Internet & Communication",
+    "reason": "Mailbox/email management tooling. Verified live: 14 matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bdvds\\b",
+    "category": "Photo & Video",
+    "reason": "DVD authoring/backup tooling. Verified live: 12 matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bemby\\b",
+    "category": "Photo & Video",
+    "reason": "Emby media-server clients/companions. Verified live: 11 matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\burxvt\\b",
+    "category": "Utilities",
+    "reason": "rxvt-unicode terminal emulator tooling. Verified live: 14 matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bterminfo\\b",
+    "category": "Utilities",
+    "reason": "Terminfo database tooling. Verified live: 12 matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bbatik\\b",
+    "category": "Graphics & Design",
+    "reason": "Apache Batik SVG toolkit components. Verified live: 9 matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bastronomical\\b",
+    "category": "Science",
+    "reason": "Astronomical imaging/analysis tooling. Verified live: 27 matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bdictation\\b",
+    "category": "Utilities",
+    "reason": "Voice dictation tooling. Verified live: 26 matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bkanban\\b",
+    "category": "Productivity",
+    "reason": "Kanban board apps (broader than the existing \"kanban board\" phrase rule above). Verified live: 12 matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bdiary\\b",
+    "category": "Productivity",
+    "reason": "Diary/journal apps (broader than the existing journal/diary-app phrase rule above). Verified live: 13 matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\btelevision\\b",
+    "category": "Photo & Video",
+    "reason": "TV streaming/capture tooling. Verified live: 14 matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bbackup\\b",
+    "category": "System Tools",
+    "reason": "Backup tooling (broader than the existing \"backup tool/software/utility\" phrase rule above). Verified live: 209 matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bwireless\\b",
+    "category": "System Tools",
+    "reason": "Wireless networking tooling. Verified live: 98 matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\badministration\\b",
+    "category": "System Tools",
+    "reason": "System/network administration tooling (broader than the existing \"administration tool\" phrase rule above). Verified live: 60 matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bartwork\\b",
+    "category": "Settings",
+    "reason": "Distro/desktop artwork and branding packages. Verified live: 25 matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bbandwidth\\b",
+    "category": "System Tools",
+    "reason": "Bandwidth measurement/monitoring tooling. Verified live: 39 matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bblocker\\b",
+    "category": "Internet & Communication",
+    "reason": "Ad/content/domain blocker tooling. Verified live: 23 matches, zero unrelated collisions."
   }
 ]

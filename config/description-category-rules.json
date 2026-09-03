@@ -1338,5 +1338,30 @@
     "pattern": "\\bepub converter\\b",
     "category": "Books & Reference",
     "reason": "Description explicitly identifies it as an EPUB converter. Verified live: 9 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bencryption (tool|application|app|utility)\\b",
+    "category": "Security",
+    "reason": "Description explicitly identifies it as an encryption tool. Verified live: 29 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bdiff (tool|utility)\\b",
+    "category": "Developer Tools",
+    "reason": "Description explicitly identifies it as a diff tool. Verified live: 20 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bcalendar (application|app)\\b",
+    "category": "Productivity",
+    "reason": "Description explicitly identifies it as a calendar app -- broader wording than the existing \"calendar app\" entry (\"calendar application\" too). Verified live: 9 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\badministration tool\\b",
+    "category": "System Tools",
+    "reason": "Description explicitly identifies it as an administration tool. Verified live: 20 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bchat (application|tool)\\b",
+    "category": "Internet & Communication",
+    "reason": "Description explicitly identifies it as a chat application -- broader wording than the existing \"chat client\" entry. Verified live: 10 real matches, zero unrelated collisions."
   }
 ]

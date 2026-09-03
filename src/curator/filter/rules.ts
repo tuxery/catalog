@@ -589,6 +589,24 @@ const NOISE_PATTERNS: RegExp[] = [
   // category-rules.json entry deliberately keeps visible as part of that
   // app family rather than treating as noise).
   /-fonts?$/,
+  // Maven "parent POM" build-metadata packages (Java's ecosystem packaging
+  // its own inheritance/aggregation POM files as separate installable
+  // packages: codehaus-parent "Parent pom file for codehaus projects",
+  // netty-parent "POM-only artifacts for netty", ...) — pure build
+  // configuration, never a launchable app on their own regardless of how
+  // real the project they configure is. Surfaced data-driven mining the
+  // apps "To Classify" bucket (2026-09-03): 34 real matches, all literally
+  // described as a parent/aggregator POM, zero counter-examples.
+  /-parent$/,
+  // MySQL/MariaDB backend/binding/plugin packages for another app or
+  // library, named <app>-mysql (postfix-mysql "MySQL map support for
+  // Postfix", redland-mysql "MySQL storage support for Redland", ...) —
+  // same "not launchable on its own" reasoning as this file's -selinux
+  // exclusion. Surfaced data-driven mining the apps "To Classify" bucket
+  // (2026-09-03): 40 real matches; one accepted exception rescued via
+  // config/filter-keep.json (sqlite3-to-mysql, a real standalone
+  // conversion CLI despite the suffix).
+  /-mysql$/,
 ];
 
 /**

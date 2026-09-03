@@ -163,15 +163,20 @@ const GAME_ADJACENT_TOOL_DESCRIPTION_NAME_SCOPED_PATTERNS: RegExp[] = [
 ];
 
 /**
- * True when a game-tagged package's own `shortDescription` uses one of
- * the phrases already known to describe a tool *for* games rather than a
- * game — the description-text counterpart to
+ * True when a game-tagged package's own `shortDescription` OR display
+ * name uses one of the phrases already known to describe a tool *for*
+ * games rather than a game — the description/name-text counterpart to
  * `isGameAdjacentToolCategory`'s categories-based check, for the many
  * packages with no secondary freedesktop category at all (a bare "Game"
  * Main Category, or no categories field whatsoever) that still describe
- * themselves unambiguously as a launcher/emulator/mod-manager in prose.
- * `names` (every member package's own name) is only consulted for the
- * name-scoped "editor"/"manager" patterns' two known exceptions.
+ * themselves unambiguously as a launcher/emulator/mod-manager. The name
+ * is checked too (not just the description) because several real titles
+ * put it right in the name instead — "An Anime Game Launcher"'s own
+ * description is just "Play your favorite anime game on Linux", no
+ * launcher-ish word at all, found live sampling the games "To Classify"
+ * pool (2026-09-03). `names` (every member package's own name) is also
+ * consulted for the name-scoped "editor"/"manager" patterns' two known
+ * exceptions.
  */
 function isGameAdjacentToolDescription(shortDescription: string, names: string[]): boolean {
   if (GAME_ADJACENT_TOOL_DESCRIPTION_PATTERNS.some((pattern) => pattern.test(shortDescription))) {
@@ -179,6 +184,13 @@ function isGameAdjacentToolDescription(shortDescription: string, names: string[]
   }
   if (names.some((name) => GAME_ADJACENT_TOOL_DESCRIPTION_NAME_EXCEPTIONS.has(name))) {
     return false;
+  }
+  if (
+    names.some((name) =>
+      GAME_ADJACENT_TOOL_DESCRIPTION_PATTERNS.some((pattern) => pattern.test(name)),
+    )
+  ) {
+    return true;
   }
   return GAME_ADJACENT_TOOL_DESCRIPTION_NAME_SCOPED_PATTERNS.some((pattern) =>
     pattern.test(shortDescription),

@@ -262,6 +262,25 @@ describe("enrichApps", () => {
     expect(app?.category).toBe("System Tools");
   });
 
+  it("overrides contentType to undefined (app) when the tool phrase is only in the name, not the description", () => {
+    const matched: MatchedApp[] = [
+      {
+        id: "flathub:anime-game-launcher",
+        packages: [
+          pkg({
+            source: "flatpak-flathub",
+            name: "An Anime Game Launcher",
+            description: "Play your favorite anime game on Linux",
+            hasGameCategory: true,
+          }),
+        ],
+      },
+    ];
+
+    const app = enrichApps(matched)[0];
+    expect(app?.contentType).toBeUndefined();
+  });
+
   it("leaves contentType undefined when no member package has game evidence", () => {
     const matched: MatchedApp[] = [
       {

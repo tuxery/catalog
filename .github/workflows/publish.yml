@@ -1,0 +1,75 @@
+name: Publish dataset to Turso
+
+# Opening a PR against main deploys the current dataset to Turso dev, so a
+# reviewer can see the real effect of a classification/config change (or a
+# scheduled cache-refresh PR, see refresh-sources.yml) before it lands.
+# Merging to main deploys it to prod. Both jobs run `pnpm seed` with no
+# --force, so neither one ever hits a real upstream source — they only
+# rebuild dist/dataset.json from the git-committed src/sources/cache/
+# *.ndjson and push the result to Turso. See catalog/AGENTS.md's Local dev
+# section for what --dev/--prod actually do.
+#
+# Secrets are repo-level (DEV_*/PROD_* prefixed) rather than scoped to the
+# `dev`/`prod` Environments below, even though each job still declares its
+# Environment (for the deployment-history view in the GitHub UI) — the
+# token used to provision this repo only had the "Secrets" permission, not
+# "Environments", so Environment-scoped secrets couldn't be set from here.
+# Revisit if that's ever fixed: rename back to TURSO_DB_URL/
+# TURSO_DB_AUTH_TOKEN under each Environment's own secret store instead.
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  publish-dev:
+    if: github.event_name == 'pull_request'
+    name: Publish to Turso dev
+    runs-on: ubuntu-latest
+    environment: dev
+    timeout-minutes: 15
+    concurrency:
+      group: catalog-publish-dev-${{ github.event.pull_request.number }}
+      cancel-in-progress: true
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: helpers4/action/setup-pnpm@6fddd178620e7325d446a246c38a44f979569fc4 # main @ 2026-07-29
+        with:
+          node-version: "24"
+
+      - name: Seed Turso dev
+        env:
+          TURSO_DB_URL: ${{ secrets.DEV_TURSO_DB_URL }}
+          TURSO_DB_AUTH_TOKEN: ${{ secrets.DEV_TURSO_DB_AUTH_TOKEN }}
+        run: pnpm seed --dev
+
+  publish-prod:
+    if: github.event_name == 'push'
+    name: Publish to Turso prod
+    runs-on: ubuntu-latest
+    environment: prod
+    timeout-minutes: 15
+    # Never cancelled mid-write, unlike publish-dev above — a prod deploy
+    # in progress should finish (the Turso client's publish() does an
+    # atomic apps_next -> apps rename, so a superseded run finishing late
+    # would otherwise race a newer one for that rename).
+    concurrency:
+      group: catalog-publish-prod
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: helpers4/action/setup-pnpm@6fddd178620e7325d446a246c38a44f979569fc4 # main @ 2026-07-29
+        with:
+          node-version: "24"
+
+      - name: Seed Turso prod
+        env:
+          TURSO_DB_URL: ${{ secrets.PROD_TURSO_DB_URL }}
+          TURSO_DB_AUTH_TOKEN: ${{ secrets.PROD_TURSO_DB_AUTH_TOKEN }}
+        run: pnpm seed --prod

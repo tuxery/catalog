@@ -45,6 +45,41 @@ describe("createTursoClient", () => {
     expect(swapBatch.some((s) => s.sql.includes("INSERT INTO meta"))).toBe(true);
   });
 
+  it("builds every filter/sort index on apps_next after the insert, before the rename swap", async () => {
+    const { execute, client } = fakeClient(false);
+    const tursoClient = createTursoClient({ url: "file::memory:" }, client);
+
+    await tursoClient.publish({ generatedAt: "2026-01-01T00:00:00.000Z", apps: [APP] });
+
+    const executedSql = execute.mock.calls.map((call) => call[0] as string);
+    for (const column of [
+      "category",
+      "content_type",
+      "popularity",
+      "last_updated",
+      "installs_last_7_days",
+    ]) {
+      expect(
+        executedSql.some((sql) => sql.includes(`CREATE INDEX`) && sql.includes(`(${column})`)),
+      ).toBe(true);
+    }
+    expect(
+      executedSql.some(
+        (sql) => sql.includes("CREATE INDEX") && sql.includes("(content_type, category)"),
+      ),
+    ).toBe(true);
+
+    // Every index statement targets apps_next (so it carries over through
+    // the rename), and none run before the table + data exist.
+    const createTableIndex = executedSql.indexOf(
+      executedSql.find((sql) => sql.includes("CREATE TABLE apps_next")) ?? "",
+    );
+    const indexStatements = executedSql.filter((sql) => sql.includes("CREATE INDEX"));
+    expect(indexStatements.every((sql) => sql.includes("apps_next"))).toBe(true);
+    expect(indexStatements.length).toBeGreaterThan(0);
+    expect(executedSql.indexOf(indexStatements[0] ?? "")).toBeGreaterThan(createTableIndex);
+  });
+
   it("renames the existing apps table out of the way before swapping when one already exists", async () => {
     const { batch, client } = fakeClient(true);
     const tursoClient = createTursoClient({ url: "file::memory:" }, client);

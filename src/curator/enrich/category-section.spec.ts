@@ -6,6 +6,7 @@ import {
   categoryFromOpenSuseGroup,
   categoryFromSolusPartOf,
   gameGenreFromGentooSection,
+  gameGenreFromSolusSection,
 } from "./category-section";
 
 function pkg(overrides: Partial<SourcedPackage>): SourcedPackage {
@@ -168,6 +169,81 @@ describe("gameGenreFromGentooSection", () => {
       gameGenreFromGentooSection(
         pkg({ source: "deb-debian", name: "example", section: "games-arcade" }),
       ),
+    ).toBeUndefined();
+  });
+
+  it("maps games-puzzle to Puzzle", () => {
+    expect(
+      gameGenreFromGentooSection(
+        pkg({ source: "ebuild-gentoo", name: "gnome-sudoku", section: "games-puzzle" }),
+      ),
+    ).toBe("Puzzle");
+  });
+});
+
+describe("gameGenreFromSolusSection", () => {
+  it("maps games.* PartOf subcategories to their categories-games.json genre", () => {
+    expect(
+      gameGenreFromSolusSection(
+        pkg({ source: "eopkg-solus", name: "yquake2", section: "games.action" }),
+      ),
+    ).toBe("Action");
+    expect(
+      gameGenreFromSolusSection(
+        pkg({ source: "eopkg-solus", name: "starfighter", section: "games.arcade" }),
+      ),
+    ).toBe("Arcade");
+    expect(
+      gameGenreFromSolusSection(
+        pkg({ source: "eopkg-solus", name: "openxcom", section: "games.strategy" }),
+      ),
+    ).toBe("Strategy");
+    expect(
+      gameGenreFromSolusSection(pkg({ source: "eopkg-solus", name: "brogue", section: "games.rpg" })),
+    ).toBe("Role-Playing");
+    expect(
+      gameGenreFromSolusSection(pkg({ source: "eopkg-solus", name: "galois", section: "games.puzzle" })),
+    ).toBe("Puzzle");
+    expect(
+      gameGenreFromSolusSection(
+        pkg({ source: "eopkg-solus", name: "aisleriot-git", section: "games.card" }),
+      ),
+    ).toBe("Board & Cards");
+    expect(
+      gameGenreFromSolusSection(
+        pkg({ source: "eopkg-solus", name: "tux-math", section: "games.learning" }),
+      ),
+    ).toBe("Educational");
+  });
+
+  it("returns undefined for games.emulator — an emulator isn't itself a game", () => {
+    expect(
+      gameGenreFromSolusSection(
+        pkg({ source: "eopkg-solus", name: "some-emulator", section: "games.emulator" }),
+      ),
+    ).toBeUndefined();
+  });
+
+  it("returns undefined for the two known name exceptions riding an otherwise-clean section", () => {
+    expect(
+      gameGenreFromSolusSection(pkg({ source: "eopkg-solus", name: "pacman-git", section: "games.arcade" })),
+    ).toBeUndefined();
+    expect(
+      gameGenreFromSolusSection(pkg({ source: "eopkg-solus", name: "dfarc", section: "games.rpg" })),
+    ).toBeUndefined();
+  });
+
+  it("only applies to eopkg-solus", () => {
+    expect(
+      gameGenreFromSolusSection(
+        pkg({ source: "deb-debian", name: "example", section: "games.arcade" }),
+      ),
+    ).toBeUndefined();
+  });
+
+  it("returns undefined for an absent section", () => {
+    expect(
+      gameGenreFromSolusSection(pkg({ source: "eopkg-solus", name: "example", section: undefined })),
     ).toBeUndefined();
   });
 });

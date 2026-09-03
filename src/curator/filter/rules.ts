@@ -1018,6 +1018,13 @@ const GENTOO_NOISE_CATEGORIES = new Set([
   "dev-perl",
 ]);
 
+// Gentoo `games-*` subcategories that are tools *for* games rather than
+// games themselves — see `looksLikeGamePackage`'s doc comment for the
+// full reasoning (this carve-out is what lets them fall through to
+// normal app classification instead of being permanently stranded as a
+// genre-less "game").
+const GENTOO_GAME_ADJACENT_SECTIONS = new Set(["games-emulation", "games-util", "games-server"]);
+
 /** Best-effort guess from Debian/Ubuntu's `Section` field, nixpkgs' attribute-path prefix, openSUSE's `<rpm:group>` value, Slackware's package series, Solus's `PartOf` value, or Gentoo's category, alongside `looksLikeSupportPackage`'s name-based guess — see this file's comments on `NOISE_SECTIONS`/`NIX_NOISE_PREFIX_PATTERNS`/`OPENSUSE_NOISE_GROUPS`/`SLACKWARE_NOISE_SERIES`/`SOLUS_NOISE_PARTOF`/`GENTOO_NOISE_CATEGORIES` for which values are safe. */
 export function looksLikeSupportSection(section: string | undefined): boolean {
   if (section === undefined) return false;
@@ -1169,6 +1176,23 @@ const DEB_FAMILY_GAME_SOURCES = new Set<PackageSourceId>([
  *   this prefix check.
  * Not (yet) checked: Slackware's `y` series has too few real entries —
  * too small a sample to trust either way, left out for now.
+ *
+ * Three Gentoo `games-*` subcategories and Solus's `games.emulator` are
+ * carved OUT below despite matching the broad prefix: games-emulation/
+ * games.emulator (console emulators), games-util (game-management tools
+ * like AntiMicroX, this file's own header comment's example), and
+ * games-server (dedicated multiplayer server binaries) are all tools
+ * *for* games, not games themselves — `gameGenreFromGentooSection`
+ * already treats games-emulation this way for genre purposes ("an
+ * emulator isn't itself a game"), but until now `looksLikeGamePackage`
+ * still called them contentType "game" upstream of that, permanently
+ * stranding every one of them in "To Classify" since none of
+ * categories-games.json's 10 genres fits a tool. Surfaced chasing the
+ * apps/games "To Classify" 0% goal (2026-09-03): 113 real matches across
+ * the three Gentoo sections, 100% real tools/emulators/servers, zero
+ * counter-examples — letting them fall through to normal app
+ * classification instead lets their own description (e.g. "emulator")
+ * resolve them to a real category via the existing rules.
  */
 export function looksLikeGamePackage(
   source: PackageSourceId,
@@ -1186,10 +1210,14 @@ export function looksLikeGamePackage(
   }
   if (section === undefined) return false;
   if (DEB_FAMILY_GAME_SOURCES.has(source)) return DEB_FAMILY_GAME_SECTIONS.has(section);
-  if (source === "ebuild-gentoo") return section.startsWith("games-");
+  if (source === "ebuild-gentoo") {
+    return section.startsWith("games-") && !GENTOO_GAME_ADJACENT_SECTIONS.has(section);
+  }
   if (source === "rpm-opensuse" || source === "rpm-rpmfusion") {
     return section.startsWith("Amusements/Games");
   }
-  if (source === "eopkg-solus") return section === "games" || section.startsWith("games.");
+  if (source === "eopkg-solus") {
+    return (section === "games" || section.startsWith("games.")) && section !== "games.emulator";
+  }
   return false;
 }

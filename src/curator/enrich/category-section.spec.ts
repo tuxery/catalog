@@ -4,6 +4,7 @@ import {
   categoryFromDebianSection,
   categoryFromGentooSection,
   categoryFromOpenSuseGroup,
+  categoryFromSolusPartOf,
   gameGenreFromGentooSection,
 } from "./category-section";
 
@@ -249,6 +250,45 @@ describe("categoryFromOpenSuseGroup", () => {
           section: "Development/Languages/Python",
         }),
       ),
+    ).toBeUndefined();
+  });
+});
+
+describe("categoryFromSolusPartOf", () => {
+  it("maps multimedia.audio/multimedia.video/office.scientific/security to their app-taxonomy category", () => {
+    expect(
+      categoryFromSolusPartOf(
+        pkg({ source: "eopkg-solus", name: "decibels", section: "multimedia.audio" }),
+      ),
+    ).toBe("Music & Audio");
+    expect(
+      categoryFromSolusPartOf(
+        pkg({ source: "eopkg-solus", name: "cinelerra-gg", section: "multimedia.video" }),
+      ),
+    ).toBe("Photo & Video");
+    expect(
+      categoryFromSolusPartOf(pkg({ source: "eopkg-solus", name: "yosys", section: "office.scientific" })),
+    ).toBe("Science");
+    expect(
+      categoryFromSolusPartOf(pkg({ source: "eopkg-solus", name: "usbguard", section: "security" })),
+    ).toBe("Security");
+  });
+
+  it("only applies to eopkg-solus — other sources reuse the section slot for unrelated vocabularies", () => {
+    expect(
+      categoryFromSolusPartOf(pkg({ source: "deb-debian", name: "example", section: "security" })),
+    ).toBeUndefined();
+  });
+
+  it("returns undefined for an unmapped PartOf value (e.g. bare office, too mixed with a 3D-printer slicer and spell-check data)", () => {
+    expect(
+      categoryFromSolusPartOf(pkg({ source: "eopkg-solus", name: "cura", section: "office" })),
+    ).toBeUndefined();
+  });
+
+  it("returns undefined for an absent section", () => {
+    expect(
+      categoryFromSolusPartOf(pkg({ source: "eopkg-solus", name: "example", section: undefined })),
     ).toBeUndefined();
   });
 });

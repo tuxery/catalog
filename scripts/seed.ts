@@ -11,11 +11,13 @@ const DATASET_PATH = fileURLToPath(new URL("../dist/dataset.json", import.meta.u
 // touch that repo's filesystem even transiently.
 const LOCAL_DB_PATH = fileURLToPath(new URL("../.turso-state/local.db", import.meta.url));
 
-// Shared credentials for the real hosted Turso DBs, used by --remote.
+// Shared credentials for the real hosted Turso DBs, used by --remote/--dev.
 // One file per environment, read by both repos (`app`'s scripts/dev.mjs
 // parses the dev one the same way) so there's a single place to update
 // rather than drifting copies. Neither is committed — real credentials,
-// per-environment.
+// per-environment. Only exist in the local devcontainer; CI has no such
+// files and relies on the `process.env` fallback in `resolveTursoEnv`
+// below instead (GitHub Actions injects secrets that way).
 const SHARED_ENV_PATH = "/workspaces/.dev/.env";
 const PROD_ENV_PATH = "/workspaces/.dev/.env.prod";
 
@@ -37,9 +39,29 @@ function readSharedEnv(path: string): Record<string, string> {
   return env;
 }
 
+/**
+ * Turso credentials for --remote/--dev/--prod: the shared env file if it
+ * exists and has TURSO_DB_URL (the local devcontainer case), else
+ * `process.env` directly (the CI case — GitHub Actions secrets arrive
+ * this way, not as a file at `envPath`).
+ */
+function resolveTursoEnv(envPath: string): Record<string, string | undefined> {
+  if (existsSync(envPath)) {
+    const fileEnv = readSharedEnv(envPath);
+    if (fileEnv.TURSO_DB_URL) return fileEnv;
+  }
+  return process.env;
+}
+
 const force = process.argv.includes("--force");
 const prod = process.argv.includes("--prod");
-const remote = process.argv.includes("--remote") || prod;
+// `--dev` is an alias for `--remote` — same target (the real hosted Turso
+// dev DB), just a name that reads symmetrically with `--prod` for CI/new
+// call sites. `--remote` stays the primary documented name (shared with
+// `app`'s own `pnpm dev --remote`, same concept there) — this isn't a
+// rename, just a second spelling.
+const dev = process.argv.includes("--dev");
+const remote = process.argv.includes("--remote") || dev || prod;
 
 if (force) refreshSources();
 
@@ -52,17 +74,16 @@ if (force || !existsSync(DATASET_PATH)) {
 const dataset = JSON.parse(readFileSync(DATASET_PATH, "utf8")) as TursoDataset;
 
 if (remote) {
+  const mode = prod ? "prod" : dev ? "dev" : "remote";
   const envPath = prod ? PROD_ENV_PATH : SHARED_ENV_PATH;
-  const env = readSharedEnv(envPath);
+  const env = resolveTursoEnv(envPath);
   if (!env.TURSO_DB_URL) {
-    console.error(`--${prod ? "prod" : "remote"} requires TURSO_DB_URL in ${envPath}`);
+    console.error(`--${mode} requires TURSO_DB_URL in ${envPath} or the environment.`);
     process.exit(1);
   }
   const client = createTursoClient({ url: env.TURSO_DB_URL, authToken: env.TURSO_DB_AUTH_TOKEN });
   await client.publish(dataset);
-  console.log(
-    `\n${dataset.apps.length} apps published to ${env.TURSO_DB_URL} (${prod ? "prod" : "remote"} mode).`,
-  );
+  console.log(`\n${dataset.apps.length} apps published to ${env.TURSO_DB_URL} (${mode} mode).`);
 } else {
   mkdirSync(dirname(LOCAL_DB_PATH), { recursive: true });
   const client = createTursoClient({ url: `file:${LOCAL_DB_PATH}` });

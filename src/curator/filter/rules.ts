@@ -51,6 +51,22 @@ const NOISE_PATTERNS: RegExp[] = [
   /-libs$/,
   // Static-library variant packages.
   /-static$/,
+  // Init-system service-script / hardened-build-variant suffixes: Void
+  // Linux's own "-openrc"/"-runit" convention for shipping another
+  // package's service supervision script as a separate installable
+  // ("adguardhome-openrc" = "OpenRC adguardhome init script", "caddy-
+  // runit" = "Runit service script for caddy", ...) and the SELinux-
+  // policy/binding/hardened-fork "-selinux" convention (aide-selinux,
+  // python3-selinux's "Python3 bindings to SELinux shared libraries",
+  // gdm-selinux's SELinux-patched fork, ...) — none of these are
+  // something a user would search an app store for independently of the
+  // base tool they accompany. Surfaced data-driven mining the apps "To
+  // Classify" bucket (2026-09-03): 763/51/100 total matches respectively
+  // across all categories (not just To Classify), manually reviewed in
+  // full for the ~90 not caught by an obvious "init/service script"/
+  // "selinux support/policy" description phrase — zero real standalone-
+  // app counter-examples found.
+  /-(openrc|runit|selinux)$/,
   // Fonts. `ttc-` (TrueType Collection) added live investigating the
   // apps "To Classify" bucket (2026-09-02): 50 real matches (mostly
   // Iosevka's own coding-typeface variant family), zero non-font

@@ -124,6 +124,56 @@ export function pickCategory(categories: string[], isGame: boolean): string {
   return (match && labels[match]) || TO_CLASSIFY;
 }
 
+// freedesktop Additional Categories that unambiguously describe a tool
+// *for* games (an emulator, launcher, mod manager, ...) rather than a
+// game itself — deliberately narrower than "any category that resolves
+// under the app taxonomy", since several categories genuinely can
+// co-occur on a real game (AudioVideo/Music/Video/Graphics/Player all
+// plausibly describe a rhythm game or an in-game recorder, say) and
+// forcing those to the app taxonomy would misclassify real games instead
+// of fixing tools. Surfaced live sampling the games "To Classify" bucket
+// (2026-09-03): Heroic (Game+PackageManager), Parsec (Game+Network+
+// Utility), every console emulator tagged Game+Emulator, ... — 135 of
+// 2555 games To Classify carry at least one of these alongside "Game",
+// every single one sampled a genuine tool, not a game.
+const GAME_ADJACENT_TOOL_CATEGORIES = new Set([
+  "Emulator",
+  "GameTool",
+  "Utility",
+  "PackageManager",
+  "LauncherStore",
+  "Network",
+  "Development",
+  "IDE",
+  "RemoteAccess",
+  "FileTools",
+  "Debugger",
+  "Monitor",
+  "System",
+  "ConsoleOnly",
+  "Archiving",
+  "Compression",
+  "Filesystem",
+  "TerminalEmulator",
+]);
+
+/**
+ * True when a package's own freedesktop categories describe it as a tool
+ * *for* games rather than a game itself — carries "Game" plus one of
+ * `GAME_ADJACENT_TOOL_CATEGORIES` above, and no category that resolves to
+ * an actual `categories-games.json` genre (a real game that happens to
+ * also carry, say, "Simulation" stays a game). Used to correct
+ * `hasGameEvidence`'s "any positive signal wins" contentType detection —
+ * without this, a package tagged both "Game" and "Emulator" was
+ * permanently stranded in "To Classify" forever, since no genre in the
+ * 10-value games taxonomy fits an emulator.
+ */
+export function isGameAdjacentToolCategory(categories: string[]): boolean {
+  const present = new Set(categories);
+  if (GAME_CATEGORY_PREFERENCE.some((category) => present.has(category))) return false;
+  return [...GAME_ADJACENT_TOOL_CATEGORIES].some((category) => present.has(category));
+}
+
 /**
  * The fallback category for anything with no positive signal at all —
  * `pickCategory` never returns `undefined`, so `CatalogApp.category` is

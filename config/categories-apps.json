@@ -83,6 +83,7 @@
 
   "System": "System Tools",
   "TerminalEmulator": "System Tools",
+  "Emulator": "System Tools",
   "Monitor": "System Tools",
   "FileTools": "System Tools",
   "FileManager": "System Tools",
@@ -90,8 +91,10 @@
   "Compression": "System Tools",
   "Filesystem": "System Tools",
   "PackageManager": "System Tools",
+  "LauncherStore": "System Tools",
   "RemoteAccess": "System Tools",
   "ConsoleOnly": "System Tools",
+  "GameTool": "System Tools",
 
   "Settings": "Settings",
   "DesktopSettings": "Settings",

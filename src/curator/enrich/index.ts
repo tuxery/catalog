@@ -137,10 +137,20 @@ function hasGameEvidence(pkg: SourcedPackage): boolean {
 const GAME_ADJACENT_TOOL_DESCRIPTION_PATTERNS: RegExp[] = [
   /^(?!.*\b(?:vst3?|lv2|clap)\b).*\bemulat/i,
   /\bminecraft\b.*\blaunch|\blaunch\w*\b.*\bminecraft\b/i,
+  // Minecraft-adjacent tooling that rides a Game tag (Flathub's own
+  // over-broad Game categories — Cubiomes Viewer, MCA Selector, ...):
+  // seed finders, chunk/map managers, viewers, editors. Sampled live
+  // against the games "To Classify" pool (2026-09-03).
+  /\bminecraft\b.*\b(viewers?|finders?|editors?|managers?|selectors?|seeds?|chunks?|skins?|servers?)\b/i,
+  // Game-streaming clients/servers (Moonlight, Sunshine — "GameStream
+  // client", "Stream games and other applications from another PC").
+  /\bgame ?stream(ing)?\b|\bstream(ing)?\b.{0,20}\bgames?\b/i,
   /\bgame launcher\b/i,
   /\bmod (launcher|manager)\b/i,
-  /\bmodpack\b/i,
-  // Bare "launcher"/"generator"/"assistant" — unlike description-
+  // Plural widened live (FTB Electron App: "Explore and manage FTB
+  // modpacks!" rode the singular-only pattern).
+  /\bmodpacks?\b/i,
+  // Bare "launcher"/"generator"/"assistant"/"client" — unlike description-
   // category-rules.json's app-side rules, these are safe as BARE words
   // here specifically because this check only ever runs on a package
   // already suspected to be a game (hasGameEvidence already true); the
@@ -148,10 +158,12 @@ const GAME_ADJACENT_TOOL_DESCRIPTION_PATTERNS: RegExp[] = [
   // doesn't apply to a pool that's already game-flagged. Verified live
   // against the games "To Classify" pool (2026-09-03): "launcher" 21/21
   // real tools; "generator" 11/12 (one acceptable edge case, a Minetest
-  // map-generator *mod*); "assistant" 2/2.
+  // map-generator *mod*); "assistant" 2/2; "client" added for the
+  // game-flagged GOG/streaming clients (minigalaxy, Moonlight).
   /\blauncher\b/i,
   /\bgenerator\b/i,
   /\bassistant\b/i,
+  /\bclient\b/i,
 ];
 
 // "editor"/"manager" have exactly two real counter-examples each

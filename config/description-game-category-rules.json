@@ -23,5 +23,20 @@
     "pattern": "\\bdungeon\\b",
     "category": "Role-Playing",
     "reason": "Dungeon-crawler RPGs and their companion data/common packages (nethack-qt/-common/-console, meritous(-data), lambdahack, gog-darkest-dungeon-* DLC, ...). Verified live: 14 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bdoom\\b",
+    "category": "Action",
+    "reason": "DOOM engine ports/games and their companion data/common/server packages (RBDoom3BFG, prboom-plus, doomsday(-common/-data/-server), doom-shareware, ...). Verified live: 15 matches; deutex (a WAD composer/decomposer tool) and a Minetest mod accepted as minor noise."
+  },
+  {
+    "pattern": "\\bquake\\b",
+    "category": "Action",
+    "reason": "Quake engine ports/games and their companion server/data packages (vkQuake, quake2/3, yamagi-quake2-*, quake3-data, ...). Verified live: 10 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bwolfenstein\\b",
+    "category": "Action",
+    "reason": "Wolfenstein 3D/Return to Castle Wolfenstein ports and their companion common/server packages (rtcw(-common/-server), wolf4sdl-*). Verified live: 8 real matches, zero unrelated collisions."
   }
 ]

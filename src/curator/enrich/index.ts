@@ -490,5 +490,70 @@ export function enrichApps(
   // already-enriched main app (and vice versa) by id.
   applySuites(apps, suiteOverrides);
 
+  applyCompanionInheritance(apps);
+
   return apps;
+}
+
+// Build-variant and companion-package naming conventions, stripped to
+// recover the base app's name: AUR/PPA binary rebuilds (`*-bin`),
+// VCS/checkout build variants (`*-git`/`*-hg`/`*-svn`/`*-bzr`/`*-cvs`/
+// `*-darcs`), AppImage repackages (`*-appimage`), and the
+// companion-suffix conventions from filter/rules.ts's
+// GUI_SECTION_EXCLUDE_PATTERNS (`*-data`/`*-common`/`*-plugins?`/
+// `*-server`/`*-icons?` — 0ad-data next to 0ad, ardour-lv2-plugins next
+// to ardour, bzflag-server next to bzflag). Conservative by construction:
+// exactly ONE suffix is stripped, the remainder must match another
+// app's name EXACTLY (case-insensitively), and only apps that resolved
+// through some real signal serve as bases — the same same-name-same-app
+// assumption the matching engine itself makes across sources
+// (match-deny.json exists for the known collisions).
+const COMPANION_SUFFIXES = [
+  "-data",
+  "-common",
+  "-plugins",
+  "-plugin",
+  "-server",
+  "-icons",
+  "-bin",
+  "-git",
+  "-hg",
+  "-svn",
+  "-bzr",
+  "-cvs",
+  "-darcs",
+  "-appimage",
+];
+
+/**
+ * Fills the last "To Classify" gap that no per-package signal can ever
+ * cover: companion/build-variant packages whose own metadata is silent
+ * (nwchem-data rides section "science" but is excluded from
+ * section-based category assignment by the companion-suffix gate; an
+ * AUR `*-bin`/`*-git` rebuild carries nothing but a name and
+ * description). Each is the same upstream app as its base — so it
+ * inherits the base's category (and contentType when the base is a
+ * game), never guessing one. Verified live against the real pool
+ * (2026-09-03): 633 resolvable apps, every sampled pair a genuine
+ * base/variant of the same project (audacity-plugins -> Audacity,
+ * code-server -> code, bitwarden-server -> Bitwarden, deadbolt-bin ->
+ * DEADBOLT, ...).
+ */
+export function applyCompanionInheritance(apps: CatalogApp[]): void {
+  const classifiedByName = new Map<string, CatalogApp>();
+  for (const app of apps) {
+    if (app.category !== TO_CLASSIFY) classifiedByName.set(app.name.toLowerCase(), app);
+  }
+  for (const app of apps) {
+    if (app.category !== TO_CLASSIFY) continue;
+    const lower = app.name.toLowerCase();
+    const suffix = COMPANION_SUFFIXES.find(
+      (candidate) => lower.endsWith(candidate) && lower.length > candidate.length + 2,
+    );
+    if (!suffix) continue;
+    const base = classifiedByName.get(lower.slice(0, -suffix.length));
+    if (!base) continue;
+    app.category = base.category;
+    if (base.contentType === "game") app.contentType = "game";
+  }
 }

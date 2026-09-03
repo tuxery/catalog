@@ -2038,5 +2038,20 @@
     "pattern": "thunar-*",
     "category": "Utilities",
     "reason": "Thunar (XFCE's file manager)'s own functional context-menu/integration plugin ecosystem (thunar-archive-plugin, thunar-dropbox, thunar-vcs-plugin, thunar-volman, ...) — resolved the same way as the existing switchboard-plug-*/wingpanel-indicator-* entries: a mainstream host app's own functional plugins are categorized under a fitting label rather than excluded as noise (unlike gnome-shell-extension-/kwin-effects-, which are purely cosmetic desktop-shell widgets). Verified live: 26 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "*-binutils",
+    "category": "Developer Tools",
+    "reason": "Cross-compilation binutils toolchains named <target>-binutils (armv7l-binutils, mips64-elf-binutils, i686-linux-gnu-binutils, ...) — same GNU binutils family as this file's existing prefix-shaped \"binutils*\" entry, just with the target name leading instead of trailing. Verified live: 58 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "*-lv2",
+    "category": "Music & Audio",
+    "reason": "Per-plugin LV2 audio-plugin packages named <plugin>-lv2 (airwindows-lv2, neural-amp-modeler-lv2, ratatouille-lv2, ...) — same LV2 plugin-format family as this file's existing prefix-shaped \"lv2-*\" entry, just with the plugin name leading instead of trailing. Verified live: 35 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "*.lv2",
+    "category": "Music & Audio",
+    "reason": "Same per-plugin LV2 audio-plugin family as the \"*-lv2\" entry above, using the dotted naming convention instead (aether.lv2, fatfrog.lv2, ...). Verified live: 15 real matches, zero unrelated collisions."
   }
 ]

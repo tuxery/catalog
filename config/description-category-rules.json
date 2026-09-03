@@ -1843,5 +1843,15 @@
     "pattern": "\\bclap\\b",
     "category": "Music & Audio",
     "reason": "CLAP (CLever Audio Plugin) format tooling and plugins not caught by the *-clap name-suffix pattern (clap-host, nih-plug-git, yabridge-bin, ...) -- checked for the Rust clap CLI-argument-parser crate collision feared earlier this session, but zero such matches actually appear in the remaining To Classify pool. Verified live: 22 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bopenjdk\\b",
+    "category": "Developer Tools",
+    "reason": "OpenJDK distribution packages not caught by the *-openjdk name-suffix pattern (amazon-corretto-*, jre12-openjdk-headless, ...). Verified live: 155 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\boctave\\b",
+    "category": "Science",
+    "reason": "GNU Octave/MATLAB numerical-computing scripts and toolboxes (circstat, ctb-git, fsl-palm, ...). Verified live: 20 real matches, zero unrelated collisions."
   }
 ]

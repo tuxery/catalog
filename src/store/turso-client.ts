@@ -169,6 +169,38 @@ function appsTableSql(tableName: string): string {
   `;
 }
 
+// Every column `app`'s catalog.ts filters or sorts by at request time —
+// without these, SQLite/libSQL has no way to satisfy any of
+// browseApps/getCategories/getTrendingApps/getNewApps/
+// getDownloadTrendingApps/getAppsByCategory except by scanning the ENTIRE
+// `apps` table (168k+ rows) on every single call, since the table
+// otherwise has no index beyond the implicit one on `id`. Real incident,
+// found live 2026-09-03: this exact gap burned through Turso's 500M-row
+// monthly read quota in 3 days across prod+dev — a single homepage load
+// fires ~13 of these queries (getTrendingApps x2, getNewApps,
+// getDownloadTrendingApps, getCategories x2, getAppsByCategory x7), each
+// a full-table scan, so a few dozen page loads a day was enough. Indexed
+// on `apps_next` right after the bulk insert (not per-row during it —
+// building the index once over the finished data is far cheaper than
+// maintaining it across `INSERT_COLUMNS.length` rows one at a time), so
+// the index carries over automatically when `apps_next` is renamed to
+// `apps` below. Composite `(content_type, category)` covers
+// `getCategories`'s `WHERE content_type = ? GROUP BY category` and
+// `browseApps`'s combined content_type+category filter directly; the
+// single-column ones cover every other WHERE/ORDER BY column on its own.
+// Deliberately NOT indexing `packages_json` (the `source` filter's
+// `LIKE '%"source":"..."%'` can't use a b-tree index at all with a
+// leading wildcard) — that filter is scoped to the much lower-traffic
+// `/sources/[id]/` pages, not the homepage hot path that caused this.
+const APPS_INDEXES_SQL = [
+  `CREATE INDEX idx_apps_category ON apps_next(category)`,
+  `CREATE INDEX idx_apps_content_type ON apps_next(content_type)`,
+  `CREATE INDEX idx_apps_content_type_category ON apps_next(content_type, category)`,
+  `CREATE INDEX idx_apps_popularity ON apps_next(popularity)`,
+  `CREATE INDEX idx_apps_last_updated ON apps_next(last_updated)`,
+  `CREATE INDEX idx_apps_installs_last_7_days ON apps_next(installs_last_7_days)`,
+];
+
 function toBoolColumn(value: boolean | undefined): number | null {
   return value === undefined ? null : value ? 1 : 0;
 }
@@ -253,6 +285,15 @@ export function createTursoClient(config: TursoConfig, client?: Client): TursoCl
           })),
           "write",
         );
+      }
+
+      // Built once over the finished table, not per-row during the insert
+      // loop above — see APPS_INDEXES_SQL's comment. Sequential for the
+      // same "don't open parallel connections for no throughput gain"
+      // reason as the insert batches.
+      for (const indexSql of APPS_INDEXES_SQL) {
+        // eslint-disable-next-line no-await-in-loop
+        await db.execute(indexSql);
       }
 
       await db.execute(

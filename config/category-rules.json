@@ -2083,5 +2083,30 @@
     "pattern": "*-vim",
     "category": "Utilities",
     "reason": "Vim syntax-highlighting/completion/config packages named <project>-vim (espeak-ng-vim, mercurial-vim, ocp-indent-vim, ...) — editor tooling, same taxonomy bucket as this file's other TextTools-shaped entries. Verified live: 21 real matches; htop-vim (a Vim-keybinding fork of htop) is a looser fit but still plausibly Utilities rather than a genuinely wrong category."
+  },
+  {
+    "pattern": "*-thumbnailer",
+    "category": "Utilities",
+    "reason": "Freedesktop file-manager thumbnail-generation plugins named <filetype/app>-thumbnailer (dcraw-thumbnailer, evince-thumbnailer, xapp-*-thumbnailer, ...) — viewer-adjacent desktop-integration utilities. Verified live: 37 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "*-wallet",
+    "category": "Finance",
+    "reason": "Cryptocurrency wallet apps named <coin/project>-wallet (sparrow-wallet, feather-wallet, cardano-wallet, ...) — verified live: 34 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "*-backgrounds",
+    "category": "Settings",
+    "reason": "Wallpaper/background packs named <distro-release/project>-backgrounds (Fedora's own per-release f21-backgrounds.../beefy-miracle-backgrounds, vanilla-backgrounds, gradience-backgrounds, ...) — desktop-personalization assets, same Settings bucket as this file's other theme/icon entries. Verified live: 32 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "*-toolchain",
+    "category": "Developer Tools",
+    "reason": "Cross-compilation toolchains named <target>-toolchain (aarch64-none-elf-toolchain, msp430-toolchain, remarkable-toolchain, bootlin.com's own <target>-glibc/musl-bleeding-edge-toolchain family, ...). Verified live: 30 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "*-openjdk",
+    "category": "Developer Tools",
+    "reason": "Arch/AUR's own per-version OpenJDK JRE/JDK packages (jdk17-openjdk, jre-openjdk, jdk8-openjdk, ...). Verified live: 32 real matches, zero unrelated collisions."
   }
 ]

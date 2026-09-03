@@ -45,8 +45,8 @@ describe("createTursoClient", () => {
     expect(swapBatch.some((s) => s.sql.includes("INSERT INTO meta"))).toBe(true);
   });
 
-  it("builds every filter/sort index on apps_next after the insert, before the rename swap", async () => {
-    const { execute, client } = fakeClient(false);
+  it("builds every filter/sort index on apps, after the rename swap has already dropped the old table", async () => {
+    const { execute, batch, client } = fakeClient(false);
     const tursoClient = createTursoClient({ url: "file::memory:" }, client);
 
     await tursoClient.publish({ generatedAt: "2026-01-01T00:00:00.000Z", apps: [APP] });
@@ -74,15 +74,24 @@ describe("createTursoClient", () => {
       ).toBe(true);
     }
 
-    // Every index statement targets apps_next (so it carries over through
-    // the rename), and none run before the table + data exist.
-    const createTableIndex = executedSql.indexOf(
-      executedSql.find((sql) => sql.includes("CREATE TABLE apps_next")) ?? "",
-    );
+    // Every index statement targets the final `apps` table (never
+    // `apps_next`) — building them on apps_next before the swap would
+    // collide with a previous run's same-named indexes still attached to
+    // the live `apps` table, since SQLite index names are global to the
+    // database, not scoped per table (real failure, found live
+    // 2026-09-03: CI's second publish to preview hit exactly this).
     const indexStatements = executedSql.filter((sql) => sql.includes("CREATE INDEX"));
-    expect(indexStatements.every((sql) => sql.includes("apps_next"))).toBe(true);
     expect(indexStatements.length).toBeGreaterThan(0);
-    expect(executedSql.indexOf(indexStatements[0] ?? "")).toBeGreaterThan(createTableIndex);
+    expect(indexStatements.every((sql) => /\bON apps\(/.test(sql))).toBe(true);
+    expect(indexStatements.every((sql) => !sql.includes("apps_next"))).toBe(true);
+
+    // And they run strictly after the batch that does the rename swap +
+    // apps_old drop — using vitest's cross-mock invocationCallOrder
+    // since execute/batch are separate mock functions with independent
+    // call arrays.
+    const swapBatchOrder = batch.mock.invocationCallOrder[1];
+    const firstIndexOrder = execute.mock.invocationCallOrder[executedSql.indexOf(indexStatements[0] ?? "")];
+    expect(firstIndexOrder).toBeGreaterThan(swapBatchOrder ?? 0);
   });
 
   it("renames the existing apps table out of the way before swapping when one already exists", async () => {

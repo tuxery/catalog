@@ -180,11 +180,19 @@ function appsTableSql(tableName: string): string {
 // fires ~13 of these queries (getTrendingApps x2, getNewApps,
 // getDownloadTrendingApps, getCategories x2, getAppsByCategory x7), each
 // a full-table scan, so a few dozen page loads a day was enough. Indexed
-// on `apps_next` right after the bulk insert (not per-row during it —
-// building the index once over the finished data is far cheaper than
-// maintaining it across `INSERT_COLUMNS.length` rows one at a time), so
-// the index carries over automatically when `apps_next` is renamed to
-// `apps` below. Composite `(content_type, category)` covers
+// on the finished `apps` table right after the atomic rename swap below
+// (not per-row during the bulk insert — building an index once over
+// finished data is far cheaper than maintaining it across
+// `INSERT_COLUMNS.length` rows one at a time), and specifically AFTER
+// the swap rather than on `apps_next` before it: index names are global
+// to the whole database in SQLite, not scoped per table, so building
+// them on `apps_next` while the previous run's same-named indexes are
+// still attached to the live `apps` table collides ("index ... already
+// exists") on every publish after the first — real failure, found live
+// 2026-09-03 when CI's second publish to preview hit exactly this.
+// Building them after `apps_old` (carrying the stale names) is dropped
+// in the same swap batch frees the names up first. Composite
+// `(content_type, category)` covers
 // `getCategories`'s `WHERE content_type = ? GROUP BY category` and
 // `browseApps`'s combined content_type+category filter directly; the
 // single-column ones cover every other WHERE/ORDER BY column on its own.
@@ -193,12 +201,12 @@ function appsTableSql(tableName: string): string {
 // leading wildcard) — that filter is scoped to the much lower-traffic
 // `/sources/[id]/` pages, not the homepage hot path that caused this.
 const APPS_INDEXES_SQL = [
-  `CREATE INDEX idx_apps_category ON apps_next(category)`,
-  `CREATE INDEX idx_apps_content_type ON apps_next(content_type)`,
-  `CREATE INDEX idx_apps_content_type_category ON apps_next(content_type, category)`,
-  `CREATE INDEX idx_apps_popularity ON apps_next(popularity)`,
-  `CREATE INDEX idx_apps_last_updated ON apps_next(last_updated)`,
-  `CREATE INDEX idx_apps_installs_last_7_days ON apps_next(installs_last_7_days)`,
+  `CREATE INDEX idx_apps_category ON apps(category)`,
+  `CREATE INDEX idx_apps_content_type ON apps(content_type)`,
+  `CREATE INDEX idx_apps_content_type_category ON apps(content_type, category)`,
+  `CREATE INDEX idx_apps_popularity ON apps(popularity)`,
+  `CREATE INDEX idx_apps_last_updated ON apps(last_updated)`,
+  `CREATE INDEX idx_apps_installs_last_7_days ON apps(installs_last_7_days)`,
   // Composites for getTrendingApps/getNewApps/getDownloadTrendingApps's
   // exact `WHERE <col> IS NOT NULL [AND content_type = ?] ORDER BY <col>
   // DESC` shape — without these, a typeFilter'd trending query resolves
@@ -211,9 +219,9 @@ const APPS_INDEXES_SQL = [
   // repo just got burned once on "good enough" leaving read amplification
   // on the table, so closing the gap all the way rather than leaving it
   // partial.
-  `CREATE INDEX idx_apps_content_type_popularity ON apps_next(content_type, popularity)`,
-  `CREATE INDEX idx_apps_content_type_last_updated ON apps_next(content_type, last_updated)`,
-  `CREATE INDEX idx_apps_content_type_installs_last_7_days ON apps_next(content_type, installs_last_7_days)`,
+  `CREATE INDEX idx_apps_content_type_popularity ON apps(content_type, popularity)`,
+  `CREATE INDEX idx_apps_content_type_last_updated ON apps(content_type, last_updated)`,
+  `CREATE INDEX idx_apps_content_type_installs_last_7_days ON apps(content_type, installs_last_7_days)`,
 ];
 
 function toBoolColumn(value: boolean | undefined): number | null {
@@ -302,15 +310,6 @@ export function createTursoClient(config: TursoConfig, client?: Client): TursoCl
         );
       }
 
-      // Built once over the finished table, not per-row during the insert
-      // loop above — see APPS_INDEXES_SQL's comment. Sequential for the
-      // same "don't open parallel connections for no throughput gain"
-      // reason as the insert batches.
-      for (const indexSql of APPS_INDEXES_SQL) {
-        // eslint-disable-next-line no-await-in-loop
-        await db.execute(indexSql);
-      }
-
       await db.execute(
         `CREATE TABLE IF NOT EXISTS meta (key TEXT PRIMARY KEY, value TEXT NOT NULL)`,
       );
@@ -331,6 +330,21 @@ export function createTursoClient(config: TursoConfig, client?: Client): TursoCl
         ],
         "write",
       );
+
+      // Built once over the finished `apps` table, after the swap above
+      // has already dropped `apps_old` (and with it, any previous run's
+      // same-named indexes) — see APPS_INDEXES_SQL's comment for why
+      // this can't happen before the swap. Sequential for the same
+      // "don't open parallel connections for no throughput gain" reason
+      // as the insert batches. Briefly unindexed between the swap and
+      // this loop finishing (a few seconds for 168k rows), which is a
+      // far smaller cost than either failing outright on every publish
+      // after the first, or dropping the live indexes before the swap
+      // and running unindexed for the whole publish duration instead.
+      for (const indexSql of APPS_INDEXES_SQL) {
+        // eslint-disable-next-line no-await-in-loop
+        await db.execute(indexSql);
+      }
     },
   };
 }

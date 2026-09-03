@@ -136,6 +136,8 @@ export function categoryFromGentooSection(pkg: SourcedPackage): AppCategoryLabel
 // applies). Deliberately excluded: games-emulation (an emulator is a
 // tool to play games, not itself a game with a genre), games-util/
 // games-misc/games-engines/games-server (support tooling, not games).
+// games-puzzle (Anagramarama, GNOME Sudoku, Quadrapassel, ... -> Puzzle)
+// was added later, verified live: 100% real puzzle games.
 const GENTOO_GAME_SECTION_TO_GENRE: Partial<Record<string, GameCategoryLabel>> = {
   "games-arcade": "Arcade",
   "games-action": "Action",
@@ -148,6 +150,7 @@ const GENTOO_GAME_SECTION_TO_GENRE: Partial<Record<string, GameCategoryLabel>> =
   "games-simulation": "Simulation",
   "games-sports": "Sports",
   "games-kids": "Educational",
+  "games-puzzle": "Puzzle",
 };
 
 /** A game genre inferred from a Gentoo package's own `games-*` subcategory — see `GENTOO_GAME_SECTION_TO_GENRE` above for the live-data research behind each mapping. */
@@ -249,4 +252,37 @@ export function categoryFromSolusPartOf(pkg: SourcedPackage): AppCategoryLabel |
   if (pkg.source !== "eopkg-solus") return undefined;
   if (!pkg.section) return undefined;
   return SOLUS_PARTOF_TO_APP_CATEGORY[pkg.section];
+}
+
+// Solus's own `games.*` PartOf subcategories, same genre-prediction
+// reasoning as GENTOO_GAME_SECTION_TO_GENRE above — verified live chasing
+// the apps/games "To Classify" 0% goal (2026-09-03). games.emulator is
+// deliberately excluded entirely (an emulator isn't itself a game, same
+// as Gentoo's games-emulation — see looksLikeGamePackage), and
+// games.platformer too (only 3 total members, one of them a completely
+// unrelated Steam-game backup utility riding the same PartOf value —
+// too small and noisy a sample to trust).
+const SOLUS_GAME_SECTION_TO_GENRE: Partial<Record<string, GameCategoryLabel>> = {
+  "games.action": "Action",
+  "games.arcade": "Arcade",
+  "games.strategy": "Strategy",
+  "games.rpg": "Role-Playing",
+  "games.puzzle": "Puzzle",
+  "games.card": "Board & Cards",
+  "games.learning": "Educational",
+};
+
+// Two exact-name false positives riding an otherwise-clean Solus games.*
+// PartOf value, found live sampling every member before trusting the
+// section: "pacman-git" under games.arcade is the Arch Linux package
+// manager (a "pacman" name collision with the arcade game, not the game
+// itself), and "dfarc" under games.rpg is a front-end/archiver tool for
+// the Dink Smallwood game, not an RPG on its own.
+const SOLUS_GAME_SECTION_NAME_EXCEPTIONS = new Set(["pacman-git", "dfarc"]);
+
+/** A game genre inferred from a Solus package's own `games.*` PartOf subcategory — see `SOLUS_GAME_SECTION_TO_GENRE` above for the live-data research behind each mapping. */
+export function gameGenreFromSolusSection(pkg: SourcedPackage): GameCategoryLabel | undefined {
+  if (pkg.source !== "eopkg-solus" || !pkg.section) return undefined;
+  if (SOLUS_GAME_SECTION_NAME_EXCEPTIONS.has(pkg.name)) return undefined;
+  return SOLUS_GAME_SECTION_TO_GENRE[pkg.section];
 }

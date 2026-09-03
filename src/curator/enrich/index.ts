@@ -20,12 +20,18 @@ import {
   categoryFromOpenSuseGroup,
   categoryFromSolusPartOf,
   gameGenreFromGentooSection,
+  gameGenreFromSolusSection,
 } from "./category-section";
 import {
   loadDescriptionCategoryRules,
   matchDescriptionCategoryRule,
   type DescriptionCategoryRuleEntry,
 } from "./description-category-rules";
+import {
+  loadDescriptionGameCategoryRules,
+  matchDescriptionGameCategoryRule,
+  type DescriptionGameCategoryRuleEntry,
+} from "./description-game-category-rules";
 import { getCompatWarnings, loadCompatWarnings, type CompatWarningEntry } from "./compat-warnings";
 import { applySuites, loadSuiteOverrides, type SuiteOverrideEntry } from "./suite";
 import type { CatalogApp } from "./types";
@@ -134,7 +140,11 @@ function firstDefined<T, R>(items: T[], fn: (item: T) => R | undefined): R | und
  *   predict a `categories-games.json` genre), then `gameCategoryRules`
  *   (see `game-category-rules.ts` — a name-pattern signal hand-curated
  *   from each game's own description, for well-known titles no upstream
- *   source tags with a genre at all).
+ *   source tags with a genre at all), then `descriptionGameCategoryRules`
+ *   (see `description-game-category-rules.ts` — the game-genre mirror of
+ *   `descriptionCategoryRules` below, for games whose description names
+ *   its own genre but whose title isn't well-known enough for a dedicated
+ *   `gameCategoryRules` entry).
  * - For an app, falls back in order to `categoryRules` (see
  *   `category-rules.ts` — a name-pattern signal for well-known product
  *   families no upstream source classifies, e.g. Wine/Proton compatibility
@@ -156,6 +166,7 @@ function pickCategoryLabel(
   categoryRules: CategoryRuleEntry[],
   gameCategoryRules: GameCategoryRuleEntry[],
   descriptionCategoryRules: DescriptionCategoryRuleEntry[],
+  descriptionGameCategoryRules: DescriptionGameCategoryRuleEntry[],
   shortDescription: string,
 ): string {
   const categories = pickField(packages, (pkg) =>
@@ -165,10 +176,15 @@ function pickCategoryLabel(
   if (picked !== TO_CLASSIFY) return picked;
 
   if (isGame) {
-    const sectionGenre = firstDefined(packages, gameGenreFromGentooSection);
+    const sectionGenre = firstDefined(
+      packages,
+      (pkg) => gameGenreFromGentooSection(pkg) ?? gameGenreFromSolusSection(pkg),
+    );
     if (sectionGenre) return sectionGenre;
     const names = packages.map((pkg) => pkg.name);
-    return matchGameCategoryRule(names, gameCategoryRules) ?? TO_CLASSIFY;
+    const nameGenre = matchGameCategoryRule(names, gameCategoryRules);
+    if (nameGenre) return nameGenre;
+    return matchDescriptionGameCategoryRule(shortDescription, descriptionGameCategoryRules) ?? TO_CLASSIFY;
   }
 
   const names = packages.map((pkg) => pkg.name);
@@ -277,6 +293,7 @@ export function enrichApps(
   categoryRules: CategoryRuleEntry[] = loadCategoryRules(),
   gameCategoryRules: GameCategoryRuleEntry[] = loadGameCategoryRules(),
   descriptionCategoryRules: DescriptionCategoryRuleEntry[] = loadDescriptionCategoryRules(),
+  descriptionGameCategoryRules: DescriptionGameCategoryRuleEntry[] = loadDescriptionGameCategoryRules(),
 ): CatalogApp[] {
   const apps: CatalogApp[] = matched.map((app) => {
     const representative = pickByPriority(app.packages);
@@ -299,6 +316,7 @@ export function enrichApps(
         categoryRules,
         gameCategoryRules,
         descriptionCategoryRules,
+        descriptionGameCategoryRules,
         shortDescription,
       ),
       iconUrl: pickField(app.packages, (pkg) => pkg.iconUrl),

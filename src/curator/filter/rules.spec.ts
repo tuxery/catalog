@@ -666,6 +666,12 @@ describe("looksLikeGamePackage", () => {
     expect(looksLikeGamePackage("ebuild-gentoo", "dev-libs", "some-package")).toBe(false);
   });
 
+  it("does not flag Gentoo's games-emulation/games-util/games-server subcategories — tools for games, not games", () => {
+    expect(looksLikeGamePackage("ebuild-gentoo", "games-emulation", "some-package")).toBe(false);
+    expect(looksLikeGamePackage("ebuild-gentoo", "games-util", "some-package")).toBe(false);
+    expect(looksLikeGamePackage("ebuild-gentoo", "games-server", "some-package")).toBe(false);
+  });
+
   it("flags openSUSE's Amusements/Games group prefix", () => {
     expect(looksLikeGamePackage("rpm-opensuse", "Amusements/Games/Strategy/Real Time", "some-package")).toBe(true);
     expect(looksLikeGamePackage("rpm-opensuse", "Amusements/Graphics", "some-package")).toBe(false);
@@ -680,6 +686,10 @@ describe("looksLikeGamePackage", () => {
     expect(looksLikeGamePackage("eopkg-solus", "games", "some-package")).toBe(true);
     expect(looksLikeGamePackage("eopkg-solus", "games.strategy", "some-package")).toBe(true);
     expect(looksLikeGamePackage("eopkg-solus", "programming.library", "some-package")).toBe(false);
+  });
+
+  it("does not flag Solus's games.emulator PartOf value — an emulator isn't itself a game", () => {
+    expect(looksLikeGamePackage("eopkg-solus", "games.emulator", "some-package")).toBe(false);
   });
 
   it("does not apply any distro's games vocabulary to a source it doesn't belong to", () => {

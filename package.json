@@ -16,6 +16,7 @@
     "generate-schemas": "tsx scripts/generate-schemas.ts",
     "seed": "tsx scripts/seed.ts",
     "serve": "tsx scripts/serve.ts",
+    "query-local": "tsx scripts/query-local.ts",
     "reset-caches": "tsx scripts/reset-caches.ts"
   },
   "dependencies": {

@@ -18,6 +18,8 @@ export interface GogCacheEntry {
   screenshots: string[];
   /** See `SourcedPackage.rating` — only set when GOG reports at least one real review; unreviewed products report `reviewsRating: 0, reviewsCount: 0`, dropped rather than kept as a fake zero rating. */
   rating?: { average: number; count: number };
+  /** GOG's own genre tag slugs (e.g. "rpg", "strategy", "pointandclick") — see `normalize.ts`'s GOG_GENRE_SLUG_TO_GENRE_CATEGORY for how these map to a `categories-games.json` genre. */
+  genres: string[];
 }
 
 export interface GogFetchMetadata extends FetchMetadata {

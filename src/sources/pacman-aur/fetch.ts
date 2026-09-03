@@ -10,6 +10,10 @@ interface RawPackage {
   Description?: string | null;
   Version?: string;
   URL?: string | null;
+  /** Packager-submitted free-form tags (e.g. ["game", "wine", "emulator"]) — see `AurCacheEntry.keywords`. */
+  Keywords?: string[] | null;
+  /** SPDX-ish license strings (e.g. ["GPL3"]) — see `AurCacheEntry.license`. */
+  License?: string[] | null;
   Popularity?: number;
 }
 
@@ -57,6 +61,8 @@ export function mapPackages(
       description: pkg.Description ?? "",
       version: pkg.Version ?? "unknown",
       homepage: pkg.URL ?? undefined,
+      keywords: pkg.Keywords?.filter((keyword) => keyword.trim().length > 0),
+      license: pkg.License?.length ? pkg.License.join(" AND ") : undefined,
       popularity: popularityRanks.get(pkg.Name),
     });
   }

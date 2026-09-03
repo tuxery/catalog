@@ -10,6 +10,16 @@ export interface AurCacheEntry {
   description: string;
   version: string;
   homepage?: string;
+  /**
+   * Packager-submitted free-form tags from the dump's `Keywords` field
+   * (e.g. `["game", "wine"]`) — free-form, not a controlled vocabulary,
+   * but packager-authored positive labels for the package's own domain.
+   * Cached verbatim (whitespace-only tags dropped); any interpretation
+   * lives in the curator module, not here.
+   */
+  keywords?: string[];
+  /** SPDX-ish license strings from the dump's `License` field, AND-joined (e.g. "GPL3 AND MIT"). */
+  license?: string;
   /** See `SourcedPackage.popularity`. */
   popularity?: number;
 }

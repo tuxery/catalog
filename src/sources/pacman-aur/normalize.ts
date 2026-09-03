@@ -36,6 +36,8 @@ export function normalize(entries: AurCacheEntry[]): SourcedPackage[] {
       // to an app id.
       appId: entry.name,
       homepage: entry.homepage,
+      keywords: entry.keywords,
+      license: entry.license,
       popularity: entry.popularity,
       channel: channelMatch ? channelMatch[1] : variantMatch ? variantMatch[1] : undefined,
     };

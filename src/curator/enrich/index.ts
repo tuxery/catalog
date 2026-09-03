@@ -7,7 +7,7 @@ import {
   loadAppStoreFrontends,
   type AppStoreFrontendEntry,
 } from "./app-store-frontend";
-import { pickCategory, TO_CLASSIFY } from "./category";
+import { isGameAdjacentToolCategory, pickCategory, TO_CLASSIFY } from "./category";
 import { loadCategoryRules, matchCategoryRule, type CategoryRuleEntry } from "./category-rules";
 import {
   loadGameCategoryRules,
@@ -299,7 +299,11 @@ export function enrichApps(
     const representative = pickByPriority(app.packages);
     const shortDescription = pickDescription(app.packages);
     const warnings = getCompatWarnings(app.packages, compatWarnings);
-    const isGame = app.packages.some(hasGameEvidence);
+    const categories =
+      pickField(app.packages, (pkg) =>
+        pkg.categories && pkg.categories.length > 0 ? pkg.categories : undefined,
+      ) ?? [];
+    const isGame = app.packages.some(hasGameEvidence) && !isGameAdjacentToolCategory(categories);
 
     return {
       id: app.id,

@@ -1,5 +1,11 @@
 import { describe, expect, it } from "vitest";
-import { CategoriesAppsSchema, CategoriesGamesSchema, pickCategory, TO_CLASSIFY } from "./category";
+import {
+  CategoriesAppsSchema,
+  CategoriesGamesSchema,
+  isGameAdjacentToolCategory,
+  pickCategory,
+  TO_CLASSIFY,
+} from "./category";
 
 describe("pickCategory — apps", () => {
   it("maps a single recognized category to its display label", () => {
@@ -77,6 +83,28 @@ describe("pickCategory — games", () => {
     // meaning in the game taxonomy — a game that (unusually) also carries
     // one shouldn't resolve through the wrong map.
     expect(pickCategory(["Game", "Office"], true)).toBe(TO_CLASSIFY);
+  });
+});
+
+describe("isGameAdjacentToolCategory", () => {
+  it("flags a package tagged Game plus a strong tool-category signal", () => {
+    expect(isGameAdjacentToolCategory(["Game", "Emulator"])).toBe(true);
+    expect(isGameAdjacentToolCategory(["Game", "PackageManager"])).toBe(true);
+    expect(isGameAdjacentToolCategory(["Network", "Game", "Utility"])).toBe(true);
+    expect(isGameAdjacentToolCategory(["Game", "GameTool"])).toBe(true);
+  });
+
+  it("does not flag a real game that also carries a genuine game-genre category", () => {
+    expect(isGameAdjacentToolCategory(["Game", "Simulation", "Utility"])).toBe(false);
+  });
+
+  it("does not flag a bare Game tag with no secondary category at all", () => {
+    expect(isGameAdjacentToolCategory(["Game"])).toBe(false);
+  });
+
+  it("does not flag a category not on the tool allowlist (e.g. Graphics/Music/Video can genuinely describe a real game)", () => {
+    expect(isGameAdjacentToolCategory(["Game", "Music"])).toBe(false);
+    expect(isGameAdjacentToolCategory(["Game", "Graphics"])).toBe(false);
   });
 });
 

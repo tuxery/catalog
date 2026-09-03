@@ -103,5 +103,30 @@
     "pattern": "\\b(educational|learning|kids) games?\\b",
     "category": "Educational",
     "reason": "Educational games — same KidsGame reasoning as categories-games.json. Verified live."
+  },
+  {
+    "pattern": "\\bsandbox\\b|\\bsurvival sandbox\\b",
+    "category": "Simulation",
+    "reason": "Sandbox/survival-sandbox games (\"Wilderness survival sandbox game\" — Vintage Story). Only ever reached by packages already flagged as games, where bare \"sandbox\" is unambiguous. Verified live against the games \"To Classify\" pool (2026-09-03)."
+  },
+  {
+    "pattern": "\\bbilliards?\\b|\\bpool (game|hall)\\b",
+    "category": "Sports",
+    "reason": "Billiards/pool games — cue sports, the same family Steam's own taxonomy files under Sports. Verified live (\"Fun 3D billiards game\")."
+  },
+  {
+    "pattern": "\\btic.?tac.?toe\\b|\\bnaughts and crosses\\b",
+    "category": "Board & Cards",
+    "reason": "Standalone Tic-Tac-Toe mentions — unambiguous game titles (\"Play Tic-tac-toe with your friends\"). Verified live."
+  },
+  {
+    "pattern": "\\bsolitaire\\b|\\bminesweeper\\b|\\bsudoku\\b|\\bmahjong\\b",
+    "category": "Puzzle",
+    "reason": "Standalone classic puzzle-game names — unambiguous without a trailing \"game\" word (Klondike solitaire ports, GNOME Sudoku, mahjong solitaire). Verified live."
+  },
+  {
+    "pattern": "\\bchess\\b|\\bcheckers\\b|\\bgo (board|game)\\b|\\bgnugo\\b",
+    "category": "Board & Cards",
+    "reason": "Standalone chess/checkers/go mentions — engines and front-ends for classic board games (Stockfish GUIs, gnugo). Verified live."
   }
 ]

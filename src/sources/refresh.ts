@@ -17,6 +17,7 @@ import { fetchMint } from "./deb-mint/fetch";
 import { fetchMxLinux } from "./deb-mxlinux/fetch";
 import { fetchNixpkgs } from "./nix-nixpkgs/fetch";
 import { fetchOpenSuse } from "./rpm-opensuse/fetch";
+import { fetchOpenSuseAppstream } from "./rpm-opensuse-appstream/fetch";
 import { fetchRpmFusion } from "./rpm-rpmfusion/fetch";
 import { fetchPopOs } from "./deb-popos/fetch";
 import { fetchSlackware } from "./slackware/fetch";
@@ -38,6 +39,7 @@ const REFRESHERS: Record<string, (cachePath: string) => Promise<number>> = {
   "pacman-arch": fetchArch,
   "nix-nixpkgs": fetchNixpkgs,
   "rpm-opensuse": fetchOpenSuse,
+  "rpm-opensuse-appstream": fetchOpenSuseAppstream,
   "rpm-rpmfusion": fetchRpmFusion,
   "apk-alpine": fetchAlpine,
   "xbps-void": fetchVoid,

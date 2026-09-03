@@ -51,7 +51,12 @@ import type { CatalogApp } from "./types";
  * least (terse descriptions, packager-style names). Sources not listed
  * here fall back to array order.
  */
-const SOURCE_PRIORITY: PackageSourceId[] = ["flatpak-flathub", "snap-snapcraft", "appimage"];
+const SOURCE_PRIORITY: PackageSourceId[] = [
+  "flatpak-flathub",
+  "snap-snapcraft",
+  "appimage",
+  "rpm-opensuse-appstream",
+];
 
 function pickByPriority(packages: SourcedPackage[]): SourcedPackage {
   for (const source of SOURCE_PRIORITY) {

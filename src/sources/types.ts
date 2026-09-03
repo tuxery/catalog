@@ -24,6 +24,7 @@ export type PackageSourceId =
   | "pacman-arch"
   | "nix-nixpkgs"
   | "rpm-opensuse"
+  | "rpm-opensuse-appstream"
   | "rpm-rpmfusion"
   | "apk-alpine"
   | "xbps-void"

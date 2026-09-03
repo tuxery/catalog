@@ -1778,5 +1778,25 @@
     "pattern": "^(?!.*\\b(?:vst3?|lv2|clap)\\b).*\\bemulat",
     "category": "System Tools",
     "reason": "Console/computer/CPU emulators (bsnes-hd, vita3k-bin, mupen64-rr-lua-bin, ...) \u2014 surfaced fixing looksLikeGamePackage's over-broad games-emulation/games.emulator carve-out, which had been permanently stranding every one of these in a genre-less \"game\" bucket. The negative lookahead excludes chip/circuit emulators packaged as VST/VST3/LV2/CLAP audio plugins (a-sid, sid-git, sn76489-vst-git, ...), which are Music & Audio, not System Tools. Verified live: 578 real matches after the exclusion, zero remaining unrelated collisions."
+  },
+  {
+    "pattern": "\\bminecraft\\b.*\\blaunch|\\blaunch\\w*\\b.*\\bminecraft\\b",
+    "category": "System Tools",
+    "reason": "Minecraft launcher utilities (hmcl-dev-bin, polymc-qt5, xmcl-launcher, ...) -- management tools for a game, not games themselves, same reasoning as this file's emulator entry. Verified live: 103 real matches, zero unrelated collisions (checked against bare \"minecraft\" first, which was rejected -- that word alone also catches genuine Minecraft-inspired games/clones like freeminer and craft-git, and even a font, minecraftia)."
+  },
+  {
+    "pattern": "\\bgame launcher\\b",
+    "category": "System Tools",
+    "reason": "General (non-Minecraft-specific) game launcher/library-manager utilities (forager, opengamepadui-bin, paradox-launcher, ...). Verified live: 24 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bmod (launcher|manager)\\b",
+    "category": "System Tools",
+    "reason": "Mod-management utilities for a specific game (DokiDokiModManager, celemod for Celeste, deadlock-modmanager, ...) -- same \"tool for a game, not a game\" reasoning as the emulator/Minecraft-launcher entries. Verified live: 68 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bmodpack\\b",
+    "category": "System Tools",
+    "reason": "Modpack installer/management tools, mostly Minecraft (ftb-app, packrinth, pakku-mc, ...). Verified live: 17 real matches, zero unrelated collisions."
   }
 ]

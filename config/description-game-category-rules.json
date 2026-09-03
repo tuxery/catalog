@@ -1,1 +1,27 @@
-[]
+[
+  {
+    "pattern": "\\btetris\\b",
+    "category": "Puzzle",
+    "reason": "Tetris clones/variants (ctris, ghextris, petris, tetrinet-client/server, ...). Verified live: 10 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bpuzzle\\b",
+    "category": "Puzzle",
+    "reason": "Puzzle games (Spiderbro 2, minetest-alter, minetest-box-world-3d, ...). Verified live: 5 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bshooter\\b",
+    "category": "Action",
+    "reason": "Shooter games and their companion data/server/client packages (Dave Gnukem, gunroar(-data), xonotic-server, teeworlds-data, ...). Verified live: 15 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bstrategy\\b",
+    "category": "Strategy",
+    "reason": "Strategy games (Turns Of War, triplea, curseofwar-common, ...). Verified live: 5 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bdungeon\\b",
+    "category": "Role-Playing",
+    "reason": "Dungeon-crawler RPGs and their companion data/common packages (nethack-qt/-common/-console, meritous(-data), lambdahack, gog-darkest-dungeon-* DLC, ...). Verified live: 14 real matches, zero unrelated collisions."
+  }
+]

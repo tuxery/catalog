@@ -16,10 +16,7 @@
             "description": "SourcedPackage.appId on that source."
           }
         },
-        "required": [
-          "source",
-          "appId"
-        ],
+        "required": ["source", "appId"],
         "additionalProperties": false
       },
       "b": {
@@ -34,10 +31,7 @@
             "description": "SourcedPackage.appId on that source."
           }
         },
-        "required": [
-          "source",
-          "appId"
-        ],
+        "required": ["source", "appId"],
         "additionalProperties": false
       },
       "reason": {
@@ -45,11 +39,7 @@
         "description": "Why these look like the same app but genuinely aren't — required so the exception is auditable later, not just an unexplained pair."
       }
     },
-    "required": [
-      "a",
-      "b",
-      "reason"
-    ],
+    "required": ["a", "b", "reason"],
     "additionalProperties": false
   },
   "title": "Match: deny-merge list",

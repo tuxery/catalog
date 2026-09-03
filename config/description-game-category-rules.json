@@ -38,5 +38,70 @@
     "pattern": "\\bwolfenstein\\b",
     "category": "Action",
     "reason": "Wolfenstein 3D/Return to Castle Wolfenstein ports and their companion common/server packages (rtcw(-common/-server), wolf4sdl-*). Verified live: 8 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\b(platform|platformer|fighting|horror|zombie) game\\b",
+    "category": "Action",
+    "reason": "Genre-word-in-apposition self-descriptions (\"2D platformer game\"). Verified live against the apps/games \"To Classify\" pools (2026-09-03)."
+  },
+  {
+    "pattern": "\\b(roguelike|rogue-like|rpg) game\\b",
+    "category": "Role-Playing",
+    "reason": "Genre-word-in-apposition self-descriptions (\"a 2D RPG shooter game\" also resolves here when the broader shooter rule misses it first). Verified live."
+  },
+  {
+    "pattern": "\\b(simulator|simulation|simulator game|sim game|tycoon|farm|city.?building) games?\\b",
+    "category": "Simulation",
+    "reason": "Genre-word-in-apposition self-descriptions (\"A fun supermarket simulator game\", \"Classic online F1 manager game\"). Verified live."
+  },
+  {
+    "pattern": "\\b(manager) games?\\b",
+    "category": "Simulation",
+    "reason": "Management games (\"Classic online F1 manager game — Manage your racing team...\") — management sims in every real store's taxonomy. Verified live."
+  },
+  {
+    "pattern": "\\b(racing) games?\\b",
+    "category": "Sports",
+    "reason": "Racing games map to Sports, the closest genre in the games taxonomy (no dedicated Racing label; same family in Steam's own taxonomy). Verified live."
+  },
+  {
+    "pattern": "\\b(sports|football|soccer|basketball|golf|tennis) games?\\b",
+    "category": "Sports",
+    "reason": "Sports games. Verified live."
+  },
+  {
+    "pattern": "\\b(tower.?defense|strategy) games?\\b",
+    "category": "Strategy",
+    "reason": "Strategy/tower-defense games. Verified live."
+  },
+  {
+    "pattern": "\\b(sudoku|minesweeper|solitaire|mahjong|match-3|word|trivia|quiz|memory|logic|blocks|brick) games?\\b",
+    "category": "Puzzle",
+    "reason": "Puzzle-family genre words in apposition (\"a simple tetris game\" hits the existing \\btetris\\b rule first; these extend the same family). Verified live."
+  },
+  {
+    "pattern": "\\b(snake|pong|arcade|breakout|clicker|idle|pinball) games?\\b",
+    "category": "Arcade",
+    "reason": "Arcade-family genre words in apposition (\"a simple snake game written with C++\"). Verified live."
+  },
+  {
+    "pattern": "\\b(chess|checkers|card|board|dice|poker|blackjack|domino|yahtzee|casino|tic.?tac.?toe) games?\\b",
+    "category": "Board & Cards",
+    "reason": "Board/card-game genre words in apposition (\"A PyQt-based Tic Tac Toe game\", \"Fan port of card game, Exploding Kittens\"). Verified live."
+  },
+  {
+    "pattern": "\\b(party|family) games?\\b",
+    "category": "Board & Cards",
+    "reason": "Social/party games (\"A party game where your friends describe and you guess\") — closest genre to pass-the-controller social games. Verified live."
+  },
+  {
+    "pattern": "\\badventure games?\\b",
+    "category": "Adventure",
+    "reason": "Adventure games. Verified live."
+  },
+  {
+    "pattern": "\\b(educational|learning|kids) games?\\b",
+    "category": "Educational",
+    "reason": "Educational games — same KidsGame reasoning as categories-games.json. Verified live."
   }
 ]

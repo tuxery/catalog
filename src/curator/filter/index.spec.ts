@@ -82,7 +82,11 @@ describe("filterPackages", () => {
 
   it("keep overrides win over the description signal too", () => {
     const packages = [
-      pkg({ source: "deb-debian", name: "pyparsing", description: "Python library for creating PEG parsers" }),
+      pkg({
+        source: "deb-debian",
+        name: "pyparsing",
+        description: "Python library for creating PEG parsers",
+      }),
     ];
     const overrides = {
       keep: new Set(["deb-debian:pyparsing"]),

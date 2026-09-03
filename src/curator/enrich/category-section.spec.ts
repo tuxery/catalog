@@ -176,46 +176,72 @@ describe("categoryFromGentooSection", () => {
 
   it("resolves the rest of Portage's taxonomy by family prefix (second wave)", () => {
     expect(
-      categoryFromGentooSection(pkg({ source: "ebuild-gentoo", name: "pygments", section: "dev-python" })),
+      categoryFromGentooSection(
+        pkg({ source: "ebuild-gentoo", name: "pygments", section: "dev-python" }),
+      ),
     ).toBe("Developer Tools");
     expect(
-      categoryFromGentooSection(pkg({ source: "ebuild-gentoo", name: "dmidecode", section: "sys-apps" })),
+      categoryFromGentooSection(
+        pkg({ source: "ebuild-gentoo", name: "dmidecode", section: "sys-apps" }),
+      ),
     ).toBe("System Tools");
     expect(
-      categoryFromGentooSection(pkg({ source: "ebuild-gentoo", name: "mosh", section: "net-misc" })),
+      categoryFromGentooSection(
+        pkg({ source: "ebuild-gentoo", name: "mosh", section: "net-misc" }),
+      ),
     ).toBe("Internet & Communication");
     expect(
-      categoryFromGentooSection(pkg({ source: "ebuild-gentoo", name: "qutebrowser", section: "www-client" })),
+      categoryFromGentooSection(
+        pkg({ source: "ebuild-gentoo", name: "qutebrowser", section: "www-client" }),
+      ),
     ).toBe("Internet & Communication");
     expect(
-      categoryFromGentooSection(pkg({ source: "ebuild-gentoo", name: "atuin", section: "app-shells" })),
+      categoryFromGentooSection(
+        pkg({ source: "ebuild-gentoo", name: "atuin", section: "app-shells" }),
+      ),
     ).toBe("System Tools");
     expect(
-      categoryFromGentooSection(pkg({ source: "ebuild-gentoo", name: "mosquitto", section: "app-misc" })),
+      categoryFromGentooSection(
+        pkg({ source: "ebuild-gentoo", name: "mosquitto", section: "app-misc" }),
+      ),
     ).toBe("Utilities");
     expect(
-      categoryFromGentooSection(pkg({ source: "ebuild-gentoo", name: "bin2iso", section: "app-cdr" })),
+      categoryFromGentooSection(
+        pkg({ source: "ebuild-gentoo", name: "bin2iso", section: "app-cdr" }),
+      ),
     ).toBe("Photo & Video");
     expect(
-      categoryFromGentooSection(pkg({ source: "ebuild-gentoo", name: "calcurse", section: "app-office" })),
+      categoryFromGentooSection(
+        pkg({ source: "ebuild-gentoo", name: "calcurse", section: "app-office" }),
+      ),
     ).toBe("Productivity");
     expect(
-      categoryFromGentooSection(pkg({ source: "ebuild-gentoo", name: "eureka", section: "games-util" })),
+      categoryFromGentooSection(
+        pkg({ source: "ebuild-gentoo", name: "eureka", section: "games-util" }),
+      ),
     ).toBe("System Tools");
     expect(
-      categoryFromGentooSection(pkg({ source: "ebuild-gentoo", name: "kalk", section: "kde-apps" })),
+      categoryFromGentooSection(
+        pkg({ source: "ebuild-gentoo", name: "kalk", section: "kde-apps" }),
+      ),
     ).toBe("Settings");
     expect(
-      categoryFromGentooSection(pkg({ source: "ebuild-gentoo", name: "dosbox", section: "games-emulation" })),
+      categoryFromGentooSection(
+        pkg({ source: "ebuild-gentoo", name: "dosbox", section: "games-emulation" }),
+      ),
     ).toBe("System Tools");
   });
 
   it("keeps the dev-gap/dev-tex exceptions over the dev- prefix", () => {
     expect(
-      categoryFromGentooSection(pkg({ source: "ebuild-gentoo", name: "grape", section: "dev-gap" })),
+      categoryFromGentooSection(
+        pkg({ source: "ebuild-gentoo", name: "grape", section: "dev-gap" }),
+      ),
     ).toBe("Science");
     expect(
-      categoryFromGentooSection(pkg({ source: "ebuild-gentoo", name: "latex2rtf", section: "dev-tex" })),
+      categoryFromGentooSection(
+        pkg({ source: "ebuild-gentoo", name: "latex2rtf", section: "dev-tex" }),
+      ),
     ).toBe("Productivity");
   });
 
@@ -303,10 +329,14 @@ describe("gameGenreFromSolusSection", () => {
       ),
     ).toBe("Strategy");
     expect(
-      gameGenreFromSolusSection(pkg({ source: "eopkg-solus", name: "brogue", section: "games.rpg" })),
+      gameGenreFromSolusSection(
+        pkg({ source: "eopkg-solus", name: "brogue", section: "games.rpg" }),
+      ),
     ).toBe("Role-Playing");
     expect(
-      gameGenreFromSolusSection(pkg({ source: "eopkg-solus", name: "galois", section: "games.puzzle" })),
+      gameGenreFromSolusSection(
+        pkg({ source: "eopkg-solus", name: "galois", section: "games.puzzle" }),
+      ),
     ).toBe("Puzzle");
     expect(
       gameGenreFromSolusSection(
@@ -330,10 +360,14 @@ describe("gameGenreFromSolusSection", () => {
 
   it("returns undefined for the two known name exceptions riding an otherwise-clean section", () => {
     expect(
-      gameGenreFromSolusSection(pkg({ source: "eopkg-solus", name: "pacman-git", section: "games.arcade" })),
+      gameGenreFromSolusSection(
+        pkg({ source: "eopkg-solus", name: "pacman-git", section: "games.arcade" }),
+      ),
     ).toBeUndefined();
     expect(
-      gameGenreFromSolusSection(pkg({ source: "eopkg-solus", name: "dfarc", section: "games.rpg" })),
+      gameGenreFromSolusSection(
+        pkg({ source: "eopkg-solus", name: "dfarc", section: "games.rpg" }),
+      ),
     ).toBeUndefined();
   });
 
@@ -347,7 +381,9 @@ describe("gameGenreFromSolusSection", () => {
 
   it("returns undefined for an absent section", () => {
     expect(
-      gameGenreFromSolusSection(pkg({ source: "eopkg-solus", name: "example", section: undefined })),
+      gameGenreFromSolusSection(
+        pkg({ source: "eopkg-solus", name: "example", section: undefined }),
+      ),
     ).toBeUndefined();
   });
 });
@@ -481,7 +517,11 @@ describe("categoryFromOpenSuseGroup", () => {
     ).toBeUndefined();
     expect(
       categoryFromOpenSuseGroup(
-        pkg({ source: "rpm-opensuse", name: "dvdisaster", section: "Productivity/Multimedia/Other" }),
+        pkg({
+          source: "rpm-opensuse",
+          name: "dvdisaster",
+          section: "Productivity/Multimedia/Other",
+        }),
       ),
     ).toBeUndefined();
   });
@@ -500,10 +540,14 @@ describe("categoryFromSolusPartOf", () => {
       ),
     ).toBe("Photo & Video");
     expect(
-      categoryFromSolusPartOf(pkg({ source: "eopkg-solus", name: "yosys", section: "office.scientific" })),
+      categoryFromSolusPartOf(
+        pkg({ source: "eopkg-solus", name: "yosys", section: "office.scientific" }),
+      ),
     ).toBe("Science");
     expect(
-      categoryFromSolusPartOf(pkg({ source: "eopkg-solus", name: "usbguard", section: "security" })),
+      categoryFromSolusPartOf(
+        pkg({ source: "eopkg-solus", name: "usbguard", section: "security" }),
+      ),
     ).toBe("Security");
   });
 
@@ -529,7 +573,9 @@ describe("categoryFromSolusPartOf", () => {
 describe("categoryFromSlackwareSeries", () => {
   it("maps Slackware's package series to their app-taxonomy category", () => {
     expect(
-      categoryFromSlackwareSeries(pkg({ source: "slackware", name: "bcachefs-tools", section: "a" })),
+      categoryFromSlackwareSeries(
+        pkg({ source: "slackware", name: "bcachefs-tools", section: "a" }),
+      ),
     ).toBe("System Tools");
     expect(
       categoryFromSlackwareSeries(pkg({ source: "slackware", name: "ghostscript", section: "ap" })),
@@ -577,7 +623,9 @@ describe("categoryFromSlackwareSeries", () => {
 
   it("returns undefined for an absent section", () => {
     expect(
-      categoryFromSlackwareSeries(pkg({ source: "slackware", name: "example", section: undefined })),
+      categoryFromSlackwareSeries(
+        pkg({ source: "slackware", name: "example", section: undefined }),
+      ),
     ).toBeUndefined();
   });
 });
@@ -591,19 +639,29 @@ describe("categoryFromNixScope", () => {
       categoryFromNixScope(pkg({ source: "nix-nixpkgs", name: "wordnet", section: "nltk-data" })),
     ).toBe("Science");
     expect(
-      categoryFromNixScope(pkg({ source: "nix-nixpkgs", name: "mathcomp-algebra", section: "coqPackages" })),
+      categoryFromNixScope(
+        pkg({ source: "nix-nixpkgs", name: "mathcomp-algebra", section: "coqPackages" }),
+      ),
     ).toBe("Science");
     expect(
-      categoryFromNixScope(pkg({ source: "nix-nixpkgs", name: "symbolic", section: "octavePackages" })),
+      categoryFromNixScope(
+        pkg({ source: "nix-nixpkgs", name: "symbolic", section: "octavePackages" }),
+      ),
     ).toBe("Science");
     expect(
-      categoryFromNixScope(pkg({ source: "nix-nixpkgs", name: "MapleMono-CN", section: "maple-mono" })),
+      categoryFromNixScope(
+        pkg({ source: "nix-nixpkgs", name: "MapleMono-CN", section: "maple-mono" }),
+      ),
     ).toBe("Graphics & Design");
     expect(
-      categoryFromNixScope(pkg({ source: "nix-nixpkgs", name: "skk-jisyo-edict", section: "skkDictionaries" })),
+      categoryFromNixScope(
+        pkg({ source: "nix-nixpkgs", name: "skk-jisyo-edict", section: "skkDictionaries" }),
+      ),
     ).toBe("Books & Reference");
     expect(
-      categoryFromNixScope(pkg({ source: "nix-nixpkgs", name: "webtorrent-mpv-hook", section: "mpvScripts" })),
+      categoryFromNixScope(
+        pkg({ source: "nix-nixpkgs", name: "webtorrent-mpv-hook", section: "mpvScripts" }),
+      ),
     ).toBe("Photo & Video");
     expect(
       categoryFromNixScope(pkg({ source: "nix-nixpkgs", name: "autofs", section: "freebsd" })),
@@ -613,11 +671,17 @@ describe("categoryFromNixScope", () => {
     ).toBe("Internet & Communication");
     expect(
       categoryFromNixScope(
-        pkg({ source: "nix-nixpkgs", name: "toreamun/amshan", section: "home-assistant-custom-components" }),
+        pkg({
+          source: "nix-nixpkgs",
+          name: "toreamun/amshan",
+          section: "home-assistant-custom-components",
+        }),
       ),
     ).toBe("System Tools");
     expect(
-      categoryFromNixScope(pkg({ source: "nix-nixpkgs", name: "fennel", section: "luajitPackages" })),
+      categoryFromNixScope(
+        pkg({ source: "nix-nixpkgs", name: "fennel", section: "luajitPackages" }),
+      ),
     ).toBe("Developer Tools");
     expect(
       categoryFromNixScope(pkg({ source: "nix-nixpkgs", name: "lld", section: "llvmPackages_20" })),
@@ -626,7 +690,9 @@ describe("categoryFromNixScope", () => {
 
   it("returns undefined for scopes with no coherent category (openraPackages, odd one-offs)", () => {
     expect(
-      categoryFromNixScope(pkg({ source: "nix-nixpkgs", name: "openra-td", section: "openraPackages_2019" })),
+      categoryFromNixScope(
+        pkg({ source: "nix-nixpkgs", name: "openra-td", section: "openraPackages_2019" }),
+      ),
     ).toBeUndefined();
     expect(
       categoryFromNixScope(pkg({ source: "nix-nixpkgs", name: "example", section: "bat-extras" })),

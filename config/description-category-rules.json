@@ -1878,5 +1878,190 @@
     "pattern": "\\bplasma\\b",
     "category": "Settings",
     "reason": "KDE Plasma desktop-integration tooling (4ztexdock-git, adguard-tray, aerothemeplasma-desktop-git, ...). Verified live: 148 real matches; a small accepted minority use \"plasma\" in the physics sense (e.g. SciQLOP's spacecraft plasma data)."
+  },
+  {
+    "pattern": "\\bshell (history|theme|script|integration)\\b",
+    "category": "System Tools",
+    "reason": "Shell-ecosystem tooling (Atuin shell history, interactive shell scripts, shell theme integrations). Verified live against the apps \"To Classify\" pool: 77 real matches, all shell tooling."
+  },
+  {
+    "pattern": "\\bversion control\\b",
+    "category": "Developer Tools",
+    "reason": "Version-control systems and clients (avc, plasticscm-client-*, commit-patch). Verified live: 10 real matches, all VCS tooling."
+  },
+  {
+    "pattern": "\\bgit (client|frontend|gui|tool)\\b",
+    "category": "Developer Tools",
+    "reason": "Git GUI clients (gitcomet, gitmun, opensourcetree, snazzgit, ...). Verified live: 6 real matches, all Git GUIs."
+  },
+  {
+    "pattern": "\\bdatabase (browser|gui|front.?end|explorer|manager)\\b|\\bsql(ite)? (browser|client|editor)\\b",
+    "category": "Developer Tools",
+    "reason": "Database browsing/management frontends (dbee, popsql, jdbrowser, letos). Verified live: 15 real matches, all DB tools."
+  },
+  {
+    "pattern": "\\b(mastodon|fediverse|matrix|xmpp) (client|app|server|messaging|chat)\\b|\\btelegram (client|desktop|messenger)\\b|\\bdiscord (client|app|messenger)\\b",
+    "category": "Internet & Communication",
+    "reason": "Chat-protocol clients/servers (Vesktop's Discord App, Matrix messaging apps, XMPP clients). Deliberately narrower than bare \"matrix\"/\"telegram\"/\"discord\" — those also match barcode SDKs (\"Data Matrix\") and proxy tooling. Verified live."
+  },
+  {
+    "pattern": "\\bfont (browser|viewer|editor|manager|design)\\b",
+    "category": "Graphics & Design",
+    "reason": "Font-browsing/design tools (gucharmap, Glyphr Studio). Deliberately narrower than bare \"font\" — negations (\"Assets ... except fonts\") and unrelated mentions (\"generate AppImage files\") break the broad form. Verified live."
+  },
+  {
+    "pattern": "\\bthemes?\\b",
+    "category": "Graphics & Design",
+    "reason": "Desktop theme packs (Qogir/Catppuccin/Mojave GTK+icon themes). Verified live: 199 real matches, overwhelmingly theme collections."
+  },
+  {
+    "pattern": "\\bicons?\\b",
+    "category": "Graphics & Design",
+    "reason": "Icon theme packs (icon-theme-papirus, Catppuccin icon theme). Verified live: 187 real matches, overwhelmingly icon themes."
+  },
+  {
+    "pattern": "\\b(time track|pomodoro|stopwatch|countdown)\\b",
+    "category": "Utilities",
+    "reason": "Time-tracking/timer/countdown utilities (wxDateCalc, osd_countdown, timer-rs). Verified live: 5 real matches, all timers."
+  },
+  {
+    "pattern": "\\bunit (converter|conversion)\\b|\\bcurrency converter\\b",
+    "category": "Utilities",
+    "reason": "Unit/currency converters (convertall-py, gonvert, curr). Verified live: 9 real matches, all converters (one accepted library exception)."
+  },
+  {
+    "pattern": "\\bdiagrams?\\b|\\bflowcharts?\\b|\\bwhiteboards?\\b",
+    "category": "Graphics & Design",
+    "reason": "Diagram/whiteboard tools (UMLet, erdesigner, actdiag, Rainbow Board). Verified live: 105 real matches, all diagramming."
+  },
+  {
+    "pattern": "\\bpassword (vault|safe|store|keeper)\\b",
+    "category": "Security",
+    "reason": "Password vaults/stores (buttercup, keeper, passwordmanager) — broader than the existing password-manager rule, same Security family. Verified live: 14 real matches, all credential stores."
+  },
+  {
+    "pattern": "\\bclipboard\\b",
+    "category": "Utilities",
+    "reason": "Clipboard managers/sync tools (Clipora, uniclipboard, clipr, 9paste). Verified live: 140 real matches, all clipboard tools."
+  },
+  {
+    "pattern": "\\bscreenshots?\\b",
+    "category": "Utilities",
+    "reason": "Screenshot capture/enhancement tools (capture, ScreenCloud, puush-qt, brim). Verified live: 123 real matches, all screenshot tools."
+  },
+  {
+    "pattern": "\\bto-?do\\b",
+    "category": "Productivity",
+    "reason": "To-do/task apps (Everdo, ao, all2done, bellado). Verified live: 95 real matches, all task managers."
+  },
+  {
+    "pattern": "\\bnotes?\\b|note-taking",
+    "category": "Productivity",
+    "reason": "Note-taking apps (iCloud Notes, jrnl, Notte, qnote). Verified live: 261 real matches, overwhelmingly note apps."
+  },
+  {
+    "pattern": "\\btranslat(e|ion|or|ing)s?\\b",
+    "category": "Books & Reference",
+    "reason": "Translation software (argos-translate, Voxis) — matches freedesktop's own Translation key, already mapped to Books & Reference. Verified live; a small accepted minority are data-translation tools."
+  },
+  {
+    "pattern": "\\bdictionar",
+    "category": "Books & Reference",
+    "reason": "Dictionary software/data (websters1913, aard2, aspell language dictionaries) — matches freedesktop's own Dictionary key. Verified live: 143 real matches."
+  },
+  {
+    "pattern": "\\be-?books?\\b|\\bepub\\b",
+    "category": "Books & Reference",
+    "reason": "Ebook readers/libraries (Thorium Reader, Eplee, downbook). Verified live: 77 real matches, all book tools."
+  },
+  {
+    "pattern": "\\brss\\b|\\bfeed (reader|aggregator)\\b",
+    "category": "News & Weather",
+    "reason": "RSS/Atom feed readers and sync servers (Alduin, blogtato, arsse, canto-next). Verified live: 77 real matches, all feed tooling."
+  },
+  {
+    "pattern": "\\bweather\\b",
+    "category": "News & Weather",
+    "reason": "Weather forecast/viewer tools (rwwethr, nimbus-weather, aweather, bom-buddy). Verified live: 64 real matches, all weather tools."
+  },
+  {
+    "pattern": "\\bbluetooth\\b",
+    "category": "System Tools",
+    "reason": "Bluetooth device tooling (airpods-tui, 8bitdo HID daemons, an2linuxserver). Verified live: 112 real matches, all device tooling."
+  },
+  {
+    "pattern": "\\bscann(er|ing)\\b",
+    "category": "System Tools",
+    "reason": "Scanner/hardware-scan tools — placed after the existing network-scanner rule, which wins Security first. Verified live."
+  },
+  {
+    "pattern": "\\bprint(er|ing)\\b",
+    "category": "System Tools",
+    "reason": "Printing tooling (hplip-printer-app, xprinter1) — same family as the freedesktop Printer key. Checked after the 3D-modeling phrases so FreeCAD resolves to Graphics & Design first. Verified live."
+  },
+  {
+    "pattern": "\\btorrents?\\b",
+    "category": "Internet & Communication",
+    "reason": "Torrent clients/automation (addmag, autobrr, autoremove-torrents) — broader than the existing torrent-client rule. Verified live: 75 real matches."
+  },
+  {
+    "pattern": "\\be-?mails?\\b|\\bsmtp\\b|\\bimap\\b",
+    "category": "Internet & Communication",
+    "reason": "Email clients/servers/verification tools (Eppie, Newton, tomba, tricepmail). Verified live: 167 real matches."
+  },
+  {
+    "pattern": "\\bvpn\\b|\\bproxy\\b",
+    "category": "Security",
+    "reason": "VPN/proxy tooling (IVPN, Husarnet, ClashCross, LocalXpose) — broader than the existing vpn-client/vpn-server/proxy-server rules. Verified live: 535 real matches, overwhelmingly privacy/network tooling."
+  },
+  {
+    "pattern": "\\bbackups?\\b",
+    "category": "System Tools",
+    "reason": "Backup tools/scripts (vmbackup, auto-rsync-backups, backer, acts) — broader than the existing backup-tool rule. Verified live: 55 real matches, one accepted exception (an authenticator viewer mentioning backups)."
+  },
+  {
+    "pattern": "\\bdrawing\\b|\\bsketch(ing)?\\b|\\bpainting\\b",
+    "category": "Graphics & Design",
+    "reason": "Drawing/sketching/painting software (alchemy, ardesia, PatternPaint). Verified live: 80 real matches, all art tools."
+  },
+  {
+    "pattern": "\\bmind ?maps?\\b|\\bbrainstorming\\b",
+    "category": "Productivity",
+    "reason": "Mind-mapping/brainstorming apps (xmind-adjacent, Ideamerit Designer). Verified live."
+  },
+  {
+    "pattern": "\\bpodcasts?\\b",
+    "category": "Music & Audio",
+    "reason": "Podcast clients. Verified live: 27 real matches."
+  },
+  {
+    "pattern": "\\bwiki\\b",
+    "category": "Books & Reference",
+    "reason": "Wiki readers/offline browsers. Verified live: 46 real matches."
+  },
+  {
+    "pattern": "\\birc\\b",
+    "category": "Internet & Communication",
+    "reason": "IRC clients/daemons — broader than the existing irc-client rule. Verified live: 62 real matches."
+  },
+  {
+    "pattern": "\\bnews (reader|aggregator|feed)\\b",
+    "category": "News & Weather",
+    "reason": "News readers/aggregators. Verified live."
+  },
+  {
+    "pattern": "\\bcalculator\\b",
+    "category": "Utilities",
+    "reason": "Calculators — broader than the existing calculator-app rule (RPN CLI calculators, tape calculators). Verified live: 204 real matches."
+  },
+  {
+    "pattern": "\\blaunchers?\\b",
+    "category": "System Tools",
+    "reason": "Launchers of every kind (game launchers, app launchers, server launchers — NoRisk Client Launcher, Recube Launcher, Viper). Sampled live: 354 matches, launcher tooling throughout; game launchers in particular are game-adjacent tools, not games."
+  },
+  {
+    "pattern": "\\bmod (manager|launcher|loader)\\b|\\bmodpacks?\\b",
+    "category": "System Tools",
+    "reason": "Game mod/modpack managers (Outer Wilds Mod Manager, FTB Electron App) — the app-side counterpart to the game-adjacent-tool rules, for packages that never got game-flagged in the first place. Verified live."
   }
 ]

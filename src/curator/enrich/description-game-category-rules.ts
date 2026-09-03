@@ -12,7 +12,7 @@ const DescriptionGameCategoryRuleEntrySchema = z.object({
   pattern: z
     .string()
     .describe(
-      'A JavaScript regular expression source string, matched case-insensitively against the game\'s own `shortDescription` (never `longDescription`, same reasoning as description-category-rules.ts). Always a multi-word phrase or an unambiguous genre-specific term with `\\b` word boundaries.',
+      "A JavaScript regular expression source string, matched case-insensitively against the game's own `shortDescription` (never `longDescription`, same reasoning as description-category-rules.ts). Always a multi-word phrase or an unambiguous genre-specific term with `\\b` word boundaries.",
     ),
   category: GameCategoryLabelSchema.describe(
     "One of config/categories-games.json's own genre labels — this is the last-resort signal for games with no upstream genre tag, no Gentoo games-* subcategory match, and no game-category-rules.json name match either.",
@@ -24,7 +24,9 @@ const DescriptionGameCategoryRuleEntrySchema = z.object({
     ),
 });
 
-export type DescriptionGameCategoryRuleEntry = z.infer<typeof DescriptionGameCategoryRuleEntrySchema>;
+export type DescriptionGameCategoryRuleEntry = z.infer<
+  typeof DescriptionGameCategoryRuleEntrySchema
+>;
 
 export const DescriptionGameCategoryRulesListSchema = z
   .array(DescriptionGameCategoryRuleEntrySchema)

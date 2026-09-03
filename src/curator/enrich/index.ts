@@ -164,6 +164,41 @@ const GAME_ADJACENT_TOOL_DESCRIPTION_NAME_SCOPED_PATTERNS: RegExp[] = [
   /\bmanager\b/i,
 ];
 
+// Positive game evidence from the description text itself — the
+// description-based counterpart to `hasGameEvidence`'s per-package
+// signals, for the many real games whose packages carry no game
+// evidence at all: Flathub/Snap apps that don't tag themselves Game in
+// their AppStream, AUR builds with no genre convention in the name.
+// Genre-word-in-apposition patterns only ("A simple tetris game", "A
+// 2D RPG shooter game", "Classic online F1 manager game"), plus the
+// "a game about X" self-description shape — each sampled live against
+// the real apps "To Classify" pool (2026-09-03) before trusting.
+// Deliberately NOT evidence: bare "game" (describes tools-for-games as
+// often as games — "Play your favorite anime game", "asset manager for
+// Eve-Online"), "gameplay"/"games" plurals (word-boundary excludes
+// both), and "FPS"/genre words without "game" ("3D robot simulator" is
+// Webots, a robotics-research tool, not a game).
+const GAME_DESCRIPTION_PATTERNS: RegExp[] = [
+  /\b(action|adventure|arcade|board|card|casino|dice|educational|family|fighting|horror|idle|logic|match-3|memory|party|pinball|platform|platformer|puzzle|racing|roguelike|rogue-like|rpg|sandbox|shooter|shooting|simulation|simulator|sports|stealth|strategy|survival|tower.?defense|trivia|tycoon|word|manager|zombie|snake|tetris|bricks?|blocks?|breakout|quiz|farm|city.?building|pet|tic.?tac.?toe) games?\b/i,
+  /\bgame (based|inspired|clone)\b/i,
+  /\ba game about\b/i,
+];
+
+/**
+ * True when an app's own display description (or one of its member
+ * packages' names) reads as a game by the genre-in-apposition patterns
+ * above — positive game evidence for packages whose sources carry none,
+ * the same class of signal as `hasGameEvidence`, just from text. The
+ * `isGameAdjacentToolDescription` strip below still wins over this, so a
+ * "game launcher"/"mod manager" description that trips the genre-word
+ * pattern ("Launcher for the open-source game Unitystation" has no
+ * genre-word apposition anyway) can never become a game.
+ */
+function looksLikeGameDescription(shortDescription: string, names: string[]): boolean {
+  if (GAME_DESCRIPTION_PATTERNS.some((pattern) => pattern.test(shortDescription))) return true;
+  return names.some((name) => GAME_DESCRIPTION_PATTERNS.some((pattern) => pattern.test(name)));
+}
+
 /**
  * True when a game-tagged package's own `shortDescription` OR display
  * name uses one of the phrases already known to describe a tool *for*
@@ -272,7 +307,10 @@ function pickCategoryLabel(
     const names = packages.map((pkg) => pkg.name);
     const nameGenre = matchGameCategoryRule(names, gameCategoryRules);
     if (nameGenre) return nameGenre;
-    return matchDescriptionGameCategoryRule(shortDescription, descriptionGameCategoryRules) ?? TO_CLASSIFY;
+    return (
+      matchDescriptionGameCategoryRule(shortDescription, descriptionGameCategoryRules) ??
+      TO_CLASSIFY
+    );
   }
 
   const names = packages.map((pkg) => pkg.name);
@@ -395,7 +433,11 @@ export function enrichApps(
       ) ?? [];
     const hasKnownGameGenre = pickCategory(categories, true) !== TO_CLASSIFY;
     const isGame =
-      app.packages.some(hasGameEvidence) &&
+      (app.packages.some(hasGameEvidence) ||
+        looksLikeGameDescription(
+          shortDescription,
+          app.packages.map((pkg) => pkg.name),
+        )) &&
       !isGameAdjacentToolCategory(categories) &&
       (hasKnownGameGenre ||
         !isGameAdjacentToolDescription(

@@ -218,3 +218,35 @@ export function categoryFromOpenSuseGroup(pkg: SourcedPackage): AppCategoryLabel
     pkg.section?.startsWith(prefix),
   )?.[1];
 }
+
+// Solus's own `PartOf` value (`SourcedPackage.section`, same field
+// `filter/rules.ts`'s `SOLUS_NOISE_PARTOF` already reads for exclusion —
+// this is that field's positive-signal counterpart). Verified live
+// against the real "To Classify" set (2026-09-03): four values are
+// reliable enough to trust outright —
+// `multimedia.audio`/`multimedia.video` (real players/editors/plugins —
+// audacious-plugins, cinelerra-gg, decibels, zam-plugins, ...),
+// `office.scientific` (EDA/hardware-verification tooling — yosys,
+// opensta, openroad, mathjax, ...), and `security` (gufw, usbguard,
+// openldap, yubikey-personalization, ...). Checked and rejected: bare
+// `office` (mixes real office apps with a 3D-printer slicer, a
+// typesetting *language*, and spell-check data — too heterogeneous),
+// `multimedia.graphics` (real libraries like `gd`/`kseexpr` slip through
+// since this PartOf value doesn't reliably exclude them the way Debian's
+// GUI_SECTIONS gate does), and `network.clients` (splits close to evenly
+// between real network-service clients and bare system utilities like
+// rsync/wget/whois that belong in System Tools instead — no way to tell
+// which from the PartOf value alone).
+const SOLUS_PARTOF_TO_APP_CATEGORY: Partial<Record<string, AppCategoryLabel>> = {
+  "multimedia.audio": "Music & Audio",
+  "multimedia.video": "Photo & Video",
+  "office.scientific": "Science",
+  security: "Security",
+};
+
+/** A category inferred from a Solus package's own `PartOf` value — see `SOLUS_PARTOF_TO_APP_CATEGORY` above for the live-data research behind each mapping. */
+export function categoryFromSolusPartOf(pkg: SourcedPackage): AppCategoryLabel | undefined {
+  if (pkg.source !== "eopkg-solus") return undefined;
+  if (!pkg.section) return undefined;
+  return SOLUS_PARTOF_TO_APP_CATEGORY[pkg.section];
+}

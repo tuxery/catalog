@@ -18,6 +18,7 @@ import {
   categoryFromDebianSection,
   categoryFromGentooSection,
   categoryFromOpenSuseGroup,
+  categoryFromSolusPartOf,
   gameGenreFromGentooSection,
 } from "./category-section";
 import {
@@ -138,10 +139,11 @@ function firstDefined<T, R>(items: T[], fn: (item: T) => R | undefined): R | und
  *   `category-rules.ts` — a name-pattern signal for well-known product
  *   families no upstream source classifies, e.g. Wine/Proton compatibility
  *   tools), then `categoryFromDebianSection`/`categoryFromGentooSection`/
- *   `categoryFromOpenSuseGroup` (Debian/Ubuntu's Section field, Gentoo's
- *   top-level category, and openSUSE/RPM Fusion's `<rpm:group>` value —
- *   each source's own package-classification field, for the values
- *   already known to reliably predict a specific category), then
+ *   `categoryFromOpenSuseGroup`/`categoryFromSolusPartOf` (Debian/Ubuntu's
+ *   Section field, Gentoo's top-level category, openSUSE/RPM Fusion's
+ *   `<rpm:group>` value, and Solus's own `PartOf` value — each source's
+ *   own package-classification field, for the values already known to
+ *   reliably predict a specific category), then
  *   `descriptionCategoryRules` (see `description-category-rules.ts` — a
  *   hand-curated, sampled-and-verified keyword-phrase signal against the
  *   app's own `shortDescription`, the last and least precise resort
@@ -178,7 +180,8 @@ function pickCategoryLabel(
     (pkg) =>
       categoryFromDebianSection(pkg) ??
       categoryFromGentooSection(pkg) ??
-      categoryFromOpenSuseGroup(pkg),
+      categoryFromOpenSuseGroup(pkg) ??
+      categoryFromSolusPartOf(pkg),
   );
   if (sectionMatch) return sectionMatch;
 

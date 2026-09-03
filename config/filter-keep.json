@@ -373,5 +373,20 @@
     "sources": ["ebuild-gentoo"],
     "name": "Perl-Tidy",
     "reason": "Ships the real standalone perltidy CLI script despite the dev-perl noise category — see filter/rules.ts's GENTOO_NOISE_CATEGORIES comment"
+  },
+  {
+    "sources": ["pacman-aur"],
+    "name": "rofi-theme-fonts",
+    "reason": "Real Rofi menu/applet/launcher theme collection despite the -fonts noise suffix — see filter/rules.ts's generic -fonts$ comment"
+  },
+  {
+    "sources": ["pacman-aur"],
+    "name": "wps-office-365-fonts",
+    "reason": "WPS Office's own font sub-package, deliberately kept visible under config/category-rules.json's wps-office-365* family entry rather than treated as noise — see filter/rules.ts's generic -fonts$ comment"
+  },
+  {
+    "sources": ["pacman-aur"],
+    "name": "wps-office-365-edu-fonts",
+    "reason": "WPS Office's own font sub-package, deliberately kept visible under config/category-rules.json's wps-office-365* family entry rather than treated as noise — see filter/rules.ts's generic -fonts$ comment"
   }
 ]

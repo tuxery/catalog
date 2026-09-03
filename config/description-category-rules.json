@@ -1538,5 +1538,40 @@
     "pattern": "\\bweechat\\b",
     "category": "Internet & Communication",
     "reason": "Same data-driven discovery as uefi above -- WeeChat IRC-client web frontends. Verified live: 10 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\btheme\\b",
+    "category": "Settings",
+    "reason": "Same data-driven word-frequency discovery as the earlier batches (see wallpapers' reason for the method) -- by far the single biggest find this round. Verified live: 746 real matches, zero unrelated collisions -- GTK/icon/cursor theme packages of every kind, same desktop-theming family as the many category-rules.json product entries this session already added."
+  },
+  {
+    "pattern": "\\bcursors\\b",
+    "category": "Settings",
+    "reason": "Same data-driven discovery as theme above -- cursor theme packages. Verified live: 50 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bsddm\\b",
+    "category": "Settings",
+    "reason": "Same data-driven discovery as theme above -- SDDM login-screen theme family. Verified live: 29 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bprometheus\\b",
+    "category": "System Tools",
+    "reason": "Same data-driven discovery as theme above -- Prometheus monitoring exporters. Verified live: 120 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bnginx\\b",
+    "category": "System Tools",
+    "reason": "Same data-driven discovery as theme above -- nginx web/reverse-proxy server tooling. Verified live: 82 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bceph\\b",
+    "category": "System Tools",
+    "reason": "Same data-driven discovery as theme above -- Ceph distributed-storage cluster tooling. Verified live: 62 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bwordlist\\b",
+    "category": "Security",
+    "reason": "Same data-driven discovery as theme above -- password/security wordlist generators (pentesting tooling). Verified live: 23 real matches, zero unrelated collisions."
   }
 ]

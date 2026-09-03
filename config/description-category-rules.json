@@ -1488,5 +1488,55 @@
     "pattern": "\\bmetacity\\b",
     "category": "Settings",
     "reason": "Same data-driven discovery as firmware above -- the Metacity window-manager theme family. Verified live: 31 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\buefi\\b",
+    "category": "System Tools",
+    "reason": "Same data-driven word-frequency discovery as the earlier batches (see wallpapers' reason for the method). Verified live: 72 real matches, zero unrelated collisions -- boot/firmware tooling."
+  },
+  {
+    "pattern": "\\bbios\\b",
+    "category": "System Tools",
+    "reason": "Same data-driven discovery as uefi above. Verified live: 41 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bdnssec\\b",
+    "category": "System Tools",
+    "reason": "Same data-driven discovery as uefi above -- DNS security tooling. Verified live: 31 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bkwin\\b",
+    "category": "Settings",
+    "reason": "Same data-driven discovery as uefi above -- KWin (KDE's compositor) effects/scripts/theme plugins, same desktop-theming reasoning as the existing yaru*/adwaita*/arc*/etc. category-rules.json entries. Verified live: 25 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bapplet\\b",
+    "category": "Settings",
+    "reason": "Same data-driven discovery as uefi above -- desktop-panel applets/indicators, same status-bar/theming family. Verified live: 64 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bkodi\\b",
+    "category": "Photo & Video",
+    "reason": "Same data-driven discovery as uefi above -- the Kodi media-center ecosystem (addons, remotes, companion managers). Verified live: 38 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\biptv\\b",
+    "category": "Photo & Video",
+    "reason": "Same data-driven discovery as uefi above -- IPTV streaming players. Verified live: 31 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bhevc\\b",
+    "category": "Photo & Video",
+    "reason": "Same data-driven discovery as uefi above -- HEVC/H.265 video codec/encoding tools. Verified live: 12 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\blibretro\\b",
+    "category": "Utilities",
+    "reason": "Same data-driven discovery as uefi above -- libretro-based emulation frontends/management tools, same \"management utility, not the games themselves\" reasoning as the existing minecraft server entry. Verified live: 12 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bweechat\\b",
+    "category": "Internet & Communication",
+    "reason": "Same data-driven discovery as uefi above -- WeeChat IRC-client web frontends. Verified live: 10 real matches, zero unrelated collisions."
   }
 ]

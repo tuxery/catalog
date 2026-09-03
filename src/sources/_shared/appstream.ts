@@ -67,6 +67,8 @@ interface RawScreenshot {
 interface RawComponent {
   "@_type"?: string;
   id?: string;
+  pkgname?: string;
+  source_pkgname?: string;
   name?: RawText[];
   summary?: RawText[];
   description?: RawDescription[];
@@ -92,6 +94,10 @@ interface RawComponent {
 export interface AppstreamComponent {
   /** Flatpak application ID, e.g. "org.mozilla.firefox". */
   id: string;
+  /** Distro package name when present, e.g. "firefox" — used by distro-native AppStream repodata to bridge to the package manager's own name. */
+  pkgname?: string;
+  /** Source package name for distro-native components, e.g. "gpaste" for the binary package "gnome-shell-extension-gpaste". */
+  source_pkgname?: string;
   name: string;
   summary: string;
   version?: string;
@@ -315,6 +321,8 @@ export function parseAppstreamXml(xml: string): AppstreamComponent[] {
     .filter((component) => APP_TYPES.has(component["@_type"] ?? ""))
     .map((component) => ({
       id: component.id ?? "",
+      pkgname: component.pkgname || undefined,
+      source_pkgname: component.source_pkgname || undefined,
       name: pickDefaultText(component.name) ?? "",
       summary: pickDefaultText(component.summary) ?? "",
       // Releases are listed newest-first on real data, not guaranteed by

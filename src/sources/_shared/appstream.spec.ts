@@ -114,6 +114,13 @@ const FIXTURE = `<?xml version="1.0" encoding="UTF-8"?>
     <icon type="remote" width="128" height="128" scale="2">https://example.com/icon@2x.png</icon>
     <icon type="remote" width="128" height="128">https://example.com/icon.png</icon>
   </component>
+  <component type="desktop-application">
+    <id>org.example.DistroPackage</id>
+    <pkgname>distro-pkg</pkgname>
+    <source_pkgname>distro-src</source_pkgname>
+    <name>Distro Package</name>
+    <summary>A distro-native component with package names</summary>
+  </component>
 </components>
 `;
 
@@ -131,6 +138,7 @@ describe("parseAppstreamXml", () => {
       "org.example.NewStyleDeveloper",
       "org.example.TranslatedDeveloperName",
       "org.example.RemoteIcon",
+      "org.example.DistroPackage",
     ]);
   });
 
@@ -307,6 +315,13 @@ describe("parseAppstreamXml", () => {
     const firefox = entries.find((entry) => entry.id === "org.mozilla.firefox");
 
     expect(firefox?.screenshots).toEqual([]);
+  });
+
+  it("extracts distro package names from <pkgname> and <source_pkgname>", () => {
+    const entry = entries.find((e) => e.id === "org.example.DistroPackage");
+
+    expect(entry?.pkgname).toBe("distro-pkg");
+    expect(entry?.source_pkgname).toBe("distro-src");
   });
 
   it("prefers a non-HiDPI remote icon over an @_scale=2 variant", () => {

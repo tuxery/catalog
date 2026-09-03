@@ -1773,5 +1773,10 @@
     "pattern": "\\bblocker\\b",
     "category": "Internet & Communication",
     "reason": "Ad/content/domain blocker tooling. Verified live: 23 matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "^(?!.*\\b(?:vst3?|lv2|clap)\\b).*\\bemulat",
+    "category": "System Tools",
+    "reason": "Console/computer/CPU emulators (bsnes-hd, vita3k-bin, mupen64-rr-lua-bin, ...) \u2014 surfaced fixing looksLikeGamePackage's over-broad games-emulation/games.emulator carve-out, which had been permanently stranding every one of these in a genre-less \"game\" bucket. The negative lookahead excludes chip/circuit emulators packaged as VST/VST3/LV2/CLAP audio plugins (a-sid, sid-git, sn76489-vst-git, ...), which are Music & Audio, not System Tools. Verified live: 578 real matches after the exclusion, zero remaining unrelated collisions."
   }
 ]

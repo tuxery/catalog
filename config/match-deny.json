@@ -85,5 +85,130 @@
     "a": { "source": "pacman-aur", "appId": "elm" },
     "b": { "source": "nix-nixpkgs", "appId": "elmPackages.elm" },
     "reason": "Same false merge as the elm-bin entry above -- Nixpkgs' elmPackages.elm is the same Elm compiler, packaged under a name (bare \"elm\") that collides with the mail client's identical bare display name once normalized."
+  },
+  {
+    "a": { "source": "pacman-aur", "appId": "dusk-git" },
+    "b": { "source": "gog", "appId": "dusk" },
+    "reason": "Same normalized name (\"dusk\") but genuinely different software: gog's DUSK is a real retro-FPS game, AUR's dusk-git is \"Just another fork of dwm\" (a window manager), coincidentally sharing the name. Found data-driven mining GOG-sourced games \"To Classify\" for cross-source merge bugs (2026-09-03)."
+  },
+  {
+    "a": { "source": "pacman-aur", "appId": "dusk-git" },
+    "b": { "source": "lutris", "appId": "dusk-gog" },
+    "reason": "Same pairing as the gog:dusk deny above, Lutris's own installer-slug side of the same real DUSK game."
+  },
+  {
+    "a": { "source": "pacman-aur", "appId": "convoy" },
+    "b": { "source": "gog", "appId": "convoy" },
+    "reason": "Same normalized name (\"convoy\") but genuinely different software: gog's Convoy is a real roguelike vehicle-combat game, AUR's convoy is \"A Docker volume plugin, managing persistent container volumes\", coincidentally sharing the name. Found data-driven mining GOG-sourced games \"To Classify\" for cross-source merge bugs (2026-09-03)."
+  },
+  {
+    "a": { "source": "pacman-aur", "appId": "convoy" },
+    "b": { "source": "lutris", "appId": "convoy-gog" },
+    "reason": "Same pairing as the gog:convoy deny above, Lutris's own GOG-installer-slug side of the same real Convoy game."
+  },
+  {
+    "a": { "source": "pacman-aur", "appId": "convoy" },
+    "b": { "source": "lutris", "appId": "convoy-humble-bundle" },
+    "reason": "Same pairing as the gog:convoy deny above, Lutris's own Humble-Bundle-installer-slug side of the same real Convoy game."
+  },
+  {
+    "a": { "source": "pacman-aur", "appId": "deadbolt-bin" },
+    "b": { "source": "gog", "appId": "deadbolt" },
+    "reason": "Same normalized name (\"deadbolt\") but genuinely different software: gog's DEADBOLT is a real stealth-action game, AUR's deadbolt-bin is \"Dead-simple file encryption for any OS\", coincidentally sharing the name. Found data-driven mining GOG-sourced games \"To Classify\" for cross-source merge bugs (2026-09-03)."
+  },
+  {
+    "a": { "source": "pacman-aur", "appId": "deadbolt-bin" },
+    "b": { "source": "lutris", "appId": "deadbolt-gog" },
+    "reason": "Same pairing as the gog:deadbolt deny above, Lutris's own installer-slug side of the same real DEADBOLT game."
+  },
+  {
+    "a": { "source": "pacman-aur", "appId": "enclave-git" },
+    "b": { "source": "gog", "appId": "enclave" },
+    "reason": "Same normalized name (\"enclave\") but genuinely different software: gog's Enclave is a real fantasy action-RPG, AUR's enclave-git is a \"Command-line secure encrypted deniable cloud-synchronized notebook\", coincidentally sharing the name. Found data-driven mining GOG-sourced games \"To Classify\" for cross-source merge bugs (2026-09-03)."
+  },
+  {
+    "a": { "source": "pacman-aur", "appId": "loom" },
+    "b": { "source": "gog", "appId": "loom" },
+    "reason": "Same normalized name (\"loom\") but genuinely different software: gog's LOOM is the real classic LucasArts adventure game, AUR's loom is an \"AI image generation desktop client for GNOME\", coincidentally sharing the name. Found data-driven mining GOG-sourced games \"To Classify\" for cross-source merge bugs (2026-09-03)."
+  },
+  {
+    "a": { "source": "pacman-aur", "appId": "knock-knock-git" },
+    "b": { "source": "gog", "appId": "knock_knock" },
+    "reason": "Same normalized name (\"knockknock\") but genuinely different software: gog's Knock-Knock is a real surreal horror game, AUR's knock-knock-git is an \"Application to interact with SSH doors\" (a port-knocking client), coincidentally sharing the name. Found data-driven mining GOG-sourced games \"To Classify\" for cross-source merge bugs (2026-09-03)."
+  },
+  {
+    "a": { "source": "pacman-aur", "appId": "knock-knock-git" },
+    "b": { "source": "lutris", "appId": "knock-knock-humble" },
+    "reason": "Same pairing as the gog:knock_knock deny above, Lutris's own Humble-Bundle-installer-slug side of the same real Knock-Knock game."
+  },
+  {
+    "a": { "source": "pacman-aur", "appId": "factorio-bin" },
+    "b": { "source": "gog", "appId": "factorio" },
+    "reason": "\"factorio-bin\" on AUR is \"Go cross-compiler\" -- a completely unrelated tool that happens to share the Factorio name, not a real Factorio package (the AUR \"factorio\" package, kept merged, is the genuine one). Found data-driven mining GOG-sourced games \"To Classify\" for cross-source merge bugs (2026-09-03)."
+  },
+  {
+    "a": { "source": "pacman-aur", "appId": "factorio-bin" },
+    "b": { "source": "lutris", "appId": "factorio-demo-1194" },
+    "reason": "Same pairing as the gog:factorio deny above, one of Lutris's own installer-slug sides of the same real Factorio game."
+  },
+  {
+    "a": { "source": "pacman-aur", "appId": "factorio-bin" },
+    "b": { "source": "lutris", "appId": "factorio-website" },
+    "reason": "Same pairing as the gog:factorio deny above, one of Lutris's own installer-slug sides of the same real Factorio game."
+  },
+  {
+    "a": { "source": "pacman-aur", "appId": "factorio-bin" },
+    "b": { "source": "lutris", "appId": "factorio-gog" },
+    "reason": "Same pairing as the gog:factorio deny above, one of Lutris's own installer-slug sides of the same real Factorio game."
+  },
+  {
+    "a": { "source": "pacman-aur", "appId": "factorio-bin" },
+    "b": { "source": "lutris", "appId": "factorio-demo-1159-64bit" },
+    "reason": "Same pairing as the gog:factorio deny above, one of Lutris's own installer-slug sides of the same real Factorio game."
+  },
+  {
+    "a": { "source": "pacman-aur", "appId": "factorio-bin" },
+    "b": { "source": "pacman-aur", "appId": "factorio" },
+    "reason": "\"factorio-bin\" is \"Go cross-compiler\", a completely unrelated tool -- the earlier factorio-bin/gog+lutris denies weren't enough since these two AUR packages union directly with each other (name/fuzzy similarity), not only through the GOG side. The real \"factorio\" AUR package (the actual Factorio game) stays merged with GOG/Lutris as before."
+  },
+  {
+    "a": { "source": "pacman-aur", "appId": "mesmer" },
+    "b": { "source": "gog", "appId": "mesmer" },
+    "reason": "Same normalized name (\"mesmer\") but genuinely different software: gog's Mesmer is a real game, AUR's mesmer is \"An open-source master equation solver for multi-energy well reactions\" (a chemistry tool), coincidentally sharing the name. Found data-driven mining GOG-sourced games \"To Classify\" for cross-source merge bugs (2026-09-03)."
+  },
+  {
+    "a": { "source": "pacman-aur", "appId": "the-way-git" },
+    "b": { "source": "gog", "appId": "the_way" },
+    "reason": "Same normalized name (\"theway\") but genuinely different software: gog's The Way is a real game, AUR/Nix's the-way(-git) is \"A command line code snippets manager\", coincidentally sharing the name. Found data-driven mining GOG-sourced games \"To Classify\" for cross-source merge bugs (2026-09-03)."
+  },
+  {
+    "a": { "source": "pacman-aur", "appId": "blackhole-git" },
+    "b": { "source": "gog", "appId": "blackhole" },
+    "reason": "Same normalized name (\"blackhole\") but genuinely different software: gog's BLACKHOLE is a real game, AUR's blackhole-git is a \"module system for gambit-c scheme\", coincidentally sharing the name. Found data-driven mining GOG-sourced games \"To Classify\" for cross-source merge bugs (2026-09-03)."
+  },
+  {
+    "a": { "source": "pacman-aur", "appId": "aquamarine-git" },
+    "b": { "source": "gog", "appId": "aquamarine" },
+    "reason": "Same normalized name (\"aquamarine\") but genuinely different software: AUR/Arch/Nix/Alpine/Solus's aquamarine(-git) is Hyprland's own real, actively-developed Wayland rendering backend library, gog's Aquamarine entry is unrelated. Found data-driven mining GOG-sourced games \"To Classify\" for cross-source merge bugs (2026-09-03)."
+  },
+  {
+    "a": { "source": "pacman-arch", "appId": "aquamarine" },
+    "b": { "source": "gog", "appId": "aquamarine" },
+    "reason": "Same pairing as the AUR deny above, one more real member of the Hyprland aquamarine cluster (union-find needs each real member denied individually against the false gog match)."
+  },
+  {
+    "a": { "source": "nix-nixpkgs", "appId": "aquamarine" },
+    "b": { "source": "gog", "appId": "aquamarine" },
+    "reason": "Same pairing as the AUR deny above, one more real member of the Hyprland aquamarine cluster (union-find needs each real member denied individually against the false gog match)."
+  },
+  {
+    "a": { "source": "apk-alpine", "appId": "aquamarine" },
+    "b": { "source": "gog", "appId": "aquamarine" },
+    "reason": "Same pairing as the AUR deny above, one more real member of the Hyprland aquamarine cluster (union-find needs each real member denied individually against the false gog match)."
+  },
+  {
+    "a": { "source": "eopkg-solus", "appId": "aquamarine" },
+    "b": { "source": "gog", "appId": "aquamarine" },
+    "reason": "Same pairing as the AUR deny above, one more real member of the Hyprland aquamarine cluster (union-find needs each real member denied individually against the false gog match)."
   }
 ]

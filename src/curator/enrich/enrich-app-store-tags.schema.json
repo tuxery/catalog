@@ -21,11 +21,7 @@
         "description": "Why this is really an app-store/package-manager frontend and not a coincidental name match — required so the tag is auditable later, not just an unexplained line."
       }
     },
-    "required": [
-      "sources",
-      "name",
-      "reason"
-    ],
+    "required": ["sources", "name", "reason"],
     "additionalProperties": false
   },
   "title": "Enrich: app-store frontend tags",

@@ -112,7 +112,7 @@ dev DB was retired 2026-09-03 in favor of this):
    effects beyond that file. Three tiers, cheapest first: reuse
    `dist/dataset.json` if it already exists; else rebuild it from the
    git-committed source caches (`pnpm start`, no network); `pnpm seed
-   --force` skips both and re-fetches every source fresh first.
+--force` skips both and re-fetches every source fresh first.
 2. `pnpm serve` (this repo) runs a local `turso dev` server (part of
    the Turso CLI) in front of that file — foreground, blocking, its own
    terminal. A Workers isolate can't open a SQLite file directly, so

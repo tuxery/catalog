@@ -29,11 +29,7 @@
         "description": "Why this game belongs in this genre — required so the rule is auditable later, not just an unexplained line. Most entries here are one specific game rather than a product family (unlike category-rules.json), since game titles rarely share a meaningful name pattern the way vendor/ecosystem tools do."
       }
     },
-    "required": [
-      "pattern",
-      "category",
-      "reason"
-    ],
+    "required": ["pattern", "category", "reason"],
     "additionalProperties": false
   },
   "title": "Enrich: game category rules",

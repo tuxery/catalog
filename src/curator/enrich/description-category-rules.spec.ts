@@ -21,7 +21,11 @@ describe("matchDescriptionCategoryRule", () => {
 
   it("returns the first matching rule, earlier entries winning over later ones", () => {
     const ordered: DescriptionCategoryRuleEntry[] = [
-      { pattern: "\\bmusic player\\b.*\\bstreaming\\b", category: "Internet & Communication", reason: "test" },
+      {
+        pattern: "\\bmusic player\\b.*\\bstreaming\\b",
+        category: "Internet & Communication",
+        reason: "test",
+      },
       { pattern: "\\bmusic player\\b", category: "Music & Audio", reason: "test" },
     ];
     expect(matchDescriptionCategoryRule("A music player with streaming support", ordered)).toBe(

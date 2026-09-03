@@ -90,7 +90,8 @@ describe("createTursoClient", () => {
     // since execute/batch are separate mock functions with independent
     // call arrays.
     const swapBatchOrder = batch.mock.invocationCallOrder[1];
-    const firstIndexOrder = execute.mock.invocationCallOrder[executedSql.indexOf(indexStatements[0] ?? "")];
+    const firstIndexOrder =
+      execute.mock.invocationCallOrder[executedSql.indexOf(indexStatements[0] ?? "")];
     expect(firstIndexOrder).toBeGreaterThan(swapBatchOrder ?? 0);
   });
 

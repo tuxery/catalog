@@ -36,11 +36,7 @@
         "description": "Why this phrase reliably predicts this category — required so the rule is auditable later, not just an unexplained line."
       }
     },
-    "required": [
-      "pattern",
-      "category",
-      "reason"
-    ],
+    "required": ["pattern", "category", "reason"],
     "additionalProperties": false
   },
   "title": "Enrich: description category rules",

@@ -21,11 +21,7 @@
         "description": "Why this entry exists — required so the exception is auditable later, not just an unexplained line."
       }
     },
-    "required": [
-      "sources",
-      "name",
-      "reason"
-    ],
+    "required": ["sources", "name", "reason"],
     "additionalProperties": false
   },
   "title": "Filter: exclude list",

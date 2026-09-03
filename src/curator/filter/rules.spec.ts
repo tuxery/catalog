@@ -673,13 +673,17 @@ describe("looksLikeGamePackage", () => {
   });
 
   it("flags openSUSE's Amusements/Games group prefix", () => {
-    expect(looksLikeGamePackage("rpm-opensuse", "Amusements/Games/Strategy/Real Time", "some-package")).toBe(true);
+    expect(
+      looksLikeGamePackage("rpm-opensuse", "Amusements/Games/Strategy/Real Time", "some-package"),
+    ).toBe(true);
     expect(looksLikeGamePackage("rpm-opensuse", "Amusements/Graphics", "some-package")).toBe(false);
   });
 
   it("flags RPM Fusion's identical Amusements/Games group prefix", () => {
     expect(looksLikeGamePackage("rpm-rpmfusion", "Amusements/Games", "some-package")).toBe(true);
-    expect(looksLikeGamePackage("rpm-rpmfusion", "Applications/Multimedia", "some-package")).toBe(false);
+    expect(looksLikeGamePackage("rpm-rpmfusion", "Applications/Multimedia", "some-package")).toBe(
+      false,
+    );
   });
 
   it("flags Solus's games/games.* PartOf value", () => {
@@ -706,7 +710,7 @@ describe("looksLikeGamePackage", () => {
     expect(looksLikeGamePackage("pacman-aur", undefined, "gog-a-short-hike")).toBe(true);
   });
 
-  it("does not flag an unrelated AUR package that merely contains \"gog\"", () => {
+  it('does not flag an unrelated AUR package that merely contains "gog"', () => {
     expect(looksLikeGamePackage("pacman-aur", undefined, "gogs")).toBe(false);
     expect(looksLikeGamePackage("pacman-aur", undefined, "mongodb")).toBe(false);
   });

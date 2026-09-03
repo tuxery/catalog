@@ -14,10 +14,7 @@
       },
       "severity": {
         "type": "string",
-        "enum": [
-          "warning",
-          "info"
-        ],
+        "enum": ["warning", "info"],
         "description": "\"warning\" for a real functional problem, \"info\" for a lesser one with a confirmed one-line fix."
       },
       "issue": {
@@ -33,13 +30,7 @@
         "description": "How this was verified (issue trackers, forum reports, ...) — required so the warning is auditable later, not just an unexplained line."
       }
     },
-    "required": [
-      "source",
-      "name",
-      "severity",
-      "issue",
-      "reason"
-    ],
+    "required": ["source", "name", "severity", "issue", "reason"],
     "additionalProperties": false
   },
   "title": "Enrich: compatibility warnings",

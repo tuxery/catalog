@@ -1363,5 +1363,75 @@
     "pattern": "\\bchat (application|tool)\\b",
     "category": "Internet & Communication",
     "reason": "Description explicitly identifies it as a chat application -- broader wording than the existing \"chat client\" entry. Verified live: 10 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bwallpapers?\\b",
+    "category": "Settings",
+    "reason": "Discovered via a data-driven pass: found by checking which words are disproportionately common in already-classified apps' own descriptions, then verified live against the still-unclassified matches (271) — overwhelmingly wallpaper collections/managers/downloaders, same desktop-theming reasoning as the existing wallpaper manager/changer/daemon entries."
+  },
+  {
+    "pattern": "\\bxfce\\b",
+    "category": "Settings",
+    "reason": "Same data-driven discovery as wallpapers above. Verified live: 105 real matches, overwhelmingly XFCE theme/appearance packages."
+  },
+  {
+    "pattern": "\\bmate\\b",
+    "category": "Settings",
+    "reason": "Same data-driven discovery as wallpapers above. Verified live: 98 real matches, overwhelmingly MATE desktop theme packages."
+  },
+  {
+    "pattern": "\\bcinnamon\\b",
+    "category": "Settings",
+    "reason": "Same data-driven discovery as wallpapers above. Verified live: 89 real matches, overwhelmingly Cinnamon desktop theme packages."
+  },
+  {
+    "pattern": "\\bgreeter\\b",
+    "category": "System Tools",
+    "reason": "Same data-driven discovery as wallpapers above (login-screen/greetd greeters) -- same reasoning as the existing display manager/login manager entries. Verified live: 46 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bcompiler\\b",
+    "category": "Developer Tools",
+    "reason": "Same data-driven discovery as wallpapers above. Verified live: 717 real matches, zero unrelated collisions -- every real compiler for every language, not just the languages category-rules.json already covers by name."
+  },
+  {
+    "pattern": "\\bnvidia\\b",
+    "category": "System Tools",
+    "reason": "Same data-driven discovery as wallpapers above -- overwhelmingly NVIDIA hardware drivers/monitoring/control tools. Verified live: 163 real matches."
+  },
+  {
+    "pattern": "\\bcups\\b",
+    "category": "System Tools",
+    "reason": "Same data-driven discovery as wallpapers above -- CUPS printer driver packages. Verified live: 79 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bbrother\\b",
+    "category": "System Tools",
+    "reason": "Same data-driven discovery as wallpapers above -- Brother-brand printer drivers/tools. Verified live: 28 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bcanon\\b",
+    "category": "System Tools",
+    "reason": "Same data-driven discovery as wallpapers above -- Canon-brand printer/camera drivers. Verified live: 32 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\basus\\b",
+    "category": "Settings",
+    "reason": "Same data-driven discovery as wallpapers above -- ASUS laptop hardware control tools, same HardwareSettings reasoning as the existing keyboard layout/brightness control entries. Verified live: 35 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bmidi\\b",
+    "category": "Music & Audio",
+    "reason": "Same data-driven discovery as wallpapers above. Verified live: 152 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bsynthesizer\\b",
+    "category": "Music & Audio",
+    "reason": "Same data-driven discovery as wallpapers above. Verified live: 138 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\b(protein|phylogenetic|genomic?|genetic|sequencing)\\b",
+    "category": "Science",
+    "reason": "Same data-driven discovery as wallpapers above -- a bioinformatics/genetics vocabulary cluster. Verified live: 137 real matches combined, zero unrelated collisions."
   }
 ]

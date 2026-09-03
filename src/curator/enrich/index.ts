@@ -143,8 +143,12 @@ const GAME_ADJACENT_TOOL_DESCRIPTION_PATTERNS: RegExp[] = [
   // against the games "To Classify" pool (2026-09-03).
   /\bminecraft\b.*\b(viewers?|finders?|editors?|managers?|selectors?|seeds?|chunks?|skins?|servers?)\b/i,
   // Game-streaming clients/servers (Moonlight, Sunshine — "GameStream
-  // client", "Stream games and other applications from another PC").
+  // client", "Stream games and other applications from another PC"), and
+  // video recording/streaming tools whose only game flag is a stray
+  // store-category on one group member (OBS Studio's unofficial snap
+  // carries hasGameCategory=true against 12 category-less members).
   /\bgame ?stream(ing)?\b|\bstream(ing)?\b.{0,20}\bgames?\b/i,
+  /\blive stream(ing)?\b|\brecord(s|ing)?\b.{0,20}\b(videos?|screen)s?\b/i,
   /\bgame launcher\b/i,
   /\bmod (launcher|manager)\b/i,
   // Plural widened live (FTB Electron App: "Explore and manage FTB

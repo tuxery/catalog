@@ -659,6 +659,17 @@ const NIX_SCOPE_TO_APP_CATEGORY: Partial<Record<string, AppCategoryLabel>> = {
   lomiri: "Settings",
   "lomiri-qt6": "Settings",
   "open-music-kontrollers": "Music & Audio",
+  // Small leftover scopes, sampled live (2026-09-03): gawkextlib (GNU awk
+  // extension libraries), octodns-providers (DNS-automation provider
+  // modules) and the Qt5 package set -> Developer Tools;
+  // magnetophonDSP (DSP/audio tooling) -> Music & Audio; bat-extras
+  // (bat/cat-clone helper scripts) and arrayUtilities -> Utilities.
+  gawkextlib: "Developer Tools",
+  "octodns-providers": "Developer Tools",
+  libsForQt5: "Developer Tools",
+  magnetophonDSP: "Music & Audio",
+  "bat-extras": "Utilities",
+  arrayUtilities: "Utilities",
 };
 
 /** A category inferred from a nixpkgs package's own attribute-path prefix — see `NIX_SCOPE_TO_APP_CATEGORY` above for the live-data research behind each mapping. Exact scopes win over the generic language-package-set rule. */

@@ -695,7 +695,9 @@ describe("categoryFromNixScope", () => {
       ),
     ).toBeUndefined();
     expect(
-      categoryFromNixScope(pkg({ source: "nix-nixpkgs", name: "example", section: "bat-extras" })),
+      categoryFromNixScope(
+        pkg({ source: "nix-nixpkgs", name: "example", section: "example-scope" }),
+      ),
     ).toBeUndefined();
   });
 

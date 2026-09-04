@@ -237,6 +237,48 @@ const APPS_INDEXES_SQL = [
   `CREATE INDEX idx_apps_content_type_installs_last_7_days ON apps(content_type, installs_last_7_days)`,
 ];
 
+function sleep(ms: number): Promise<void> {
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms);
+  });
+}
+
+const INDEX_RETRY_ATTEMPTS = 3;
+const INDEX_RETRY_BASE_DELAY_MS = 500;
+
+/**
+ * Real failure, found live 2026-09-04 (preview, `workflow_dispatch` run
+ * 33927189488): the swap batch above committed cleanly (verified after
+ * the fact — `SELECT name FROM sqlite_master` showed the old `apps_old`
+ * and every one of its indexes genuinely gone, nothing orphaned), yet the
+ * very next statement — `CREATE INDEX idx_apps_category ON apps(category)`,
+ * the first in `APPS_INDEXES_SQL` — failed with "index ... already
+ * exists" anyway. `db.batch()` and `db.execute()` are separate HTTP round
+ * trips against Turso's hosted hrana endpoint; the most likely explanation
+ * is a brief read-your-writes lag between the batch's commit and the
+ * schema view the next request sees, not a genuine name collision — the
+ * 2026-09-03 fix for this same error message was only ever verified
+ * against a local `file:` SQLite (fully synchronous, so it can't
+ * reproduce an HTTP consistency gap like this). One retry with a short
+ * backoff is enough for the schema to catch up; only re-throws (rather
+ * than masking a real, non-transient collision) after every attempt sees
+ * the same "already exists" error.
+ */
+async function createIndexWithRetry(db: Client, indexSql: string): Promise<void> {
+  for (let attempt = 1; attempt <= INDEX_RETRY_ATTEMPTS; attempt += 1) {
+    try {
+      // eslint-disable-next-line no-await-in-loop
+      await db.execute(indexSql);
+      return;
+    } catch (error) {
+      const alreadyExists = error instanceof Error && /already exists/i.test(error.message);
+      if (!alreadyExists || attempt === INDEX_RETRY_ATTEMPTS) throw error;
+      // eslint-disable-next-line no-await-in-loop
+      await sleep(attempt * INDEX_RETRY_BASE_DELAY_MS);
+    }
+  }
+}
+
 function toBoolColumn(value: boolean | undefined): number | null {
   return value === undefined ? null : value ? 1 : 0;
 }
@@ -356,7 +398,7 @@ export function createTursoClient(config: TursoConfig, client?: Client): TursoCl
       // and running unindexed for the whole publish duration instead.
       for (const indexSql of APPS_INDEXES_SQL) {
         // eslint-disable-next-line no-await-in-loop
-        await db.execute(indexSql);
+        await createIndexWithRetry(db, indexSql);
       }
     },
   };

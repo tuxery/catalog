@@ -691,6 +691,18 @@ const SUPPORT_DESCRIPTION_PATTERNS: RegExp[] = [
   /\bextension for\b/i,
   /\bframework for\b/i,
   /\baddon for\b/i,
+  // Font packages that don't follow any of this file's *-fonts$/font-*
+  // name conventions (Nixpkgs in particular ships plenty by bare project
+  // name — "amiri", "chunk", "fraunces", ...) but do describe themselves
+  // as a "typeface" — same "not a launchable app" reasoning as the name-
+  // based font patterns. Surfaced mining the To Classify bucket
+  // (2026-09-04): 102 real matches across the whole catalog (not just To
+  // Classify — a few were already sitting in Graphics & Design/Developer
+  // Tools, itself the bug this closes), 100% genuine typefaces, zero
+  // exceptions. Deliberately NOT the bare word "fonts" — that one risks
+  // catching a real font-management/viewing app, not just fonts
+  // themselves.
+  /\btypeface\b/i,
 ];
 
 /**

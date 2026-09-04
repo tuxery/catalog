@@ -155,7 +155,12 @@ const GAME_ADJACENT_TOOL_DESCRIPTION_PATTERNS: RegExp[] = [
   // store-category on one group member (OBS Studio's unofficial snap
   // carries hasGameCategory=true against 12 category-less members).
   /\bgame ?stream(ing)?\b|\bstream(ing)?\b.{0,20}\bgames?\b/i,
-  /\blive stream(ing)?\b|\brecord(s|ing)?\b.{0,20}\b(videos?|screen)s?\b/i,
+  // Widened to also catch "recordings" (Pineapple Steam Recording
+  // Exporter: "Export Steam game recordings to MP4 videos" rode the
+  // singular/"-ing"-only pattern, missing the plural noun form) — verified
+  // live against the whole games "To Classify" pool (2026-09-04): 1 real
+  // match, zero unrelated collisions among already-genred real games.
+  /\blive stream(ing)?\b|\brecord(?:s|ing|ings)?\b.{0,20}\b(videos?|screen)s?\b/i,
   /\bgame launcher\b/i,
   /\bmod (launcher|manager)\b/i,
   // Plural widened live (FTB Electron App: "Explore and manage FTB
@@ -170,12 +175,139 @@ const GAME_ADJACENT_TOOL_DESCRIPTION_PATTERNS: RegExp[] = [
   // against the games "To Classify" pool (2026-09-03): "launcher" 21/21
   // real tools; "generator" 11/12 (one acceptable edge case, a Minetest
   // map-generator *mod*); "assistant" 2/2; "client" added for the
-  // game-flagged GOG/streaming clients (minigalaxy, Moonlight).
-  /\blauncher\b/i,
+  // game-flagged GOG/streaming clients (minigalaxy, Moonlight). Widened to
+  // "launchers?" (2026-09-04, ProtonPlus: "tools for Linux game
+  // launchers" rode the singular-only form) — verified live: every
+  // already-genred real game matching the plural (Unreal Tournament 2004
+  // Launcher, Prism Launcher, OpenRSC, PokeMMO Installer, ...) carries a
+  // real upstream genre category, so `hasKnownGameGenre` already shields
+  // them regardless of this description check; zero actual regressions.
+  /\blaunchers?\b/i,
   /\bgenerator\b/i,
   /\bassistant\b/i,
   /\bclient\b/i,
+  // "Engine for Games" (Box2D: "A 2D Physics Engine for Games", soloud:
+  // "portable audio engine for games") — the reversed-order counterpart to
+  // description-category-rules.json's existing "game engines?" phrase,
+  // which only matches "game engine" in that word order. Deliberately NOT
+  // a blanket "game engine(s)" pattern here despite that JSON rule already
+  // existing: verified live against the whole games "To Classify" pool
+  // (2026-09-04) that "game engine" alone has 13 real regressions among
+  // already-genred real games that describe themselves as their own
+  // engine (minetest, darkplaces, Redot, ZQuest Classic, Commander
+  // Genius, ...) with no upstream genre category to shield them — solarus/
+  // Suika3/godot-classic (which DO say "game engine") are instead caught
+  // via `GAME_ADJACENT_TOOL_EXACT_NAMES`/the godot-prefix pattern below,
+  // never via this broader phrase.
+  /\bengine for games?\b/i,
+  // "Steam integration" helpers (linux-steam-integration: "Helper for
+  // enabling better Steam integration on Linux") — verified live: 1 real
+  // match, zero regressions.
+  /\bsteam integration\b/i,
+  // A randomizer *platform* for other games (Randovania), not a game
+  // itself — verified live: 1 real match, zero regressions (no real game
+  // describes itself with the bare noun "randomizer").
+  /\brandomizer\b/i,
+  // One-off literal proper nouns/acronyms for apps with no real
+  // generalizable family and no other safe signal — each verified live
+  // against the whole games "To Classify" pool AND the already-genred
+  // real-games pool (2026-09-04): exactly 1 match apiece, zero collisions.
+  /\bhomestuck\b/i, // The Unofficial Homestuck Collection (a webcomic/media archive/reader, not a game)
+  /\beddn\b/i, // E:D Market Connector (Elite Dangerous Data Network companion uploader)
+  /\bpokecrystal\b/i, // Polished Map++ (a Pokémon Crystal ROM-hack map/tileset editor)
+  /magicseteditor/i, // MagicSetEditor family (a Magic: the Gathering custom-card design tool; no word boundary since names glue it as one CamelCase token)
+  /\bambient lighting\b/i, // Firefly Luciferin (screen-ambient-lighting sync software, unrelated to gameplay despite the Game tag)
 ];
+
+// Package names that start with "godot-" — Godot Engine's own build-variant/
+// distro-packaging convention (godot-classic, godot-common, godot-mono-bin,
+// godot-mono-beta-bin, godot-mono-git, ...), the same family
+// `config/category-rules.json`'s existing "godot-*" rule already resolves
+// to Developer Tools once isGame is false. Verified live against the whole
+// games "To Classify" pool AND the already-genred real-games pool
+// (2026-09-04): every "godot-" prefixed member across both pools is a real
+// build/binding variant of the engine itself, zero unrelated collisions.
+const GAME_ADJACENT_TOOL_NAME_PREFIX_PATTERNS: RegExp[] = [/^godot-/i];
+
+// Exact package-name matches for well-known "tool for a game, not a game"
+// one-offs/families whose description doesn't share a safe generalizable
+// phrase — classic BSD/AUR joke-program toys riding AUR/Gentoo/Debian's
+// "games" section purely by packaging convention, never actually
+// interactive (fortune, cowsay, lolcat, nyancat, bb, bsod, cmatrix,
+// pipes.sh, sl, xcowsay/xteddy/xpenguins/xfishtank/xcruiser/xdesktopwaves,
+// doge, funny-manpages/asr-manpages, wtf, qstat, sex, sound-of-sorting,
+// planarity, macopix, tdfsb, gBhed); Steam/game-launch helper daemons and
+// scripts (gamemode, lsfg-vk, steamtinkerlaunch, steamcmd, scummvm-tools,
+// mupen64plus-ui-console); gbml, a real Steam-game backup utility riding
+// the same AUR games section despite not being a joke at all; a joystick
+// test utility (sdljoytest); two programming-language runtimes mistagged
+// via the same AUR/Gentoo "games" convention (alan, elixir); and a
+// standalone chat-log monitor for a specific game (intelpy). Exact literal
+// names rather than a broad regex since each is either a true one-off or a
+// family too heterogeneous in phrasing to safely generalize by description
+// text alone — surfaced by the ~59-app games "To Classify" review
+// (2026-09-04); verified live that no other app anywhere in the catalog
+// (game-tagged or not) carries any of these exact package names.
+const GAME_ADJACENT_TOOL_EXACT_NAMES = new Set([
+  "gamemode",
+  "gamemode-git",
+  "lsfg-vk",
+  "lsfg-vk-bin",
+  "lsfg-vk-git",
+  "lsfg-vk-ui",
+  "steamtinkerlaunch",
+  "steamtinkerlaunch-git",
+  "steamcmd",
+  "scummvm-tools",
+  "mupen64plus-ui-console",
+  "gbml",
+  "gbml-git",
+  "sdljoytest",
+  "alan",
+  "elixir",
+  "elixir-git",
+  "solarus",
+  "suika3",
+  "game-data-packager",
+  "intelpy",
+  "fortune",
+  "fortune-mod",
+  "lolcat",
+  "lolcat++",
+  "lolcat++-bin",
+  "bb",
+  "bsod",
+  "cmatrix",
+  "cmatrix-git",
+  "cowsay",
+  "cowsay-bin",
+  "nyancat",
+  "nyancat-git",
+  "pipes.sh",
+  "pipes-sh",
+  "sl",
+  "sl-git",
+  "xcowsay",
+  "xteddy",
+  "xpenguins",
+  "xfishtank",
+  "xcruiser",
+  "doge",
+  "funny-manpages",
+  "funny-manpages-git",
+  "asr-manpages",
+  "wtf",
+  "qstat",
+  "qstat-git",
+  "sex",
+  "sound-of-sorting",
+  "sound-of-sorting-git",
+  "planarity",
+  "macopix",
+  "tdfsb",
+  "xdesktopwaves",
+  "gbhed",
+]);
 
 // "editor"/"manager" have exactly two real counter-examples each
 // (minetest-solar-plains-invector, pacman4console — both genuinely games
@@ -256,6 +388,16 @@ function isGameAdjacentToolDescription(shortDescription: string, names: string[]
       GAME_ADJACENT_TOOL_DESCRIPTION_PATTERNS.some((pattern) => pattern.test(name)),
     )
   ) {
+    return true;
+  }
+  if (
+    names.some((name) =>
+      GAME_ADJACENT_TOOL_NAME_PREFIX_PATTERNS.some((pattern) => pattern.test(name)),
+    )
+  ) {
+    return true;
+  }
+  if (names.some((name) => GAME_ADJACENT_TOOL_EXACT_NAMES.has(name.toLowerCase()))) {
     return true;
   }
   return GAME_ADJACENT_TOOL_DESCRIPTION_NAME_SCOPED_PATTERNS.some((pattern) =>

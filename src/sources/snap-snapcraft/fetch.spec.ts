@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { applyCategories, applyFeaturedTag, mapResults } from "./fetch";
+import { applyCategories, applyFeaturedTag, mapResults, sweepQueriesRecursively } from "./fetch";
 import type { SnapcraftCacheEntry } from "./types";
 
 describe("mapResults", () => {
@@ -115,5 +115,57 @@ describe("applyCategories", () => {
 
     expect(tagged[0]?.categories).toBeUndefined();
     expect(tagged[0]?.hasGameCategory).toBeUndefined();
+  });
+});
+
+async function findSharedSnapUnderTwoPrefixes(prefix: string) {
+  return prefix === "a" || prefix === "b" ? [{ name: "shared-snap" }] : [];
+}
+
+describe("sweepQueriesRecursively", () => {
+  const CAPPED_RESULTS = Array.from({ length: 100 }, (_, i) => ({ name: `capped-${i}` }));
+
+  it("does not recurse into a prefix that comes back under the 100-result cap", async () => {
+    const calls: string[] = [];
+    const find = async (prefix: string) => {
+      calls.push(prefix);
+      return prefix === "a" ? [{ name: "audacity" }] : [];
+    };
+
+    const { results, prefixesTried } = await sweepQueriesRecursively(find);
+
+    expect(results).toEqual(expect.arrayContaining([{ name: "audacity" }]));
+    expect(calls.filter((c) => c.startsWith("a")).length).toBe(1); // just "a", no "aa".."a9"
+    expect(prefixesTried).toBe(36); // the base alphabet, once
+  });
+
+  it("recurses one level deeper for a prefix that comes back exactly at the cap", async () => {
+    const find = async (prefix: string) => (prefix === "a" ? CAPPED_RESULTS : []);
+
+    const { prefixesTried } = await sweepQueriesRecursively(find);
+
+    // 36 base prefixes, plus 36 more ("aa".."a9") from "a" hitting the cap.
+    expect(prefixesTried).toBe(36 + 36);
+  });
+
+  it("deduplicates the same snap surfacing under more than one prefix", async () => {
+    const { results } = await sweepQueriesRecursively(findSharedSnapUnderTwoPrefixes);
+
+    expect(results.filter((r) => r.name === "shared-snap")).toHaveLength(1);
+  });
+
+  it("bounds recursion at MAX_QUERY_DEPTH even if every prefix keeps hitting the cap", async () => {
+    // Only the "a" branch stays capped at every depth — bounds the test's
+    // own runtime while still proving the depth limit kicks in rather
+    // than recursing forever.
+    const find = async (prefix: string) =>
+      /^a+$/.test(prefix) ? CAPPED_RESULTS : [];
+
+    const { prefixesTried } = await sweepQueriesRecursively(find);
+
+    // depth 1: 36, depth 2: 36 ("a" capped), depth 3: 36 ("aa" capped),
+    // depth 4: 36 ("aaa" capped) — depth 5 never happens (MAX_QUERY_DEPTH
+    // is 4), even though "aaaa" would also come back capped.
+    expect(prefixesTried).toBe(36 * 4);
   });
 });

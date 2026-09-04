@@ -2738,5 +2738,670 @@
     "pattern": "mxfb-styles",
     "category": "Settings",
     "reason": "Extra visual styles/themes for MX Linux's Fluxbox edition."
+  },
+  {
+    "pattern": "frog-protocols-git",
+    "category": "Developer Tools",
+    "reason": "Wayland protocol/header library for HDR gaming color-management extensions consumed by compositors like gamescope -- a developer-facing protocol spec, not an end-user app."
+  },
+  {
+    "pattern": "frog-protocols",
+    "category": "Developer Tools",
+    "reason": "Wayland protocol/header library for HDR gaming color-management extensions consumed by compositors like gamescope -- a developer-facing protocol spec, not an end-user app."
+  },
+  {
+    "pattern": "gdk-pixbuf",
+    "category": "Developer Tools",
+    "reason": "Image loading/manipulation library used by GTK applications -- a developer library, not an end-user app."
+  },
+  {
+    "pattern": "get_flash_videos",
+    "category": "Internet & Communication",
+    "reason": "Downloads Flash videos from web pages -- a media downloader tool."
+  },
+  {
+    "pattern": "get-flash-videos",
+    "category": "Internet & Communication",
+    "reason": "Downloads Flash videos from web pages -- a media downloader tool."
+  },
+  {
+    "pattern": "gorm",
+    "category": "Developer Tools",
+    "reason": "GNUstep's GUI interface designer/builder, a development tool for building GNUstep/Cocoa-style UIs."
+  },
+  {
+    "pattern": "gsimplecal-git",
+    "category": "Productivity",
+    "reason": "Lightweight GTK calendar application."
+  },
+  {
+    "pattern": "gsimplecal",
+    "category": "Productivity",
+    "reason": "Lightweight GTK calendar application."
+  },
+  {
+    "pattern": "gsview",
+    "category": "Utilities",
+    "reason": "GUI viewer for Ghostscript PostScript/PDF files -- matches this catalog's Viewer -> Utilities convention."
+  },
+  {
+    "pattern": "gtkglext",
+    "category": "Developer Tools",
+    "reason": "OpenGL extension library for GTK2 applications -- a developer library."
+  },
+  {
+    "pattern": "highlighterkit",
+    "category": "Developer Tools",
+    "reason": "GNUstep framework for adding syntax-highlighting features to applications -- a developer library."
+  },
+  {
+    "pattern": "iso-flag-png",
+    "category": "Graphics & Design",
+    "reason": "Collection of ISO country flag images in PNG format -- an image asset package."
+  },
+  {
+    "pattern": "jxrlib-git",
+    "category": "Developer Tools",
+    "reason": "Library implementing the JPEG XR image codec -- a developer library."
+  },
+  {
+    "pattern": "jxrlib",
+    "category": "Developer Tools",
+    "reason": "Library implementing the JPEG XR image codec -- a developer library."
+  },
+  {
+    "pattern": "kdsoap-qt5",
+    "category": "Developer Tools",
+    "reason": "Qt5-based client/server SOAP library for developers."
+  },
+  {
+    "pattern": "kdsoap-qt5-git",
+    "category": "Developer Tools",
+    "reason": "Qt5-based client/server SOAP library for developers."
+  },
+  {
+    "pattern": "kdsoap-qt6-git",
+    "category": "Developer Tools",
+    "reason": "Qt6-based client/server SOAP library for developers, same KDSoap project as the Qt5 build."
+  },
+  {
+    "pattern": "kdsoap-qt6",
+    "category": "Developer Tools",
+    "reason": "Qt6-based client/server SOAP library for developers, same KDSoap project as the Qt5 build."
+  },
+  {
+    "pattern": "system76-keyboard-configurator-git",
+    "category": "Settings",
+    "reason": "GUI to configure keymap and backlight on System76 keyboards -- hardware settings tool."
+  },
+  {
+    "pattern": "system76-keyboard-configurator",
+    "category": "Settings",
+    "reason": "GUI to configure keymap and backlight on System76 keyboards -- hardware settings tool."
+  },
+  {
+    "pattern": "lgogdownloader",
+    "category": "Utilities",
+    "reason": "Open source downloader for GOG.com game installers, same game-library-tooling family as Steam/Lutris already mapped to Utilities."
+  },
+  {
+    "pattern": "lgogdownloader-git",
+    "category": "Utilities",
+    "reason": "Open source downloader for GOG.com game installers, same game-library-tooling family as Steam/Lutris already mapped to Utilities."
+  },
+  {
+    "pattern": "lightspark",
+    "category": "Internet & Communication",
+    "reason": "Open source Flash Player implementation for rendering web Flash content."
+  },
+  {
+    "pattern": "lightspark-git",
+    "category": "Internet & Communication",
+    "reason": "Open source Flash Player implementation for rendering web Flash content."
+  },
+  {
+    "pattern": "linuxmint-keyring",
+    "category": "Security",
+    "reason": "GnuPG keyring used to verify signatures on the Linux Mint package archive."
+  },
+  {
+    "pattern": "lives",
+    "category": "Photo & Video",
+    "reason": "LiVES is a non-linear video editing system."
+  },
+  {
+    "pattern": "mangohud-git",
+    "category": "System Tools",
+    "reason": "Vulkan/OpenGL overlay for monitoring FPS, temperatures and CPU/GPU load -- matches this catalog's system-monitor -> System Tools convention."
+  },
+  {
+    "pattern": "mangohud",
+    "category": "System Tools",
+    "reason": "Vulkan/OpenGL overlay for monitoring FPS, temperatures and CPU/GPU load -- matches this catalog's system-monitor -> System Tools convention."
+  },
+  {
+    "pattern": "marp-cli",
+    "category": "Productivity",
+    "reason": "CLI converter that turns Markdown into slide-deck presentations (Marp/Marpit)."
+  },
+  {
+    "pattern": "marp-cli-bin",
+    "category": "Productivity",
+    "reason": "CLI converter that turns Markdown into slide-deck presentations (Marp/Marpit)."
+  },
+  {
+    "pattern": "medialibrary-git",
+    "category": "Photo & Video",
+    "reason": "VideoLAN's media indexing library used to organize video/audio collections."
+  },
+  {
+    "pattern": "medialibrary",
+    "category": "Photo & Video",
+    "reason": "VideoLAN's media indexing library used to organize video/audio collections."
+  },
+  {
+    "pattern": "megasync",
+    "category": "Internet & Communication",
+    "reason": "Official MEGA cloud-storage sync client, same cloud-storage/file-sync family already mapped to Internet & Communication."
+  },
+  {
+    "pattern": "megasync-bin",
+    "category": "Internet & Communication",
+    "reason": "Official MEGA cloud-storage sync client, same cloud-storage/file-sync family already mapped to Internet & Communication."
+  },
+  {
+    "pattern": "megasync-git",
+    "category": "Internet & Communication",
+    "reason": "Official MEGA cloud-storage sync client, same cloud-storage/file-sync family already mapped to Internet & Communication."
+  },
+  {
+    "pattern": "meka",
+    "category": "Developer Tools",
+    "reason": "A general-purpose AI agent harness for developers, per its own description and homepage (docs.meka.so)."
+  },
+  {
+    "pattern": "mendeleydesktop",
+    "category": "Books & Reference",
+    "reason": "Academic reference manager for organizing and sharing research papers."
+  },
+  {
+    "pattern": "mimms",
+    "category": "Internet & Communication",
+    "reason": "Downloads media streams over the MMS protocol -- a network media downloader."
+  },
+  {
+    "pattern": "mintlocale",
+    "category": "Settings",
+    "reason": "Language and locale selection tool for Linux Mint."
+  },
+  {
+    "pattern": "mir",
+    "category": "System Tools",
+    "reason": "Canonical's display server -- low-level system/compositor infrastructure."
+  },
+  {
+    "pattern": "mir-git",
+    "category": "System Tools",
+    "reason": "Canonical's display server -- low-level system/compositor infrastructure."
+  },
+  {
+    "pattern": "mouse-actions-gui-bin",
+    "category": "Settings",
+    "reason": "Configures mouse gestures, hot corners and modifier-key actions -- input/device configuration, same family as hotkey-daemon entries already mapped to Settings."
+  },
+  {
+    "pattern": "mouse-actions-gui",
+    "category": "Settings",
+    "reason": "Configures mouse gestures, hot corners and modifier-key actions -- input/device configuration, same family as hotkey-daemon entries already mapped to Settings."
+  },
+  {
+    "pattern": "netfabb-basic",
+    "category": "Graphics & Design",
+    "reason": "Views and repairs STL 3D-model files -- 3D modeling/design tooling."
+  },
+  {
+    "pattern": "openh264-git",
+    "category": "Developer Tools",
+    "reason": "H.264 video codec library for encoding/decoding -- a developer library."
+  },
+  {
+    "pattern": "openh264",
+    "category": "Developer Tools",
+    "reason": "H.264 video codec library for encoding/decoding -- a developer library."
+  },
+  {
+    "pattern": "pangox-compat",
+    "category": "Developer Tools",
+    "reason": "X Window System font-support compatibility library for Pango -- a developer library."
+  },
+  {
+    "pattern": "pantomime",
+    "category": "Developer Tools",
+    "reason": "GNUstep Objective-C class library modeling a mail system, used to build mail clients such as GNUMail -- a developer library."
+  },
+  {
+    "pattern": "pcgen-git",
+    "category": "Utilities",
+    "reason": "Tabletop RPG character-sheet generator -- a generic utility tool, not itself a video game."
+  },
+  {
+    "pattern": "pcgen",
+    "category": "Utilities",
+    "reason": "Tabletop RPG character-sheet generator -- a generic utility tool, not itself a video game."
+  },
+  {
+    "pattern": "quazip-qt5",
+    "category": "Developer Tools",
+    "reason": "C++ wrapper library around the ZIP/UNZIP format for Qt5 applications."
+  },
+  {
+    "pattern": "rawstudio",
+    "category": "Photo & Video",
+    "reason": "Open source raw-image converter for photographers."
+  },
+  {
+    "pattern": "rawstudio-git",
+    "category": "Photo & Video",
+    "reason": "Open source raw-image converter for photographers."
+  },
+  {
+    "pattern": "redumper",
+    "category": "Utilities",
+    "reason": "Low-level CD dumping/imaging utility."
+  },
+  {
+    "pattern": "redumper-git",
+    "category": "Utilities",
+    "reason": "Low-level CD dumping/imaging utility."
+  },
+  {
+    "pattern": "renaissance",
+    "category": "Developer Tools",
+    "reason": "GNUstep GUI framework -- a developer library."
+  },
+  {
+    "pattern": "roccat-tools-kiro",
+    "category": "Settings",
+    "reason": "Configuration utility for ROCCAT Kiro peripheral devices -- hardware settings."
+  },
+  {
+    "pattern": "sdate",
+    "category": "Utilities",
+    "reason": "Small CLI wrapper that prints a novelty offset date."
+  },
+  {
+    "pattern": "sidewinderd",
+    "category": "Settings",
+    "reason": "Driver/daemon for configuring Microsoft SideWinder and Logitech gaming keyboards/mice -- hardware settings."
+  },
+  {
+    "pattern": "sidewinderd-git",
+    "category": "Settings",
+    "reason": "Driver/daemon for configuring Microsoft SideWinder and Logitech gaming keyboards/mice -- hardware settings."
+  },
+  {
+    "pattern": "slowmovideo-git",
+    "category": "Photo & Video",
+    "reason": "Creates video slow-motion effects via frame interpolation."
+  },
+  {
+    "pattern": "slowmovideo",
+    "category": "Photo & Video",
+    "reason": "Creates video slow-motion effects via frame interpolation."
+  },
+  {
+    "pattern": "smtube",
+    "category": "Internet & Communication",
+    "reason": "Browse, search and play YouTube videos -- a web video client."
+  },
+  {
+    "pattern": "sqlclient",
+    "category": "Developer Tools",
+    "reason": "SQL database interface library for GNUstep applications -- a developer library."
+  },
+  {
+    "pattern": "streamlink-twitch-gui",
+    "category": "Internet & Communication",
+    "reason": "Multi-platform Twitch.tv browser client for Streamlink."
+  },
+  {
+    "pattern": "streamlink-twitch-gui-bin",
+    "category": "Internet & Communication",
+    "reason": "Multi-platform Twitch.tv browser client for Streamlink."
+  },
+  {
+    "pattern": "streamlink-twitch-gui-git",
+    "category": "Internet & Communication",
+    "reason": "Multi-platform Twitch.tv browser client for Streamlink."
+  },
+  {
+    "pattern": "swftools",
+    "category": "Developer Tools",
+    "reason": "Collection of tools for creating and manipulating SWF (Flash) files -- developer content-authoring tooling."
+  },
+  {
+    "pattern": "swftools-git",
+    "category": "Developer Tools",
+    "reason": "Collection of tools for creating and manipulating SWF (Flash) files -- developer content-authoring tooling."
+  },
+  {
+    "pattern": "system76-driver",
+    "category": "System Tools",
+    "reason": "Universal hardware driver package for System76 computers."
+  },
+  {
+    "pattern": "system76-driver-git",
+    "category": "System Tools",
+    "reason": "Universal hardware driver package for System76 computers."
+  },
+  {
+    "pattern": "system76-oled",
+    "category": "Settings",
+    "reason": "Controls brightness on System76 OLED displays -- hardware settings."
+  },
+  {
+    "pattern": "system76-scheduler-git",
+    "category": "System Tools",
+    "reason": "System76's userspace process scheduler for improving responsiveness -- system-level performance tooling."
+  },
+  {
+    "pattern": "system76-scheduler",
+    "category": "System Tools",
+    "reason": "System76's userspace process scheduler for improving responsiveness -- system-level performance tooling."
+  },
+  {
+    "pattern": "systempreferences",
+    "category": "Settings",
+    "reason": "GNUstep application for managing system/desktop-environment settings."
+  },
+  {
+    "pattern": "system-preferences",
+    "category": "Settings",
+    "reason": "GNUstep application for managing system/desktop-environment settings."
+  },
+  {
+    "pattern": "tickrs-git",
+    "category": "Finance",
+    "reason": "Displays realtime stock ticker data in the terminal."
+  },
+  {
+    "pattern": "tickrs",
+    "category": "Finance",
+    "reason": "Displays realtime stock ticker data in the terminal."
+  },
+  {
+    "pattern": "videomorph",
+    "category": "Photo & Video",
+    "reason": "GUI wrapper around FFMPEG for video format conversion."
+  },
+  {
+    "pattern": "vvdec",
+    "category": "Developer Tools",
+    "reason": "H.266/VVC video decoder library -- a developer library."
+  },
+  {
+    "pattern": "vvdec-git",
+    "category": "Developer Tools",
+    "reason": "H.266/VVC video decoder library -- a developer library."
+  },
+  {
+    "pattern": "vvenc",
+    "category": "Developer Tools",
+    "reason": "H.266/VVC video encoder library -- a developer library."
+  },
+  {
+    "pattern": "vvenc-git",
+    "category": "Developer Tools",
+    "reason": "H.266/VVC video encoder library -- a developer library."
+  },
+  {
+    "pattern": "webapp-manager-git",
+    "category": "Internet & Communication",
+    "reason": "Runs websites as standalone desktop apps -- a web-content integration tool."
+  },
+  {
+    "pattern": "webapp-manager",
+    "category": "Internet & Communication",
+    "reason": "Runs websites as standalone desktop apps -- a web-content integration tool."
+  },
+  {
+    "pattern": "xt7-player-mpv-git",
+    "category": "Photo & Video",
+    "reason": "GUI front-end for the mpv media player."
+  },
+  {
+    "pattern": "xt7-player-mpv",
+    "category": "Photo & Video",
+    "reason": "GUI front-end for the mpv media player."
+  },
+  {
+    "pattern": "xvst",
+    "category": "Internet & Communication",
+    "reason": "GUI tool for downloading videos from sites like YouTube and GoogleVideo."
+  },
+  {
+    "pattern": "xwayland-satellite-git",
+    "category": "System Tools",
+    "reason": "Runs XWayland outside of a Wayland compositor -- low-level display-server infrastructure."
+  },
+  {
+    "pattern": "xwayland-satellite",
+    "category": "System Tools",
+    "reason": "Runs XWayland outside of a Wayland compositor -- low-level display-server infrastructure."
+  },
+  {
+    "pattern": "zerotier-one-git",
+    "category": "Security",
+    "reason": "Creates encrypted virtual Ethernet/VPN-style networks, same networking-security family as VPN clients already mapped to Security."
+  },
+  {
+    "pattern": "zerotier-one",
+    "category": "Security",
+    "reason": "Creates encrypted virtual Ethernet/VPN-style networks, same networking-security family as VPN clients already mapped to Security."
+  },
+  {
+    "pattern": "zerotierone",
+    "category": "Security",
+    "reason": "Creates encrypted virtual Ethernet/VPN-style networks, same networking-security family as VPN clients already mapped to Security."
+  },
+  {
+    "pattern": "gnome",
+    "category": "System Tools",
+    "reason": "Meta-package for the full GNOME desktop environment -- core desktop-environment component."
+  },
+  {
+    "pattern": "nettle-bin",
+    "category": "Security",
+    "reason": "Command-line tools for the Nettle low-level cryptographic library."
+  },
+  {
+    "pattern": "mythtv-common",
+    "category": "Photo & Video",
+    "reason": "Common data files for the MythTV personal video recorder application."
+  },
+  {
+    "pattern": "atkmm2.36",
+    "category": "Developer Tools",
+    "reason": "C++ interface (binding) for the ATK accessibility library -- a developer library."
+  },
+  {
+    "pattern": "atkmm-2.36",
+    "category": "Developer Tools",
+    "reason": "C++ interface (binding) for the ATK accessibility library -- a developer library."
+  },
+  {
+    "pattern": "coeurl",
+    "category": "Developer Tools",
+    "reason": "Asynchronous C++ wrapper around libcurl -- a developer library."
+  },
+  {
+    "pattern": "glibmm2.68",
+    "category": "Developer Tools",
+    "reason": "C++ interface (binding) for the GLib library -- a developer library."
+  },
+  {
+    "pattern": "glibmm-2.68",
+    "category": "Developer Tools",
+    "reason": "C++ interface (binding) for the GLib library -- a developer library."
+  },
+  {
+    "pattern": "gnu-efi",
+    "category": "Developer Tools",
+    "reason": "Development libraries and headers for writing EFI applications."
+  },
+  {
+    "pattern": "gtkd",
+    "category": "Developer Tools",
+    "reason": "D-language binding and object-oriented wrapper for GTK+."
+  },
+  {
+    "pattern": "host-spawn",
+    "category": "Developer Tools",
+    "reason": "Runs commands on the host from inside a toolbox/flatpak development sandbox."
+  },
+  {
+    "pattern": "labwc-session",
+    "category": "System Tools",
+    "reason": "Session files for the labwc Wayland compositor -- desktop-session infrastructure."
+  },
+  {
+    "pattern": "miriway-session",
+    "category": "System Tools",
+    "reason": "Session files for the Miriway Wayland compositor -- desktop-session infrastructure."
+  },
+  {
+    "pattern": "quazip-qt6",
+    "category": "Developer Tools",
+    "reason": "Qt6 wrapper library around the minizip format."
+  },
+  {
+    "pattern": "rhythmbox-alternative-toolbar",
+    "category": "Music & Audio",
+    "reason": "Alternative compact toolbar plugin for the Rhythmbox music player."
+  },
+  {
+    "pattern": "sdbus-cpp",
+    "category": "Developer Tools",
+    "reason": "High-level C++ D-Bus library -- a developer library."
+  },
+  {
+    "pattern": "weston-session",
+    "category": "System Tools",
+    "reason": "Session files for the Weston Wayland compositor -- desktop-session infrastructure."
+  },
+  {
+    "pattern": "amule-nogui",
+    "category": "Internet & Communication",
+    "reason": "Headless components of the aMule P2P file-sharing client, for running on servers."
+  },
+  {
+    "pattern": "avidemux-qt",
+    "category": "Photo & Video",
+    "reason": "Qt GUI video editing tool for filtering, re-encoding and splitting video."
+  },
+  {
+    "pattern": "bulky",
+    "category": "Utilities",
+    "reason": "Batch utility for renaming files and directories."
+  },
+  {
+    "pattern": "gendesk",
+    "category": "Developer Tools",
+    "reason": "Generates .desktop launcher files from minimal input -- a packaging/build tool."
+  },
+  {
+    "pattern": "mmsrip",
+    "category": "Internet & Communication",
+    "reason": "Downloader for the proprietary MMS:// streaming protocol."
+  },
+  {
+    "pattern": "testu01",
+    "category": "Science",
+    "reason": "Statistical test-suite library for empirically testing random-number generators."
+  },
+  {
+    "pattern": "thingy",
+    "category": "Productivity",
+    "reason": "Quick-access launcher for recent and favorite documents."
+  },
+  {
+    "pattern": "z3-java",
+    "category": "Developer Tools",
+    "reason": "Java bindings for the Z3 theorem prover -- a developer/formal-verification tool."
+  },
+  {
+    "pattern": "gd",
+    "category": "Developer Tools",
+    "reason": "Dynamic image-creation library (libgd) used by developers to generate images programmatically."
+  },
+  {
+    "pattern": "ipu6-camera-hal",
+    "category": "System Tools",
+    "reason": "Hardware-abstraction layer for Intel IPU6 camera image processing -- low-level driver infrastructure."
+  },
+  {
+    "pattern": "gambatte-qt",
+    "category": "System Tools",
+    "reason": "Qt front-end for the Gambatte Game Boy emulator -- matches this catalog's emulator -> System Tools convention."
+  },
+  {
+    "pattern": "xviewer-plugin-exif-display",
+    "category": "Photo & Video",
+    "reason": "EXIF-display plugin for the Xviewer image viewer."
+  },
+  {
+    "pattern": "xviewer-plugin-export-to-folder",
+    "category": "Photo & Video",
+    "reason": "Export-to-folder plugin for the Xviewer image viewer."
+  },
+  {
+    "pattern": "xviewer-plugin-map",
+    "category": "Photo & Video",
+    "reason": "Map plugin for the Xviewer image viewer."
+  },
+  {
+    "pattern": "xviewer-plugin-pythonconsole",
+    "category": "Photo & Video",
+    "reason": "Python-console plugin for the Xviewer image viewer."
+  },
+  {
+    "pattern": "xviewer-plugin-send-by-mail",
+    "category": "Photo & Video",
+    "reason": "Send-by-mail plugin for the Xviewer image viewer."
+  },
+  {
+    "pattern": "xviewer-plugin-slideshowshuffle",
+    "category": "Photo & Video",
+    "reason": "Slideshow-shuffle plugin for the Xviewer image viewer."
+  },
+  {
+    "pattern": "acoustid-fingerprinter",
+    "category": "Music & Audio",
+    "reason": "Music AcoustID audio-fingerprinting application."
+  },
+  {
+    "pattern": "buildsys-build-rpmfusion",
+    "category": "Developer Tools",
+    "reason": "Build-system tooling/files used by the RPM Fusion package buildsys -- packaging/build infrastructure."
+  },
+  {
+    "pattern": "buildsys-build-rpmfusion-kerneldevpkgs-current",
+    "category": "Developer Tools",
+    "reason": "Meta-package pulling in current kernel-devel packages for the RPM Fusion buildroot -- build infrastructure."
+  },
+  {
+    "pattern": "compat-ffmpeg4",
+    "category": "Photo & Video",
+    "reason": "Compatibility package for the FFmpeg 4 multimedia framework libraries."
+  },
+  {
+    "pattern": "dvd95",
+    "category": "Photo & Video",
+    "reason": "Graphical DVD9-to-DVD5 converter tool."
+  },
+  {
+    "pattern": "freeguide",
+    "category": "News & Weather",
+    "reason": "A TV programming guide -- broadcast schedule/listings tool."
   }
 ]

@@ -63,7 +63,14 @@ const NOISE_PATTERNS: RegExp[] = [
   // module developers that also happens to be named "test" — accepted at
   // the same tolerance this file already extends elsewhere, e.g.
   // `cmdstan` under `library for`).
+  // `-samples?$` added alongside `-examples?$` for the same shape under a
+  // different word (AMF-samples, xerces-c-samples, ...) — verified
+  // whole-catalog: 44 name matches, zero exceptions (a `-manual$` variant
+  // of the same idea was checked and rejected: `deepin-manual` is a real,
+  // launchable Deepin desktop help/user-guide app riding the same
+  // "-manual" suffix, so that one wasn't safe to add).
   /-examples?$/,
+  /-samples?$/,
   /-tests?$/,
   // Development headers as their own named package, not just as an
   // `SUPPORT_DESCRIPTION_PATTERNS` "development files" description phrase

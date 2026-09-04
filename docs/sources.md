@@ -111,15 +111,23 @@ because a paragraph per cell made the table unreadable.
 5. **GitHub Releases** (generic; `.deb`, `.rpm`, `.AppImage`, raw
    binaries, ...) — no catalog exists, so this discovers candidates via
    `api.github.com/search/repositories?q=topic:linux-app+archived:false`
-   (sorted by stars, paginated up to GitHub's 1,000-result search cap),
-   kept only if the repo also has a real tagged Release (necessary —
+   (sorted by stars). GitHub's search API hard-caps any single query at
+   1,000 results regardless of the real `total_count` — verified live
+   2026-09-04 that this was silently truncating real results (1,278 repos
+   actually tagged `linux-app`, only 1,000 reachable), so the query is
+   recursively bisected on `created:<from>..<to>` date range whenever a
+   range's own `total_count` exceeds the cap (`searchDateRange`, same
+   "adaptive deepening around a hard result cap" shape as Snapcraft's
+   `sweepQueriesRecursively`), instead of trusting one unbounded query.
+   Kept only if the repo also has a real tagged Release (necessary —
    nothing to install otherwise — but not sufficient on its own: some
    repos with the topic and a Release are packaging tooling, not an app
    a user would launch, e.g. AppImage/AppImageKit itself, excluded via
-   `config/filter-exclude.json`). 1,000 candidates in, 499 with a real
-   Release, 498 after that one exclusion. `homepage` points at the
-   Release page itself, not a specific asset — no reliable per-project
-   convention for picking "the right download" across arbitrary repos.
+   `config/filter-exclude.json`). Verified live: 1,278 candidates in (up
+   from 1,000 pre-fix), 594 with a real Release after that one exclusion
+   (up from 498). `homepage` points at the Release page itself, not a
+   specific asset — no reliable per-project convention for picking "the
+   right download" across arbitrary repos.
    Needs `GITHUB_TOKEN` (search API's own stricter 30 req/min limit is
    still comfortably inside budget for ≤10 search pages + up to 1,000
    per-repo Release lookups). Not exhaustive by nature (topic-tagging is

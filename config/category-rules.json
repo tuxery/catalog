@@ -3403,5 +3403,580 @@
     "pattern": "freeguide",
     "category": "News & Weather",
     "reason": "A TV programming guide -- broadcast schedule/listings tool."
+  },
+  {
+    "pattern": "SSH-MITM",
+    "category": "Security",
+    "reason": "An SSH man-in-the-middle proxy used for auditing SSH setups -- a security-testing tool."
+  },
+  {
+    "pattern": "SSH-MITM - ssh audits made simple",
+    "category": "Security",
+    "reason": "An SSH man-in-the-middle proxy used for auditing SSH setups -- a security-testing tool."
+  },
+  {
+    "pattern": "ssh-mitm",
+    "category": "Security",
+    "reason": "An SSH man-in-the-middle proxy used for auditing SSH setups -- a security-testing tool."
+  },
+  {
+    "pattern": "Nift",
+    "category": "Developer Tools",
+    "reason": "A dependency-aware static website generator, a developer build tool."
+  },
+  {
+    "pattern": "nift",
+    "category": "Developer Tools",
+    "reason": "A dependency-aware static website generator, a developer build tool."
+  },
+  {
+    "pattern": "Invoicer",
+    "category": "Business",
+    "reason": "Creates payment invoices -- a small-business tool."
+  },
+  {
+    "pattern": "Minecraft Launcher",
+    "category": "Utilities",
+    "reason": "The official Minecraft Launcher -- game-launcher family, same as Wine/Proton/Lutris precedent, non-game contentType already."
+  },
+  {
+    "pattern": "minecraft-launcher",
+    "category": "Utilities",
+    "reason": "The official Minecraft Launcher -- game-launcher family, same as Wine/Proton/Lutris precedent, non-game contentType already."
+  },
+  {
+    "pattern": "Okta CLI",
+    "category": "Developer Tools",
+    "reason": "CLI for Okta identity platform, a developer/auth tool."
+  },
+  {
+    "pattern": "okta-cli-bin",
+    "category": "Developer Tools",
+    "reason": "CLI for Okta identity platform, a developer/auth tool."
+  },
+  {
+    "pattern": "Outer Wilds Mod Manager",
+    "category": "Utilities",
+    "reason": "A mod manager for Outer Wilds -- game-adjacent management tool, same family as Wine/Lutris/mod-manager precedent."
+  },
+  {
+    "pattern": "Helden-Software",
+    "category": "Utilities",
+    "reason": "A character-sheet generator for the 'Das Schwarze Auge' tabletop RPG -- a tabletop-gaming companion tool."
+  },
+  {
+    "pattern": "helden-software",
+    "category": "Utilities",
+    "reason": "A character-sheet generator for the 'Das Schwarze Auge' tabletop RPG -- a tabletop-gaming companion tool."
+  },
+  {
+    "pattern": "TestMyCode CLI",
+    "category": "Education",
+    "reason": "CLI for the TestMyCode programming-assignment evaluator used in university courses -- an education tool."
+  },
+  {
+    "pattern": "FDME - FFHandball",
+    "category": "Business",
+    "reason": "Match-sheet management software for the French handball federation -- an organizational/administrative tool."
+  },
+  {
+    "pattern": "jEveAssets",
+    "category": "Utilities",
+    "reason": "An out-of-game asset manager for EVE Online -- a game companion tool, non-game contentType already."
+  },
+  {
+    "pattern": "jeveassets",
+    "category": "Utilities",
+    "reason": "An out-of-game asset manager for EVE Online -- a game companion tool, non-game contentType already."
+  },
+  {
+    "pattern": "Hedge Mod Manager",
+    "category": "Utilities",
+    "reason": "A mod manager for Sonic games -- game companion tool, non-game contentType already."
+  },
+  {
+    "pattern": "hedgemodmanager",
+    "category": "Utilities",
+    "reason": "A mod manager for Sonic games -- game companion tool, non-game contentType already."
+  },
+  {
+    "pattern": "hedgemodmanager-bin",
+    "category": "Utilities",
+    "reason": "A mod manager for Sonic games -- game companion tool, non-game contentType already."
+  },
+  {
+    "pattern": "hedgemodmanager-git",
+    "category": "Utilities",
+    "reason": "A mod manager for Sonic games -- game companion tool, non-game contentType already."
+  },
+  {
+    "pattern": "Makou Reactor",
+    "category": "Utilities",
+    "reason": "A field editor for Final Fantasy VII -- a game-modding tool, non-game contentType already."
+  },
+  {
+    "pattern": "makoureactor",
+    "category": "Utilities",
+    "reason": "A field editor for Final Fantasy VII -- a game-modding tool, non-game contentType already."
+  },
+  {
+    "pattern": "makoureactor-git",
+    "category": "Utilities",
+    "reason": "A field editor for Final Fantasy VII -- a game-modding tool, non-game contentType already."
+  },
+  {
+    "pattern": "CTL Dash",
+    "category": "System Tools",
+    "reason": "A dashboard for managing system services."
+  },
+  {
+    "pattern": "DroidStar",
+    "category": "Internet & Communication",
+    "reason": "A digital voice client for amateur radio networks (D-STAR/DMR/etc)."
+  },
+  {
+    "pattern": "droidstar-git",
+    "category": "Internet & Communication",
+    "reason": "A digital voice client for amateur radio networks (D-STAR/DMR/etc)."
+  },
+  {
+    "pattern": "Pyfa",
+    "category": "Utilities",
+    "reason": "A ship-fitting assistant for EVE Online -- game companion tool, non-game contentType already."
+  },
+  {
+    "pattern": "pyfa",
+    "category": "Utilities",
+    "reason": "A ship-fitting assistant for EVE Online -- game companion tool, non-game contentType already."
+  },
+  {
+    "pattern": "Black Chocobo",
+    "category": "Utilities",
+    "reason": "A save editor for Final Fantasy VII -- game-modding tool, non-game contentType already."
+  },
+  {
+    "pattern": "Black_Chocobo",
+    "category": "Utilities",
+    "reason": "A save editor for Final Fantasy VII -- game-modding tool, non-game contentType already."
+  },
+  {
+    "pattern": "blackchocobo",
+    "category": "Utilities",
+    "reason": "A save editor for Final Fantasy VII -- game-modding tool, non-game contentType already."
+  },
+  {
+    "pattern": "blackchocobo-git",
+    "category": "Utilities",
+    "reason": "A save editor for Final Fantasy VII -- game-modding tool, non-game contentType already."
+  },
+  {
+    "pattern": "dropboxignore",
+    "category": "Utilities",
+    "reason": "Adds .dropboxignore support for excluding files from Dropbox sync -- a sync utility."
+  },
+  {
+    "pattern": "An Anime Game Launcher",
+    "category": "Utilities",
+    "reason": "An unofficial launcher for Genshin Impact on Linux -- game-launcher family, same as Wine/Proton/Lutris precedent."
+  },
+  {
+    "pattern": "an-anime-game-launcher",
+    "category": "Utilities",
+    "reason": "An unofficial launcher for Genshin Impact on Linux -- game-launcher family, same as Wine/Proton/Lutris precedent."
+  },
+  {
+    "pattern": "an-anime-game-launcher-bin",
+    "category": "Utilities",
+    "reason": "An unofficial launcher for Genshin Impact on Linux -- game-launcher family, same as Wine/Proton/Lutris precedent."
+  },
+  {
+    "pattern": "Honkers Launcher",
+    "category": "Utilities",
+    "reason": "An unofficial launcher for Honkai Impact 3rd on Linux -- game-launcher family."
+  },
+  {
+    "pattern": "honkers-launcher",
+    "category": "Utilities",
+    "reason": "An unofficial launcher for Honkai Impact 3rd on Linux -- game-launcher family."
+  },
+  {
+    "pattern": "honkers-launcher-bin",
+    "category": "Utilities",
+    "reason": "An unofficial launcher for Honkai Impact 3rd on Linux -- game-launcher family."
+  },
+  {
+    "pattern": "Sleepy Launcher",
+    "category": "Utilities",
+    "reason": "An unofficial launcher for Zenless Zone Zero on Linux -- game-launcher family."
+  },
+  {
+    "pattern": "sleepy-launcher",
+    "category": "Utilities",
+    "reason": "An unofficial launcher for Zenless Zone Zero on Linux -- game-launcher family."
+  },
+  {
+    "pattern": "sleepy-launcher-bin",
+    "category": "Utilities",
+    "reason": "An unofficial launcher for Zenless Zone Zero on Linux -- game-launcher family."
+  },
+  {
+    "pattern": "sleepy-launcher-git",
+    "category": "Utilities",
+    "reason": "An unofficial launcher for Zenless Zone Zero on Linux -- game-launcher family."
+  },
+  {
+    "pattern": "The Honkers Railway Launcher",
+    "category": "Utilities",
+    "reason": "An unofficial launcher for Honkai: Star Rail on Linux -- game-launcher family."
+  },
+  {
+    "pattern": "the-honkers-railway-launcher",
+    "category": "Utilities",
+    "reason": "An unofficial launcher for Honkai: Star Rail on Linux -- game-launcher family."
+  },
+  {
+    "pattern": "the-honkers-railway-launcher-bin",
+    "category": "Utilities",
+    "reason": "An unofficial launcher for Honkai: Star Rail on Linux -- game-launcher family."
+  },
+  {
+    "pattern": "the-honkers-railway-launcher-git",
+    "category": "Utilities",
+    "reason": "An unofficial launcher for Honkai: Star Rail on Linux -- game-launcher family."
+  },
+  {
+    "pattern": "Laby Launcher",
+    "category": "Utilities",
+    "reason": "An all-in-one Minecraft client/launcher -- game-launcher family, non-game contentType already."
+  },
+  {
+    "pattern": "Sync Passwd",
+    "category": "Security",
+    "reason": "Updates/syncs passwords -- a password-management security tool."
+  },
+  {
+    "pattern": "Flatpak External Data Checker",
+    "category": "Developer Tools",
+    "reason": "Checks for updates to external data referenced in Flatpak build manifests -- a developer/build tool."
+  },
+  {
+    "pattern": "Flatpak Builder Flatpak",
+    "category": "Developer Tools",
+    "reason": "Flatpak's own build tool, packaged as a Flatpak -- a developer tool."
+  },
+  {
+    "pattern": "Glxinfo",
+    "category": "System Tools",
+    "reason": "Diagnoses OpenGL/3D acceleration setup -- a system diagnostic tool."
+  },
+  {
+    "pattern": "glxinfo",
+    "category": "System Tools",
+    "reason": "Diagnoses OpenGL/3D acceleration setup -- a system diagnostic tool."
+  },
+  {
+    "pattern": "VulkanInfo",
+    "category": "System Tools",
+    "reason": "Vulkan graphics diagnostic utilities -- a system diagnostic tool."
+  },
+  {
+    "pattern": "Diveboard",
+    "category": "Travel & Navigation",
+    "reason": "A scuba-diving logbook tracking dive sites and trips -- a travel/activity-logging tool."
+  },
+  {
+    "pattern": "Jogger",
+    "category": "Productivity",
+    "reason": "A fitness/running tracker -- no dedicated health category exists, closest is personal-tracking Productivity."
+  },
+  {
+    "pattern": "jogger",
+    "category": "Productivity",
+    "reason": "A fitness/running tracker -- no dedicated health category exists, closest is personal-tracking Productivity."
+  },
+  {
+    "pattern": "SonoBus VST3",
+    "category": "Music & Audio",
+    "reason": "Network audio streaming and VST3 plugins for real-time collaboration -- an audio tool."
+  },
+  {
+    "pattern": "ColorMate",
+    "category": "Graphics & Design",
+    "reason": "A color-picking helper tool -- a design utility."
+  },
+  {
+    "pattern": "QuickWord",
+    "category": "Books & Reference",
+    "reason": "A quick word-lookup/dictionary tool -- a reference tool."
+  },
+  {
+    "pattern": "Stashed",
+    "category": "Utilities",
+    "reason": "A general file utility."
+  },
+  {
+    "pattern": "Cannonball",
+    "category": "Utilities",
+    "reason": "An enhanced open-source reimplementation of the OutRun arcade racing engine -- contentType reads absent (non-game) so must use the app taxonomy; filed as Utilities, matching this catalog's precedent for standalone game-engine/compatibility software (Wine, Proton, ScummVM-adjacent tools)."
+  },
+  {
+    "pattern": "cannonball",
+    "category": "Utilities",
+    "reason": "An enhanced open-source reimplementation of the OutRun arcade racing engine -- contentType reads absent (non-game) so must use the app taxonomy; filed as Utilities, matching this catalog's precedent for standalone game-engine/compatibility software (Wine, Proton, ScummVM-adjacent tools)."
+  },
+  {
+    "pattern": "cannonball-git",
+    "category": "Utilities",
+    "reason": "An enhanced open-source reimplementation of the OutRun arcade racing engine -- contentType reads absent (non-game) so must use the app taxonomy; filed as Utilities, matching this catalog's precedent for standalone game-engine/compatibility software (Wine, Proton, ScummVM-adjacent tools)."
+  },
+  {
+    "pattern": "miriway",
+    "category": "System Tools",
+    "reason": "A configurable Wayland compositor/graphical shell -- a system-level desktop-environment tool."
+  },
+  {
+    "pattern": "QJoyPad",
+    "category": "Utilities",
+    "reason": "Maps joypad/gamepad input to keyboard and mouse events -- an input-utility tool."
+  },
+  {
+    "pattern": "qjoypad",
+    "category": "Utilities",
+    "reason": "Maps joypad/gamepad input to keyboard and mouse events -- an input-utility tool."
+  },
+  {
+    "pattern": "Utsushi",
+    "category": "Photo & Video",
+    "reason": "A next-generation image-acquisition (scanner) driver/software suite -- an imaging tool."
+  },
+  {
+    "pattern": "utsushi",
+    "category": "Photo & Video",
+    "reason": "A next-generation image-acquisition (scanner) driver/software suite -- an imaging tool."
+  },
+  {
+    "pattern": "Mari0",
+    "category": "Utilities",
+    "reason": "A fan recreation of Super Mario Bros with Portal-style portals -- contentType reads absent (non-game) so must use the app taxonomy; filed as Utilities, matching this catalog's precedent for standalone game-engine/fan-recreation software."
+  },
+  {
+    "pattern": "mari0",
+    "category": "Utilities",
+    "reason": "A fan recreation of Super Mario Bros with Portal-style portals -- contentType reads absent (non-game) so must use the app taxonomy; filed as Utilities, matching this catalog's precedent for standalone game-engine/fan-recreation software."
+  },
+  {
+    "pattern": "mari0-git",
+    "category": "Utilities",
+    "reason": "A fan recreation of Super Mario Bros with Portal-style portals -- contentType reads absent (non-game) so must use the app taxonomy; filed as Utilities, matching this catalog's precedent for standalone game-engine/fan-recreation software."
+  },
+  {
+    "pattern": "MEGAcmd",
+    "category": "Internet & Communication",
+    "reason": "MEGA's official command-line client for their cloud storage service -- a cloud-sync/file-transfer tool."
+  },
+  {
+    "pattern": "megacmd",
+    "category": "Internet & Communication",
+    "reason": "MEGA's official command-line client for their cloud storage service -- a cloud-sync/file-transfer tool."
+  },
+  {
+    "pattern": "megacmd-bin",
+    "category": "Internet & Communication",
+    "reason": "MEGA's official command-line client for their cloud storage service -- a cloud-sync/file-transfer tool."
+  },
+  {
+    "pattern": "lamco-rdp-server",
+    "category": "Internet & Communication",
+    "reason": "A native Wayland RDP (remote desktop) server -- a remote-access networking tool."
+  },
+  {
+    "pattern": "Neon",
+    "category": "Finance",
+    "reason": "A lightweight wallet for the NEO blockchain -- a cryptocurrency-finance tool."
+  },
+  {
+    "pattern": "neon",
+    "category": "Finance",
+    "reason": "A lightweight wallet for the NEO blockchain -- a cryptocurrency-finance tool."
+  },
+  {
+    "pattern": "QDriverStation",
+    "category": "Utilities",
+    "reason": "An open-source alternative to the FIRST Robotics Competition Driver Station -- specialized robotics-control software."
+  },
+  {
+    "pattern": "qdriverstation",
+    "category": "Utilities",
+    "reason": "An open-source alternative to the FIRST Robotics Competition Driver Station -- specialized robotics-control software."
+  },
+  {
+    "pattern": "qdriverstation-git",
+    "category": "Utilities",
+    "reason": "An open-source alternative to the FIRST Robotics Competition Driver Station -- specialized robotics-control software."
+  },
+  {
+    "pattern": "Beeper",
+    "category": "Internet & Communication",
+    "reason": "A unified inbox aggregating iMessage, WhatsApp, Signal, Telegram, Instagram and more -- a messaging tool."
+  },
+  {
+    "pattern": "beeper-bin",
+    "category": "Internet & Communication",
+    "reason": "A unified inbox aggregating iMessage, WhatsApp, Signal, Telegram, Instagram and more -- a messaging tool."
+  },
+  {
+    "pattern": "beeper-nightly-bin",
+    "category": "Internet & Communication",
+    "reason": "A unified inbox aggregating iMessage, WhatsApp, Signal, Telegram, Instagram and more -- a messaging tool."
+  },
+  {
+    "pattern": "beeper-v4-bin",
+    "category": "Internet & Communication",
+    "reason": "A unified inbox aggregating iMessage, WhatsApp, Signal, Telegram, Instagram and more -- a messaging tool."
+  },
+  {
+    "pattern": "activate-linux",
+    "category": "Utilities",
+    "reason": "A novelty desktop watermark (parody of the Windows 'Activate Windows' overlay) -- a desktop-customization utility."
+  },
+  {
+    "pattern": "activate-linux-git",
+    "category": "Utilities",
+    "reason": "A novelty desktop watermark (parody of the Windows 'Activate Windows' overlay) -- a desktop-customization utility."
+  },
+  {
+    "pattern": "activatelinux",
+    "category": "Utilities",
+    "reason": "A novelty desktop watermark (parody of the Windows 'Activate Windows' overlay) -- a desktop-customization utility."
+  },
+  {
+    "pattern": "aom",
+    "category": "Photo & Video",
+    "reason": "AV1, an open royalty-free video coding format/codec -- a video-encoding tool."
+  },
+  {
+    "pattern": "aom-git",
+    "category": "Photo & Video",
+    "reason": "AV1, an open royalty-free video coding format/codec -- a video-encoding tool."
+  },
+  {
+    "pattern": "avidemux-cli",
+    "category": "Photo & Video",
+    "reason": "A CLI frontend for the Avidemux video editor -- a video-editing tool."
+  },
+  {
+    "pattern": "avidemux-cli-git",
+    "category": "Photo & Video",
+    "reason": "A CLI frontend for the Avidemux video editor -- a video-editing tool."
+  },
+  {
+    "pattern": "batmon",
+    "category": "System Tools",
+    "reason": "An interactive battery-status viewer -- a system-monitoring tool."
+  },
+  {
+    "pattern": "batmon-git",
+    "category": "System Tools",
+    "reason": "An interactive battery-status viewer -- a system-monitoring tool."
+  },
+  {
+    "pattern": "c-evo-map-gen",
+    "category": "Utilities",
+    "reason": "An external random map generator for the C-evo strategy game -- a game-companion tool, non-game contentType already."
+  },
+  {
+    "pattern": "c-evo-map_gen",
+    "category": "Utilities",
+    "reason": "An external random map generator for the C-evo strategy game -- a game-companion tool, non-game contentType already."
+  },
+  {
+    "pattern": "cevomapgen",
+    "category": "Utilities",
+    "reason": "An external random map generator for the C-evo strategy game -- a game-companion tool, non-game contentType already."
+  },
+  {
+    "pattern": "captain",
+    "category": "Developer Tools",
+    "reason": "Converts a Git workflow into Docker containers -- a developer/DevOps tool."
+  },
+  {
+    "pattern": "cgoban",
+    "category": "Internet & Communication",
+    "reason": "An SGF editor and client for connecting to Internet Go servers (IGS) to play Go online -- a network game-client tool."
+  },
+  {
+    "pattern": "comskip",
+    "category": "Photo & Video",
+    "reason": "An MPEG commercial-break detector for recorded video -- a video-processing tool."
+  },
+  {
+    "pattern": "comskip-git",
+    "category": "Photo & Video",
+    "reason": "An MPEG commercial-break detector for recorded video -- a video-processing tool."
+  },
+  {
+    "pattern": "curlew",
+    "category": "Photo & Video",
+    "reason": "A multimedia (audio/video/image) format converter -- a media-conversion tool."
+  },
+  {
+    "pattern": "dream",
+    "category": "Music & Audio",
+    "reason": "Software radio for receiving AM and Digital Radio Mondiale (DRM) broadcasts -- an audio/radio tool."
+  },
+  {
+    "pattern": "Dwarf-Therapist",
+    "category": "Utilities",
+    "reason": "A dwarf-management companion tool for the game Dwarf Fortress -- game-companion tool, non-game contentType already."
+  },
+  {
+    "pattern": "dwarf-therapist",
+    "category": "Utilities",
+    "reason": "A dwarf-management companion tool for the game Dwarf Fortress -- game-companion tool, non-game contentType already."
+  },
+  {
+    "pattern": "dwarftherapist",
+    "category": "Utilities",
+    "reason": "A dwarf-management companion tool for the game Dwarf Fortress -- game-companion tool, non-game contentType already."
+  },
+  {
+    "pattern": "dwarftherapist-git",
+    "category": "Utilities",
+    "reason": "A dwarf-management companion tool for the game Dwarf Fortress -- game-companion tool, non-game contentType already."
+  },
+  {
+    "pattern": "fb2converter",
+    "category": "Books & Reference",
+    "reason": "Converts FB2 ebooks to epub2/kepub/mobi/azw3 -- an ebook-conversion reference tool."
+  },
+  {
+    "pattern": "fb2converter-bin",
+    "category": "Books & Reference",
+    "reason": "Converts FB2 ebooks to epub2/kepub/mobi/azw3 -- an ebook-conversion reference tool."
+  },
+  {
+    "pattern": "ffmulticonverter",
+    "category": "Photo & Video",
+    "reason": "Converts audio, video, image and document files between formats -- a media-conversion tool."
+  },
+  {
+    "pattern": "ffmulticonverter-git",
+    "category": "Photo & Video",
+    "reason": "Converts audio, video, image and document files between formats -- a media-conversion tool."
+  },
+  {
+    "pattern": "folder-color-switcher",
+    "category": "Utilities",
+    "reason": "Switches folder icon colors in the Nemo and Caja file managers -- a desktop-customization utility."
+  },
+  {
+    "pattern": "fortunate",
+    "category": "Utilities",
+    "reason": "A fortune-mod-powered motivational-quote display app -- a novelty desktop utility, non-game contentType already."
+  },
+  {
+    "pattern": "frobtads",
+    "category": "Utilities",
+    "reason": "A combined TADS 2/3 interpreter for playing and creating Interactive Fiction text-adventure games -- matches this catalog's Utilities precedent for standalone game-engine/interpreter software."
   }
 ]

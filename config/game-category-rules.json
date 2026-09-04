@@ -2653,5 +2653,80 @@
     "pattern": "Summer & Winter: Olympic Challenge",
     "category": "Sports",
     "reason": "Olympic multi-event sports game."
+  },
+  {
+    "pattern": "gtetrinet",
+    "category": "Puzzle",
+    "reason": "GTK3 port of Tetrinet, a multiplayer falling-block Tetris-style puzzle game."
+  },
+  {
+    "pattern": "gtklife",
+    "category": "Simulation",
+    "reason": "Conway's Game of Life cellular-automaton simulator."
+  },
+  {
+    "pattern": "wumpus",
+    "category": "Adventure",
+    "reason": "Faithful transcription of the classic 1974 Hunt the Wumpus text-exploration adventure game."
+  },
+  {
+    "pattern": "crossfire-server",
+    "category": "Role-Playing",
+    "reason": "Server for Crossfire, a real open source multiplayer role-playing game."
+  },
+  {
+    "pattern": "dmagnetic",
+    "category": "Adventure",
+    "reason": "Interpreter for playing Magnetic Scrolls text adventure games."
+  },
+  {
+    "pattern": "frotz",
+    "category": "Adventure",
+    "reason": "Interpreter for playing Infocom/Z-code text adventure games."
+  },
+  {
+    "pattern": "xzip",
+    "category": "Adventure",
+    "reason": "Interpreter for playing Infocom-format text adventure games."
+  },
+  {
+    "pattern": "pangzero",
+    "category": "Arcade",
+    "reason": "Single-screen action game about popping balloons with a harpoon, in the classic Pang arcade style."
+  },
+  {
+    "pattern": "mokomaze",
+    "category": "Puzzle",
+    "reason": "Classic ball-in-a-labyrinth tilt-maze puzzle game."
+  },
+  {
+    "pattern": "monopd",
+    "category": "Board & Cards",
+    "reason": "Network server for a Monopoly board-game client."
+  },
+  {
+    "pattern": "c-evo-dh-gtk2",
+    "category": "Strategy",
+    "reason": "Civilization-style empire-building 4X strategy game."
+  },
+  {
+    "pattern": "explosive-c4",
+    "category": "Board & Cards",
+    "reason": "A Connect-Four (four-in-a-row) board game."
+  },
+  {
+    "pattern": "spring",
+    "category": "Strategy",
+    "reason": "Modern full-3D real-time-strategy game engine, used exclusively to build RTS games."
+  },
+  {
+    "pattern": "typespeed",
+    "category": "Educational",
+    "reason": "Typing-speed practice/trainer game."
+  },
+  {
+    "pattern": "ski",
+    "category": "Sports",
+    "reason": "Classic terminal skiing game -- slalom down a slope dodging obstacles and a deadly Yeti."
   }
 ]

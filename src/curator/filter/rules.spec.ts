@@ -375,6 +375,25 @@ describe("looksLikeSupportDescription", () => {
     expect(looksLikeSupportDescription("Library for text rendering with SDL")).toBe(true);
   });
 
+  it("flags type-described libraries ('an X library', no 'for' at all)", () => {
+    expect(looksLikeSupportDescription("Header-only C++ library with utilities")).toBe(true);
+    expect(looksLikeSupportDescription("A memory-safe and OpenSSL-compatible TLS library")).toBe(
+      true,
+    );
+    expect(looksLikeSupportDescription("Crypto library written in C++")).toBe(true);
+  });
+
+  it("deliberately does NOT flag library phrasings that also describe a launchable tool", () => {
+    // "client library and CLI" / "library and daemon" / "<lang> library and
+    // a CLI tool" — these are real apps (rocprofiler-client, spacecookie,
+    // fabric, ...), not pure libraries; leaving them "To Classify" is the
+    // lesser harm than hiding a real tool.
+    expect(looksLikeSupportDescription("Modern C++ Apache Kafka client library and CLI")).toBe(
+      false,
+    );
+    expect(looksLikeSupportDescription("A CLI tool and go library")).toBe(false);
+  });
+
   it("flags language bindings", () => {
     expect(looksLikeSupportDescription("Python bindings for wxWidgets")).toBe(true);
   });

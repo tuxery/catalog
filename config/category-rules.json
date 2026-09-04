@@ -4268,5 +4268,210 @@
     "pattern": "gbhed",
     "category": "Utilities",
     "reason": "A translator for Al Bhed, Final Fantasy X's fictional in-game language -- a novelty fan-made translation tool, not a game."
+  },
+  {
+    "pattern": "mautrix*",
+    "category": "Internet & Communication",
+    "reason": "Matrix bridges (mautrix-telegram/discord/signal/whatsapp/slack/bluesky/...) -- verified live: every mautrix-* name in the AUR is a Matrix bridge service, unambiguously messaging tooling."
+  },
+  {
+    "pattern": "jitsi*",
+    "category": "Internet & Communication",
+    "reason": "Jitsi Meet video-conferencing and its server components (prosody/turnserver/desktop) -- verified live: every jitsi-* name is Jitsi conferencing tooling."
+  },
+  {
+    "pattern": "vscodium*",
+    "category": "Developer Tools",
+    "reason": "VSCodium (the open VS Code build) and its marketplace/electron build variants -- verified live: every vscodium-* name is the editor or a build variant."
+  },
+  {
+    "pattern": "mongodb*",
+    "category": "Developer Tools",
+    "reason": "MongoDB and its client tooling (Compass, Atlas CLI, mongosh) -- verified live: every mongodb-* name is the database or its official clients."
+  },
+  {
+    "pattern": "openocd*",
+    "category": "Developer Tools",
+    "reason": "OpenOCD, the on-chip debugger, and its target-specific builds (esp32/raspberrypi/stm/nuvoton/...) -- verified live: every openocd-* name is the debugger."
+  },
+  {
+    "pattern": "ollama*",
+    "category": "Developer Tools",
+    "reason": "Ollama, the local-LLM runtime, and its tooling (cli, chat-desktop, grid-search, hardware builds) -- verified live: every ollama-* name is the runtime or a companion."
+  },
+  {
+    "pattern": "quartus*",
+    "category": "Developer Tools",
+    "reason": "Intel Quartus Prime FPGA design suite and its device/help components -- verified live: every quartus-* name is the EDA tool or a component."
+  },
+  {
+    "pattern": "adminer*",
+    "category": "Developer Tools",
+    "reason": "Adminer, the single-file database admin tool, and its skin themes -- verified live: every adminer-* name is Adminer or a skin for it."
+  },
+  {
+    "pattern": "bilibili*",
+    "category": "Photo & Video",
+    "reason": "Bilibili (video platform) clients and downloader/live-tools -- verified live: every bilibili-* name is the video client or a companion tool."
+  },
+  {
+    "pattern": "v2ray*",
+    "category": "Security",
+    "reason": "V2Ray proxy tooling and its routing/geoip data lists -- verified live: every v2ray-* name is the proxy or its rule datasets, the same proxy/VPN family as category-keywords.ts's vpn/proxy mappings."
+  },
+  {
+    "pattern": "waydroid*",
+    "category": "System Tools",
+    "reason": "Waydroid, the Android-container runtime, and its images/helpers/settings -- verified live: every waydroid-* name is a Waydroid component."
+  },
+  {
+    "pattern": "ghidra*",
+    "category": "Security",
+    "reason": "Ghidra, the NSA reverse-engineering framework, and its extension plugins -- verified live: every ghidra-* name is the RE tool or a plugin for it."
+  },
+  {
+    "pattern": "geant4*",
+    "category": "Science",
+    "reason": "Geant4, the particle-physics Monte Carlo toolkit, and its physics-data files -- verified live: every geant4-* name is the toolkit or its datasets."
+  },
+  {
+    "pattern": "celestia*",
+    "category": "Science",
+    "reason": "Celestia, the 3D space simulator, and its add-ons (spacecraft/exoplanet datasets) -- verified live: every celestia-* name is the simulator or an add-on."
+  },
+  {
+    "pattern": "foobar2000*",
+    "category": "Music & Audio",
+    "reason": "foobar2000 (Wine-packaged audio player) and its DSP/UI components -- verified live: every foobar2000-* name is the player or a component."
+  },
+  {
+    "pattern": "openscad*",
+    "category": "Graphics & Design",
+    "reason": "OpenSCAD, the programmatic 3D CAD modeler, and its libraries/LSP -- verified live: every openscad-* name is the CAD tool or a library for it."
+  },
+  {
+    "pattern": "kak-*",
+    "category": "Utilities",
+    "reason": "Kakoune editor plugins (kak-lsp, kak-fzf, kak-prelude, ...) -- verified live: every kak-* name is a Kakoune plugin, the editor-ecosystem family matching this file's TextEditor -> Utilities mapping."
+  },
+  {
+    "pattern": "roundcubemail*",
+    "category": "Internet & Communication",
+    "reason": "Roundcube webmail and its plugin themes -- verified live: every roundcubemail-* name is the webmail client or a plugin for it."
+  },
+  {
+    "pattern": "openvpn*",
+    "category": "Security",
+    "reason": "OpenVPN and its variants/plugins (nordvpn/hidemyname/netns/otp/radius) -- verified live: every openvpn-* name is the VPN client or a plugin, same family as the vpn keyword mapping."
+  },
+  {
+    "pattern": "qv2ray*",
+    "category": "Security",
+    "reason": "Qv2ray, the V2Ray GUI client, and its plugins -- verified live: every qv2ray-* name is the proxy GUI or a plugin."
+  },
+  {
+    "pattern": "ipfs*",
+    "category": "Internet & Communication",
+    "reason": "IPFS (InterPlanetary File System) and its desktop/cluster tooling -- verified live: every ipfs-* name is the peer-to-peer storage network or its clients."
+  },
+  {
+    "pattern": "inkscape*",
+    "category": "Graphics & Design",
+    "reason": "Inkscape, the vector editor, and its extensions/palette tools -- verified live: every inkscape-* name is the editor or an extension."
+  },
+  {
+    "pattern": "authentik*",
+    "category": "Security",
+    "reason": "Authentik, the identity provider, and its outposts/agents -- verified live: every authentik-* name is the IdP or a component."
+  },
+  {
+    "pattern": "rclone*",
+    "category": "System Tools",
+    "reason": "rclone, the cloud-storage sync tool, and its GUIs/mount services -- verified live: every rclone-* name is the sync tool or a companion, the FileTools family."
+  },
+  {
+    "pattern": "mediawiki*",
+    "category": "Internet & Communication",
+    "reason": "MediaWiki (the Wikipedia engine) and its extensions/skins -- verified live: every mediawiki-* name is the wiki engine or an extension."
+  },
+  {
+    "pattern": "ddns*",
+    "category": "Internet & Communication",
+    "reason": "Dynamic-DNS clients (ddns, ddns-go, ddns-updater, ddns-henet, ...) -- verified live: every ddns* name is a DDNS updater."
+  },
+  {
+    "pattern": "plex*",
+    "category": "Photo & Video",
+    "reason": "Plex media server and its companion tools (plex-mpv-shim, plex-trakt-scrobbler, ...) -- verified live: every plex-* name is Plex or a companion."
+  },
+  {
+    "pattern": "moonlight*",
+    "category": "System Tools",
+    "reason": "Moonlight, the game-streaming client, and its Qt/embedded/cli builds -- verified live: every moonlight-* name is the streaming client."
+  },
+  {
+    "pattern": "hledger*",
+    "category": "Finance",
+    "reason": "hledger, the plain-text accounting tool, and its TUI/web/helper companions -- verified live: every hledger-* name is the accounting tool or a companion."
+  },
+  {
+    "pattern": "coreboot*",
+    "category": "System Tools",
+    "reason": "coreboot firmware and its toolchains/configurators -- verified live: every coreboot-* name is the firmware project or its toolchain."
+  },
+  {
+    "pattern": "strace*",
+    "category": "Developer Tools",
+    "reason": "strace, the syscall tracer, and its analyzers/TUIs -- verified live: every strace-* name is the tracer or a companion."
+  },
+  {
+    "pattern": "netctl*",
+    "category": "System Tools",
+    "reason": "netctl (Arch's network manager) and its GUIs/trays -- verified live: every netctl-* name is the network manager or a companion."
+  },
+  {
+    "pattern": "i3lock*",
+    "category": "System Tools",
+    "reason": "i3lock, the screen locker, and its blur/fancy/color variants -- verified live: every i3lock-* name is the locker or a variant."
+  },
+  {
+    "pattern": "sweethome3d*",
+    "category": "Graphics & Design",
+    "reason": "Sweet Home 3D, the interior-design app, and its 3D-model packs -- verified live: every sweethome3d-* name is the designer or a model pack."
+  },
+  {
+    "pattern": "nsis*",
+    "category": "Developer Tools",
+    "reason": "NSIS (Windows installer generator) and its plugin DLLs -- verified live: every nsis-* name is the installer tool or a plugin."
+  },
+  {
+    "pattern": "precice*",
+    "category": "Science",
+    "reason": "preCICE, the multi-physics simulation coupling library, and its config tools -- verified live: every precice-* name is the simulation tool or a companion."
+  },
+  {
+    "pattern": "torch7*",
+    "category": "Developer Tools",
+    "reason": "Torch7, the (legacy) machine-learning framework, and its nn/cunn/cutorch modules -- verified live: every torch7-* name is the ML framework or a module."
+  },
+  {
+    "pattern": "tonelib*",
+    "category": "Music & Audio",
+    "reason": "Tonelib guitar-effect plugins (gfx/metal/noise-reducer/...) -- verified live: every tonelib-* name is a guitar-effect VST."
+  },
+  {
+    "pattern": "thinkpad*",
+    "category": "System Tools",
+    "reason": "ThinkPad laptop utilities (FRU reader, LED switch, camera drivers, FCC unlock) -- verified live: every thinkpad-* name is a ThinkPad hardware tool."
+  },
+  {
+    "pattern": "aocl*",
+    "category": "Developer Tools",
+    "reason": "AOCL (AMD Optimizing CPU Libraries) and its BLIS/crypto components -- verified live: every aocl-* name is the AMD library suite or a component."
+  },
+  {
+    "pattern": "carapace*",
+    "category": "Utilities",
+    "reason": "Carapace, the shell-completion engine, and its per-tool bridges (carapace-aws/az/gcloud/...) -- verified live: every carapace-* name is the completion tool."
   }
 ]

@@ -15,6 +15,11 @@ import {
   type GameCategoryRuleEntry,
 } from "./game-category-rules";
 import {
+  categoryFromAurKeywords,
+  gameGenreFromAurKeywords,
+  hasAurKeywordGameEvidence,
+} from "./category-keywords";
+import {
   categoryFromDebianSection,
   categoryFromGentooSection,
   categoryFromNixScope,
@@ -112,6 +117,7 @@ function hasGuiEvidence(pkg: SourcedPackage): boolean {
  */
 function hasGameEvidence(pkg: SourcedPackage): boolean {
   if (pkg.hasGameCategory) return true;
+  if (hasAurKeywordGameEvidence(pkg)) return true;
   return looksLikeGamePackage(pkg.source, pkg.section, pkg.name);
 }
 
@@ -269,9 +275,10 @@ function firstDefined<T, R>(items: T[], fn: (item: T) => R | undefined): R | und
  * - For an app, falls back in order to `categoryRules` (see
  *   `category-rules.ts` — a name-pattern signal for well-known product
  *   families no upstream source classifies, e.g. Wine/Proton compatibility
- *   tools), then `categoryFromDebianSection`/`categoryFromGentooSection`/
- *   `categoryFromOpenSuseGroup`/`categoryFromSolusPartOf`/
- *   `categoryFromSlackwareSeries`/`categoryFromNixScope` (Debian/Ubuntu's
+ *   tools), then `categoryFromAurKeywords`/`categoryFromDebianSection`/
+ *   `categoryFromGentooSection`/`categoryFromOpenSuseGroup`/
+ *   `categoryFromSolusPartOf`/`categoryFromSlackwareSeries`/
+ *   `categoryFromNixScope` (the AUR's packager keywords, Debian/Ubuntu's
  *   Section field, Gentoo's top-level category, openSUSE/RPM Fusion's
  *   `<rpm:group>` value, Solus's own `PartOf` value, Slackware's package
  *   series, and nixpkgs' attribute-path prefix — each source's own
@@ -301,7 +308,10 @@ function pickCategoryLabel(
   if (isGame) {
     const sectionGenre = firstDefined(
       packages,
-      (pkg) => gameGenreFromGentooSection(pkg) ?? gameGenreFromSolusSection(pkg),
+      (pkg) =>
+        gameGenreFromAurKeywords(pkg) ??
+        gameGenreFromGentooSection(pkg) ??
+        gameGenreFromSolusSection(pkg),
     );
     if (sectionGenre) return sectionGenre;
     const names = packages.map((pkg) => pkg.name);
@@ -320,6 +330,7 @@ function pickCategoryLabel(
   const sectionMatch = firstDefined(
     packages,
     (pkg) =>
+      categoryFromAurKeywords(pkg) ??
       categoryFromDebianSection(pkg) ??
       categoryFromGentooSection(pkg) ??
       categoryFromOpenSuseGroup(pkg) ??

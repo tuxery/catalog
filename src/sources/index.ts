@@ -13,6 +13,7 @@ export { searchArch } from "./pacman-arch";
 export { searchNixpkgs } from "./nix-nixpkgs";
 export { searchOpenSuse } from "./rpm-opensuse";
 export { searchOpenSuseAppstream } from "./rpm-opensuse-appstream";
+export { searchFedoraAppstream } from "./rpm-fedora-appstream";
 export { searchRpmFusion } from "./rpm-rpmfusion";
 export { searchVoid } from "./xbps-void";
 export { searchSlackware } from "./slackware";

@@ -59,6 +59,7 @@ const SOURCE_PRIORITY: PackageSourceId[] = [
   "deb-debian-appstream",
   "deb-ubuntu-appstream",
   "rpm-fedora-appstream",
+  "pacman-arch-appstream",
 ];
 
 function pickByPriority(packages: SourcedPackage[]): SourcedPackage {

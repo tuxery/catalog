@@ -3,6 +3,7 @@ import { searchAppCenter } from "./flatpak-appcenter";
 import { searchAppImage } from "./appimage";
 import { searchManualAppImages } from "./appimage-manual";
 import { searchArch } from "./pacman-arch";
+import { searchArchAppstream } from "./pacman-arch-appstream";
 import { searchAur } from "./pacman-aur";
 import { searchDebian } from "./deb-debian";
 import { searchDebianAppstream } from "./deb-debian-appstream";
@@ -46,6 +47,7 @@ export async function searchAllSources(query: string): Promise<SourcedPackage[]>
     searchUbuntu(query),
     searchFedora(query),
     searchArch(query),
+    searchArchAppstream(query),
     searchNixpkgs(query),
     searchOpenSuse(query),
     searchOpenSuseAppstream(query),

@@ -22,6 +22,7 @@ export type PackageSourceId =
   | "deb-ubuntu"
   | "rpm-fedora"
   | "pacman-arch"
+  | "pacman-arch-appstream"
   | "nix-nixpkgs"
   | "rpm-opensuse"
   | "rpm-opensuse-appstream"

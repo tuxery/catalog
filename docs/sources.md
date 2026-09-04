@@ -50,6 +50,7 @@ table is the map, the Project is the tracked work.
 | 8b  | Lutris                | published, linux     | Script     | 1,795   | ⚠️          | Implemented | [24]  |
 | 9a  | Debian AppStream      | main+contrib+nonfree | Enrichment | 2,109   | ⚠️          | Implemented | [27]  |
 | 9b  | openSUSE AppStream    | oss+non-oss          | Enrichment | 887     | ⚠️          | Implemented | [28]  |
+| 9c  | Fedora AppStream      | Everything           | Enrichment | 1,102   | ⚠️          | Implemented | [30]  |
 
 ## Notes on each row
 
@@ -558,6 +559,23 @@ as a second AppImage source` card was investigated and rejected for
     an icon, −33 "To Classify" (mostly from ~33 previously-separate
     bare-`deb-ubuntu` groups merging into a richer AppStream-backed
     group). `src/sources/deb-ubuntu-appstream/fetch.ts`.
+
+30. **Fedora AppStream** — the RPM-native equivalent of [28], but with a
+    twist: Fedora does not publish its AppStream data as a `repomd.xml`
+    data type the way openSUSE does. Instead it ships the XML *inside* the
+    `appstream-data` package, so this connector resolves the current
+    release via Bodhi, finds the `appstream-data` RPM's location in
+    `primary.xml`, downloads the RPM, and extracts `fedora.xml.gz` through
+    three nested containers (RPM header → zstd-compressed cpio → gzipped
+    AppStream XML — the one source in the catalog that has to parse an RPM
+    container, done in `rpm-fedora-appstream/fetch.ts` with pure, tested
+    `rpmPayloadOffset`/`readCpioFile` helpers). Standard AppStream XML,
+    parsed by `_shared/appstream.ts`, joined to `rpm-fedora` by exact
+    `pkgname`. Verified live (Fedora 44, 2026-09-04): 1,102 components,
+    all joining `rpm-fedora` by exact `pkgname`, 1,040 with a usable
+    category — −93 "To Classify" and richer categories/developer/license/
+    screenshots for every Fedora GUI app that overlaps another source.
+    `src/sources/rpm-fedora-appstream/fetch.ts`.
 
 ## Cross-cutting notes
 

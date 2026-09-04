@@ -58,6 +58,7 @@ const SOURCE_PRIORITY: PackageSourceId[] = [
   "rpm-opensuse-appstream",
   "deb-debian-appstream",
   "deb-ubuntu-appstream",
+  "rpm-fedora-appstream",
 ];
 
 function pickByPriority(packages: SourcedPackage[]): SourcedPackage {

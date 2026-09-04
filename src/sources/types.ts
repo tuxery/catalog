@@ -25,6 +25,7 @@ export type PackageSourceId =
   | "nix-nixpkgs"
   | "rpm-opensuse"
   | "rpm-opensuse-appstream"
+  | "rpm-fedora-appstream"
   | "rpm-rpmfusion"
   | "apk-alpine"
   | "xbps-void"

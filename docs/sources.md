@@ -51,6 +51,7 @@ table is the map, the Project is the tracked work.
 | 9a  | Debian AppStream      | main+contrib+nonfree | Enrichment | 2,109   | ⚠️          | Implemented | [27]  |
 | 9b  | openSUSE AppStream    | oss+non-oss          | Enrichment | 887     | ⚠️          | Implemented | [28]  |
 | 9c  | Fedora AppStream      | Everything           | Enrichment | 1,102   | ⚠️          | Implemented | [30]  |
+| 9d  | Arch AppStream        | core+extra+multilib  | Enrichment | 1,389   | ⚠️          | Implemented | [31]  |
 
 ## Notes on each row
 
@@ -576,6 +577,22 @@ as a second AppImage source` card was investigated and rejected for
     category — −93 "To Classify" and richer categories/developer/license/
     screenshots for every Fedora GUI app that overlaps another source.
     `src/sources/rpm-fedora-appstream/fetch.ts`.
+
+31. **Arch AppStream** — the pacman-native equivalent of [28]/[30]: the
+    `archlinux-appstream-data` package ships one AppStream XML per repo
+    (`core.xml.gz`/`extra.xml.gz`/`multilib.xml.gz`, under
+    `usr/share/swcatalog/xml/`), downloaded as a zstd-compressed
+    `.pkg.tar.zst` (a plain zstd-compressed tar — simpler than Fedora's
+    RPM container, no header parsing). The package filename is date-stamped
+    (`archlinux-appstream-data-20260821-1-any.pkg.tar.zst`), so it's
+    resolved live from Arch's own packages API rather than hardcoded, then
+    fetched from the same `geo.mirror.pkgbuild.com` mirror `pacman-arch`
+    uses. Standard AppStream XML parsed by `_shared/appstream.ts`, joined to
+    `pacman-arch` by exact `pkgname`. Verified live (2026-09-04): 1,389
+    components, all joining `pacman-arch` by exact `pkgname`, 1,189 with a
+    usable category — −58 "To Classify" and richer metadata for every Arch
+    GUI app that overlaps another source.
+    `src/sources/pacman-arch-appstream/fetch.ts`.
 
 ## Cross-cutting notes
 

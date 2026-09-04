@@ -10,6 +10,7 @@ export { searchDebian } from "./deb-debian";
 export { searchUbuntu } from "./deb-ubuntu";
 export { searchFedora } from "./rpm-fedora";
 export { searchArch } from "./pacman-arch";
+export { searchArchAppstream } from "./pacman-arch-appstream";
 export { searchNixpkgs } from "./nix-nixpkgs";
 export { searchOpenSuse } from "./rpm-opensuse";
 export { searchOpenSuseAppstream } from "./rpm-opensuse-appstream";

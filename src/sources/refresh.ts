@@ -4,6 +4,7 @@ import { fetchAppCenter } from "./flatpak-appcenter/fetch";
 import { fetchAppImage } from "./appimage/fetch";
 import { fetchManualAppImages } from "./appimage-manual/fetch";
 import { fetchArch } from "./pacman-arch/fetch";
+import { fetchArchAppstream } from "./pacman-arch-appstream/fetch";
 import { fetchAur } from "./pacman-aur/fetch";
 import { fetchDebian } from "./deb-debian/fetch";
 import { fetchDebianAppstream } from "./deb-debian-appstream/fetch";
@@ -40,6 +41,7 @@ const REFRESHERS: Record<string, (cachePath: string) => Promise<number>> = {
   "deb-ubuntu": fetchUbuntu,
   "rpm-fedora": fetchFedora,
   "pacman-arch": fetchArch,
+  "pacman-arch-appstream": fetchArchAppstream,
   "nix-nixpkgs": fetchNixpkgs,
   "rpm-opensuse": fetchOpenSuse,
   "rpm-opensuse-appstream": fetchOpenSuseAppstream,

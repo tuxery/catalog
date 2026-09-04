@@ -2728,5 +2728,510 @@
     "pattern": "ski",
     "category": "Sports",
     "reason": "Classic terminal skiing game -- slalom down a slope dodging obstacles and a deadly Yeti."
+  },
+  {
+    "pattern": "Museum of All Things",
+    "category": "Adventure",
+    "reason": "An infinite explorable 3D museum generated from Wikipedia articles -- an exploration experience, closest game genre is Adventure."
+  },
+  {
+    "pattern": "Dice Roller",
+    "category": "Board & Cards",
+    "reason": "A dice-rolling utility for tabletop gaming -- closest game genre is Board & Cards."
+  },
+  {
+    "pattern": "dice-roller-git",
+    "category": "Board & Cards",
+    "reason": "A dice-rolling utility for tabletop gaming -- closest game genre is Board & Cards."
+  },
+  {
+    "pattern": "dice_roller",
+    "category": "Board & Cards",
+    "reason": "A dice-rolling utility for tabletop gaming -- closest game genre is Board & Cards."
+  },
+  {
+    "pattern": "Timing Trainer",
+    "category": "Educational",
+    "reason": "Trains the player to identify sub-second timing intervals -- a skill-training game."
+  },
+  {
+    "pattern": "Taigo",
+    "category": "Simulation",
+    "reason": "A virtual desktop pet, a Tamagotchi-style simulation."
+  },
+  {
+    "pattern": "taigo",
+    "category": "Simulation",
+    "reason": "A virtual desktop pet, a Tamagotchi-style simulation."
+  },
+  {
+    "pattern": "Pokete",
+    "category": "Role-Playing",
+    "reason": "A terminal-based Pokemon-like monster-catching game -- Role-Playing."
+  },
+  {
+    "pattern": "pokete",
+    "category": "Role-Playing",
+    "reason": "A terminal-based Pokemon-like monster-catching game -- Role-Playing."
+  },
+  {
+    "pattern": "pokete-git",
+    "category": "Role-Playing",
+    "reason": "A terminal-based Pokemon-like monster-catching game -- Role-Playing."
+  },
+  {
+    "pattern": "Neothesia",
+    "category": "Educational",
+    "reason": "A piano-learning tool with falling-notes visualization -- an educational/skill game."
+  },
+  {
+    "pattern": "neothesia",
+    "category": "Educational",
+    "reason": "A piano-learning tool with falling-notes visualization -- an educational/skill game."
+  },
+  {
+    "pattern": "Game of Life",
+    "category": "Simulation",
+    "reason": "Conway's Game of Life cellular automaton -- a simulation."
+  },
+  {
+    "pattern": "game-of-life",
+    "category": "Simulation",
+    "reason": "Conway's Game of Life cellular automaton -- a simulation."
+  },
+  {
+    "pattern": "game-of-life-git",
+    "category": "Simulation",
+    "reason": "Conway's Game of Life cellular automaton -- a simulation."
+  },
+  {
+    "pattern": "gameoflife-git",
+    "category": "Simulation",
+    "reason": "Conway's Game of Life cellular automaton -- a simulation."
+  },
+  {
+    "pattern": "Journey to the Center of Hawkthorne",
+    "category": "Action",
+    "reason": "A 2D platformer game -- Action."
+  },
+  {
+    "pattern": "Voxel Paint",
+    "category": "Simulation",
+    "reason": "A 3D voxel-painting creative tool tagged as a game upstream -- closest fit is the sandbox/creative Simulation genre."
+  },
+  {
+    "pattern": "Voxel Paint Pro",
+    "category": "Simulation",
+    "reason": "Same voxel-painting creative tool family as Voxel Paint -- Simulation."
+  },
+  {
+    "pattern": "Combat Tracker",
+    "category": "Role-Playing",
+    "reason": "A combat tracker companion app for tabletop RPG (ttrpg) sessions -- closest genre is Role-Playing."
+  },
+  {
+    "pattern": "wikiLYNX",
+    "category": "Puzzle",
+    "reason": "A Wikipedia speedrun/wiki-race game -- Puzzle."
+  },
+  {
+    "pattern": "wikilynx",
+    "category": "Puzzle",
+    "reason": "A Wikipedia speedrun/wiki-race game -- Puzzle."
+  },
+  {
+    "pattern": "Asteroid Shooter",
+    "category": "Action",
+    "reason": "A co-op space-survival shooter -- Action."
+  },
+  {
+    "pattern": "doukutsu-rs",
+    "category": "Adventure",
+    "reason": "An open-source reimplementation of Cave Story's engine -- itself a playable action-adventure/metroidvania, Adventure."
+  },
+  {
+    "pattern": "Blutfest",
+    "category": "Action",
+    "reason": "A survival game fighting with items, perks and weapons -- Action."
+  },
+  {
+    "pattern": "Hurrican",
+    "category": "Action",
+    "reason": "A freeware jump-and-shoot platformer -- Action."
+  },
+  {
+    "pattern": "hurrican",
+    "category": "Action",
+    "reason": "A freeware jump-and-shoot platformer -- Action."
+  },
+  {
+    "pattern": "hurrican-git",
+    "category": "Action",
+    "reason": "A freeware jump-and-shoot platformer -- Action."
+  },
+  {
+    "pattern": "MKI3D Game",
+    "category": "Adventure",
+    "reason": "A simple OpenGL game of searching for tokens across 3D stages -- Adventure."
+  },
+  {
+    "pattern": "mki3dgame",
+    "category": "Adventure",
+    "reason": "A simple OpenGL game of searching for tokens across 3D stages -- Adventure."
+  },
+  {
+    "pattern": "SRB2 Reveries",
+    "category": "Action",
+    "reason": "A total-conversion gameplay-overhaul mod for Sonic Robo Blast 2 -- itself a playable Sonic-style platformer, Action."
+  },
+  {
+    "pattern": "Hunt",
+    "category": "Puzzle",
+    "reason": "A word-finding game -- Puzzle."
+  },
+  {
+    "pattern": "hunt",
+    "category": "Puzzle",
+    "reason": "A word-finding game -- Puzzle."
+  },
+  {
+    "pattern": "Splices",
+    "category": "Puzzle",
+    "reason": "A word-making game -- Puzzle."
+  },
+  {
+    "pattern": "Mark versus Paul!",
+    "category": "Action",
+    "reason": "A game about casting spells and doing somersaults -- Action."
+  },
+  {
+    "pattern": "Pong",
+    "category": "Arcade",
+    "reason": "A Pong clone -- classic Arcade genre."
+  },
+  {
+    "pattern": "pong",
+    "category": "Arcade",
+    "reason": "A Pong clone -- classic Arcade genre."
+  },
+  {
+    "pattern": "Type Off",
+    "category": "Educational",
+    "reason": "A short typing-speed game -- Educational (typing skill)."
+  },
+  {
+    "pattern": "Who Wants To Be a Millionaire",
+    "category": "Puzzle",
+    "reason": "A 'Who Wants to be a Millionaire'-style trivia/quiz game -- Puzzle, matching this catalog's existing word/trivia-guessing-game convention."
+  },
+  {
+    "pattern": "Unnamed SDVX Clone",
+    "category": "Arcade",
+    "reason": "A rhythm game based on KShootMANIA/Sound Voltex -- Arcade."
+  },
+  {
+    "pattern": "Unnamed-SDVX-Clone",
+    "category": "Arcade",
+    "reason": "A rhythm game based on KShootMANIA/Sound Voltex -- Arcade."
+  },
+  {
+    "pattern": "unnamed-sdvx-clone",
+    "category": "Arcade",
+    "reason": "A rhythm game based on KShootMANIA/Sound Voltex -- Arcade."
+  },
+  {
+    "pattern": "unnamed-sdvx-clone-bin",
+    "category": "Arcade",
+    "reason": "A rhythm game based on KShootMANIA/Sound Voltex -- Arcade."
+  },
+  {
+    "pattern": "unnamed-sdvx-clone-git",
+    "category": "Arcade",
+    "reason": "A rhythm game based on KShootMANIA/Sound Voltex -- Arcade."
+  },
+  {
+    "pattern": "Clone Hero",
+    "category": "Arcade",
+    "reason": "A classic instrument-based rhythm game (Guitar Hero-style) -- Arcade."
+  },
+  {
+    "pattern": "clonehero",
+    "category": "Arcade",
+    "reason": "A classic instrument-based rhythm game (Guitar Hero-style) -- Arcade."
+  },
+  {
+    "pattern": "Kulki",
+    "category": "Puzzle",
+    "reason": "A marble-matching game (Zuma-style) -- Puzzle."
+  },
+  {
+    "pattern": "PedantiK",
+    "category": "Puzzle",
+    "reason": "A Wikipedia-article-guessing game -- Puzzle."
+  },
+  {
+    "pattern": "SemantiK",
+    "category": "Puzzle",
+    "reason": "A secret-word-guessing game (Semantle-style) -- Puzzle."
+  },
+  {
+    "pattern": "semantik",
+    "category": "Puzzle",
+    "reason": "A secret-word-guessing game (Semantle-style) -- Puzzle."
+  },
+  {
+    "pattern": "Frets on Fire",
+    "category": "Arcade",
+    "reason": "A musical-skill rhythm game (Guitar Hero-style) -- Arcade."
+  },
+  {
+    "pattern": "Cap: Pirate Battleship",
+    "category": "Board & Cards",
+    "reason": "A Battleship board game with a pirate theme -- Board & Cards."
+  },
+  {
+    "pattern": "squared",
+    "category": "Puzzle",
+    "reason": "A number-filling puzzle game -- Puzzle."
+  },
+  {
+    "pattern": "Convolution",
+    "category": "Puzzle",
+    "reason": "A maze-escaping game -- Puzzle."
+  },
+  {
+    "pattern": "Hnefatafl",
+    "category": "Board & Cards",
+    "reason": "A client for the Viking board game Hnefatafl -- Board & Cards."
+  },
+  {
+    "pattern": "Hurry Curry!",
+    "category": "Simulation",
+    "reason": "A multiplayer co-op cooking game (Overcooked-style) -- Simulation."
+  },
+  {
+    "pattern": "muttum",
+    "category": "Puzzle",
+    "reason": "A word-guessing game (Wordle-style) -- Puzzle."
+  },
+  {
+    "pattern": "OpenJKDF2",
+    "category": "Action",
+    "reason": "A reimplementation of the Star Wars Jedi Knight: Dark Forces II engine -- itself a playable FPS/action game, Action."
+  },
+  {
+    "pattern": "openjkdf2-git",
+    "category": "Action",
+    "reason": "A reimplementation of the Star Wars Jedi Knight: Dark Forces II engine -- itself a playable FPS/action game, Action."
+  },
+  {
+    "pattern": "Rolisteam RPG Client",
+    "category": "Role-Playing",
+    "reason": "A virtual tabletop client for playing tabletop RPG sessions online -- Role-Playing, the closest genre for a tool used to literally play RPG sessions."
+  },
+  {
+    "pattern": "Ball2Box",
+    "category": "Arcade",
+    "reason": "A simple physics game of shooting a ball into a box -- Arcade."
+  },
+  {
+    "pattern": "Pocket Broomball",
+    "category": "Sports",
+    "reason": "A broomball sports video game -- Sports."
+  },
+  {
+    "pattern": "Sonic 3 A.I.R",
+    "category": "Action",
+    "reason": "A fan-made remaster of Sonic 3 & Knuckles -- a Sonic platformer, Action."
+  },
+  {
+    "pattern": "Sonic 3: A.I.R",
+    "category": "Action",
+    "reason": "A fan-made remaster of Sonic 3 & Knuckles -- a Sonic platformer, Action."
+  },
+  {
+    "pattern": "sonic3air-bin",
+    "category": "Action",
+    "reason": "A fan-made remaster of Sonic 3 & Knuckles -- a Sonic platformer, Action."
+  },
+  {
+    "pattern": "sonic3air-git",
+    "category": "Action",
+    "reason": "A fan-made remaster of Sonic 3 & Knuckles -- a Sonic platformer, Action."
+  },
+  {
+    "pattern": "Sonic Robo Blast 2 Kart",
+    "category": "Sports",
+    "reason": "A kart-racing mod for Sonic Robo Blast 2 -- Sports, matching the existing SRB2Kart Saturn/Galaxy AZERTY variants already classified Sports in this catalog."
+  },
+  {
+    "pattern": "Sonic Robo Blast 2 Persona",
+    "category": "Role-Playing",
+    "reason": "A Persona-inspired total-conversion mod for Sonic Robo Blast 2 -- Role-Playing (JRPG-style)."
+  },
+  {
+    "pattern": "ColorDeducto",
+    "category": "Puzzle",
+    "reason": "A logical-induction deduction game (Mastermind-style) -- Puzzle."
+  },
+  {
+    "pattern": "Dimensions",
+    "category": "Puzzle",
+    "reason": "A pattern-matching game -- Puzzle."
+  },
+  {
+    "pattern": "dimensions-bin",
+    "category": "Puzzle",
+    "reason": "A pattern-matching game -- Puzzle."
+  },
+  {
+    "pattern": "Flip Sticks",
+    "category": "Educational",
+    "reason": "A Sugar-suite stick-figure keyframe-animation activity for kids -- Educational."
+  },
+  {
+    "pattern": "Implode",
+    "category": "Puzzle",
+    "reason": "A same-colour block-clearing puzzle game -- Puzzle."
+  },
+  {
+    "pattern": "Maze",
+    "category": "Puzzle",
+    "reason": "A simple maze game -- Puzzle."
+  },
+  {
+    "pattern": "maze",
+    "category": "Puzzle",
+    "reason": "A simple maze game -- Puzzle."
+  },
+  {
+    "pattern": "Memorize",
+    "category": "Puzzle",
+    "reason": "A find-the-matching-pairs memory game -- Puzzle."
+  },
+  {
+    "pattern": "memorize",
+    "category": "Puzzle",
+    "reason": "A find-the-matching-pairs memory game -- Puzzle."
+  },
+  {
+    "pattern": "TwoFun",
+    "category": "Arcade",
+    "reason": "A touch-based two-player reaction game -- Arcade."
+  },
+  {
+    "pattern": "VASSAL",
+    "category": "Board & Cards",
+    "reason": "A virtual tabletop engine for playing board games online -- Board & Cards."
+  },
+  {
+    "pattern": "Vassal",
+    "category": "Board & Cards",
+    "reason": "A virtual tabletop engine for playing board games online -- Board & Cards."
+  },
+  {
+    "pattern": "vassal",
+    "category": "Board & Cards",
+    "reason": "A virtual tabletop engine for playing board games online -- Board & Cards."
+  },
+  {
+    "pattern": "Sober",
+    "category": "Simulation",
+    "reason": "A client for playing Roblox on Linux -- Roblox is a sandbox/simulation platform, Simulation."
+  },
+  {
+    "pattern": "sober-bin",
+    "category": "Simulation",
+    "reason": "A client for playing Roblox on Linux -- Roblox is a sandbox/simulation platform, Simulation."
+  },
+  {
+    "pattern": "Pfeilspiel TNG international",
+    "category": "Puzzle",
+    "reason": "An observation game about arrows requiring a close look -- Puzzle."
+  },
+  {
+    "pattern": "osu",
+    "category": "Arcade",
+    "reason": "The rhythm game osu! -- Arcade."
+  },
+  {
+    "pattern": "osu!",
+    "category": "Arcade",
+    "reason": "The rhythm game osu! -- Arcade."
+  },
+  {
+    "pattern": "Mocktail",
+    "category": "Simulation",
+    "reason": "A client for playing Roblox on Linux -- same Roblox/sandbox Simulation genre as Sober."
+  },
+  {
+    "pattern": "mocktail",
+    "category": "Simulation",
+    "reason": "A client for playing Roblox on Linux -- same Roblox/sandbox Simulation genre as Sober."
+  },
+  {
+    "pattern": "mocktail-bin",
+    "category": "Simulation",
+    "reason": "A client for playing Roblox on Linux -- same Roblox/sandbox Simulation genre as Sober."
+  },
+  {
+    "pattern": "mocktail-git",
+    "category": "Simulation",
+    "reason": "A client for playing Roblox on Linux -- same Roblox/sandbox Simulation genre as Sober."
+  },
+  {
+    "pattern": "Guess the number!",
+    "category": "Puzzle",
+    "reason": "A number-guessing game -- Puzzle."
+  },
+  {
+    "pattern": "Trivia",
+    "category": "Puzzle",
+    "reason": "A trivia/quiz game -- Puzzle, matching this catalog's trivia-game convention."
+  },
+  {
+    "pattern": "SDLPoP",
+    "category": "Adventure",
+    "reason": "SDLPoP, an open-source port of Prince of Persia -- itself the playable platformer/adventure game, Adventure."
+  },
+  {
+    "pattern": "sdlpop",
+    "category": "Adventure",
+    "reason": "SDLPoP, an open-source port of Prince of Persia -- itself the playable platformer/adventure game, Adventure."
+  },
+  {
+    "pattern": "Minetest",
+    "category": "Simulation",
+    "reason": "Minetest, a multiplayer infinite-world block-sandbox game (Minecraft-like) -- Simulation."
+  },
+  {
+    "pattern": "minetest",
+    "category": "Simulation",
+    "reason": "Minetest, a multiplayer infinite-world block-sandbox game (Minecraft-like) -- Simulation."
+  },
+  {
+    "pattern": "minetest-git",
+    "category": "Simulation",
+    "reason": "Minetest, a multiplayer infinite-world block-sandbox game (Minecraft-like) -- Simulation."
+  },
+  {
+    "pattern": "ballerburg",
+    "category": "Strategy",
+    "reason": "A classical castle-siege artillery combat game -- Strategy."
+  },
+  {
+    "pattern": "dvorak7min",
+    "category": "Educational",
+    "reason": "An ncurses-based typing tutor for learning the Dvorak keyboard layout -- a skill-training/educational game."
+  },
+  {
+    "pattern": "exult",
+    "category": "Role-Playing",
+    "reason": "A reimplementation of the Ultima VII engine -- itself the playable classic CRPG, Role-Playing."
+  },
+  {
+    "pattern": "exult-git",
+    "category": "Role-Playing",
+    "reason": "A reimplementation of the Ultima VII engine -- itself the playable classic CRPG, Role-Playing."
   }
 ]

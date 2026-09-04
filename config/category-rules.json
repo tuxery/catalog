@@ -3978,5 +3978,295 @@
     "pattern": "frobtads",
     "category": "Utilities",
     "reason": "A combined TADS 2/3 interpreter for playing and creating Interactive Fiction text-adventure games -- matches this catalog's Utilities precedent for standalone game-engine/interpreter software."
+  },
+  {
+    "pattern": "alpine-client*",
+    "category": "Utilities",
+    "reason": "A Minecraft client mod/launcher (\"Elevate your Minecraft gameplay\") that inherited a bare Game tag from its Flathub listing -- a tool for a specific game, not a game itself. Surfaced by the games \"To Classify\" architecture-gap review (2026-09-04)."
+  },
+  {
+    "pattern": "mcaselector*",
+    "category": "Utilities",
+    "reason": "Manages/edits Minecraft chunk (.mca) region files -- a companion tool for a specific game, matches the existing Minecraft-launcher-family Utilities precedent. Same review as alpine-client*."
+  },
+  {
+    "pattern": "Eufonia Client",
+    "category": "Utilities",
+    "reason": "A Minecraft companion client for joining in-game community events, not a game itself. Same review as alpine-client*."
+  },
+  {
+    "pattern": "minigalaxy*",
+    "category": "Utilities",
+    "reason": "A simple GOG client for Linux -- a game-store launcher, same family as this file's existing lutris*/steam*/bottles* Utilities precedent."
+  },
+  {
+    "pattern": "The Unofficial Homestuck Collection",
+    "category": "Books & Reference",
+    "reason": "An offline archive/reader for the Homestuck webcomic and its related media -- a reading collection, not itself a game, despite inheriting a bare Game tag because Homestuck itself embeds some Flash minigames."
+  },
+  {
+    "pattern": "edmarketconnector*",
+    "category": "Utilities",
+    "reason": "Uploads local Elite Dangerous trade data to the EDDN (Elite Dangerous Data Network) -- a companion/telemetry tool for a specific game, not a game itself."
+  },
+  {
+    "pattern": "polished-map*",
+    "category": "Developer Tools",
+    "reason": "A map/tileset editor for the pokecrystal (Pokemon Crystal) ROM-hacking disassembly -- a game-development/ROM-hacking tool, not a game."
+  },
+  {
+    "pattern": "Randovania",
+    "category": "Utilities",
+    "reason": "A randomizer seed-generation platform for a multitude of other games -- a companion tool, not a game itself."
+  },
+  {
+    "pattern": "IntelPy",
+    "category": "Utilities",
+    "reason": "A cross-platform chat-log monitor and alert system for the game Eve Online -- a companion tool, not a game itself."
+  },
+  {
+    "pattern": "magicseteditor*",
+    "category": "Graphics & Design",
+    "reason": "A custom trading-card design tool for Magic: the Gathering (plus its real community forks/template packs) -- a card-design/desktop-publishing tool, not a game."
+  },
+  {
+    "pattern": "Pineapple Steam Recording Exporter",
+    "category": "Photo & Video",
+    "reason": "Exports Steam's built-in game-recording clips to MP4 video files -- a video-export utility, not a game."
+  },
+  {
+    "pattern": "firefly-luciferin*",
+    "category": "Utilities",
+    "reason": "Ambient screen-lighting sync software (drives RGB LED strips from on-screen colors) -- a hardware/lighting utility, unrelated to gameplay despite inheriting a Game tag via its AudioVideo/Video categories."
+  },
+  {
+    "pattern": "scummvm-tools",
+    "category": "Utilities",
+    "reason": "A collection of data-conversion/extraction tools used alongside ScummVM -- a companion toolkit, not a game."
+  },
+  {
+    "pattern": "gamemode*",
+    "category": "System Tools",
+    "reason": "Feral Interactive's GameMode daemon/lib (and its distro-packaged gamemode-daemon/gamemoded variants), which lets games request temporary host-OS performance optimisations -- a system performance daemon, not a game."
+  },
+  {
+    "pattern": "lsfg-vk*",
+    "category": "Utilities",
+    "reason": "A Vulkan layer implementing Lossless Scaling frame generation for Linux games (plus its -ui configuration frontend) -- a game-enhancement utility, not a game."
+  },
+  {
+    "pattern": "game-data-packager",
+    "category": "System Tools",
+    "reason": "An installer that packages proprietary game data files for use with open-source game engines -- matches its already-classified game-data-packager-runtime sibling's System Tools category."
+  },
+  {
+    "pattern": "gbml*",
+    "category": "Utilities",
+    "reason": "A backup utility and database for Linux Steam games -- despite riding AUR's games section like the joke programs below, this is a genuine companion utility, not a joke."
+  },
+  {
+    "pattern": "sdljoytest",
+    "category": "Developer Tools",
+    "reason": "An SDL-based joystick/game-controller test utility -- a development/diagnostic tool, not a game."
+  },
+  {
+    "pattern": "alan",
+    "category": "Developer Tools",
+    "reason": "The Alan programming language's own compiler and runtime -- mistagged via AUR's games-adjacent section convention, not a game."
+  },
+  {
+    "pattern": "elixir",
+    "category": "Developer Tools",
+    "reason": "The Elixir programming language's own compiler/runtime -- mistagged via AUR/Debian/Gentoo's games-adjacent section convention on one grouped package, not a game."
+  },
+  {
+    "pattern": "elixir-git",
+    "category": "Developer Tools",
+    "reason": "AUR's rolling-release build of the Elixir programming language -- same reasoning as the bare elixir entry above."
+  },
+  {
+    "pattern": "fortune",
+    "category": "Utilities",
+    "reason": "The classic fortune-cookie quote-of-the-day program -- a non-interactive novelty CLI toy riding AUR/Gentoo/Debian's games section by packaging convention, not an interactive game."
+  },
+  {
+    "pattern": "fortune-mod",
+    "category": "Utilities",
+    "reason": "Debian/Fedora/Arch's own package name for the fortune program above -- same reasoning."
+  },
+  {
+    "pattern": "lolcat",
+    "category": "Utilities",
+    "reason": "Rainbow-colorizes terminal text -- a non-interactive novelty CLI toy, same joke-program family as fortune/cowsay."
+  },
+  {
+    "pattern": "lolcat++",
+    "category": "Utilities",
+    "reason": "A C++ reimplementation of lolcat -- same reasoning as lolcat."
+  },
+  {
+    "pattern": "lolcat++-bin",
+    "category": "Utilities",
+    "reason": "A prebuilt-binary AUR package of lolcat++ -- same reasoning as lolcat."
+  },
+  {
+    "pattern": "bb",
+    "category": "Utilities",
+    "reason": "A non-interactive AAlib ASCII-art demo -- a novelty CLI toy, not a game."
+  },
+  {
+    "pattern": "bsod",
+    "category": "Utilities",
+    "reason": "Displays a fake Windows XP blue-screen-of-death in the terminal -- a prank/novelty CLI toy, not a game."
+  },
+  {
+    "pattern": "cmatrix",
+    "category": "Utilities",
+    "reason": "A curses-based scrolling \"Matrix\"-style screen effect -- a non-interactive novelty CLI toy, not a game."
+  },
+  {
+    "pattern": "cmatrix-git",
+    "category": "Utilities",
+    "reason": "AUR's rolling-release build of cmatrix -- same reasoning as cmatrix."
+  },
+  {
+    "pattern": "cowsay",
+    "category": "Utilities",
+    "reason": "The classic ASCII-cow message generator -- a non-interactive novelty CLI toy, not a game."
+  },
+  {
+    "pattern": "cowsay-bin",
+    "category": "Utilities",
+    "reason": "A Rust reimplementation of cowsay -- same reasoning as cowsay."
+  },
+  {
+    "pattern": "nyancat",
+    "category": "Utilities",
+    "reason": "Renders the Nyan Cat animation in the terminal -- a non-interactive novelty CLI toy, not a game."
+  },
+  {
+    "pattern": "nyancat-git",
+    "category": "Utilities",
+    "reason": "AUR's rolling-release build of nyancat -- same reasoning as nyancat."
+  },
+  {
+    "pattern": "pipes.sh",
+    "category": "Utilities",
+    "reason": "An animated terminal-pipes screensaver -- a non-interactive novelty CLI toy, not a game."
+  },
+  {
+    "pattern": "pipes-sh",
+    "category": "Utilities",
+    "reason": "Debian/Solus's own package name for pipes.sh above -- same reasoning."
+  },
+  {
+    "pattern": "sl",
+    "category": "Utilities",
+    "reason": "Displays a Steam Locomotive crossing the terminal when you mistype \"ls\" as \"sl\" -- a non-interactive novelty CLI toy, not a game."
+  },
+  {
+    "pattern": "sl-git",
+    "category": "Utilities",
+    "reason": "AUR's rolling-release build of sl -- same reasoning as sl."
+  },
+  {
+    "pattern": "xcowsay",
+    "category": "Utilities",
+    "reason": "Displays cowsay's cow-and-message bubble on the X desktop -- a non-interactive novelty toy, not a game."
+  },
+  {
+    "pattern": "xteddy",
+    "category": "Utilities",
+    "reason": "Displays a draggable cuddly teddy bear on the X desktop -- a non-interactive novelty toy, not a game."
+  },
+  {
+    "pattern": "xpenguins",
+    "category": "Utilities",
+    "reason": "Animates penguins walking along window tops on the X desktop -- a non-interactive novelty toy, not a game."
+  },
+  {
+    "pattern": "xfishtank",
+    "category": "Utilities",
+    "reason": "Animates fish swimming across the X root window -- a non-interactive novelty toy, not a game."
+  },
+  {
+    "pattern": "xcruiser",
+    "category": "Utilities",
+    "reason": "A 3D visual filesystem browser/flythrough for X -- a novelty file-visualization tool, not a game."
+  },
+  {
+    "pattern": "doge",
+    "category": "Utilities",
+    "reason": "A message-of-the-day script styled after the \"doge\" meme -- a novelty CLI toy, not a game."
+  },
+  {
+    "pattern": "funny-manpages",
+    "category": "Utilities",
+    "reason": "A set of humorous joke manual pages -- novelty text content riding AUR's games section, not a game."
+  },
+  {
+    "pattern": "funny-manpages-git",
+    "category": "Utilities",
+    "reason": "AUR's rolling-release build of funny-manpages -- same reasoning."
+  },
+  {
+    "pattern": "asr-manpages",
+    "category": "Utilities",
+    "reason": "Humorous manual pages from the alt.sysadmin.recovery Usenet tradition -- same reasoning as funny-manpages."
+  },
+  {
+    "pattern": "wtf",
+    "category": "Books & Reference",
+    "reason": "An acronym/jargon dictionary sourced from NetBSD and Wikipedia -- a reference lookup tool riding Gentoo's games-misc section, not a game."
+  },
+  {
+    "pattern": "qstat",
+    "category": "System Tools",
+    "reason": "A command-line tool that queries and displays the status of Internet game servers -- a network diagnostic utility, not a game."
+  },
+  {
+    "pattern": "qstat-git",
+    "category": "System Tools",
+    "reason": "AUR's rolling-release build of qstat -- same reasoning."
+  },
+  {
+    "pattern": "sex",
+    "category": "Utilities",
+    "reason": "A silly mad-lib-style text generator (\"Spouts silly mad-lib-style porn-like text\") -- a non-interactive novelty CLI toy, not a game."
+  },
+  {
+    "pattern": "sound-of-sorting",
+    "category": "Education",
+    "reason": "Visualizes and \"audibilizes\" sorting algorithms for teaching purposes -- an educational computer-science tool, not a game."
+  },
+  {
+    "pattern": "sound-of-sorting-git",
+    "category": "Education",
+    "reason": "AUR's rolling-release build of sound-of-sorting -- same reasoning."
+  },
+  {
+    "pattern": "planarity",
+    "category": "Science",
+    "reason": "A program for planarity-related graph algorithms -- a math/graph-theory tool riding Ubuntu's games section, not a game."
+  },
+  {
+    "pattern": "macopix",
+    "category": "Utilities",
+    "reason": "A draggable desktop mascot (\"Mascot Constructive Pilot for X\") -- a non-interactive novelty desktop toy, not a game."
+  },
+  {
+    "pattern": "tdfsb",
+    "category": "System Tools",
+    "reason": "A 3D filesystem browser -- a file-management visualization tool, not a game."
+  },
+  {
+    "pattern": "xdesktopwaves",
+    "category": "Utilities",
+    "reason": "Simulates water waves on the X root window -- a non-interactive novelty desktop toy, not a game."
+  },
+  {
+    "pattern": "gbhed",
+    "category": "Utilities",
+    "reason": "A translator for Al Bhed, Final Fantasy X's fictional in-game language -- a novelty fan-made translation tool, not a game."
   }
 ]

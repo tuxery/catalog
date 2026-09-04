@@ -1,8 +1,8 @@
 {
   "source": "snap-snapcraft",
-  "fetchedAt": "2026-09-04T11:08:34.791Z",
+  "fetchedAt": "2026-09-04T21:21:21.530Z",
   "url": "https://api.snapcraft.io/v2/snaps/find",
-  "entryCount": 10924,
+  "entryCount": 10926,
   "deviceSeries": "16",
   "categoriesSwept": [
     "art-and-design",
@@ -11,7 +11,6 @@
     "devices-and-iot",
     "education",
     "entertainment",
-    "featured",
     "finance",
     "games",
     "health-and-fitness",
@@ -64,5 +63,6 @@
     "8",
     "9"
   ],
-  "queryPrefixesTried": 36468
+  "queryPrefixesTried": 36468,
+  "categoryPrefixesTried": 68652
 }

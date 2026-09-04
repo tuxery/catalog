@@ -51,6 +51,12 @@ const CATEGORIES = [
   "utilities",
 ];
 
+// "featured" is a curated collection, not a real browse category — it's
+// swept separately via `FEATURED_PARAMS` for the storeCollections tag, and
+// excluded here so the per-category recursive sweep only enumerates the 20
+// real categories.
+const REAL_CATEGORIES = CATEGORIES.filter((category) => category !== "featured");
+
 const QUERY_CHARS = [..."abcdefghijklmnopqrstuvwxyz0123456789"];
 
 // `/v2/snaps/find` caps every response at exactly 100 results (verified
@@ -72,6 +78,18 @@ const FIND_CAP = 100;
 // well under 100 matches) — a circuit breaker, not an expected ceiling.
 const MAX_QUERY_DEPTH = 4;
 const SWEEP_CONCURRENCY = 8;
+// The per-category recursive sweeps run several `sweepQueriesRecursively`
+// instances at once (each itself up to `SWEEP_CONCURRENCY` requests) — this
+// bounds how many categories sweep in parallel so the *total* in-flight
+// request count stays comparable to the old flat category sweep's load
+// (which was one request per category), rather than `20 * 8` at once.
+const CATEGORY_SWEEP_CONCURRENCY = 3;
+// The recursive sweeps push ~4k requests at Snapcraft's public API in one
+// run; the API intermittently resets a socket under that load
+// (`UND_ERR_SOCKET`). Retry a few times with exponential backoff rather
+// than failing the whole multi-minute fetch on one transient drop.
+const FIND_RETRIES = 4;
+const RETRY_BASE_DELAY_MS = 500;
 
 /**
  * Recursively sweeps `q=` searches, breadth-first by prefix length:
@@ -232,14 +250,19 @@ export function applyCategories(
   });
 }
 
-async function find(params: string, label: string): Promise<RawResult[]> {
+async function find(params: string, label: string, attempt = 0): Promise<RawResult[]> {
   const url = `${FIND_URL}?${params}&fields=${FIELDS}`;
-  const response = await fetchOrThrow(url, `Snapcraft "${label}"`, {
-    headers: { "Snap-Device-Series": DEVICE_SERIES },
-  });
-
-  const body = (await response.json()) as { results?: RawResult[] };
-  return body.results ?? [];
+  try {
+    const response = await fetchOrThrow(url, `Snapcraft "${label}"`, {
+      headers: { "Snap-Device-Series": DEVICE_SERIES },
+    });
+    const body = (await response.json()) as { results?: RawResult[] };
+    return body.results ?? [];
+  } catch (error) {
+    if (attempt + 1 >= FIND_RETRIES) throw error;
+    await new Promise((resolve) => setTimeout(resolve, RETRY_BASE_DELAY_MS * 2 ** attempt));
+    return find(params, label, attempt + 1);
+  }
 }
 
 /**
@@ -253,21 +276,39 @@ async function find(params: string, label: string): Promise<RawResult[]> {
  * every popular letter/digit.
  */
 export async function fetchSnapcraft(cachePath: string): Promise<number> {
-  const [categoryResults, queryResults, featuredResults] = await Promise.all([
-    Promise.all(CATEGORIES.map((category) => find(`category=${category}`, category))),
+  // The category sweep is now recursive (`category=X&q=prefix`) rather than
+  // a flat top-100 per category — a flat `find?category=X` silently truncates
+  // at 100 results for any category with more than that (games, development,
+  // productivity, ...), which was the whole reason most snaps came back
+  // without a category. Scoping `sweepQueriesRecursively`'s `q=` deepening
+  // to each category gets the FULL membership of every category, so
+  // `applyCategories` can tag every snap with its real store category.
+  const [categorySweeps, queryResults, featuredResults] = await Promise.all([
+    parallel(
+      REAL_CATEGORIES.map(
+        (category) => () =>
+          sweepQueriesRecursively((prefix) =>
+            find(
+              `category=${category}&q=${encodeURIComponent(prefix)}`,
+              `category=${category} q=${prefix}`,
+            ),
+          ),
+      ),
+      CATEGORY_SWEEP_CONCURRENCY,
+    ),
     sweepQueriesRecursively((prefix) => find(`q=${encodeURIComponent(prefix)}`, `q=${prefix}`)),
     find(FEATURED_PARAMS, "featured"),
   ]);
 
   const featuredNames = new Set(featuredResults.map((result) => result.name).filter(Boolean));
   const namesByCategory = new Map(
-    CATEGORIES.map((category, i) => [
+    REAL_CATEGORIES.map((category, i) => [
       category,
-      (categoryResults[i] ?? []).map((result) => result.name).filter(Boolean),
+      (categorySweeps[i]?.results ?? []).map((result) => result.name).filter(Boolean),
     ]),
   );
   const deduped = dedupeByKey(
-    mapResults([...categoryResults.flat(), ...queryResults.results]),
+    mapResults([...categorySweeps.flatMap((sweep) => sweep.results), ...queryResults.results]),
     (entry) => entry.name,
   );
   const entries = applyCategories(applyFeaturedTag(deduped, featuredNames), namesByCategory);
@@ -279,9 +320,10 @@ export async function fetchSnapcraft(cachePath: string): Promise<number> {
     url: FIND_URL,
     entryCount: entries.length,
     deviceSeries: DEVICE_SERIES,
-    categoriesSwept: CATEGORIES,
+    categoriesSwept: REAL_CATEGORIES,
     queryCharsSwept: QUERY_CHARS,
     queryPrefixesTried: queryResults.prefixesTried,
+    categoryPrefixesTried: categorySweeps.reduce((sum, sweep) => sum + sweep.prefixesTried, 0),
   });
 
   return entries.length;

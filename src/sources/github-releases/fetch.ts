@@ -32,6 +32,24 @@ const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 // 1,000 results stays comfortably under it either way.
 const LOOKUP_CONCURRENCY = 20;
 
+// The `topic:linux-app` search alone was silently truncating real results:
+// verified live 2026-09-04, `total_count` is 1,278 against the connector's
+// then-hard 1,000-result cap — 278 real repos permanently unreachable.
+// GitHub has no offset-based pagination past 1,000 for any single query,
+// but a query scoped with `created:<from>..<to>` reports its own
+// `total_count`, so a range that itself exceeds 1,000 can be bisected on
+// creation date into two ranges, each independently re-queried — same
+// "adaptive deepening to route around a hard result cap" shape as
+// Snapcraft's `sweepQueriesRecursively`, bisecting a date range instead of
+// a query-string prefix. `MAX_BISECTION_DEPTH` is a circuit breaker (2^6
+// = 64 leaf ranges), not an expected ceiling — real growth from 1,278
+// repos needs at most one or two splits for a long while yet.
+const MAX_BISECTION_DEPTH = 6;
+// GitHub itself launched 2008-04-10; any date safely before that works as
+// a lower bound. `created:` is inclusive on both ends, so bisected ranges
+// must be adjacent, non-overlapping days (see `nextDate` below).
+const EARLIEST_POSSIBLE_REPO_DATE = "2007-01-01";
+
 function authHeaders(): Record<string, string> {
   const headers: Record<string, string> = { Accept: "application/vnd.github+json" };
   if (GITHUB_TOKEN) headers.Authorization = `Bearer ${GITHUB_TOKEN}`;
@@ -49,6 +67,7 @@ interface RawRepo {
 
 interface RawSearchResponse {
   items?: RawRepo[];
+  total_count?: number;
 }
 
 export interface RawRelease {
@@ -56,28 +75,94 @@ export interface RawRelease {
   html_url?: string;
 }
 
-/**
- * Pages through the topic search, `PER_PAGE` at a time, up to
- * `MAX_RESULTS` — GitHub's search API rejects a page beyond what its
- * 1,000-result cap allows with a 422, so this stops requesting once that
- * cap is reached rather than looping until an empty page.
- */
-async function searchRepos(): Promise<RawRepo[]> {
-  const repos: RawRepo[] = [];
+export interface SearchPage {
+  items: RawRepo[];
+  totalCount: number;
+}
 
-  for (let page = 1; repos.length < MAX_RESULTS; page++) {
-    const url = `${SEARCH_URL}?q=${encodeURIComponent("topic:linux-app archived:false")}&sort=stars&order=desc&per_page=${PER_PAGE}&page=${page}`;
+async function fetchSearchPage(from: string, to: string, page: number): Promise<SearchPage> {
+  const q = `topic:linux-app archived:false created:${from}..${to}`;
+  const url = `${SEARCH_URL}?q=${encodeURIComponent(q)}&sort=stars&order=desc&per_page=${PER_PAGE}&page=${page}`;
+  const response = await fetchOrThrow(url, "GitHub topic search", { headers: authHeaders() });
+  const body = (await response.json()) as RawSearchResponse;
+  return { items: body.items ?? [], totalCount: body.total_count ?? 0 };
+}
+
+/** The day exactly halfway between `from` and `to` (both `YYYY-MM-DD`), rounding down. Pure. */
+export function midDate(from: string, to: string): string {
+  const fromMs = Date.parse(from);
+  const toMs = Date.parse(to);
+  return new Date(fromMs + Math.floor((toMs - fromMs) / 2)).toISOString().slice(0, 10);
+}
+
+/** The day immediately after `date` (`YYYY-MM-DD`) — keeps bisected ranges adjacent and non-overlapping, since `created:` is inclusive on both ends. Pure. */
+export function nextDate(date: string): string {
+  return new Date(Date.parse(date) + 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
+}
+
+/**
+ * Pages through one `created:<from>..<to>` range, `PER_PAGE` at a time,
+ * up to `MAX_RESULTS` — GitHub's search API rejects a page beyond what
+ * its 1,000-result cap allows with a 422, so this stops requesting once
+ * that cap is reached rather than looping until an empty page. Assumes
+ * the range's own `total_count` already fits under `MAX_RESULTS` —
+ * `searchDateRange` below is what decides that.
+ */
+async function paginateRange(
+  from: string,
+  to: string,
+  firstPage: SearchPage,
+  fetchPage: (from: string, to: string, page: number) => Promise<SearchPage>,
+): Promise<RawRepo[]> {
+  const repos = [...firstPage.items];
+
+  for (let page = 2; repos.length < firstPage.totalCount && repos.length < MAX_RESULTS; page++) {
     // eslint-disable-next-line no-await-in-loop
-    const response = await fetchOrThrow(url, "GitHub topic search", { headers: authHeaders() });
-    // eslint-disable-next-line no-await-in-loop
-    const body = (await response.json()) as RawSearchResponse;
-    const items = body.items ?? [];
-    if (items.length === 0) break;
-    repos.push(...items);
-    if (items.length < PER_PAGE) break;
+    const next = await fetchPage(from, to, page);
+    if (next.items.length === 0) break;
+    repos.push(...next.items);
+    if (next.items.length < PER_PAGE) break;
   }
 
   return repos.slice(0, MAX_RESULTS);
+}
+
+/**
+ * Searches one `created:<from>..<to>` date range for the `linux-app`
+ * topic, recursively bisecting it on creation date whenever its own
+ * `total_count` exceeds `MAX_RESULTS` — see this file's header comment
+ * on why a single unbounded query silently truncates. `depth` bounds the
+ * recursion (`MAX_BISECTION_DEPTH`, a circuit breaker) rather than
+ * splitting forever against a pathological response. Sequential, not
+ * parallel, across the two bisected halves — deliberately conservative
+ * against the search endpoint's own stricter (30 req/min) rate limit,
+ * since real-world depth is shallow (one or two splits) and this isn't
+ * the connector's time-critical half anyway (per-repo Release lookups
+ * dominate runtime). Pure aside from the injected `fetchPage` call, so
+ * the bisection logic itself is testable without a real network
+ * dependency.
+ */
+export async function searchDateRange(
+  from: string,
+  to: string,
+  fetchPage: (from: string, to: string, page: number) => Promise<SearchPage>,
+  depth = 0,
+): Promise<RawRepo[]> {
+  const firstPage = await fetchPage(from, to, 1);
+
+  if (firstPage.totalCount <= MAX_RESULTS || depth >= MAX_BISECTION_DEPTH || from === to) {
+    return paginateRange(from, to, firstPage, fetchPage);
+  }
+
+  const mid = midDate(from, to);
+  const left = await searchDateRange(from, mid, fetchPage, depth + 1);
+  const right = await searchDateRange(nextDate(mid), to, fetchPage, depth + 1);
+  return [...left, ...right];
+}
+
+async function searchRepos(): Promise<RawRepo[]> {
+  const today = new Date().toISOString().slice(0, 10);
+  return searchDateRange(EARLIEST_POSSIBLE_REPO_DATE, today, fetchSearchPage);
 }
 
 /**

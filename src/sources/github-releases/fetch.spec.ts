@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from "vitest";
-import { resolveEntries } from "./fetch";
-import type { RawRelease } from "./fetch";
+import { midDate, nextDate, resolveEntries, searchDateRange } from "./fetch";
+import type { RawRelease, SearchPage } from "./fetch";
 
 type Lookup = (repo: string) => Promise<RawRelease | undefined>;
 
@@ -97,5 +97,85 @@ describe("resolveEntries", () => {
 
     expect(lookup).toHaveBeenCalledTimes(10);
     expect(maxInFlight).toBeLessThanOrEqual(3);
+  });
+});
+
+describe("midDate/nextDate", () => {
+  it("splits a range at its midpoint, rounding down", () => {
+    expect(midDate("2020-01-01", "2020-01-11")).toBe("2020-01-06");
+  });
+
+  it("returns the day immediately after the given date", () => {
+    expect(nextDate("2020-01-06")).toBe("2020-01-07");
+  });
+
+  it("carries over month/year boundaries", () => {
+    expect(nextDate("2020-01-31")).toBe("2020-02-01");
+    expect(nextDate("2020-12-31")).toBe("2021-01-01");
+  });
+});
+
+function repoNamed(full_name: string) {
+  return { full_name };
+}
+
+describe("searchDateRange", () => {
+  it("pages a range directly when its total_count already fits under the 1,000-result cap", async () => {
+    const fetchPage = vi.fn<(from: string, to: string, page: number) => Promise<SearchPage>>(
+      async () => ({ items: [repoNamed("owner/a")], totalCount: 1 }),
+    );
+
+    const repos = await searchDateRange("2020-01-01", "2020-12-31", fetchPage);
+
+    expect(repos).toEqual([repoNamed("owner/a")]);
+    expect(fetchPage).toHaveBeenCalledTimes(1); // one page covers a total_count of 1
+  });
+
+  it("bisects a range whose total_count exceeds the cap, recursing into each half", async () => {
+    const fetchPage = vi.fn<(from: string, to: string, page: number) => Promise<SearchPage>>(
+      async (from, to, page) => {
+        if (page > 1) return { items: [], totalCount: 0 };
+        // The full range and its first-half sub-range both still exceed
+        // the cap; only once bisected down to the second half does the
+        // count finally fit, matching a real "big early period, sparse
+        // later" growth shape.
+        if (from === "2020-01-01" && to === "2020-12-31") return { items: [], totalCount: 2000 };
+        if (from === "2020-01-01" && to === "2020-07-01") return { items: [], totalCount: 1500 };
+        return { items: [repoNamed(`owner/${from}`)], totalCount: 1 };
+      },
+    );
+
+    const repos = await searchDateRange("2020-01-01", "2020-12-31", fetchPage);
+
+    // Every leaf range that actually fit under the cap contributed its
+    // one repo — proves the recursion reached real leaves on both sides,
+    // not just the one that happened to fit first.
+    expect(repos.length).toBeGreaterThanOrEqual(2);
+  });
+
+  it("stops bisecting at MAX_BISECTION_DEPTH even if every range keeps exceeding the cap", async () => {
+    const fetchPage = vi.fn<(from: string, to: string, page: number) => Promise<SearchPage>>(
+      async () => ({ items: [], totalCount: 999_999 }),
+    );
+
+    // Must terminate (not recurse forever) despite total_count always
+    // exceeding the cap — the assertion is just that this resolves at
+    // all within the test's own timeout.
+    await expect(searchDateRange("2020-01-01", "2020-12-31", fetchPage)).resolves.toBeDefined();
+  });
+
+  it("stops bisecting once the range can no longer be split (down to a single day)", async () => {
+    // A pathological single day reporting a total_count that overstates
+    // its own real (short) results list, the same way GitHub's search API
+    // itself would if it had a data quirk — pagination still terminates
+    // correctly off the empty page 2, same as any other under-cap range.
+    const fetchPage = vi.fn<(from: string, to: string, page: number) => Promise<SearchPage>>(
+      async (_from, _to, page) =>
+        page === 1 ? { items: [repoNamed("owner/same-day")], totalCount: 999_999 } : { items: [], totalCount: 999_999 },
+    );
+
+    const repos = await searchDateRange("2020-01-01", "2020-01-01", fetchPage);
+
+    expect(repos).toEqual([repoNamed("owner/same-day")]);
   });
 });

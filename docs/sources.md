@@ -47,7 +47,7 @@ table is the map, the Project is the tracked work.
 | 7d  | Deepin                | main                 | Native     | 255     | ⚠️          | Implemented | [21]  |
 | 7e  | MX Linux              | main                 | Native     | 142     | ⚠️          | Implemented | [22]  |
 | 8a  | GOG                   | Linux-compat.        | Storefront | 1,342   | ⚠️          | Implemented | [23]  |
-| 8b  | Lutris                | published, linux     | Script     | 1,795   | ⚠️          | Implemented | [24]  |
+| 8b  | Lutris                | published, linux     | Script     | 2,260   | ⚠️          | Implemented | [24]  |
 | 9a  | Debian AppStream      | main+contrib+nonfree | Enrichment | 2,109   | ⚠️          | Implemented | [27]  |
 | 9b  | openSUSE AppStream    | oss+non-oss          | Enrichment | 887     | ⚠️          | Implemented | [28]  |
 | 9c  | Fedora AppStream      | Everything           | Enrichment | 1,102   | ⚠️          | Implemented | [30]  |
@@ -449,12 +449,23 @@ research writeup.
     `hasGameCategory: true` unconditionally on every entry, on the
     assumption that anything hosted on a "games launcher" must be a game.
     Wrong — Lutris genuinely hosts install scripts for real non-game
-    Windows software too (Discord's own entry is one), and neither
-    `/api/installers` nor `/api/games` (checked live) carries a
-    genre/category field to tell them apart. Fixed by not setting
-    `hasGameCategory` at all — a real Lutris-only game simply won't get
-    the "Game" badge until a better signal turns up, an honest gap rather
-    than a source of false positives.
+    Windows software too (Discord's own entry is one). Fixed by not
+    setting `hasGameCategory` at all — a real Lutris-only game simply
+    won't get the "Game" badge until a better signal turns up, an honest
+    gap rather than a source of false positives.
+
+    That "better signal" landed (2026-09-04): the connector now enriches
+    every installer with the game's own `/api/games/<slug>` record —
+    one request per unique game (bounded concurrency, ~1,153 games), not
+    per installer — which carries the IGDB-sourced `genres` (e.g. `["FPS"]`,
+    `["Roguelike","RPG"]`) and a real game `description`. `normalize.ts`
+    maps those genres through an `IGDB_GENRE_TO_CATEGORY` table (the same
+    mapping discipline as GOG's genre slugs) onto freedesktop game-category
+    keys and finally sets `hasGameCategory` from genre presence — a game
+    carries genres, a non-game installer (Discord) carries none, closing
+    the old honest gap. Verified live: 2,260 installers, 1,972 with genres,
+    2,226 with a real description — −874 "To Classify" and ~2,000 previously
+    game-flagged-as-apps Lutris games now correctly `contentType: "game"`.
 
 25. **Manual AppImage seed** — a hand-curated, source-controlled list
     (`src/sources/appimage-manual/manual-appimages.ndjson`) for

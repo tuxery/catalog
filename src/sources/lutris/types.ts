@@ -17,6 +17,16 @@ export interface LutrisCacheEntry {
   name: string;
   /** This installer's own description, e.g. "Play \"X\" on Linux!" — installer-specific text, the closest thing to a game description this API exposes. */
   description: string;
+  /**
+   * The game's own IGDB-sourced genres (from `/api/games/<game_slug>`),
+   * e.g. `["FPS"]` / `["Roguelike", "RPG"]` — the only per-game genre
+   * signal Lutris exposes. `[]` for games with no genre at all. See
+   * `normalize.ts`'s `IGDB_GENRE_TO_CATEGORY` for how this maps to the
+   * game taxonomy.
+   */
+  genres: string[];
+  /** The game's own real description from `/api/games/<game_slug>`, richer than the installer's one-liner. `undefined` when Lutris has none. */
+  gameDescription?: string;
   /** The installer's own storefront/method label as Lutris names it (e.g. "GOG", "Steam", "CD + nGlide") — not a software version, Lutris's closest thing to a build-channel tag (see `normalize.ts`). `undefined` when Lutris leaves it blank. */
   version?: string;
 }

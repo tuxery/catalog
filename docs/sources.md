@@ -152,7 +152,26 @@ because a paragraph per cell made the table unreadable.
    gunzips without a new dependency; Debian publishes both). deb822
    stanza format. Exhaustive per suite/component/arch combination;
    stable/amd64 only — other suites/archs not fetched.
-   `src/sources/deb-debian/fetch.ts`.
+   `src/sources/deb-debian/fetch.ts`. Also sets `hasGameCategory` from
+   Debian's own Debtags (`Tag:` field) — a real, previously-unwired
+   classification signal found investigating this connector (2026-09-04):
+   verified live that Ubuntu's/Mint's own `Packages.gz` strip this field
+   entirely (2 stray matches on Ubuntu's ~67k-package universe, 0 on
+   Mint's main), but Debian's own main component carries it on 25,607 of
+   its 68,755 packages (~37%). Real bug found in the process: `Tag:`
+   commonly wraps across a continuation line (e.g.
+   `Tag: game::strategy, ..., role::program,\n uitoolkit::sdl, ...,
+   use::gameplaying`), which `_shared/deb822.ts`'s field map silently
+   truncated to whatever fit on the first line — correct behavior for
+   `Description` (exactly the short summary wanted there) but wrong for
+   `Tag`. Fixed via `parseDeb822Stanzas`, a new export alongside the
+   existing `parseDeb822` that also keeps each stanza's raw text, and
+   `parseDebtags`, which reconstructs a wrapped `Tag:` value from it;
+   `parseDeb822`'s own behavior/tests are unchanged. `hasGameDebtag` in
+   `deb-debian/fetch.ts` then flags the `game::*` facet and the
+   cross-cutting `use::gameplaying` tag. Verified against the refreshed
+   live cache: 790 of 69,843 Debian packages now carry `hasGameCategory:
+   true`.
 9. **Ubuntu** (main + universe + restricted + multiverse) — same deb822
    mechanism as Debian (it's a derivative), amd64 only, current stable
    suite only (resolute/26.04 as of writing — resolved live via

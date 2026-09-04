@@ -1,4 +1,4 @@
-import { parseDeb822 } from "../_shared/deb822";
+import { parseDeb822Stanzas, parseDebtags } from "../_shared/deb822";
 import { fetchGunzippedText } from "../_shared/http";
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
@@ -21,20 +21,38 @@ function packagesUrl(component: DebianComponent): string {
   return `https://deb.debian.org/debian/dists/${SUITE}/${component}/binary-${ARCH}/Packages.gz`;
 }
 
+// Debtags facets that directly signal a game — the `game::*` facet itself
+// (e.g. "game::strategy", "game::board") plus the cross-cutting
+// `use::gameplaying` tag, which also catches entries that only carry the
+// looser tag without a specific `game::` genre. Same
+// positive-evidence-only discipline as Flathub/Snapcraft's
+// `hasGameCategory` — absence is never treated as "confirmed not a game"
+// downstream (see `SourcedPackage.hasGameCategory`'s doc comment).
+const GAME_DEBTAG_PATTERN = /^(game::|use::gameplaying$)/;
+
+/** Whether a stanza's Debtags include a direct game signal. Pure — no I/O. */
+export function hasGameDebtag(tags: string[]): boolean {
+  return tags.some((tag) => GAME_DEBTAG_PATTERN.test(tag));
+}
+
 /**
  * Maps deb822 stanzas (already parsed by `_shared/deb822.ts`) to cache
  * rows. Pure — no I/O — so it's the part covered by tests.
  */
 export function parsePackages(text: string, component: string): DebianCacheEntry[] {
-  return parseDeb822(text)
-    .filter((fields): fields is typeof fields & { Package: string } => Boolean(fields.Package))
-    .map((fields) => ({
+  return parseDeb822Stanzas(text)
+    .filter(
+      (stanza): stanza is typeof stanza & { fields: { Package: string } } =>
+        Boolean(stanza.fields.Package),
+    )
+    .map(({ fields, raw }) => ({
       name: fields.Package,
       description: fields.Description ?? "",
       version: fields.Version ?? "unknown",
       homepage: fields.Homepage || undefined,
       component,
       section: fields.Section || undefined,
+      hasGameCategory: hasGameDebtag(parseDebtags(raw)),
     }));
 }
 

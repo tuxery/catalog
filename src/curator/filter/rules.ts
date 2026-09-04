@@ -737,6 +737,18 @@ const SUPPORT_DESCRIPTION_PATTERNS: RegExp[] = [
   // instructions for its hardware) rescued via config/filter-keep.json
   // rather than narrowing this further.
   /\budev rules\b/i,
+  // "monospace font(s)"/"programming font(s)"/"pixel font(s)" — narrower
+  // phrasings than the standalone "monospaced" pattern above, catching
+  // typefaces that use the noun "monospace" or describe themselves by
+  // their intended use (coding, low-res pixel art) rather than the
+  // adjective form. Surfaced mining the To Classify bucket (2026-09-04),
+  // each verified against the whole catalog: "monospace font(s)" — 52
+  // matches, 100% genuine typefaces, zero exceptions; "programming
+  // font(s)" — 18 matches, 100% genuine typefaces, zero exceptions;
+  // "pixel font(s)" — 7 matches, 100% genuine typefaces, zero exceptions.
+  /\bmonospace fonts?\b/i,
+  /\bprogramming fonts?\b/i,
+  /\bpixel fonts?\b/i,
 ];
 
 /**

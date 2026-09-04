@@ -97,6 +97,70 @@ describe("createTursoClient", () => {
     expect(firstIndexOrder).toBeGreaterThan(swapBatchOrder ?? 0);
   });
 
+  it("retries an 'already exists' index failure once (transient Turso consistency lag) and succeeds", async () => {
+    vi.useFakeTimers();
+    try {
+      const { batch } = fakeClient(false);
+      let failedOnce = false;
+      const execute = vi.fn<Client["execute"]>().mockImplementation(async (sql) => {
+        const text = sql as string;
+        if (text.includes("CREATE INDEX idx_apps_category") && !failedOnce) {
+          failedOnce = true;
+          throw new Error("SQLite error: index idx_apps_category already exists");
+        }
+        return { rows: [] } as never;
+      });
+      const tursoClient = createTursoClient(
+        { url: "file::memory:" },
+        { execute, batch } as unknown as Client,
+      );
+
+      const publishPromise = tursoClient.publish({
+        generatedAt: "2026-01-01T00:00:00.000Z",
+        apps: [APP],
+      });
+      await vi.runAllTimersAsync();
+      await publishPromise;
+
+      const categoryIndexCalls = execute.mock.calls.filter((call) =>
+        (call[0] as string).includes("CREATE INDEX idx_apps_category"),
+      );
+      // First attempt fails, retry succeeds — publish() doesn't throw.
+      expect(categoryIndexCalls).toHaveLength(2);
+    } finally {
+      vi.useRealTimers();
+    }
+  });
+
+  it(
+    "gives up and rethrows after repeated 'already exists' failures, rather than silently skipping the index",
+    async () => {
+      // Real timers here (not fake, per the test above) — the retry
+      // backoff is short (<=1s total across 3 attempts) and mixing fake
+      // timers with an `expect(...).rejects` assertion that must resolve
+      // before the timers advance runs into oxlint's valid-expect rule
+      // (the assertion can't be split into a stored promise and awaited
+      // later just to interleave `vi.runAllTimersAsync()`).
+      const { batch } = fakeClient(false);
+      const execute = vi.fn<Client["execute"]>().mockImplementation(async (sql) => {
+        const text = sql as string;
+        if (text.includes("CREATE INDEX idx_apps_category")) {
+          throw new Error("SQLite error: index idx_apps_category already exists");
+        }
+        return { rows: [] } as never;
+      });
+      const tursoClient = createTursoClient(
+        { url: "file::memory:" },
+        { execute, batch } as unknown as Client,
+      );
+
+      await expect(
+        tursoClient.publish({ generatedAt: "2026-01-01T00:00:00.000Z", apps: [APP] }),
+      ).rejects.toThrow("already exists");
+    },
+    5000,
+  );
+
   it("renames the existing apps table out of the way before swapping when one already exists", async () => {
     const { batch, client } = fakeClient(true);
     const tursoClient = createTursoClient({ url: "file::memory:" }, client);

@@ -423,5 +423,10 @@
     "sources": ["pacman-aur"],
     "name": "affinity-bin",
     "reason": "Real Affinity Photo/Designer/Publisher-via-Wine app despite mentioning \"Serif\" (its publisher, Serif Europe Ltd) in its own description — see filter/rules.ts's bare serif(s) noise pattern"
+  },
+  {
+    "sources": ["appimage"],
+    "name": "MooerLooperManager",
+    "reason": "Real Mooer GL100/GL200 looper-pedal manager app despite its own long-form description including udev-rules setup instructions — see filter/rules.ts's \"udev rules\" noise pattern"
   }
 ]

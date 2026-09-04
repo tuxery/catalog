@@ -726,6 +726,17 @@ const SUPPORT_DESCRIPTION_PATTERNS: RegExp[] = [
   // rescued via config/filter-keep.json rather than narrowing this
   // further.
   /\bserifs?\b/i,
+  // "udev rules" — a package that only ships a udev rules file (device
+  // permission/detection setup), not a launchable app on its own. Same
+  // "not a launchable app" reasoning as this file's name-based -udev$
+  // suffix pattern, for the many nixpkgs/AUR udev-rules packages that
+  // don't follow that naming convention. Surfaced mining the To Classify
+  // bucket (2026-09-04): 59 whole-catalog matches, 58 genuine udev-rules-
+  // only packages; the one exception (appimage's MooerLooperManager,
+  // whose own long-form description happens to include udev-rules setup
+  // instructions for its hardware) rescued via config/filter-keep.json
+  // rather than narrowing this further.
+  /\budev rules\b/i,
 ];
 
 /**

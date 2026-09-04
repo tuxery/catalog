@@ -1,6 +1,6 @@
 {
   "source": "deb-debian",
-  "fetchedAt": "2026-08-17T21:14:49.206Z",
+  "fetchedAt": "2026-09-04T11:59:40.629Z",
   "url": "https://deb.debian.org/debian/dists/stable/main/binary-amd64/Packages.gz, https://deb.debian.org/debian/dists/stable/contrib/binary-amd64/Packages.gz, https://deb.debian.org/debian/dists/stable/non-free/binary-amd64/Packages.gz, https://deb.debian.org/debian/dists/stable/non-free-firmware/binary-amd64/Packages.gz",
   "entryCount": 69843,
   "suite": "stable",

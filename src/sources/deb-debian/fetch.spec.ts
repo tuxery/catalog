@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { parsePackages } from "./fetch";
+import { hasGameDebtag, parsePackages } from "./fetch";
 
 const FIXTURE = `Package: 0ad
 Source: 0ad (0.27.0-2)
@@ -15,6 +15,8 @@ Description: Real-time strategy game of ancient warfare
 Homepage: https://play0ad.com/
 Section: games
 Priority: optional
+Tag: game::strategy, interface::graphical, interface::x11, role::program,
+ uitoolkit::sdl, uitoolkit::wxwidgets, use::gameplaying
 
 Package: 0ad-data
 Version: 0.27.0-1
@@ -60,5 +62,31 @@ describe("parsePackages", () => {
 
   it("returns an empty array for text with no stanzas", () => {
     expect(parsePackages("", "main")).toEqual([]);
+  });
+
+  it("sets hasGameCategory from a wrapped Tag field's game::/use::gameplaying facets", () => {
+    expect(entries[0]?.hasGameCategory).toBe(true);
+  });
+
+  it("leaves hasGameCategory false when the stanza has no Tag field at all", () => {
+    expect(entries[1]?.hasGameCategory).toBe(false);
+  });
+});
+
+describe("hasGameDebtag", () => {
+  it("is true for a game::* facet", () => {
+    expect(hasGameDebtag(["game::strategy", "role::program"])).toBe(true);
+  });
+
+  it("is true for the cross-cutting use::gameplaying tag alone", () => {
+    expect(hasGameDebtag(["use::gameplaying", "role::program"])).toBe(true);
+  });
+
+  it("is false for unrelated tags", () => {
+    expect(hasGameDebtag(["role::program", "use::analysing"])).toBe(false);
+  });
+
+  it("is false for an empty tag list", () => {
+    expect(hasGameDebtag([])).toBe(false);
   });
 });

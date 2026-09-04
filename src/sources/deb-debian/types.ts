@@ -19,6 +19,15 @@ export interface DebianCacheEntry {
   component: string;
   /** Debian's `Section` field, e.g. "libs", "games", "doc" — see SourcedPackage.section. */
   section?: string;
+  /**
+   * Whether this stanza's Debtags (`Tag:` field) directly signal a game —
+   * see fetch.ts's `hasGameDebtag`. Only ~37% of Debian stable main's
+   * packages carry any Debtags at all (verified live 2026-09-04:
+   * 25,607 of 68,755); `false` here just as often means "no Debtags data"
+   * as "tagged, not a game" — see SourcedPackage.hasGameCategory's doc
+   * comment for why that's fine (only `true` is ever treated as evidence).
+   */
+  hasGameCategory: boolean;
 }
 
 export interface DebianFetchMetadata extends FetchMetadata {

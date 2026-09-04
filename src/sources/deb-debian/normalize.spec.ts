@@ -10,6 +10,7 @@ describe("debian normalize", () => {
       version: "0.27.0-2+b1",
       homepage: "https://play0ad.com/",
       component: "main",
+      hasGameCategory: true,
     };
 
     expect(normalize([entry])).toEqual([
@@ -20,6 +21,7 @@ describe("debian normalize", () => {
         version: "0.27.0-2+b1",
         appId: "0ad",
         homepage: "https://play0ad.com/",
+        hasGameCategory: true,
       },
     ]);
   });

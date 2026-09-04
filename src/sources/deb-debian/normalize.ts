@@ -14,5 +14,6 @@ export function normalize(entries: DebianCacheEntry[]): SourcedPackage[] {
     // entry.component isn't threaded through yet — SourcedPackage has no
     // slot for it. See the "Thread arch/channel into SourcedPackage
     // consistently" card; it stays available in the cache row either way.
+    hasGameCategory: entry.hasGameCategory,
   }));
 }

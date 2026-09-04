@@ -811,6 +811,27 @@ const SUPPORT_DESCRIPTION_PATTERNS: RegExp[] = [
   /\bprogramming fonts?\b/i,
   /\bpixel fonts?\b/i,
   /\bcommon files\b/i,
+  // Library self-descriptions by *type* rather than by what they're for —
+  // `library for` above catches "a library for X", but a small class of
+  // libraries describes itself as "an X library" instead (no "for" at
+  // all), which that pattern misses. Surfaced mining the To Classify
+  // bucket (2026-09-04), each verified against the whole catalog:
+  // - "header-only" — 51 matches, 100% header-only C++ libraries (entt,
+  //   frozen, defer-hpp, ...), zero exceptions.
+  // - "(tls|ssl|crypto) library" — 16 matches, all cryptographic libraries
+  //   (botan, monocypher, wolfssl, mbedtls, ...), zero exceptions.
+  // Deliberately NOT included after checking, because a real share of
+  // their matches describe a *launchable tool* next to the library word:
+  // "client library" (rocprofiler-client "client library and CLI",
+  // gz-fuel-tools "client library and command line tools"), "server
+  // library" (spacecookie "server library and daemon"), "core library"
+  // (woob "core library and modules"), "utility library" (ubgpsuite "BGP
+  // Suite and Utility library"), and the whole "<language> library" family
+  // (fabric/codeowners/amazon-ec2-instance-selector "a CLI tool and a Go/
+  // Python library") — excluding those would hide real apps, a worse harm
+  // than leaving a library "To Classify".
+  /\bheader-?only\b/i,
+  /\b(?:tls|ssl|crypto) library\b/i,
 ];
 
 /**

@@ -1902,12 +1902,12 @@
   {
     "pattern": "\\b(mastodon|fediverse|matrix|xmpp) (client|app|server|messaging|chat)\\b|\\btelegram (client|desktop|messenger)\\b|\\bdiscord (client|app|messenger)\\b",
     "category": "Internet & Communication",
-    "reason": "Chat-protocol clients/servers (Vesktop's Discord App, Matrix messaging apps, XMPP clients). Deliberately narrower than bare \"matrix\"/\"telegram\"/\"discord\" — those also match barcode SDKs (\"Data Matrix\") and proxy tooling. Verified live."
+    "reason": "Chat-protocol clients/servers (Vesktop's Discord App, Matrix messaging apps, XMPP clients). Deliberately narrower than bare \"matrix\"/\"telegram\"/\"discord\" \u2014 those also match barcode SDKs (\"Data Matrix\") and proxy tooling. Verified live."
   },
   {
     "pattern": "\\bfont (browser|viewer|editor|manager|design)\\b",
     "category": "Graphics & Design",
-    "reason": "Font-browsing/design tools (gucharmap, Glyphr Studio). Deliberately narrower than bare \"font\" — negations (\"Assets ... except fonts\") and unrelated mentions (\"generate AppImage files\") break the broad form. Verified live."
+    "reason": "Font-browsing/design tools (gucharmap, Glyphr Studio). Deliberately narrower than bare \"font\" \u2014 negations (\"Assets ... except fonts\") and unrelated mentions (\"generate AppImage files\") break the broad form. Verified live."
   },
   {
     "pattern": "\\bthemes?\\b",
@@ -1937,7 +1937,7 @@
   {
     "pattern": "\\bpassword (vault|safe|store|keeper)\\b",
     "category": "Security",
-    "reason": "Password vaults/stores (buttercup, keeper, passwordmanager) — broader than the existing password-manager rule, same Security family. Verified live: 14 real matches, all credential stores."
+    "reason": "Password vaults/stores (buttercup, keeper, passwordmanager) \u2014 broader than the existing password-manager rule, same Security family. Verified live: 14 real matches, all credential stores."
   },
   {
     "pattern": "\\bclipboard\\b",
@@ -1962,12 +1962,12 @@
   {
     "pattern": "\\btranslat(e|ion|or|ing)s?\\b",
     "category": "Books & Reference",
-    "reason": "Translation software (argos-translate, Voxis) — matches freedesktop's own Translation key, already mapped to Books & Reference. Verified live; a small accepted minority are data-translation tools."
+    "reason": "Translation software (argos-translate, Voxis) \u2014 matches freedesktop's own Translation key, already mapped to Books & Reference. Verified live; a small accepted minority are data-translation tools."
   },
   {
     "pattern": "\\bdictionar",
     "category": "Books & Reference",
-    "reason": "Dictionary software/data (websters1913, aard2, aspell language dictionaries) — matches freedesktop's own Dictionary key. Verified live: 143 real matches."
+    "reason": "Dictionary software/data (websters1913, aard2, aspell language dictionaries) \u2014 matches freedesktop's own Dictionary key. Verified live: 143 real matches."
   },
   {
     "pattern": "\\be-?books?\\b|\\bepub\\b",
@@ -1992,17 +1992,17 @@
   {
     "pattern": "\\bscann(er|ing)\\b",
     "category": "System Tools",
-    "reason": "Scanner/hardware-scan tools — placed after the existing network-scanner rule, which wins Security first. Verified live."
+    "reason": "Scanner/hardware-scan tools \u2014 placed after the existing network-scanner rule, which wins Security first. Verified live."
   },
   {
     "pattern": "\\bprint(er|ing)\\b",
     "category": "System Tools",
-    "reason": "Printing tooling (hplip-printer-app, xprinter1) — same family as the freedesktop Printer key. Checked after the 3D-modeling phrases so FreeCAD resolves to Graphics & Design first. Verified live."
+    "reason": "Printing tooling (hplip-printer-app, xprinter1) \u2014 same family as the freedesktop Printer key. Checked after the 3D-modeling phrases so FreeCAD resolves to Graphics & Design first. Verified live."
   },
   {
     "pattern": "\\btorrents?\\b",
     "category": "Internet & Communication",
-    "reason": "Torrent clients/automation (addmag, autobrr, autoremove-torrents) — broader than the existing torrent-client rule. Verified live: 75 real matches."
+    "reason": "Torrent clients/automation (addmag, autobrr, autoremove-torrents) \u2014 broader than the existing torrent-client rule. Verified live: 75 real matches."
   },
   {
     "pattern": "\\be-?mails?\\b|\\bsmtp\\b|\\bimap\\b",
@@ -2012,12 +2012,12 @@
   {
     "pattern": "\\bvpn\\b|\\bproxy\\b",
     "category": "Security",
-    "reason": "VPN/proxy tooling (IVPN, Husarnet, ClashCross, LocalXpose) — broader than the existing vpn-client/vpn-server/proxy-server rules. Verified live: 535 real matches, overwhelmingly privacy/network tooling."
+    "reason": "VPN/proxy tooling (IVPN, Husarnet, ClashCross, LocalXpose) \u2014 broader than the existing vpn-client/vpn-server/proxy-server rules. Verified live: 535 real matches, overwhelmingly privacy/network tooling."
   },
   {
     "pattern": "\\bbackups?\\b",
     "category": "System Tools",
-    "reason": "Backup tools/scripts (vmbackup, auto-rsync-backups, backer, acts) — broader than the existing backup-tool rule. Verified live: 55 real matches, one accepted exception (an authenticator viewer mentioning backups)."
+    "reason": "Backup tools/scripts (vmbackup, auto-rsync-backups, backer, acts) \u2014 broader than the existing backup-tool rule. Verified live: 55 real matches, one accepted exception (an authenticator viewer mentioning backups)."
   },
   {
     "pattern": "\\bdrawing\\b|\\bsketch(ing)?\\b|\\bpainting\\b",
@@ -2042,7 +2042,7 @@
   {
     "pattern": "\\birc\\b",
     "category": "Internet & Communication",
-    "reason": "IRC clients/daemons — broader than the existing irc-client rule. Verified live: 62 real matches."
+    "reason": "IRC clients/daemons \u2014 broader than the existing irc-client rule. Verified live: 62 real matches."
   },
   {
     "pattern": "\\bnews (reader|aggregator|feed)\\b",
@@ -2052,32 +2052,32 @@
   {
     "pattern": "\\bcalculator\\b",
     "category": "Utilities",
-    "reason": "Calculators — broader than the existing calculator-app rule (RPN CLI calculators, tape calculators). Verified live: 204 real matches."
+    "reason": "Calculators \u2014 broader than the existing calculator-app rule (RPN CLI calculators, tape calculators). Verified live: 204 real matches."
   },
   {
     "pattern": "\\blaunchers?\\b",
     "category": "System Tools",
-    "reason": "Launchers of every kind (game launchers, app launchers, server launchers — NoRisk Client Launcher, Recube Launcher, Viper). Sampled live: 354 matches, launcher tooling throughout; game launchers in particular are game-adjacent tools, not games."
+    "reason": "Launchers of every kind (game launchers, app launchers, server launchers \u2014 NoRisk Client Launcher, Recube Launcher, Viper). Sampled live: 354 matches, launcher tooling throughout; game launchers in particular are game-adjacent tools, not games."
   },
   {
     "pattern": "\\bmod (manager|launcher|loader)\\b|\\bmodpacks?\\b",
     "category": "System Tools",
-    "reason": "Game mod/modpack managers (Outer Wilds Mod Manager, FTB Electron App) — the app-side counterpart to the game-adjacent-tool rules, for packages that never got game-flagged in the first place. Verified live."
+    "reason": "Game mod/modpack managers (Outer Wilds Mod Manager, FTB Electron App) \u2014 the app-side counterpart to the game-adjacent-tool rules, for packages that never got game-flagged in the first place. Verified live."
   },
   {
     "pattern": "\\baur helper\\b|\\bpacman wrapper\\b",
     "category": "System Tools",
-    "reason": "AUR helpers / pacman wrappers (apac, auh, aurget, arts) — PackageManager reasoning, same family as the apt-* name rules. Verified live against the apps \"To Classify\" pool (2026-09-03): 81 real matches, all AUR helpers."
+    "reason": "AUR helpers / pacman wrappers (apac, auh, aurget, arts) \u2014 PackageManager reasoning, same family as the apt-* name rules. Verified live against the apps \"To Classify\" pool (2026-09-03): 81 real matches, all AUR helpers."
   },
   {
     "pattern": "\\bsystem information\\b",
     "category": "System Tools",
-    "reason": "System-information fetch tools (archey3, betterfetch, customfetch — the fastfetch/neofetch family). Verified live: 57 real matches, all system-info tools."
+    "reason": "System-information fetch tools (archey3, betterfetch, customfetch \u2014 the fastfetch/neofetch family). Verified live: 57 real matches, all system-info tools."
   },
   {
     "pattern": "\\bham radio\\b",
     "category": "Internet & Communication",
-    "reason": "Amateur-radio tooling (adif log converters, chirp, cqrlog) — same hamradio/Telephony reasoning as Debian's own hamradio section mapping. Verified live: 51 real matches, all radio tooling."
+    "reason": "Amateur-radio tooling (adif log converters, chirp, cqrlog) \u2014 same hamradio/Telephony reasoning as Debian's own hamradio section mapping. Verified live: 51 real matches, all radio tooling."
   },
   {
     "pattern": "\\bkernel modules?\\b",
@@ -2087,12 +2087,12 @@
   {
     "pattern": "\\bcryptocurrenc|\\bdigital currency\\b|\\bcrypto (coin|wallet)\\b",
     "category": "Finance",
-    "reason": "Cryptocurrency wallets/nodes/CLI toolkits (Blackcoin More, BYTZ, coinevo-core, ioncoin) — same Finance reasoning as the existing personal-finance rules. Verified live: 111 real matches, all crypto software."
+    "reason": "Cryptocurrency wallets/nodes/CLI toolkits (Blackcoin More, BYTZ, coinevo-core, ioncoin) \u2014 same Finance reasoning as the existing personal-finance rules. Verified live: 111 real matches, all crypto software."
   },
   {
     "pattern": "\\bgame engines?\\b",
     "category": "Developer Tools",
-    "reason": "Game-development engines (Solar2D, Godot, arcan, anura) — tools for MAKING games, a developer resource, not a game; deliberately not a game genre. Verified live: 73 real matches, all engines."
+    "reason": "Game-development engines (Solar2D, Godot, arcan, anura) \u2014 tools for MAKING games, a developer resource, not a game; deliberately not a game genre. Verified live: 73 real matches, all engines."
   },
   {
     "pattern": "\\bdevelopment environment\\b|\\bide\\b",
@@ -2102,6 +2102,36 @@
   {
     "pattern": "\\bpackage managers?\\b",
     "category": "System Tools",
-    "reason": "Multi-package-manager frontends (meta-package-manager, pacapt, gpk) — broader than the existing language-package-manager rule, same PackageManager reasoning. Verified live: 11 real matches."
+    "reason": "Multi-package-manager frontends (meta-package-manager, pacapt, gpk) \u2014 broader than the existing language-package-manager rule, same PackageManager reasoning. Verified live: 11 real matches."
+  },
+  {
+    "pattern": "\\bjetbrains\\b",
+    "category": "Developer Tools",
+    "reason": "JetBrains IDE companion tools/runtimes (CLion's bundled JRE/CMake/GDB/LLDB, DataGrip's JBR, ...). Verified live against AUR's own To Classify pool: 100% real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bgraalvm\\b",
+    "category": "Developer Tools",
+    "reason": "GraalVM-based language runtimes/implementations (espresso-jdk*, fastr-jdk*, ...). Verified live: 100% real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bbible\\b",
+    "category": "Books & Reference",
+    "reason": "Bible readers/study tools (terminal viewers, verse generators, study apps). Verified live: 100% real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bclash\\b",
+    "category": "Security",
+    "reason": "Clash proxy/tunnel client tools and their GUIs (Clash.Meta, Clash for Windows on Linux, ...) -- same family as the existing shadowsocks rule. Verified live: 100% real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\brunner\\b",
+    "category": "Developer Tools",
+    "reason": "Test/task/CI runners (act-runner-bin, atago-bin end-to-end test runner, bab task runner, ...). Verified live against AUR's own To Classify pool: real matches dominate, no wrong-category counter-examples found."
+  },
+  {
+    "pattern": "^(?!.*\\b(?:codec|decoder|speech|synthesis)\\b).*\\bllvm\\b",
+    "category": "Developer Tools",
+    "reason": "LLVM-based compilers/toolchains/debuggers (bisheng-compiler, clion-lldb, graal-llvm-jdk*, ...). Negative lookahead excludes the rare project that merely happens to be *built with* LLVM/Clang but isn't itself a dev tool (a video codec, a speech-synthesis engine) -- verified live, 2 such cases found in the raw match set."
   }
 ]

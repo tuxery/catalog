@@ -79,6 +79,15 @@ const NOISE_PATTERNS: RegExp[] = [
   // already-correctly-classified apps/components riding the same
   // suffix — see config/filter-keep.json.
   /-(dinit|udev)$/,
+  // Javadoc/API-documentation companion packages (ant-antunit-javadoc =
+  // "API documentation for ant-antunit", ...) — same "not a launchable
+  // app" shape as -dev/-docs above, just a distinct suffix those two
+  // patterns don't already cover. Surfaced mining the To Classify bucket
+  // (2026-09-04): 320 real matches across all categories (not just To
+  // Classify — many were already sitting in Developer Tools, itself
+  // correct-but-noise), every single one confirmed either literally
+  // named "Javadoc for X" or "API documentation for X", zero exceptions.
+  /-javadoc$/,
   // Fonts. `ttc-` (TrueType Collection) added live investigating the
   // apps "To Classify" bucket (2026-09-02): 50 real matches (mostly
   // Iosevka's own coding-typeface variant family), zero non-font

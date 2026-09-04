@@ -2108,5 +2108,10 @@
     "pattern": "*-openjdk",
     "category": "Developer Tools",
     "reason": "Arch/AUR's own per-version OpenJDK JRE/JDK packages (jdk17-openjdk, jre-openjdk, jdk8-openjdk, ...). Verified live: 32 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "*-mobius",
+    "category": "Finance",
+    "reason": "White-label forex/trading broker builds of the \"Mobius\" trading platform (<broker-name>-mobius, one per brokerage). Verified live: 109 real matches, 100% forex/trading broker names, zero unrelated collisions."
   }
 ]

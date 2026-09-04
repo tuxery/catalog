@@ -58,6 +58,8 @@ describe("createTursoClient", () => {
       "popularity",
       "last_updated",
       "installs_last_7_days",
+      "name",
+      "kind",
     ]) {
       expect(
         executedSql.some((sql) => sql.includes(`CREATE INDEX`) && sql.includes(`(${column})`)),

@@ -207,6 +207,19 @@ const APPS_INDEXES_SQL = [
   `CREATE INDEX idx_apps_popularity ON apps(popularity)`,
   `CREATE INDEX idx_apps_last_updated ON apps(last_updated)`,
   `CREATE INDEX idx_apps_installs_last_7_days ON apps(installs_last_7_days)`,
+  // browseApps's unfiltered default listing (`ORDER BY name ASC`, no
+  // WHERE at all) had no index to satisfy that sort with — real cost,
+  // found live via the Turso dashboard's query stats 2026-09-04: a single
+  // unfiltered browse page paid a full ~168k-row scan-and-sort. Same class
+  // of gap as the original six, just missed the first time because `name`
+  // never appears in a WHERE clause, only ORDER BY.
+  `CREATE INDEX idx_apps_name ON apps(name)`,
+  // `kind` never got one of the original six either — `browseApps`'s
+  // `interfaceFilter: "gui"` (`WHERE kind = 'gui'`) has been a full scan
+  // since day one, just lower-traffic than the homepage queries that
+  // triggered the 2026-09-03 incident so it didn't show up in that
+  // investigation.
+  `CREATE INDEX idx_apps_kind ON apps(kind)`,
   // Composites for getTrendingApps/getNewApps/getDownloadTrendingApps's
   // exact `WHERE <col> IS NOT NULL [AND content_type = ?] ORDER BY <col>
   // DESC` shape — without these, a typeFilter'd trending query resolves

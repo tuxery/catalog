@@ -25,15 +25,31 @@ const AUR_KEYWORD_TO_APP_CATEGORY: Record<string, AppCategoryLabel> = {
   bluetooth: "System Tools",
   printer: "System Tools",
   ssh: "System Tools",
+  // Sampled live (2026-09-04): every AUR package carrying `battery` is a
+  // battery-monitor / charge-threshold / low-battery-notifier tool —
+  // unambiguous system-hardware tooling, same System Tools family as the
+  // bluetooth/printer entries above.
+  battery: "System Tools",
   docker: "Developer Tools",
   security: "Security",
   vpn: "Security",
   proxy: "Security",
+  // Sampled live (2026-09-04): `encryption` rides file/disk encryption
+  // tools (aescrypt, c-lcrypt, concryptor, ...) and `password` rides
+  // password managers/generators (gpass, himitsu, easter, ...) — both
+  // unambiguously Security, not the ambiguous `crypto` (cryptocurrency vs
+  // cryptography) which stays rejected.
+  encryption: "Security",
+  password: "Security",
   calculator: "Utilities",
   wine: "Utilities",
   dictionary: "Books & Reference",
   wiki: "Books & Reference",
   science: "Science",
+  // Sampled live (2026-09-04): `astronomy` rides astrometry/radio-astronomy
+  // tools (astap, casacore, astromatic-*, ...) — unambiguously Science,
+  // never the physics/chemistry keyword noise `science` alone carries.
+  astronomy: "Science",
   audio: "Music & Audio",
   music: "Music & Audio",
   font: "Graphics & Design",
@@ -44,6 +60,32 @@ const AUR_KEYWORD_TO_APP_CATEGORY: Record<string, AppCategoryLabel> = {
   icons: "Graphics & Design",
   icon: "Graphics & Design",
   telegram: "Internet & Communication",
+  // Sampled live (2026-09-04): `ham`/`hamradio`/`sdr` ride amateur-radio
+  // and software-defined-radio tooling (gridtracker, jtdx, gqthres, csdr,
+  // linrad, ...) — the same radio-communication domain as category-section.ts's
+  // Debian `hamradio` Section mapping, which already resolves to Internet &
+  // Communication. `radio` alone stays rejected (mixes internet-radio
+  // players and radio-astronomy libraries with genuine ham tooling).
+  ham: "Internet & Communication",
+  hamradio: "Internet & Communication",
+  sdr: "Internet & Communication",
+  // Sampled live (2026-09-04): the cryptocurrency keyword cluster rides
+  // wallets, miners, explorers and blockchain tooling (atto, beam-wallet,
+  // blockstream, bfgminer, ...) — a real, coherent Finance domain AUR
+  // packagers tag heavily. `crypto` alone stays rejected (cryptocurrency
+  // vs cryptography, un-disambiguable), but these four plus the bare
+  // `finance`/`accounting` tags are unambiguous. `blockchain` carries a
+  // small dev-framework minority (Solana's anchor, CometBFT) accepted at
+  // the same tolerance as the description-side rules.
+  cryptocurrency: "Finance",
+  wallet: "Finance",
+  bitcoin: "Finance",
+  blockchain: "Finance",
+  finance: "Finance",
+  accounting: "Finance",
+  // Sampled live (2026-09-04): `todo` rides task/planner apps (mayhem,
+  // done, clickup, hera, ...) — unambiguously Productivity.
+  todo: "Productivity",
 };
 
 // The same sampling run, game-genre side: AUR keywords that name a real

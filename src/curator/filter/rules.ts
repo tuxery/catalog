@@ -703,6 +703,29 @@ const SUPPORT_DESCRIPTION_PATTERNS: RegExp[] = [
   // catching a real font-management/viewing app, not just fonts
   // themselves.
   /\btypeface\b/i,
+  // Bare "monospaced" — narrower and safer than "monospace" alone would
+  // be (that shorter form risks matching a real monospace *terminal* or
+  // *editor* app describing its own font rendering), but nixpkgs'
+  // font-only pool almost always spells it out in full as the adjective
+  // describing the font itself ("Monospaced font based on...", "...font
+  // family for programmers"). Surfaced mining the To Classify bucket
+  // (2026-09-04): 44 real matches across the whole catalog, 100% genuine
+  // typefaces/font families, zero exceptions.
+  /\bmonospaced\b/i,
+  // "font family" — a font/type-family package describing its own
+  // grouping of weights/styles, not a launchable app. Surfaced mining the
+  // To Classify bucket (2026-09-04): 54 real matches across the whole
+  // catalog, 100% genuine typefaces (including several Wine per-glyph-set
+  // font packages), zero exceptions.
+  /\bfont family\b/i,
+  // Bare "serif"/"sans-serif" — describes a type style, only ever said by
+  // a font package about itself. Surfaced mining the To Classify bucket
+  // (2026-09-04): 53 whole-catalog matches, 52 genuine typefaces; the one
+  // exception (pacman-aur's affinity-bin, "Serif is not affiliated" —
+  // Serif Europe Ltd, the Affinity Photo/Designer/Publisher publisher)
+  // rescued via config/filter-keep.json rather than narrowing this
+  // further.
+  /\bserifs?\b/i,
 ];
 
 /**

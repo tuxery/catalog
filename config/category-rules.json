@@ -2095,9 +2095,9 @@
     "reason": "Cryptocurrency wallet apps named <coin/project>-wallet (sparrow-wallet, feather-wallet, cardano-wallet, ...) — verified live: 34 real matches, zero unrelated collisions."
   },
   {
-    "pattern": "*-backgrounds",
+    "pattern": "*-backgrounds*",
     "category": "Settings",
-    "reason": "Wallpaper/background packs named <distro-release/project>-backgrounds (Fedora's own per-release f21-backgrounds.../beefy-miracle-backgrounds, vanilla-backgrounds, gradience-backgrounds, ...) — desktop-personalization assets, same Settings bucket as this file's other theme/icon entries. Verified live: 32 real matches, zero unrelated collisions."
+    "reason": "Wallpaper/background packs named <distro-release/project>-backgrounds (Fedora's own per-release f21-backgrounds.../beefy-miracle-backgrounds, vanilla-backgrounds, gradience-backgrounds, ...) — desktop-personalization assets, same Settings bucket as this file's other theme/icon entries. Widened from a bare `*-backgrounds` suffix (2026-09-04, mining Fedora's own \"To Classify\" pool): Fedora ships each release's pack as several per-desktop/per-image subpackages (f21-backgrounds-base/-xfce/-extras-base/-animated, leonidas-backgrounds-common/-kdm/-lion, ...) and Ubuntu/elementary OS ship per-codename variants (precise-backgrounds-artful, freya-backgrounds, ...) that the bare suffix never matched. Verified whole-catalog: 526 name matches (up from 32), every one a wallpaper-pack subpackage by suffix (-base/-single/-animated/-extras*/-gnome/-kde/-xfce/-mate/-budgie/-wallpapers/-common/-kdm/-lion*/-stripes*/-retro, or a distro-codename/OS-version suffix), zero unrelated collisions."
   },
   {
     "pattern": "*-toolchain",

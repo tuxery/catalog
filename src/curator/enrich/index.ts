@@ -128,6 +128,25 @@ function hasGameEvidence(pkg: SourcedPackage): boolean {
   return looksLikeGamePackage(pkg.source, pkg.section, pkg.name);
 }
 
+// Exact package-name evidence for well-known real games that no other
+// signal in this file ever catches: no upstream category, no AUR/Gentoo
+// games-* section/keyword, and a description that names its own franchise
+// without the genre-word-in-apposition shape `looksLikeGameDescription`
+// requires (Dungeon Crawl Stone Soup's own "-tiles"/"-console" variants
+// say "Roguelike RPG (Console Version)"/"Dungeon Crawl (tiles)", never
+// "roguelike game" or "RPG game"). A real family (2 of Stone Soup's own 5
+// packaged variants), not a one-off, but still too heterogeneous in
+// phrasing to generalize by description text alone — same reasoning as
+// `GAME_ADJACENT_TOOL_EXACT_NAMES`'s literal-name fallback, just for the
+// opposite direction (missing positive evidence, not a false positive).
+// Verified live (2026-09-04): these are the only catalog packages with
+// either exact name, zero collision risk.
+const GAME_NAME_LITERAL_EVIDENCE = new Set(["stone-soup-tiles-git", "stone-soup-tiles", "stone-soup-console"]);
+
+function hasGameNameEvidence(pkg: SourcedPackage): boolean {
+  return GAME_NAME_LITERAL_EVIDENCE.has(pkg.name.toLowerCase());
+}
+
 // The same "tool for a game, not a game" phrases already verified live
 // as description-category-rules.json entries (System Tools: emulators,
 // Minecraft/general game launchers, mod launchers/managers, modpacks) —
@@ -610,6 +629,7 @@ export function enrichApps(
     const hasKnownGameGenre = pickCategory(categories, true) !== TO_CLASSIFY;
     const isGame =
       (app.packages.some(hasGameEvidence) ||
+        app.packages.some(hasGameNameEvidence) ||
         looksLikeGameDescription(
           shortDescription,
           app.packages.map((pkg) => pkg.name),

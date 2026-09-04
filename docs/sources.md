@@ -12,7 +12,7 @@ table is the map, the Project is the tracked work.
 | --- | --------------------- | -------------------- | ---------- | ------- | ----------- | ----------- | ----- |
 | 1   | Flathub               | —                    | Flatpak    | 3,363   | ✅          | Implemented | [1]   |
 | 1b  | Other Flatpak remotes | —                    | Flatpak    | —       | ⚠️          | Not started | [2]   |
-| 2   | Snapcraft             | —                    | Snap       | 3,662   | ⚠️          | Implemented | [3]   |
+| 2   | Snapcraft             | —                    | Snap       | 10,926  | ⚠️          | Implemented | [3]   |
 | 3   | AppImage              | —                    | AppImage   | 1,052   | ⚠️          | Implemented | [4]   |
 | 3b  | Manual AppImage seed  | —                    | AppImage   | 1       | ✅          | Implemented | [25]  |
 | 4   | GitHub Releases       | —                    | Any        | 498     | ❌          | Implemented | [5]   |
@@ -94,6 +94,19 @@ because a paragraph per cell made the table unreadable.
    as `SourcedPackage.storeCollections: ["featured"]` rather than folding
    into the general merge untraceably — distinct from the
    `category=featured` store category already part of the merge above.
+
+   The category sweep is itself recursive now (2026-09-04): the original
+   flat `find?category=X` silently truncated at 100 for any category with
+   more than that (games/development/productivity/...), which is why most
+   snaps came back with no category at all. It now runs
+   `sweepQueriesRecursively` scoped per category (`category=X&q=prefix`),
+   so `applyCategories` sees the FULL membership of every category — 4,737
+   snaps with a category and 1,099 games flagged, vs. 1,086/100 before,
+   worth −2,243 "To Classify". The cost is ~105k requests (~68k category +
+   ~36k global `q=`) per run — heavier on Snapcraft's public API, so
+   `find` retries transient socket drops (`UND_ERR_SOCKET`, the API
+   intermittently resets a connection under that load) a few times with
+   exponential backoff rather than failing the whole multi-minute fetch.
    `src/sources/snap-snapcraft/fetch.ts`.
 4. **AppImage** — [`appimage.github.io/feed.json`](https://appimage.github.io/feed.json)
    (community-curated — not to be confused with the separate,

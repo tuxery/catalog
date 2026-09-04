@@ -33,4 +33,6 @@ export interface SnapcraftFetchMetadata extends FetchMetadata {
   queryCharsSwept: string[];
   /** How many distinct `q=` prefixes were actually queried this run — varies run to run as the store grows/shrinks, unlike `queryCharsSwept` (the fixed alphabet). */
   queryPrefixesTried: number;
+  /** How many distinct per-category `category=X&q=prefix` prefixes were queried this run (summed across all categories). */
+  categoryPrefixesTried: number;
 }

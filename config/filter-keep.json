@@ -393,5 +393,30 @@
     "sources": ["nix-nixpkgs"],
     "name": "sqlite3-to-mysql",
     "reason": "Real standalone SQLite-to-MySQL conversion CLI despite the -mysql noise suffix — see filter/rules.ts's -mysql$ comment"
+  },
+  {
+    "sources": ["rpm-fedora"],
+    "name": "systemd-udev",
+    "reason": "The real udev daemon itself (rule-based device node and kernel event manager), not a udev-rules companion package — see filter/rules.ts's -udev$ comment"
+  },
+  {
+    "sources": ["apk-alpine"],
+    "name": "py3-udev",
+    "reason": "Real Python bindings to libudev, a genuine dev-tool library despite the -udev noise suffix — see filter/rules.ts's -udev$ comment"
+  },
+  {
+    "sources": ["pacman-arch"],
+    "name": "vlc-plugin-udev",
+    "reason": "Real VLC udev-integration plugin, already correctly classified despite the -udev noise suffix — see filter/rules.ts's -udev$ comment"
+  },
+  {
+    "sources": ["apk-alpine"],
+    "name": "virtualbox-guest-additions-udev",
+    "reason": "Real VirtualBox Guest Additions component, already correctly classified despite the -udev noise suffix — see filter/rules.ts's -udev$ comment"
+  },
+  {
+    "sources": ["deb-debian", "deb-ubuntu", "rpm-fedora", "xbps-void"],
+    "name": "system-config-printer-udev",
+    "reason": "Real printer-detection/configuration component, already correctly classified despite the -udev noise suffix — see filter/rules.ts's -udev$ comment"
   }
 ]

@@ -50,6 +50,33 @@ const NOISE_PATTERNS: RegExp[] = [
   // category-rules.json prefix matched too broadly, same shape as this
   // file's other over-broad-name-family fixes.
   /-s?rpm-macros$/,
+  // Bundled example/sample-code and test-suite/testcase companion
+  // packages — a library or CLI tool's own `-examples`/`-tests` subpackage
+  // (qt-examples, python3-scipy-tests, boost-test, ...), never launchable
+  // on its own. Surfaced mining Fedora's own "To Classify" pool
+  // (2026-09-04). Verified whole-catalog: 464 `-examples` name matches
+  // (206 still "To Classify", the other 258 riding into a real category —
+  // mostly Developer Tools/Science — via the base product's own name
+  // rule, same over-broad-family shape as this round's other fixes), zero
+  // exceptions. 537 `-test(s)` name matches, same shape, one soft
+  // exception tolerated (`ansible-test`, a real subcommand CLI tool for
+  // module developers that also happens to be named "test" — accepted at
+  // the same tolerance this file already extends elsewhere, e.g.
+  // `cmdstan` under `library for`).
+  /-examples?$/,
+  /-tests?$/,
+  // Development headers as their own named package, not just as an
+  // `SUPPORT_DESCRIPTION_PATTERNS` "development files" description phrase
+  // — `-headers` (kernel/API/SDK headers: kernel-cross-headers,
+  // opencl-cpp-headers, ...) never ships a launchable binary. Surfaced
+  // mining Fedora's own "To Classify" pool (2026-09-04). Verified
+  // whole-catalog: 280 name matches, zero real exceptions — several
+  // (django-cors-headers, kiss-headers, ...) are real PyPI-style library
+  // names ending in "headers" rather than a companion subpackage, but
+  // still non-launchable middleware/parsing libraries by their own
+  // description, same "needs a host" litmus as this file's other library
+  // exclusions.
+  /-headers$/,
   // Any `lib`-prefixed package — see this file's header comment on why a
   // narrower pattern (only soname-versioned names like libssl3) doesn't
   // scale; real exceptions are allowlisted by exact name in

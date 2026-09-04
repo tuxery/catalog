@@ -3233,5 +3233,15 @@
     "pattern": "exult-git",
     "category": "Role-Playing",
     "reason": "A reimplementation of the Ultima VII engine -- itself the playable classic CRPG, Role-Playing."
+  },
+  {
+    "pattern": "stone-soup*",
+    "category": "Role-Playing",
+    "reason": "Dungeon Crawl Stone Soup, a real single-player roguelike RPG, and its own -tiles/-console/-ncurses/-yiuf build variants -- same Role-Playing genre this catalog already assigns its sibling packages whose description happens to say \"roguelike game\"/\"RPG game\" verbatim (isGame detection gap fixed 2026-09-04 for the two variants whose description names the franchise/format instead)."
+  },
+  {
+    "pattern": "zatacka*",
+    "category": "Arcade",
+    "reason": "Zatacka X, a real-time multiplayer remake of the classic Achtung, die Kurve! (Curve Fever) reflex/lightcycle game -- Arcade, matching this catalog's genre for similar fast-paced multiplayer arcade titles (isGame already true via hasGameCategory; only missing a genre, since \"a modern free remake of\" has no genre-word-in-apposition match)."
   }
 ]

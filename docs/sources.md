@@ -502,6 +502,27 @@ as a second AppImage source` card was investigated and rejected for
     schema), extended to thread `<pkgname>`/`<source_pkgname>` through.
     oss + non-oss: 887 components, 847 joining the merged catalog.
     `src/sources/rpm-opensuse-appstream/fetch.ts`.
+29. **Ubuntu AppStream (DEP-11)** — the same DEP-11 layer as [27], for
+    Ubuntu's own main/universe/multiverse (restricted is 404 on dep11:
+    binary/proprietary drivers, no apps, checked 2026-09-03 — universe is
+    the one that matters, most desktop apps live there under Ubuntu's
+    support-tier split). Must describe the exact same suite as
+    `deb-ubuntu` for the `Package:` join to land — rather than resolving
+    the current-stable-release codename from Launchpad a second time
+    (real risk: two independent live lookups could race Launchpad's
+    marker flipping on a release day and silently disagree), this
+    connector reads `deb-ubuntu`'s own already-written
+    `cache/deb-ubuntu.meta.json` suite value instead, falling back to a
+    fresh Launchpad lookup only when that metadata doesn't exist yet
+    (`_shared/ubuntu-suite.ts`, shared by both connectors). Verified live
+    against the real files: 2,235 components, all 2,235 joining
+    `deb-ubuntu` by exact `pkgname` (confirming the suite-reuse fix
+    actually works end to end), 1,485 with a usable icon url, 857 with
+    screenshots, 699 with a developer, 2,224 with categories, 482 flagged
+    `Game`. Measured on the merged catalog (2026-09-04): +93 apps gaining
+    an icon, −33 "To Classify" (mostly from ~33 previously-separate
+    bare-`deb-ubuntu` groups merging into a richer AppStream-backed
+    group). `src/sources/deb-ubuntu-appstream/fetch.ts`.
 
 ## Cross-cutting notes
 

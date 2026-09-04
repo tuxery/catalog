@@ -2113,5 +2113,630 @@
     "pattern": "*-mobius",
     "category": "Finance",
     "reason": "White-label forex/trading broker builds of the \"Mobius\" trading platform (<broker-name>-mobius, one per brokerage). Verified live: 109 real matches, 100% forex/trading broker names, zero unrelated collisions."
+  },
+  {
+    "pattern": "gambatte-sdl",
+    "category": "System Tools",
+    "reason": "SDL front-end for the Gambatte Game Boy Color emulator, same emulator-app family as RetroArch/DOSBox/PCSX2 which are all System Tools here."
+  },
+  {
+    "pattern": "HandBrake-gui",
+    "category": "Photo & Video",
+    "reason": "GUI for the HandBrake open-source video transcoder."
+  },
+  {
+    "pattern": "jellyfin-server-lowports",
+    "category": "Photo & Video",
+    "reason": "Jellyfin media server backend (low-port-binding build), same family as other Jellyfin apps already classified Photo & Video."
+  },
+  {
+    "pattern": "mock-rpmfusion-free",
+    "category": "Developer Tools",
+    "reason": "Mock chroot-build config files for the RPM Fusion Free repo, packaging tooling for RPM maintainers."
+  },
+  {
+    "pattern": "mp4tools",
+    "category": "Photo & Video",
+    "reason": "Cross-platform GUI tool (mp4box/mp4joiner front-end) to manipulate MP4 video files."
+  },
+  {
+    "pattern": "mplayer-tools",
+    "category": "Photo & Video",
+    "reason": "Companion scripts/utilities for the MPlayer video player."
+  },
+  {
+    "pattern": "mythffmpeg",
+    "category": "Photo & Video",
+    "reason": "MythTV's own FFmpeg build, part of the MythTV media-center suite."
+  },
+  {
+    "pattern": "mythtv-setup",
+    "category": "Photo & Video",
+    "reason": "Setup wizard for the MythTV media-center backend."
+  },
+  {
+    "pattern": "pxsup2dast",
+    "category": "Photo & Video",
+    "reason": "Project X to dvdauthor subtitle converter, a video-subtitle conversion tool."
+  },
+  {
+    "pattern": "qmmp-plugins-freeworld",
+    "category": "Music & Audio",
+    "reason": "Non-free codec plugins for the Qt-based qmmp audio player."
+  },
+  {
+    "pattern": "qtav-players",
+    "category": "Photo & Video",
+    "reason": "QtAV/QML-based media players."
+  },
+  {
+    "pattern": "rfpkg",
+    "category": "Developer Tools",
+    "reason": "RPM Fusion's dist-git packaging CLI, same family as Fedora's fedpkg."
+  },
+  {
+    "pattern": "rfpkg-minimal",
+    "category": "Developer Tools",
+    "reason": "Minimal fork of fedpkg-minimal for RPM Fusion packagers."
+  },
+  {
+    "pattern": "rfpkgdb-cli",
+    "category": "Developer Tools",
+    "reason": "CLI client for RPM Fusion's package database (pkgdb)."
+  },
+  {
+    "pattern": "rpmfusion-free-appstream-data",
+    "category": "System Tools",
+    "reason": "AppStream metadata package for the RPM Fusion free repository."
+  },
+  {
+    "pattern": "rpmfusion-free-obsolete-packages",
+    "category": "System Tools",
+    "reason": "Meta-package that obsoletes retired RPM Fusion free packages."
+  },
+  {
+    "pattern": "rpmfusion-free-release",
+    "category": "System Tools",
+    "reason": "RPM Fusion free repository configuration package."
+  },
+  {
+    "pattern": "rpmfusion-free-release-rawhide",
+    "category": "System Tools",
+    "reason": "RPM Fusion Rawhide free repository configuration package."
+  },
+  {
+    "pattern": "rpmfusion-free-release-tainted",
+    "category": "System Tools",
+    "reason": "RPM Fusion free Tainted repository configuration package."
+  },
+  {
+    "pattern": "rpmfusion-packager",
+    "category": "Developer Tools",
+    "reason": "Tooling to set up an RPM Fusion maintainer/packaging environment."
+  },
+  {
+    "pattern": "tivodecode-ng",
+    "category": "Photo & Video",
+    "reason": "Converts TiVo-format video files to standard MPEG."
+  },
+  {
+    "pattern": "wormsofprey-data",
+    "category": "Utilities",
+    "reason": "Shared data files for the Worms of Prey game; heuristic didn't flag it as a game so it lands in the generic Utilities bucket like other unflagged game-support packages."
+  },
+  {
+    "pattern": "xmltv-grabbers",
+    "category": "News & Weather",
+    "reason": "Backend grabbers that fetch TV programme-guide listings for xmltv."
+  },
+  {
+    "pattern": "xmris-editor",
+    "category": "Utilities",
+    "reason": "Level editor companion tool for the xmris game."
+  },
+  {
+    "pattern": "xpra-codecs-freeworld",
+    "category": "System Tools",
+    "reason": "Additional x264 codecs for xpra, a remote-display/screen-forwarding system tool."
+  },
+  {
+    "pattern": "amrnb",
+    "category": "Music & Audio",
+    "reason": "Adaptive Multi-Rate narrowband speech codec."
+  },
+  {
+    "pattern": "amrnb-tools",
+    "category": "Music & Audio",
+    "reason": "CLI tools for the AMR narrowband speech codec."
+  },
+  {
+    "pattern": "amrwb",
+    "category": "Music & Audio",
+    "reason": "Adaptive Multi-Rate wideband speech codec."
+  },
+  {
+    "pattern": "amrwb-tools",
+    "category": "Music & Audio",
+    "reason": "CLI tools for the AMR wideband speech codec."
+  },
+  {
+    "pattern": "d1x",
+    "category": "System Tools",
+    "reason": "d1x-rebirth, a Descent 1 source-port/engine (needs external game data), same family as other emulator/engine apps classified System Tools."
+  },
+  {
+    "pattern": "d2x",
+    "category": "System Tools",
+    "reason": "d2x-rebirth, a Descent 2 source-port/engine, same reasoning as d1x."
+  },
+  {
+    "pattern": "dfhack-plugin-stonesense",
+    "category": "Graphics & Design",
+    "reason": "Retro isometric world visualizer plugin for Dwarf Fortress (via DFHack)."
+  },
+  {
+    "pattern": "doc",
+    "category": "System Tools",
+    "reason": "\"Domain Obscenity Control\" — a CLI tool that diagnoses unhealthy/misconfigured DNS domains."
+  },
+  {
+    "pattern": "dwarftherapist-data",
+    "category": "Utilities",
+    "reason": "Architecture-independent shared data files for Dwarf Therapist."
+  },
+  {
+    "pattern": "etlegacy-installer",
+    "category": "Utilities",
+    "reason": "Installs game data extracted from a Wolfenstein: Enemy Territory package for ET: Legacy."
+  },
+  {
+    "pattern": "fuse-uadefs",
+    "category": "Music & Audio",
+    "reason": "FUSE pseudo-filesystem that exposes Amiga music modules as playable WAV files."
+  },
+  {
+    "pattern": "mock-rpmfusion-nonfree",
+    "category": "Developer Tools",
+    "reason": "Mock chroot-build config files for the RPM Fusion NonFree repo, same family as mock-rpmfusion-free."
+  },
+  {
+    "pattern": "OpenEXR_Viewers-nonfree",
+    "category": "Graphics & Design",
+    "reason": "Viewer programs for the OpenEXR HDR image format."
+  },
+  {
+    "pattern": "openni-nite",
+    "category": "Developer Tools",
+    "reason": "OpenNI-based SDK/toolbox for hand-movement/gesture tracking."
+  },
+  {
+    "pattern": "palcom-wwan-fcc-unlock",
+    "category": "System Tools",
+    "reason": "FCC-unlocking service for Palcom WWAN modems."
+  },
+  {
+    "pattern": "pgplot-demos",
+    "category": "Science",
+    "reason": "Demo applications for the pgplot scientific plotting library."
+  },
+  {
+    "pattern": "pyskool",
+    "category": "Utilities",
+    "reason": "Standalone open-source remake of Skool Daze/Back to Skool; not flagged as a game by the heuristic so it lands in the generic Utilities bucket."
+  },
+  {
+    "pattern": "roadfighter",
+    "category": "Utilities",
+    "reason": "Standalone open-source remake of Konami's Road Fighter; same unflagged-game handling as pyskool."
+  },
+  {
+    "pattern": "rpmfusion-nonfree-appstream-data",
+    "category": "System Tools",
+    "reason": "AppStream metadata package for the RPM Fusion nonfree repository."
+  },
+  {
+    "pattern": "rpmfusion-nonfree-obsolete-packages",
+    "category": "System Tools",
+    "reason": "Meta-package that obsoletes retired RPM Fusion nonfree packages."
+  },
+  {
+    "pattern": "rpmfusion-nonfree-release",
+    "category": "System Tools",
+    "reason": "RPM Fusion nonfree repository configuration package."
+  },
+  {
+    "pattern": "rpmfusion-nonfree-release-rawhide",
+    "category": "System Tools",
+    "reason": "RPM Fusion Rawhide nonfree repository configuration package."
+  },
+  {
+    "pattern": "rpmfusion-nonfree-release-tainted",
+    "category": "System Tools",
+    "reason": "RPM Fusion nonfree Tainted repository configuration package."
+  },
+  {
+    "pattern": "sox-plugins-nonfree",
+    "category": "Music & Audio",
+    "reason": "Non-free codec plugins for the SoX sound-file conversion tool."
+  },
+  {
+    "pattern": "unifi-lts",
+    "category": "Internet & Communication",
+    "reason": "Ubiquiti UniFi network controller, LTS release line."
+  },
+  {
+    "pattern": "unifi-lts-data",
+    "category": "Internet & Communication",
+    "reason": "Shared data files for the UniFi controller LTS package."
+  },
+  {
+    "pattern": "resynthesizer",
+    "category": "Graphics & Design",
+    "reason": "Suite of GIMP plugins for texture synthesis / content-aware fill."
+  },
+  {
+    "pattern": "xgames",
+    "category": "Utilities",
+    "reason": "Small bundled collection of classic X11 games; not flagged as a game by the heuristic so it lands in the generic Utilities bucket."
+  },
+  {
+    "pattern": "VTK-qt6",
+    "category": "Science",
+    "reason": "The Visualization Toolkit (Qt6 build), used for scientific visualization, same family as vtk-git already classified Science."
+  },
+  {
+    "pattern": "at-spi2",
+    "category": "System Tools",
+    "reason": "Assistive Technology Service Provider Interface, the accessibility toolkit used system-wide."
+  },
+  {
+    "pattern": "celtic-magic-button",
+    "category": "Settings",
+    "reason": "Budgie desktop panel applet providing a shutdown/session-control button."
+  },
+  {
+    "pattern": "chocolate-doom-heretic",
+    "category": "System Tools",
+    "reason": "Chocolate Doom's Heretic source port/engine, same emulator/engine family as d1x/d2x."
+  },
+  {
+    "pattern": "chocolate-doom-hexen",
+    "category": "System Tools",
+    "reason": "Chocolate Doom's Hexen source port/engine, same family as chocolate-doom-heretic."
+  },
+  {
+    "pattern": "chocolate-doom-server",
+    "category": "System Tools",
+    "reason": "Standalone multiplayer server for the Chocolate Doom engine family."
+  },
+  {
+    "pattern": "chocolate-doom-strife",
+    "category": "System Tools",
+    "reason": "Chocolate Doom's Strife source port/engine, same family as chocolate-doom-heretic."
+  },
+  {
+    "pattern": "desktopfolders",
+    "category": "Utilities",
+    "reason": "Desktop organization utility that groups icons into panel-like folders."
+  },
+  {
+    "pattern": "enchant16",
+    "category": "Developer Tools",
+    "reason": "The legacy 1.6 series of the Enchant spell-checking library wrapper."
+  },
+  {
+    "pattern": "faad-utils",
+    "category": "Music & Audio",
+    "reason": "CLI utilities for the FAAD2 MPEG-2/4 AAC audio decoder."
+  },
+  {
+    "pattern": "filemanager-actions-caja",
+    "category": "Utilities",
+    "reason": "Caja file-manager extension adding user-configurable context-menu actions."
+  },
+  {
+    "pattern": "ghcup",
+    "category": "Developer Tools",
+    "reason": "The main installer/version-manager for the Haskell toolchain."
+  },
+  {
+    "pattern": "glibc-benchmarks",
+    "category": "Developer Tools",
+    "reason": "Benchmark suite for measuring glibc performance."
+  },
+  {
+    "pattern": "gradience",
+    "category": "Settings",
+    "reason": "GTK/Adwaita theming and color-scheme customization tool."
+  },
+  {
+    "pattern": "hsakmt",
+    "category": "System Tools",
+    "reason": "libhsakmt HSA thunk library used by the AMD KFD kernel driver."
+  },
+  {
+    "pattern": "log4perl",
+    "category": "Developer Tools",
+    "reason": "Log4j-style logging library/framework for Perl."
+  },
+  {
+    "pattern": "mesalib",
+    "category": "Utilities",
+    "reason": "The Mesa OpenGL graphics library, same family as other mesa-* packages already classified Utilities."
+  },
+  {
+    "pattern": "mpg123-bin",
+    "category": "Music & Audio",
+    "reason": "Console-based MP3 decoder/player."
+  },
+  {
+    "pattern": "noto-sans-ttf",
+    "category": "Graphics & Design",
+    "reason": "Google's Noto Sans multi-lingual font family."
+  },
+  {
+    "pattern": "open-vm-tools-modaliases",
+    "category": "System Tools",
+    "reason": "Hardware-detection module-alias data used by the Software Center for VMware guests."
+  },
+  {
+    "pattern": "opera-stable",
+    "category": "Internet & Communication",
+    "reason": "The Opera web browser, stable channel — same family as other Opera builds already classified Internet & Communication."
+  },
+  {
+    "pattern": "solus-sc",
+    "category": "System Tools",
+    "reason": "The Solus Software Center, a package-manager GUI, same family as pamac/synaptic already classified System Tools."
+  },
+  {
+    "pattern": "stone-soup-console",
+    "category": "Utilities",
+    "reason": "Console build of Dungeon Crawl Stone Soup; not flagged as a game by the heuristic so it lands in the generic Utilities bucket."
+  },
+  {
+    "pattern": "the-widget-factory-3",
+    "category": "Developer Tools",
+    "reason": "GTK3 demo app for exercising/testing toolkit theme rendering."
+  },
+  {
+    "pattern": "unsnap",
+    "category": "System Tools",
+    "reason": "Utility to migrate installed snap packages over to flatpak equivalents."
+  },
+  {
+    "pattern": "vhba-module-common",
+    "category": "System Tools",
+    "reason": "Provides the vhba_ctl virtual device used by CDemu for virtual optical drives."
+  },
+  {
+    "pattern": "vulkan",
+    "category": "System Tools",
+    "reason": "The Vulkan ICD desktop loader (vulkan-loader), a low-level graphics driver component."
+  },
+  {
+    "pattern": "wavpack-utils",
+    "category": "Music & Audio",
+    "reason": "CLI tools for the WavPack lossless audio compression format."
+  },
+  {
+    "pattern": "weston-demos",
+    "category": "Developer Tools",
+    "reason": "Demo programs bundled with the Weston Wayland compositor, used for testing/development."
+  },
+  {
+    "pattern": "workrave-indicator",
+    "category": "Productivity",
+    "reason": "Ayatana desktop indicator for Workrave, an RSI/break-reminder tool."
+  },
+  {
+    "pattern": "xviewer-plugin-postasa",
+    "category": "Photo & Video",
+    "reason": "Plugin for the xviewer image viewer to upload pictures to PicasaWeb."
+  },
+  {
+    "pattern": "xviewer-plugins-common",
+    "category": "Photo & Video",
+    "reason": "Shared data required by xviewer's image-viewer plugins."
+  },
+  {
+    "pattern": "awk",
+    "category": "System Tools",
+    "reason": "Gentoo's /bin/awk and /usr/bin/awk alternatives symlink package."
+  },
+  {
+    "pattern": "lex",
+    "category": "System Tools",
+    "reason": "Gentoo's lex alternatives symlink package."
+  },
+  {
+    "pattern": "lkrg",
+    "category": "Security",
+    "reason": "Linux Kernel Runtime Guard, a kernel integrity/exploit-detection module."
+  },
+  {
+    "pattern": "carbonapi-booking",
+    "category": "Developer Tools",
+    "reason": "Booking.com's fork of carbonapi, a high-performance Graphite metrics front-end."
+  },
+  {
+    "pattern": "carbonapi-web",
+    "category": "Developer Tools",
+    "reason": "Fork of graphite-web for standalone use alongside carbonapi."
+  },
+  {
+    "pattern": "dmaths",
+    "category": "Productivity",
+    "reason": "Mathematics formula-editor extension for LibreOffice."
+  },
+  {
+    "pattern": "sun-templates",
+    "category": "Productivity",
+    "reason": "Collection of LibreOffice document templates for various countries."
+  },
+  {
+    "pattern": "texmaths",
+    "category": "Productivity",
+    "reason": "LaTeX equation-editor extension for LibreOffice."
+  },
+  {
+    "pattern": "ut2004-bonuspack-ece",
+    "category": "Utilities",
+    "reason": "Bonus content pack for Unreal Tournament 2004's Editor's Choice Edition; not flagged as a game by the heuristic so it lands in the generic Utilities bucket."
+  },
+  {
+    "pattern": "addresses",
+    "category": "Productivity",
+    "reason": "GNUstep address-book application, an Apple Addressbook work-alike."
+  },
+  {
+    "pattern": "gmines",
+    "category": "Utilities",
+    "reason": "GNUstep Minesweeper clone; not flagged as a game by the heuristic so it lands in the generic Utilities bucket."
+  },
+  {
+    "pattern": "gnumail",
+    "category": "Internet & Communication",
+    "reason": "Full-featured email client for the GNUstep desktop."
+  },
+  {
+    "pattern": "lapispuzzle",
+    "category": "Utilities",
+    "reason": "GNUstep Tetris-like multiplayer puzzle game; not flagged as a game by the heuristic so it lands in the generic Utilities bucket."
+  },
+  {
+    "pattern": "pictureframe",
+    "category": "Photo & Video",
+    "reason": "GNUstep digital picture-frame/slideshow software."
+  },
+  {
+    "pattern": "price",
+    "category": "Graphics & Design",
+    "reason": "Precision Raster Image Convolution Engine, an image-processing tool for GNUstep."
+  },
+  {
+    "pattern": "mknfonts",
+    "category": "Developer Tools",
+    "reason": "Tool that builds .nfont packages for the GNUstep back-art backend."
+  },
+  {
+    "pattern": "cenonlibrary",
+    "category": "Graphics & Design",
+    "reason": "Runtime library required by Cenon, a GNUstep vector-graphics/CAD app."
+  },
+  {
+    "pattern": "dbuskit",
+    "category": "Developer Tools",
+    "reason": "Framework that bridges GNUstep/Objective-C apps with the D-Bus IPC service."
+  },
+  {
+    "pattern": "performance",
+    "category": "Developer Tools",
+    "reason": "Library aimed at improving the performance of GNUstep applications."
+  },
+  {
+    "pattern": "offload",
+    "category": "Developer Tools",
+    "reason": "LLVM's OpenMP offloading runtime support."
+  },
+  {
+    "pattern": "aptkit",
+    "category": "System Tools",
+    "reason": "Linux Mint's transaction-based package-management service."
+  },
+  {
+    "pattern": "circle-flags-svg",
+    "category": "Graphics & Design",
+    "reason": "Set of country flag icons in circular SVG format."
+  },
+  {
+    "pattern": "live-installer",
+    "category": "System Tools",
+    "reason": "Installer used by Linux Mint's live media."
+  },
+  {
+    "pattern": "mintchat",
+    "category": "Internet & Communication",
+    "reason": "Chat integration component for Linux Mint."
+  },
+  {
+    "pattern": "mintdesktop",
+    "category": "Settings",
+    "reason": "Linux Mint's desktop-configuration tool."
+  },
+  {
+    "pattern": "mintdrivers",
+    "category": "Settings",
+    "reason": "Linux Mint's Driver Manager."
+  },
+  {
+    "pattern": "mintinstall",
+    "category": "System Tools",
+    "reason": "Linux Mint's Software Manager (app-store-style package installer), same family as other package-manager GUIs classified System Tools."
+  },
+  {
+    "pattern": "mintreport",
+    "category": "System Tools",
+    "reason": "Troubleshooting/diagnostic-report tool for Linux Mint."
+  },
+  {
+    "pattern": "mintsystem",
+    "category": "System Tools",
+    "reason": "Linux Mint's base system package."
+  },
+  {
+    "pattern": "mintupdate",
+    "category": "Settings",
+    "reason": "The Linux Mint Update Manager."
+  },
+  {
+    "pattern": "mintupgrade",
+    "category": "System Tools",
+    "reason": "Linux Mint's distribution-upgrade tool."
+  },
+  {
+    "pattern": "mintupload",
+    "category": "Internet & Communication",
+    "reason": "Uploads files to the internet from Linux Mint."
+  },
+  {
+    "pattern": "mintwelcome",
+    "category": "Settings",
+    "reason": "Welcome screen shown on first login in Linux Mint, same family as other distro welcome screens classified Settings."
+  },
+  {
+    "pattern": "syslinux-themes-linuxmint",
+    "category": "System Tools",
+    "reason": "Linux Mint's boot-loader (syslinux) theme collection."
+  },
+  {
+    "pattern": "ubiquity-slideshow-mint",
+    "category": "System Tools",
+    "reason": "Linux Mint's slideshow shown during Ubiquity installation."
+  },
+  {
+    "pattern": "dde",
+    "category": "Settings",
+    "reason": "Deepin Desktop Environment core package, same dde-*/deepin-* component family already classified Settings."
+  },
+  {
+    "pattern": "mx25-archive-keyring",
+    "category": "System Tools",
+    "reason": "GnuPG archive signing keys for the MX-25 Linux repository."
+  },
+  {
+    "pattern": "mxfb-accessories",
+    "category": "System Tools",
+    "reason": "Collection of scripts used in MX Linux's Fluxbox edition."
+  },
+  {
+    "pattern": "mxfb-goodies",
+    "category": "System Tools",
+    "reason": "Additional useful scripts for MX Linux's Fluxbox edition."
+  },
+  {
+    "pattern": "mxfb-styles",
+    "category": "Settings",
+    "reason": "Extra visual styles/themes for MX Linux's Fluxbox edition."
   }
 ]

@@ -105,5 +105,118 @@
       }
     ],
     "reason": "Same software (the Elm programming-language compiler) across sources -- AUR's elm-git is its rolling-release build, Nixpkgs' elmPackages.elm the same compiler under nixpkgs' own attribute-path convention. The new config/match-deny.json entries separating this cluster from AUR's unrelated bare \"elm\" (The Elm Mail System, a real terminal mail client sharing the identical normalized name) also block these two from ever reaching each other or the compiler's own AUR binary build on their own, since tier2's \"elm\" representative was that mail client. Found live investigating the apps \"To Classify\" bucket (2026-09-02) while adding the elm-* category rule."
+  },
+  {
+    "destination": {
+      "source": "gog",
+      "appId": "convoy"
+    },
+    "sources": [
+      {
+        "source": "lutris",
+        "appId": "convoy-gog"
+      },
+      {
+        "source": "lutris",
+        "appId": "convoy-humble-bundle"
+      }
+    ],
+    "reason": "Same software (Convoy, the roguelike vehicle-combat game) across GOG and Lutris. The existing match-deny.json entries correctly keep AUR's unrelated bare \"convoy\" (a Docker volume plugin) separate from both, but the deny-via-representative interaction in group.ts's tier2 left GOG's own listing and Lutris's two installer slugs (convoy-gog / convoy-humble-bundle) split into three standalone groups too -- each Lutris side stayed \"To Classify\" while GOG's side carried the real genre. Found live reviewing the \"24 duplicate group names\" matching card (2026-09-04)."
+  },
+  {
+    "destination": {
+      "source": "gog",
+      "appId": "dusk"
+    },
+    "sources": [
+      {
+        "source": "lutris",
+        "appId": "dusk-gog"
+      }
+    ],
+    "reason": "Same software (DUSK, the retro first-person shooter) across GOG and Lutris. The existing match-deny.json entries correctly keep AUR's unrelated dusk-git (a dwm fork) separate, but left GOG's own listing and Lutris's dusk-gog installer slug split -- Lutris's side stayed \"To Classify\" while GOG's side carried the real Action genre. Found live reviewing the \"24 duplicate group names\" matching card (2026-09-04)."
+  },
+  {
+    "destination": {
+      "source": "gog",
+      "appId": "deadbolt"
+    },
+    "sources": [
+      {
+        "source": "lutris",
+        "appId": "deadbolt-gog"
+      }
+    ],
+    "reason": "Same software (DEADBOLT, the stealth-action game) across GOG and Lutris. The existing match-deny.json entries correctly keep AUR's unrelated deadbolt-bin (a file-encryption tool) separate, but left GOG's own listing and Lutris's deadbolt-gog installer slug split -- Lutris's side stayed \"To Classify\" while GOG's side carried the real Action genre. Found live reviewing the \"24 duplicate group names\" matching card (2026-09-04)."
+  },
+  {
+    "destination": {
+      "source": "deb-debian",
+      "appId": "boxes"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "boxes"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "boxes"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "boxes"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "boxes"
+      },
+      {
+        "source": "ebuild-gentoo",
+        "appId": "app-misc/boxes"
+      }
+    ],
+    "reason": "Same software (the ASCII-art \"boxes\" text-drawing tool, boxes.thomasjensen.com) packaged under the same bare \"boxes\" name across AUR/Debian/Ubuntu/Fedora/Nixpkgs/Gentoo. The GENERIC_NAME_BLOCKLIST entry for \"boxes\" (added to stop GNOME Boxes from false-merging with this unrelated tool -- see group.ts) also prevented these six identical packages from merging with each other, leaving Fedora/Nixpkgs stranded as separate \"To Classify\" groups. GNOME Boxes itself is packaged as \"gnome-boxes\" in every native source, so re-merging the bare-\"boxes\" cluster cannot pull it in. Found live reviewing the \"24 duplicate group names\" matching card (2026-09-04)."
+  },
+  {
+    "destination": {
+      "source": "deb-debian",
+      "appId": "fuse"
+    },
+    "sources": [
+      {
+        "source": "deb-ubuntu",
+        "appId": "fuse"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "fuse"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "fuse"
+      },
+      {
+        "source": "rpm-opensuse",
+        "appId": "fuse"
+      },
+      {
+        "source": "apk-alpine",
+        "appId": "fuse"
+      },
+      {
+        "source": "xbps-void",
+        "appId": "fuse"
+      },
+      {
+        "source": "eopkg-solus",
+        "appId": "fuse"
+      },
+      {
+        "source": "ebuild-gentoo",
+        "appId": "sys-fs/fuse"
+      }
+    ],
+    "reason": "Same software (the FUSE filesystem interface / reference implementation) packaged under the same bare \"fuse\" name across Debian/Ubuntu/Fedora/Nixpkgs/openSUSE/Alpine/Void/Solus and Gentoo's sys-fs/fuse. The GENERIC_NAME_BLOCKLIST entry for \"fuse\" (added because the bare word also names the ZX Spectrum emulator -- see group.ts) also prevented these nine identical filesystem packages from merging with each other, leaving Fedora/Nixpkgs/Alpine/Void stranded as separate \"To Classify\" groups. The emulator is packaged as flatpak's net.sourceforge.fuse_emulator.Fuse and Gentoo's app-emulation/fuse -- neither is listed here, so it stays its own separate group. Found live reviewing the \"24 duplicate group names\" matching card (2026-09-04)."
   }
 ]

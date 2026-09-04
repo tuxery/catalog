@@ -17,6 +17,7 @@
     "seed": "tsx scripts/seed.ts",
     "serve": "tsx scripts/serve.ts",
     "query-local": "tsx scripts/query-local.ts",
+    "classify-llm": "tsx scripts/classify-llm.ts",
     "reset-caches": "tsx scripts/reset-caches.ts"
   },
   "dependencies": {

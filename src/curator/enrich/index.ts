@@ -41,6 +41,7 @@ import {
 } from "./description-game-category-rules";
 import { getCompatWarnings, loadCompatWarnings, type CompatWarningEntry } from "./compat-warnings";
 import { applySuites, loadSuiteOverrides, type SuiteOverrideEntry } from "./suite";
+import { llmCategoryMap, loadLlmClassifications, type LlmClassificationEntry } from "./llm-classifications";
 import type { CatalogApp } from "./types";
 
 /**
@@ -623,7 +624,9 @@ export function enrichApps(
   gameCategoryRules: GameCategoryRuleEntry[] = loadGameCategoryRules(),
   descriptionCategoryRules: DescriptionCategoryRuleEntry[] = loadDescriptionCategoryRules(),
   descriptionGameCategoryRules: DescriptionGameCategoryRuleEntry[] = loadDescriptionGameCategoryRules(),
+  llmClassifications: LlmClassificationEntry[] = loadLlmClassifications(),
 ): CatalogApp[] {
+  const llmCategories = llmCategoryMap(llmClassifications);
   const apps: CatalogApp[] = matched.map((app) => {
     const representative = pickByPriority(app.packages);
     const shortDescription = pickDescription(app.packages);
@@ -647,6 +650,16 @@ export function enrichApps(
           app.packages.map((pkg) => pkg.name),
         ));
 
+    const pickedCategory = pickCategoryLabel(
+      app.packages,
+      isGame,
+      categoryRules,
+      gameCategoryRules,
+      descriptionCategoryRules,
+      descriptionGameCategoryRules,
+      shortDescription,
+    );
+
     return {
       id: app.id,
       name: representative.name,
@@ -656,15 +669,10 @@ export function enrichApps(
       kind: app.packages.some(hasGuiEvidence) ? "gui" : undefined,
       contentType: isGame ? "game" : undefined,
       appStoreFrontend: isAppStoreFrontend(app.packages, appStoreFrontends) ? true : undefined,
-      category: pickCategoryLabel(
-        app.packages,
-        isGame,
-        categoryRules,
-        gameCategoryRules,
-        descriptionCategoryRules,
-        descriptionGameCategoryRules,
-        shortDescription,
-      ),
+      category:
+        pickedCategory !== TO_CLASSIFY
+          ? pickedCategory
+          : (llmCategories.get(app.id) ?? TO_CLASSIFY),
       iconUrl: pickField(app.packages, (pkg) => pkg.iconUrl),
       approxSizeBytes: pickField(app.packages, (pkg) => pkg.approxSizeBytes),
       license: pickField(app.packages, (pkg) => pkg.license),

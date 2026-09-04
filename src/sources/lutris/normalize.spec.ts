@@ -10,6 +10,7 @@ describe("lutris normalize", () => {
       installerSlug: "rollercoaster-tycoon-2-cd",
       name: "RollerCoaster Tycoon 2",
       description: 'Play "RollerCoaster Tycoon 2" CD edition on Linux!',
+      genres: [],
       version: "CD",
     };
 
@@ -26,16 +27,50 @@ describe("lutris normalize", () => {
     ]);
   });
 
-  it("never sets hasGameCategory — real bug, found live: Lutris hosts real non-game installers too (Discord), and neither of its APIs carries a genre signal to tell them apart", () => {
+  it("maps IGDB genres to game categories and sets hasGameCategory", () => {
+    const entry: LutrisCacheEntry = {
+      gameId: 16467,
+      gameSlug: "dusk",
+      installerSlug: "dusk-gog",
+      name: "DUSK",
+      description: "An installer for the GOG version of the game.",
+      genres: ["FPS"],
+    };
+
+    expect(normalize([entry])[0]).toMatchObject({
+      hasGameCategory: true,
+      categories: ["Shooter"],
+    });
+  });
+
+  it("prefers the game's real description over the installer's one-liner", () => {
+    const entry: LutrisCacheEntry = {
+      gameId: 16467,
+      gameSlug: "dusk",
+      installerSlug: "dusk-gog",
+      name: "DUSK",
+      description: "An installer for the GOG version of the game.",
+      genres: ["FPS"],
+      gameDescription: "Battle through an onslaught of mystical backwater cultists...",
+    };
+
+    expect(normalize([entry])[0]?.description).toBe(
+      "Battle through an onslaught of mystical backwater cultists...",
+    );
+  });
+
+  it("leaves hasGameCategory and categories unset when a game has no genres", () => {
     const entry: LutrisCacheEntry = {
       gameId: 1,
       gameSlug: "app",
       installerSlug: "app-native",
       name: "App",
       description: "",
+      genres: [],
     };
 
     expect(normalize([entry])[0]?.hasGameCategory).toBeUndefined();
+    expect(normalize([entry])[0]?.categories).toBeUndefined();
   });
 
   it("builds the homepage from the game slug, not the installer slug", () => {
@@ -45,6 +80,7 @@ describe("lutris normalize", () => {
       installerSlug: "harvest-moon-64-n64-emu",
       name: "Harvest Moon 64",
       description: "",
+      genres: [],
     };
 
     expect(normalize([entry])[0]?.homepage).toBe("https://lutris.net/games/harvest-moon-64/");
@@ -57,6 +93,7 @@ describe("lutris normalize", () => {
       installerSlug: "a-native",
       name: "A",
       description: "",
+      genres: [],
     };
 
     expect(normalize([entry])[0]?.channel).toBeUndefined();

@@ -1,3 +1,4 @@
+import { parallel } from "@helpers4/promise";
 import { dedupeByKey } from "../_shared/dedupe";
 import { fetchOrThrow } from "../_shared/http";
 import { writeMetadata } from "../_shared/metadata";
@@ -56,11 +57,69 @@ export function mapInstallers(installers: RawInstaller[]): LutrisCacheEntry[] {
       installerSlug: installer.slug,
       name: installer.name,
       description: installer.description ?? "",
+      // Populated by `enrichWithGames` below — the installers API carries no
+      // genre/description signal; the per-game endpoint does.
+      genres: [],
       version: installer.version ?? undefined,
     });
   }
 
   return dedupeByKey(entries, (entry) => entry.installerSlug);
+}
+
+// The `/api/games/<slug>` response shape — `genres` (IGDB-sourced) and the
+// real game `description` are the only two fields this enrichment needs.
+interface RawGame {
+  genres?: { name?: string }[];
+  description?: string | null;
+}
+
+// Bounded concurrency out of courtesy to a public API with no documented
+// rate limit (same reasoning as snap-snapcraft's own sweep concurrency).
+const GAME_ENRICH_CONCURRENCY = 10;
+
+async function fetchGameEnrichment(
+  slug: string,
+): Promise<{ genres: string[]; description?: string }> {
+  const response = await fetchOrThrow(
+    `https://lutris.net/api/games/${slug}`,
+    `Lutris game "${slug}"`,
+  );
+  const game = (await response.json()) as RawGame;
+  return {
+    genres: (game.genres ?? [])
+      .map((genre) => genre.name)
+      .filter((name): name is string => Boolean(name)),
+    description: game.description ?? undefined,
+  };
+}
+
+/**
+ * Fills each entry's `genres` and `gameDescription` from the per-game
+ * `/api/games/<slug>` endpoint, one request per unique game (not per
+ * installer — a game's several installers share one game record). A failed
+ * lookup leaves the game with no genres rather than failing the whole
+ * fetch, same degrade-gracefully discipline as appimage's per-repo lookups.
+ */
+async function enrichWithGames(entries: LutrisCacheEntry[]): Promise<LutrisCacheEntry[]> {
+  const slugs = [...new Set(entries.map((entry) => entry.gameSlug))];
+  const enrichments = await parallel(
+    slugs.map((slug) => async () => ({
+      slug,
+      ...(await fetchGameEnrichment(slug).catch(() => ({ genres: [], description: undefined }))),
+    })),
+    GAME_ENRICH_CONCURRENCY,
+  );
+  const bySlug = new Map(enrichments.map((entry) => [entry.slug, entry]));
+
+  return entries.map((entry) => {
+    const enrichment = bySlug.get(entry.gameSlug);
+    return {
+      ...entry,
+      genres: enrichment?.genres ?? [],
+      gameDescription: enrichment?.description,
+    };
+  });
 }
 
 async function fetchPage(url: string): Promise<RawInstallersPage> {
@@ -87,7 +146,7 @@ export async function fetchLutris(cachePath: string): Promise<number> {
     pagesFetched++;
   }
 
-  const entries = mapInstallers(installers);
+  const entries = await enrichWithGames(mapInstallers(installers));
 
   writeNdjson(cachePath, entries);
   writeMetadata<LutrisFetchMetadata>(cachePath, {

@@ -2095,6 +2095,11 @@
     "reason": "Game-development engines (Solar2D, Godot, arcan, anura) \u2014 tools for MAKING games, a developer resource, not a game; deliberately not a game genre. Verified live: 73 real matches, all engines."
   },
   {
+    "pattern": "\\bengine for games?\\b",
+    "category": "Developer Tools",
+    "reason": "Reversed-order counterpart to the \\bgame engines?\\b rule above (Box2D: \"A 2D Physics Engine for Games\", soloud: \"portable audio engine for games\") \u2014 same tools-for-making-games reasoning, kept as a separate entry since the two word orders never overlap. Added alongside index.ts's matching isGameAdjacentToolDescription pattern (2026-09-04) so these resolve to a real category the moment isGame flips false. Verified live: 2 real matches, zero unrelated collisions."
+  },
+  {
     "pattern": "\\bdevelopment environment\\b|\\bide\\b",
     "category": "Developer Tools",
     "reason": "IDEs and integrated development environments (Aleo Studio, jx-ide, Wing, QML Creator, Eclipse PDE). Verified live: 273 real matches, overwhelmingly IDEs; \\bide\\b is safe in this pool after the existing language-ecosystem filters."

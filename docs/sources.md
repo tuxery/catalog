@@ -74,17 +74,25 @@ because a paragraph per cell made the table unreadable.
    majority of published apps.
 3. **Snapcraft** — `api.snapcraft.io/v2/snaps/find`
    (`Snap-Device-Series: 16` header). No pagination or sort param (both
-   rejected outright as "Bad parameters") — every query caps at ~100
-   results. Swept two independent ways and merged by name: `category=`
-   across 20 categories (from `api.snapcraft.io/api/v1/snaps/sections`),
-   and `q=` for every letter/digit — verified neither sweep subsumes the
-   other (1,542 vs. 2,919 unique snaps, only 809 overlapping; union
-   3,652). Still an approximation, not a dump — no known way to actually
-   enumerate the full store. A third sweep, `?featured=true` (~100 hand-
-   picked snaps), tags matches as `SourcedPackage.storeCollections:
-["featured"]` rather than folding into the general merge untraceably —
-   distinct from the `category=featured` store category already part of
-   the merge above. `src/sources/snap-snapcraft/fetch.ts`.
+   rejected outright as "Bad parameters") — every query caps at exactly
+   100 results, confirmed live 2026-09-04 (`q=a` and even `q=ab` both
+   return exactly 100). Swept two independent ways and merged by name:
+   `category=` across 20 categories (from
+   `api.snapcraft.io/api/v1/snaps/sections`), and a recursively-deepened
+   `q=` search (`sweepQueriesRecursively`) — a single-character sweep
+   alone silently truncated at the cap for every popular letter/digit, so
+   any prefix that comes back AT the cap gets re-swept once per extra
+   character (down to 4 characters, a circuit breaker rather than an
+   expected ceiling) instead of being trusted as complete. Still an
+   approximation, not a dump — no known way to actually enumerate the
+   full store, and this is closer to it rather than exhaustive. Verified
+   live: the recursive sweep tried 36,468 distinct query prefixes and
+   grew the cache from 3,666 to 10,924 unique snaps (+198%) in one run.
+   A third sweep, `?featured=true` (~100 hand-picked snaps), tags matches
+   as `SourcedPackage.storeCollections: ["featured"]` rather than folding
+   into the general merge untraceably — distinct from the
+   `category=featured` store category already part of the merge above.
+   `src/sources/snap-snapcraft/fetch.ts`.
 4. **AppImage** — [`appimage.github.io/feed.json`](https://appimage.github.io/feed.json)
    (community-curated — not to be confused with the separate,
    bot-gated AppImageHub.com, investigated as a second source and found

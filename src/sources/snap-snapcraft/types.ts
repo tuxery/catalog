@@ -29,6 +29,8 @@ export interface SnapcraftFetchMetadata extends FetchMetadata {
   deviceSeries: string;
   /** Store categories swept to build this cache — see fetch.ts. */
   categoriesSwept: string[];
-  /** Single-character `q=` search queries swept to build this cache — see fetch.ts. */
+  /** Alphabet used to build every `q=` search prefix, recursively deepened where a prefix hits the 100-result cap — see fetch.ts's `sweepQueriesRecursively`. */
   queryCharsSwept: string[];
+  /** How many distinct `q=` prefixes were actually queried this run — varies run to run as the store grows/shrinks, unlike `queryCharsSwept` (the fixed alphabet). */
+  queryPrefixesTried: number;
 }

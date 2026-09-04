@@ -2133,5 +2133,30 @@
     "pattern": "^(?!.*\\b(?:codec|decoder|speech|synthesis)\\b).*\\bllvm\\b",
     "category": "Developer Tools",
     "reason": "LLVM-based compilers/toolchains/debuggers (bisheng-compiler, clion-lldb, graal-llvm-jdk*, ...). Negative lookahead excludes the rare project that merely happens to be *built with* LLVM/Clang but isn't itself a dev tool (a video codec, a speech-synthesis engine) -- verified live, 2 such cases found in the raw match set."
+  },
+  {
+    "pattern": "\\bjava\\b",
+    "category": "Developer Tools",
+    "reason": "Java-ecosystem developer tools (Java diagnostics, JVM scripting languages, Java-written dev utilities). Verified live against AUR's own To Classify pool: real matches dominate, no wrong-category counter-examples found."
+  },
+  {
+    "pattern": "\\byaml\\b",
+    "category": "Developer Tools",
+    "reason": "YAML-processing dev tools/libraries (config-driven CLIs, YAML transcoders/parsers). Verified live: real matches dominate."
+  },
+  {
+    "pattern": "\\bopencl\\b",
+    "category": "Developer Tools",
+    "reason": "OpenCL GPU-compute libraries/tools/backends. Verified live: 100% real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bjellyfin\\b",
+    "category": "Photo & Video",
+    "reason": "Jellyfin media-server client apps (desktop/TUI/web clients). Verified live: 100% real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\bcompile\\b",
+    "category": "Developer Tools",
+    "reason": "Compile-time/build tooling across languages (C/D/Clang benchmarking, compile-and-run REPLs, ...). Verified live: consistently dev-tool-shaped despite superficial topic diversity."
   }
 ]

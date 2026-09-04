@@ -29,6 +29,24 @@ describe("categoryFromAurKeywords", () => {
     );
   });
 
+  it("maps the 2026-09-04 keyword additions (finance, radio, science, security, battery, todo)", () => {
+    expect(categoryFromAurKeywords(pkg({ keywords: ["wallet"] }))).toBe("Finance");
+    expect(categoryFromAurKeywords(pkg({ keywords: ["cryptocurrency"] }))).toBe("Finance");
+    expect(categoryFromAurKeywords(pkg({ keywords: ["bitcoin"] }))).toBe("Finance");
+    expect(categoryFromAurKeywords(pkg({ keywords: ["blockchain"] }))).toBe("Finance");
+    expect(categoryFromAurKeywords(pkg({ keywords: ["accounting"] }))).toBe("Finance");
+    expect(categoryFromAurKeywords(pkg({ keywords: ["ham"] }))).toBe("Internet & Communication");
+    expect(categoryFromAurKeywords(pkg({ keywords: ["hamradio"] }))).toBe(
+      "Internet & Communication",
+    );
+    expect(categoryFromAurKeywords(pkg({ keywords: ["sdr"] }))).toBe("Internet & Communication");
+    expect(categoryFromAurKeywords(pkg({ keywords: ["astronomy"] }))).toBe("Science");
+    expect(categoryFromAurKeywords(pkg({ keywords: ["encryption"] }))).toBe("Security");
+    expect(categoryFromAurKeywords(pkg({ keywords: ["password"] }))).toBe("Security");
+    expect(categoryFromAurKeywords(pkg({ keywords: ["battery"] }))).toBe("System Tools");
+    expect(categoryFromAurKeywords(pkg({ keywords: ["todo"] }))).toBe("Productivity");
+  });
+
   it("matches keywords case-insensitively", () => {
     expect(categoryFromAurKeywords(pkg({ keywords: ["Backup"] }))).toBe("System Tools");
   });

@@ -40,6 +40,16 @@ const NOISE_PATTERNS: RegExp[] = [
   // suffixes) and their Fedora-style equivalents (-devel, -debuginfo,
   // -debugsource use a full word rather than an abbreviation).
   /-(dev|dbg|dbgsym|docs?|devel|debuginfo|debugsource)$/,
+  // RPM's own `%{name}-rpm-macros`/`%{name}-srpm-macros` build-system
+  // convention (cmake-rpm-macros, python-srpm-macros, ...) — packaging
+  // infrastructure consumed by `rpmbuild` itself, never launchable.
+  // Surfaced mining Fedora's own "To Classify" pool (2026-09-04): verified
+  // whole-catalog, 66 name matches, zero exceptions — several (cargo-*,
+  // cmake-*, python-*, godot-*, ...) were riding into a real category
+  // (mostly Developer Tools) only because the base product's own
+  // category-rules.json prefix matched too broadly, same shape as this
+  // file's other over-broad-name-family fixes.
+  /-s?rpm-macros$/,
   // Any `lib`-prefixed package — see this file's header comment on why a
   // narrower pattern (only soname-versioned names like libssl3) doesn't
   // scale; real exceptions are allowlisted by exact name in

@@ -418,5 +418,10 @@
     "sources": ["deb-debian", "deb-ubuntu", "rpm-fedora", "xbps-void"],
     "name": "system-config-printer-udev",
     "reason": "Real printer-detection/configuration component, already correctly classified despite the -udev noise suffix — see filter/rules.ts's -udev$ comment"
+  },
+  {
+    "sources": ["pacman-aur"],
+    "name": "affinity-bin",
+    "reason": "Real Affinity Photo/Designer/Publisher-via-Wine app despite mentioning \"Serif\" (its publisher, Serif Europe Ltd) in its own description — see filter/rules.ts's bare serif(s) noise pattern"
   }
 ]

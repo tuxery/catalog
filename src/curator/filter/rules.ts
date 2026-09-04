@@ -682,6 +682,23 @@ export function looksLikeSupportPackage(name: string): boolean {
 // in any (Nagios/Roundcube/browser plugins, VSCode/Nautilus/MediaWiki
 // extensions, C++/Tcl application frameworks, Kodi/Blender/Allegro
 // addons).
+//
+// `common files` added mining Fedora's own "To Classify" pool
+// (2026-09-04): RPM's own packaging convention for the
+// arch-independent data a multi-subpackage spec shares between its real
+// binaries (icons, translations, systemd units, ...) — never launchable
+// on its own. Verified whole-catalog: 308 "To Classify" matches sampled
+// in full, zero real exceptions (every hit, including several
+// game-adjacent ones like armagetronad-common/crossfire-common/
+// spring-common/openmohaa-common, is a companion package for a game or
+// app classified/counted separately, not itself launchable). Also
+// checked the 97 already-classified single-package matches this would
+// newly exclude (bareos-*-common, metatheme-*-common, kde-*-common,
+// cataclysm-common, pzl_common, ...) — all 97 are the same companion-file
+// shape, riding into a real category only because some other rule
+// (name/section) matched too broadly; removing them is a correctness fix,
+// not a regression, since none is itself something a user would search an
+// app store for.
 const SUPPORT_DESCRIPTION_PATTERNS: RegExp[] = [
   /\blibrary for\b/i,
   /\bbindings for\b/i,
@@ -749,6 +766,7 @@ const SUPPORT_DESCRIPTION_PATTERNS: RegExp[] = [
   /\bmonospace fonts?\b/i,
   /\bprogramming fonts?\b/i,
   /\bpixel fonts?\b/i,
+  /\bcommon files\b/i,
 ];
 
 /**

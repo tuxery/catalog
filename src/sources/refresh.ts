@@ -25,6 +25,7 @@ import { fetchSlackware } from "./slackware/fetch";
 import { fetchSnapcraft } from "./snap-snapcraft/fetch";
 import { fetchSolus } from "./eopkg-solus/fetch";
 import { fetchUbuntu } from "./deb-ubuntu/fetch";
+import { fetchUbuntuAppstream } from "./deb-ubuntu-appstream/fetch";
 import { fetchVoid } from "./xbps-void/fetch";
 
 const REFRESHERS: Record<string, (cachePath: string) => Promise<number>> = {
@@ -52,6 +53,7 @@ const REFRESHERS: Record<string, (cachePath: string) => Promise<number>> = {
   "deb-deepin": fetchDeepin,
   "deb-mxlinux": fetchMxLinux,
   "deb-debian-appstream": fetchDebianAppstream,
+  "deb-ubuntu-appstream": fetchUbuntuAppstream,
   gog: fetchGog,
   lutris: fetchLutris,
   "github-releases": fetchGithubReleases,

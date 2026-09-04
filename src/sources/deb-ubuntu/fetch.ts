@@ -1,5 +1,6 @@
 import { parseDeb822 } from "../_shared/deb822";
-import { fetchGunzippedText, fetchOrThrow } from "../_shared/http";
+import { fetchGunzippedText } from "../_shared/http";
+import { fetchCurrentSuite } from "../_shared/ubuntu-suite";
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
 import type { UbuntuCacheEntry, UbuntuFetchMetadata } from "./types";
@@ -24,39 +25,6 @@ const ARCH = "amd64";
 
 function packagesUrl(suite: string, component: UbuntuComponent): string {
   return `https://archive.ubuntu.com/ubuntu/dists/${suite}/${component}/binary-${ARCH}/Packages.gz`;
-}
-
-interface LaunchpadSeries {
-  name: string;
-  status: string;
-}
-
-/**
- * Resolves the current stable release's codename from Launchpad's public
- * series list. Ubuntu has no Debian-`stable`-style always-current URL
- * alias in the archive itself (codenames are the only suite identifier,
- * and both LTS and interim releases stay "Supported" long after they
- * stop being current), so this leans on Launchpad's own
- * `status: "Current Stable Release"` marker instead, which names exactly
- * one series at a time — the same one a fresh `apt` install would use.
- * Pure — no I/O — given an already-fetched series list.
- */
-export function resolveCurrentSuite(series: LaunchpadSeries[]): string {
-  const current = series.find((entry) => entry.status === "Current Stable Release");
-  if (!current) {
-    throw new Error("Launchpad reported no current Ubuntu stable release");
-  }
-
-  return current.name;
-}
-
-async function fetchCurrentSuite(): Promise<string> {
-  const response = await fetchOrThrow(
-    "https://api.launchpad.net/devel/ubuntu/series",
-    "Launchpad Ubuntu series",
-  );
-  const { entries } = (await response.json()) as { entries: LaunchpadSeries[] };
-  return resolveCurrentSuite(entries);
 }
 
 /**

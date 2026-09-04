@@ -6,6 +6,7 @@ import { searchArch } from "./pacman-arch";
 import { searchAur } from "./pacman-aur";
 import { searchDebian } from "./deb-debian";
 import { searchDebianAppstream } from "./deb-debian-appstream";
+import { searchUbuntuAppstream } from "./deb-ubuntu-appstream";
 import { searchDeepin } from "./deb-deepin";
 import { searchFedora } from "./rpm-fedora";
 import { searchFlathub } from "./flatpak-flathub";
@@ -58,6 +59,7 @@ export async function searchAllSources(query: string): Promise<SourcedPackage[]>
     searchDeepin(query),
     searchMxLinux(query),
     searchDebianAppstream(query),
+    searchUbuntuAppstream(query),
     searchGog(query),
     searchLutris(query),
     searchGithubReleases(query),

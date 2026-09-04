@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { parsePackages, resolveCurrentSuite } from "./fetch";
+import { parsePackages } from "./fetch";
 
 const FIXTURE = `Package: 0ad
 Version: 0.27.0-2+b1ubuntu1
@@ -50,25 +50,5 @@ describe("parsePackages", () => {
 
   it("leaves section undefined when the field is absent", () => {
     expect(entries[1]?.section).toBeUndefined();
-  });
-});
-
-describe("resolveCurrentSuite", () => {
-  it("picks the series marked Current Stable Release, ignoring Supported/Obsolete ones", () => {
-    const series = [
-      { name: "stonking", status: "Active Development" },
-      { name: "resolute", status: "Current Stable Release" },
-      { name: "noble", status: "Supported" },
-      { name: "jammy", status: "Supported" },
-      { name: "mantic", status: "Obsolete" },
-    ];
-
-    expect(resolveCurrentSuite(series)).toBe("resolute");
-  });
-
-  it("throws when no series is marked Current Stable Release", () => {
-    const series = [{ name: "noble", status: "Supported" }];
-
-    expect(() => resolveCurrentSuite(series)).toThrow(/no current Ubuntu/);
   });
 });

@@ -40,9 +40,9 @@
     "reason": "Wolfenstein 3D/Return to Castle Wolfenstein ports and their companion common/server packages (rtcw(-common/-server), wolf4sdl-*). Verified live: 8 real matches, zero unrelated collisions."
   },
   {
-    "pattern": "\\b(platform|platformer|fighting|horror|zombie) game\\b",
+    "pattern": "\\b(platform|platformer|fighting|horror) game\\b",
     "category": "Action",
-    "reason": "Genre-word-in-apposition self-descriptions (\"2D platformer game\"). Verified live against the apps/games \"To Classify\" pools (2026-09-03)."
+    "reason": "Genre-word-in-apposition self-descriptions (\"2D platformer game\", \"A Doom-like non-euclidean horror game\"). Re-verified live 2026-09-04 against the real merged catalog: \"horror game\" — 2/2 matches genuinely Action (Doom-like FPS, survival horror), both correctly classified. \"zombie game\" was dropped from this pattern: zero real matches in the live catalog, and horror-genre games span Adventure/Puzzle/Simulation too often to trust a broader zombie-game generalization without real samples to check it against."
   },
   {
     "pattern": "\\b(roguelike|rogue-like|rpg) game\\b",

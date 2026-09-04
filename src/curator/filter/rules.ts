@@ -67,6 +67,18 @@ const NOISE_PATTERNS: RegExp[] = [
   // "selinux support/policy" description phrase — zero real standalone-
   // app counter-examples found.
   /-(openrc|runit|selinux)$/,
+  // Same "companion, not a launchable app" shape, two more conventions
+  // found mining the To Classify bucket again (2026-09-04): "-dinit"
+  // (yet another init system's service-script convention, same as
+  // openrc/runit — 19 real matches, 100% service scripts, zero
+  // exceptions) and "-udev" (udev hardware-rule packages for another
+  // app/device — 170 real matches). "-udev" needed real rescues, unlike
+  // the others: systemd-udev (the real udev daemon itself), py3-udev
+  // (real Python libudev bindings), vlc-plugin-udev, virtualbox-guest-
+  // additions-udev, and system-config-printer-udev are all genuine,
+  // already-correctly-classified apps/components riding the same
+  // suffix — see config/filter-keep.json.
+  /-(dinit|udev)$/,
   // Fonts. `ttc-` (TrueType Collection) added live investigating the
   // apps "To Classify" bucket (2026-09-02): 50 real matches (mostly
   // Iosevka's own coding-typeface variant family), zero non-font

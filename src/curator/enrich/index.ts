@@ -141,7 +141,11 @@ function hasGameEvidence(pkg: SourcedPackage): boolean {
 // opposite direction (missing positive evidence, not a false positive).
 // Verified live (2026-09-04): these are the only catalog packages with
 // either exact name, zero collision risk.
-const GAME_NAME_LITERAL_EVIDENCE = new Set(["stone-soup-tiles-git", "stone-soup-tiles", "stone-soup-console"]);
+const GAME_NAME_LITERAL_EVIDENCE = new Set([
+  "stone-soup-tiles-git",
+  "stone-soup-tiles",
+  "stone-soup-console",
+]);
 
 function hasGameNameEvidence(pkg: SourcedPackage): boolean {
   return GAME_NAME_LITERAL_EVIDENCE.has(pkg.name.toLowerCase());

@@ -1,6 +1,6 @@
 {
   "source": "deb-debian-appstream",
-  "fetchedAt": "2026-09-03T22:32:06.323Z",
+  "fetchedAt": "2026-09-05T08:18:01.534Z",
   "url": "https://deb.debian.org/debian/dists/stable/main/dep11/Components-amd64.yml.gz, https://deb.debian.org/debian/dists/stable/contrib/dep11/Components-amd64.yml.gz, https://deb.debian.org/debian/dists/stable/non-free/dep11/Components-amd64.yml.gz",
   "entryCount": 2109,
   "suite": "stable",

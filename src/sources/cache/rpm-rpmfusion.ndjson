@@ -1,9 +1,9 @@
 {"name":"acoustid-fingerprinter","summary":"Music AcoustID fingerprinting application","version":"0.6","homepage":"https://github.com/acoustid/acoustid-fingerprinter","group":"Unspecified","hasDesktopFile":true}
-{"name":"akmod-VirtualBox","summary":"Akmod package for VirtualBox kernel module(s)","version":"7.2.14","homepage":"http://www.virtualbox.org/wiki/VirtualBox","group":"Unspecified","hasDesktopFile":false}
+{"name":"akmod-VirtualBox","summary":"Akmod package for VirtualBox kernel module(s)","version":"7.2.16","homepage":"http://www.virtualbox.org/wiki/VirtualBox","group":"Unspecified","hasDesktopFile":false}
 {"name":"akmod-intel-vision","summary":"Akmod package for intel-vision kernel module(s)","version":"2025112.WW46.3_25_ptl_pv","homepage":"https://github.com/intel/vision-drivers","group":"Unspecified","hasDesktopFile":false}
 {"name":"akmod-ndiswrapper","summary":"Akmod package for ndiswrapper kernel module(s)","version":"1.63","homepage":"http://ndiswrapper.sourceforge.net","group":"Unspecified","hasDesktopFile":false}
 {"name":"akmod-v4l2loopback","summary":"Akmod package for v4l2loopback kernel module(s)","version":"0.15.4","homepage":"https://github.com/umlaeute/v4l2loopback","group":"Unspecified","hasDesktopFile":false}
-{"name":"akmod-xtables-addons","summary":"Akmod package for xtables-addons kernel module(s)","version":"3.30","homepage":"https://inai.de/projects/xtables-addons/","group":"Unspecified","hasDesktopFile":false}
+{"name":"akmod-xtables-addons","summary":"Akmod package for xtables-addons kernel module(s)","version":"3.31","homepage":"https://inai.de/projects/xtables-addons/","group":"Unspecified","hasDesktopFile":false}
 {"name":"amule","summary":"File sharing client compatible with eDonkey","version":"2.3.3^20260223gite75280d","homepage":"https://www.amule.org","group":"Unspecified","hasDesktopFile":true}
 {"name":"amule-nogui","summary":"Components of aMule which don't require a GUI (for servers)","version":"2.3.3^20260223gite75280d","homepage":"https://www.amule.org","group":"Unspecified","hasDesktopFile":false}
 {"name":"arcem","summary":"Highly portable Acorn Archimedes emulator","version":"1.50.2","homepage":"http://arcem.sourceforge.net","group":"Unspecified","hasDesktopFile":true}
@@ -72,11 +72,11 @@
 {"name":"jellyfin-server","summary":"The Free Software Media System Server backend","version":"10.11.11","homepage":"https://jellyfin.org","group":"Unspecified","hasDesktopFile":false}
 {"name":"jellyfin-server-lowports","summary":"The Free Software Media System Server backend.  Low-port binding.","version":"10.11.11","homepage":"https://jellyfin.org","group":"Unspecified","hasDesktopFile":false}
 {"name":"jellyfin-web","summary":"The Free Software Media System Server frontend","version":"10.11.11","homepage":"https://jellyfin.org","group":"Unspecified","hasDesktopFile":false}
-{"name":"kmod-VirtualBox","summary":"Metapackage which tracks in VirtualBox kernel module for newest kernel","version":"7.2.14","homepage":"http://www.virtualbox.org/wiki/VirtualBox","group":"Unspecified","hasDesktopFile":false}
+{"name":"kmod-VirtualBox","summary":"Metapackage which tracks in VirtualBox kernel module for newest kernel","version":"7.2.16","homepage":"http://www.virtualbox.org/wiki/VirtualBox","group":"Unspecified","hasDesktopFile":false}
 {"name":"kmod-intel-vision","summary":"Metapackage which tracks in intel-vision kernel module for newest kernel","version":"2025112.WW46.3_25_ptl_pv","homepage":"https://github.com/intel/vision-drivers","group":"Unspecified","hasDesktopFile":false}
 {"name":"kmod-ndiswrapper","summary":"Metapackage which tracks in ndiswrapper kernel module for newest kernel","version":"1.63","homepage":"http://ndiswrapper.sourceforge.net","group":"Unspecified","hasDesktopFile":false}
 {"name":"kmod-v4l2loopback","summary":"Metapackage which tracks in v4l2loopback kernel module for newest kernel","version":"0.15.4","homepage":"https://github.com/umlaeute/v4l2loopback","group":"Unspecified","hasDesktopFile":false}
-{"name":"kmod-xtables-addons","summary":"Metapackage which tracks in xtables-addons kernel module for newest kernel","version":"3.30","homepage":"https://inai.de/projects/xtables-addons/","group":"Unspecified","hasDesktopFile":false}
+{"name":"kmod-xtables-addons","summary":"Metapackage which tracks in xtables-addons kernel module for newest kernel","version":"3.31","homepage":"https://inai.de/projects/xtables-addons/","group":"Unspecified","hasDesktopFile":false}
 {"name":"kodi","summary":"Media center","version":"22.0","homepage":"https://www.kodi.tv/","group":"Applications/Multimedia","hasDesktopFile":true}
 {"name":"kodi-devel","summary":"Development files needed to compile C programs against kodi","version":"22.0","homepage":"https://www.kodi.tv/","group":"Applications/Multimedia","hasDesktopFile":false}
 {"name":"kodi-eventclients","summary":"Media center event client remotes","version":"22.0","homepage":"https://www.kodi.tv/","group":"Applications/Multimedia","hasDesktopFile":false}
@@ -153,8 +153,8 @@
 {"name":"medialibrary-devel","summary":"Development files for medialibrary","version":"0.13.2","homepage":"https://code.videolan.org/videolan/medialibrary","group":"Unspecified","hasDesktopFile":false}
 {"name":"megamario","summary":"Well known platform game clone","version":"1.7","homepage":"http://mmario.sourceforge.net/","group":"Amusements/Games","hasDesktopFile":true}
 {"name":"mencoder","summary":"MPlayer movie encoder","version":"1.5.1","homepage":"https://www.mplayerhq.hu/","group":"Unspecified","hasDesktopFile":false}
-{"name":"mesa-va-drivers-freeworld","summary":"Mesa-based VA-API drivers","version":"26.1.7","homepage":"https://mesa3d.org","group":"Unspecified","hasDesktopFile":false}
-{"name":"mesa-vulkan-drivers-freeworld","summary":"Mesa Vulkan drivers","version":"26.1.7","homepage":"https://mesa3d.org","group":"Unspecified","hasDesktopFile":false}
+{"name":"mesa-va-drivers-freeworld","summary":"Mesa-based VA-API drivers","version":"26.1.8","homepage":"https://mesa3d.org","group":"Unspecified","hasDesktopFile":false}
+{"name":"mesa-vulkan-drivers-freeworld","summary":"Mesa Vulkan drivers","version":"26.1.8","homepage":"https://mesa3d.org","group":"Unspecified","hasDesktopFile":false}
 {"name":"mimms","summary":"MMS stream downloader","version":"3.2.1","homepage":"http://savannah.nongnu.org/projects/mimms/","group":"Applications/Multimedia","hasDesktopFile":false}
 {"name":"mingw32-libmad","summary":"MPEG audio decoder library","version":"0.15.1b","homepage":"http://www.underbit.com/products/mad/","group":"Unspecified","hasDesktopFile":false}
 {"name":"mingw64-libmad","summary":"MPEG audio decoder library","version":"0.15.1b","homepage":"http://www.underbit.com/products/mad/","group":"Unspecified","hasDesktopFile":false}
@@ -246,24 +246,24 @@
 {"name":"svt-hevc-devel","summary":"Include files and mandatory libraries for development svt-hevc","version":"1.5.1","homepage":"https://github.com/OpenVisualCloud/SVT-HEVC","group":"Unspecified","hasDesktopFile":false}
 {"name":"svt-hevc-libs","summary":"Libraries for svt-hevc","version":"1.5.1","homepage":"https://github.com/OpenVisualCloud/SVT-HEVC","group":"Unspecified","hasDesktopFile":false}
 {"name":"swftools","summary":"SWF manipulation and generation utilities","version":"0.9.2^20211216git772e55a","homepage":"http://www.swftools.org/","group":"Unspecified","hasDesktopFile":false}
-{"name":"telegram-desktop","summary":"Telegram Desktop official messaging app","version":"7.0.6","homepage":"https://github.com/telegramdesktop/tdesktop","group":"Unspecified","hasDesktopFile":true}
+{"name":"telegram-desktop","summary":"Telegram Desktop official messaging app","version":"7.1.1","homepage":"https://github.com/telegramdesktop/tdesktop","group":"Unspecified","hasDesktopFile":true}
 {"name":"terminatorX","summary":"Real-time Audio Synthesizer","version":"4.2.0","homepage":"https://terminatorx.org/","group":"Applications/Multimedia","hasDesktopFile":true}
 {"name":"tg_owt-devel","summary":"Development files for tg_owt","version":"0","homepage":"https://github.com/desktop-app/tg_owt","group":"Unspecified","hasDesktopFile":false}
 {"name":"tilem","summary":"Emulator and debugger for Texas Instruments Z80-based graphing calculators","version":"2.0","homepage":"http://lpg.ticalc.org/prj_tilem/","group":"Unspecified","hasDesktopFile":true}
 {"name":"tivodecode-ng","summary":"Convert a .TiVo file from TiVoToGo to a normal MPEG","version":"0.5","homepage":"https://github.com/wmcbrine/tivodecode-ng","group":"Unspecified","hasDesktopFile":false}
 {"name":"torrentzip","summary":"Create identical zip files over multiple systems","version":"1.3","homepage":"https://github.com/0-wiz-0/trrntzip","group":"Unspecified","hasDesktopFile":false}
 {"name":"tvheadend","summary":"TV streaming server and digital video recorder","version":"4.3^20260623git80729d2","homepage":"https://tvheadend.org/","group":"Unspecified","hasDesktopFile":false}
-{"name":"VirtualBox","summary":"A general-purpose full virtualizer for PC hardware","version":"7.2.14","homepage":"https://www.virtualbox.org/wiki/VirtualBox","group":"Unspecified","hasDesktopFile":true}
-{"name":"VirtualBox-devel","summary":"VirtualBox SDK","version":"7.2.14","homepage":"https://www.virtualbox.org/wiki/VirtualBox","group":"Development/Libraries","hasDesktopFile":false}
-{"name":"VirtualBox-kmodsrc","summary":"VirtualBox kernel module source code","version":"7.2.14","homepage":"https://www.virtualbox.org/wiki/VirtualBox","group":"System Environment/Kernel","hasDesktopFile":false}
-{"name":"VirtualBox-server","summary":"Core part (host server) for VirtualBox","version":"7.2.14","homepage":"https://www.virtualbox.org/wiki/VirtualBox","group":"Development/Tools","hasDesktopFile":true}
-{"name":"VirtualBox-vnc","summary":"VNC desktop sharing","version":"7.2.14","homepage":"https://www.virtualbox.org/wiki/VirtualBox","group":"System/Emulators/PC","hasDesktopFile":false}
-{"name":"VirtualBox-webservice","summary":"WebService GUI part for VirtualBox","version":"7.2.14","homepage":"https://www.virtualbox.org/wiki/VirtualBox","group":"System/Emulators/PC","hasDesktopFile":false}
+{"name":"VirtualBox","summary":"A general-purpose full virtualizer for PC hardware","version":"7.2.16","homepage":"https://www.virtualbox.org/wiki/VirtualBox","group":"Unspecified","hasDesktopFile":true}
+{"name":"VirtualBox-devel","summary":"VirtualBox SDK","version":"7.2.16","homepage":"https://www.virtualbox.org/wiki/VirtualBox","group":"Development/Libraries","hasDesktopFile":false}
+{"name":"VirtualBox-kmodsrc","summary":"VirtualBox kernel module source code","version":"7.2.16","homepage":"https://www.virtualbox.org/wiki/VirtualBox","group":"System Environment/Kernel","hasDesktopFile":false}
+{"name":"VirtualBox-server","summary":"Core part (host server) for VirtualBox","version":"7.2.16","homepage":"https://www.virtualbox.org/wiki/VirtualBox","group":"Development/Tools","hasDesktopFile":true}
+{"name":"VirtualBox-vnc","summary":"VNC desktop sharing","version":"7.2.16","homepage":"https://www.virtualbox.org/wiki/VirtualBox","group":"System/Emulators/PC","hasDesktopFile":false}
+{"name":"VirtualBox-webservice","summary":"WebService GUI part for VirtualBox","version":"7.2.16","homepage":"https://www.virtualbox.org/wiki/VirtualBox","group":"System/Emulators/PC","hasDesktopFile":false}
 {"name":"v4l2-relayd","summary":"Utils for relaying the video stream between two video devices","version":"0.2.0","group":"Unspecified","hasDesktopFile":false}
 {"name":"v4l2loopback","summary":"Utils for V4L2 loopback devices","version":"0.15.4","homepage":"https://github.com/umlaeute/v4l2loopback","group":"Unspecified","hasDesktopFile":false}
 {"name":"vagalume","summary":"Last.fm client for GNOME and Maemo","version":"0.8.6","homepage":"http://vagalume.igalia.com/","group":"Applications/Multimedia","hasDesktopFile":true}
-{"name":"vcmi","summary":"Heroes of Might and Magic 3 game engine","version":"1.7.3","homepage":"https://vcmi.eu/","group":"Unspecified","hasDesktopFile":true}
-{"name":"vcmi-data","summary":"Data files for vcmi","version":"1.7.3","homepage":"https://vcmi.eu/","group":"Unspecified","hasDesktopFile":false}
+{"name":"vcmi","summary":"Heroes of Might and Magic 3 game engine","version":"1.7.5","homepage":"https://vcmi.eu/","group":"Unspecified","hasDesktopFile":true}
+{"name":"vcmi-data","summary":"Data files for vcmi","version":"1.7.5","homepage":"https://vcmi.eu/","group":"Unspecified","hasDesktopFile":false}
 {"name":"vdr-burn","summary":"DVD writing plugin for VDR","version":"0.3.1","homepage":"https://github.com/FireFlyVDR/vdr-plugin-burn","group":"Unspecified","hasDesktopFile":false}
 {"name":"vdr-markad","summary":"Advanced commercial detection for VDR","version":"4.2.22","homepage":"https://github.com/kfb77/vdr-plugin-markad","group":"Unspecified","hasDesktopFile":false}
 {"name":"vdr-markad-docs","summary":"Documentation files for vdr-markad","version":"4.2.22","homepage":"https://github.com/kfb77/vdr-plugin-markad","group":"Unspecified","hasDesktopFile":false}
@@ -302,10 +302,10 @@
 {"name":"xmltv-gui","summary":"Graphical frontends to xmltv","version":"1.4.0","homepage":"http://xmltv.org/wiki/","group":"Unspecified","hasDesktopFile":false}
 {"name":"xmris","summary":"Maze digging and cherry eating game","version":"4.0.5","homepage":"http://sourceforge.net/projects/xmris/","group":"Amusements/Games","hasDesktopFile":true}
 {"name":"xmris-editor","summary":"Level editor for xmris","version":"4.0.5","homepage":"http://sourceforge.net/projects/xmris/","group":"Amusements/Games","hasDesktopFile":true}
-{"name":"xpra-codecs-freeworld","summary":"Additional codecs for xpra using x264","version":"6.5.2","homepage":"https://www.xpra.org/","group":"Unspecified","hasDesktopFile":false}
+{"name":"xpra-codecs-freeworld","summary":"Additional codecs for xpra using x264","version":"6.5.3","homepage":"https://www.xpra.org/","group":"Unspecified","hasDesktopFile":false}
 {"name":"xroar","summary":"A Dragon 32, Dragon 64 and Tandy CoCo emulator","version":"1.10","homepage":"http://www.6809.org.uk/xroar/","group":"Unspecified","hasDesktopFile":true}
 {"name":"xt7-player-mpv","summary":"Qt/Gambas gui to mpv media player","version":"0.37.3190","homepage":"http://xt7-player.sourceforge.net/xt7forum/","group":"Unspecified","hasDesktopFile":true}
-{"name":"xtables-addons","summary":"Extensions targets and matches for iptables","version":"3.30","homepage":"https://inai.de/projects/xtables-addons/","group":"Unspecified","hasDesktopFile":false}
+{"name":"xtables-addons","summary":"Extensions targets and matches for iptables","version":"3.31","homepage":"https://inai.de/projects/xtables-addons/","group":"Unspecified","hasDesktopFile":false}
 {"name":"xvid4conf","summary":"Tool to create XviD configuration files","version":"1.12","homepage":"http://www.exit1.org/archive/dvdrip-users/2005-07/msg00007.html","group":"Unspecified","hasDesktopFile":true}
 {"name":"xvst","summary":"Downloading your favourite video clips from a lot of websites","version":"3.0","homepage":"https://www.xvideothief.com","group":"Unspecified","hasDesktopFile":true}
 {"name":"yabause","summary":"A Sega Saturn emulator","version":"0.9.15","homepage":"http://yabause.org","group":"Unspecified","hasDesktopFile":true}
@@ -319,7 +319,7 @@
 {"name":"akmod-intel-ipu6","summary":"Akmod package for intel-ipu6 kernel module(s)","version":"0.0","homepage":"https://github.com/intel/ipu6-drivers","group":"Unspecified","hasDesktopFile":false}
 {"name":"akmod-nvidia-390xx","summary":"Akmod package for nvidia-390xx kernel module(s)","version":"390.157","homepage":"http://www.nvidia.com/","group":"System Environment/Kernel","hasDesktopFile":false}
 {"name":"akmod-nvidia-470xx","summary":"Akmod package for nvidia-470xx kernel module(s)","version":"470.256.02","homepage":"https://www.nvidia.com/","group":"Unspecified","hasDesktopFile":false}
-{"name":"akmod-nvidia-580xx","summary":"Akmod package for nvidia-580xx kernel module(s)","version":"580.173.02","homepage":"https://www.nvidia.com/","group":"Unspecified","hasDesktopFile":false}
+{"name":"akmod-nvidia-580xx","summary":"Akmod package for nvidia-580xx kernel module(s)","version":"580.178.04","homepage":"https://www.nvidia.com/","group":"Unspecified","hasDesktopFile":false}
 {"name":"akmod-nvidia","summary":"Akmod package for nvidia kernel module(s)","version":"610.57.04","homepage":"https://www.nvidia.com/","group":"Unspecified","hasDesktopFile":false}
 {"name":"akmod-nvidia-open","summary":"Akmod package for nvidia-open kernel module(s)","version":"595.58.03","homepage":"https://github.com/NVIDIA/open-gpu-kernel-modules","group":"Unspecified","hasDesktopFile":false}
 {"name":"akmod-wl","summary":"Akmod package for wl kernel module(s)","version":"6.30.223.271","homepage":"https://www.broadcom.com/support/download-search?pg=Legacy+Products&pf=Legacy+Wireless&pn=&pa=&po=&dk=&pl=","group":"System Environment/Kernel","hasDesktopFile":false}
@@ -381,7 +381,7 @@
 {"name":"kmod-intel-ipu6","summary":"Metapackage which tracks in intel-ipu6 kernel module for newest kernel","version":"0.0","homepage":"https://github.com/intel/ipu6-drivers","group":"Unspecified","hasDesktopFile":false}
 {"name":"kmod-nvidia-390xx","summary":"Metapackage which tracks in nvidia-390xx kernel module for newest kernel","version":"390.157","homepage":"http://www.nvidia.com/","group":"System Environment/Kernel","hasDesktopFile":false}
 {"name":"kmod-nvidia-470xx","summary":"Metapackage which tracks in nvidia-470xx kernel module for newest kernel","version":"470.256.02","homepage":"https://www.nvidia.com/","group":"Unspecified","hasDesktopFile":false}
-{"name":"kmod-nvidia-580xx","summary":"Metapackage which tracks in nvidia-580xx kernel module for newest kernel","version":"580.173.02","homepage":"https://www.nvidia.com/","group":"Unspecified","hasDesktopFile":false}
+{"name":"kmod-nvidia-580xx","summary":"Metapackage which tracks in nvidia-580xx kernel module for newest kernel","version":"580.178.04","homepage":"https://www.nvidia.com/","group":"Unspecified","hasDesktopFile":false}
 {"name":"kmod-nvidia","summary":"Metapackage which tracks in nvidia kernel module for newest kernel","version":"610.57.04","homepage":"https://www.nvidia.com/","group":"Unspecified","hasDesktopFile":false}
 {"name":"kmod-nvidia-open","summary":"Metapackage which tracks in nvidia-open kernel module for newest kernel","version":"595.58.03","homepage":"https://github.com/NVIDIA/open-gpu-kernel-modules","group":"Unspecified","hasDesktopFile":false}
 {"name":"kmod-wl","summary":"Metapackage which tracks in wl kernel module for newest kernel","version":"6.30.223.271","homepage":"https://www.broadcom.com/support/download-search?pg=Legacy+Products&pf=Legacy+Wireless&pn=&pa=&po=&dk=&pl=","group":"System Environment/Kernel","hasDesktopFile":false}
@@ -402,7 +402,7 @@
 {"name":"lpf-cleartype-fonts","summary":"Bootstrap package building cleartype-fonts using lpf","version":"1.0","homepage":"https://github.com/leamas/lpf","group":"Development/Tools","hasDesktopFile":true}
 {"name":"lpf-mscore-fonts","summary":"Bootstrap package building ms-core-fonts using lpf","version":"2.2","homepage":"https://github.com/leamas/lpf","group":"Development/Tools","hasDesktopFile":true}
 {"name":"lpf-mscore-tahoma-fonts","summary":"Bootstrap package building mscore-tahoma-fonts using lpf","version":"1.0","homepage":"https://github.com/leamas/lpf","group":"Development/Tools","hasDesktopFile":true}
-{"name":"lpf-spotify-client","summary":"Spotify music player native client package bootstrap","version":"1.2.95.453","homepage":"https://github.com/sergiomb2/spotify-make","group":"Unspecified","hasDesktopFile":true}
+{"name":"lpf-spotify-client","summary":"Spotify music player native client package bootstrap","version":"1.2.96.518","homepage":"https://github.com/sergiomb2/spotify-make","group":"Unspecified","hasDesktopFile":true}
 {"name":"man-pages-posix","summary":"POSIX interface documentation","version":"2017a","homepage":"https://www.kernel.org/doc/man-pages/","group":"Unspecified","hasDesktopFile":false}
 {"name":"mari0","summary":"A recreation of the original Super Mario Bros with a portal gun","version":"1.6.2","homepage":"http://stabyourself.net/mari0/","group":"Unspecified","hasDesktopFile":true}
 {"name":"megasync","summary":"Easy automated syncing between your computers and your MEGA cloud drive","version":"6.5.1.0","homepage":"https://mega.nz","group":"Unspecified","hasDesktopFile":true}
@@ -427,7 +427,7 @@
 {"name":"nvidia-persistenced","summary":"Daemon for maintaining persistent driver state","version":"610.57.04","homepage":"https://github.com/NVIDIA/nvidia-persistenced","group":"Unspecified","hasDesktopFile":false}
 {"name":"nvidia-settings-390xx","summary":"Configure the NVIDIA 390xx series graphics driver","version":"390.157","homepage":"https://download.nvidia.com/XFree86/nvidia-settings/","group":"Unspecified","hasDesktopFile":true}
 {"name":"nvidia-settings-470xx","summary":"Configure the NVIDIA 470xx series graphics driver","version":"470.256.02","homepage":"https://github.com/NVIDIA/nvidia-settings","group":"Unspecified","hasDesktopFile":true}
-{"name":"nvidia-settings-580xx","summary":"Configure the NVIDIA graphics driver","version":"580.173.02","homepage":"https://github.com/NVIDIA/nvidia-settings","group":"Unspecified","hasDesktopFile":true}
+{"name":"nvidia-settings-580xx","summary":"Configure the NVIDIA graphics driver","version":"580.178.04","homepage":"https://github.com/NVIDIA/nvidia-settings","group":"Unspecified","hasDesktopFile":true}
 {"name":"nvidia-settings","summary":"Configure the NVIDIA graphics driver","version":"610.57.04","homepage":"https://github.com/NVIDIA/nvidia-settings","group":"Unspecified","hasDesktopFile":true}
 {"name":"nvidia-xconfig","summary":"NVIDIA X configuration file editor","version":"610.57.04","homepage":"https://github.com/NVIDIA/nvidia-xconfig","group":"Unspecified","hasDesktopFile":false}
 {"name":"OpenEXR_Viewers-nonfree","summary":"Viewers programs for OpenEXR","version":"2.3.0","homepage":"http://www.openexr.com","group":"Unspecified","hasDesktopFile":false}
@@ -511,14 +511,14 @@
 {"name":"xorg-x11-drv-nvidia-470xx-kmodsrc","summary":"xorg-x11-drv-nvidia-470xx kernel module source code","version":"470.256.02","homepage":"https://www.nvidia.com/","group":"Unspecified","hasDesktopFile":false}
 {"name":"xorg-x11-drv-nvidia-470xx-libs","summary":"Libraries for xorg-x11-drv-nvidia-470xx","version":"470.256.02","homepage":"https://www.nvidia.com/","group":"Unspecified","hasDesktopFile":false}
 {"name":"xorg-x11-drv-nvidia-470xx-power","summary":"Advanced  power management","version":"470.256.02","homepage":"https://www.nvidia.com/","group":"Unspecified","hasDesktopFile":false}
-{"name":"xorg-x11-drv-nvidia-580xx","summary":"NVIDIA's 580xx proprietary display driver for NVIDIA graphic cards","version":"580.173.02","homepage":"https://www.nvidia.com/","group":"Unspecified","hasDesktopFile":false}
-{"name":"xorg-x11-drv-nvidia-580xx-cuda","summary":"CUDA driver tools for xorg-x11-drv-nvidia-580xx","version":"580.173.02","homepage":"https://www.nvidia.com/","group":"Unspecified","hasDesktopFile":false}
-{"name":"xorg-x11-drv-nvidia-580xx-cuda-libs","summary":"CUDA libraries for xorg-x11-drv-nvidia-580xx","version":"580.173.02","homepage":"https://www.nvidia.com/","group":"Unspecified","hasDesktopFile":false}
-{"name":"xorg-x11-drv-nvidia-580xx-devel","summary":"Development files for xorg-x11-drv-nvidia-580xx","version":"580.173.02","homepage":"https://www.nvidia.com/","group":"Unspecified","hasDesktopFile":false}
-{"name":"xorg-x11-drv-nvidia-580xx-kmodsrc","summary":"xorg-x11-drv-nvidia-580xx kernel module source code","version":"580.173.02","homepage":"https://www.nvidia.com/","group":"Unspecified","hasDesktopFile":false}
-{"name":"xorg-x11-drv-nvidia-580xx-libs","summary":"Libraries for xorg-x11-drv-nvidia-580xx","version":"580.173.02","homepage":"https://www.nvidia.com/","group":"Unspecified","hasDesktopFile":false}
-{"name":"xorg-x11-drv-nvidia-580xx-power","summary":"Advanced  power management","version":"580.173.02","homepage":"https://www.nvidia.com/","group":"Unspecified","hasDesktopFile":false}
-{"name":"xorg-x11-drv-nvidia-580xx-xorg-libs","summary":"Xorg Libraries for xorg-x11-drv-nvidia-580xx","version":"580.173.02","homepage":"https://www.nvidia.com/","group":"Unspecified","hasDesktopFile":false}
+{"name":"xorg-x11-drv-nvidia-580xx","summary":"NVIDIA's 580xx proprietary display driver for NVIDIA graphic cards","version":"580.178.04","homepage":"https://www.nvidia.com/","group":"Unspecified","hasDesktopFile":false}
+{"name":"xorg-x11-drv-nvidia-580xx-cuda","summary":"CUDA driver tools for xorg-x11-drv-nvidia-580xx","version":"580.178.04","homepage":"https://www.nvidia.com/","group":"Unspecified","hasDesktopFile":false}
+{"name":"xorg-x11-drv-nvidia-580xx-cuda-libs","summary":"CUDA libraries for xorg-x11-drv-nvidia-580xx","version":"580.178.04","homepage":"https://www.nvidia.com/","group":"Unspecified","hasDesktopFile":false}
+{"name":"xorg-x11-drv-nvidia-580xx-devel","summary":"Development files for xorg-x11-drv-nvidia-580xx","version":"580.178.04","homepage":"https://www.nvidia.com/","group":"Unspecified","hasDesktopFile":false}
+{"name":"xorg-x11-drv-nvidia-580xx-kmodsrc","summary":"xorg-x11-drv-nvidia-580xx kernel module source code","version":"580.178.04","homepage":"https://www.nvidia.com/","group":"Unspecified","hasDesktopFile":false}
+{"name":"xorg-x11-drv-nvidia-580xx-libs","summary":"Libraries for xorg-x11-drv-nvidia-580xx","version":"580.178.04","homepage":"https://www.nvidia.com/","group":"Unspecified","hasDesktopFile":false}
+{"name":"xorg-x11-drv-nvidia-580xx-power","summary":"Advanced  power management","version":"580.178.04","homepage":"https://www.nvidia.com/","group":"Unspecified","hasDesktopFile":false}
+{"name":"xorg-x11-drv-nvidia-580xx-xorg-libs","summary":"Xorg Libraries for xorg-x11-drv-nvidia-580xx","version":"580.178.04","homepage":"https://www.nvidia.com/","group":"Unspecified","hasDesktopFile":false}
 {"name":"xorg-x11-drv-nvidia","summary":"NVIDIA's proprietary display driver for NVIDIA graphic cards","version":"610.57.04","homepage":"https://www.nvidia.com/","group":"Unspecified","hasDesktopFile":false}
 {"name":"xorg-x11-drv-nvidia-cuda","summary":"CUDA driver tools for xorg-x11-drv-nvidia","version":"610.57.04","homepage":"https://www.nvidia.com/","group":"Unspecified","hasDesktopFile":false}
 {"name":"xorg-x11-drv-nvidia-cuda-libs","summary":"CUDA libraries for xorg-x11-drv-nvidia","version":"610.57.04","homepage":"https://www.nvidia.com/","group":"Unspecified","hasDesktopFile":false}
@@ -533,7 +533,7 @@
 {"name":"yapeSDL","summary":"A Commodore 264 family (C16, plus/4 etc.) emulator","version":"0.81.1","homepage":"https://github.com/calmopyrin/yapesdl","group":"Unspecified","hasDesktopFile":true}
 {"name":"zerotier-one","summary":"Smart Ethernet Switch for Earth","version":"1.16.2","homepage":"https://zerotier.com","group":"Unspecified","hasDesktopFile":false}
 {"name":"dvdstyler","summary":"Cross-platform DVD authoring application","version":"3.3","homepage":"http://www.dvdstyler.de/","group":"Unspecified","hasDesktopFile":true}
-{"name":"redumper","summary":"Low level CD dumper utility","version":"b742","homepage":"https://github.com/superg/redumper","group":"Unspecified","hasDesktopFile":false}
+{"name":"redumper","summary":"Low level CD dumper utility","version":"b746","homepage":"https://github.com/superg/redumper","group":"Unspecified","hasDesktopFile":false}
 {"name":"nautilus-megasync","summary":"Extension for Nautilus to interact with Megasync","version":"6.5.1.0","homepage":"https://mega.nz","group":"Unspecified","hasDesktopFile":false}
 {"name":"steam-arch-transition","summary":"Transition package for migrating Steam from i686 to x86_64","version":"1.0.0.87","homepage":"http://www.steampowered.com/","group":"Unspecified","hasDesktopFile":false}
 {"name":"thunar-megasync","summary":"Extension for Thunar to interact with Megasync","version":"6.5.1.0","homepage":"https://mega.nz","group":"Unspecified","hasDesktopFile":false}

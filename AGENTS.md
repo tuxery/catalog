@@ -129,11 +129,16 @@ needed — Turso already serves them), reading credentials from
 (`TURSO_DB_URL`/`TURSO_DB_AUTH_TOKEN`), shared with `app`'s side rather
 than duplicated per repo:
 
-- **preview**: backs Cloudflare's preview Worker deployment. Also what
-  `.github/workflows/publish.yml` publishes to on every PR against
-  `main`, so a reviewer sees the real effect of a change before it lands.
-- **prod**: backs the production Worker. What `publish.yml` publishes to
-  on merge to `main`.
+- **preview**: backs Cloudflare's preview Worker deployment.
+- **prod**: backs the production Worker.
+
+`.github/workflows/publish.yml` targets either one, but is
+`workflow_dispatch`-only (manual, pick `preview` or `prod` from the
+Actions UI) since 2026-09-03 — it used to fire on every PR/merge, which
+combined with the classification work's commit cadence to burn through
+Turso's monthly write quota in a day. Re-enabling the automatic triggers
+needs a real signal for how often a publish is actually worth its cost,
+not "on every push regardless of whether the dataset changed."
 
 `pnpm reset-caches` refreshes `src/sources/cache/*.ndjson` alone, without
 rebuilding the dataset or seeding anything, for periodic cache maintenance
@@ -162,6 +167,15 @@ seeing an empty or half-populated table. Re-running `pnpm seed` while
 - Keep `src/sources` and `src/curator` free of Qwik/UI dependencies — `app`
   and any future public API both depend on this repo, not the other way
   around.
+- Never run ad-hoc DDL (`CREATE INDEX`, schema tweaks, ...) by hand
+  against the live preview/prod Turso databases — always go through
+  `pnpm seed --preview`/`--prod` (or the `publish.yml` workflow_dispatch),
+  even mid-debugging. Building one index over the ~171k-row `apps` table
+  costs roughly one row-write per row; rebuilding a full set of 11 by
+  hand, across both databases, more than once in the same investigation
+  is exactly what burned a month's Turso write quota (10M rows) in two
+  nights, 2026-09-03/04 — see `src/store/turso-client.ts`'s
+  `APPS_INDEXES_SQL`/`createIndexWithRetry` comments for the incident.
 - Don't wire real upstream network calls into a `src/sources` connector as
   a side effect of unrelated work — per-source rate limits, caching, and
   error handling need deliberate design (see `flathub/fetch.ts` for the

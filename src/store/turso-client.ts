@@ -1,4 +1,5 @@
 import { chunk } from "@helpers4/array";
+import { delay } from "@helpers4/promise";
 import { createClient, type Client } from "@libsql/client";
 
 /**
@@ -237,12 +238,6 @@ const APPS_INDEXES_SQL = [
   `CREATE INDEX idx_apps_content_type_installs_last_7_days ON apps(content_type, installs_last_7_days)`,
 ];
 
-function sleep(ms: number): Promise<void> {
-  return new Promise((resolve) => {
-    setTimeout(resolve, ms);
-  });
-}
-
 const INDEX_RETRY_ATTEMPTS = 3;
 const INDEX_RETRY_BASE_DELAY_MS = 500;
 
@@ -274,7 +269,7 @@ async function createIndexWithRetry(db: Client, indexSql: string): Promise<void>
       const alreadyExists = error instanceof Error && /already exists/i.test(error.message);
       if (!alreadyExists || attempt === INDEX_RETRY_ATTEMPTS) throw error;
       // eslint-disable-next-line no-await-in-loop
-      await sleep(attempt * INDEX_RETRY_BASE_DELAY_MS);
+      await delay(attempt * INDEX_RETRY_BASE_DELAY_MS);
     }
   }
 }

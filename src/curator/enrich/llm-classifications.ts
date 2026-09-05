@@ -47,3 +47,25 @@ export function loadLlmClassifications(): LlmClassificationEntry[] {
 export function llmCategoryMap(entries: LlmClassificationEntry[]): Map<string, string> {
   return new Map(entries.map((entry) => [entry.id, entry.category]));
 }
+
+/**
+ * Looks up an app's LLM-assigned category, but only returns it if it still
+ * matches the app's *current* isGame taxonomy (an app label for a non-game,
+ * a genre for a game). The stored entry is only guaranteed consistent with
+ * contentType at generation time (see `LlmClassificationEntrySchema`'s doc
+ * comment) — a later change to the deterministic isGame signals (tightened
+ * or loosened without rerunning `pnpm classify-llm`) can flip an app's
+ * isGame without regenerating `config/llm-classifications.json`, which
+ * would otherwise leak a stale genre label onto a non-game app or vice
+ * versa instead of falling back to `TO_CLASSIFY`.
+ */
+export function pickLlmCategory(
+  map: Map<string, string>,
+  id: string,
+  isGame: boolean,
+): string | undefined {
+  const category = map.get(id);
+  if (category === undefined) return undefined;
+  const schema = isGame ? GameCategoryLabelSchema : AppCategoryLabelSchema;
+  return schema.safeParse(category).success ? category : undefined;
+}

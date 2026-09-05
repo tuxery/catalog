@@ -2407,7 +2407,7 @@
 {"name":"python3-bleak","description":"Bluetooth Low Energy platform agnostic client","version":"0.22.3-1","homepage":"https://github.com/hbldh/bleak","component":"main","section":"python","hasGameCategory":false}
 {"name":"python3-bleak-retry-connector","description":"Connector for Bleak Clients that handles transient connection failures","version":"3.10.0-3","homepage":"https://github.com/bluetooth-devices/bleak-retry-connector","component":"main","section":"python","hasGameCategory":false}
 {"name":"python3-blebox-uniapi","description":"Library for accessing BleBox smart home devices","version":"2.5.0-3","homepage":"https://github.com/blebox/blebox_uniapi","component":"main","section":"python","hasGameCategory":false}
-{"name":"blender","description":"Very fast and versatile 3D modeller/renderer","version":"4.3.2+dfsg-2","homepage":"https://www.blender.org/","component":"main","section":"graphics","hasGameCategory":true}
+{"name":"blender","description":"Very fast and versatile 3D modeller/renderer","version":"4.3.2+dfsg-2","homepage":"https://www.blender.org/","component":"main","section":"graphics","hasGameCategory":false}
 {"name":"blender-data","description":"Very fast and versatile 3D modeller/renderer - data package","version":"4.3.2+dfsg-2","homepage":"https://www.blender.org/","component":"main","section":"graphics","hasGameCategory":false}
 {"name":"blender-doc","description":"Blender Manual by the Blender Foundation","version":"4.3-1","homepage":"https://docs.blender.org/manual/","component":"main","section":"doc","hasGameCategory":false}
 {"name":"blends-common","description":"Debian Pure Blends common package","version":"0.7.10","homepage":"https://www.debian.org/blends/","component":"main","section":"misc","hasGameCategory":false}
@@ -2461,7 +2461,7 @@
 {"name":"blobandconquer-data","description":"3D platform shooting game -- data files","version":"1.11-dfsg+20-5","homepage":"https://sourceforge.net/projects/blobandconquer/","component":"main","section":"games","hasGameCategory":false}
 {"name":"blobby","description":"Volleyball game with blobs","version":"1.1.1+ds-1+b1","homepage":"https://blobbyvolley.de/","component":"main","section":"games","hasGameCategory":true}
 {"name":"blobby-data","description":"Volleyball game with blobs (data files)","version":"1.1.1+ds-1","homepage":"https://blobbyvolley.de/","component":"main","section":"games","hasGameCategory":false}
-{"name":"blobby-server","description":"Volleyball game with blobs (server)","version":"1.1.1+ds-1+b1","homepage":"https://blobbyvolley.de/","component":"main","section":"games","hasGameCategory":true}
+{"name":"blobby-server","description":"Volleyball game with blobs (server)","version":"1.1.1+ds-1+b1","homepage":"https://blobbyvolley.de/","component":"main","section":"games","hasGameCategory":false}
 {"name":"bloboats","description":"Boat racing game","version":"1.0.2+dfsg-5","homepage":"http://bloboats.dy.fi/about.php","component":"main","section":"games","hasGameCategory":true}
 {"name":"blobwars","description":"platform shooting game","version":"2.00-6","homepage":"http://blobwars.sourceforge.net/","component":"main","section":"games","hasGameCategory":true}
 {"name":"blobwars-data","description":"platform shooting game (data)","version":"2.00-6","homepage":"http://blobwars.sourceforge.net/","component":"main","section":"games","hasGameCategory":false}
@@ -4230,7 +4230,7 @@
 {"name":"clamtk-gnome","description":"GNOME (Nautilus) MenuProvider extension for ClamTk","version":"6.07-1.1","homepage":"https://gitlab.com/dave_m/clamtk","component":"main","section":"utils","hasGameCategory":false}
 {"name":"clanlib-doc","description":"Reference documentation and tutorials for ClanLib","version":"1.0~svn3827-11.2","homepage":"https://github.com/sphair/ClanLib","component":"main","section":"doc","hasGameCategory":true}
 {"name":"libclanapp-1.0t64","description":"ClanLib game SDK runtime","version":"1.0~svn3827-11.2+b1","homepage":"https://github.com/sphair/ClanLib","component":"main","section":"libs","hasGameCategory":false}
-{"name":"libclanlib-dev","description":"ClanLib game SDK development files","version":"1.0~svn3827-11.2+b1","homepage":"https://github.com/sphair/ClanLib","component":"main","section":"libdevel","hasGameCategory":true}
+{"name":"libclanlib-dev","description":"ClanLib game SDK development files","version":"1.0~svn3827-11.2+b1","homepage":"https://github.com/sphair/ClanLib","component":"main","section":"libdevel","hasGameCategory":false}
 {"name":"python3-clap","description":"command line arguments parser","version":"0.14.0-3","homepage":"https://github.com/marekjm/clap","component":"main","section":"python","hasGameCategory":false}
 {"name":"clapper","description":"Simple and modern GNOME media player","version":"0.8.0-2+b1","homepage":"https://rafostar.github.io/clapper","component":"main","section":"misc","hasGameCategory":false}
 {"name":"clasp","description":"conflict-driven nogood learning answer set solver","version":"3.3.5-4.2","homepage":"https://www.potassco.org/clasp/","component":"main","section":"interpreters","hasGameCategory":false}
@@ -5176,7 +5176,7 @@
 {"name":"criticalmass-data","description":"Shoot-em-up a la galaxian (data files)","version":"1:1.0.2-4","homepage":"https://sourceforge.net/projects/criticalmass/","component":"main","section":"games","hasGameCategory":true}
 {"name":"libcritnib-dev","description":"ordered map data structure with lock-free reads","version":"1.1-2+b2","homepage":"https://github.com/kilobyte/critnib","component":"main","section":"libdevel","hasGameCategory":false}
 {"name":"libcritnib1","description":"ordered map data structure with lock-free reads","version":"1.1-2+b2","homepage":"https://github.com/kilobyte/critnib","component":"main","section":"libs","hasGameCategory":false}
-{"name":"critterding","description":"Evolving Artificial Life","version":"1.0-beta12.1+dfsg-1","homepage":"https://critterding.sourceforge.net/","component":"main","section":"science","hasGameCategory":true}
+{"name":"critterding","description":"Evolving Artificial Life","version":"1.0-beta12.1+dfsg-1","homepage":"https://critterding.sourceforge.net/","component":"main","section":"science","hasGameCategory":false}
 {"name":"criu","description":"checkpoint and restore in userspace","version":"4.1.1-1","homepage":"https://www.criu.org/","component":"main","section":"admin","hasGameCategory":false}
 {"name":"libcompel-dev","description":"execute arbitrary code in the context of a foreign process (development headers)","version":"4.1.1-1","homepage":"https://www.criu.org/","component":"main","section":"libdevel","hasGameCategory":false}
 {"name":"libcompel1","description":"execute arbitrary code in the context of a foreign process (library)","version":"4.1.1-1","homepage":"https://www.criu.org/","component":"main","section":"libs","hasGameCategory":false}
@@ -6151,8 +6151,8 @@
 {"name":"games-console","description":"Debian's console games","version":"5","homepage":"https://blends.debian.org/games/tasks/","component":"main","section":"metapackages","hasGameCategory":true}
 {"name":"games-content-dev","description":"development of game content","version":"5","homepage":"https://blends.debian.org/games/tasks/","component":"main","section":"metapackages","hasGameCategory":false}
 {"name":"games-education","description":"Debian's educational games","version":"5","homepage":"https://blends.debian.org/games/tasks/","component":"main","section":"metapackages","hasGameCategory":true}
-{"name":"games-emulator","description":"Debian's emulators for games","version":"5","homepage":"https://blends.debian.org/games/tasks/","component":"main","section":"metapackages","hasGameCategory":true}
-{"name":"games-finest","description":"Debian's finest games","version":"5","homepage":"https://blends.debian.org/games/tasks/","component":"main","section":"metapackages","hasGameCategory":true}
+{"name":"games-emulator","description":"Debian's emulators for games","version":"5","homepage":"https://blends.debian.org/games/tasks/","component":"main","section":"metapackages","hasGameCategory":false}
+{"name":"games-finest","description":"Debian's finest games","version":"5","homepage":"https://blends.debian.org/games/tasks/","component":"main","section":"metapackages","hasGameCategory":false}
 {"name":"games-fps","description":"Debian's first-person shooter games","version":"5","homepage":"https://blends.debian.org/games/tasks/","component":"main","section":"metapackages","hasGameCategory":true}
 {"name":"games-java-dev","description":"development of games in Java","version":"5","homepage":"https://blends.debian.org/games/tasks/","component":"main","section":"metapackages","hasGameCategory":false}
 {"name":"games-minesweeper","description":"Debian's minesweeper games","version":"5","homepage":"https://blends.debian.org/games/tasks/","component":"main","section":"metapackages","hasGameCategory":true}
@@ -6215,10 +6215,10 @@
 {"name":"junior-games-arcade","description":"Debian Jr. arcade games","version":"1.32","homepage":"https://blends.debian.org/junior/tasks/","component":"main","section":"metapackages","hasGameCategory":false}
 {"name":"junior-games-card","description":"Debian Jr. Card Games","version":"1.32","homepage":"https://blends.debian.org/junior/tasks/","component":"main","section":"metapackages","hasGameCategory":true}
 {"name":"junior-games-gl","description":"Debian Jr. 3D Games (hardware acceleration required)","version":"1.32","homepage":"https://blends.debian.org/junior/tasks/","component":"main","section":"metapackages","hasGameCategory":true}
-{"name":"junior-games-net","description":"Debian Jr. Network Games","version":"1.32","homepage":"https://blends.debian.org/junior/tasks/","component":"main","section":"metapackages","hasGameCategory":true}
+{"name":"junior-games-net","description":"Debian Jr. Network Games","version":"1.32","homepage":"https://blends.debian.org/junior/tasks/","component":"main","section":"metapackages","hasGameCategory":false}
 {"name":"junior-games-puzzle","description":"Debian Jr. Puzzle games","version":"1.32","homepage":"https://blends.debian.org/junior/tasks/","component":"main","section":"metapackages","hasGameCategory":false}
-{"name":"junior-games-sim","description":"Debian Jr. Simulation Games","version":"1.32","homepage":"https://blends.debian.org/junior/tasks/","component":"main","section":"metapackages","hasGameCategory":true}
-{"name":"junior-games-text","description":"Debian Jr. Text Games","version":"1.32","homepage":"https://blends.debian.org/junior/tasks/","component":"main","section":"metapackages","hasGameCategory":true}
+{"name":"junior-games-sim","description":"Debian Jr. Simulation Games","version":"1.32","homepage":"https://blends.debian.org/junior/tasks/","component":"main","section":"metapackages","hasGameCategory":false}
+{"name":"junior-games-text","description":"Debian Jr. Text Games","version":"1.32","homepage":"https://blends.debian.org/junior/tasks/","component":"main","section":"metapackages","hasGameCategory":false}
 {"name":"junior-internet","description":"Debian Jr. Internet tools","version":"1.32","homepage":"https://blends.debian.org/junior/tasks/","component":"main","section":"metapackages","hasGameCategory":false}
 {"name":"junior-math","description":"Debian Jr. educational math","version":"1.32","homepage":"https://blends.debian.org/junior/tasks/","component":"main","section":"metapackages","hasGameCategory":false}
 {"name":"junior-programming","description":"Debian Jr. programming","version":"1.32","homepage":"https://blends.debian.org/junior/tasks/","component":"main","section":"metapackages","hasGameCategory":false}
@@ -6515,7 +6515,7 @@
 {"name":"desktop-base","description":"common files for the Debian Desktop","version":"13.0.4","homepage":"https://www.debian.org/devel/debian-desktop/","component":"main","section":"x11","hasGameCategory":false}
 {"name":"desktop-file-utils","description":"Utilities for .desktop files","version":"0.28-1","homepage":"https://www.freedesktop.org/wiki/Software/desktop-file-utils","component":"main","section":"devel","hasGameCategory":false}
 {"name":"desktopfolder","description":"Organize your desktop with panels, notes and photos","version":"1.1.3-4","homepage":"https://github.com/spheras/desktopfolder","component":"main","section":"x11","hasGameCategory":false}
-{"name":"desmume","description":"Nintendo DS emulator","version":"0.9.13-4","homepage":"https://desmume.org/","component":"main","section":"games","hasGameCategory":true}
+{"name":"desmume","description":"Nintendo DS emulator","version":"0.9.13-4","homepage":"https://desmume.org/","component":"main","section":"games","hasGameCategory":false}
 {"name":"detachtty","description":"Utility to connect to detached interactive programs","version":"11.0.0-2+b1","homepage":"https://github.com/cosmos72/detachtty","component":"main","section":"utils","hasGameCategory":false}
 {"name":"detox","description":"replace problematic characters in filenames","version":"2.0.0-4","homepage":"https://github.com/dharple/detox","component":"main","section":"utils","hasGameCategory":false}
 {"name":"deutex","description":"composition tool for doom-style WAD files","version":"5.2.3-1","homepage":"https://github.com/Doom-Utils/deutex","component":"main","section":"games","hasGameCategory":true}
@@ -7179,7 +7179,7 @@
 {"name":"dolphin-doc","description":"file manager - documentation","version":"4:25.04.3-1+deb13u1","homepage":"https://apps.kde.org/dolphin/","component":"main","section":"doc","hasGameCategory":false}
 {"name":"libdolphinvcs-dev","description":"library to show version control in Dolphin - development files","version":"4:25.04.3-1+deb13u1","homepage":"https://apps.kde.org/dolphin/","component":"main","section":"libdevel","hasGameCategory":false}
 {"name":"libdolphinvcs6","description":"library to show version control in Dolphin","version":"4:25.04.3-1+deb13u1","homepage":"https://apps.kde.org/dolphin/","component":"main","section":"libs","hasGameCategory":false}
-{"name":"dolphin-emu","description":"Gamecube and Wii emulator","version":"2503+dfsg-1+deb13u1","homepage":"https://dolphin-emu.org/","component":"main","section":"games","hasGameCategory":true}
+{"name":"dolphin-emu","description":"Gamecube and Wii emulator","version":"2503+dfsg-1+deb13u1","homepage":"https://dolphin-emu.org/","component":"main","section":"games","hasGameCategory":false}
 {"name":"dolphin-emu-data","description":"Gamecube and Wii emulator - data files","version":"2503+dfsg-1+deb13u1","homepage":"https://dolphin-emu.org/","component":"main","section":"games","hasGameCategory":false}
 {"name":"dolphin-plugins","description":"plugins for Dolphin","version":"4:25.04.0-1","homepage":"https://invent.kde.org/system/dolphin","component":"main","section":"devel","hasGameCategory":false}
 {"name":"libdom4j-java","description":"Flexible XML framework for Java","version":"2.1.4-1","homepage":"https://dom4j.github.io","component":"main","section":"java","hasGameCategory":false}
@@ -9708,7 +9708,7 @@
 {"name":"elpa-fill-column-indicator","description":"graphically indicate the fill column","version":"1.90-3","homepage":"https://github.com/alpaker/Fill-Column-Indicator","component":"main","section":"lisp","hasGameCategory":false}
 {"name":"filler","description":"simple game where two players try to capture half the board","version":"1.02-6.5","component":"main","section":"games","hasGameCategory":true}
 {"name":"fillets-ng","description":"puzzle game about witty fish saving the world sokoban-style","version":"1.0.1-5","homepage":"https://fillets.sourceforge.net/","component":"main","section":"games","hasGameCategory":true}
-{"name":"fillets-ng-data","description":"docs, graphics, music and international sounds for fillets-ng","version":"1.0.1-2","homepage":"http://fillets.sourceforge.net/","component":"main","section":"games","hasGameCategory":true}
+{"name":"fillets-ng-data","description":"docs, graphics, music and international sounds for fillets-ng","version":"1.0.1-2","homepage":"http://fillets.sourceforge.net/","component":"main","section":"games","hasGameCategory":false}
 {"name":"fillets-ng-data-cs","description":"add-on sounds for Czech language spoken dialogs for fillets-ng","version":"1.0.1-2","homepage":"http://fillets.sourceforge.net/","component":"main","section":"games","hasGameCategory":false}
 {"name":"fillets-ng-data-nl","description":"add-on sounds for Dutch language spoken dialogs for fillets-ng","version":"1.0.1-2","homepage":"http://fillets.sourceforge.net/","component":"main","section":"games","hasGameCategory":false}
 {"name":"filter","description":"program that filters local email via forward/pipe","version":"2.6.3+ds1-5","homepage":"http://www.bolthole.com/filter/","component":"main","section":"mail","hasGameCategory":false}
@@ -19373,7 +19373,7 @@
 {"name":"gpsman","description":"GPS data graphical manager","version":"6.4.4.2-9","homepage":"https://sourceforge.net/projects/gpsman/","component":"main","section":"misc","hasGameCategory":false}
 {"name":"gpsmanshp","description":"Tcl interface to shapelib","version":"1.2.3-7","homepage":"http://gpsmanshp.sourceforge.net/","component":"main","section":"interpreters","hasGameCategory":false}
 {"name":"gpsprune","description":"visualize, edit, convert and prune GPS data","version":"25.2-1","homepage":"https://activityworkshop.net/software/gpsprune/index.html","component":"main","section":"utils","hasGameCategory":false}
-{"name":"gpsshogi","description":"Shogi playing program based on OpenShogiLib","version":"0.7.0-3.2+b1","homepage":"http://gps.tanaka.ecc.u-tokyo.ac.jp/gpsshogi/pukiwiki.php","component":"main","section":"games","hasGameCategory":true}
+{"name":"gpsshogi","description":"Shogi playing program based on OpenShogiLib","version":"0.7.0-3.2+b1","homepage":"http://gps.tanaka.ecc.u-tokyo.ac.jp/gpsshogi/pukiwiki.php","component":"main","section":"games","hasGameCategory":false}
 {"name":"gpsshogi-data","description":"data files for gpsshogi","version":"0.7.0-3.2","homepage":"http://gps.tanaka.ecc.u-tokyo.ac.jp/gpsshogi/pukiwiki.php","component":"main","section":"games","hasGameCategory":false}
 {"name":"gpsshogi-viewer","description":"Shogi studying GUI based on OpenShogiLib","version":"0.7.0-3.2+b1","homepage":"http://gps.tanaka.ecc.u-tokyo.ac.jp/gpsshogi/pukiwiki.php","component":"main","section":"games","hasGameCategory":false}
 {"name":"gpstrans","description":"communicate via serial port with a Garmin GPS receiver","version":"0.41-11","homepage":"ftp://ftp.fu-berlin.de/pub/unix/misc/gps","component":"main","section":"misc","hasGameCategory":false}
@@ -27436,7 +27436,7 @@
 {"name":"labplot","description":"interactive graphing and analysis of scientific data","version":"2.12.0-1","homepage":"https://labplot.kde.org/","component":"main","section":"math","hasGameCategory":false}
 {"name":"labplot-data","description":"data files for labplot","version":"2.12.0-1","homepage":"https://labplot.kde.org/","component":"main","section":"math","hasGameCategory":false}
 {"name":"labwc","description":"window-stacking Wayland compositor","version":"0.8.3-1","homepage":"https://labwc.github.io/","component":"main","section":"x11","hasGameCategory":false}
-{"name":"laby","description":"Learn how to program with ants and spider webs","version":"0.7.0-2+b6","homepage":"https://sgimenez.github.io/laby/","component":"main","section":"games","hasGameCategory":true}
+{"name":"laby","description":"Learn how to program with ants and spider webs","version":"0.7.0-2+b6","homepage":"https://sgimenez.github.io/laby/","component":"main","section":"games","hasGameCategory":false}
 {"name":"lacheck","description":"Simple syntax checker for LaTeX","version":"1.26-17.1","homepage":"https://www.ctan.org/tex-archive/support/lacheck/","component":"main","section":"tex","hasGameCategory":false}
 {"name":"lacme","description":"ACME client written with process isolation and minimal privileges in mind","version":"0.8.3-1","homepage":"https://git.guilhem.org/lacme/about/","component":"main","section":"utils","hasGameCategory":false}
 {"name":"lacme-accountd","description":"lacme account key manager","version":"0.8.3-1","homepage":"https://git.guilhem.org/lacme/about/","component":"main","section":"utils","hasGameCategory":false}
@@ -36904,7 +36904,7 @@
 {"name":"libliquid1","description":"signal processing library for software defined radio","version":"1.7.0-1","homepage":"https://liquidsdr.org/","component":"main","section":"libs","hasGameCategory":false}
 {"name":"liquidctl","description":"CLI and Python drivers for AIO liquid coolers and other devices","version":"1.15.0-2","homepage":"https://github.com/liquidctl/liquidctl","component":"main","section":"admin","hasGameCategory":false}
 {"name":"liquidprompt","description":"adaptative prompt for bash & zsh","version":"2.2.1-2","homepage":"https://github.com/nojhan/liquidprompt","component":"main","section":"misc","hasGameCategory":false}
-{"name":"liquidsoap","description":"audio streaming language","version":"2.3.2-2+b1","homepage":"https://www.liquidsoap.info/","component":"main","section":"sound","hasGameCategory":true}
+{"name":"liquidsoap","description":"audio streaming language","version":"2.3.2-2+b1","homepage":"https://www.liquidsoap.info/","component":"main","section":"sound","hasGameCategory":false}
 {"name":"liquidsoap-doc","description":"Documentation for Liquidsoap","version":"2.3.2-2","homepage":"https://www.liquidsoap.info/","component":"main","section":"doc","hasGameCategory":false}
 {"name":"liquidsoap-mode","description":"Emacs mode for editing Liquidsoap code","version":"2.3.2-2","homepage":"https://www.liquidsoap.info/","component":"main","section":"editors","hasGameCategory":false}
 {"name":"liquidwar","description":"truly original multiplayer wargame","version":"5.6.5-2+b1","homepage":"https://ufoot.org/liquidwar/v5","component":"main","section":"games","hasGameCategory":true}
@@ -37257,7 +37257,7 @@
 {"name":"logiops","description":"Configuration utility for Logitech mice and keyboards","version":"0.3.5-1+b1","homepage":"https://github.com/PixlOne/logiops","component":"main","section":"misc","hasGameCategory":false}
 {"name":"logisim","description":"graphical tool for designing and simulating logic circuits","version":"2.7.1~dfsg-4","homepage":"http://www.cburch.com/logisim/","component":"main","section":"java","hasGameCategory":false}
 {"name":"logrotate","description":"Log rotation utility","version":"3.22.0-1","homepage":"https://github.com/logrotate/logrotate","component":"main","section":"admin","hasGameCategory":false}
-{"name":"logstalgia","description":"web server access log visualizer","version":"1.1.4-1+b2","homepage":"http://logstalgia.io","component":"main","section":"web","hasGameCategory":true}
+{"name":"logstalgia","description":"web server access log visualizer","version":"1.1.4-1+b2","homepage":"http://logstalgia.io","component":"main","section":"web","hasGameCategory":false}
 {"name":"liblogstash-logback-encoder-java","description":"Logstash Logback Encoder","version":"7.2-2","homepage":"https://github.com/logfellow/logstash-logback-encoder","component":"main","section":"java","hasGameCategory":false}
 {"name":"logswan","description":"fast Web log analyzer using probabilistic data structures","version":"2.1.15-1","homepage":"https://github.com/fcambus/logswan","component":"main","section":"web","hasGameCategory":false}
 {"name":"logtool","description":"Syslog-style logfile parser with lots of output options","version":"1.2.8-14","homepage":"http://xjack.org/logtool/","component":"main","section":"utils","hasGameCategory":false}
@@ -38970,7 +38970,7 @@
 {"name":"messagelib-data","description":"KDE PIM messaging library - data files","version":"4:24.12.3-4","homepage":"https://invent.kde.org/pim/messagelib","component":"main","section":"libs","hasGameCategory":false}
 {"name":"messagelib-dev","description":"KDE PIM messaging library - development files","version":"4:24.12.3-4","homepage":"https://invent.kde.org/pim/messagelib","component":"main","section":"libdevel","hasGameCategory":false}
 {"name":"exwm","description":"Full EXWM Desktop Environment, with extra components","version":"0.3","homepage":"https://salsa.debian.org/emacsen-team/meta-exwm","component":"main","section":"editors","hasGameCategory":false}
-{"name":"gnome","description":"Full GNOME Desktop Environment, with extra components","version":"1:48+2","component":"main","section":"metapackages","hasGameCategory":true}
+{"name":"gnome","description":"Full GNOME Desktop Environment, with extra components","version":"1:48+2","component":"main","section":"metapackages","hasGameCategory":false}
 {"name":"gnome-api-docs","description":"API reference documentation for the GNOME libraries","version":"1:48+2","component":"main","section":"doc","hasGameCategory":false}
 {"name":"gnome-core","description":"GNOME Desktop Environment -- essential components","version":"1:48+2","component":"main","section":"metapackages","hasGameCategory":false}
 {"name":"gnome-devel","description":"GNOME Desktop Environment -- development tools","version":"1:48+2","component":"main","section":"devel","hasGameCategory":false}
@@ -40925,7 +40925,7 @@
 {"name":"nexuiz","description":"Fast-paced 3D first-person shooter","version":"2.5.2+dp-10","homepage":"https://www.alientrap.com/games/nexuiz/","component":"main","section":"games","hasGameCategory":true}
 {"name":"nexuiz-server","description":"Standalone server for Nexuiz Classic","version":"2.5.2+dp-10","homepage":"https://www.alientrap.com/games/nexuiz/","component":"main","section":"games","hasGameCategory":true}
 {"name":"nexuiz-data","description":"Nexuiz game data files","version":"2.5.2-13","homepage":"https://www.alientrap.org/games/nexuiz/","component":"main","section":"games","hasGameCategory":false}
-{"name":"nexuiz-music","description":"Nexuiz music files","version":"2.5.2-13","homepage":"https://www.alientrap.org/games/nexuiz/","component":"main","section":"games","hasGameCategory":true}
+{"name":"nexuiz-music","description":"Nexuiz music files","version":"2.5.2-13","homepage":"https://www.alientrap.org/games/nexuiz/","component":"main","section":"games","hasGameCategory":false}
 {"name":"nexuiz-textures","description":"Textures for Nexuiz","version":"2.5.2-13","homepage":"https://www.alientrap.org/games/nexuiz/","component":"main","section":"games","hasGameCategory":true}
 {"name":"libnexus-dev","description":"NeXus scientific data file format - development libraries","version":"4.4.3-7","homepage":"http://www.nexusformat.org/","component":"main","section":"libdevel","hasGameCategory":false}
 {"name":"libnexus-java","description":"NeXus scientific data file format - java libraries","version":"4.4.3-7","homepage":"http://www.nexusformat.org/","component":"main","section":"java","hasGameCategory":false}
@@ -44378,7 +44378,7 @@
 {"name":"openms-doc","description":"package for LC/MS data management and analysis - documentation","version":"2.6.0+cleaned1-4","homepage":"http://www.openms.de","component":"main","section":"doc","hasGameCategory":false}
 {"name":"topp","description":"set of programs implementing The OpenMS Proteomic Pipeline","version":"2.6.0+cleaned1-4+b5","homepage":"http://www.openms.de","component":"main","section":"science","hasGameCategory":false}
 {"name":"dmktools","description":"tools for manipulating floppy disk images in the dmk format","version":"20.0+dfsg-1.2","homepage":"https://openmsx.org","component":"main","section":"otherosfs","hasGameCategory":false}
-{"name":"openmsx","description":"MSX emulator that aims for perfection","version":"20.0+dfsg-1.2","homepage":"https://openmsx.org","component":"main","section":"otherosfs","hasGameCategory":true}
+{"name":"openmsx","description":"MSX emulator that aims for perfection","version":"20.0+dfsg-1.2","homepage":"https://openmsx.org","component":"main","section":"otherosfs","hasGameCategory":false}
 {"name":"openmsx-data","description":"datafiles for openMSX, an MSX emulator","version":"20.0+dfsg-1.2","homepage":"https://openmsx.org","component":"main","section":"otherosfs","hasGameCategory":false}
 {"name":"openmsx-catapult","description":"GUI for openMSX","version":"19.0-1+b3","homepage":"http://openmsx.org","component":"main","section":"otherosfs","hasGameCategory":false}
 {"name":"openmsx-debugger","description":"Graphical debugger for openMSX","version":"0.1~git20230804-1.1","component":"main","section":"otherosfs","hasGameCategory":false}
@@ -45519,7 +45519,7 @@
 {"name":"pcsc-tools","description":"Some tools to use with smart cards and PC/SC","version":"1.7.3-1","homepage":"https://pcsc-tools.apdu.fr/","component":"main","section":"utils","hasGameCategory":false}
 {"name":"libpcscada-dev","description":"Ada bindings to PC/SC middleware (development)","version":"0.7.7-10","homepage":"https://www.codelabs.ch/pcscada/","component":"main","section":"libdevel","hasGameCategory":false}
 {"name":"libpcscada0.7.7","description":"Ada bindings to PC/SC middleware","version":"0.7.7-10","homepage":"https://www.codelabs.ch/pcscada/","component":"main","section":"libs","hasGameCategory":false}
-{"name":"pcsxr","description":"Sony PlayStation emulator","version":"1.9.94-7","homepage":"http://pcsxr.codeplex.com/","component":"main","section":"games","hasGameCategory":true}
+{"name":"pcsxr","description":"Sony PlayStation emulator","version":"1.9.94-7","homepage":"http://pcsxr.codeplex.com/","component":"main","section":"games","hasGameCategory":false}
 {"name":"pd-ableton-link","description":"integration of Ableton Link into Pure Data","version":"0.6~ds0-7+b1","homepage":"https://www.ableton.com/en/link/","component":"main","section":"sound","hasGameCategory":false}
 {"name":"pd-arraysize","description":"Pd object to report the size of an array","version":"0.1-10","homepage":"https://puredata.info","component":"main","section":"sound","hasGameCategory":false}
 {"name":"pd-autopreset","description":"simple state saving for Pure Data","version":"0.10-6","homepage":"https://github.com/MetaluNet/AutoPreset/","component":"main","section":"sound","hasGameCategory":false}
@@ -46447,7 +46447,7 @@
 {"name":"libpiano-dev","description":"library to interface with Pandora radio -- development","version":"2024.12.21-1","homepage":"https://6xq.net/pianobar/","component":"main","section":"libdevel","hasGameCategory":false}
 {"name":"libpiano0t64","description":"library to interface with Pandora radio -- runtime files","version":"2024.12.21-1","homepage":"https://6xq.net/pianobar/","component":"main","section":"libs","hasGameCategory":false}
 {"name":"pianobar","description":"console based player for Pandora radio","version":"2024.12.21-1","homepage":"https://6xq.net/pianobar/","component":"main","section":"sound","hasGameCategory":false}
-{"name":"pianobooster","description":"Learn the piano just by playing a game","version":"1.0.0-4","homepage":"https://github.com/captnfab/PianoBooster","component":"main","section":"games","hasGameCategory":true}
+{"name":"pianobooster","description":"Learn the piano just by playing a game","version":"1.0.0-4","homepage":"https://github.com/captnfab/PianoBooster","component":"main","section":"games","hasGameCategory":false}
 {"name":"picard","description":"Next-Generation MusicBrainz audio files tagger","version":"2.13.3-1","homepage":"https://picard.musicbrainz.org/","component":"main","section":"sound","hasGameCategory":false}
 {"name":"libpicard-java","description":"Java library to manipulate SAM and BAM files","version":"3.3.0+dfsg-2","homepage":"https://broadinstitute.github.io/picard/","component":"main","section":"java","hasGameCategory":false}
 {"name":"libpicard-java-doc","description":"Documentation for the java picard library","version":"3.3.0+dfsg-2","homepage":"https://broadinstitute.github.io/picard/","component":"main","section":"doc","hasGameCategory":false}
@@ -51863,7 +51863,7 @@
 {"name":"qiv","description":"Quick image viewer for X","version":"3.0.1-2+deb13u1","homepage":"http://qiv.spiegl.de/","component":"main","section":"graphics","hasGameCategory":false}
 {"name":"qjackctl","description":"User interface for controlling the JACK sound server","version":"1.0.4-1","homepage":"https://qjackctl.sourceforge.io","component":"main","section":"sound","hasGameCategory":false}
 {"name":"qjackrcd","description":"Qt4 application to record JACK server outputs","version":"1.2.0-2+b3","homepage":"http://qjackrcd.sourceforge.net","component":"main","section":"sound","hasGameCategory":false}
-{"name":"qjoypad","description":"map gamepad/joystick events to mouse/keyboard event","version":"4.3.1-3+b2","homepage":"https://github.com/panzi/qjoypad","component":"main","section":"utils","hasGameCategory":true}
+{"name":"qjoypad","description":"map gamepad/joystick events to mouse/keyboard event","version":"4.3.1-3+b2","homepage":"https://github.com/panzi/qjoypad","component":"main","section":"utils","hasGameCategory":false}
 {"name":"qla-tools","description":"QLogic Linux tools for work with QLogic HBAs","version":"20140529-4","homepage":"http://driverdownloads.qlogic.com","component":"main","section":"admin","hasGameCategory":false}
 {"name":"qlcplus","description":"Control DMX or analog lighting systems","version":"4.14.1-1","homepage":"https://www.qlcplus.org/","component":"main","section":"misc","hasGameCategory":false}
 {"name":"qlcplus-data","description":"Control DMX or analog lighting systems (data files)","version":"4.14.1-1","homepage":"https://www.qlcplus.org/","component":"main","section":"misc","hasGameCategory":false}
@@ -62387,7 +62387,7 @@
 {"name":"stegosuite","description":"steganography tool to hide information in image files","version":"0.9.0-1","homepage":"https://codeberg.org/tob/stegosuite","component":"main","section":"graphics","hasGameCategory":false}
 {"name":"stegseek","description":"Worlds fastest steghide cracker","version":"0.6+git20210910.ff677b9-1","homepage":"https://github.com/RickdeJager/stegseek","component":"main","section":"misc","hasGameCategory":false}
 {"name":"stegsnow","description":"steganography using ASCII files","version":"20130616-8","homepage":"https://www.darkside.com.au/snow","component":"main","section":"misc","hasGameCategory":false}
-{"name":"stella","description":"Atari 2600 Emulator for SDL & the X Window System","version":"7.0+dfsg-2","homepage":"https://stella-emu.github.io","component":"main","section":"otherosfs","hasGameCategory":true}
+{"name":"stella","description":"Atari 2600 Emulator for SDL & the X Window System","version":"7.0+dfsg-2","homepage":"https://stella-emu.github.io","component":"main","section":"otherosfs","hasGameCategory":false}
 {"name":"stellarium","description":"real-time photo-realistic sky generator","version":"24.3-1","homepage":"https://www.stellarium.org","component":"main","section":"science","hasGameCategory":false}
 {"name":"stellarium-data","description":"Stellarium data files","version":"24.3-1","homepage":"https://www.stellarium.org","component":"main","section":"science","hasGameCategory":false}
 {"name":"libstellarsolver-dev","description":"development files for the Stellar Solver library","version":"2.6-1+b1","homepage":"https://github.com/rlancaste/stellarsolver","component":"main","section":"libdevel","hasGameCategory":false}
@@ -63702,7 +63702,7 @@
 {"name":"teensy-loader-cli","description":"load and run programs onto your Teensy micro controller","version":"2.2-1.1","homepage":"https://www.pjrc.com/teensy/loader_cli.html","component":"main","section":"devel","hasGameCategory":false}
 {"name":"teeworlds","description":"online multi-player platform 2D shooter","version":"0.7.5-2+b1","homepage":"https://www.teeworlds.com/","component":"main","section":"games","hasGameCategory":true}
 {"name":"teeworlds-data","description":"data for Teeworlds; an online multi-player platform 2D shooter","version":"0.7.5-2","homepage":"https://www.teeworlds.com/","component":"main","section":"games","hasGameCategory":true}
-{"name":"teeworlds-server","description":"server for Teeworlds; an online multi-player platform 2D shooter","version":"0.7.5-2+b1","homepage":"https://www.teeworlds.com/","component":"main","section":"games","hasGameCategory":true}
+{"name":"teeworlds-server","description":"server for Teeworlds; an online multi-player platform 2D shooter","version":"0.7.5-2+b1","homepage":"https://www.teeworlds.com/","component":"main","section":"games","hasGameCategory":false}
 {"name":"teg","description":"Turn based strategy game","version":"0.13.0-1","homepage":"https://github.com/wfx/teg","component":"main","section":"gnome","hasGameCategory":true}
 {"name":"tegaki-zinnia-japanese","description":"Japanese handwriting model for Zinnia","version":"0.3-3","homepage":"https://tegaki.github.io/","component":"main","section":"localization","hasGameCategory":false}
 {"name":"tegaki-zinnia-simplified-chinese","description":"Simplified Chinese handwriting model for Zinnia","version":"0.3-3","homepage":"https://tegaki.github.io/","component":"main","section":"localization","hasGameCategory":false}
@@ -64488,7 +64488,7 @@
 {"name":"tokyocabinet-doc","description":"Tokyo Cabinet Database Documentation","version":"1.4.48-15.1","homepage":"https://fallabs.com/tokyocabinet/","component":"main","section":"doc","hasGameCategory":false}
 {"name":"libtolua++5.1-dev","description":"extended tool to integrate C/C++ code with Lua (devel)","version":"1.0.93-5","homepage":"http://www.codenix.com/~tolua/","component":"main","section":"libdevel","hasGameCategory":false}
 {"name":"tomatoes","description":"I Have No Tomatoes - tomato smashing game","version":"1.55-10","homepage":"http://tomatoes.sourceforge.net/","component":"main","section":"games","hasGameCategory":true}
-{"name":"tomatoes-data","description":"I Have No Tomatoes - tomato smashing game - music files","version":"1.55-10","homepage":"http://tomatoes.sourceforge.net/","component":"main","section":"games","hasGameCategory":true}
+{"name":"tomatoes-data","description":"I Have No Tomatoes - tomato smashing game - music files","version":"1.55-10","homepage":"http://tomatoes.sourceforge.net/","component":"main","section":"games","hasGameCategory":false}
 {"name":"tomb","description":"crypto undertaker","version":"2.11+dfsg-2","homepage":"https://dyne.org/tomb/","component":"main","section":"utils","hasGameCategory":false}
 {"name":"tombo","description":"identification of modified nucleotides from raw nanopore sequencing data","version":"1.5.1-7+b2","homepage":"https://github.com/nanoporetech/tombo","component":"main","section":"science","hasGameCategory":false}
 {"name":"tombo-doc","description":"identification of modified nucleotides from raw nanopore sequencing data (doc)","version":"1.5.1-7","homepage":"https://github.com/nanoporetech/tombo","component":"main","section":"doc","hasGameCategory":false}
@@ -65199,7 +65199,7 @@
 {"name":"tuxpaint-dev","description":"Development files for Tux Paint","version":"1:0.9.34-2","component":"main","section":"devel","hasGameCategory":false}
 {"name":"tuxpaint-plugins-default","description":"Magic tool plugins for Tux Paint","version":"1:0.9.34-2+b1","component":"main","section":"graphics","hasGameCategory":false}
 {"name":"tuxpaint-config","description":"Configuration tool for Tux Paint","version":"0.17rc1-1+b2","homepage":"http://www.newbreedsoftware.com/tuxpaint/","component":"main","section":"graphics","hasGameCategory":false}
-{"name":"tuxpaint-stamps-default","description":"Stamp files for Tux Paint, a paint program for children","version":"2025.03.31-1","component":"main","section":"graphics","hasGameCategory":true}
+{"name":"tuxpaint-stamps-default","description":"Stamp files for Tux Paint, a paint program for children","version":"2025.03.31-1","component":"main","section":"graphics","hasGameCategory":false}
 {"name":"tuxpuck","description":"air hockey game for single players","version":"0.8.2-12+b1","homepage":"https://wiki.debian.org/Games/TuxPuck","component":"main","section":"games","hasGameCategory":true}
 {"name":"tuxtype","description":"Educational Typing Tutor Game Starring Tux","version":"1.8.3-7","homepage":"https://github.com/tux4kids/","component":"main","section":"games","hasGameCategory":true}
 {"name":"tuxtype-data","description":"Data files for the Educational Typing Tutor Game Starring Tux","version":"1.8.3-7","homepage":"https://github.com/tux4kids/","component":"main","section":"games","hasGameCategory":false}
@@ -66370,7 +66370,7 @@
 {"name":"elpa-visual-fill-column","description":"Emacs mode that wraps visual-line-mode buffers at fill-column","version":"2.4-2","homepage":"https://github.com/joostkremers/visual-fill-column/","component":"main","section":"lisp","hasGameCategory":false}
 {"name":"visual-regexp","description":"graphical front-end to write/debug regular expressions in Perl","version":"3.1-7","homepage":"http://laurent.riesterer.free.fr/regexp/","component":"main","section":"devel","hasGameCategory":false}
 {"name":"elpa-visual-regexp","description":"in-buffer visual feedback while using Emacs regexps","version":"1.1.2-3","homepage":"https://github.com/benma/visual-regexp.el/","component":"main","section":"lisp","hasGameCategory":false}
-{"name":"visualboyadvance","description":"full featured Game Boy Advance emulator","version":"1.8.0.dfsg-6","homepage":"http://sourceforge.net/projects/vba","component":"main","section":"otherosfs","hasGameCategory":true}
+{"name":"visualboyadvance","description":"full featured Game Boy Advance emulator","version":"1.8.0.dfsg-6","homepage":"http://sourceforge.net/projects/vba","component":"main","section":"otherosfs","hasGameCategory":false}
 {"name":"libvisualvm-jni","description":"All-in-One Java Troubleshooting Tool (JNI libraries)","version":"2.1.10-1","homepage":"https://visualvm.github.io","component":"main","section":"java","hasGameCategory":false}
 {"name":"visualvm","description":"All-in-One Java Troubleshooting Tool","version":"2.1.10-1","homepage":"https://visualvm.github.io","component":"main","section":"java","hasGameCategory":false}
 {"name":"vit","description":"full-screen terminal interface for Taskwarrior","version":"2.3.3-1","homepage":"https://github.com/vit-project/vit","component":"main","section":"utils","hasGameCategory":false}
@@ -66640,7 +66640,7 @@
 {"name":"wapua","description":"Web browser for WAP WML pages","version":"0.06.4-1","homepage":"https://fsinfo.noone.org/~abe/wApua/","component":"main","section":"web","hasGameCategory":false}
 {"name":"warmux","description":"turn-based artillery game on 2D maps","version":"1:11.04.1+repack2-5","component":"main","section":"games","hasGameCategory":true}
 {"name":"warmux-data","description":"data files for the WarMUX game","version":"1:11.04.1+repack2-5","component":"main","section":"games","hasGameCategory":false}
-{"name":"warmux-servers","description":"stand alone server and game index server for WarMUX","version":"1:11.04.1+repack2-5","component":"main","section":"games","hasGameCategory":true}
+{"name":"warmux-servers","description":"stand alone server and game index server for WarMUX","version":"1:11.04.1+repack2-5","component":"main","section":"games","hasGameCategory":false}
 {"name":"warp","description":"Send files over the internet, securely","version":"0.9.2-3","homepage":"https://apps.gnome.org/Warp/","component":"main","section":"misc","hasGameCategory":false}
 {"name":"warzone2100","description":"3D real time strategy game","version":"4.5.5deb-1","homepage":"http://www.wz2100.net/","component":"main","section":"games","hasGameCategory":true}
 {"name":"warzone2100-data","description":"data files for warzone2100","version":"4.5.5deb-1","homepage":"http://www.wz2100.net/","component":"main","section":"games","hasGameCategory":false}
@@ -66937,7 +66937,7 @@
 {"name":"winff-qt","description":"Qt variant of winff","version":"1.6.4+dfsg-3","homepage":"https://github.com/WinFF/winff","component":"main","section":"video","hasGameCategory":false}
 {"name":"wing","description":"Galaga-like arcade game","version":"0.7-33","homepage":"http://wing.sourceforge.net/","component":"main","section":"games","hasGameCategory":true}
 {"name":"wing-data","description":"graphics and audio data for wing","version":"0.7-33","homepage":"http://wing.sourceforge.net/","component":"main","section":"games","hasGameCategory":true}
-{"name":"wings3d","description":"Nendo-inspired 3D polygon mesh modeller","version":"2.4.1-1","homepage":"http://www.wings3d.com","component":"main","section":"graphics","hasGameCategory":true}
+{"name":"wings3d","description":"Nendo-inspired 3D polygon mesh modeller","version":"2.4.1-1","homepage":"http://www.wings3d.com","component":"main","section":"graphics","hasGameCategory":false}
 {"name":"winregfs","description":"Windows registry FUSE filesystem","version":"0.7-5","homepage":"https://github.com/jbruchon/winregfs","component":"main","section":"utils","hasGameCategory":false}
 {"name":"golang-github-packer-community-winrmcp-dev","description":"copy files to remote hosts using WinRM (Go library)","version":"0.0~git20180921.c76d91c-2","homepage":"https://github.com/packer-community/winrmcp","component":"main","section":"golang","hasGameCategory":false}
 {"name":"winrmcp","description":"tool for copying files to remote Windows machines using WinRM","version":"0.0~git20180921.c76d91c-2+b19","homepage":"https://github.com/packer-community/winrmcp","component":"main","section":"devel","hasGameCategory":false}
@@ -68225,9 +68225,9 @@
 {"name":"xzgv","description":"Picture viewer for X with a thumbnail-based selector","version":"0.9.2-2+b3","component":"main","section":"graphics","hasGameCategory":false}
 {"name":"xzip","description":"Interpreter of Infocom-format story-files","version":"1:1.8.2-5","homepage":"https://www.eblong.com/zarf/xzip.html","component":"main","section":"games","hasGameCategory":true}
 {"name":"yabasic","description":"Yet Another BASIC interpreter","version":"1:2.91.1-1","homepage":"http://www.yabasic.de","component":"main","section":"interpreters","hasGameCategory":false}
-{"name":"yabause","description":"beautiful and under-rated Saturn emulator","version":"0.9.15-3","homepage":"https://yabause.org/","component":"main","section":"otherosfs","hasGameCategory":true}
+{"name":"yabause","description":"beautiful and under-rated Saturn emulator","version":"0.9.15-3","homepage":"https://yabause.org/","component":"main","section":"otherosfs","hasGameCategory":false}
 {"name":"yabause-common","description":"beautiful and under-rated Saturn emulator - common files","version":"0.9.15-3","homepage":"https://yabause.org/","component":"main","section":"otherosfs","hasGameCategory":false}
-{"name":"yabause-qt","description":"beautiful and under-rated Saturn emulator - Qt port","version":"0.9.15-3+b2","homepage":"https://yabause.org/","component":"main","section":"otherosfs","hasGameCategory":true}
+{"name":"yabause-qt","description":"beautiful and under-rated Saturn emulator - Qt port","version":"0.9.15-3+b2","homepage":"https://yabause.org/","component":"main","section":"otherosfs","hasGameCategory":false}
 {"name":"yacas","description":"Computer Algebra System","version":"1.9.1+dfsg-1","homepage":"http://www.yacas.org","component":"main","section":"math","hasGameCategory":false}
 {"name":"yacas-doc","description":"Documentation for Yacas","version":"1.9.1+dfsg-1","homepage":"http://www.yacas.org","component":"main","section":"doc","hasGameCategory":false}
 {"name":"yacpi","description":"ncurses based acpi monitor for text mode","version":"3.0.1-2","homepage":"http://www.ngolde.de/yacpi/","component":"main","section":"utils","hasGameCategory":false}
@@ -68826,7 +68826,7 @@
 {"name":"fonts-ibm-plex","description":"extensive typeface family designed by IBM","version":"6.1.1-1","homepage":"https://www.ibm.com/plex/","component":"contrib","section":"contrib/fonts","hasGameCategory":false}
 {"name":"freespace2-launcher-wxlauncher","description":"launcher for the Freespace 2 Source Code Project","version":"0.12.0~rc3+dfsg-1+b2","homepage":"https://github.com/scp-fs2open/wxlauncher/","component":"contrib","section":"contrib/games","hasGameCategory":false}
 {"name":"frogatto","description":"2D platformer game starring a quixotic frog","version":"1.3.1+dfsg-7","homepage":"https://www.frogatto.com/","component":"contrib","section":"contrib/games","hasGameCategory":true}
-{"name":"game-data-packager","description":"Installer for game data files","version":"85.1","homepage":"https://wiki.debian.org/Games/GameDataPackager","component":"contrib","section":"contrib/games","hasGameCategory":true}
+{"name":"game-data-packager","description":"Installer for game data files","version":"85.1","homepage":"https://wiki.debian.org/Games/GameDataPackager","component":"contrib","section":"contrib/games","hasGameCategory":false}
 {"name":"game-data-packager-runtime","description":"Launcher for proprietary games","version":"85.1","homepage":"https://wiki.debian.org/Games/GameDataPackager","component":"contrib","section":"contrib/games","hasGameCategory":false}
 {"name":"quake","description":"classic gothic/horror-themed first person shooter","version":"85.1","homepage":"https://wiki.debian.org/Games/GameDataPackager","component":"contrib","section":"contrib/games","hasGameCategory":true}
 {"name":"quake-server","description":"classic first person shooter - server and init script","version":"85.1","homepage":"https://wiki.debian.org/Games/GameDataPackager","component":"contrib","section":"contrib/games","hasGameCategory":true}
@@ -68962,7 +68962,7 @@
 {"name":"nvidia-primus-vk-wrapper","description":"thin wrapper for using the NVIDIA binary Vulkan ICD with bumblebee","version":"1.6.4-4","homepage":"https://github.com/felixdoerre/primus_vk","component":"contrib","section":"contrib/libs","hasGameCategory":false}
 {"name":"primus-vk-nvidia","description":"NVIDIA Optimus support for Vulkan applications","version":"1.6.4-4","homepage":"https://github.com/felixdoerre/primus_vk","component":"contrib","section":"contrib/utils","hasGameCategory":false}
 {"name":"publicfile-installer","description":"installer package for the publicfile HTTP and FTP server","version":"0.15","component":"contrib","section":"contrib/net","hasGameCategory":false}
-{"name":"pvpgn","description":"gaming server that emulates Battle.net(R)","version":"1.99.7.2.1+dfsg-2","homepage":"https://pvpgn.pro/","component":"contrib","section":"contrib/net","hasGameCategory":true}
+{"name":"pvpgn","description":"gaming server that emulates Battle.net(R)","version":"1.99.7.2.1+dfsg-2","homepage":"https://pvpgn.pro/","component":"contrib","section":"contrib/net","hasGameCategory":false}
 {"name":"python-pycuda-doc","description":"module to access Nvidia‘s CUDA computation API (documentation)","version":"2025.1.1~dfsg-1","homepage":"http://mathema.tician.de/software/pycuda","component":"contrib","section":"contrib/doc","hasGameCategory":false}
 {"name":"python3-pycuda","description":"Python 3 module to access Nvidia‘s CUDA parallel computation API","version":"2025.1.1~dfsg-1","homepage":"http://mathema.tician.de/software/pycuda","component":"contrib","section":"contrib/python","hasGameCategory":false}
 {"name":"python3-pycudwt","description":"Python-CUDA implementation of the Wavelet Transform","version":"1.0.2-5","homepage":"https://github.com/pierrepaleo/pypwt","component":"contrib","section":"contrib/python","hasGameCategory":false}
@@ -68977,7 +68977,7 @@
 {"name":"libtorch-cuda-test","description":"Tensors and Dynamic neural networks in Python (Test Binaries)","version":"2.6.0+dfsg-7+b1","homepage":"https://pytorch.org/","component":"contrib","section":"contrib/libs","hasGameCategory":false}
 {"name":"python3-torch-cuda","description":"Tensors and Dynamic neural networks in Python (Python Interface)","version":"2.6.0+dfsg-7+b1","homepage":"https://pytorch.org/","component":"contrib","section":"contrib/python","hasGameCategory":false}
 {"name":"python3-pyvkfft-cuda","description":"Binding to the CUDA backends of VkFFT - Python3","version":"2024.1.4+ds1-7+b1","homepage":"https://github.com/vincefn/pyvkfft","component":"contrib","section":"contrib/science","hasGameCategory":false}
-{"name":"reminiscence","description":"free implementation of Flashback game engine","version":"0.2.1-3","homepage":"http://cyxdown.free.fr/reminiscence/","component":"contrib","section":"contrib/games","hasGameCategory":true}
+{"name":"reminiscence","description":"free implementation of Flashback game engine","version":"0.2.1-3","homepage":"http://cyxdown.free.fr/reminiscence/","component":"contrib","section":"contrib/games","hasGameCategory":false}
 {"name":"repo","description":"repository management tool built on top of git","version":"2.54-1","homepage":"https://source.android.com/source/developing.html","component":"contrib","section":"contrib/devel","hasGameCategory":false}
 {"name":"rocksndiamonds","description":"arcade-style game","version":"4.3.8.2+dfsg-1","homepage":"https://artsoft.org","component":"contrib","section":"contrib/games","hasGameCategory":true}
 {"name":"rott","description":"SDL-Port of Rise of the Triad","version":"20230810-1","homepage":"https://github.com/fabiangreffrath/rott","component":"contrib","section":"contrib/games","hasGameCategory":true}
@@ -68992,7 +68992,7 @@
 {"name":"slurm-wlm-nvml-plugin","description":"SLURM NVML plugins","version":"24.11.5-2","homepage":"http://slurm.schedmd.com","component":"contrib","section":"contrib/libs","hasGameCategory":false}
 {"name":"slurm-wlm-nvml-plugin-dev","description":"SLURM NVML plugin development files","version":"24.11.5-2","homepage":"http://slurm.schedmd.com","component":"contrib","section":"contrib/devel","hasGameCategory":false}
 {"name":"spectemu-common","description":"Fast 48k ZX Spectrum Emulator (common files)","version":"0.94a-22","component":"contrib","section":"contrib/otherosfs","hasGameCategory":false}
-{"name":"spectemu-x11","description":"Fast 48k ZX Spectrum Emulator for X11","version":"0.94a-22","component":"contrib","section":"contrib/otherosfs","hasGameCategory":true}
+{"name":"spectemu-x11","description":"Fast 48k ZX Spectrum Emulator for X11","version":"0.94a-22","component":"contrib","section":"contrib/otherosfs","hasGameCategory":false}
 {"name":"speech-dispatcher-baratinoo","description":"Speech Dispatcher: Baratinoo (VoxyGen) output module","version":"0.12.0-1","homepage":"http://devel.freebsoft.org/speechd","component":"contrib","section":"contrib/sound","hasGameCategory":false}
 {"name":"speech-dispatcher-ivona","description":"Speech Dispatcher: Ivona output module","version":"0.12.0-1","homepage":"http://devel.freebsoft.org/speechd","component":"contrib","section":"contrib/sound","hasGameCategory":false}
 {"name":"speech-dispatcher-kali","description":"Speech Dispatcher: Kali output module","version":"0.12.0-1","homepage":"http://devel.freebsoft.org/speechd","component":"contrib","section":"contrib/sound","hasGameCategory":false}
@@ -69032,7 +69032,7 @@
 {"name":"winetricks","description":"simple tool to work around common problems in Wine","version":"20250102-1","homepage":"https://github.com/Winetricks/winetricks","component":"contrib","section":"contrib/otherosfs","hasGameCategory":false}
 {"name":"wnn7egg","description":"Wnn-nana-tamago -- EGG Input Method with Wnn7 for Emacsen","version":"1.02-11","component":"contrib","section":"contrib/utils","hasGameCategory":false}
 {"name":"wolf4sdl","description":"SDL-Port of Wolfenstein 3-D and Spear of Destiny","version":"20230117-1","homepage":"https://github.com/fabiangreffrath/wolf4sdl","component":"contrib","section":"contrib/games","hasGameCategory":true}
-{"name":"xtrs","description":"emulator for TRS-80 Model I/III/4/4P computers","version":"4.9d-2.1","homepage":"http://www.tim-mann.org/xtrs.html","component":"contrib","section":"contrib/otherosfs","hasGameCategory":true}
+{"name":"xtrs","description":"emulator for TRS-80 Model I/III/4/4P computers","version":"4.9d-2.1","homepage":"http://www.tim-mann.org/xtrs.html","component":"contrib","section":"contrib/otherosfs","hasGameCategory":false}
 {"name":"ydpdict","description":"interface for Collins and Langenscheidt dictionaries","version":"1.0.5-1","homepage":"https://github.com/wojtekka/ydpdict","component":"contrib","section":"contrib/text","hasGameCategory":false}
 {"name":"yamagi-quake2","description":"enhanced version of id Software's Quake II - client","version":"8.50+dfsg-1","homepage":"https://www.yamagi.org/quake2/","component":"contrib","section":"contrib/games","hasGameCategory":true}
 {"name":"yamagi-quake2-core","description":"enhanced version of id Software's Quake II - non-GUI part","version":"8.50+dfsg-1","homepage":"https://www.yamagi.org/quake2/","component":"contrib","section":"contrib/games","hasGameCategory":false}
@@ -69730,7 +69730,7 @@
 {"name":"rhvoice-uzbek","description":"RHVoice speech synthesizer - Uzbek voice","version":"1.14.0-2","homepage":"https://github.com/Olga-Yakovleva/RHVoice","component":"non-free","section":"non-free/sound","hasGameCategory":false}
 {"name":"speech-dispatcher-rhvoice","description":"RHVoice speech synthesizer - speech dispatcher module","version":"1.14.0-2","homepage":"https://github.com/Olga-Yakovleva/RHVoice","component":"non-free","section":"non-free/sound","hasGameCategory":false}
 {"name":"sauerbraten","description":"3D first-person shooter game","version":"0.0.20201227-1","homepage":"http://sauerbraten.org/","component":"non-free","section":"non-free/games","hasGameCategory":true}
-{"name":"sauerbraten-server","description":"standalone server for the Sauerbraten game","version":"0.0.20201227-1","homepage":"http://sauerbraten.org/","component":"non-free","section":"non-free/games","hasGameCategory":true}
+{"name":"sauerbraten-server","description":"standalone server for the Sauerbraten game","version":"0.0.20201227-1","homepage":"http://sauerbraten.org/","component":"non-free","section":"non-free/games","hasGameCategory":false}
 {"name":"scribus-doc","description":"Open Source Desktop Page Layout - documentation - 1.5.x branch","version":"1.5.8+dfsg-1","homepage":"https://scribus.net","component":"non-free","section":"non-free/doc","hasGameCategory":false}
 {"name":"seq-gen","description":"simulate the evolution of nucleotide or amino acid sequences","version":"1.3.4-2","homepage":"http://tree.bio.ed.ac.uk/software/seqgen/","component":"non-free","section":"non-free/science","hasGameCategory":false}
 {"name":"sgb","description":"The Stanford GraphBase: combinatorial data and algorithms","version":"1:20210202-2","homepage":"https://www-cs-faculty.stanford.edu/~knuth/sgb.html","component":"non-free","section":"non-free/math","hasGameCategory":false}

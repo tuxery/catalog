@@ -1,3 +1,4 @@
+import { unorderedPairKey } from "@helpers4/string";
 import type { SourcedPackage } from "../../sources";
 import type { MatchPackageRef } from "./types";
 
@@ -13,6 +14,4 @@ export function refKey(ref: MatchPackageRef): string {
 }
 
 /** Canonical, order-independent key for a pair — same result for (a,b) and (b,a). */
-export function pairKey(keyA: string, keyB: string): string {
-  return keyA < keyB ? `${keyA}|${keyB}` : `${keyB}|${keyA}`;
-}
+export const pairKey = unorderedPairKey;

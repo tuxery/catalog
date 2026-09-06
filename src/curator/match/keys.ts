@@ -11,8 +11,3 @@ export function packageKey(
 export function refKey(ref: MatchPackageRef): string {
   return `${ref.source}:${ref.appId}`;
 }
-
-/** Canonical, order-independent key for a pair — same result for (a,b) and (b,a). */
-export function pairKey(keyA: string, keyB: string): string {
-  return keyA < keyB ? `${keyA}|${keyB}` : `${keyB}|${keyA}`;
-}

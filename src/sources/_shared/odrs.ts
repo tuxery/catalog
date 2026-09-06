@@ -1,4 +1,4 @@
-import { sumBy } from "@helpers4/array";
+import { sumBy } from "helpers4/array";
 import { fetchOrThrow } from "./http";
 
 // GNOME's ODRS (odrs.gnome.org) is the community ratings/reviews backend

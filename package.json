@@ -21,15 +21,9 @@
     "reset-caches": "tsx scripts/reset-caches.ts"
   },
   "dependencies": {
-    "@helpers4/array": "^3.0.9",
-    "@helpers4/function": "^3.0.9",
-    "@helpers4/map": "^3.0.9",
-    "@helpers4/object": "^3.0.9",
-    "@helpers4/promise": "^3.0.9",
-    "@helpers4/string": "^3.0.9",
-    "@helpers4/version": "^3.0.9",
     "@libsql/client": "^0.17.4",
     "fast-xml-parser": "^5.10.1",
+    "helpers4": "^3.1.2",
     "plist": "^5.0.0",
     "tar": "^7.5.22",
     "xz-decompress": "^0.2.3",

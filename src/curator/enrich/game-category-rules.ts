@@ -2,7 +2,7 @@ import { fileURLToPath } from "node:url";
 import { z } from "zod";
 import { readJson } from "../_shared/json";
 import { GameCategoryLabelSchema, type GameCategoryLabel } from "./category";
-import { globToRegExp } from "./glob-match";
+import { cachedGlobToRegExp } from "./glob-match";
 
 const GAME_CATEGORY_RULES_PATH = fileURLToPath(
   new URL("../../../config/game-category-rules.json", import.meta.url),
@@ -48,7 +48,7 @@ export function matchGameCategoryRule(
   rules: GameCategoryRuleEntry[],
 ): GameCategoryLabel | undefined {
   for (const rule of rules) {
-    const regExp = globToRegExp(rule.pattern);
+    const regExp = cachedGlobToRegExp(rule.pattern);
     if (names.some((name) => regExp.test(name))) return rule.category;
   }
   return undefined;

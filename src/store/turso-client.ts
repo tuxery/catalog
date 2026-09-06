@@ -1,5 +1,5 @@
-import { chunk } from "@helpers4/array";
-import { delay } from "@helpers4/promise";
+import { chunk } from "helpers4/array";
+import { delay } from "helpers4/promise";
 import { createClient, type Client } from "@libsql/client";
 
 /**
@@ -64,6 +64,11 @@ export interface AppRecord {
     issue: string;
     fix?: string;
   }[];
+  /** Deterministic data-confidence signals (name/license agreement across sources, a manual match-force verification) — see `CatalogApp.dataConfidence`'s doc comment. Always present, same "empty signals, not an absent field" discipline. */
+  dataConfidence: {
+    score: number;
+    signals: Array<{ signal: string; delta: number; detail: string }>;
+  };
   packages: unknown[];
 }
 
@@ -122,6 +127,7 @@ const INSERT_COLUMNS = [
   "installs_last_7_days",
   "suite_json",
   "compat_warnings_json",
+  "data_confidence_json",
   "packages_json",
 ];
 
@@ -165,6 +171,7 @@ function appsTableSql(tableName: string): string {
       installs_last_7_days INTEGER,
       suite_json TEXT,
       compat_warnings_json TEXT,
+      data_confidence_json TEXT NOT NULL,
       packages_json TEXT NOT NULL
     )
   `;
@@ -321,6 +328,7 @@ function toRow(app: AppRecord): unknown[] {
     app.installsLast7Days ?? null,
     toJsonColumn(app.suite),
     toJsonColumn(app.compatibilityWarnings),
+    JSON.stringify(app.dataConfidence),
     JSON.stringify(app.packages),
   ];
 }

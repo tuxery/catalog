@@ -1,13 +1,15 @@
-import { meanBy, sum, sumBy, unique } from "@helpers4/array";
+import { findMap, meanBy, sum, sumBy, unique } from "helpers4/array";
 import type { PackageSourceId, SourcedPackage, StoreCollectionTag } from "../../sources";
 import { looksLikeGamePackage, looksLikeGuiPackage } from "../filter/rules";
 import type { MatchedApp } from "../match/group";
+import { loadMatchOverrides, type MatchOverrides } from "../match/overrides";
 import {
   isAppStoreFrontend,
   loadAppStoreFrontends,
   type AppStoreFrontendEntry,
 } from "./app-store-frontend";
 import { isGameAdjacentToolCategory, pickCategory, TO_CLASSIFY } from "./category";
+import { computeDataConfidence, forceMatchedKeys } from "./data-confidence";
 import { loadCategoryRules, matchCategoryRule, type CategoryRuleEntry } from "./category-rules";
 import {
   loadGameCategoryRules,
@@ -449,22 +451,6 @@ function isGameAdjacentToolDescription(shortDescription: string, names: string[]
 }
 
 /**
- * The first non-`undefined` result of applying `fn` to each item, in
- * order — like `items.map(fn).find(Boolean)`, but stops calling `fn` once
- * a match is found instead of mapping the whole array first. `pkg.length`
- * is small (a handful of packages per app) so this rarely matters on its
- * own, but `pickCategoryLabel` below chains several of these per app
- * across the whole catalog, so the short-circuit adds up.
- */
-function firstDefined<T, R>(items: T[], fn: (item: T) => R | undefined): R | undefined {
-  for (const item of items) {
-    const result = fn(item);
-    if (result !== undefined) return result;
-  }
-  return undefined;
-}
-
-/**
  * Picks a category label via `pickField`, then maps it through
  * `pickCategory`'s type-scoped taxonomy. When no member package has any
  * upstream category data at all:
@@ -514,7 +500,7 @@ function pickCategoryLabel(
   if (picked !== TO_CLASSIFY) return picked;
 
   if (isGame) {
-    const sectionGenre = firstDefined(
+    const sectionGenre = findMap(
       packages,
       (pkg) =>
         gameGenreFromAurKeywords(pkg) ??
@@ -535,7 +521,7 @@ function pickCategoryLabel(
   const nameMatch = matchCategoryRule(names, categoryRules);
   if (nameMatch) return nameMatch;
 
-  const sectionMatch = firstDefined(
+  const sectionMatch = findMap(
     packages,
     (pkg) =>
       categoryFromAurKeywords(pkg) ??
@@ -642,8 +628,11 @@ export function enrichApps(
   descriptionCategoryRules: DescriptionCategoryRuleEntry[] = loadDescriptionCategoryRules(),
   descriptionGameCategoryRules: DescriptionGameCategoryRuleEntry[] = loadDescriptionGameCategoryRules(),
   llmClassifications: LlmClassificationEntry[] = loadLlmClassifications(),
+  matchOverrides: MatchOverrides = loadMatchOverrides(),
 ): CatalogApp[] {
   const llmCategories = llmCategoryMap(llmClassifications);
+  const forceKeys = forceMatchedKeys(matchOverrides);
+
   const apps: CatalogApp[] = matched.map((app) => {
     const representative = pickByPriority(app.packages);
     const shortDescription = pickDescription(app.packages);
@@ -709,6 +698,7 @@ export function enrichApps(
       rating: aggregateRating(app.packages),
       popularity: aggregatePopularity(app.packages),
       storeCollections: aggregateStoreCollections(app.packages),
+      dataConfidence: computeDataConfidence(app.packages, forceKeys),
     };
   });
 

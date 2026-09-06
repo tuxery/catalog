@@ -2,7 +2,7 @@ import { fileURLToPath } from "node:url";
 import { z } from "zod";
 import { readJson } from "../_shared/json";
 import { AppCategoryLabelSchema, type AppCategoryLabel } from "./category";
-import { globToRegExp } from "./glob-match";
+import { cachedGlobToRegExp } from "./glob-match";
 
 const CATEGORY_RULES_PATH = fileURLToPath(
   new URL("../../../config/category-rules.json", import.meta.url),
@@ -49,7 +49,7 @@ export function matchCategoryRule(
   rules: CategoryRuleEntry[],
 ): AppCategoryLabel | undefined {
   for (const rule of rules) {
-    const regExp = globToRegExp(rule.pattern);
+    const regExp = cachedGlobToRegExp(rule.pattern);
     if (names.some((name) => regExp.test(name))) return rule.category;
   }
   return undefined;

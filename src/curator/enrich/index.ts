@@ -1,4 +1,4 @@
-import { findMap, meanBy, sumBy, unique } from "helpers4/array";
+import { findMap, meanBy, sum, sumBy, unique } from "helpers4/array";
 import type { PackageSourceId, SourcedPackage, StoreCollectionTag } from "../../sources";
 import { looksLikeGamePackage, looksLikeGuiPackage } from "../filter/rules";
 import type { MatchedApp } from "../match/group";
@@ -594,7 +594,7 @@ function sumField(
   getField: (pkg: SourcedPackage) => number | undefined,
 ): number | undefined {
   const values = packages.map(getField).filter((value): value is number => value !== undefined);
-  return values.length > 0 ? sumBy(values, (value) => value) : undefined;
+  return values.length > 0 ? sum(values) : undefined;
 }
 
 /** Turns grouped packages into the display-ready `CatalogApp` records the website reads — see `types.ts` for what's populated today vs. tracked as roadmap. */

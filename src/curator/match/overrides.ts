@@ -1,6 +1,7 @@
 import { fileURLToPath } from "node:url";
+import { unorderedPairKey } from "helpers4/string";
 import { readJson } from "../_shared/json";
-import { pairKey, refKey } from "./keys";
+import { refKey } from "./keys";
 import { MatchDenyListSchema, MatchForceListSchema, type ForceMatchEntry } from "./types";
 
 const FORCE_PATH = fileURLToPath(new URL("../../../config/match-force.json", import.meta.url));
@@ -9,7 +10,7 @@ const DENY_PATH = fileURLToPath(new URL("../../../config/match-deny.json", impor
 export interface MatchOverrides {
   /** Groups to force into the same app, applied before any scoring. */
   force: ForceMatchEntry[];
-  /** Pair keys (see `pairKey`) that must never be unioned by the auto tiers, no matter how well they'd score. */
+  /** Pair keys (see `unorderedPairKey`) that must never be unioned by the auto tiers, no matter how well they'd score. */
   denyPairs: Set<string>;
 }
 
@@ -19,6 +20,6 @@ export function loadMatchOverrides(): MatchOverrides {
 
   return {
     force: readJson(FORCE_PATH, MatchForceListSchema),
-    denyPairs: new Set(deny.map((entry) => pairKey(refKey(entry.a), refKey(entry.b)))),
+    denyPairs: new Set(deny.map((entry) => unorderedPairKey(refKey(entry.a), refKey(entry.b)))),
   };
 }

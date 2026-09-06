@@ -1,4 +1,3 @@
-import { unorderedPairKey } from "helpers4/string";
 import type { SourcedPackage } from "../../sources";
 import type { MatchPackageRef } from "./types";
 
@@ -12,6 +11,3 @@ export function packageKey(
 export function refKey(ref: MatchPackageRef): string {
   return `${ref.source}:${ref.appId}`;
 }
-
-/** Canonical, order-independent key for a pair — same result for (a,b) and (b,a). */
-export const pairKey = unorderedPairKey;

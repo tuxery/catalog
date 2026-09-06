@@ -1,6 +1,7 @@
+import { unorderedPairKey } from "helpers4/string";
 import { createUnionFind, type UnionFind } from "helpers4/structure";
 import type { SourcedPackage } from "../../sources";
-import { packageKey, pairKey } from "./keys";
+import { packageKey } from "./keys";
 import { normalizeName } from "./normalize";
 import { loadMatchOverrides, type MatchOverrides } from "./overrides";
 
@@ -41,7 +42,7 @@ function unionByExactKey(
       continue;
     }
 
-    if (denyPairs.has(pairKey(pkgKey, representative))) continue;
+    if (denyPairs.has(unorderedPairKey(pkgKey, representative))) continue;
     uf.union(pkgKey, representative);
   }
 }

@@ -20,6 +20,7 @@ umbrella hiding five different actions behind one name.
 | [`category-rules.json`](category-rules.json)                         | enrich | name-pattern → category, for apps with no upstream category signal at all (checked before falling back to "To Classify")                                                                     |
 | [`game-category-rules.json`](game-category-rules.json)               | enrich | name-pattern → genre, for games with no upstream genre signal at all — `category-rules.json`'s counterpart, scoped to `categories-games.json`'s genre labels                                 |
 | [`description-category-rules.json`](description-category-rules.json) | enrich | keyword-phrase (matched against `shortDescription`) → category, the last resort after category-rules.json/section-based signals all fail — less precise than a name pattern, so checked last |
+| [`llm-classifications.json`](llm-classifications.json)               | enrich | per-app (`CatalogApp.id` → label) categories assigned by Gemini for apps the deterministic signals couldn't classify — **generated** by `pnpm classify-llm` (Gemini API, free tier), never hand-edited, and checked last of all, just before the "To Classify" fallback |
 
 Each file has a matching JSON Schema, colocated with the curator code
 that defines it (`src/curator/{filter,match,enrich}/*.schema.json`, not

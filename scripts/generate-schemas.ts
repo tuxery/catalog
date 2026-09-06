@@ -10,6 +10,7 @@ import { GameCategoryRulesListSchema } from "../src/curator/enrich/game-category
 import { DescriptionCategoryRulesListSchema } from "../src/curator/enrich/description-category-rules";
 import { CompatWarningsListSchema } from "../src/curator/enrich/compat-warnings";
 import { EnrichSuitesListSchema } from "../src/curator/enrich/suite";
+import { LlmClassificationsListSchema } from "../src/curator/enrich/llm-classifications";
 
 /**
  * Regenerates every `config/*.json` file's checked-in `.schema.json`
@@ -55,6 +56,10 @@ const SCHEMAS: { schema: z.ZodType; outFile: string }[] = [
   },
   { schema: CategoriesAppsSchema, outFile: "../src/curator/enrich/categories-apps.schema.json" },
   { schema: CategoriesGamesSchema, outFile: "../src/curator/enrich/categories-games.schema.json" },
+  {
+    schema: LlmClassificationsListSchema,
+    outFile: "../src/curator/enrich/llm-classifications.schema.json",
+  },
 ];
 
 for (const { schema, outFile } of SCHEMAS) {

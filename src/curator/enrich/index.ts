@@ -41,6 +41,12 @@ import {
 } from "./description-game-category-rules";
 import { getCompatWarnings, loadCompatWarnings, type CompatWarningEntry } from "./compat-warnings";
 import { applySuites, loadSuiteOverrides, type SuiteOverrideEntry } from "./suite";
+import {
+  llmCategoryMap,
+  loadLlmClassifications,
+  pickLlmCategory,
+  type LlmClassificationEntry,
+} from "./llm-classifications";
 import type { CatalogApp } from "./types";
 
 /**
@@ -143,10 +149,22 @@ function hasGameEvidence(pkg: SourcedPackage): boolean {
 // opposite direction (missing positive evidence, not a false positive).
 // Verified live (2026-09-04): these are the only catalog packages with
 // either exact name, zero collision risk.
+// Debian Jr.'s own "junior-games-*" tasksel bundles (blends.debian.org),
+// carried on Debian/Ubuntu as `section: "metapackages"` — outside
+// DEB_FAMILY_GAME_SECTIONS (that's the real "games" section, not this
+// blend's own bucket) and, unlike most `junior-games-*` siblings (whose
+// "Adventure"/"Card"/"Simulation"/... descriptions match a recognized
+// genre word), "Network"/"Text" aren't in GAME_DESCRIPTION_PATTERNS'
+// genre-word list. Regression found live reviewing the `use::gameplaying`
+// removal above (2026-09-05): both used to pass only via that now-removed
+// debtag, so they'd otherwise silently drop out of the games catalog.
+const DEBIAN_JR_GAME_LITERAL_EVIDENCE = new Set(["junior-games-net", "junior-games-text"]);
+
 const GAME_NAME_LITERAL_EVIDENCE = new Set([
   "stone-soup-tiles-git",
   "stone-soup-tiles",
   "stone-soup-console",
+  ...DEBIAN_JR_GAME_LITERAL_EVIDENCE,
 ]);
 
 function hasGameNameEvidence(pkg: SourcedPackage): boolean {
@@ -607,7 +625,9 @@ export function enrichApps(
   gameCategoryRules: GameCategoryRuleEntry[] = loadGameCategoryRules(),
   descriptionCategoryRules: DescriptionCategoryRuleEntry[] = loadDescriptionCategoryRules(),
   descriptionGameCategoryRules: DescriptionGameCategoryRuleEntry[] = loadDescriptionGameCategoryRules(),
+  llmClassifications: LlmClassificationEntry[] = loadLlmClassifications(),
 ): CatalogApp[] {
+  const llmCategories = llmCategoryMap(llmClassifications);
   const apps: CatalogApp[] = matched.map((app) => {
     const representative = pickByPriority(app.packages);
     const shortDescription = pickDescription(app.packages);
@@ -631,6 +651,16 @@ export function enrichApps(
           app.packages.map((pkg) => pkg.name),
         ));
 
+    const pickedCategory = pickCategoryLabel(
+      app.packages,
+      isGame,
+      categoryRules,
+      gameCategoryRules,
+      descriptionCategoryRules,
+      descriptionGameCategoryRules,
+      shortDescription,
+    );
+
     return {
       id: app.id,
       name: representative.name,
@@ -640,15 +670,10 @@ export function enrichApps(
       kind: app.packages.some(hasGuiEvidence) ? "gui" : undefined,
       contentType: isGame ? "game" : undefined,
       appStoreFrontend: isAppStoreFrontend(app.packages, appStoreFrontends) ? true : undefined,
-      category: pickCategoryLabel(
-        app.packages,
-        isGame,
-        categoryRules,
-        gameCategoryRules,
-        descriptionCategoryRules,
-        descriptionGameCategoryRules,
-        shortDescription,
-      ),
+      category:
+        pickedCategory !== TO_CLASSIFY
+          ? pickedCategory
+          : (pickLlmCategory(llmCategories, app.id, isGame) ?? TO_CLASSIFY),
       iconUrl: pickField(app.packages, (pkg) => pkg.iconUrl),
       approxSizeBytes: pickField(app.packages, (pkg) => pkg.approxSizeBytes),
       license: pickField(app.packages, (pkg) => pkg.license),

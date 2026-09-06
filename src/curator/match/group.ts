@@ -1,8 +1,8 @@
+import { createUnionFind, type UnionFind } from "@helpers4/structure";
 import type { SourcedPackage } from "../../sources";
 import { packageKey, pairKey } from "./keys";
 import { normalizeName } from "./normalize";
 import { loadMatchOverrides, type MatchOverrides } from "./overrides";
-import { UnionFind } from "./union-find";
 
 export interface MatchedApp {
   /** This group's canonical id — see `buildAppId`'s doc comment for how it's picked. */
@@ -315,7 +315,7 @@ export function groupPackages(
   packages: SourcedPackage[],
   overrides: MatchOverrides = loadMatchOverrides(),
 ): MatchedApp[] {
-  const uf = new UnionFind<string>();
+  const uf = createUnionFind<string>();
   for (const pkg of packages) uf.find(packageKey(pkg));
 
   // Tier 0: manual overrides.

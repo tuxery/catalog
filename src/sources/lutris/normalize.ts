@@ -1,3 +1,4 @@
+import { excerpt } from "helpers4/string";
 import type { SourcedPackage } from "../types";
 import type { LutrisCacheEntry } from "./types";
 
@@ -58,12 +59,25 @@ function mapGenres(genres: string[]): string[] {
 export function normalize(entries: LutrisCacheEntry[]): SourcedPackage[] {
   return entries.map((entry) => {
     const categories = mapGenres(entry.genres);
+    const gameDescription = entry.gameDescription?.trim();
+
     return {
       source: "lutris",
       name: entry.name,
-      // The game's own real description beats the installer's one-liner
-      // ("An installer for the GOG version of the game.") when present.
-      description: entry.gameDescription ?? entry.description,
+      // The installer's own one-liner ("Play "X" on Linux!") is usually
+      // exactly card/header-sized and wins when present, but a handful of
+      // installers carry a long free-text usage note instead (real cases:
+      // GOG multi-disc install instructions) — `excerpt` shortens it the
+      // same way as the game-description fallback below, rather than
+      // assuming "installer-authored" already implies "short". Empty on
+      // ~69% of real entries, so the game's real (long-form, up to
+      // ~2,000 characters, sourced from `/api/games/<slug>`) description
+      // is excerpted down to a short summary as the fallback — never
+      // used wholesale here, that was a real bug (a wall of prose
+      // showing as an app's card/header text): see `longDescription`
+      // below for the full text.
+      description: excerpt(entry.description.trim() || gameDescription || "", 200),
+      longDescription: gameDescription || undefined,
       version: "unknown",
       appId: entry.installerSlug,
       homepage: `https://lutris.net/games/${entry.gameSlug}/`,

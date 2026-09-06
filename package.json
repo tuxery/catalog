@@ -22,7 +22,7 @@
   "dependencies": {
     "@libsql/client": "^0.17.4",
     "fast-xml-parser": "^5.10.1",
-    "helpers4": "^3.1.1",
+    "helpers4": "^3.1.2",
     "plist": "^5.0.0",
     "tar": "^7.5.22",
     "xz-decompress": "^0.2.3",

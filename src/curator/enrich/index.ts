@@ -1,4 +1,4 @@
-import { meanBy, sum, sumBy, unique } from "@helpers4/array";
+import { findMap, meanBy, sumBy, unique } from "@helpers4/array";
 import type { PackageSourceId, SourcedPackage, StoreCollectionTag } from "../../sources";
 import { looksLikeGamePackage, looksLikeGuiPackage } from "../filter/rules";
 import type { MatchedApp } from "../match/group";
@@ -431,22 +431,6 @@ function isGameAdjacentToolDescription(shortDescription: string, names: string[]
 }
 
 /**
- * The first non-`undefined` result of applying `fn` to each item, in
- * order — like `items.map(fn).find(Boolean)`, but stops calling `fn` once
- * a match is found instead of mapping the whole array first. `pkg.length`
- * is small (a handful of packages per app) so this rarely matters on its
- * own, but `pickCategoryLabel` below chains several of these per app
- * across the whole catalog, so the short-circuit adds up.
- */
-function firstDefined<T, R>(items: T[], fn: (item: T) => R | undefined): R | undefined {
-  for (const item of items) {
-    const result = fn(item);
-    if (result !== undefined) return result;
-  }
-  return undefined;
-}
-
-/**
  * Picks a category label via `pickField`, then maps it through
  * `pickCategory`'s type-scoped taxonomy. When no member package has any
  * upstream category data at all:
@@ -496,7 +480,7 @@ function pickCategoryLabel(
   if (picked !== TO_CLASSIFY) return picked;
 
   if (isGame) {
-    const sectionGenre = firstDefined(
+    const sectionGenre = findMap(
       packages,
       (pkg) =>
         gameGenreFromAurKeywords(pkg) ??
@@ -517,7 +501,7 @@ function pickCategoryLabel(
   const nameMatch = matchCategoryRule(names, categoryRules);
   if (nameMatch) return nameMatch;
 
-  const sectionMatch = firstDefined(
+  const sectionMatch = findMap(
     packages,
     (pkg) =>
       categoryFromAurKeywords(pkg) ??
@@ -610,7 +594,7 @@ function sumField(
   getField: (pkg: SourcedPackage) => number | undefined,
 ): number | undefined {
   const values = packages.map(getField).filter((value): value is number => value !== undefined);
-  return values.length > 0 ? sum(values) : undefined;
+  return values.length > 0 ? sumBy(values, (value) => value) : undefined;
 }
 
 /** Turns grouped packages into the display-ready `CatalogApp` records the website reads — see `types.ts` for what's populated today vs. tracked as roadmap. */

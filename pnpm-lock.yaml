@@ -9,26 +9,29 @@ importers:
   .:
     dependencies:
       '@helpers4/array':
-        specifier: ^3.0.9
-        version: 3.0.9
+        specifier: ^3.1.1
+        version: 3.1.1
       '@helpers4/function':
-        specifier: ^3.0.9
-        version: 3.0.9
+        specifier: ^3.1.1
+        version: 3.1.1
       '@helpers4/map':
-        specifier: ^3.0.9
-        version: 3.0.9
+        specifier: ^3.1.1
+        version: 3.1.1
       '@helpers4/object':
-        specifier: ^3.0.9
-        version: 3.0.9
+        specifier: ^3.1.1
+        version: 3.1.1
       '@helpers4/promise':
-        specifier: ^3.0.9
-        version: 3.0.9
+        specifier: ^3.1.1
+        version: 3.1.1
       '@helpers4/string':
-        specifier: ^3.0.9
-        version: 3.0.9
+        specifier: ^3.1.1
+        version: 3.1.1
+      '@helpers4/structure':
+        specifier: ^3.1.1
+        version: 3.1.1
       '@helpers4/version':
-        specifier: ^3.0.9
-        version: 3.0.9
+        specifier: ^3.1.1
+        version: 3.1.1
       '@libsql/client':
         specifier: ^0.17.4
         version: 0.17.4
@@ -225,32 +228,36 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@helpers4/array@3.0.9':
-    resolution: {integrity: sha512-mxk8YaGIP+CaTfiMxTqpETZ55TFRnCBCbb+DuAoLMt9JEVg3b4gXqZlODe2yYOsRCbwlJXYyeV7iAzLtwQ8G5g==}
+  '@helpers4/array@3.1.1':
+    resolution: {integrity: sha512-922w05k0f7wMpAqY1cPhsHnVfzjWIownrXQWKqT7NUoX36670TIVYS3qYUWPtJMWInGuRD89yzRg2bHArTv/rQ==}
     engines: {node: '>=26.0.0'}
 
-  '@helpers4/function@3.0.9':
-    resolution: {integrity: sha512-seKlg+1T5KXkonmQUqxD+YAzxP+fzFdvPlHsDVqyh7nHuL1soOfvt37SbaxXXCJk3QZ06gkENKAUab0SDlo51Q==}
+  '@helpers4/function@3.1.1':
+    resolution: {integrity: sha512-VIXzAIlbuWm/oLLPTun/+gjfsWAu45sU2THNEfcHky+pddB8Yf8jVWnbKS5vzDJ60ZpXIdT1l3eD4bUw4OzxKQ==}
     engines: {node: '>=26.0.0'}
 
-  '@helpers4/map@3.0.9':
-    resolution: {integrity: sha512-+nBsD0sFFUH5RdHJjET9xCZaUf0ELRjxKlG/92jqZMJ1/vD74j+88oUZXpOgQBKqW53uPOUYVy8txFQt4SbvNA==}
+  '@helpers4/map@3.1.1':
+    resolution: {integrity: sha512-So9G7jGQkIXWHjWQOJmuW1UZA19v8vCV0qtwMuhh6WVckk5nfO+S0SRYzBKMooNdb7SvWz8GBLuMHeVlFKik/Q==}
     engines: {node: '>=26.0.0'}
 
-  '@helpers4/object@3.0.9':
-    resolution: {integrity: sha512-ZHbZUvQSkWUdBMyNs9EPohcEoPL9rqhHSqvYF7brs5R749aMRUs92/3AmU/XIRre6axXZ95c81wVTzeGff1R3A==}
+  '@helpers4/object@3.1.1':
+    resolution: {integrity: sha512-+0YzD0+TXqsjKXUxyWqRuVZGmIFv2SH+Fudvb4QmN0Jv7zORHQZvoguZWQLPF4PbhMFSJTr2eoMB4SXIGwOFMQ==}
     engines: {node: '>=26.0.0'}
 
-  '@helpers4/promise@3.0.9':
-    resolution: {integrity: sha512-H6rkPT9Ldt9r7RDKBBlUTwep8mWtXHHWzwDY9gw9YwqE5GTw27FnIf390GFpx1bSj+dXT+oKEl1dtDk9ct/dxg==}
+  '@helpers4/promise@3.1.1':
+    resolution: {integrity: sha512-utTUGpw9/v11vLSpm2ONb8mWrMU4ztivbhpoMx/JVRLMeswKA+BHK1oXEyvCVdpMEU5tnnGIr+z3kuwfksVmmA==}
     engines: {node: '>=26.0.0'}
 
-  '@helpers4/string@3.0.9':
-    resolution: {integrity: sha512-GHxEsTwcGijhs56RpuWYbBZeotQir6O9y7Wb7AW28Iq8kccycZtqXUEluw7Wpa87tHGzsLQu5yvjELjzUUh2Jg==}
+  '@helpers4/string@3.1.1':
+    resolution: {integrity: sha512-iS9IXM8X6EVtDADL8kWTHFnyxSS7OTIL2h39PV4Mz3vYIQnlLgSeV9GmjAz/6EJavxd5KSguwMH2XxpEx6hz+w==}
     engines: {node: '>=26.0.0'}
 
-  '@helpers4/version@3.0.9':
-    resolution: {integrity: sha512-3hDe6IrwnTzvuYiKsbiJuo+C70uDNloQKRPRK0ZRofqOMOsd59ziHkIKczbmzfzPwh1KTLEZ/VclB4VvoG/c/A==}
+  '@helpers4/structure@3.1.1':
+    resolution: {integrity: sha512-iMoEcn6ffCVrHSDcdb+LEUwBdH+0XXas6s1mLn3ycGW41Q6qOBk5Ce7RYsgS9RfvxcqmqiVDIflAKDyXomErvw==}
+    engines: {node: '>=26.0.0'}
+
+  '@helpers4/version@3.1.1':
+    resolution: {integrity: sha512-f23IKK3n5/e/EOybBqa/Iwqm0cGbDDUO8xGaV8zS6hBOWtVv7Lj//jADYpi1Sg7cMkU1tsEaN+xX8LM0Ekp5CQ==}
     engines: {node: '>=26.0.0'}
 
   '@isaacs/fs-minipass@4.0.1':
@@ -1310,19 +1317,21 @@ snapshots:
   '@esbuild/win32-x64@0.28.2':
     optional: true
 
-  '@helpers4/array@3.0.9': {}
+  '@helpers4/array@3.1.1': {}
 
-  '@helpers4/function@3.0.9': {}
+  '@helpers4/function@3.1.1': {}
 
-  '@helpers4/map@3.0.9': {}
+  '@helpers4/map@3.1.1': {}
 
-  '@helpers4/object@3.0.9': {}
+  '@helpers4/object@3.1.1': {}
 
-  '@helpers4/promise@3.0.9': {}
+  '@helpers4/promise@3.1.1': {}
 
-  '@helpers4/string@3.0.9': {}
+  '@helpers4/string@3.1.1': {}
 
-  '@helpers4/version@3.0.9': {}
+  '@helpers4/structure@3.1.1': {}
+
+  '@helpers4/version@3.1.1': {}
 
   '@isaacs/fs-minipass@4.0.1':
     dependencies:

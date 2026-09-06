@@ -3,8 +3,8 @@ import { readdir, readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { Readable } from "node:stream";
 import { pipeline } from "node:stream/promises";
-import { groupBy } from "@helpers4/object";
-import { compare } from "@helpers4/version";
+import { groupBy } from "helpers4/object";
+import { compare } from "helpers4/version";
 import * as tar from "tar";
 // xz-decompress ships a Webpack UMD bundle (a single `module.exports =
 // factory(...)` assignment) — Node's CJS/ESM interop can't statically

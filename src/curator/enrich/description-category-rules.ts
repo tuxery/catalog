@@ -1,5 +1,5 @@
 import { fileURLToPath } from "node:url";
-import { memoize } from "@helpers4/function";
+import { memoize } from "helpers4/function";
 import { z } from "zod";
 import { readJson } from "../_shared/json";
 import { AppCategoryLabelSchema, type AppCategoryLabel } from "./category";

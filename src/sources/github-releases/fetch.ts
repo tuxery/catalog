@@ -1,4 +1,4 @@
-import { parallel } from "@helpers4/promise";
+import { parallel } from "helpers4/promise";
 import { fetchOrThrow } from "../_shared/http";
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";

@@ -1,5 +1,5 @@
 import { fileURLToPath } from "node:url";
-import { toMapByKey } from "@helpers4/map";
+import { toMapByKey } from "helpers4/map";
 import { z } from "zod";
 import { readJson } from "../_shared/json";
 import type { CatalogApp } from "./types";

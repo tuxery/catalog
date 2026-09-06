@@ -1,5 +1,5 @@
-import { chunk } from "@helpers4/array";
-import { delay } from "@helpers4/promise";
+import { chunk } from "helpers4/array";
+import { delay } from "helpers4/promise";
 import { createClient, type Client } from "@libsql/client";
 
 /**

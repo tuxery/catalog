@@ -1,4 +1,4 @@
-import { unorderedPairKey } from "@helpers4/string";
+import { unorderedPairKey } from "helpers4/string";
 import type { SourcedPackage } from "../../sources";
 import type { MatchPackageRef } from "./types";
 

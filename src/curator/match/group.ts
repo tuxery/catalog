@@ -204,6 +204,23 @@ const VARIANT_SUFFIX = /-(git|svn|hg|bzr|cvs|bin)$/;
 const SOURCES_WITH_VARIANT_SUFFIXES = new Set(["pacman-aur", "ebuild-gentoo"]);
 
 /**
+ * Strips AUR/Gentoo's own build-variant/channel-word suffix convention
+ * (`-git`/`-bin`/`-beta-bin`/...) from a package's name, when that
+ * source uses the convention at all — see `tier2Key`'s doc comment for
+ * the full reasoning. Exported (not just inlined into `tier2Key`) so
+ * anything comparing names *within* an already-formed group (e.g.
+ * `enrich/data-confidence.ts`'s name-agreement signal) uses the exact
+ * same equivalence the matcher itself used to justify grouping them —
+ * without it, `jan`/`jan-bin`/`jan-git` (a real, correctly-merged case)
+ * would read as a name conflict, which it isn't.
+ */
+export function stripVariantSuffix(pkg: Pick<SourcedPackage, "source" | "name">): string {
+  return SOURCES_WITH_VARIANT_SUFFIXES.has(pkg.source)
+    ? pkg.name.replace(CHANNEL_WORD_SUFFIX, "").replace(VARIANT_SUFFIX, "")
+    : pkg.name;
+}
+
+/**
  * Tier 2's key function — `normalizeName`, except:
  * - `GENERIC_NAME_BLOCKLIST` entries return `undefined` (skipped by
  *   `unionByExactKey`, same as a package with no name at all) so they
@@ -211,17 +228,15 @@ const SOURCES_WITH_VARIANT_SUFFIXES = new Set(["pacman-aur", "ebuild-gentoo"]);
  * - AUR/Gentoo packages ending in a channel word (`CHANNEL_WORD_SUFFIX`,
  *   optionally with a build-variant suffix after it) or a bare
  *   build-variant suffix (`VARIANT_SUFFIX`) are keyed on their
- *   suffix-stripped name instead, so e.g. `0xtools-git`, `zen-browser-bin`,
- *   `firefox-bin`, or `brave-origin-beta-bin` unions with
+ *   suffix-stripped name instead (`stripVariantSuffix`), so e.g.
+ *   `0xtools-git`, `zen-browser-bin`, `firefox-bin`, or
+ *   `brave-origin-beta-bin` unions with
  *   `0xtools`/`zen-browser`/`firefox`/`brave-origin` (that source's own
  *   bare package, or any other source's) rather than staying a permanent
  *   duplicate.
  */
 function tier2Key(pkg: SourcedPackage): string | undefined {
-  const name = SOURCES_WITH_VARIANT_SUFFIXES.has(pkg.source)
-    ? pkg.name.replace(CHANNEL_WORD_SUFFIX, "").replace(VARIANT_SUFFIX, "")
-    : pkg.name;
-  const normalized = normalizeName(name);
+  const normalized = normalizeName(stripVariantSuffix(pkg));
   return GENERIC_NAME_BLOCKLIST.has(normalized) ? undefined : normalized;
 }
 

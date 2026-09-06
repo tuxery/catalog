@@ -6,6 +6,7 @@ const APP: AppRecord = {
   id: "flathub:org.videolan.VLC",
   name: "VLC",
   shortDescription: "Media player",
+  dataConfidence: { score: 0, signals: [] },
   packages: [{ source: "flathub", name: "VLC" }],
 };
 

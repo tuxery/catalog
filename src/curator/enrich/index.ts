@@ -2,12 +2,14 @@ import { findMap, meanBy, sum, sumBy, unique } from "helpers4/array";
 import type { PackageSourceId, SourcedPackage, StoreCollectionTag } from "../../sources";
 import { looksLikeGamePackage, looksLikeGuiPackage } from "../filter/rules";
 import type { MatchedApp } from "../match/group";
+import { loadMatchOverrides, type MatchOverrides } from "../match/overrides";
 import {
   isAppStoreFrontend,
   loadAppStoreFrontends,
   type AppStoreFrontendEntry,
 } from "./app-store-frontend";
 import { isGameAdjacentToolCategory, pickCategory, TO_CLASSIFY } from "./category";
+import { computeDataConfidence, forceMatchedKeys } from "./data-confidence";
 import { loadCategoryRules, matchCategoryRule, type CategoryRuleEntry } from "./category-rules";
 import {
   loadGameCategoryRules,
@@ -607,7 +609,10 @@ export function enrichApps(
   gameCategoryRules: GameCategoryRuleEntry[] = loadGameCategoryRules(),
   descriptionCategoryRules: DescriptionCategoryRuleEntry[] = loadDescriptionCategoryRules(),
   descriptionGameCategoryRules: DescriptionGameCategoryRuleEntry[] = loadDescriptionGameCategoryRules(),
+  matchOverrides: MatchOverrides = loadMatchOverrides(),
 ): CatalogApp[] {
+  const forceKeys = forceMatchedKeys(matchOverrides);
+
   const apps: CatalogApp[] = matched.map((app) => {
     const representative = pickByPriority(app.packages);
     const shortDescription = pickDescription(app.packages);
@@ -668,6 +673,7 @@ export function enrichApps(
       rating: aggregateRating(app.packages),
       popularity: aggregatePopularity(app.packages),
       storeCollections: aggregateStoreCollections(app.packages),
+      dataConfidence: computeDataConfidence(app.packages, forceKeys),
     };
   });
 

@@ -1,13 +1,13 @@
-import { memoize } from "@helpers4/function";
-import { globToRegExp as compileGlob } from "@helpers4/string";
+import { memoize } from "helpers4/function";
+import { globToRegExp as compileGlob } from "helpers4/string";
 
 // Compiling a pattern is the expensive part (relative to the match test
 // itself), and a name-pattern matcher runs once per uncategorized app
 // across the whole catalog (tens of thousands of calls) against the same
 // fixed rule list every time — recompiling every pattern's RegExp on every
 // call would mean millions of redundant compilations for a set of patterns
-// that never changes at runtime. `@helpers4/string`'s `globToRegExp`
-// doesn't memoize internally, so `@helpers4/function`'s `memoize` wraps it
+// that never changes at runtime. `helpers4/string`'s `globToRegExp`
+// doesn't memoize internally, so `helpers4/function`'s `memoize` wraps it
 // here, caching by (JSON-stringified) argument, i.e. by pattern string, so
 // two different rules that happen to share a pattern string still share
 // one compile. Shared between `category-rules.ts` (apps) and

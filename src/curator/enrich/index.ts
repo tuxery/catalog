@@ -1,4 +1,4 @@
-import { findMap, meanBy, sumBy, unique } from "@helpers4/array";
+import { findMap, meanBy, sumBy, unique } from "helpers4/array";
 import type { PackageSourceId, SourcedPackage, StoreCollectionTag } from "../../sources";
 import { looksLikeGamePackage, looksLikeGuiPackage } from "../filter/rules";
 import type { MatchedApp } from "../match/group";

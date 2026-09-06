@@ -1,4 +1,4 @@
-import { createUnionFind, type UnionFind } from "@helpers4/structure";
+import { createUnionFind, type UnionFind } from "helpers4/structure";
 import type { SourcedPackage } from "../../sources";
 import { packageKey, pairKey } from "./keys";
 import { normalizeName } from "./normalize";

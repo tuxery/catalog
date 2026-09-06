@@ -1,4 +1,4 @@
-import { parallel } from "@helpers4/promise";
+import { parallel } from "helpers4/promise";
 import { parseAppstreamXml, resolveIconUrl } from "../_shared/appstream";
 import { fetchOrThrow, fetchGunzippedText } from "../_shared/http";
 import { writeMetadata } from "../_shared/metadata";

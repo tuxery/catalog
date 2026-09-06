@@ -1,10 +1,10 @@
 import {
   levenshteinDistance as baseLevenshteinDistance,
   levenshteinSimilarity as baseLevenshteinSimilarity,
-} from "@helpers4/string";
+} from "helpers4/string";
 
 /**
- * Case-insensitive Levenshtein edit distance — `@helpers4/string`'s
+ * Case-insensitive Levenshtein edit distance — `helpers4/string`'s
  * `levenshteinDistance` defaults to case-sensitive, but package/app name
  * matching here has always ignored case.
  */

@@ -273,9 +273,13 @@ function countByCategory(apps: AppRecord[]): CategoryCount[] {
     const category = app.category ?? "";
     counts.set(category, (counts.get(category) ?? 0) + 1);
   }
-  return [...counts.entries()]
-    .map(([category, count]) => ({ category, count }))
-    .toSorted((a, b) => b.count - a.count);
+  const result = [...counts.entries()].map(([category, count]) => ({ category, count }));
+  // A freshly built local array, not aliased anywhere else — safe to sort
+  // in place. `toSorted()` (no-array-sort's suggested fix) needs ES2023,
+  // this repo targets ES2022 (tsconfig.json's `lib`).
+  // eslint-disable-next-line unicorn/no-array-sort
+  result.sort((a, b) => b.count - a.count);
+  return result;
 }
 
 const INDEX_RETRY_ATTEMPTS = 3;

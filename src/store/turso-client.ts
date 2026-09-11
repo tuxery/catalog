@@ -290,6 +290,17 @@ const CATEGORY_PREVIEW_SIZE = 12;
 
 type ListingTypeFilter = "all" | "game" | "app";
 
+// icon_url only, not screenshots too — real bug in `app`'s side (the
+// previous home of this filter, before these listings moved here), found
+// live once the homepage's Trending row split into per-type (games/apps)
+// rows: `AppCard` has no `screenshots` prop and never renders one, so a
+// screenshot-only app admitted by a broader "has *some* visual asset"
+// filter rendered as a bare placeholder-icon card anyway — the exact
+// thing the filter was supposed to prevent. Verified live: 1,386 of the
+// 21,844 popularity-scored apps have a real icon (mostly AUR's own
+// usage-frequency signal, a source with no icon data at all) — still
+// comfortably enough for every trending bucket and every homepage
+// category row.
 function hasVisualAsset(app: AppRecord): boolean {
   return app.iconUrl !== undefined;
 }

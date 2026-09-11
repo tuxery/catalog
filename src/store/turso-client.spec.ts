@@ -70,6 +70,7 @@ describe("createTursoClient", () => {
       "(content_type, popularity)",
       "(content_type, last_updated)",
       "(content_type, installs_last_7_days)",
+      "(category, popularity)",
     ]) {
       expect(
         executedSql.some((sql) => sql.includes("CREATE INDEX") && sql.includes(composite)),
@@ -104,7 +105,7 @@ describe("createTursoClient", () => {
       let failedOnce = false;
       const execute = vi.fn<Client["execute"]>().mockImplementation(async (sql) => {
         const text = sql as string;
-        if (text.includes("CREATE INDEX idx_apps_category") && !failedOnce) {
+        if (text.includes("CREATE INDEX idx_apps_category ON") && !failedOnce) {
           failedOnce = true;
           throw new Error("SQLite error: index idx_apps_category already exists");
         }
@@ -123,7 +124,7 @@ describe("createTursoClient", () => {
       await publishPromise;
 
       const categoryIndexCalls = execute.mock.calls.filter((call) =>
-        (call[0] as string).includes("CREATE INDEX idx_apps_category"),
+        (call[0] as string).includes("CREATE INDEX idx_apps_category ON"),
       );
       // First attempt fails, retry succeeds — publish() doesn't throw.
       expect(categoryIndexCalls).toHaveLength(2);
@@ -144,7 +145,7 @@ describe("createTursoClient", () => {
       const { batch } = fakeClient(false);
       const execute = vi.fn<Client["execute"]>().mockImplementation(async (sql) => {
         const text = sql as string;
-        if (text.includes("CREATE INDEX idx_apps_category")) {
+        if (text.includes("CREATE INDEX idx_apps_category ON")) {
           throw new Error("SQLite error: index idx_apps_category already exists");
         }
         return { rows: [] } as never;
@@ -160,6 +161,38 @@ describe("createTursoClient", () => {
     },
     5000,
   );
+
+  it("precomputes per-category counts (all/game/app) into meta instead of leaving them for a live COUNT(*) query", async () => {
+    const { batch, client } = fakeClient(false);
+    const tursoClient = createTursoClient({ url: "file::memory:" }, client);
+
+    const apps: AppRecord[] = [
+      { ...APP, id: "a", category: "Graphics & Design" },
+      { ...APP, id: "b", category: "Graphics & Design" },
+      { ...APP, id: "c", category: "Strategy", contentType: "game" },
+      { ...APP, id: "d", category: "Action", contentType: "game" },
+      { ...APP, id: "e", category: "Action", contentType: "game" },
+    ];
+
+    await tursoClient.publish({ generatedAt: "2026-01-01T00:00:00.000Z", apps });
+
+    const swapBatch = batch.mock.calls[1]?.[0] as { sql: string; args?: unknown[] }[];
+    const metaInsert = swapBatch.find((s) => s.sql.includes("INSERT INTO meta"));
+    const args = metaInsert?.args as string[];
+
+    // Args are positional, matching the SQL's VALUES order: generatedAt,
+    // totalApps, categoryCounts:all, categoryCounts:game, categoryCounts:app.
+    expect(JSON.parse(args[2]!)).toEqual([
+      { category: "Graphics & Design", count: 2 },
+      { category: "Action", count: 2 },
+      { category: "Strategy", count: 1 },
+    ]);
+    expect(JSON.parse(args[3]!)).toEqual([
+      { category: "Action", count: 2 },
+      { category: "Strategy", count: 1 },
+    ]);
+    expect(JSON.parse(args[4]!)).toEqual([{ category: "Graphics & Design", count: 2 }]);
+  });
 
   it("renames the existing apps table out of the way before swapping when one already exists", async () => {
     const { batch, client } = fakeClient(true);

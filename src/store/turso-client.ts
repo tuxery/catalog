@@ -236,7 +236,47 @@ const APPS_INDEXES_SQL = [
   `CREATE INDEX idx_apps_content_type_popularity ON apps(content_type, popularity)`,
   `CREATE INDEX idx_apps_content_type_last_updated ON apps(content_type, last_updated)`,
   `CREATE INDEX idx_apps_content_type_installs_last_7_days ON apps(content_type, installs_last_7_days)`,
+  // `getAppsByCategory`'s `WHERE category = ? ORDER BY popularity ... DESC`
+  // shape — `idx_apps_category` alone resolves the filter but still pays
+  // for a temp B-tree sort of every row in that category before LIMIT can
+  // trim it. Found live in Turso's own query stats after the read quota
+  // was fully exhausted 2026-09-11: this exact query averaged ~1,940 rows
+  // read per call (one category's worth) across 177 calls — the single
+  // biggest per-call gap left after the 2026-09-03/04 index rounds, which
+  // covered every other WHERE/ORDER BY combination but missed this one
+  // since `category` and `popularity` never appeared together before.
+  `CREATE INDEX idx_apps_category_popularity ON apps(category, popularity)`,
 ];
+
+interface CategoryCount {
+  category: string;
+  count: number;
+}
+
+/**
+ * Counts apps per category, highest first — mirrors `app`'s `getCategories`
+ * SQL (`GROUP BY category ORDER BY count DESC`) exactly, computed here in
+ * memory from the same `dataset.apps` already being written, rather than
+ * making `app` re-derive it with a live `COUNT(*)` query. That query was
+ * effectively a full-table scan under `typeFilter: "app"` (`WHERE
+ * content_type IS NULL` matches nearly the entire catalog, so the index
+ * barely narrows it) — found live in Turso's query stats as the single
+ * largest read cost by far once the quota was fully exhausted 2026-09-11:
+ * ~165,600 rows read per call, 4.14M rows for just 25 calls in one sample
+ * window. `getStats` already reads its totals from `meta` instead of
+ * `COUNT(*)`-ing `apps` at request time (see its own doc comment) —
+ * `getCategories` just never got the same treatment when it was added.
+ */
+function countByCategory(apps: AppRecord[]): CategoryCount[] {
+  const counts = new Map<string, number>();
+  for (const app of apps) {
+    const category = app.category ?? "";
+    counts.set(category, (counts.get(category) ?? 0) + 1);
+  }
+  return [...counts.entries()]
+    .map(([category, count]) => ({ category, count }))
+    .toSorted((a, b) => b.count - a.count);
+}
 
 const INDEX_RETRY_ATTEMPTS = 3;
 const INDEX_RETRY_BASE_DELAY_MS = 500;
@@ -367,15 +407,31 @@ export function createTursoClient(config: TursoConfig, client?: Client): TursoCl
         `SELECT name FROM sqlite_master WHERE type='table' AND name='apps'`,
       );
 
+      const categoryCountsAll = countByCategory(dataset.apps);
+      const categoryCountsGame = countByCategory(
+        dataset.apps.filter((app) => app.contentType === "game"),
+      );
+      const categoryCountsApp = countByCategory(
+        dataset.apps.filter((app) => app.contentType !== "game"),
+      );
+
       await db.batch(
         [
           ...(existing.rows.length > 0 ? [{ sql: `ALTER TABLE apps RENAME TO apps_old` }] : []),
           { sql: `ALTER TABLE apps_next RENAME TO apps` },
           { sql: `DROP TABLE IF EXISTS apps_old` },
           {
-            sql: `INSERT INTO meta (key, value) VALUES ('generatedAt', ?), ('totalApps', ?)
+            sql: `INSERT INTO meta (key, value) VALUES
+                  ('generatedAt', ?), ('totalApps', ?),
+                  ('categoryCounts:all', ?), ('categoryCounts:game', ?), ('categoryCounts:app', ?)
                   ON CONFLICT(key) DO UPDATE SET value = excluded.value`,
-            args: [dataset.generatedAt, String(dataset.apps.length)],
+            args: [
+              dataset.generatedAt,
+              String(dataset.apps.length),
+              JSON.stringify(categoryCountsAll),
+              JSON.stringify(categoryCountsGame),
+              JSON.stringify(categoryCountsApp),
+            ],
           },
         ],
         "write",

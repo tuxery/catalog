@@ -236,7 +236,219 @@ const APPS_INDEXES_SQL = [
   `CREATE INDEX idx_apps_content_type_popularity ON apps(content_type, popularity)`,
   `CREATE INDEX idx_apps_content_type_last_updated ON apps(content_type, last_updated)`,
   `CREATE INDEX idx_apps_content_type_installs_last_7_days ON apps(content_type, installs_last_7_days)`,
+  // `getAppsByCategory`'s `WHERE category = ? ORDER BY popularity ... DESC`
+  // shape — `idx_apps_category` alone resolves the filter but still pays
+  // for a temp B-tree sort of every row in that category before LIMIT can
+  // trim it. Found live in Turso's own query stats after the read quota
+  // was fully exhausted 2026-09-11: this exact query averaged ~1,940 rows
+  // read per call (one category's worth) across 177 calls — the single
+  // biggest per-call gap left after the 2026-09-03/04 index rounds, which
+  // covered every other WHERE/ORDER BY combination but missed this one
+  // since `category` and `popularity` never appeared together before.
+  `CREATE INDEX idx_apps_category_popularity ON apps(category, popularity)`,
 ];
+
+interface CategoryCount {
+  category: string;
+  count: number;
+}
+
+/**
+ * Counts apps per category, highest first — mirrors `app`'s `getCategories`
+ * SQL (`GROUP BY category ORDER BY count DESC`) exactly, computed here in
+ * memory from the same `dataset.apps` already being written, rather than
+ * making `app` re-derive it with a live `COUNT(*)` query. That query was
+ * effectively a full-table scan under `typeFilter: "app"` (`WHERE
+ * content_type IS NULL` matches nearly the entire catalog, so the index
+ * barely narrows it) — found live in Turso's query stats as the single
+ * largest read cost by far once the quota was fully exhausted 2026-09-11:
+ * ~165,600 rows read per call, 4.14M rows for just 25 calls in one sample
+ * window. `getStats` already reads its totals from `meta` instead of
+ * `COUNT(*)`-ing `apps` at request time (see its own doc comment) —
+ * `getCategories` just never got the same treatment when it was added.
+ */
+function countByCategory(apps: AppRecord[]): CategoryCount[] {
+  const counts = new Map<string, number>();
+  for (const app of apps) {
+    const category = app.category ?? "";
+    counts.set(category, (counts.get(category) ?? 0) + 1);
+  }
+  const result = [...counts.entries()].map(([category, count]) => ({ category, count }));
+  // A freshly built local array, not aliased anywhere else — safe to sort
+  // in place. `toSorted()` (no-array-sort's suggested fix) needs ES2023,
+  // this repo targets ES2022 (tsconfig.json's `lib`).
+  // eslint-disable-next-line unicorn/no-array-sort
+  result.sort((a, b) => b.count - a.count);
+  return result;
+}
+
+// Mirrors `app`'s `TRENDING_PAGE_SIZE`/`CATEGORY_PREVIEW_SIZE` (src/catalog.ts)
+// — kept in sync by hand, like every other cross-repo constant this
+// incident's fixes reference (no shared package between `catalog` and `app`).
+const TRENDING_PAGE_SIZE = 60;
+const CATEGORY_PREVIEW_SIZE = 12;
+
+type ListingTypeFilter = "all" | "game" | "app";
+
+// icon_url only, not screenshots too — real bug in `app`'s side (the
+// previous home of this filter, before these listings moved here), found
+// live once the homepage's Trending row split into per-type (games/apps)
+// rows: `AppCard` has no `screenshots` prop and never renders one, so a
+// screenshot-only app admitted by a broader "has *some* visual asset"
+// filter rendered as a bare placeholder-icon card anyway — the exact
+// thing the filter was supposed to prevent. Verified live: 1,386 of the
+// 21,844 popularity-scored apps have a real icon (mostly AUR's own
+// usage-frequency signal, a source with no icon data at all) — still
+// comfortably enough for every trending bucket and every homepage
+// category row.
+function hasVisualAsset(app: AppRecord): boolean {
+  return app.iconUrl !== undefined;
+}
+
+function matchesTypeFilter(app: AppRecord, typeFilter: ListingTypeFilter): boolean {
+  if (typeFilter === "game") return app.contentType === "game";
+  if (typeFilter === "app") return app.contentType !== "game";
+  return true;
+}
+
+function hasPackageFromSource(app: AppRecord, source: string): boolean {
+  return app.packages.some((pkg) => (pkg as { source?: unknown }).source === source);
+}
+
+/** Every category actually present in this dataset — no import of curator's closed label lists needed, and self-maintaining if that list ever changes. */
+function distinctCategories(apps: AppRecord[]): string[] {
+  return [
+    ...new Set(apps.map((app) => app.category).filter((category): category is string => category !== undefined)),
+  ];
+}
+
+/** Every source actually present in this dataset's packages — same "derive from data, don't import/duplicate the enum" reasoning as `distinctCategories`. */
+function distinctSources(apps: AppRecord[]): string[] {
+  const sources = new Set<string>();
+  for (const app of apps) {
+    for (const pkg of app.packages) {
+      const source = (pkg as { source?: unknown }).source;
+      if (typeof source === "string") sources.add(source);
+    }
+  }
+  return [...sources];
+}
+
+function sortInPlace<T>(items: T[], compare: (a: T, b: T) => number): T[] {
+  // A freshly filtered array (Array#filter always returns a new one, never
+  // aliased elsewhere), safe to sort in place — toSorted() needs ES2023,
+  // this repo targets ES2022 (same reasoning as `countByCategory` above).
+  // eslint-disable-next-line unicorn/no-array-sort
+  items.sort(compare);
+  return items;
+}
+
+function topIds(
+  apps: AppRecord[],
+  predicate: (app: AppRecord) => boolean,
+  compare: (a: AppRecord, b: AppRecord) => number,
+  limit: number,
+): string[] {
+  return sortInPlace(apps.filter(predicate), compare)
+    .slice(0, limit)
+    .map((app) => app.id);
+}
+
+function byPopularityDesc(a: AppRecord, b: AppRecord): number {
+  return (b.popularity ?? 0) - (a.popularity ?? 0);
+}
+
+function byLastUpdatedDesc(a: AppRecord, b: AppRecord): number {
+  const aValue = a.lastUpdated ?? "";
+  const bValue = b.lastUpdated ?? "";
+  return aValue === bValue ? 0 : aValue < bValue ? 1 : -1;
+}
+
+function byInstallsLast7DaysDesc(a: AppRecord, b: AppRecord): number {
+  return (b.installsLast7Days ?? 0) - (a.installsLast7Days ?? 0);
+}
+
+// Mirrors app's `getAppsByCategory` ORDER BY `popularity IS NULL, popularity
+// DESC, name ASC` — unscored apps sort last rather than being excluded, so
+// every category still shows something even with zero scored apps in it.
+function byCategoryPreviewOrder(a: AppRecord, b: AppRecord): number {
+  const aScored = a.popularity !== undefined;
+  const bScored = b.popularity !== undefined;
+  if (aScored !== bScored) return aScored ? -1 : 1;
+  if (aScored && bScored && a.popularity !== b.popularity) {
+    return (b.popularity as number) - (a.popularity as number);
+  }
+  return a.name === b.name ? 0 : a.name < b.name ? -1 : 1;
+}
+
+/**
+ * Precomputes every bounded "listing" query `app`'s catalog.ts used to run
+ * live at request time — trending/new/download-trending (3 `typeFilter`
+ * variants each), per-category previews (one per real category, ~27
+ * today), and per-source trending (one per source actually present in
+ * this dataset, ~25 today). Each has a small, closed parameter space that
+ * only changes when this dataset republishes (manual, infrequent) — the
+ * same "precompute once here instead of aggregating live on every
+ * request" fix as `countByCategory` above, extended to the rest of the
+ * homepage's query set once `getCategories` (by far the largest cost)
+ * proved the pattern live in Turso's query stats 2026-09-11. Second
+ * largest cost in that same report, `getAppsByCategory`, is included here
+ * too — `idx_apps_category_popularity` above already fixed its per-call
+ * cost, but eliminating it outright is strictly better than reducing it.
+ *
+ * Stores an ordered array of app ids per key, not full `AppSummary`
+ * objects — the parts of `AppSummary` derived from the full `packages`
+ * array (`ratingsBySource`/`channels`/`verifiedSources`) stay in `app`'s
+ * own `toSummary()`, not duplicated here across repos. `app` resolves
+ * whichever ids this returns via a small, bounded `SELECT ... WHERE id IN
+ * (...)` — a PK lookup, already cheap regardless of table size, same as
+ * the existing `getAppsByIds`.
+ */
+function computeListingIds(apps: AppRecord[]): Record<string, string[]> {
+  const typeFilters: ListingTypeFilter[] = ["all", "game", "app"];
+  const ids: Record<string, string[]> = {};
+
+  for (const typeFilter of typeFilters) {
+    ids[`trending:${typeFilter}`] = topIds(
+      apps,
+      (app) => app.popularity !== undefined && hasVisualAsset(app) && matchesTypeFilter(app, typeFilter),
+      byPopularityDesc,
+      TRENDING_PAGE_SIZE,
+    );
+    ids[`newApps:${typeFilter}`] = topIds(
+      apps,
+      (app) => app.lastUpdated !== undefined && hasVisualAsset(app) && matchesTypeFilter(app, typeFilter),
+      byLastUpdatedDesc,
+      TRENDING_PAGE_SIZE,
+    );
+    ids[`downloadTrending:${typeFilter}`] = topIds(
+      apps,
+      (app) => app.installsLast7Days !== undefined && hasVisualAsset(app) && matchesTypeFilter(app, typeFilter),
+      byInstallsLast7DaysDesc,
+      TRENDING_PAGE_SIZE,
+    );
+  }
+
+  for (const category of distinctCategories(apps)) {
+    ids[`categoryPreview:${category}`] = topIds(
+      apps,
+      (app) => app.category === category && hasVisualAsset(app),
+      byCategoryPreviewOrder,
+      CATEGORY_PREVIEW_SIZE,
+    );
+  }
+
+  for (const source of distinctSources(apps)) {
+    ids[`trendingBySource:${source}`] = topIds(
+      apps,
+      (app) => app.popularity !== undefined && hasVisualAsset(app) && hasPackageFromSource(app, source),
+      byPopularityDesc,
+      TRENDING_PAGE_SIZE,
+    );
+  }
+
+  return ids;
+}
 
 const INDEX_RETRY_ATTEMPTS = 3;
 const INDEX_RETRY_BASE_DELAY_MS = 500;
@@ -367,15 +579,42 @@ export function createTursoClient(config: TursoConfig, client?: Client): TursoCl
         `SELECT name FROM sqlite_master WHERE type='table' AND name='apps'`,
       );
 
+      const categoryCountsAll = countByCategory(dataset.apps);
+      const categoryCountsGame = countByCategory(
+        dataset.apps.filter((app) => app.contentType === "game"),
+      );
+      const categoryCountsApp = countByCategory(
+        dataset.apps.filter((app) => app.contentType !== "game"),
+      );
+      const listingIds = computeListingIds(dataset.apps);
+
+      // A dynamic key/value list rather than a hand-written VALUES(?, ?, ...)
+      // literal — ~60 precomputed listing keys (3 typeFilter variants x 3
+      // metrics, plus one per category and one per source) makes hand-sizing
+      // the positional args error-prone, and this scales to however many
+      // categories/sources actually exist in a given dataset without the
+      // SQL text itself needing to change.
+      const metaEntries: Array<[string, string]> = [
+        ["generatedAt", dataset.generatedAt],
+        ["totalApps", String(dataset.apps.length)],
+        ["categoryCounts:all", JSON.stringify(categoryCountsAll)],
+        ["categoryCounts:game", JSON.stringify(categoryCountsGame)],
+        ["categoryCounts:app", JSON.stringify(categoryCountsApp)],
+        ...Object.entries(listingIds).map(
+          ([key, ids]): [string, string] => [key, JSON.stringify(ids)],
+        ),
+      ];
+      const metaValuesSql = metaEntries.map(() => "(?, ?)").join(", ");
+
       await db.batch(
         [
           ...(existing.rows.length > 0 ? [{ sql: `ALTER TABLE apps RENAME TO apps_old` }] : []),
           { sql: `ALTER TABLE apps_next RENAME TO apps` },
           { sql: `DROP TABLE IF EXISTS apps_old` },
           {
-            sql: `INSERT INTO meta (key, value) VALUES ('generatedAt', ?), ('totalApps', ?)
+            sql: `INSERT INTO meta (key, value) VALUES ${metaValuesSql}
                   ON CONFLICT(key) DO UPDATE SET value = excluded.value`,
-            args: [dataset.generatedAt, String(dataset.apps.length)],
+            args: metaEntries.flat(),
           },
         ],
         "write",

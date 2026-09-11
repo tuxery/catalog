@@ -9,6 +9,12 @@ const APP: AppRecord = {
   packages: [{ source: "flathub", name: "VLC" }],
 };
 
+/** Reads one value out of the flat `[key1, value1, key2, value2, ...]` args array `INSERT INTO meta` is called with, by key rather than position. */
+function metaValue(args: unknown[], key: string): string | undefined {
+  const index = args.indexOf(key);
+  return index === -1 ? undefined : (args[index + 1] as string);
+}
+
 function fakeClient(tableExists: boolean) {
   const execute = vi.fn<Client["execute"]>().mockResolvedValue({
     rows: tableExists ? [{ name: "apps" }] : [],
@@ -178,20 +184,84 @@ describe("createTursoClient", () => {
 
     const swapBatch = batch.mock.calls[1]?.[0] as { sql: string; args?: unknown[] }[];
     const metaInsert = swapBatch.find((s) => s.sql.includes("INSERT INTO meta"));
-    const args = metaInsert?.args as string[];
+    const args = metaInsert?.args as unknown[];
 
-    // Args are positional, matching the SQL's VALUES order: generatedAt,
-    // totalApps, categoryCounts:all, categoryCounts:game, categoryCounts:app.
-    expect(JSON.parse(args[2]!)).toEqual([
+    expect(JSON.parse(metaValue(args, "categoryCounts:all") ?? "")).toEqual([
       { category: "Graphics & Design", count: 2 },
       { category: "Action", count: 2 },
       { category: "Strategy", count: 1 },
     ]);
-    expect(JSON.parse(args[3]!)).toEqual([
+    expect(JSON.parse(metaValue(args, "categoryCounts:game") ?? "")).toEqual([
       { category: "Action", count: 2 },
       { category: "Strategy", count: 1 },
     ]);
-    expect(JSON.parse(args[4]!)).toEqual([{ category: "Graphics & Design", count: 2 }]);
+    expect(JSON.parse(metaValue(args, "categoryCounts:app") ?? "")).toEqual([
+      { category: "Graphics & Design", count: 2 },
+    ]);
+  });
+
+  it("precomputes trending/new/download-trending app-id lists per typeFilter, ranked and capped correctly", async () => {
+    const { batch, client } = fakeClient(false);
+    const tursoClient = createTursoClient({ url: "file::memory:" }, client);
+
+    const apps: AppRecord[] = [
+      { ...APP, id: "low", iconUrl: "icon.png", popularity: 0.2, lastUpdated: "2026-01-01", installsLast7Days: 10 },
+      { ...APP, id: "high", iconUrl: "icon.png", popularity: 0.9, lastUpdated: "2026-03-01", installsLast7Days: 90 },
+      // No icon — excluded from every listing (HAS_VISUAL_ASSET gate), even though it out-ranks "high" on every metric.
+      { ...APP, id: "no-icon", popularity: 0.99, lastUpdated: "2026-04-01", installsLast7Days: 999 },
+      // A game — only shows up under typeFilter "all"/"game", never "app".
+      { ...APP, id: "game", iconUrl: "icon.png", popularity: 0.5, contentType: "game" },
+    ];
+
+    await tursoClient.publish({ generatedAt: "2026-01-01T00:00:00.000Z", apps });
+
+    const swapBatch = batch.mock.calls[1]?.[0] as { sql: string; args?: unknown[] }[];
+    const args = swapBatch.find((s) => s.sql.includes("INSERT INTO meta"))?.args as unknown[];
+    const idsFor = (key: string) => JSON.parse(metaValue(args, key) ?? "[]") as string[];
+
+    expect(idsFor("trending:all")).toEqual(["high", "game", "low"]);
+    expect(idsFor("trending:app")).toEqual(["high", "low"]);
+    expect(idsFor("trending:game")).toEqual(["game"]);
+    expect(idsFor("newApps:all")).toEqual(["high", "low"]);
+    expect(idsFor("downloadTrending:all")).toEqual(["high", "low"]);
+  });
+
+  it("precomputes a category preview (unscored apps last) and per-source trending app-id lists", async () => {
+    const { batch, client } = fakeClient(false);
+    const tursoClient = createTursoClient({ url: "file::memory:" }, client);
+
+    const apps: AppRecord[] = [
+      {
+        ...APP,
+        id: "scored",
+        category: "Utilities",
+        iconUrl: "icon.png",
+        popularity: 0.5,
+        packages: [{ source: "flathub", name: "Scored" }],
+      },
+      { ...APP, id: "unscored", category: "Utilities", iconUrl: "icon.png" },
+      // No icon — excluded from the category preview despite matching category.
+      { ...APP, id: "no-icon", category: "Utilities" },
+      {
+        ...APP,
+        id: "other-source",
+        category: "Utilities",
+        iconUrl: "icon.png",
+        popularity: 0.9,
+        packages: [{ source: "snap", name: "Other" }],
+      },
+    ];
+
+    await tursoClient.publish({ generatedAt: "2026-01-01T00:00:00.000Z", apps });
+
+    const swapBatch = batch.mock.calls[1]?.[0] as { sql: string; args?: unknown[] }[];
+    const args = swapBatch.find((s) => s.sql.includes("INSERT INTO meta"))?.args as unknown[];
+    const idsFor = (key: string) => JSON.parse(metaValue(args, key) ?? "[]") as string[];
+
+    // Scored apps first (by popularity), then unscored ones — never the iconless one.
+    expect(idsFor("categoryPreview:Utilities")).toEqual(["other-source", "scored", "unscored"]);
+    expect(idsFor("trendingBySource:flathub")).toEqual(["scored"]);
+    expect(idsFor("trendingBySource:snap")).toEqual(["other-source"]);
   });
 
   it("renames the existing apps table out of the way before swapping when one already exists", async () => {

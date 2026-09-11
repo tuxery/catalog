@@ -282,6 +282,163 @@ function countByCategory(apps: AppRecord[]): CategoryCount[] {
   return result;
 }
 
+// Mirrors `app`'s `TRENDING_PAGE_SIZE`/`CATEGORY_PREVIEW_SIZE` (src/catalog.ts)
+// — kept in sync by hand, like every other cross-repo constant this
+// incident's fixes reference (no shared package between `catalog` and `app`).
+const TRENDING_PAGE_SIZE = 60;
+const CATEGORY_PREVIEW_SIZE = 12;
+
+type ListingTypeFilter = "all" | "game" | "app";
+
+function hasVisualAsset(app: AppRecord): boolean {
+  return app.iconUrl !== undefined;
+}
+
+function matchesTypeFilter(app: AppRecord, typeFilter: ListingTypeFilter): boolean {
+  if (typeFilter === "game") return app.contentType === "game";
+  if (typeFilter === "app") return app.contentType !== "game";
+  return true;
+}
+
+function hasPackageFromSource(app: AppRecord, source: string): boolean {
+  return app.packages.some((pkg) => (pkg as { source?: unknown }).source === source);
+}
+
+/** Every category actually present in this dataset — no import of curator's closed label lists needed, and self-maintaining if that list ever changes. */
+function distinctCategories(apps: AppRecord[]): string[] {
+  return [
+    ...new Set(apps.map((app) => app.category).filter((category): category is string => category !== undefined)),
+  ];
+}
+
+/** Every source actually present in this dataset's packages — same "derive from data, don't import/duplicate the enum" reasoning as `distinctCategories`. */
+function distinctSources(apps: AppRecord[]): string[] {
+  const sources = new Set<string>();
+  for (const app of apps) {
+    for (const pkg of app.packages) {
+      const source = (pkg as { source?: unknown }).source;
+      if (typeof source === "string") sources.add(source);
+    }
+  }
+  return [...sources];
+}
+
+function sortInPlace<T>(items: T[], compare: (a: T, b: T) => number): T[] {
+  // A freshly filtered array (Array#filter always returns a new one, never
+  // aliased elsewhere), safe to sort in place — toSorted() needs ES2023,
+  // this repo targets ES2022 (same reasoning as `countByCategory` above).
+  // eslint-disable-next-line unicorn/no-array-sort
+  items.sort(compare);
+  return items;
+}
+
+function topIds(
+  apps: AppRecord[],
+  predicate: (app: AppRecord) => boolean,
+  compare: (a: AppRecord, b: AppRecord) => number,
+  limit: number,
+): string[] {
+  return sortInPlace(apps.filter(predicate), compare)
+    .slice(0, limit)
+    .map((app) => app.id);
+}
+
+function byPopularityDesc(a: AppRecord, b: AppRecord): number {
+  return (b.popularity ?? 0) - (a.popularity ?? 0);
+}
+
+function byLastUpdatedDesc(a: AppRecord, b: AppRecord): number {
+  const aValue = a.lastUpdated ?? "";
+  const bValue = b.lastUpdated ?? "";
+  return aValue === bValue ? 0 : aValue < bValue ? 1 : -1;
+}
+
+function byInstallsLast7DaysDesc(a: AppRecord, b: AppRecord): number {
+  return (b.installsLast7Days ?? 0) - (a.installsLast7Days ?? 0);
+}
+
+// Mirrors app's `getAppsByCategory` ORDER BY `popularity IS NULL, popularity
+// DESC, name ASC` — unscored apps sort last rather than being excluded, so
+// every category still shows something even with zero scored apps in it.
+function byCategoryPreviewOrder(a: AppRecord, b: AppRecord): number {
+  const aScored = a.popularity !== undefined;
+  const bScored = b.popularity !== undefined;
+  if (aScored !== bScored) return aScored ? -1 : 1;
+  if (aScored && bScored && a.popularity !== b.popularity) {
+    return (b.popularity as number) - (a.popularity as number);
+  }
+  return a.name === b.name ? 0 : a.name < b.name ? -1 : 1;
+}
+
+/**
+ * Precomputes every bounded "listing" query `app`'s catalog.ts used to run
+ * live at request time — trending/new/download-trending (3 `typeFilter`
+ * variants each), per-category previews (one per real category, ~27
+ * today), and per-source trending (one per source actually present in
+ * this dataset, ~25 today). Each has a small, closed parameter space that
+ * only changes when this dataset republishes (manual, infrequent) — the
+ * same "precompute once here instead of aggregating live on every
+ * request" fix as `countByCategory` above, extended to the rest of the
+ * homepage's query set once `getCategories` (by far the largest cost)
+ * proved the pattern live in Turso's query stats 2026-09-11. Second
+ * largest cost in that same report, `getAppsByCategory`, is included here
+ * too — `idx_apps_category_popularity` above already fixed its per-call
+ * cost, but eliminating it outright is strictly better than reducing it.
+ *
+ * Stores an ordered array of app ids per key, not full `AppSummary`
+ * objects — the parts of `AppSummary` derived from the full `packages`
+ * array (`ratingsBySource`/`channels`/`verifiedSources`) stay in `app`'s
+ * own `toSummary()`, not duplicated here across repos. `app` resolves
+ * whichever ids this returns via a small, bounded `SELECT ... WHERE id IN
+ * (...)` — a PK lookup, already cheap regardless of table size, same as
+ * the existing `getAppsByIds`.
+ */
+function computeListingIds(apps: AppRecord[]): Record<string, string[]> {
+  const typeFilters: ListingTypeFilter[] = ["all", "game", "app"];
+  const ids: Record<string, string[]> = {};
+
+  for (const typeFilter of typeFilters) {
+    ids[`trending:${typeFilter}`] = topIds(
+      apps,
+      (app) => app.popularity !== undefined && hasVisualAsset(app) && matchesTypeFilter(app, typeFilter),
+      byPopularityDesc,
+      TRENDING_PAGE_SIZE,
+    );
+    ids[`newApps:${typeFilter}`] = topIds(
+      apps,
+      (app) => app.lastUpdated !== undefined && hasVisualAsset(app) && matchesTypeFilter(app, typeFilter),
+      byLastUpdatedDesc,
+      TRENDING_PAGE_SIZE,
+    );
+    ids[`downloadTrending:${typeFilter}`] = topIds(
+      apps,
+      (app) => app.installsLast7Days !== undefined && hasVisualAsset(app) && matchesTypeFilter(app, typeFilter),
+      byInstallsLast7DaysDesc,
+      TRENDING_PAGE_SIZE,
+    );
+  }
+
+  for (const category of distinctCategories(apps)) {
+    ids[`categoryPreview:${category}`] = topIds(
+      apps,
+      (app) => app.category === category && hasVisualAsset(app),
+      byCategoryPreviewOrder,
+      CATEGORY_PREVIEW_SIZE,
+    );
+  }
+
+  for (const source of distinctSources(apps)) {
+    ids[`trendingBySource:${source}`] = topIds(
+      apps,
+      (app) => app.popularity !== undefined && hasVisualAsset(app) && hasPackageFromSource(app, source),
+      byPopularityDesc,
+      TRENDING_PAGE_SIZE,
+    );
+  }
+
+  return ids;
+}
+
 const INDEX_RETRY_ATTEMPTS = 3;
 const INDEX_RETRY_BASE_DELAY_MS = 500;
 
@@ -418,6 +575,25 @@ export function createTursoClient(config: TursoConfig, client?: Client): TursoCl
       const categoryCountsApp = countByCategory(
         dataset.apps.filter((app) => app.contentType !== "game"),
       );
+      const listingIds = computeListingIds(dataset.apps);
+
+      // A dynamic key/value list rather than a hand-written VALUES(?, ?, ...)
+      // literal — ~60 precomputed listing keys (3 typeFilter variants x 3
+      // metrics, plus one per category and one per source) makes hand-sizing
+      // the positional args error-prone, and this scales to however many
+      // categories/sources actually exist in a given dataset without the
+      // SQL text itself needing to change.
+      const metaEntries: Array<[string, string]> = [
+        ["generatedAt", dataset.generatedAt],
+        ["totalApps", String(dataset.apps.length)],
+        ["categoryCounts:all", JSON.stringify(categoryCountsAll)],
+        ["categoryCounts:game", JSON.stringify(categoryCountsGame)],
+        ["categoryCounts:app", JSON.stringify(categoryCountsApp)],
+        ...Object.entries(listingIds).map(
+          ([key, ids]): [string, string] => [key, JSON.stringify(ids)],
+        ),
+      ];
+      const metaValuesSql = metaEntries.map(() => "(?, ?)").join(", ");
 
       await db.batch(
         [
@@ -425,17 +601,9 @@ export function createTursoClient(config: TursoConfig, client?: Client): TursoCl
           { sql: `ALTER TABLE apps_next RENAME TO apps` },
           { sql: `DROP TABLE IF EXISTS apps_old` },
           {
-            sql: `INSERT INTO meta (key, value) VALUES
-                  ('generatedAt', ?), ('totalApps', ?),
-                  ('categoryCounts:all', ?), ('categoryCounts:game', ?), ('categoryCounts:app', ?)
+            sql: `INSERT INTO meta (key, value) VALUES ${metaValuesSql}
                   ON CONFLICT(key) DO UPDATE SET value = excluded.value`,
-            args: [
-              dataset.generatedAt,
-              String(dataset.apps.length),
-              JSON.stringify(categoryCountsAll),
-              JSON.stringify(categoryCountsGame),
-              JSON.stringify(categoryCountsApp),
-            ],
+            args: metaEntries.flat(),
           },
         ],
         "write",

@@ -10,6 +10,7 @@ function app(overrides: Partial<CatalogApp>): CatalogApp {
     shortDescription: "",
     category: TO_CLASSIFY,
     packages: [],
+    dataConfidence: { score: 0, signals: [] },
     ...overrides,
   };
 }

@@ -1,25 +1,33 @@
 allowBuilds:
   esbuild: true
 minimumReleaseAgeExclude:
-  - '@helpers4/array@3.1.1'
-  - '@helpers4/ci@3.1.1'
-  - '@helpers4/color@3.1.1'
-  - '@helpers4/commit@3.1.1'
-  - '@helpers4/date@3.1.1'
-  - '@helpers4/function@3.1.1'
-  - '@helpers4/guard@3.1.1'
-  - '@helpers4/id@3.1.1'
-  - '@helpers4/map@3.1.1'
-  - '@helpers4/markdown@3.1.1'
-  - '@helpers4/node@3.1.1'
-  - '@helpers4/number@3.1.1'
-  - '@helpers4/object@3.1.1'
-  - '@helpers4/observable@3.1.1'
-  - '@helpers4/promise@3.1.1'
-  - '@helpers4/set@3.1.1'
-  - '@helpers4/string@3.1.1'
-  - '@helpers4/structure@3.1.1'
-  - '@helpers4/type@3.1.1'
-  - '@helpers4/url@3.1.1'
-  - '@helpers4/version@3.1.1'
-  - helpers4@3.1.1
+  - '@helpers4/array@3.1.2'
+  - '@helpers4/ci@3.1.2'
+  - '@helpers4/color@3.1.2'
+  - '@helpers4/commit@3.1.2'
+  - '@helpers4/date@3.1.2'
+  - '@helpers4/function@3.1.2'
+  - '@helpers4/guard@3.1.2'
+  - '@helpers4/id@3.1.2'
+  - '@helpers4/license@3.1.2'
+  - '@helpers4/map@3.1.2'
+  - '@helpers4/markdown@3.1.2'
+  - '@helpers4/node@3.1.2'
+  - '@helpers4/number@3.1.2'
+  - '@helpers4/object@3.1.2'
+  - '@helpers4/observable@3.1.2'
+  - '@helpers4/promise@3.1.2'
+  - '@helpers4/set@3.1.2'
+  - '@helpers4/string@3.1.2'
+  - '@helpers4/structure@3.1.2'
+  - '@helpers4/type@3.1.2'
+  - '@helpers4/url@3.1.2'
+  - '@helpers4/version@3.1.2'
+  - helpers4@3.1.2
+
+# plist's own @xmldom/xmldom dependency sits below several patched
+# XML-injection advisories (GHSA-6mj3-qw4j-hgrw and others, all fixed in
+# 0.9.12) — plist has no newer major that bumps it itself, so pinned
+# directly here instead.
+overrides:
+  "@xmldom/xmldom": ">=0.9.12"

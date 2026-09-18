@@ -3,6 +3,7 @@ import type { SourcedPackage } from "../../sources";
 import type { MatchedApp } from "../match/group";
 import { TO_CLASSIFY } from "./category";
 import { enrichApps } from "./index";
+import type { LlmClassificationEntry } from "./llm-classifications";
 
 function pkg(overrides: Partial<SourcedPackage>): SourcedPackage {
   return {
@@ -292,6 +293,25 @@ describe("enrichApps", () => {
     expect(enrichApps(matched)[0]?.contentType).toBeUndefined();
   });
 
+  it("sets contentType to game from exact package-name literal evidence when no other signal applies", () => {
+    const matched: MatchedApp[] = [
+      {
+        id: "deb-debian:junior-games-net",
+        packages: [
+          pkg({
+            source: "deb-debian",
+            name: "junior-games-net",
+            description: "Debian Jr. Network Games",
+            section: "metapackages",
+            hasGameCategory: false,
+          }),
+        ],
+      },
+    ];
+
+    expect(enrichApps(matched)[0]?.contentType).toBe("game");
+  });
+
   it("sets appStoreFrontend to true when a member package is on the hand-curated list, undefined otherwise", () => {
     const frontend: MatchedApp[] = [
       {
@@ -413,6 +433,54 @@ describe("enrichApps", () => {
 
     const [app] = enrichApps(matched);
     expect(app?.contentType).toBe("game");
+    expect(app?.category).toBe(TO_CLASSIFY);
+  });
+
+  it("applies a stored LLM classification whose taxonomy matches the app's current contentType", () => {
+    const matched: MatchedApp[] = [
+      { id: "aur:example", packages: [pkg({ source: "pacman-aur", name: "example" })] },
+    ];
+    const llmClassifications: LlmClassificationEntry[] = [
+      { id: "aur:example", category: "Utilities", reason: "test fixture" },
+    ];
+
+    const app = enrichApps(
+      matched,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      llmClassifications,
+    )[0];
+    expect(app?.category).toBe("Utilities");
+  });
+
+  it("ignores a stored LLM classification whose taxonomy no longer matches the app's current contentType", () => {
+    // Simulates a deterministic isGame signal changing between the LLM
+    // classification run and this rebuild (e.g. a heuristic tightened or
+    // loosened) without config/llm-classifications.json being regenerated
+    // — the app is a non-game here, but the stored entry is a game genre.
+    const matched: MatchedApp[] = [
+      { id: "aur:example", packages: [pkg({ source: "pacman-aur", name: "example" })] },
+    ];
+    const llmClassifications: LlmClassificationEntry[] = [
+      { id: "aur:example", category: "Strategy", reason: "test fixture" },
+    ];
+
+    const app = enrichApps(
+      matched,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      llmClassifications,
+    )[0];
     expect(app?.category).toBe(TO_CLASSIFY);
   });
 

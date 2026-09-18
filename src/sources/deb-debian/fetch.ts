@@ -22,13 +22,18 @@ function packagesUrl(component: DebianComponent): string {
 }
 
 // Debtags facets that directly signal a game — the `game::*` facet itself
-// (e.g. "game::strategy", "game::board") plus the cross-cutting
-// `use::gameplaying` tag, which also catches entries that only carry the
-// looser tag without a specific `game::` genre. Same
+// (e.g. "game::strategy", "game::board"). The cross-cutting
+// `use::gameplaying` tag is deliberately NOT included: it means "can be
+// used for playing games" rather than "is a game", and it over-flags
+// non-game tools. Verified live 2026-09-04: blender and wings3d — both in
+// Debian's `graphics` section — carry `use::gameplaying` with no `game::`
+// facet, and were mis-flagged as games by it. Real games still resolve via
+// `game::*`, and games-section packages without a `game::*` facet are still
+// caught by `looksLikeGamePackage`'s own Section signal downstream. Same
 // positive-evidence-only discipline as Flathub/Snapcraft's
 // `hasGameCategory` — absence is never treated as "confirmed not a game"
 // downstream (see `SourcedPackage.hasGameCategory`'s doc comment).
-const GAME_DEBTAG_PATTERN = /^(game::|use::gameplaying$)/;
+const GAME_DEBTAG_PATTERN = /^game::/;
 
 /** Whether a stanza's Debtags include a direct game signal. Pure — no I/O. */
 export function hasGameDebtag(tags: string[]): boolean {

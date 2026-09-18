@@ -23,7 +23,7 @@ import { z } from "zod";
 // closed enum also catches an accidental respelling of an existing label
 // (e.g. "Photos & Video") that would otherwise silently create an orphan
 // category nothing else ever resolves to.
-const APP_CATEGORY_LABEL_VALUES = [
+export const APP_CATEGORY_LABEL_VALUES = [
   "Developer Tools",
   "Science",
   "Education",
@@ -43,7 +43,7 @@ const APP_CATEGORY_LABEL_VALUES = [
   "Utilities",
 ] as const;
 
-const GAME_CATEGORY_LABEL_VALUES = [
+export const GAME_CATEGORY_LABEL_VALUES = [
   "Action",
   "Adventure",
   "Arcade",

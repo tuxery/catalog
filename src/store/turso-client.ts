@@ -554,6 +554,17 @@ export function createTursoClient(config: TursoConfig, client?: Client): TursoCl
 
   return {
     async publish(dataset) {
+      // Defends against a straggler `apps_old` from some earlier run that
+      // never made it to this function's own `DROP TABLE IF EXISTS
+      // apps_old` below (e.g. a crash/timeout between the rename and the
+      // drop) — its indexes would otherwise squat the exact names
+      // APPS_INDEXES_SQL tries to create later, permanently, on every
+      // subsequent publish regardless of the read-your-writes retry above
+      // (that retry only covers a transient lag, not a genuinely
+      // still-existing table). Dropped up front rather than only right
+      // before the swap so a straggler can't survive even if this run
+      // itself fails before reaching that point.
+      await db.execute(`DROP TABLE IF EXISTS apps_old`);
       await db.execute(`DROP TABLE IF EXISTS apps_next`);
       await db.execute(appsTableSql("apps_next"));
 

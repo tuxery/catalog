@@ -23,3 +23,10 @@ minimumReleaseAgeExclude:
   - '@helpers4/url@3.1.1'
   - '@helpers4/version@3.1.1'
   - helpers4@3.1.1
+
+# plist's own @xmldom/xmldom dependency sits below several patched
+# XML-injection advisories (GHSA-6mj3-qw4j-hgrw and others, all fixed in
+# 0.9.12) — plist has no newer major that bumps it itself, so pinned
+# directly here instead.
+overrides:
+  "@xmldom/xmldom": ">=0.9.12"

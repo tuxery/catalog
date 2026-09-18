@@ -43,7 +43,7 @@ describe("lutris normalize", () => {
     });
   });
 
-  it("prefers the game's real description over the installer's one-liner", () => {
+  it("prefers the installer's own one-liner for the short description, keeping the game's real description as longDescription", () => {
     const entry: LutrisCacheEntry = {
       gameId: 16467,
       gameSlug: "dusk",
@@ -54,9 +54,43 @@ describe("lutris normalize", () => {
       gameDescription: "Battle through an onslaught of mystical backwater cultists...",
     };
 
-    expect(normalize([entry])[0]?.description).toBe(
-      "Battle through an onslaught of mystical backwater cultists...",
-    );
+    expect(normalize([entry])[0]).toMatchObject({
+      description: "An installer for the GOG version of the game.",
+      longDescription: "Battle through an onslaught of mystical backwater cultists...",
+    });
+  });
+
+  it("derives a short description from the game's real description when the installer has none", () => {
+    const entry: LutrisCacheEntry = {
+      gameId: 4713,
+      gameSlug: "rollercoaster-tycoon-2",
+      installerSlug: "rollercoaster-tycoon-2-cd",
+      name: "RollerCoaster Tycoon 2",
+      description: "",
+      genres: [],
+      gameDescription:
+        "Take a trip to fame and fortune by building the biggest, best, scariest, and most thrilling rides ever seen in any theme park. Can you make money in this volatile business? One of the best games from the acclaimed Tycoon series, with well designed levels and engaging gameplay.",
+    };
+
+    expect(normalize([entry])[0]).toMatchObject({
+      description:
+        "Take a trip to fame and fortune by building the biggest, best, scariest, and most thrilling rides ever seen in any theme park.",
+      longDescription:
+        "Take a trip to fame and fortune by building the biggest, best, scariest, and most thrilling rides ever seen in any theme park. Can you make money in this volatile business? One of the best games from the acclaimed Tycoon series, with well designed levels and engaging gameplay.",
+    });
+  });
+
+  it("falls back to an empty short description when neither the installer nor the game has one", () => {
+    const entry: LutrisCacheEntry = {
+      gameId: 1,
+      gameSlug: "mystery-game",
+      installerSlug: "mystery-game-native",
+      name: "Mystery Game",
+      description: "",
+      genres: [],
+    };
+
+    expect(normalize([entry])[0]).toMatchObject({ description: "", longDescription: undefined });
   });
 
   it("leaves hasGameCategory and categories unset when a game has no genres", () => {

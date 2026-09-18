@@ -47,6 +47,10 @@
     {
       "fileMatch": ["/config/categories-games.json"],
       "url": "./src/curator/enrich/categories-games.schema.json"
+    },
+    {
+      "fileMatch": ["/config/llm-classifications.json"],
+      "url": "./src/curator/enrich/llm-classifications.schema.json"
     }
   ]
 }

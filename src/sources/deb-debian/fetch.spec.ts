@@ -64,7 +64,7 @@ describe("parsePackages", () => {
     expect(parsePackages("", "main")).toEqual([]);
   });
 
-  it("sets hasGameCategory from a wrapped Tag field's game::/use::gameplaying facets", () => {
+  it("sets hasGameCategory from a wrapped Tag field's game:: facet", () => {
     expect(entries[0]?.hasGameCategory).toBe(true);
   });
 
@@ -78,8 +78,8 @@ describe("hasGameDebtag", () => {
     expect(hasGameDebtag(["game::strategy", "role::program"])).toBe(true);
   });
 
-  it("is true for the cross-cutting use::gameplaying tag alone", () => {
-    expect(hasGameDebtag(["use::gameplaying", "role::program"])).toBe(true);
+  it("is false for the cross-cutting use::gameplaying tag alone", () => {
+    expect(hasGameDebtag(["use::gameplaying", "role::program"])).toBe(false);
   });
 
   it("is false for unrelated tags", () => {

@@ -17,12 +17,13 @@
     "seed": "tsx scripts/seed.ts",
     "serve": "tsx scripts/serve.ts",
     "query-local": "tsx scripts/query-local.ts",
+    "classify-llm": "tsx scripts/classify-llm.ts",
     "reset-caches": "tsx scripts/reset-caches.ts"
   },
   "dependencies": {
     "@libsql/client": "^0.17.4",
     "fast-xml-parser": "^5.10.1",
-    "helpers4": "^3.1.1",
+    "helpers4": "^3.1.2",
     "plist": "^5.0.0",
     "tar": "^7.5.22",
     "xz-decompress": "^0.2.3",
@@ -34,7 +35,7 @@
     "oxlint": "^1.76.0",
     "tsx": "^4.20.6",
     "typescript": "7.0.2",
-    "vitest": "4.1.10"
+    "vitest": "4.1.11"
   },
   "engines": {
     "node": ">=20.0.0"

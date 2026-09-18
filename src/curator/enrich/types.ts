@@ -1,4 +1,5 @@
 import type { SourcedPackage, StoreCollectionTag } from "../../sources";
+import type { DataConfidence } from "./data-confidence";
 
 /**
  * The unified app record the website consumes — one per `MatchedApp`
@@ -244,4 +245,18 @@ export interface CatalogApp {
     issue: string;
     fix?: string;
   }[];
+
+  /**
+   * Deterministic data-confidence signals computed from this app's own
+   * member packages — see `data-confidence.ts`'s `computeDataConfidence`
+   * for what feeds it (name/license agreement across sources, a
+   * `config/match-force.json` human verification) and its doc comment
+   * for how to read the score. Always present, even when `signals` is
+   * empty (the neutral, single-source-or-nothing-to-flag default) — an
+   * absent field would read as "not computed" rather than "nothing
+   * found", which is a real, meaningful distinction here. A future pass
+   * adds an LLM-derived coherence signal on top of these (tracked
+   * separately), not yet done.
+   */
+  dataConfidence: DataConfidence;
 }

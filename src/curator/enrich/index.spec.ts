@@ -441,7 +441,7 @@ describe("enrichApps", () => {
       { id: "aur:example", packages: [pkg({ source: "pacman-aur", name: "example" })] },
     ];
     const llmClassifications: LlmClassificationEntry[] = [
-      { id: "aur:example", category: "Utilities", reason: "test fixture" },
+      { id: "aur:example", category: "Utilities", confidence: "high", reason: "test fixture" },
     ];
 
     const app = enrichApps(
@@ -467,7 +467,29 @@ describe("enrichApps", () => {
       { id: "aur:example", packages: [pkg({ source: "pacman-aur", name: "example" })] },
     ];
     const llmClassifications: LlmClassificationEntry[] = [
-      { id: "aur:example", category: "Strategy", reason: "test fixture" },
+      { id: "aur:example", category: "Strategy", confidence: "high", reason: "test fixture" },
+    ];
+
+    const app = enrichApps(
+      matched,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      llmClassifications,
+    )[0];
+    expect(app?.category).toBe(TO_CLASSIFY);
+  });
+
+  it("ignores a stored LLM classification the LLM itself rated low-confidence", () => {
+    const matched: MatchedApp[] = [
+      { id: "aur:example", packages: [pkg({ source: "pacman-aur", name: "example" })] },
+    ];
+    const llmClassifications: LlmClassificationEntry[] = [
+      { id: "aur:example", category: "Utilities", confidence: "low", reason: "test fixture" },
     ];
 
     const app = enrichApps(

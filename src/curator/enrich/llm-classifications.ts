@@ -23,12 +23,24 @@ const LLM_CLASSIFICATIONS_PATH = fileURLToPath(
  * or vice versa.
  */
 const LlmClassificationEntrySchema = z.object({
-  id: z.string().describe("The CatalogApp id this category was assigned to, e.g. 'pacman-aur:wings3d'."),
+  id: z
+    .string()
+    .describe("The CatalogApp id this category was assigned to, e.g. 'pacman-aur:wings3d'."),
   category: z
     .union([AppCategoryLabelSchema, GameCategoryLabelSchema])
-    .describe("The assigned label — an app category or a game genre, consistent with the app's contentType."),
+    .describe(
+      "The assigned label — an app category or a game genre, consistent with the app's contentType.",
+    ),
+  confidence: z
+    .enum(["high", "medium", "low"])
+    .describe(
+      "The LLM's own certainty in this category. A three-level enum rather than a numeric score — self-reported LLM probabilities are poorly calibrated, so a finer scale would only pretend to precision. 'low' entries are kept for auditability but never applied (see llmCategoryMap).",
+    ),
   reason: z.string().describe("Why the LLM assigned this category — for auditability."),
 });
+
+/** Entries at this confidence stay "To Classify" — a wrong category is worse than an honest unknown. */
+const UNAPPLIED_CONFIDENCE = "low";
 
 export type LlmClassificationEntry = z.infer<typeof LlmClassificationEntrySchema>;
 
@@ -43,9 +55,13 @@ export function loadLlmClassifications(): LlmClassificationEntry[] {
   return readJson(LLM_CLASSIFICATIONS_PATH, LlmClassificationsListSchema);
 }
 
-/** A fast id → category label lookup built once per enrich pass, so the per-app fallback is O(1). */
+/** A fast id → category label lookup built once per enrich pass, so the per-app fallback is O(1). Skips low-confidence entries — see `UNAPPLIED_CONFIDENCE`. */
 export function llmCategoryMap(entries: LlmClassificationEntry[]): Map<string, string> {
-  return new Map(entries.map((entry) => [entry.id, entry.category]));
+  return new Map(
+    entries
+      .filter((entry) => entry.confidence !== UNAPPLIED_CONFIDENCE)
+      .map((entry) => [entry.id, entry.category]),
+  );
 }
 
 /**

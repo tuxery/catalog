@@ -85,8 +85,13 @@ interface BatchResult {
   reason: string;
 }
 
-/** Thrown on a per-day quota 429 — the caller persists progress and exits cleanly instead of failing. */
-class DailyQuotaExhausted extends Error {}
+/**
+ * Thrown when this run should stop for now — a per-day quota 429, the
+ * `--max-requests` cap, or Gemini staying overloaded (503) through every
+ * retry. The caller persists progress and exits cleanly: re-running later
+ * resumes where this one left off, so none of these warrant a crash.
+ */
+class StopRun extends Error {}
 
 const SYSTEM_PROMPT =
   "You classify Linux software packages by their name and short description. Assign each package the single most accurate category from the allowed list, and rate your confidence: 'high' when the name/description make the category unambiguous, 'medium' when it's a reasonable best guess, 'low' when the description is missing, too vague, or fits several categories equally. Prefer an honest 'low' over a confident guess. Keep each reason under 15 words. Respond with valid JSON only, one result per package, echoing each package's number n exactly as given.";
@@ -127,7 +132,7 @@ async function classifyGemini(
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey)
     throw new Error("GEMINI_API_KEY is required — see https://aistudio.google.com/apikey");
-  const model = process.env.GEMINI_MODEL ?? "gemini-3.5-flash";
+  const model = process.env.GEMINI_MODEL ?? "gemini-3.8-flash";
   const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
   const payload = {
     contents: [{ role: "user", parts: [{ text: `${SYSTEM_PROMPT}\n\n${buildPrompt(items)}` }] }],
@@ -150,7 +155,7 @@ let nextSlotAt = 0;
 /** Reserves the next request slot under the `--rpm` budget, shared by every worker. */
 async function paced(): Promise<void> {
   if (maxRequests !== undefined && requestsMade >= maxRequests) {
-    throw new DailyQuotaExhausted(`--max-requests ${maxRequests} reached`);
+    throw new StopRun(`--max-requests ${maxRequests} reached`);
   }
   requestsMade += 1;
   const now = Date.now();
@@ -188,9 +193,10 @@ function parseQuotaError(bodyText: string): { daily: boolean; retryMs?: number; 
 }
 
 /**
- * One paced Gemini generateContent call. A per-minute 429 (or a 5xx) is
- * retried after Google's own retryDelay, else exponential backoff; a
- * per-day 429 throws `DailyQuotaExhausted` so the run stops for today.
+ * One paced Gemini generateContent call. A per-minute 429 is retried after
+ * Google's own retryDelay (else exponential backoff); a 5xx is retried with
+ * longer backoff; a per-day 429, or a 5xx outlasting every retry, throws
+ * `StopRun` so the run stops cleanly for now.
  * Recursion rather than a loop so the awaited calls don't trip
  * `no-await-in-loop`.
  */
@@ -212,15 +218,22 @@ async function request(url: string, payload: unknown, attempt: number): Promise<
   const retryable = response.status === 429 || response.status >= 500;
   if (response.status === 429) {
     const { daily, retryMs, quota } = parseQuotaError(bodyText);
-    if (daily) throw new DailyQuotaExhausted(`daily quota hit: ${quota}`);
+    if (daily) throw new StopRun(`daily quota hit: ${quota}`);
     if (attempt < 5) {
       const waitMs = retryMs ?? 5000 * 2 ** attempt;
       console.warn(`Gemini 429 (${quota}) — retrying in ${Math.round(waitMs / 1000)}s`);
       await new Promise((resolve) => setTimeout(resolve, waitMs));
       return request(url, payload, attempt + 1);
     }
-  } else if (retryable && attempt < 5) {
-    const waitMs = 5000 * 2 ** attempt;
+  } else if (retryable) {
+    // 5xx here is almost always 503 "high demand" — Google-side overload,
+    // not our quota, and it can last minutes. Retry longer than for 429,
+    // capped at 2 min per wait, then stop the run cleanly for a later
+    // re-run rather than crash.
+    if (attempt >= 8) {
+      throw new StopRun(`Gemini still returning ${response.status} after ${attempt} retries`);
+    }
+    const waitMs = Math.min(5000 * 2 ** attempt, 120_000);
     console.warn(`Gemini ${response.status} — retrying in ${waitMs / 1000}s`);
     await new Promise((resolve) => setTimeout(resolve, waitMs));
     return request(url, payload, attempt + 1);
@@ -247,7 +260,8 @@ function writeConfig(entries: Map<string, LlmClassificationEntry>): void {
  * it on the free tier, where exceeding a quota returns a 429 instead of a
  * bill. GEMINI_MODEL overrides the default model. Each entry carries the
  * LLM's own `confidence`; `low` ones are stored but not applied (see
- * `llmCategoryMap`). A per-day quota 429 saves and exits cleanly — see the
+ * `llmCategoryMap`). A per-day quota 429 or a persistent 503 saves and
+ * exits cleanly — see the
  * free-tier note by the CLI flags above.
  *
  * Resumable in every mode (--sample included): re-running skips ids already
@@ -331,9 +345,9 @@ async function main(): Promise<void> {
       [...APP_CATEGORY_LABEL_VALUES],
     );
   } catch (error) {
-    if (!(error instanceof DailyQuotaExhausted)) throw error;
+    if (!(error instanceof StopRun)) throw error;
     console.warn(
-      `Stopped: ${error.message}. ${newEntries} new entries saved (${requestsMade} requests this run) — re-run after the quota resets (midnight Pacific time) to continue where this left off.`,
+      `Stopped: ${error.message}. ${newEntries} new entries saved (${requestsMade} requests this run) — re-run later to continue where this left off (daily quotas reset at midnight Pacific time).`,
     );
     if (sample === undefined) return;
   }

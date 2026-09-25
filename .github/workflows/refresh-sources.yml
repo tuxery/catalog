@@ -24,7 +24,14 @@ jobs:
   refresh:
     name: Refresh
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    # 30 was too tight: this workflow has never once completed since it
+    # was added (all 3 scheduled runs, 2026-09-05/12/19, killed at ~30min)
+    # — snap-snapcraft's recursive category+prefix sweep alone (~4k
+    # requests against a public API with no full-catalog dump, see its
+    # own fetch.ts comments) took 21+ minutes by itself on the last run,
+    # before the job died partway through lutris, never reaching
+    # github-releases or the "Open a PR" step at all.
+    timeout-minutes: 60
     permissions:
       contents: write
       pull-requests: write

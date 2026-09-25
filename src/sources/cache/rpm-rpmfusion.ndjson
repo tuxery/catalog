@@ -1,5 +1,5 @@
 {"name":"acoustid-fingerprinter","summary":"Music AcoustID fingerprinting application","version":"0.6","homepage":"https://github.com/acoustid/acoustid-fingerprinter","group":"Unspecified","hasDesktopFile":true}
-{"name":"akmod-VirtualBox","summary":"Akmod package for VirtualBox kernel module(s)","version":"7.2.16","homepage":"http://www.virtualbox.org/wiki/VirtualBox","group":"Unspecified","hasDesktopFile":false}
+{"name":"akmod-VirtualBox","summary":"Akmod package for VirtualBox kernel module(s)","version":"7.2.18","homepage":"http://www.virtualbox.org/wiki/VirtualBox","group":"Unspecified","hasDesktopFile":false}
 {"name":"akmod-intel-vision","summary":"Akmod package for intel-vision kernel module(s)","version":"2025112.WW46.3_25_ptl_pv","homepage":"https://github.com/intel/vision-drivers","group":"Unspecified","hasDesktopFile":false}
 {"name":"akmod-ndiswrapper","summary":"Akmod package for ndiswrapper kernel module(s)","version":"1.63","homepage":"http://ndiswrapper.sourceforge.net","group":"Unspecified","hasDesktopFile":false}
 {"name":"akmod-v4l2loopback","summary":"Akmod package for v4l2loopback kernel module(s)","version":"0.15.4","homepage":"https://github.com/umlaeute/v4l2loopback","group":"Unspecified","hasDesktopFile":false}
@@ -19,8 +19,8 @@
 {"name":"buildsys-build-rpmfusion-kerneldevpkgs-current","summary":"Meta-package to get all current kernel-devel packages into the buildroot","version":"40","homepage":"http://rpmfusion.org","group":"Unspecified","hasDesktopFile":false}
 {"name":"cairo-dock-freeworld","summary":"Light eye-candy fully themable animated dock","version":"3.6.2","homepage":"http://glx-dock.org/","group":"Unspecified","hasDesktopFile":false}
 {"name":"cairo-dock-freeworld-libs","summary":"Library files for cairo-dock-freeworld","version":"3.6.2","homepage":"http://glx-dock.org/","group":"Unspecified","hasDesktopFile":false}
-{"name":"cinelerra-gg","summary":"A non linear video editor and effects processor","version":"5.1.2026.06","homepage":"https://cinelerra-gg.org/","group":"Unspecified","hasDesktopFile":true}
-{"name":"cinelerra-gg-doc","summary":"Documentation files for cinelerra-gg","version":"5.1.2026.06","homepage":"https://cinelerra-gg.org/","group":"Unspecified","hasDesktopFile":false}
+{"name":"cinelerra-gg","summary":"A non linear video editor and effects processor","version":"5.1.2026.08","homepage":"https://cinelerra-gg.org/","group":"Unspecified","hasDesktopFile":true}
+{"name":"cinelerra-gg-doc","summary":"Documentation files for cinelerra-gg","version":"5.1.2026.08","homepage":"https://cinelerra-gg.org/","group":"Unspecified","hasDesktopFile":false}
 {"name":"cmus","summary":"Ncurses-Based Music Player","version":"2.12.0","homepage":"https://cmus.github.io/","group":"Unspecified","hasDesktopFile":false}
 {"name":"compat-ffmpeg4","summary":"Digital VCR and streaming server","version":"4.4.8","homepage":"https://ffmpeg.org/","group":"Unspecified","hasDesktopFile":false}
 {"name":"compat-ffmpeg4-devel","summary":"Development package for compat-ffmpeg4","version":"4.4.8","homepage":"https://ffmpeg.org/","group":"Unspecified","hasDesktopFile":false}
@@ -31,7 +31,7 @@
 {"name":"deadbeef-plugins","summary":"Plugins for deadbeef","version":"1.10.3","homepage":"https://deadbeef.sourceforge.io/","group":"Unspecified","hasDesktopFile":false}
 {"name":"desmume","summary":"A Nintendo DS emulator","version":"0.9.13","homepage":"http://desmume.org/","group":"Unspecified","hasDesktopFile":true}
 {"name":"desmume-cli","summary":"A Nintendo DS emulator (CLI version)","version":"0.9.13","homepage":"http://desmume.org/","group":"Unspecified","hasDesktopFile":false}
-{"name":"devedeng","summary":"A program to create video DVDs and CDs (VCD, sVCD or CVD)","version":"4.21.0","homepage":"http://www.rastersoft.com/programas/devede.html","group":"Unspecified","hasDesktopFile":true}
+{"name":"devedeng","summary":"A program to create video DVDs and CDs (VCD, sVCD or CVD)","version":"4.22.1","homepage":"http://www.rastersoft.com/programas/devede.html","group":"Unspecified","hasDesktopFile":true}
 {"name":"dhewm3","summary":"Dhewm's Doom 3 engine","version":"1.5.4","homepage":"https://dhewm3.org/","group":"Unspecified","hasDesktopFile":false}
 {"name":"doom2-masterlevels","summary":"\"Master Levels for Doom II\" launcher","version":"76","homepage":"https://wiki.debian.org/Games/GameDataPackager","group":"Unspecified","hasDesktopFile":true}
 {"name":"dosemu","summary":"DOS Emulator for Linux","version":"1.4.0.8","homepage":"http://dosemu.sf.net","group":"Applications/Emulators","hasDesktopFile":true}
@@ -39,9 +39,9 @@
 {"name":"dvd-slideshow","summary":"Command line programs for creating slideshow style DVDs","version":"0.8.6.1","homepage":"http://dvd-slideshow.sourceforge.net","group":"Unspecified","hasDesktopFile":false}
 {"name":"dvd95","summary":"Graphical dvd9 to dvd5 converter","version":"1.7p0","homepage":"http://dvd95.sourceforge.net/","group":"Unspecified","hasDesktopFile":true}
 {"name":"fceux","summary":"A cross platform, NTSC and PAL Famicom/NES emulator","version":"2.6.6","homepage":"http://fceux.com/","group":"Unspecified","hasDesktopFile":true}
-{"name":"ffmpeg","summary":"Digital VCR and streaming server","version":"8.1.2","homepage":"https://ffmpeg.org/","group":"Unspecified","hasDesktopFile":false}
-{"name":"ffmpeg-devel","summary":"Development package for ffmpeg","version":"8.1.2","homepage":"https://ffmpeg.org/","group":"Unspecified","hasDesktopFile":false}
-{"name":"ffmpeg-libs","summary":"Libraries for ffmpeg","version":"8.1.2","homepage":"https://ffmpeg.org/","group":"Unspecified","hasDesktopFile":false}
+{"name":"ffmpeg","summary":"Digital VCR and streaming server","version":"8.1.3","homepage":"https://ffmpeg.org/","group":"Unspecified","hasDesktopFile":false}
+{"name":"ffmpeg-devel","summary":"Development package for ffmpeg","version":"8.1.3","homepage":"https://ffmpeg.org/","group":"Unspecified","hasDesktopFile":false}
+{"name":"ffmpeg-libs","summary":"Libraries for ffmpeg","version":"8.1.3","homepage":"https://ffmpeg.org/","group":"Unspecified","hasDesktopFile":false}
 {"name":"ffmulticonverter","summary":"GUI File Format Converter","version":"1.8.0","homepage":"https://sites.google.com/site/ffmulticonverter/home","group":"Unspecified","hasDesktopFile":true}
 {"name":"firebird-emu","summary":"Third-party emulator for ARM-based TI calculators","version":"1.6","homepage":"https://github.com/nspire-emus/firebird","group":"Unspecified","hasDesktopFile":true}
 {"name":"freeguide","summary":"A TV Guide","version":"0.11.1","homepage":"http://www.artificialworlds.net/freeguide/Main/HomePage","group":"Unspecified","hasDesktopFile":true}
@@ -59,20 +59,20 @@
 {"name":"gnuboy-x","summary":"Nintendo GameBoy Color emulator (X version)","version":"1.0.3","homepage":"http://brightrain.aerifal.cx/~laguna/","group":"Applications/Emulators","hasDesktopFile":false}
 {"name":"gr-dab","summary":"GNU Radio DAB digital audio broadcasting module","version":"0.5","homepage":"https://github.com/andrmuel/gr-dab","group":"Unspecified","hasDesktopFile":false}
 {"name":"gr-dab-devel","summary":"Development files for gr-dab","version":"0.5","homepage":"https://github.com/andrmuel/gr-dab","group":"Unspecified","hasDesktopFile":false}
-{"name":"gstreamer1-plugins-bad-freeworld","summary":"GStreamer 1.0 streaming media framework \"bad\" plug-ins","version":"1.28.6","homepage":"https://gstreamer.freedesktop.org/","group":"Unspecified","hasDesktopFile":false}
-{"name":"gstreamer1-plugins-ugly","summary":"GStreamer 1.0 streaming media framework \"ugly\" plug-ins","version":"1.28.6","homepage":"https://gstreamer.freedesktop.org/","group":"Unspecified","hasDesktopFile":false}
+{"name":"gstreamer1-plugins-bad-freeworld","summary":"GStreamer 1.0 streaming media framework \"bad\" plug-ins","version":"1.28.7","homepage":"https://gstreamer.freedesktop.org/","group":"Unspecified","hasDesktopFile":false}
+{"name":"gstreamer1-plugins-ugly","summary":"GStreamer 1.0 streaming media framework \"ugly\" plug-ins","version":"1.28.7","homepage":"https://gstreamer.freedesktop.org/","group":"Unspecified","hasDesktopFile":false}
 {"name":"gtetrinet","summary":"GNOME version of a tetris game playable on the net","version":"0.7.11","homepage":"http://gtetrinet.sourceforge.net/","group":"Amusements/Games","hasDesktopFile":true}
 {"name":"HandBrake","summary":"An open-source multiplatform video transcoder","version":"1.11.2","homepage":"https://handbrake.fr/","group":"Unspecified","hasDesktopFile":false}
 {"name":"HandBrake-gui","summary":"An open-source multiplatform video transcoder (GUI)","version":"1.11.2","homepage":"https://handbrake.fr/","group":"Unspecified","hasDesktopFile":true}
 {"name":"h264enc","summary":"An interactive menu-driven frontend for mencoder","version":"10.4.7","homepage":"http://h264enc.sourceforge.net/","group":"Unspecified","hasDesktopFile":false}
 {"name":"imagination","summary":"A lightweight and simple GTK based DVD slide show creator","version":"3.6","homepage":"http://imagination.sourceforge.net/","group":"Applications/Multimedia","hasDesktopFile":true}
 {"name":"intel-vision","summary":"Metadata package for Intel vision drivers","version":"2025112.WW46.3_25_ptl_pv","homepage":"https://github.com/intel/vision-drivers","group":"Unspecified","hasDesktopFile":false}
-{"name":"jellyfin","summary":"The Free Software Media System","version":"10.11.11","homepage":"https://jellyfin.org","group":"Unspecified","hasDesktopFile":false}
-{"name":"jellyfin-firewalld","summary":"FirewallD metadata files for Jellyfin","version":"10.11.11","homepage":"https://jellyfin.org","group":"Unspecified","hasDesktopFile":false}
-{"name":"jellyfin-server","summary":"The Free Software Media System Server backend","version":"10.11.11","homepage":"https://jellyfin.org","group":"Unspecified","hasDesktopFile":false}
-{"name":"jellyfin-server-lowports","summary":"The Free Software Media System Server backend.  Low-port binding.","version":"10.11.11","homepage":"https://jellyfin.org","group":"Unspecified","hasDesktopFile":false}
-{"name":"jellyfin-web","summary":"The Free Software Media System Server frontend","version":"10.11.11","homepage":"https://jellyfin.org","group":"Unspecified","hasDesktopFile":false}
-{"name":"kmod-VirtualBox","summary":"Metapackage which tracks in VirtualBox kernel module for newest kernel","version":"7.2.16","homepage":"http://www.virtualbox.org/wiki/VirtualBox","group":"Unspecified","hasDesktopFile":false}
+{"name":"jellyfin","summary":"The Free Software Media System","version":"12.1","homepage":"https://jellyfin.org","group":"Unspecified","hasDesktopFile":false}
+{"name":"jellyfin-firewalld","summary":"FirewallD metadata files for Jellyfin","version":"12.1","homepage":"https://jellyfin.org","group":"Unspecified","hasDesktopFile":false}
+{"name":"jellyfin-server","summary":"The Free Software Media System Server backend","version":"12.1","homepage":"https://jellyfin.org","group":"Unspecified","hasDesktopFile":false}
+{"name":"jellyfin-server-lowports","summary":"The Free Software Media System Server backend.  Low-port binding.","version":"12.1","homepage":"https://jellyfin.org","group":"Unspecified","hasDesktopFile":false}
+{"name":"jellyfin-web","summary":"The Free Software Media System Server frontend","version":"12.1","homepage":"https://jellyfin.org","group":"Unspecified","hasDesktopFile":false}
+{"name":"kmod-VirtualBox","summary":"Metapackage which tracks in VirtualBox kernel module for newest kernel","version":"7.2.18","homepage":"http://www.virtualbox.org/wiki/VirtualBox","group":"Unspecified","hasDesktopFile":false}
 {"name":"kmod-intel-vision","summary":"Metapackage which tracks in intel-vision kernel module for newest kernel","version":"2025112.WW46.3_25_ptl_pv","homepage":"https://github.com/intel/vision-drivers","group":"Unspecified","hasDesktopFile":false}
 {"name":"kmod-ndiswrapper","summary":"Metapackage which tracks in ndiswrapper kernel module for newest kernel","version":"1.63","homepage":"http://ndiswrapper.sourceforge.net","group":"Unspecified","hasDesktopFile":false}
 {"name":"kmod-v4l2loopback","summary":"Metapackage which tracks in v4l2loopback kernel module for newest kernel","version":"0.15.4","homepage":"https://github.com/umlaeute/v4l2loopback","group":"Unspecified","hasDesktopFile":false}
@@ -110,8 +110,8 @@
 {"name":"libaacs","summary":"Open implementation of AACS specification","version":"0.11.1","homepage":"http://www.videolan.org/developers/libaacs.html","group":"Unspecified","hasDesktopFile":false}
 {"name":"libaacs-devel","summary":"Development files for libaacs","version":"0.11.1","homepage":"http://www.videolan.org/developers/libaacs.html","group":"Unspecified","hasDesktopFile":false}
 {"name":"libaacs-utils","summary":"Test utilities for libaacs","version":"0.11.1","homepage":"http://www.videolan.org/developers/libaacs.html","group":"Unspecified","hasDesktopFile":false}
-{"name":"libavcodec-freeworld","summary":"Freeworld libavcodec to complement the distro counterparts","version":"8.1.2","homepage":"https://ffmpeg.org/","group":"Unspecified","hasDesktopFile":false}
-{"name":"libavdevice","summary":"Special devices muxing/demuxing library","version":"8.1.2","homepage":"https://ffmpeg.org/","group":"Unspecified","hasDesktopFile":false}
+{"name":"libavcodec-freeworld","summary":"Freeworld libavcodec to complement the distro counterparts","version":"8.1.3","homepage":"https://ffmpeg.org/","group":"Unspecified","hasDesktopFile":false}
+{"name":"libavdevice","summary":"Special devices muxing/demuxing library","version":"8.1.3","homepage":"https://ffmpeg.org/","group":"Unspecified","hasDesktopFile":false}
 {"name":"libbdplus","summary":"Open implementation of BD+ protocol","version":"0.2.0","homepage":"http://www.videolan.org/developers/libbdplus.html","group":"Unspecified","hasDesktopFile":false}
 {"name":"libbdplus-devel","summary":"Development files for libbdplus","version":"0.2.0","homepage":"http://www.videolan.org/developers/libbdplus.html","group":"Unspecified","hasDesktopFile":false}
 {"name":"libde265","summary":"Open H.265 video codec implementation","version":"1.0.18","homepage":"https://www.libde265.org/","group":"Unspecified","hasDesktopFile":false}
@@ -124,7 +124,7 @@
 {"name":"libfreeaptx-tools","summary":"libfreeaptx encoder and decoder utilities","version":"0.2.2","homepage":"https://github.com/iamthehorker/libfreeaptx","group":"Unspecified","hasDesktopFile":false}
 {"name":"libgambatte","summary":"Core emulation code for Gambatte emulator","version":"571","homepage":"http://sourceforge.net/projects/gambatte/","group":"Unspecified","hasDesktopFile":false}
 {"name":"libgambatte-devel","summary":"Development files for libgambatte","version":"571","homepage":"http://sourceforge.net/projects/gambatte/","group":"Unspecified","hasDesktopFile":false}
-{"name":"libheif-freeworld","summary":"HEVC support for HEIF and AVIF file format decoder and encoder","version":"1.21.2","homepage":"https://github.com/strukturag/libheif","group":"Unspecified","hasDesktopFile":false}
+{"name":"libheif-freeworld","summary":"H.264, HEVC and VVC support for HEIF and AVIF file format decoder and encoder","version":"1.23.5","homepage":"https://github.com/strukturag/libheif","group":"Unspecified","hasDesktopFile":false}
 {"name":"libmimic","summary":"Encoding/decoding library for Mimic V2.x","version":"1.0.4","homepage":"http://farsight.sourceforge.net/","group":"Unspecified","hasDesktopFile":false}
 {"name":"libmimic-devel","summary":"Development files for libmimic","version":"1.0.4","homepage":"http://farsight.sourceforge.net/","group":"Unspecified","hasDesktopFile":false}
 {"name":"libndi","summary":"Open-source library done to interact with NDI streams","version":"0.0.1","homepage":"https://code.videolan.org/jbk/libndi","group":"Unspecified","hasDesktopFile":false}
@@ -153,14 +153,14 @@
 {"name":"medialibrary-devel","summary":"Development files for medialibrary","version":"0.13.2","homepage":"https://code.videolan.org/videolan/medialibrary","group":"Unspecified","hasDesktopFile":false}
 {"name":"megamario","summary":"Well known platform game clone","version":"1.7","homepage":"http://mmario.sourceforge.net/","group":"Amusements/Games","hasDesktopFile":true}
 {"name":"mencoder","summary":"MPlayer movie encoder","version":"1.5.1","homepage":"https://www.mplayerhq.hu/","group":"Unspecified","hasDesktopFile":false}
-{"name":"mesa-va-drivers-freeworld","summary":"Mesa-based VA-API drivers","version":"26.1.8","homepage":"https://mesa3d.org","group":"Unspecified","hasDesktopFile":false}
-{"name":"mesa-vulkan-drivers-freeworld","summary":"Mesa Vulkan drivers","version":"26.1.8","homepage":"https://mesa3d.org","group":"Unspecified","hasDesktopFile":false}
+{"name":"mesa-va-drivers-freeworld","summary":"Mesa-based VA-API drivers","version":"26.2.3","homepage":"https://mesa3d.org","group":"Unspecified","hasDesktopFile":false}
+{"name":"mesa-vulkan-drivers-freeworld","summary":"Mesa Vulkan drivers","version":"26.2.3","homepage":"https://mesa3d.org","group":"Unspecified","hasDesktopFile":false}
 {"name":"mimms","summary":"MMS stream downloader","version":"3.2.1","homepage":"http://savannah.nongnu.org/projects/mimms/","group":"Applications/Multimedia","hasDesktopFile":false}
 {"name":"mingw32-libmad","summary":"MPEG audio decoder library","version":"0.15.1b","homepage":"http://www.underbit.com/products/mad/","group":"Unspecified","hasDesktopFile":false}
 {"name":"mingw64-libmad","summary":"MPEG audio decoder library","version":"0.15.1b","homepage":"http://www.underbit.com/products/mad/","group":"Unspecified","hasDesktopFile":false}
 {"name":"mmsrip","summary":"MMS Streams Recorder","version":"0.7.0","homepage":"http://nbenoit.tuxfamily.org/projects.php?rq=mmsrip","group":"Unspecified","hasDesktopFile":false}
 {"name":"moc","summary":"Music on Console - Console audio player for Linux/UNIX","version":"2.6","homepage":"http://moc.daper.net","group":"Unspecified","hasDesktopFile":false}
-{"name":"mock-rpmfusion-free","summary":"Mock config files for the RPM Fusion Free Repository","version":"44.2","homepage":"https://rpmfusion.org/","group":"Unspecified","hasDesktopFile":false}
+{"name":"mock-rpmfusion-free","summary":"Mock config files for the RPM Fusion Free Repository","version":"45.0","homepage":"https://rpmfusion.org/","group":"Unspecified","hasDesktopFile":false}
 {"name":"motion","summary":"A motion detection system","version":"4.7.1","homepage":"https://motion-project.github.io/","group":"Unspecified","hasDesktopFile":false}
 {"name":"mp3diags","summary":"Find and fix Problems in MP3 Files","version":"1.4.01","homepage":"http://mp3diags.sourceforge.net","group":"Unspecified","hasDesktopFile":true}
 {"name":"mp4tools","summary":"A free cross-platform tool to manipulate MP4 files","version":"3.8","homepage":"http://www.mp4joiner.org","group":"Unspecified","hasDesktopFile":true}
@@ -224,7 +224,7 @@
 {"name":"qtav-qml-module","summary":"QtAV QML module","version":"1.13.0","homepage":"http://www.qtav.org/","group":"Unspecified","hasDesktopFile":false}
 {"name":"qtox","summary":"Feature-rich Tox client","version":"1.18.5","homepage":"https://github.com/TokTok/qTox/","group":"Unspecified","hasDesktopFile":true}
 {"name":"qwinff","summary":"An intuitive media converter GUI for ffmpeg","version":"0.2.2","homepage":"http://qwinff.github.io/","group":"Unspecified","hasDesktopFile":true}
-{"name":"rfpkg","summary":"RPM Fusion utility for working with dist-git","version":"1.27.5","homepage":"https://github.com/rpmfusion-infra/rfpkg","group":"Applications/System","hasDesktopFile":false}
+{"name":"rfpkg","summary":"RPM Fusion utility for working with dist-git","version":"1.28.0","homepage":"https://github.com/rpmfusion-infra/rfpkg","group":"Applications/System","hasDesktopFile":false}
 {"name":"rfpkg-minimal","summary":"Fork of fedpkg-minimal for RPM Fusion","version":"0.4.3","homepage":"https://github.com/rpmfusion-infra/rfpkg-minimal","group":"Unspecified","hasDesktopFile":false}
 {"name":"rfpkgdb-cli","summary":"A CLI for pkgdb","version":"2.15.4","homepage":"https://github.com/rpmfusion-infra/rfpkgdb-cli","group":"Unspecified","hasDesktopFile":false}
 {"name":"rpmfusion-free-appstream-data","summary":"Appstream metadata for the RPM Fusion free repository","version":"44","homepage":"http://rpmfusion.org","group":"Unspecified","hasDesktopFile":false}
@@ -246,41 +246,41 @@
 {"name":"svt-hevc-devel","summary":"Include files and mandatory libraries for development svt-hevc","version":"1.5.1","homepage":"https://github.com/OpenVisualCloud/SVT-HEVC","group":"Unspecified","hasDesktopFile":false}
 {"name":"svt-hevc-libs","summary":"Libraries for svt-hevc","version":"1.5.1","homepage":"https://github.com/OpenVisualCloud/SVT-HEVC","group":"Unspecified","hasDesktopFile":false}
 {"name":"swftools","summary":"SWF manipulation and generation utilities","version":"0.9.2^20211216git772e55a","homepage":"http://www.swftools.org/","group":"Unspecified","hasDesktopFile":false}
-{"name":"telegram-desktop","summary":"Telegram Desktop official messaging app","version":"7.1.1","homepage":"https://github.com/telegramdesktop/tdesktop","group":"Unspecified","hasDesktopFile":true}
+{"name":"telegram-desktop","summary":"Telegram Desktop official messaging app","version":"7.2.5","homepage":"https://github.com/telegramdesktop/tdesktop","group":"Unspecified","hasDesktopFile":true}
 {"name":"terminatorX","summary":"Real-time Audio Synthesizer","version":"4.2.0","homepage":"https://terminatorx.org/","group":"Applications/Multimedia","hasDesktopFile":true}
 {"name":"tg_owt-devel","summary":"Development files for tg_owt","version":"0","homepage":"https://github.com/desktop-app/tg_owt","group":"Unspecified","hasDesktopFile":false}
 {"name":"tilem","summary":"Emulator and debugger for Texas Instruments Z80-based graphing calculators","version":"2.0","homepage":"http://lpg.ticalc.org/prj_tilem/","group":"Unspecified","hasDesktopFile":true}
 {"name":"tivodecode-ng","summary":"Convert a .TiVo file from TiVoToGo to a normal MPEG","version":"0.5","homepage":"https://github.com/wmcbrine/tivodecode-ng","group":"Unspecified","hasDesktopFile":false}
 {"name":"torrentzip","summary":"Create identical zip files over multiple systems","version":"1.3","homepage":"https://github.com/0-wiz-0/trrntzip","group":"Unspecified","hasDesktopFile":false}
 {"name":"tvheadend","summary":"TV streaming server and digital video recorder","version":"4.3^20260623git80729d2","homepage":"https://tvheadend.org/","group":"Unspecified","hasDesktopFile":false}
-{"name":"VirtualBox","summary":"A general-purpose full virtualizer for PC hardware","version":"7.2.16","homepage":"https://www.virtualbox.org/wiki/VirtualBox","group":"Unspecified","hasDesktopFile":true}
-{"name":"VirtualBox-devel","summary":"VirtualBox SDK","version":"7.2.16","homepage":"https://www.virtualbox.org/wiki/VirtualBox","group":"Development/Libraries","hasDesktopFile":false}
-{"name":"VirtualBox-kmodsrc","summary":"VirtualBox kernel module source code","version":"7.2.16","homepage":"https://www.virtualbox.org/wiki/VirtualBox","group":"System Environment/Kernel","hasDesktopFile":false}
-{"name":"VirtualBox-server","summary":"Core part (host server) for VirtualBox","version":"7.2.16","homepage":"https://www.virtualbox.org/wiki/VirtualBox","group":"Development/Tools","hasDesktopFile":true}
-{"name":"VirtualBox-vnc","summary":"VNC desktop sharing","version":"7.2.16","homepage":"https://www.virtualbox.org/wiki/VirtualBox","group":"System/Emulators/PC","hasDesktopFile":false}
-{"name":"VirtualBox-webservice","summary":"WebService GUI part for VirtualBox","version":"7.2.16","homepage":"https://www.virtualbox.org/wiki/VirtualBox","group":"System/Emulators/PC","hasDesktopFile":false}
+{"name":"VirtualBox","summary":"A general-purpose full virtualizer for PC hardware","version":"7.2.18","homepage":"https://www.virtualbox.org/wiki/VirtualBox","group":"Unspecified","hasDesktopFile":true}
+{"name":"VirtualBox-devel","summary":"VirtualBox SDK","version":"7.2.18","homepage":"https://www.virtualbox.org/wiki/VirtualBox","group":"Development/Libraries","hasDesktopFile":false}
+{"name":"VirtualBox-kmodsrc","summary":"VirtualBox kernel module source code","version":"7.2.18","homepage":"https://www.virtualbox.org/wiki/VirtualBox","group":"System Environment/Kernel","hasDesktopFile":false}
+{"name":"VirtualBox-server","summary":"Core part (host server) for VirtualBox","version":"7.2.18","homepage":"https://www.virtualbox.org/wiki/VirtualBox","group":"Development/Tools","hasDesktopFile":true}
+{"name":"VirtualBox-vnc","summary":"VNC desktop sharing","version":"7.2.18","homepage":"https://www.virtualbox.org/wiki/VirtualBox","group":"System/Emulators/PC","hasDesktopFile":false}
+{"name":"VirtualBox-webservice","summary":"WebService GUI part for VirtualBox","version":"7.2.18","homepage":"https://www.virtualbox.org/wiki/VirtualBox","group":"System/Emulators/PC","hasDesktopFile":false}
 {"name":"v4l2-relayd","summary":"Utils for relaying the video stream between two video devices","version":"0.2.0","group":"Unspecified","hasDesktopFile":false}
 {"name":"v4l2loopback","summary":"Utils for V4L2 loopback devices","version":"0.15.4","homepage":"https://github.com/umlaeute/v4l2loopback","group":"Unspecified","hasDesktopFile":false}
 {"name":"vagalume","summary":"Last.fm client for GNOME and Maemo","version":"0.8.6","homepage":"http://vagalume.igalia.com/","group":"Applications/Multimedia","hasDesktopFile":true}
 {"name":"vcmi","summary":"Heroes of Might and Magic 3 game engine","version":"1.7.5","homepage":"https://vcmi.eu/","group":"Unspecified","hasDesktopFile":true}
 {"name":"vcmi-data","summary":"Data files for vcmi","version":"1.7.5","homepage":"https://vcmi.eu/","group":"Unspecified","hasDesktopFile":false}
 {"name":"vdr-burn","summary":"DVD writing plugin for VDR","version":"0.3.1","homepage":"https://github.com/FireFlyVDR/vdr-plugin-burn","group":"Unspecified","hasDesktopFile":false}
-{"name":"vdr-markad","summary":"Advanced commercial detection for VDR","version":"4.2.22","homepage":"https://github.com/kfb77/vdr-plugin-markad","group":"Unspecified","hasDesktopFile":false}
-{"name":"vdr-markad-docs","summary":"Documentation files for vdr-markad","version":"4.2.22","homepage":"https://github.com/kfb77/vdr-plugin-markad","group":"Unspecified","hasDesktopFile":false}
+{"name":"vdr-markad","summary":"Advanced commercial detection for VDR","version":"4.3.1","homepage":"https://github.com/kfb77/vdr-plugin-markad","group":"Unspecified","hasDesktopFile":false}
+{"name":"vdr-markad-docs","summary":"Documentation files for vdr-markad","version":"4.3.1","homepage":"https://github.com/kfb77/vdr-plugin-markad","group":"Unspecified","hasDesktopFile":false}
 {"name":"vdr-mp3","summary":"Sound playback plugin for VDR","version":"0.10.5","homepage":"https://github.com/vdr-projects/vdr-plugin-mp3/","group":"Unspecified","hasDesktopFile":false}
 {"name":"vdr-mplayer","summary":"MPlayer plugin for VDR","version":"0.10.5","homepage":"https://github.com/vdr-projects/vdr-plugin-mp3/","group":"Applications/Multimedia","hasDesktopFile":false}
 {"name":"vdr-mpv","summary":"A mpv player plugin for VDR","version":"1.8.2","homepage":"https://github.com/ua0lnj/vdr-plugin-mpv","group":"Unspecified","hasDesktopFile":false}
 {"name":"vdr-plex","summary":"A Plex Client for the VDR","version":"0.4.0","homepage":"https://github.com/chriszero/vdr-plugin-plex","group":"Unspecified","hasDesktopFile":false}
 {"name":"vdr-skindesigner","summary":"A VDR skinning engine that displays XML based Skins","version":"1.3.0","homepage":"https://gitlab.com/kamel5/skindesigner","group":"Unspecified","hasDesktopFile":false}
 {"name":"vdr-skindesigner-data","summary":"Icons xml files for vdr-skindesigner","version":"1.3.0","homepage":"https://gitlab.com/kamel5/skindesigner","group":"Applications/Multimedia","hasDesktopFile":false}
-{"name":"vdr-softhddevice","summary":"A software and GPU emulated UHD output device plugin for VDR","version":"2.4.8","homepage":"https://github.com/ua0lnj/vdr-plugin-softhddevice","group":"Unspecified","hasDesktopFile":false}
+{"name":"vdr-softhddevice","summary":"A software and GPU emulated UHD output device plugin for VDR","version":"2.5.0","homepage":"https://github.com/ua0lnj/vdr-plugin-softhddevice","group":"Unspecified","hasDesktopFile":false}
 {"name":"vdr-tvguideng","summary":"TvGuideNG is a highly customizable 2D EPG viewer plugin","version":"0.3.7","homepage":"https://gitlab.com/kamel5/tvguideng","group":"Unspecified","hasDesktopFile":false}
 {"name":"vdr-weatherforecast","summary":"A VDR plugin which provides a weather forecast","version":"0.2.0","homepage":"https://github.com/vdr-projects/vdr-plugin-weatherforecast","group":"Unspecified","hasDesktopFile":false}
 {"name":"vdr-xineliboutput","summary":"Plugins for watching VDR over Xine","version":"2.3.0","homepage":"http://sourceforge.net/projects/xineliboutput","group":"Unspecified","hasDesktopFile":false}
 {"name":"vdr-xineliboutput-plugin","summary":"Plugins for watching VDR over Xine","version":"2.3.0","homepage":"http://sourceforge.net/projects/xineliboutput","group":"Unspecified","hasDesktopFile":false}
 {"name":"vdrsync","summary":"Recording demultiplexer for VDR","version":"0.1.3","homepage":"http://vdrsync.vdr-portal.de/","group":"Unspecified","hasDesktopFile":false}
 {"name":"videomorph","summary":"Small GUI wrapper for FFMPEG based on PyQt5","version":"1.4.1","homepage":"https://github.com/videomorph-dev/videomorph","group":"Unspecified","hasDesktopFile":true}
-{"name":"vlc-plugins-freeworld","summary":"H.264, and HEVC codec plugins for VLC media player","version":"3.0.22","homepage":"https://www.videolan.org","group":"Unspecified","hasDesktopFile":false}
+{"name":"vlc-plugins-freeworld","summary":"H.264, and HEVC codec plugins for VLC media player","version":"3.0.23","homepage":"https://www.videolan.org","group":"Unspecified","hasDesktopFile":false}
 {"name":"vvdec","summary":"The Fraunhofer Versatile Video Decoder","version":"3.0.0","homepage":"https://github.com/fraunhoferhhi/vvdec","group":"Unspecified","hasDesktopFile":false}
 {"name":"vvdec-devel","summary":"Header files for vvdec development","version":"3.0.0","homepage":"https://github.com/fraunhoferhhi/vvdec","group":"Unspecified","hasDesktopFile":false}
 {"name":"vvdec-libs","summary":"Library  files for vvdec","version":"3.0.0","homepage":"https://github.com/fraunhoferhhi/vvdec","group":"Unspecified","hasDesktopFile":false}
@@ -303,7 +303,7 @@
 {"name":"xmris","summary":"Maze digging and cherry eating game","version":"4.0.5","homepage":"http://sourceforge.net/projects/xmris/","group":"Amusements/Games","hasDesktopFile":true}
 {"name":"xmris-editor","summary":"Level editor for xmris","version":"4.0.5","homepage":"http://sourceforge.net/projects/xmris/","group":"Amusements/Games","hasDesktopFile":true}
 {"name":"xpra-codecs-freeworld","summary":"Additional codecs for xpra using x264","version":"6.5.3","homepage":"https://www.xpra.org/","group":"Unspecified","hasDesktopFile":false}
-{"name":"xroar","summary":"A Dragon 32, Dragon 64 and Tandy CoCo emulator","version":"1.10","homepage":"http://www.6809.org.uk/xroar/","group":"Unspecified","hasDesktopFile":true}
+{"name":"xroar","summary":"A Dragon 32, Dragon 64 and Tandy CoCo emulator","version":"1.12.1","homepage":"http://www.6809.org.uk/xroar/","group":"Unspecified","hasDesktopFile":true}
 {"name":"xt7-player-mpv","summary":"Qt/Gambas gui to mpv media player","version":"0.37.3190","homepage":"http://xt7-player.sourceforge.net/xt7forum/","group":"Unspecified","hasDesktopFile":true}
 {"name":"xtables-addons","summary":"Extensions targets and matches for iptables","version":"3.31","homepage":"https://inai.de/projects/xtables-addons/","group":"Unspecified","hasDesktopFile":false}
 {"name":"xvid4conf","summary":"Tool to create XviD configuration files","version":"1.12","homepage":"http://www.exit1.org/archive/dvdrip-users/2005-07/msg00007.html","group":"Unspecified","hasDesktopFile":true}
@@ -320,7 +320,7 @@
 {"name":"akmod-nvidia-390xx","summary":"Akmod package for nvidia-390xx kernel module(s)","version":"390.157","homepage":"http://www.nvidia.com/","group":"System Environment/Kernel","hasDesktopFile":false}
 {"name":"akmod-nvidia-470xx","summary":"Akmod package for nvidia-470xx kernel module(s)","version":"470.256.02","homepage":"https://www.nvidia.com/","group":"Unspecified","hasDesktopFile":false}
 {"name":"akmod-nvidia-580xx","summary":"Akmod package for nvidia-580xx kernel module(s)","version":"580.178.04","homepage":"https://www.nvidia.com/","group":"Unspecified","hasDesktopFile":false}
-{"name":"akmod-nvidia","summary":"Akmod package for nvidia kernel module(s)","version":"610.57.04","homepage":"https://www.nvidia.com/","group":"Unspecified","hasDesktopFile":false}
+{"name":"akmod-nvidia","summary":"Akmod package for nvidia kernel module(s)","version":"615.71.09","homepage":"https://www.nvidia.com/","group":"Unspecified","hasDesktopFile":false}
 {"name":"akmod-nvidia-open","summary":"Akmod package for nvidia-open kernel module(s)","version":"595.58.03","homepage":"https://github.com/NVIDIA/open-gpu-kernel-modules","group":"Unspecified","hasDesktopFile":false}
 {"name":"akmod-wl","summary":"Akmod package for wl kernel module(s)","version":"6.30.223.271","homepage":"https://www.broadcom.com/support/download-search?pg=Legacy+Products&pf=Legacy+Wireless&pn=&pa=&po=&dk=&pl=","group":"System Environment/Kernel","hasDesktopFile":false}
 {"name":"amap","summary":"Network tool for application protocol detection","version":"5.4","homepage":"https://github.com/hackerschoice/THC-Archive","group":"Unspecified","hasDesktopFile":false}
@@ -346,7 +346,7 @@
 {"name":"dgen-sdl","summary":"A Sega Genesis (MegaDrive outside the US) emulator","version":"1.33","homepage":"http://dgen.sourceforge.net/","group":"Unspecified","hasDesktopFile":false}
 {"name":"discord","summary":"All-in-one voice and text chat","version":"1.0.148","homepage":"https://discordapp.com/","group":"Unspecified","hasDesktopFile":true}
 {"name":"doc","summary":"Diagnose unhealthy DNS domains","version":"2.2.3","homepage":"http://www.shub-internet.org/brad/dns/","group":"Applications/Internet","hasDesktopFile":false}
-{"name":"dolphin-megasync","summary":"Extension for Dolphin to interact with Megasync","version":"6.5.1.0","homepage":"https://mega.nz","group":"Unspecified","hasDesktopFile":false}
+{"name":"dolphin-megasync","summary":"Extension for Dolphin to interact with Megasync","version":"6.6.1.0","homepage":"https://mega.nz","group":"Unspecified","hasDesktopFile":false}
 {"name":"doom-shareware","summary":"Official shareware game files for DOOM","version":"1.9","homepage":"https://www.idsoftware.com","group":"Amusements/Games","hasDesktopFile":false}
 {"name":"dream","summary":"A software radio for AM and Digital Radio Mondiale (DRM)","version":"2.3.0~20230725svnr1406","homepage":"https://sourceforge.net/projects/drm/","group":"Unspecified","hasDesktopFile":true}
 {"name":"dropbox","summary":"Client for Linux","version":"2026.01.15","homepage":"https://www.dropbox.com","group":"Unspecified","hasDesktopFile":true}
@@ -382,10 +382,10 @@
 {"name":"kmod-nvidia-390xx","summary":"Metapackage which tracks in nvidia-390xx kernel module for newest kernel","version":"390.157","homepage":"http://www.nvidia.com/","group":"System Environment/Kernel","hasDesktopFile":false}
 {"name":"kmod-nvidia-470xx","summary":"Metapackage which tracks in nvidia-470xx kernel module for newest kernel","version":"470.256.02","homepage":"https://www.nvidia.com/","group":"Unspecified","hasDesktopFile":false}
 {"name":"kmod-nvidia-580xx","summary":"Metapackage which tracks in nvidia-580xx kernel module for newest kernel","version":"580.178.04","homepage":"https://www.nvidia.com/","group":"Unspecified","hasDesktopFile":false}
-{"name":"kmod-nvidia","summary":"Metapackage which tracks in nvidia kernel module for newest kernel","version":"610.57.04","homepage":"https://www.nvidia.com/","group":"Unspecified","hasDesktopFile":false}
+{"name":"kmod-nvidia","summary":"Metapackage which tracks in nvidia kernel module for newest kernel","version":"615.71.09","homepage":"https://www.nvidia.com/","group":"Unspecified","hasDesktopFile":false}
 {"name":"kmod-nvidia-open","summary":"Metapackage which tracks in nvidia-open kernel module for newest kernel","version":"595.58.03","homepage":"https://github.com/NVIDIA/open-gpu-kernel-modules","group":"Unspecified","hasDesktopFile":false}
 {"name":"kmod-wl","summary":"Metapackage which tracks in wl kernel module for newest kernel","version":"6.30.223.271","homepage":"https://www.broadcom.com/support/download-search?pg=Legacy+Products&pf=Legacy+Wireless&pn=&pa=&po=&dk=&pl=","group":"System Environment/Kernel","hasDesktopFile":false}
-{"name":"lamco-rdp-server","summary":"Wayland RDP server for Linux desktop sharing with GUI","version":"1.4.4","homepage":"https://www.lamco.ai/products/lamco-rdp-server/","group":"Unspecified","hasDesktopFile":true}
+{"name":"lamco-rdp-server","summary":"Wayland RDP server for Linux desktop sharing with GUI","version":"1.4.5","homepage":"https://www.lamco.ai/products/lamco-rdp-server/","group":"Unspecified","hasDesktopFile":true}
 {"name":"larabie-decorative-fonts","summary":"Larabie TrueType Decorative Fonts","version":"0","homepage":"http://www.larabiefonts.com/","group":"User Interface/X","hasDesktopFile":false}
 {"name":"larabie-fonts-common","summary":"Common files for larabie-fonts","version":"0","homepage":"http://www.larabiefonts.com/","group":"User Interface/X","hasDesktopFile":false}
 {"name":"larabie-straight-fonts","summary":"Larabie TrueType Straight Fonts","version":"0","homepage":"http://www.larabiefonts.com/","group":"User Interface/X","hasDesktopFile":false}
@@ -396,8 +396,8 @@
 {"name":"libcapsimage-devel","summary":"Development files for libcapsimage","version":"2.0.0","homepage":"http://www.softpres.org/?id=download","group":"Development/Libraries","hasDesktopFile":false}
 {"name":"libndi-sdk","summary":"Libraries files for ndi-sdk","version":"6.3.2.1","homepage":"https://ndi.tv/sdk","group":"Unspecified","hasDesktopFile":false}
 {"name":"libreoffice-Mendeley","summary":"Insert citations and generate bibliography from Mendeley","version":"1.19.8","homepage":"https://www.mendeley.com/","group":"Unspecified","hasDesktopFile":false}
-{"name":"libunrar","summary":"Decompress library for RAR v3 archives","version":"7.1.7","homepage":"https://www.rarlab.com/rar_add.htm","group":"Unspecified","hasDesktopFile":false}
-{"name":"libunrar-devel","summary":"Development files for libunrar","version":"7.1.7","homepage":"https://www.rarlab.com/rar_add.htm","group":"Unspecified","hasDesktopFile":false}
+{"name":"libunrar","summary":"Decompress library for RAR v3 archives","version":"7.2.7","homepage":"https://www.rarlab.com/rar_add.htm","group":"Unspecified","hasDesktopFile":false}
+{"name":"libunrar-devel","summary":"Development files for libunrar","version":"7.2.7","homepage":"https://www.rarlab.com/rar_add.htm","group":"Unspecified","hasDesktopFile":false}
 {"name":"libva-intel-hybrid-driver","summary":"VA driver for Intel G45 & HD Graphics family","version":"1.0.2","homepage":"https://github.com/01org/intel-hybrid-driver","group":"Unspecified","hasDesktopFile":false}
 {"name":"lpf-cleartype-fonts","summary":"Bootstrap package building cleartype-fonts using lpf","version":"1.0","homepage":"https://github.com/leamas/lpf","group":"Development/Tools","hasDesktopFile":true}
 {"name":"lpf-mscore-fonts","summary":"Bootstrap package building ms-core-fonts using lpf","version":"2.2","homepage":"https://github.com/leamas/lpf","group":"Development/Tools","hasDesktopFile":true}
@@ -405,10 +405,10 @@
 {"name":"lpf-spotify-client","summary":"Spotify music player native client package bootstrap","version":"1.2.96.518","homepage":"https://github.com/sergiomb2/spotify-make","group":"Unspecified","hasDesktopFile":true}
 {"name":"man-pages-posix","summary":"POSIX interface documentation","version":"2017a","homepage":"https://www.kernel.org/doc/man-pages/","group":"Unspecified","hasDesktopFile":false}
 {"name":"mari0","summary":"A recreation of the original Super Mario Bros with a portal gun","version":"1.6.2","homepage":"http://stabyourself.net/mari0/","group":"Unspecified","hasDesktopFile":true}
-{"name":"megasync","summary":"Easy automated syncing between your computers and your MEGA cloud drive","version":"6.5.1.0","homepage":"https://mega.nz","group":"Unspecified","hasDesktopFile":true}
+{"name":"megasync","summary":"Easy automated syncing between your computers and your MEGA cloud drive","version":"6.6.1.0","homepage":"https://mega.nz","group":"Unspecified","hasDesktopFile":true}
 {"name":"meka","summary":"Sega 8-bit emulator with debugging/hacking tools","version":"0.80","homepage":"http://www.smspower.org/meka/","group":"Unspecified","hasDesktopFile":true}
 {"name":"mendeleydesktop","summary":"Academic reference management software for researchers","version":"1.19.8","homepage":"https://www.mendeley.com/","group":"Unspecified","hasDesktopFile":true}
-{"name":"mock-rpmfusion-nonfree","summary":"Mock config files for the RPM Fusion NonFree Repository","version":"44.2","homepage":"https://rpmfusion.org/","group":"Unspecified","hasDesktopFile":false}
+{"name":"mock-rpmfusion-nonfree","summary":"Mock config files for the RPM Fusion NonFree Repository","version":"45.0","homepage":"https://rpmfusion.org/","group":"Unspecified","hasDesktopFile":false}
 {"name":"mod_h264_streaming","summary":"H264 streaming module for the Apache HTTP Server","version":"2.2.7","homepage":"https://github.com/code-shop-com/h264","group":"System Environment/Daemons","hasDesktopFile":false}
 {"name":"motif-pgplot","summary":"MOTIF driver for pgplot","version":"5.2.2","homepage":"http://www.astro.caltech.edu/~tjp/pgplot","group":"Development/Libraries","hasDesktopFile":false}
 {"name":"motif-pgplot-devel","summary":"MOTIF driver for pgplot devel files","version":"5.2.2","homepage":"http://www.astro.caltech.edu/~tjp/pgplot","group":"Development/Libraries","hasDesktopFile":false}
@@ -417,19 +417,19 @@
 {"name":"ndi-sdk-devel","summary":"Libraries/include files for ndi-sdk","version":"6.3.2.1","homepage":"https://ndi.tv/sdk","group":"Unspecified","hasDesktopFile":false}
 {"name":"ndi-sdk-documentation","summary":"Documentation for ndi-sdk","version":"6.3.2.1","homepage":"https://ndi.tv/sdk","group":"Unspecified","hasDesktopFile":false}
 {"name":"nemo-dropbox","summary":"Dropbox extension for nemo","version":"6.6.0","homepage":"https://github.com/linuxmint/nemo-extensions","group":"Unspecified","hasDesktopFile":false}
-{"name":"nemo-megasync","summary":"Extension for Nemo to interact with Megasync","version":"6.5.1.0","homepage":"https://mega.nz","group":"Unspecified","hasDesktopFile":false}
+{"name":"nemo-megasync","summary":"Extension for Nemo to interact with Megasync","version":"6.6.1.0","homepage":"https://mega.nz","group":"Unspecified","hasDesktopFile":false}
 {"name":"netfabb-basic","summary":"Freeware suite for STL editing","version":"7.2.0","homepage":"http://www.netfabb.com/","group":"Unspecified","hasDesktopFile":true}
 {"name":"nrdp","summary":"Nagios Remote Data Processor","version":"2.0.6","homepage":"https://github.com/NagiosEnterprises/nrdp","group":"Unspecified","hasDesktopFile":false}
 {"name":"nrdp-client-php","summary":"Send NRDP php script for Nagios","version":"2.0.6","homepage":"https://github.com/NagiosEnterprises/nrdp","group":"Unspecified","hasDesktopFile":false}
 {"name":"nrdp-client-python","summary":"Send NRDP python script for Nagios","version":"2.0.6","homepage":"https://github.com/NagiosEnterprises/nrdp","group":"Unspecified","hasDesktopFile":false}
 {"name":"nrdp-client-shell","summary":"Send NRDP shell script for Nagios","version":"2.0.6","homepage":"https://github.com/NagiosEnterprises/nrdp","group":"Unspecified","hasDesktopFile":false}
-{"name":"nvidia-modprobe","summary":"Load the NVIDIA kernel module and create NVIDIA character device files","version":"610.57.04","homepage":"https://github.com/NVIDIA/nvidia-modprobe","group":"Unspecified","hasDesktopFile":false}
-{"name":"nvidia-persistenced","summary":"Daemon for maintaining persistent driver state","version":"610.57.04","homepage":"https://github.com/NVIDIA/nvidia-persistenced","group":"Unspecified","hasDesktopFile":false}
+{"name":"nvidia-modprobe","summary":"Load the NVIDIA kernel module and create NVIDIA character device files","version":"615.71.09","homepage":"https://github.com/NVIDIA/nvidia-modprobe","group":"Unspecified","hasDesktopFile":false}
+{"name":"nvidia-persistenced","summary":"Daemon for maintaining persistent driver state","version":"615.71.09","homepage":"https://github.com/NVIDIA/nvidia-persistenced","group":"Unspecified","hasDesktopFile":false}
 {"name":"nvidia-settings-390xx","summary":"Configure the NVIDIA 390xx series graphics driver","version":"390.157","homepage":"https://download.nvidia.com/XFree86/nvidia-settings/","group":"Unspecified","hasDesktopFile":true}
 {"name":"nvidia-settings-470xx","summary":"Configure the NVIDIA 470xx series graphics driver","version":"470.256.02","homepage":"https://github.com/NVIDIA/nvidia-settings","group":"Unspecified","hasDesktopFile":true}
 {"name":"nvidia-settings-580xx","summary":"Configure the NVIDIA graphics driver","version":"580.178.04","homepage":"https://github.com/NVIDIA/nvidia-settings","group":"Unspecified","hasDesktopFile":true}
-{"name":"nvidia-settings","summary":"Configure the NVIDIA graphics driver","version":"610.57.04","homepage":"https://github.com/NVIDIA/nvidia-settings","group":"Unspecified","hasDesktopFile":true}
-{"name":"nvidia-xconfig","summary":"NVIDIA X configuration file editor","version":"610.57.04","homepage":"https://github.com/NVIDIA/nvidia-xconfig","group":"Unspecified","hasDesktopFile":false}
+{"name":"nvidia-settings","summary":"Configure the NVIDIA graphics driver","version":"615.71.09","homepage":"https://github.com/NVIDIA/nvidia-settings","group":"Unspecified","hasDesktopFile":true}
+{"name":"nvidia-xconfig","summary":"NVIDIA X configuration file editor","version":"615.71.09","homepage":"https://github.com/NVIDIA/nvidia-xconfig","group":"Unspecified","hasDesktopFile":false}
 {"name":"OpenEXR_Viewers-nonfree","summary":"Viewers programs for OpenEXR","version":"2.3.0","homepage":"http://www.openexr.com","group":"Unspecified","hasDesktopFile":false}
 {"name":"obs-studio-plugin-distroav","summary":"Network Audio/Video in OBS-Studio using NDI technology","version":"6.2.1","homepage":"https://github.com/DistroAV/DistroAV","group":"Unspecified","hasDesktopFile":false}
 {"name":"openni-nite","summary":"OpenNI-based toolbox for hand movement tracking","version":"1.4.1.2","homepage":"http://www.openni.org","group":"System Environment/Libraries","hasDesktopFile":false}
@@ -476,11 +476,11 @@
 {"name":"uade-devel","summary":"Development files for uade","version":"2.13","homepage":"http://zakalwe.fi/uade","group":"Unspecified","hasDesktopFile":false}
 {"name":"uade-mod2ogg","summary":"Encode music modules to ogg/mp3/flac etc","version":"2.13","homepage":"http://zakalwe.fi/uade","group":"Unspecified","hasDesktopFile":false}
 {"name":"unace","summary":"A tool to extract ace archives","version":"2.50","homepage":"http://www.winace.com/","group":"Applications/Archiving","hasDesktopFile":false}
-{"name":"unifi","summary":"UniFi Network Controller","version":"10.5.67","homepage":"https://unifi-sdn.ubnt.com/","group":"Unspecified","hasDesktopFile":false}
-{"name":"unifi-data","summary":"Non-architechture specific data files for unifi","version":"10.5.67","homepage":"https://unifi-sdn.ubnt.com/","group":"Unspecified","hasDesktopFile":false}
+{"name":"unifi","summary":"UniFi Network Controller","version":"10.6.101","homepage":"https://unifi-sdn.ubnt.com/","group":"Unspecified","hasDesktopFile":false}
+{"name":"unifi-data","summary":"Non-architechture specific data files for unifi","version":"10.6.101","homepage":"https://unifi-sdn.ubnt.com/","group":"Unspecified","hasDesktopFile":false}
 {"name":"unifi-lts","summary":"Ubiquiti UniFi controller LTS","version":"5.6.42","homepage":"https://unifi-sdn.ubnt.com/","group":"Unspecified","hasDesktopFile":false}
 {"name":"unifi-lts-data","summary":"Non-architechture specific data files for unifi","version":"5.6.42","homepage":"https://unifi-sdn.ubnt.com/","group":"Unspecified","hasDesktopFile":false}
-{"name":"unrar","summary":"Utility for extracting, testing and viewing RAR archives","version":"7.1.7","homepage":"https://www.rarlab.com/rar_add.htm","group":"Unspecified","hasDesktopFile":false}
+{"name":"unrar","summary":"Utility for extracting, testing and viewing RAR archives","version":"7.2.7","homepage":"https://www.rarlab.com/rar_add.htm","group":"Unspecified","hasDesktopFile":false}
 {"name":"vice","summary":"Emulator for a variety of Commodore 8bit machines","version":"3.10","homepage":"http://vice-emu.sourceforge.net/","group":"Applications/Emulators","hasDesktopFile":false}
 {"name":"vice-common","summary":"Common files for vice","version":"3.10","homepage":"http://vice-emu.sourceforge.net/","group":"Applications/Emulators","hasDesktopFile":true}
 {"name":"vice-data","summary":"Data files for vice","version":"3.10","homepage":"http://vice-emu.sourceforge.net/","group":"Applications/Emulators","hasDesktopFile":false}
@@ -497,7 +497,7 @@
 {"name":"wolf4sdl-shareware","summary":"SDL port of id Software's Wolfenstein 3D - shareware version","version":"1.7","homepage":"http://www.3drealms.com/wolf3d/index.html","group":"Amusements/Games","hasDesktopFile":true}
 {"name":"wolf4sdl-spear","summary":"SDL port of Wolfenstein 3D - Spear of Destiny version","version":"1.7","homepage":"http://www.idsoftware.com/games/wolfenstein/spear/","group":"Amusements/Games","hasDesktopFile":true}
 {"name":"wolf4sdl-spear-demo","summary":"SDL port of Wolfenstein 3D - Spear of Destiny demo version","version":"1.7","homepage":"http://www.idsoftware.com/games/wolfenstein/spear/","group":"Amusements/Games","hasDesktopFile":true}
-{"name":"xcpc","summary":"A portable Amstrad CPC 464/664/6128 emulator written in C","version":"0.52.1","homepage":"http://www.xcpc-emulator.net/","group":"Unspecified","hasDesktopFile":true}
+{"name":"xcpc","summary":"A portable Amstrad CPC 464/664/6128 emulator written in C","version":"0.53.0","homepage":"http://www.xcpc-emulator.net/","group":"Unspecified","hasDesktopFile":true}
 {"name":"xorg-x11-drv-nvidia-390xx","summary":"NVIDIA's 390xx series proprietary display driver for NVIDIA graphic cards","version":"390.157","homepage":"http://www.nvidia.com/","group":"Unspecified","hasDesktopFile":false}
 {"name":"xorg-x11-drv-nvidia-390xx-cuda","summary":"CUDA driver for xorg-x11-drv-nvidia-390xx","version":"390.157","homepage":"http://www.nvidia.com/","group":"Unspecified","hasDesktopFile":false}
 {"name":"xorg-x11-drv-nvidia-390xx-cuda-libs","summary":"CUDA libraries for xorg-x11-drv-nvidia-390xx","version":"390.157","homepage":"http://www.nvidia.com/","group":"Unspecified","hasDesktopFile":false}
@@ -519,21 +519,32 @@
 {"name":"xorg-x11-drv-nvidia-580xx-libs","summary":"Libraries for xorg-x11-drv-nvidia-580xx","version":"580.178.04","homepage":"https://www.nvidia.com/","group":"Unspecified","hasDesktopFile":false}
 {"name":"xorg-x11-drv-nvidia-580xx-power","summary":"Advanced  power management","version":"580.178.04","homepage":"https://www.nvidia.com/","group":"Unspecified","hasDesktopFile":false}
 {"name":"xorg-x11-drv-nvidia-580xx-xorg-libs","summary":"Xorg Libraries for xorg-x11-drv-nvidia-580xx","version":"580.178.04","homepage":"https://www.nvidia.com/","group":"Unspecified","hasDesktopFile":false}
-{"name":"xorg-x11-drv-nvidia","summary":"NVIDIA's proprietary display driver for NVIDIA graphic cards","version":"610.57.04","homepage":"https://www.nvidia.com/","group":"Unspecified","hasDesktopFile":false}
-{"name":"xorg-x11-drv-nvidia-cuda","summary":"CUDA driver tools for xorg-x11-drv-nvidia","version":"610.57.04","homepage":"https://www.nvidia.com/","group":"Unspecified","hasDesktopFile":false}
-{"name":"xorg-x11-drv-nvidia-cuda-libs","summary":"CUDA libraries for xorg-x11-drv-nvidia","version":"610.57.04","homepage":"https://www.nvidia.com/","group":"Unspecified","hasDesktopFile":false}
-{"name":"xorg-x11-drv-nvidia-devel","summary":"Development files for xorg-x11-drv-nvidia","version":"610.57.04","homepage":"https://www.nvidia.com/","group":"Unspecified","hasDesktopFile":false}
-{"name":"xorg-x11-drv-nvidia-kmodsrc","summary":"xorg-x11-drv-nvidia kernel module source code","version":"610.57.04","homepage":"https://www.nvidia.com/","group":"Unspecified","hasDesktopFile":false}
-{"name":"xorg-x11-drv-nvidia-libs","summary":"Libraries for xorg-x11-drv-nvidia","version":"610.57.04","homepage":"https://www.nvidia.com/","group":"Unspecified","hasDesktopFile":false}
-{"name":"xorg-x11-drv-nvidia-power","summary":"Advanced  power management","version":"610.57.04","homepage":"https://www.nvidia.com/","group":"Unspecified","hasDesktopFile":false}
-{"name":"xorg-x11-drv-nvidia-xorg-libs","summary":"Xorg Libraries for xorg-x11-drv-nvidia","version":"610.57.04","homepage":"https://www.nvidia.com/","group":"Unspecified","hasDesktopFile":false}
+{"name":"xorg-x11-drv-nvidia","summary":"NVIDIA's proprietary display driver for NVIDIA graphic cards","version":"615.71.09","homepage":"https://www.nvidia.com/","group":"Unspecified","hasDesktopFile":false}
+{"name":"xorg-x11-drv-nvidia-cuda","summary":"CUDA driver tools for xorg-x11-drv-nvidia","version":"615.71.09","homepage":"https://www.nvidia.com/","group":"Unspecified","hasDesktopFile":false}
+{"name":"xorg-x11-drv-nvidia-cuda-libs","summary":"CUDA libraries for xorg-x11-drv-nvidia","version":"615.71.09","homepage":"https://www.nvidia.com/","group":"Unspecified","hasDesktopFile":false}
+{"name":"xorg-x11-drv-nvidia-devel","summary":"Development files for xorg-x11-drv-nvidia","version":"615.71.09","homepage":"https://www.nvidia.com/","group":"Unspecified","hasDesktopFile":false}
+{"name":"xorg-x11-drv-nvidia-kmodsrc","summary":"xorg-x11-drv-nvidia kernel module source code","version":"615.71.09","homepage":"https://www.nvidia.com/","group":"Unspecified","hasDesktopFile":false}
+{"name":"xorg-x11-drv-nvidia-libs","summary":"Libraries for xorg-x11-drv-nvidia","version":"615.71.09","homepage":"https://www.nvidia.com/","group":"Unspecified","hasDesktopFile":false}
+{"name":"xorg-x11-drv-nvidia-power","summary":"Advanced  power management","version":"615.71.09","homepage":"https://www.nvidia.com/","group":"Unspecified","hasDesktopFile":false}
+{"name":"xorg-x11-drv-nvidia-xorg-libs","summary":"Xorg Libraries for xorg-x11-drv-nvidia","version":"615.71.09","homepage":"https://www.nvidia.com/","group":"Unspecified","hasDesktopFile":false}
 {"name":"xrick","summary":"A clone of the game Rick Dangerous","version":"0.0.021212","homepage":"http://www.bigorno.net/xrick/","group":"Unspecified","hasDesktopFile":true}
 {"name":"xv","summary":"Interactive image display program for X","version":"6.2.0","homepage":"https://github.com/jasper-software/xv","group":"Unspecified","hasDesktopFile":true}
 {"name":"xv-doc","summary":"Manuals in various formats for the xv image viewer","version":"6.2.0","homepage":"https://github.com/jasper-software/xv","group":"Unspecified","hasDesktopFile":false}
 {"name":"yapeSDL","summary":"A Commodore 264 family (C16, plus/4 etc.) emulator","version":"0.81.1","homepage":"https://github.com/calmopyrin/yapesdl","group":"Unspecified","hasDesktopFile":true}
 {"name":"zerotier-one","summary":"Smart Ethernet Switch for Earth","version":"1.16.2","homepage":"https://zerotier.com","group":"Unspecified","hasDesktopFile":false}
 {"name":"dvdstyler","summary":"Cross-platform DVD authoring application","version":"3.3","homepage":"http://www.dvdstyler.de/","group":"Unspecified","hasDesktopFile":true}
-{"name":"redumper","summary":"Low level CD dumper utility","version":"b746","homepage":"https://github.com/superg/redumper","group":"Unspecified","hasDesktopFile":false}
-{"name":"nautilus-megasync","summary":"Extension for Nautilus to interact with Megasync","version":"6.5.1.0","homepage":"https://mega.nz","group":"Unspecified","hasDesktopFile":false}
+{"name":"redumper","summary":"Low level CD dumper utility","version":"b752","homepage":"https://github.com/superg/redumper","group":"Unspecified","hasDesktopFile":false}
+{"name":"libdriveio","summary":"A drive interrogation library used by MakeMKV","version":"1.18.4","homepage":"https://www.makemkv.com/","group":"Unspecified","hasDesktopFile":false}
+{"name":"libdriveio-devel","summary":"Development files for libdriveio","version":"1.18.4","homepage":"https://www.makemkv.com/","group":"Unspecified","hasDesktopFile":false}
+{"name":"libmakemkv","summary":"A MKV multiplexer library used by MakeMKV","version":"1.18.4","homepage":"https://www.makemkv.com/","group":"Unspecified","hasDesktopFile":false}
+{"name":"libmakemkv-devel","summary":"Development files for libmakemkv","version":"1.18.4","homepage":"https://www.makemkv.com/","group":"Unspecified","hasDesktopFile":false}
+{"name":"libmmbd","summary":"A library for decrypting Blu-ray files using MakeMKV","version":"1.18.4","homepage":"https://www.makemkv.com/","group":"Unspecified","hasDesktopFile":false}
+{"name":"libmmbd-devel","summary":"Development files for libmmbd","version":"1.18.4","homepage":"https://www.makemkv.com/","group":"Unspecified","hasDesktopFile":false}
+{"name":"makemkv","summary":"A decryption and transcoding tool for DVD and Blu-ray discs","version":"1.18.4","homepage":"https://www.makemkv.com/","group":"Unspecified","hasDesktopFile":true}
+{"name":"makemkv-bin","summary":"A decryption and transcoding tool for DVD and Blu-ray discs","version":"1.18.4","homepage":"https://www.makemkv.com/","group":"Unspecified","hasDesktopFile":false}
+{"name":"makemkv-blues","summary":"MakeMKV's BD-J emulation server (BLUES)","version":"1.18.4","homepage":"https://www.makemkv.com/","group":"Unspecified","hasDesktopFile":false}
+{"name":"makemkv-blues-javadoc","summary":"JavaDoc documentation for MakeMKV's Java component (BLUES)","version":"1.18.4","homepage":"https://www.makemkv.com/","group":"Unspecified","hasDesktopFile":false}
+{"name":"makemkv-oss","summary":"The open-source components of MakeMKV","version":"1.18.4","homepage":"https://www.makemkv.com/","group":"Unspecified","hasDesktopFile":false}
+{"name":"nautilus-megasync","summary":"Extension for Nautilus to interact with Megasync","version":"6.6.1.0","homepage":"https://mega.nz","group":"Unspecified","hasDesktopFile":false}
 {"name":"steam-arch-transition","summary":"Transition package for migrating Steam from i686 to x86_64","version":"1.0.0.87","homepage":"http://www.steampowered.com/","group":"Unspecified","hasDesktopFile":false}
-{"name":"thunar-megasync","summary":"Extension for Thunar to interact with Megasync","version":"6.5.1.0","homepage":"https://mega.nz","group":"Unspecified","hasDesktopFile":false}
+{"name":"thunar-megasync","summary":"Extension for Thunar to interact with Megasync","version":"6.6.1.0","homepage":"https://mega.nz","group":"Unspecified","hasDesktopFile":false}

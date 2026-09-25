@@ -1,41 +1,41 @@
-{"name":"cosmic-app-library","description":"Cosmic App Library","version":"1.0.12~1788303198~26.04~5b7638f","homepage":"https://github.com/pop-os/cosmic-app-library","section":"admin"}
-{"name":"cosmic-applets","description":"Cosmic Applets","version":"1.0.15~1788284561~26.04~1aa0311","homepage":"https://github.com/pop-os/cosmic-applets","section":"admin"}
-{"name":"cosmic-bg","description":"Cosmic Background","version":"0.1.0~1785349668~26.04~1685f7f","homepage":"https://github.com/pop-os/cosmic-bg","section":"admin"}
-{"name":"cosmic-comp","description":"Wayland compositor of pop-os cosmic shell","version":"0.1~1788462011~26.04~f834412","homepage":"https://github.com/pop-os/cosmic-comp","section":"x11"}
+{"name":"cosmic-app-library","description":"Cosmic App Library","version":"1.9.0~1789577459~26.04~0a3996d","homepage":"https://github.com/pop-os/cosmic-app-library","section":"admin"}
+{"name":"cosmic-applets","description":"Cosmic Applets","version":"1.9.0~1790189335~26.04~82e7cd8","homepage":"https://github.com/pop-os/cosmic-applets","section":"admin"}
+{"name":"cosmic-bg","description":"Cosmic Background","version":"0.1.0~1789159093~26.04~9d82a34","homepage":"https://github.com/pop-os/cosmic-bg","section":"admin"}
+{"name":"cosmic-comp","description":"Wayland compositor of pop-os cosmic shell","version":"0.1~1790118748~26.04~0fbd457","homepage":"https://github.com/pop-os/cosmic-comp","section":"x11"}
 {"name":"cosmic-design-demo","description":"libcosmic demo displaying its design elements and capabilities","version":"0.1.0~1704748391~26.04~d58cfad","homepage":"https://github.com/pop-os/libcosmic","section":"utils"}
-{"name":"cosmic-edit","description":"Cosmic Text Editor","version":"1.8.0~1788463118~26.04~26f6ffd","homepage":"https://github.com/pop-os/cosmic-edit","section":"admin"}
-{"name":"cosmic-files","description":"Cosmic File Manager","version":"1.8.0~1788375747~26.04~089ad2b","homepage":"https://github.com/pop-os/cosmic-files","section":"admin"}
-{"name":"cosmic-greeter-daemon","description":"Cosmic Greeter daemon","version":"0.1.0~1788297056~26.04~0a16d33","homepage":"https://github.com/pop-os/cosmic-greeter","section":"admin"}
-{"name":"cosmic-greeter","description":"Cosmic Greeter","version":"0.1.0~1788297056~26.04~0a16d33","homepage":"https://github.com/pop-os/cosmic-greeter","section":"admin"}
+{"name":"cosmic-edit","description":"Cosmic Text Editor","version":"1.9.0~1790184654~26.04~bfc98bf","homepage":"https://github.com/pop-os/cosmic-edit","section":"admin"}
+{"name":"cosmic-files","description":"Cosmic File Manager","version":"1.9.0~1790181896~26.04~d1f0af7","homepage":"https://github.com/pop-os/cosmic-files","section":"admin"}
+{"name":"cosmic-greeter-daemon","description":"Cosmic Greeter daemon","version":"0.1.0~1790118659~26.04~b87331f","homepage":"https://github.com/pop-os/cosmic-greeter","section":"admin"}
+{"name":"cosmic-greeter","description":"Cosmic Greeter","version":"0.1.0~1790118659~26.04~b87331f","homepage":"https://github.com/pop-os/cosmic-greeter","section":"admin"}
 {"name":"cosmic-icons","description":"Cosmic Icons","version":"0.1.0~1788213180~26.04~343c007","homepage":"https://github.com/pop-os/cosmic-icons","section":"admin"}
 {"name":"cosmic-idle","description":"Cosmic idle daemon","version":"0.1.0~1771011327~26.04~c95d066","homepage":"https://github.com/pop-os/cosmic-idle","section":"admin"}
-{"name":"cosmic-initial-setup-casper","description":"Disable COSMIC Initial Setup in casper","version":"1.0.0~1788358584~26.04~852a4b3","homepage":"https://github.com/pop-os/cosmic-initial-setup","section":"admin"}
-{"name":"cosmic-initial-setup","description":"COSMIC Initial Setup","version":"1.0.0~1788358584~26.04~852a4b3","homepage":"https://github.com/pop-os/cosmic-initial-setup","section":"admin"}
+{"name":"cosmic-initial-setup-casper","description":"Disable COSMIC Initial Setup in casper","version":"1.0.0~1789502018~26.04~9b5a949","homepage":"https://github.com/pop-os/cosmic-initial-setup","section":"admin"}
+{"name":"cosmic-initial-setup","description":"COSMIC Initial Setup","version":"1.0.0~1789502018~26.04~9b5a949","homepage":"https://github.com/pop-os/cosmic-initial-setup","section":"admin"}
 {"name":"cosmic-justfiles","description":"Justfile scripts shared between COSMIC and Pop!_OS projects.","version":"1.0.0-beta1~1759415683~26.04~d6fcdd9","homepage":"https://github.com/pop-os/cosmic-justfiles","section":"devel"}
-{"name":"cosmic-launcher","description":"Cosmic Launcher","version":"1.0.12~1788284617~26.04~d7986d6","homepage":"https://github.com/pop-os/cosmic-launcher","section":"admin"}
-{"name":"cosmic-monitor","description":"COSMIC System Monitor","version":"1.8.0~1788371787~26.04~9ec3133","homepage":"https://github.com/pop-os/cosmic-monitor","section":"admin"}
-{"name":"cosmic-notifications","description":"Cosmic Notifications","version":"0.1.0~1787594929~26.04~8486bd6","homepage":"https://github.com/pop-os/cosmic-notifications","section":"admin"}
-{"name":"cosmic-osd","description":"Cosmic OSD","version":"0.1.0~1787855233~26.04~aee6ee9","homepage":"https://github.com/pop-os/cosmic-osd","section":"admin"}
-{"name":"cosmic-osk","description":"COSMIC On-Screen Keyboard","version":"0.1.0~1788270746~26.04~ce237f5","homepage":"https://github.com/pop-os/cosmic-osk","section":"admin"}
-{"name":"cosmic-panel","description":"XDG Shell Wrapper Panel for COSMIC","version":"0.1.0~1787170227~26.04~3c08c30","homepage":"https://github.com/pop-os/cosmic-panel","section":"admin"}
-{"name":"cosmic-player","description":"Cosmic Media Player","version":"1.8.0~1788373147~26.04~a297c24","homepage":"https://github.com/pop-os/cosmic-player","section":"admin"}
+{"name":"cosmic-launcher","description":"Cosmic Launcher","version":"1.9.0~1789681974~26.04~cc3d42b","homepage":"https://github.com/pop-os/cosmic-launcher","section":"admin"}
+{"name":"cosmic-monitor","description":"COSMIC System Monitor","version":"1.9.0~1790101371~26.04~fdcc323","homepage":"https://github.com/pop-os/cosmic-monitor","section":"admin"}
+{"name":"cosmic-notifications","description":"Cosmic Notifications","version":"1.9.0~1789590613~26.04~aa4dac2","homepage":"https://github.com/pop-os/cosmic-notifications","section":"admin"}
+{"name":"cosmic-osd","description":"Cosmic OSD","version":"1.9.0~1789502225~26.04~3faadf5","homepage":"https://github.com/pop-os/cosmic-osd","section":"admin"}
+{"name":"cosmic-osk","description":"COSMIC On-Screen Keyboard","version":"0.1.0~1790118689~26.04~38e9625","homepage":"https://github.com/pop-os/cosmic-osk","section":"admin"}
+{"name":"cosmic-panel","description":"XDG Shell Wrapper Panel for COSMIC","version":"1.9.0~1790190460~26.04~b5cc19e","homepage":"https://github.com/pop-os/cosmic-panel","section":"admin"}
+{"name":"cosmic-player","description":"Cosmic Media Player","version":"1.8.0~1789502241~26.04~66b3f34","homepage":"https://github.com/pop-os/cosmic-player","section":"admin"}
 {"name":"cosmic-randr","description":"Display and configure wayland display outputs","version":"0.1.0~1771011327~26.04~6e8e795","homepage":"https://github.com/pop-os/cosmic-randr","section":"utils"}
 {"name":"cosmic-reader","description":"Cosmic Document Reader","version":"0.1.0~1778600608~26.04~0dde6ae","homepage":"https://github.com/pop-os/cosmic-reader","section":"admin"}
 {"name":"cosmic-screenshot","description":"Cosmic Screenshot Utility","version":"0.1.0~1787597529~26.04~5ddcf18","homepage":"https://github.com/pop-os/cosmic-screenshot","section":"admin"}
-{"name":"cosmic-session","description":"The session for the COSMIC desktop","version":"1.0.0~1787178768~26.04~3bdf117","homepage":"https://github.com/pop-os/cosmic-session","section":"admin"}
-{"name":"cosmic-settings-daemon","description":"Cosmic settings daemon","version":"0.1.0~1787951038~26.04~67c995d","homepage":"https://github.com/pop-os/cosmic-settings-daemon","section":"admin"}
-{"name":"cosmic-settings","description":"Settings application for the COSMIC desktop environment","version":"1.7.0~1788284679~26.04~483da60","homepage":"https://github.com/pop-os/cosmic-settings","section":"utils"}
+{"name":"cosmic-session","description":"The session for the COSMIC desktop","version":"1.9.0~1790185295~26.04~1e4f10b","homepage":"https://github.com/pop-os/cosmic-session","section":"admin"}
+{"name":"cosmic-settings-daemon","description":"Cosmic settings daemon","version":"1.9.0~1789510119~26.04~ac61900","homepage":"https://github.com/pop-os/cosmic-settings-daemon","section":"admin"}
+{"name":"cosmic-settings","description":"Settings application for the COSMIC desktop environment","version":"1.9.0~1790109537~26.04~7421ff0","homepage":"https://github.com/pop-os/cosmic-settings","section":"utils"}
 {"name":"pop-gnome-shell-theme","description":"Pop GNOME Shell Theme","version":"5.5.1~1723827328~26.04~25ea85d","homepage":"https://github.com/pop-os/gtk-theme","section":"misc"}
 {"name":"pop-gtk-theme","description":"Pop GTK Theme","version":"5.5.1~1723827328~26.04~25ea85d","homepage":"https://github.com/pop-os/gtk-theme","section":"misc"}
 {"name":"pop-sound-theme","description":"Pop sound theme","version":"5.5.1~1723827328~26.04~25ea85d","homepage":"https://github.com/pop-os/gtk-theme","section":"misc"}
-{"name":"cosmic-store","description":"COSMIC Store","version":"1.8.0~1788374198~26.04~b8e6a64","homepage":"https://github.com/pop-os/cosmic-store","section":"admin"}
-{"name":"cosmic-term","description":"COSMIC Terminal","version":"1.8.0~1788373535~26.04~4f0f0b6","homepage":"https://github.com/pop-os/cosmic-term","section":"admin"}
-{"name":"cosmic-viewer","description":"COSMIC Image Viewer","version":"1.0.0~1788197142~26.04~dbc490b","homepage":"https://github.com/pop-os/cosmic-viewer","section":"admin"}
+{"name":"cosmic-store","description":"COSMIC Store","version":"1.9.0~1789502132~26.04~c6e57a1","homepage":"https://github.com/pop-os/cosmic-store","section":"admin"}
+{"name":"cosmic-term","description":"COSMIC Terminal","version":"1.9.0~1790186155~26.04~9129277","homepage":"https://github.com/pop-os/cosmic-term","section":"admin"}
+{"name":"cosmic-viewer","description":"COSMIC Image Viewer","version":"1.9.0~1790183988~26.04~d820ab3","homepage":"https://github.com/pop-os/cosmic-viewer","section":"admin"}
 {"name":"cosmic-wallpapers","description":"COSMIC Wallpapers","version":"1.0.0~1787334556~26.04~d6c6028","homepage":"https://github.com/pop-os/cosmic-wallpapers","section":"x11"}
-{"name":"cosmic-workspaces","description":"Cosmic workspaces","version":"1.0.12~1788284532~26.04~38d0996","homepage":"https://github.com/pop-os/cosmic-workspaces-epoch","section":"admin"}
-{"name":"pop-default-settings-ntsync","description":"Enables the ntsync driver module at boot","version":"7.0.0~1788371882~26.04~7095575","homepage":"https://github.com/system76/pop-default-settings","section":"metapackages"}
-{"name":"pop-default-settings-zram","description":"default settings for ZRAM on Pop OS","version":"7.0.0~1788371882~26.04~7095575","homepage":"https://github.com/system76/pop-default-settings","section":"metapackages"}
-{"name":"pop-default-settings","description":"default settings for Pop OS","version":"7.0.0~1788371882~26.04~7095575","homepage":"https://github.com/system76/pop-default-settings","section":"metapackages"}
+{"name":"cosmic-workspaces","description":"Cosmic workspaces","version":"1.0.12~1789501875~26.04~28e257d","homepage":"https://github.com/pop-os/cosmic-workspaces-epoch","section":"admin"}
+{"name":"pop-default-settings-ntsync","description":"Enables the ntsync driver module at boot","version":"7.0.0~1790122779~26.04~89e8a55","homepage":"https://github.com/system76/pop-default-settings","section":"metapackages"}
+{"name":"pop-default-settings-zram","description":"default settings for ZRAM on Pop OS","version":"7.0.0~1790122779~26.04~89e8a55","homepage":"https://github.com/system76/pop-default-settings","section":"metapackages"}
+{"name":"pop-default-settings","description":"default settings for Pop OS","version":"7.0.0~1790122779~26.04~89e8a55","homepage":"https://github.com/system76/pop-default-settings","section":"metapackages"}
 {"name":"pop-container-interactive","description":"Pop!_OS metapackage for interactive containers (for example, a containerized development environment).","version":"3.0.0~1786718974~26.04~9a146f0","homepage":"https://github.com/system76/pop-desktop","section":"metapackages"}
 {"name":"pop-container-runtime","description":"Pop!_OS metapackage for runtime containers (for example, a cloud container cluster).","version":"3.0.0~1786718974~26.04~9a146f0","homepage":"https://github.com/system76/pop-desktop","section":"metapackages"}
 {"name":"pop-de-cosmic","description":"Pop!_OS metapackage for COSMIC-related dependencies.","version":"3.0.0~1786718974~26.04~9a146f0","homepage":"https://github.com/system76/pop-desktop","section":"metapackages"}
@@ -74,5 +74,5 @@
 {"name":"system76-wallpapers","description":"System76 Wallpapers","version":"18.04.2~1761578402~26.04~c9a5b39","homepage":"https://github.com/pop-os/system76-wallpapers","section":"x11"}
 {"name":"pop-theme","description":"Pop Theme Metapackage","version":"1.0.4~1571245319~26.04~ed52981","homepage":"https://github.com/system76/pop-theme","section":"gnome"}
 {"name":"pop-transition","description":"Pop!_OS Deb-to-Flatpak Migration Assistant","version":"1.1.2~1673280823~26.04~3b034ef","homepage":"https://github.com/pop-os/pop-transition","section":"python"}
-{"name":"pop-upgrade","description":"Utility for performing system upgrades on Pop!_OS","version":"1.0.0~1778861967~26.04~f2903ce","homepage":"https://github.com/pop-os/upgrade","section":"admin"}
+{"name":"pop-upgrade","description":"Utility for performing system upgrades on Pop!_OS","version":"1.0.0~1790001733~26.04~9adada0","homepage":"https://github.com/pop-os/upgrade","section":"admin"}
 {"name":"pop-wallpapers","description":"Pop Wallpapers","version":"1.0.5~1750780843~26.04~20a9fdd","homepage":"https://github.com/system76/pop-wallpapers","section":"x11"}

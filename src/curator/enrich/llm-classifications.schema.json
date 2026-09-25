@@ -50,16 +50,17 @@
         ],
         "description": "The assigned label — an app category or a game genre, consistent with the app's contentType."
       },
+      "confidence": {
+        "type": "string",
+        "enum": ["high", "medium", "low"],
+        "description": "The LLM's own certainty in this category. A three-level enum rather than a numeric score — self-reported LLM probabilities are poorly calibrated, so a finer scale would only pretend to precision. 'low' entries are kept for auditability but never applied (see llmCategoryMap)."
+      },
       "reason": {
         "type": "string",
         "description": "Why the LLM assigned this category — for auditability."
       }
     },
-    "required": [
-      "id",
-      "category",
-      "reason"
-    ],
+    "required": ["id", "category", "confidence", "reason"],
     "additionalProperties": false
   },
   "title": "Enrich: LLM classifications",

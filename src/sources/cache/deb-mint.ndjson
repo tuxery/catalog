@@ -50,7 +50,7 @@
 {"name":"mint-dev-pkg-dep","description":"A dummy package for testing purpose","version":"1.0","section":"admin"}
 {"name":"mint-dev-pkg-rec","description":"A dummy package for testing purpose","version":"1.0","section":"admin"}
 {"name":"mint-dev-pkg-rec2","description":"A dummy package for testing purpose","version":"1.0","section":"admin"}
-{"name":"mint-dev-tools","description":"A collection of tools to develop/compile Linux Mint projects","version":"1.5.4","section":"admin"}
+{"name":"mint-dev-tools","description":"A collection of tools to develop/compile Linux Mint projects","version":"1.5.8","section":"admin"}
 {"name":"mint-info-cinnamon","description":"Necessary information about the Linux Mint release and edition.","version":"2025.11.11","section":"admin"}
 {"name":"mint-info-mate","description":"Necessary information about the Linux Mint release and edition.","version":"2025.11.11","section":"admin"}
 {"name":"mint-info-xfce","description":"Necessary information about the Linux Mint release and edition.","version":"2025.11.11","section":"admin"}

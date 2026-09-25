@@ -1,8 +1,8 @@
 {
   "source": "deb-mxlinux",
-  "fetchedAt": "2026-09-05T08:19:35.220Z",
+  "fetchedAt": "2026-09-25T21:40:03.504Z",
   "url": "https://mxrepo.com/mx/repo/dists/trixie/main/binary-amd64/Packages.gz",
-  "entryCount": 143,
+  "entryCount": 144,
   "release": "trixie",
   "component": "main",
   "arch": "amd64"

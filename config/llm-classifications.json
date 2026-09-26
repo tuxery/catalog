@@ -6298,5 +6298,4877 @@
     "confidence": "medium",
     "reason": "B.A.L.L.Z. game data",
     "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "deb-debian:fortune-anarchism",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Fortune quote data, not a game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:blobandconquer",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "3D platform shooter game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:blobandconquer-data",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Data files for platform shooter.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:blobby-data",
+    "category": "Sports",
+    "confidence": "high",
+    "reason": "Volleyball game data.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:blobby-server",
+    "category": "Sports",
+    "confidence": "high",
+    "reason": "Volleyball game server.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:blobwars-data",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Platform shooter game data.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:boswars-data",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Data files for Bos Wars strategy game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:bouncy",
+    "category": "Educational",
+    "confidence": "high",
+    "reason": "Game designed for kids.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:braillefont",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Text utility, not clearly a game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:bsdgames",
+    "category": "Arcade",
+    "confidence": "medium",
+    "reason": "Collection of classic Unix games.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:bugsquish",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Action game involving squishing bugs.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:c-evo-dh-stdai",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Empire building game AI module.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:cappuccino",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Desktop joke utility, not a standard game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:cdogs-sdl-data",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Run-and-gun action game data.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:chromium-bsu-data",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Data for space arcade shooter Chromium B.S.U.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:cl-reversi",
+    "category": "Board & Cards",
+    "confidence": "high",
+    "reason": "Reversi board game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:clc-intercal",
+    "category": "Puzzle",
+    "confidence": "low",
+    "reason": "Esolang compiler, non-game software.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:cmatrix-xfont",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Font file for cmatrix.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:cookietool",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Fortune database maintainer tool.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:cowsay-off",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Humorous text generator utility.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:crazywa",
+    "category": "Board & Cards",
+    "confidence": "high",
+    "reason": "AI engine for Shogi variants.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:crossfire-maps",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "Maps for Crossfire RPG.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:cube2-server",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "FPS game engine server.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:davegnukem-data",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Data files for Dave Gnukem action game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:davegnukem-datasrc",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Data source files for Dave Gnukem.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:ddnet-tools",
+    "category": "Action",
+    "confidence": "medium",
+    "reason": "Tools for DDNet multiplayer platform game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:junior-games-gl",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Metapackage for 3D games for kids.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:junior-games-net",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Metapackage for network games for kids.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:junior-games-text",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Metapackage for text games for kids.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:junior-toys",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Desktop toys package for kids.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:junior-typing",
+    "category": "Educational",
+    "confidence": "high",
+    "reason": "Educational typing package for children.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:debroster",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Expos roster tool, non-game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:xscreensaver-screensaver-dizzy",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Screensaver graphics demo.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:dossizola-data",
+    "category": "Arcade",
+    "confidence": "medium",
+    "reason": "Data files for Do'SSi Zo'la game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:dustracing2d-data",
+    "category": "Sports",
+    "confidence": "high",
+    "reason": "Data files for 2D racing game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:zseal",
+    "category": "Board & Cards",
+    "confidence": "high",
+    "reason": "Chess interface time protocol implementation.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:edgar-data",
+    "category": "Adventure",
+    "confidence": "high",
+    "reason": "Data files for Legend of Edgar adventure game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:efp",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Pong variant action/arcade game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:epiphany-data",
+    "category": "Arcade",
+    "confidence": "medium",
+    "reason": "Data files for Epiphany game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:etw-data",
+    "category": "Sports",
+    "confidence": "high",
+    "reason": "Data for Eat The Whistle soccer game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:extremetuxracer-data",
+    "category": "Sports",
+    "confidence": "high",
+    "reason": "Data for Tux Racer racing game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:python3-fife",
+    "category": "Role-Playing",
+    "confidence": "medium",
+    "reason": "Isometric game engine commonly used for RPGs.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:filler",
+    "category": "Puzzle",
+    "confidence": "high",
+    "reason": "Board capturing puzzle/strategy game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:fillets-ng-data",
+    "category": "Puzzle",
+    "confidence": "high",
+    "reason": "Data for Fish Fillets puzzle game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:fillets-ng-data-cs",
+    "category": "Puzzle",
+    "confidence": "high",
+    "reason": "Audio data for Fish Fillets puzzle game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:fillets-ng-data-nl",
+    "category": "Puzzle",
+    "confidence": "high",
+    "reason": "Audio data for Fish Fillets puzzle game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:filters",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Text filter utility.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:fizmo-console",
+    "category": "Adventure",
+    "confidence": "high",
+    "reason": "Z-machine interpreter for interactive fiction.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:fizmo-ncursesw",
+    "category": "Adventure",
+    "confidence": "high",
+    "reason": "Ncurses Z-machine interpreter for interactive fiction.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:fizmo-sdl2",
+    "category": "Adventure",
+    "confidence": "high",
+    "reason": "SDL2 Z-machine interpreter for interactive fiction.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:floatbg",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "X root window color utility.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:fortunes",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Fortune quote files.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:fortunes-min",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Fortune quote files.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:fortunes-zh",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Fortune quote files.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:fortunes-bg",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Fortune quote files.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:fortunes-bofh-excuses",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Fortune quote files.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:fortunes-br",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Fortune quote files.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:fortunes-cs",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Fortune quote files.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:fortunes-de",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Fortune quote files.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:fortunes-debian-hints",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Fortune quote files.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:fortunes-eo",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Fortune quote files.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:fortunes-es",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Fortune quote files.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:fortunes-es-off",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Fortune quote files.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:fortunes-ga",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Fortune quote files.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:fortunes-it",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Fortune quote files.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:fortunes-it-brianza",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Fortune quote files.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:fortunes-scn",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Fortune quote files.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:fortunes-pl",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Fortune quote files.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:fortunes-ru",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Fortune quote files.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:freedink-dfarc",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "Frontend for FreeDink RPG engine.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:fretsonfire-songs-muldjord",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Rhythm music game songs.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:fretsonfire-songs-sectoid",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Rhythm music game songs.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:sdlfrotz",
+    "category": "Adventure",
+    "confidence": "high",
+    "reason": "Z-code interpreter for text adventure games.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:frozen-bubble-data",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Data files for Frozen-Bubble puzzle/arcade game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:gamemode-daemon",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Performance optimization daemon for gaming.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:gav-themes",
+    "category": "Sports",
+    "confidence": "high",
+    "reason": "Themes for Arcade Volleyball game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:gniall",
+    "category": "Educational",
+    "confidence": "low",
+    "reason": "Experimental NLP learning program.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:gnome-applets",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Desktop panel applets collection.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:gnuminishogi",
+    "category": "Board & Cards",
+    "confidence": "high",
+    "reason": "Minishogi board game program.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:godot3-runner",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Generic game engine runtime.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:godot3-server",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Generic game engine server runtime.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:gpsshogi",
+    "category": "Board & Cards",
+    "confidence": "high",
+    "reason": "Shogi board game engine.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:gpsshogi-data",
+    "category": "Board & Cards",
+    "confidence": "high",
+    "reason": "Shogi engine data files.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:gpsshogi-viewer",
+    "category": "Board & Cards",
+    "confidence": "high",
+    "reason": "Shogi study interface.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:gravitywars",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Arcade gravity shooter game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:heroes-sound-effects",
+    "category": "Arcade",
+    "confidence": "medium",
+    "reason": "Sound files for Heroes action/arcade game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:heroes-sound-tracks",
+    "category": "Arcade",
+    "confidence": "medium",
+    "reason": "Sound files for Heroes action/arcade game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:hyperrogue-music",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "Music for HyperRogue roguelike game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:inform-mode",
+    "category": "Adventure",
+    "confidence": "low",
+    "reason": "Transitional dummy package for Inform text adventures.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:grub-invaders",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Space Invaders game clone for GRUB.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:kali",
+    "category": "Educational",
+    "confidence": "low",
+    "reason": "Pattern drawing math/art utility.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:kawari8",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Desktop mascot AI module.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:kball",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Skill and reflex arcade game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:kball-data",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Data files for KBall arcade game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:kobodeluxe-data",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Space battle arcade action game data.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:ktx",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Mod for QuakeWorld FPS.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:lgc-pg",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Data converter for Panzer General strategy game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:kdegames-card-data",
+    "category": "Board & Cards",
+    "confidence": "high",
+    "reason": "Card graphics for card games.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:kdegames-mahjongg-data-kf6",
+    "category": "Board & Cards",
+    "confidence": "high",
+    "reason": "Tilesets for Mahjongg board game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:kodi-game-libretro-bsnes-mercury-accuracy",
+    "category": "Arcade",
+    "confidence": "medium",
+    "reason": "SNES emulator integration plugin.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:kodi-game-libretro-bsnes-mercury-balanced",
+    "category": "Arcade",
+    "confidence": "medium",
+    "reason": "SNES emulator integration plugin.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:kodi-game-libretro-bsnes-mercury-performance",
+    "category": "Arcade",
+    "confidence": "medium",
+    "reason": "SNES emulator integration plugin.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:lincredits",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Text formatting tool for credits file.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:liquidwar-data",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Data files for Liquid War game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:liquidwar-server",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Server for Liquid War game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:littlewizard",
+    "category": "Educational",
+    "confidence": "high",
+    "reason": "Development/programming environment for children.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:littlewizard-data",
+    "category": "Educational",
+    "confidence": "high",
+    "reason": "Data files for children's educational tool.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:lordsawar-data",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Data files for Warlords II strategy clone.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:minetest-data",
+    "category": "Simulation",
+    "confidence": "medium",
+    "reason": "Sandbox/simulation game package.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:luanti-game-minetest",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "Voxel sandbox game engine.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:luola-levels",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Level files for Luola 2D action game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:luola-nostalgy",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Level files for Luola 2D action game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:madbomber",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Clone of Kaboom! arcade game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:madbomber-data",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Data for Mad Bomber arcade game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:mazeofgalious",
+    "category": "Adventure",
+    "confidence": "high",
+    "reason": "MSX action-adventure game port.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:mazeofgalious-data",
+    "category": "Adventure",
+    "confidence": "high",
+    "reason": "Data for Maze of Galious adventure game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:mess-desktop-entries",
+    "category": "Arcade",
+    "confidence": "medium",
+    "reason": "Desktop files for emulator ROMs.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:gnustep-games",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "General GNUstep games collection.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:kdetoys",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Desktop toys collection.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:minetest-mod-advmarkers-csm",
+    "category": "Simulation",
+    "confidence": "medium",
+    "reason": "Mod for Minetest simulation game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:minetest-mod-character-creator",
+    "category": "Simulation",
+    "confidence": "medium",
+    "reason": "Mod for Minetest simulation game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:minetest-mod-craftguide",
+    "category": "Simulation",
+    "confidence": "medium",
+    "reason": "Mod for Minetest simulation game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:minetest-mod-currency",
+    "category": "Simulation",
+    "confidence": "medium",
+    "reason": "Mod for Minetest simulation game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:minetest-mod-homedecor",
+    "category": "Simulation",
+    "confidence": "medium",
+    "reason": "Mod for Minetest simulation game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:minetest-mod-infinite-chest",
+    "category": "Simulation",
+    "confidence": "medium",
+    "reason": "Mod for Minetest simulation game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:minetest-mod-ltool",
+    "category": "Simulation",
+    "confidence": "medium",
+    "reason": "Mod for Minetest simulation game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:minetest-mod-lucky-block",
+    "category": "Simulation",
+    "confidence": "medium",
+    "reason": "Mod for Minetest simulation game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:minetest-mod-maidroid",
+    "category": "Simulation",
+    "confidence": "medium",
+    "reason": "Mod for Minetest simulation game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:minetest-mod-mesecons",
+    "category": "Simulation",
+    "confidence": "medium",
+    "reason": "Mod for Minetest simulation game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:minetest-mod-meshport",
+    "category": "Simulation",
+    "confidence": "medium",
+    "reason": "Mod for Minetest simulation game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:minetest-mod-mobs-redo",
+    "category": "Simulation",
+    "confidence": "medium",
+    "reason": "Mod for Minetest simulation game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:minetest-mod-moreblocks",
+    "category": "Simulation",
+    "confidence": "medium",
+    "reason": "Mod for Minetest simulation game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:minetest-mod-moreores",
+    "category": "Simulation",
+    "confidence": "medium",
+    "reason": "Mod for Minetest simulation game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:minetest-mod-nether",
+    "category": "Simulation",
+    "confidence": "medium",
+    "reason": "Mod for Minetest simulation game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:minetest-mod-pipeworks",
+    "category": "Simulation",
+    "confidence": "medium",
+    "reason": "Mod for Minetest simulation game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:minetest-mod-protector",
+    "category": "Simulation",
+    "confidence": "medium",
+    "reason": "Mod for Minetest simulation game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:minetest-mod-pycraft",
+    "category": "Simulation",
+    "confidence": "medium",
+    "reason": "Mod for Minetest simulation game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:minetest-mod-quartz",
+    "category": "Simulation",
+    "confidence": "medium",
+    "reason": "Mod for Minetest simulation game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:minetest-mod-skyblock",
+    "category": "Simulation",
+    "confidence": "medium",
+    "reason": "Mod for Minetest simulation game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:minetest-mod-throwing",
+    "category": "Simulation",
+    "confidence": "medium",
+    "reason": "Mod for Minetest simulation game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:minetest-mod-throwing-arrows",
+    "category": "Simulation",
+    "confidence": "medium",
+    "reason": "Mod for Minetest simulation game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:minetest-mod-unified-inventory",
+    "category": "Simulation",
+    "confidence": "medium",
+    "reason": "Mod for Minetest simulation game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:mirrormagic-data",
+    "category": "Puzzle",
+    "confidence": "high",
+    "reason": "Data files for Mirror Magic puzzle game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:moon-lander-data",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Data files for Moon Lander arcade game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:mvdsv",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "QuakeWorld FPS dedicated server.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:netmaze",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "3D multiplayer combat action game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:nexuiz-server",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Server for Nexuiz FPS game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:nexuiz-data",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Data files for Nexuiz FPS game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:nexuiz-music",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Music files for Nexuiz FPS game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:nexuiz-textures",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Textures for Nexuiz FPS game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:ninix-aya",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Desktop mascot software.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:nlkt",
+    "category": "Educational",
+    "confidence": "high",
+    "reason": "Keyboard typing trainer.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:ogamesim-www",
+    "category": "Strategy",
+    "confidence": "medium",
+    "reason": "Web GUI for OGame simulator tool.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:openarena-085-data",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Data for OpenArena FPS game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:openarena-088-data",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Data for OpenArena FPS game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:openarena-081-maps",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Maps for OpenArena FPS game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:openarena-081-misc",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Data for OpenArena FPS game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:openarena-oacmp1",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Map pack for OpenArena FPS game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:openarena-081-players",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Player graphics for OpenArena FPS game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:openarena-081-players-mature",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Player graphics for OpenArena FPS game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:openarena-081-textures",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Textures for OpenArena FPS game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:openttd-opengfx",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "Graphics set for OpenTTD transport simulation.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:openttd-opensfx",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "Sound set for OpenTTD transport simulation.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:pax-britannica-data",
+    "category": "Action",
+    "confidence": "medium",
+    "reason": "Data files for Pax Britannica action game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:phlipple-data",
+    "category": "Puzzle",
+    "confidence": "high",
+    "reason": "Data for 3D shape reduction puzzle game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:planetblupi-common",
+    "category": "Adventure",
+    "confidence": "medium",
+    "reason": "Data for Planet Blupi adventure/strategy game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:planetblupi-music-midi",
+    "category": "Adventure",
+    "confidence": "medium",
+    "reason": "Music for Planet Blupi game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:planetblupi-music-ogg",
+    "category": "Adventure",
+    "confidence": "medium",
+    "reason": "Music for Planet Blupi game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:plee-the-bear-data",
+    "category": "Adventure",
+    "confidence": "high",
+    "reason": "Data for Plee the Bear platform adventure.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:polygen-data",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Random text generator grammar definitions.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:projectl",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Sword action shooting game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:purity-off",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Text-based purity test quiz.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:pysolfc-cardsets",
+    "category": "Board & Cards",
+    "confidence": "high",
+    "reason": "Card graphics for PySolFC solitaire.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:randtype",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Text output utility.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:redeclipse-server",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Server for Red Eclipse FPS game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:rotix",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Text obfuscation tool.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:gsalliere",
+    "category": "Board & Cards",
+    "confidence": "high",
+    "reason": "Bridge card game scorer GUI.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:salliere",
+    "category": "Board & Cards",
+    "confidence": "high",
+    "reason": "Bridge card game scorer.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:scorched3d-data",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Data for Scorched3D artillery strategy game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:scottfree",
+    "category": "Adventure",
+    "confidence": "high",
+    "reason": "Interpreter for text adventure games.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:sgf2dg",
+    "category": "Board & Cards",
+    "confidence": "high",
+    "reason": "Converts Go game files to diagrams.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:shogivar",
+    "category": "Board & Cards",
+    "confidence": "high",
+    "reason": "UI for playing Shogi chess variants.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:shogivar-data",
+    "category": "Board & Cards",
+    "confidence": "high",
+    "reason": "Data files for Shogi variant game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:simutrans-makeobj",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "Compiler tool for Simutrans simulation game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:singularity",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Strategy game about becoming AI singularity.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:singularity-music",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Music for Singularity strategy game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:slashem-sdl",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "Variant of NetHack roguelike RPG.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:slashem-x11",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "Variant of NetHack roguelike RPG.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:slimevolley-data",
+    "category": "Sports",
+    "confidence": "high",
+    "reason": "Data files for slime volleyball simulation.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:spring-javaai",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "3D RTS game engine Java AIs.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:stk",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Audio software synthesis toolkit.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:supertransball2-data",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Data for Super Transball 2 action game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:taisei-data",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Vertical scrolling shoot 'em up game data.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:tenmado",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Shoot 'em up arcade action game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:tetrinetx",
+    "category": "Puzzle",
+    "confidence": "high",
+    "reason": "Multiplayer Tetris game server.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:tinymux",
+    "category": "Role-Playing",
+    "confidence": "medium",
+    "reason": "Text-based multi-user virtual world server.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:tomatoes-data",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Music for tomato smashing action game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:tuxtype-data",
+    "category": "Educational",
+    "confidence": "high",
+    "reason": "Educational typing tutor game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:uci2wb",
+    "category": "Board & Cards",
+    "confidence": "high",
+    "reason": "Chess engine protocol adapter.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:ufoai-common",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Config files for UFO: Alien Invasion strategy game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:ufoai-misc",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "UFO: Alien Invasion is a turn-based strategy game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:ufoai-server",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Dedicated server for UFO: Alien Invasion strategy game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:ufoai-data",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Data files for UFO: Alien Invasion strategy game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:ufoai-maps",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Maps for UFO: Alien Invasion strategy game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:ufoai-textures",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Textures for UFO: Alien Invasion strategy game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:ufoai-music",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Music files for UFO: Alien Invasion strategy game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:ufoai-sound",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Sound files for UFO: Alien Invasion strategy game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:cwcp",
+    "category": "Educational",
+    "confidence": "high",
+    "reason": "Morse code teaching/tutoring software.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:warmux-servers",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "WarMUX is an artillery action game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:warzone2100-data",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Warzone 2100 is a real-time strategy game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:warzone2100-music",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Music for Warzone 2100 strategy game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:welcome2l",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "Linux boot logo system tool, weak game category fit.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:wesnoth-1.18-data",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Battle for Wesnoth is a turn-based strategy game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:wesnoth-1.18-did",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Official campaign for Wesnoth turn-based strategy game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:wesnoth-1.18-dm",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Official campaign for Wesnoth turn-based strategy game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:wesnoth-1.18-dw",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Official campaign for Wesnoth turn-based strategy game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:wesnoth-1.18-ei",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Official campaign for Wesnoth turn-based strategy game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:wesnoth-1.18-httt",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Official campaign for Wesnoth turn-based strategy game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:wesnoth-1.18-l",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Official campaign for Wesnoth turn-based strategy game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:wesnoth-1.18-low",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Official campaign for Wesnoth turn-based strategy game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:wesnoth-1.18-music",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Music files for Wesnoth turn-based strategy game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:wesnoth-1.18-nr",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Official campaign for Wesnoth turn-based strategy game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:wesnoth-1.18-server",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Multiplayer server for Wesnoth strategy game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:wesnoth-1.18-sof",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Official campaign for Wesnoth turn-based strategy game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:wesnoth-1.18-sota",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Official campaign for Wesnoth turn-based strategy game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:wesnoth-1.18-sotbe",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Official campaign for Wesnoth turn-based strategy game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:wesnoth-1.18-thot",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Official campaign for Wesnoth turn-based strategy game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:wesnoth-1.18-tools",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Development tools for Wesnoth turn-based strategy game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:wesnoth-1.18-trow",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Official campaign for Wesnoth turn-based strategy game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:wesnoth-1.18-tsg",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Official campaign for Wesnoth turn-based strategy game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:wesnoth-1.18-ttb",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Official campaign for Wesnoth turn-based strategy game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:wesnoth-1.18-utbs",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Official campaign for Wesnoth turn-based strategy game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:wesnoth-1.18-wof",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Official campaign for Wesnoth turn-based strategy game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:wesnoth-music",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Music metapackage for Wesnoth strategy game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:xabacus",
+    "category": "Puzzle",
+    "confidence": "medium",
+    "reason": "Abacus simulation acts as a mathematical puzzle/tool.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:xmabacus",
+    "category": "Puzzle",
+    "confidence": "medium",
+    "reason": "Abacus simulation acts as a mathematical puzzle/tool.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:xblast-tnt-images",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "XBlast is an arcade Bomberman-style game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:xblast-tnt-levels",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Level files for XBlast arcade game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:xblast-tnt-models",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Player models for XBlast arcade game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:xblast-tnt-musics",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Music files for XBlast arcade game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:xblast-tnt-sounds",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Sound files for XBlast arcade game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:xfireworks",
+    "category": "Simulation",
+    "confidence": "medium",
+    "reason": "Visual fireworks display simulator.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:xinv3d",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "3D version of Space Invaders classic arcade game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:xjokes",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "General toy/joke software for X11.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:xonix",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Xonix is a classic arcade game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:xphoon",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "Renders dynamic background image of moon.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:xplanet-images",
+    "category": "Simulation",
+    "confidence": "medium",
+    "reason": "Images for XPlanet planet renderer.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:xmpuzzles",
+    "category": "Puzzle",
+    "confidence": "high",
+    "reason": "Collection of puzzle games.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:xpuzzles",
+    "category": "Puzzle",
+    "confidence": "high",
+    "reason": "Collection of puzzle games.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:xscreensaver-screensaver-webcollage",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "Screensaver module utility.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:xsystem35",
+    "category": "Adventure",
+    "confidence": "medium",
+    "reason": "Game engine primarily used for visual novels/adventure games.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:xtron",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Tron light cycle arcade game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:xvier",
+    "category": "Board & Cards",
+    "confidence": "high",
+    "reason": "Four in a row (Connect Four) board game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:zoom-player",
+    "category": "Adventure",
+    "confidence": "high",
+    "reason": "Interpreter for Z-code interactive fiction text adventure games.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:alien-arena-server",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Server for Alien Arena arena shooter game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:amoeba",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Graphics tech demo.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:corsix-th-data",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "Theme Hospital is a business simulation game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:exult-studio",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "Editing tools for Exult (Ultima VII RPG engine).",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:gemrb-baldurs-gate",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "Baldur's Gate is a role-playing game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:gemrb-baldurs-gate-2",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "Baldur's Gate 2 is a role-playing game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:gemrb-baldurs-gate-2-data",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "Data files for Baldur's Gate 2 RPG.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:gemrb-baldurs-gate-data",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "Data files for Baldur's Gate RPG.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:gemrb-icewind-dale",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "Icewind Dale is a role-playing game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:gemrb-icewind-dale-2",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "Icewind Dale 2 is a role-playing game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:gemrb-icewind-dale-2-data",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "Data files for Icewind Dale 2 RPG.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:gemrb-icewind-dale-data",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "Data files for Icewind Dale RPG.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:gemrb-planescape-torment",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "Planescape: Torment is a role-playing game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:gemrb-planescape-torment-data",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "Data files for Planescape: Torment RPG.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:openrct2-objects",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "OpenRCT2 is a theme park simulation game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:openrct2-opensfx",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "Sound effects for OpenRCT2 simulation game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:openrct2-title-sequences",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "Title sequences for OpenRCT2 simulation game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:play.it-adventure",
+    "category": "Adventure",
+    "confidence": "high",
+    "reason": "Game launcher scripts specifically for adventure games.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:play.it-community",
+    "category": "Adventure",
+    "confidence": "low",
+    "reason": "General collection of community game installer scripts.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:play.it-vv221",
+    "category": "Adventure",
+    "confidence": "low",
+    "reason": "General collection of game installer scripts.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:uhexen2",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Hexen II is a first-person action game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:uhexen2-common",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Data files for Hexen II action game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:alien-arena-data",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Data files for Alien Arena action shooter.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:amoeba-data",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Data for OpenGL graphics demo.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:astromenace-data-src",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "AstroMenace is a 3D space shooter action game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:freespace2",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "Freespace 2 is a space combat flight simulator.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:gliese",
+    "category": "Educational",
+    "confidence": "medium",
+    "reason": "Scientific dataset of nearby stars.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:uqm-content",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "The Ur-Quan Masters (Star Control II) action/adventure game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:uqm-music",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Music files for The Ur-Quan Masters game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-debian:uqm-voice",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Voice files for The Ur-Quan Masters game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-ubuntu:empire-hub",
+    "category": "Strategy",
+    "confidence": "medium",
+    "reason": "Multiplexer for Empire turn-based strategy game protocol.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-ubuntu:endless-sky-data",
+    "category": "Adventure",
+    "confidence": "high",
+    "reason": "Endless Sky is a space exploration, trading, and combat game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-ubuntu:endless-sky-high-dpi",
+    "category": "Adventure",
+    "confidence": "high",
+    "reason": "Endless Sky space exploration game graphics files.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-ubuntu:fortunes-it-off",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Text fortune cookie dataset.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-ubuntu:fortunes-mario",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Text fortune cookie dataset.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-ubuntu:fortunes-scn-off",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Text fortune cookie dataset.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-ubuntu:fortunes-spam",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Text fortune cookie dataset.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-ubuntu:kodi-game-libretro-beetle-psx",
+    "category": "Action",
+    "confidence": "low",
+    "reason": "PlayStation emulator plugin for Kodi media center.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-ubuntu:kodi-game-libretro-nestopia",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "NES emulator plugin for Kodi media center.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-ubuntu:kodi-game-libretro-sameboy",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Game Boy emulator plugin for Kodi media center.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-ubuntu:parolottero-data-en",
+    "category": "Puzzle",
+    "confidence": "high",
+    "reason": "Word formation puzzle game files.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-ubuntu:parolottero-data-fr",
+    "category": "Puzzle",
+    "confidence": "high",
+    "reason": "Word formation puzzle game files.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-ubuntu:parolottero-data-it",
+    "category": "Puzzle",
+    "confidence": "high",
+    "reason": "Word formation puzzle game files.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-ubuntu:parolottero-data-scn",
+    "category": "Puzzle",
+    "confidence": "high",
+    "reason": "Word formation puzzle game files.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-ubuntu:parolottero-data-sv",
+    "category": "Puzzle",
+    "confidence": "high",
+    "reason": "Word formation puzzle game files.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-ubuntu:singularity",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Endless Web / Singularity is a turn-based simulation strategy game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-ubuntu:spring-maps-kernelpanic",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Maps for Spring RTS engine mod.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-ubuntu:stepbill.app",
+    "category": "Arcade",
+    "confidence": "medium",
+    "reason": "Arcade toy action game killing virtual viruses.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-ubuntu:tanks",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Clone of Tank 1990 top-down action shooter game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-ubuntu:tfortune",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Fortune cookie quote tool.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-ubuntu:tfortunes",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Fortune cookie quote dataset.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-ubuntu:augustus-game-data",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "Augustus is an open-source engine for Caesar III city builder simulator.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-ubuntu:jazz2-native-data",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Jazz Jackrabbit 2 is an action platformer game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-ubuntu:play.it-platform",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Installer scripts for platformer action games.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "deb-ubuntu:spellcast",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Spellcast is a turn-based tactical spellcasting game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "rpm-fedora:adanaxisgpl",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "4D space action game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "rpm-fedora:alexvsbus",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Side-scrolling platform runner action game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "rpm-fedora:auriferous",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Lode Runner clone arcade game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "rpm-fedora:envision",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "XR / Virtual Reality stack orchestrator utility.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "rpm-fedora:frozen-bubble-server",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Server for Frozen Bubble arcade puzzle game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "rpm-fedora:gearhead1-SDL",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "Roguelike mecha RPG.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "rpm-fedora:gravity-beams-and-evaporating-stars",
+    "category": "Action",
+    "confidence": "medium",
+    "reason": "Physics-based action game about hurling objects.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "rpm-fedora:koules-sdl",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Multiplayer action game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "rpm-fedora:koules-sound",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Sound files for Koules action game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "rpm-fedora:koules-x11",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "X11 version of Koules action game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "rpm-fedora:opengl-games-utils",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "Utility program for testing OpenGL hardware capabilities.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-arch:rocksndiamonds-data",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Rocks'n'Diamonds is an arcade tile-walking puzzle game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "nix-nixpkgs:opensoldat",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "2D side-view multiplayer action shooter game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "nix-nixpkgs:smc",
+    "category": "Educational",
+    "confidence": "low",
+    "reason": "Software engineering developer tool, non-game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "nix-nixpkgs:teetertorture",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Simple cannon shooting arcade/action game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "nix-nixpkgs:waywall",
+    "category": "Action",
+    "confidence": "low",
+    "reason": "Wayland compositor helper tool for Minecraft.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "rpm-opensuse:0verkill-xwindow",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "ASCII multiplayer action shooter game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "rpm-opensuse:blasphemer",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Free game files for Heretic action FPS engine.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "rpm-opensuse:blockout",
+    "category": "Puzzle",
+    "confidence": "high",
+    "reason": "3D Tetris-style block puzzle game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "rpm-opensuse:ca-certificates-steamtricks",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "System SSL certificate helper package.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "rpm-opensuse:doom64ex-plus",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Doom64 source port, first-person shooter action game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "rpm-opensuse:emacs-games",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Score tracking files for Emacs text games.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "rpm-opensuse:gamemoded",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "System daemon for optimizing gaming performance.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "rpm-opensuse:gnome-games-scripts",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Build scripts for GNOME games.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "rpm-opensuse:heroes-tron",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Tron and Nibbles light cycle arcade games.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "rpm-opensuse:minetest-game",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "Voxel sandbox block building simulation game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "rpm-opensuse:openrct2-openmusic",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "Soundtracks for OpenRCT2 park simulator.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "rpm-opensuse:openrct2-opensound",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "Sound effects for OpenRCT2 park simulator.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "rpm-opensuse:openttd-dedicated",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "Dedicated server for OpenTTD transport simulator.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "rpm-opensuse:sar2-data",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "Data files for Search and Rescue 2 flight simulator.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "rpm-opensuse:scummvm-extra",
+    "category": "Adventure",
+    "confidence": "high",
+    "reason": "Extra game engines for ScummVM point-and-click adventures.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "rpm-opensuse:sdl-asylum",
+    "category": "Action",
+    "confidence": "medium",
+    "reason": "Surreal action platformer game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "rpm-opensuse:sdl_bomber",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Bomberman clone arcade game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "rpm-opensuse:tdfiglet",
+    "category": "Educational",
+    "confidence": "low",
+    "reason": "Text generator tool creating shell ASCII art.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "rpm-opensuse:twind",
+    "category": "Puzzle",
+    "confidence": "high",
+    "reason": "Time-limited block matching puzzle game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "rpm-opensuse:wesnoth-campaign-server",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Campaign server for Battle for Wesnoth strategy game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "rpm-opensuse:wesnoth-fslayout",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "File system layout package for Wesnoth strategy game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "rpm-opensuse:devilutionx-32bit",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "Diablo 1 open-source engine reimplementation (Action RPG).",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "rpm-opensuse:opengreedy-data",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Skin data for OpenGreedy arcade game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:microsoft-windows-me-cd-us",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "Operating system emulation/wrapper setup.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:caesar-iii-cd-julius",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "Caesar III is a Roman city building simulation game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:skullcandy-hq-320",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "Hardware driver bridge service for headset protocol under Wine.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:hardwood-spades-11-build-17-windows",
+    "category": "Board & Cards",
+    "confidence": "high",
+    "reason": "Spades card game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:hardwood-hearts-21-build-61-windows",
+    "category": "Board & Cards",
+    "confidence": "high",
+    "reason": "Hearts card game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:treasure-cove-cd-windows-95",
+    "category": "Educational",
+    "confidence": "high",
+    "reason": "Educational children's game series by Learning Company.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:pineconemc-x86_64-appimg",
+    "category": "Action",
+    "confidence": "medium",
+    "reason": "Launcher for Minecraft third-party client.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:streets-of-rage-2-new-era-310",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Streets of Rage 2 beat 'em up action game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:fallen-haven-liberation-day-cd-windows-95",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Fallen Haven: Liberation Day turn-based strategy game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:command-conquer-cd-gold-windows-95",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Command & Conquer real-time strategy game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:star-fox-64-recompiled",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Star Fox 64 3D rail shooter action game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:perfect-world-12312025",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "Perfect World is a massively multiplayer online RPG.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:games-in-english-cd-windows-95",
+    "category": "Educational",
+    "confidence": "high",
+    "reason": "Educational learning games for children.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:tripleplayplus-japanese-cd-windows-95",
+    "category": "Educational",
+    "confidence": "high",
+    "reason": "Language learning educational software.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:tripleplay-spanish-cd-windows-95",
+    "category": "Educational",
+    "confidence": "high",
+    "reason": "Spanish language learning educational software.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:games-in-german-cd-windows-95",
+    "category": "Educational",
+    "confidence": "high",
+    "reason": "German language learning educational games.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:jumpstart-music-cd-windows-95",
+    "category": "Educational",
+    "confidence": "high",
+    "reason": "JumpStart children's educational music game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:jumpstart-artist-cd-windows-95",
+    "category": "Educational",
+    "confidence": "high",
+    "reason": "JumpStart children's educational art software.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:word-munchers-deluxe-cd-windows-95",
+    "category": "Educational",
+    "confidence": "high",
+    "reason": "Educational word and vocabulary building game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:sid-meiers-civilization-ii-te-cd-windows-95",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Civilization II turn-based strategy game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:3-d-body-adventure-cd-windows-95",
+    "category": "Educational",
+    "confidence": "high",
+    "reason": "3-D human body educational interactive software.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:gold-medal-math-cd-windows-95",
+    "category": "Educational",
+    "confidence": "high",
+    "reason": "Educational math game for children.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:comptons-interactive-encyclop-cd-windows-95",
+    "category": "Educational",
+    "confidence": "high",
+    "reason": "Interactive educational multimedia encyclopedia.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:north-american-birds-peterson-cd-windows-95",
+    "category": "Educational",
+    "confidence": "high",
+    "reason": "Educational multimedia bird guide reference software.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:where-in-the-world-is-carmen-cd-windows-95",
+    "category": "Educational",
+    "confidence": "high",
+    "reason": "Carmen Sandiego educational geography adventure game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:carmen-sandiego-word-detectiv-cd-windows-95",
+    "category": "Educational",
+    "confidence": "high",
+    "reason": "Carmen Sandiego educational language/word game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:geosafari-science-cd-windows-95",
+    "category": "Educational",
+    "confidence": "high",
+    "reason": "Educational science games.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:the-amazon-trail-cd-windows-95",
+    "category": "Educational",
+    "confidence": "high",
+    "reason": "Educational adventure game in the Trail series.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:math-munchers-deluxe-cd-windows-95",
+    "category": "Educational",
+    "confidence": "high",
+    "reason": "Educational math puzzle arcade game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:grammar-games-cd-windows-95",
+    "category": "Educational",
+    "confidence": "high",
+    "reason": "Educational grammar learning software.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:spell-it-deluxe-cd-windows-95",
+    "category": "Educational",
+    "confidence": "high",
+    "reason": "Educational spelling instruction software.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:welcome-to-bodyland-cd-windows-95",
+    "category": "Educational",
+    "confidence": "high",
+    "reason": "Educational software about human anatomy.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:oregon-trail-ii-cd-windows-95",
+    "category": "Educational",
+    "confidence": "high",
+    "reason": "Oregon Trail II educational history adventure game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:frantic-factory-cd-windows-95",
+    "category": "Puzzle",
+    "confidence": "medium",
+    "reason": "Word puzzle game against time.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:explorers-of-the-new-world-cd-windows-95",
+    "category": "Educational",
+    "confidence": "high",
+    "reason": "Educational history software about world explorers.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:games-in-french-cd-windows-95",
+    "category": "Educational",
+    "confidence": "high",
+    "reason": "French language educational games for children.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:the-multimedia-bird-book-cd-windows-95",
+    "category": "Educational",
+    "confidence": "high",
+    "reason": "Educational multimedia bird learning book.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:the-multimedia-bug-book-cd-windows-95",
+    "category": "Educational",
+    "confidence": "high",
+    "reason": "Educational multimedia bug learning software.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:windows-95-osr25-us",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "Operating system desktop software.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:windows-31x-us",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "Operating system desktop software.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:descent-freespace-the-great-w-cd-windows-98",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "Descent: Freespace space combat simulation game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:microsoft-windows-98-second-edition-us",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "Operating system desktop software.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:turtle-wow-appimage",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "World of Warcraft custom server MMORPG client.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:super-mario-bros-remastered-latest-linux",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Super Mario Bros platformer action game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:streets-of-rage-x-linux-appimage-x86-6",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Streets of Rage beat 'em up action game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:nsmb-mario-vs-luigi-online-2201-latest",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "New Super Mario Bros multiplayer action platformer.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:mario-kart-64-mariokart64recomp-hd",
+    "category": "Sports",
+    "confidence": "high",
+    "reason": "Mario Kart 64 arcade racing sports game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:zbrush-zbrush-2022",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "3D modeling and sculpting software tool.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:ultima-vii-part-two-serpent-i-gog-exult-for-linux",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "Ultima VII Part Two is a classic RPG game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:minecraft-pi-edition-flatpak-latest",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "Minecraft Pi Edition sandbox building simulation game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:star-wars-episode-i-the-phant-cd-dreamm",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Star Wars Episode I action-adventure game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:valkyrie-gm-release",
+    "category": "Board & Cards",
+    "confidence": "medium",
+    "reason": "Valkyrie companion launcher for Mansions of Madness board games.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:command-conquer-red-alert-vanilla-conquer",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Command & Conquer is a well-known real-time strategy game series.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:super-mario-63-redux-tinydemo",
+    "category": "Action",
+    "confidence": "medium",
+    "reason": "Super Mario fan platformers belong in action/platformer.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:unlock-everything-202",
+    "category": "Action",
+    "confidence": "medium",
+    "reason": "Mega Man inspired games are typically action platformers.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:sound-space-rhythia-oct31-2024",
+    "category": "Arcade",
+    "confidence": "medium",
+    "reason": "Sound Space and Rhythia are rhythm-based arcade games.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:runescape-classic-openrsc",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "RuneScape is a classic MMORPG.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:jagged-alliance-2-gog-stracciatella-ap",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Jagged Alliance 2 is a tactical strategy RPG.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:planeshift-64-bit",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "Explicitly described as a 3D fantasy Role Playing Game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:old-school-runescape-runelite-x64",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "Old School RuneScape is an iconic MMORPG.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:moodle-desktop-372",
+    "category": "Educational",
+    "confidence": "high",
+    "reason": "Moodle is a well-known learning management system/educational tool.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:ldtk-level-designer-toolkit-093",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "A game development level designer tool without specified genre.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:forged-alliance-forever-steam-latest",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Supreme Commander: Forged Alliance is an RTS game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:ashes-wlg-appimage",
+    "category": "Role-Playing",
+    "confidence": "medium",
+    "reason": "Ankama game set in the Wakfu universe, typically MMORPG.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:friday-night-funkin-itchio-linux",
+    "category": "Arcade",
+    "confidence": "medium",
+    "reason": "Friday Night Funkin is a rhythm arcade game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:the-cleft-of-dimensions-project-tuna-14",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "Explicitly refers to SNES RPGs in the description.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:alter-aeon-64-bit",
+    "category": "Role-Playing",
+    "confidence": "medium",
+    "reason": "Alter Aeon is a fantasy MUD/RPG.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:shattered-paradise-20200919",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "OpenRA Tiberian Sun expansion (RTS strategy).",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:dolphin-island-2-itchio-64-bit",
+    "category": "Adventure",
+    "confidence": "medium",
+    "reason": "Narrative character-driven indie game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:projectosirion-028",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "Vague description for a space sim game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:unity-game-engine-app-image",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "Development engine download without game context.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:pixel-vision-8-v090",
+    "category": "Educational",
+    "confidence": "medium",
+    "reason": "Teaches retro game development.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:curse-of-the-azure-bonds-gog-2",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "Forgotten Realms: Azure Bonds is a classic D&D RPG.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:mewnbase-itchio-linux",
+    "category": "Simulation",
+    "confidence": "medium",
+    "reason": "Barren planet survival and resource gathering simulation.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:mod-organizer-2-10",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "Mod manager utility application.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:project-feline-itchio-pre-alpha",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Focuses on wall riding, rail grinding, and fast parkour action.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:before-crisis-remake-easyrpg-1",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "Final Fantasy VII spinoff made using EasyRPG engine.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:teamspeak-3-old-versions-64-bit-311",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "VoIP chat tool, not a game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:star-wars-x-wing-gog-1993",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "Classic space combat flight simulator.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:minecraft-feed-the-beast-feed-the-beast",
+    "category": "Adventure",
+    "confidence": "medium",
+    "reason": "Minecraft Feed the Beast modpack focused on sandbox/adventure.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:super-tux-party-latest-release",
+    "category": "Board & Cards",
+    "confidence": "medium",
+    "reason": "Party game inspired by Mario Party board games.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:frozen-synapse-gog",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Explicitly describes itself as a tactical game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:sacramento-itch",
+    "category": "Adventure",
+    "confidence": "medium",
+    "reason": "Exploratory narrative walking game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:x4-foundations-gog",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "X4: Foundations is a space trading and combat simulator.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:master-of-orion-2-gog",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Master of Orion 2 is a classic 4X turn-based strategy game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:master-of-orion-1-gog",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Master of Orion 1 is a classic 4X space strategy game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:dwarf-unexpected-launcher",
+    "category": "Action",
+    "confidence": "medium",
+    "reason": "Customizable dwarf fighting game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:spellcaster-the-forgotten-spe-humble-32-bit",
+    "category": "Adventure",
+    "confidence": "high",
+    "reason": "Interactive fantasy novel (choose-your-own-adventure).",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:arthurs-nightmare-itchio",
+    "category": "Adventure",
+    "confidence": "low",
+    "reason": "Parody indie horror game based on Arthur, description vague.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:torchlight-humble",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "Torchlight is a famous action RPG/hack-and-slash.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:elephant-in-the-room-humble",
+    "category": "Simulation",
+    "confidence": "medium",
+    "reason": "Humorous simulator where player plays as an elephant.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:quiet-city-website-humble-trove",
+    "category": "Adventure",
+    "confidence": "medium",
+    "reason": "Short narrative exploration game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:shuvit-012b",
+    "category": "Sports",
+    "confidence": "high",
+    "reason": "Skateboarding game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:dreams-of-desire-patreon",
+    "category": "Adventure",
+    "confidence": "medium",
+    "reason": "Visual novel / story adventure game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:keycars-itchio",
+    "category": "Arcade",
+    "confidence": "medium",
+    "reason": "Top-down car arcade game by Kenney.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:robin-hood-the-legend-of-sher-desura",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Real-time tactics and strategy game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:return-of-red-hood-desura",
+    "category": "Adventure",
+    "confidence": "medium",
+    "reason": "Narrative visual novel retelling Little Red Riding Hood.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:evolution-rts-itchio",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Explicitly named an RTS (Real-Time Strategy) game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:another-lost-phone-lauras-sto-itchio",
+    "category": "Puzzle",
+    "confidence": "high",
+    "reason": "Investigative phone-interface mystery puzzle game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:a-normal-lost-phone-itchio",
+    "category": "Puzzle",
+    "confidence": "high",
+    "reason": "Phone-searching narrative mystery/puzzle game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:lucid-dreamer-itchio",
+    "category": "Adventure",
+    "confidence": "low",
+    "reason": "Indie dream exploration game with minimal info.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:the-long-dark-gog",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "First-person wilderness survival simulator.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:rats-spears-free",
+    "category": "Action",
+    "confidence": "low",
+    "reason": "Vague description for a small action game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:awaker-linux",
+    "category": "Adventure",
+    "confidence": "low",
+    "reason": "Description is empty.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:gran-turismo-playstation",
+    "category": "Sports",
+    "confidence": "high",
+    "reason": "Gran Turismo is a famous sports car racing series.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:depression-quest-itchio",
+    "category": "Adventure",
+    "confidence": "high",
+    "reason": "Interactive fiction story-driven game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:wakfu-beta-64-bits",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "Explicitly described as an MMORPG.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:invisigun-reloaded-guest-edition-demo",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Stealth arcade action multiplayer game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:memoir-en-code-itchio",
+    "category": "Adventure",
+    "confidence": "medium",
+    "reason": "Autobiographical interactive game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:shatter-humble",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Shatter is a modern brick-breaker arcade game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:swarm-racer-3000-64-bit",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Description is empty.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:dont-move-humble-64bit",
+    "category": "Puzzle",
+    "confidence": "medium",
+    "reason": "Experimental puzzle/action game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:ynglet-nifflas-games",
+    "category": "Action",
+    "confidence": "medium",
+    "reason": "Experimental platformer/action floating cube game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:pharaohs-dance-indiegamestand",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Explicitly described as an action-platformer-roguelike.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:los-cuervos-indiegamestand",
+    "category": "Action",
+    "confidence": "medium",
+    "reason": "Dogfighting aerial combat game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:grey-cubes-indiegamestand",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Explicitly described as a modern brick-breaker physics arcade game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:planetary-annihilation-humble",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Epic RTS strategy game with interplanetary battles.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:farsky-humble",
+    "category": "Adventure",
+    "confidence": "medium",
+    "reason": "Underwater survival and exploration adventure.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:revenge-of-the-titans-humble",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Tower defense strategy game by Puppygames.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:hoky-humble",
+    "category": "Sports",
+    "confidence": "medium",
+    "reason": "Abstract hockey-inspired local multiplayer sports game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:alea-humble",
+    "category": "Adventure",
+    "confidence": "medium",
+    "reason": "Described as a psychedelic hiking/forest exploration simulator.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:shank-humble",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Explicitly described as a sidescrolling beat-em-up action game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:gratuitous-space-battles-humble",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Tactical space battle simulation/strategy game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:jack-lumber-humble-64bit",
+    "category": "Puzzle",
+    "confidence": "medium",
+    "reason": "Lumberjack-themed slicing puzzle/action game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:voxatron-humble-64bit",
+    "category": "Arcade",
+    "confidence": "medium",
+    "reason": "Voxel fantasy arcade console/games.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:bureaucrap-humble",
+    "category": "Puzzle",
+    "confidence": "low",
+    "reason": "Charity game bundle title with minimal genre details.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:goat-simulator-humble",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "Explicitly described as goat simulation.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:stardust-vanguards-humble",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Local 4-player arcade-style battling duel game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:duelyst-standalone",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Tactical turn-based strategy card/board game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:savant-ascent-humble",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Fast-paced vertical shooter action game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:worms-reloaded-humble",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Turn-based tactical artillery strategy game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:punity-pt-hallway-recreation-itchio",
+    "category": "Adventure",
+    "confidence": "medium",
+    "reason": "Silent Hills P.T. horror exploration recreation.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:my-little-karaoke-singing-is-full",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Karaoke rhythm game suite.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:warspear-online-65-x86-64",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "Explicitly described as an MMORPG.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:annex-conquer-the-world-40-x86-64",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "MegaGlest-based RTS strategy game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:the-settlers-ii5-return-to-th-gogcom",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "The Settlers II is a classic city-building RTS strategy game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:photobomb-itchio",
+    "category": "Puzzle",
+    "confidence": "medium",
+    "reason": "Surveillance photography deduction game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:intimate-infinite-itchio",
+    "category": "Adventure",
+    "confidence": "low",
+    "reason": "Vague description with only version string.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:dofus-x86-64",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "Dofus is a widely known tactical MMORPG.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:master-of-magic-gog",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Master of Magic is a iconic 4X fantasy strategy game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:need-for-speed-ii-cd-nfsiise",
+    "category": "Sports",
+    "confidence": "high",
+    "reason": "Need for Speed II is a racing game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:gameplay-football-public-beta-2",
+    "category": "Sports",
+    "confidence": "high",
+    "reason": "Soccer/football sports game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:atom-zombie-smasher-native",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Atom Zombie Smasher is a real-time tactical strategy game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:tyrian-opentyrian-212013090",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Tyrian is a classic vertical shoot-'em-up action game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:eyes-the-horror-game-22",
+    "category": "Adventure",
+    "confidence": "high",
+    "reason": "First-person indie horror adventure game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:sid-meiers-alpha-centauri-loki",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Sid Meier's Alpha Centauri is a famous 4X turn-based strategy game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "lutris:retrobooster-demo",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Thrust-based space shooter action game fighting aliens.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "github-releases:ThunderBark:SpaceSeekers",
+    "category": "Action",
+    "confidence": "medium",
+    "reason": "Fighting over crystals on a desert planet.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "org.rolisteam.rolisteam",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Companion client for RPG server software",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "aws-iot-greengrass",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "AWS IoT Greengrass extends cloud capabilities to local devices",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "alienware-cli",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "CLI tool for Alienware hardware control",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "abeato-usb-modeswitch",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "USB mode switching utility",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "amd-kria",
+    "category": "System Tools",
+    "confidence": "medium",
+    "reason": "Gadget snap for AMD-Xilinx Kria",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "aris-hydronics",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Embedded controller for HVAC systems",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "angkor-usb-bootable",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Creates bootable USB drives from ISO/IMG",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "antennas",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "Turns Raspberry Pi into a WiFi router",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "anyvizcloudadapter",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Cloud adapter for AnyViz",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "advec",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Advantech EC driver and hardware monitor",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "rz-camera-ov5645",
+    "category": "Photo & Video",
+    "confidence": "high",
+    "reason": "Gstreamer and media-ctl tools for camera",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "microservicebus-node",
+    "category": "Developer Tools",
+    "confidence": "medium",
+    "reason": "Node.js based agent for microServiceBus",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "idronam-enterprise",
+    "category": "Utilities",
+    "confidence": "low",
+    "reason": "No description provided",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "samtec-device-connect",
+    "category": "Utilities",
+    "confidence": "low",
+    "reason": "Vague description of device connection",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "skylink-rtm-cli",
+    "category": "System Tools",
+    "confidence": "medium",
+    "reason": "Core services for onboard companion computers",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "marqueet",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Live LED-style sports ticker display",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "unixbench",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "UNIX benchmark suite for performance testing",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "z1-edgert",
+    "category": "Utilities",
+    "confidence": "low",
+    "reason": "Vague edge runtime description",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "homebridge",
+    "category": "Utilities",
+    "confidence": "high",
+    "reason": "HomeKit support integration tool",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "kiosc",
+    "category": "Graphics & Design",
+    "confidence": "medium",
+    "reason": "Customise touch screen user-interfaces",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "kiosceditor",
+    "category": "Graphics & Design",
+    "confidence": "medium",
+    "reason": "User-interface editor for lighting controllers",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "husarion-depthai",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Camera driver for Husarion robots",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "chip-tool",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Matter controller tool",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "console-conf",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Ubuntu Core first boot configuration experience",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "openthread-border-router",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "OpenThread Border Router software",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "husarion-webui",
+    "category": "System Tools",
+    "confidence": "medium",
+    "reason": "Web UI for managing Husarion robots",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "core18",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Base snap runtime environment",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "core20",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Base snap runtime environment",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "streamsheets",
+    "category": "Productivity",
+    "confidence": "high",
+    "reason": "No-code platform for processing streaming data",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "influx",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Command-line client for InfluxDB database",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "iot-kernel",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Ubuntu Linux kernel package",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "core22",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Base snap runtime environment",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "core26",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Base snap runtime environment",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "core24",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Base snap runtime environment",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "matter-pi-gpio-commander",
+    "category": "System Tools",
+    "confidence": "medium",
+    "reason": "Matter Raspberry Pi GPIO commander",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "mir-kiosk",
+    "category": "System Tools",
+    "confidence": "medium",
+    "reason": "Kiosk display server migration tool",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "coda",
+    "category": "System Tools",
+    "confidence": "medium",
+    "reason": "Device management and workflow orchestration agent",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "husarion-rplidar",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "LIDAR driver for Husarion robots",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "enmac-collector",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Data collector for Prevas Cloud",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "renesas-rz",
+    "category": "System Tools",
+    "confidence": "medium",
+    "reason": "Support for Renesas RZ evaluation boards",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "husarion-ouster",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "LIDAR driver snap for robots",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "husarion-shutdown",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Safe shutdown service for UGVs",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "husarion-astra",
+    "category": "System Tools",
+    "confidence": "low",
+    "reason": "Vague description of Husarion Astra",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "rosbot-xl-nav",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Autonomy navigation snap for ROSbot XL",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "rosbot-xl",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Driver for ROSbot XL mobile robot",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "xlnx-nlp-smartvision",
+    "category": "Science",
+    "confidence": "medium",
+    "reason": "Natural Language Processing SmartVision application",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "btctools",
+    "category": "Finance",
+    "confidence": "medium",
+    "reason": "Antminer management tool for bitcoin mining",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "bluecherry-client",
+    "category": "Photo & Video",
+    "confidence": "low",
+    "reason": "Vague description of Bluecherry client",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "badaqmon",
+    "category": "Science",
+    "confidence": "medium",
+    "reason": "Data acquisition for external balance",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "nitrogen-kernel",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Linux kernel for Nitrogen boards",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "mir-kiosk-mpv",
+    "category": "Photo & Video",
+    "confidence": "high",
+    "reason": "Plays videos in kiosk mode",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "webthings-shell",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Build smart display interface",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "turtlebot3c",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Turtlebot3 core features package",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "rt-conf",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Configure and tune real-time systems",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "fluent-bit",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "High performance logs and stream processor",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "rpi-backlight",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Backlight switch for Raspberry Pi screen",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "client-box",
+    "category": "Utilities",
+    "confidence": "low",
+    "reason": "No description provided",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "zwave-js-ui",
+    "category": "Utilities",
+    "confidence": "high",
+    "reason": "Z-Wave control panel and MQTT gateway",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pyefis",
+    "category": "Travel & Navigation",
+    "confidence": "high",
+    "reason": "Open source avionics application",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "micro-xrce-dds-agent",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Bridge between Micro XRCE-DDS and DDS",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "cybear-jinni",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Control smart devices via hub",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "cbj-hub",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Hub to control smart devices",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "cuda-uc",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "CUDA library and samples utilities",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "cubiemedia-mqtt-client",
+    "category": "Internet & Communication",
+    "confidence": "medium",
+    "reason": "MQTT client gateway for protocols",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "carrierlabs-bscli",
+    "category": "Developer Tools",
+    "confidence": "medium",
+    "reason": "BrightSign command line tool",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pi-kernel",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Raspberry Pi Ubuntu kernel",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "rigado-cli",
+    "category": "Developer Tools",
+    "confidence": "low",
+    "reason": "Vague CLI tool description",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "mtui",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Modbus client for terminal",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "sistem-bakim-temizlik",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "System maintenance and cleaning tool",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "drcfrontend",
+    "category": "Utilities",
+    "confidence": "low",
+    "reason": "Vague frontend description",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "ella-core",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "Mobile core network for private deployments",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "diode-node",
+    "category": "Internet & Communication",
+    "confidence": "medium",
+    "reason": "Diode relay node",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "deliveryoptimization-agent",
+    "category": "System Tools",
+    "confidence": "medium",
+    "reason": "Delivery optimization agent for Ubuntu Core",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "dashkiosk",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Drive screens displaying dashboards",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "dieklingel-kiosk",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Kiosk application for dieKlingel",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "dieklingel-core",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Core of the dieKlingel project",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "device-config-ui",
+    "category": "System Tools",
+    "confidence": "medium",
+    "reason": "User interface for device config",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "victorialogs",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Log management and analytics system",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "powerscheduler",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Shutdown scheduler for Ubuntu",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "powerswitch",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Reboot or shutdown systems via curl",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "minitcp",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "Userspace TCP/IP stack",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "emqx-enterprise",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "MQTT messaging platform",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "esp32-cam",
+    "category": "Photo & Video",
+    "confidence": "high",
+    "reason": "Control ESP32 camera modules",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "energycoind",
+    "category": "Finance",
+    "confidence": "medium",
+    "reason": "EnergyCoin cryptocurrency daemon",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "eupf",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "5G User Plane Function based on eBPF",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "roonmatrix",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Control LED-matrix device",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "udp-echost",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "UDP round-trip probe for network stats",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "fixgateway",
+    "category": "Travel & Navigation",
+    "confidence": "medium",
+    "reason": "Makerplane FIX gateway server",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "fonto-de-kerno",
+    "category": "Developer Tools",
+    "confidence": "medium",
+    "reason": "Overview of sources of base snaps",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "fpgad",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "FPGA manager daemon",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "flexran",
+    "category": "Internet & Communication",
+    "confidence": "medium",
+    "reason": "FlexRAN SD-RAN platform",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "faa-cifp-data",
+    "category": "Travel & Navigation",
+    "confidence": "high",
+    "reason": "FAA navigation data for avionics",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "flasktemp",
+    "category": "Developer Tools",
+    "confidence": "low",
+    "reason": "Vague flaskapp description",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "fcdclient",
+    "category": "Utilities",
+    "confidence": "low",
+    "reason": "Vague client description",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "olibox-core",
+    "category": "Utilities",
+    "confidence": "low",
+    "reason": "Vague core functionality description",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "1os-checkout",
+    "category": "Business",
+    "confidence": "high",
+    "reason": "Bitrix24 Cloud POS software",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "ubports-flasher",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Installs Ubuntu Touch on devices",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "gateway-go",
+    "category": "Internet & Communication",
+    "confidence": "medium",
+    "reason": "OpenIoTHub gateway",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "growx",
+    "category": "Science",
+    "confidence": "medium",
+    "reason": "Greenhouse monitoring application",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "gowol",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Wake up computer via Wake-on-LAN",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "home-assistant-hacs",
+    "category": "Utilities",
+    "confidence": "high",
+    "reason": "Home Assistant community store",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "shellhub",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Centralized SSH for edge and cloud",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "mirros-one",
+    "category": "System Tools",
+    "confidence": "medium",
+    "reason": "Operating system for smart mirrors",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "paneladmin",
+    "category": "Utilities",
+    "confidence": "low",
+    "reason": "Vague flutter description",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "wpe-webkit-mir-kiosk",
+    "category": "Internet & Communication",
+    "confidence": "medium",
+    "reason": "WebKit browser in kiosk mode",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "nanomq",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "Edge messaging platform",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "theengs-gateway",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "BLE to MQTT gateway",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "hunt-r",
+    "category": "Business",
+    "confidence": "medium",
+    "reason": "Industrial machinery gateway firmware",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "video-monitor",
+    "category": "Photo & Video",
+    "confidence": "high",
+    "reason": "Remote video streams viewer",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "rtsp-to-webrtsp",
+    "category": "Photo & Video",
+    "confidence": "high",
+    "reason": "Media URLs ReStreamer over WebRTC",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "mqttdesk",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "MQTT desktop client",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "ifm3d",
+    "category": "Photo & Video",
+    "confidence": "high",
+    "reason": "Utilities for 3D ToF cameras",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "oink",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "DDNS client for Porkbun",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "youtube-live-streamer",
+    "category": "Photo & Video",
+    "confidence": "high",
+    "reason": "Streams video to YouTube Live",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "hawkbit",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Update server software",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "huacaya-server",
+    "category": "System Tools",
+    "confidence": "medium",
+    "reason": "Manage Ubuntu devices",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "hankpymsnap",
+    "category": "Utilities",
+    "confidence": "low",
+    "reason": "Vague summary description",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "hello-gtk-frame",
+    "category": "Developer Tools",
+    "confidence": "medium",
+    "reason": "Mono GTK example application",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "hello-snap-initial-upload-test1",
+    "category": "Developer Tools",
+    "confidence": "low",
+    "reason": "Test upload snap",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pitp-app",
+    "category": "Utilities",
+    "confidence": "low",
+    "reason": "Placeholder description",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "webrtsp-hdmi-restreamer",
+    "category": "Photo & Video",
+    "confidence": "high",
+    "reason": "Restreams video from HDMI to browser",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pupu",
+    "category": "Utilities",
+    "confidence": "high",
+    "reason": "Controller for Philips Hue lights",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "redirect-to",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "HTTP redirect service",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "idid",
+    "category": "Utilities",
+    "confidence": "low",
+    "reason": "No description provided",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "iotconnect",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Python SDK for IoTConnect",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "iiotserviceapi",
+    "category": "Developer Tools",
+    "confidence": "medium",
+    "reason": "IIoT Service API",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pingdash",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Monitor multiple remote systems",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "oai-ue",
+    "category": "Internet & Communication",
+    "confidence": "medium",
+    "reason": "OAI UE mobile entity",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "xibo-player",
+    "category": "Photo & Video",
+    "confidence": "high",
+    "reason": "Digital signage player",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "vision9-solar-monitor",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Solar monitor application",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "ll-mec",
+    "category": "Internet & Communication",
+    "confidence": "medium",
+    "reason": "Low Latency MEC platform",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "oai-amf",
+    "category": "Internet & Communication",
+    "confidence": "medium",
+    "reason": "OpenAirInterface AMF entity",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "join-desktop",
+    "category": "Utilities",
+    "confidence": "low",
+    "reason": "No description provided",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "janlochi-zigbee2mqtt",
+    "category": "Utilities",
+    "confidence": "high",
+    "reason": "Zigbee to MQTT bridge",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "wifi-provision",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "Wi-Fi onboarding captive portal",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "ozone-control",
+    "category": "Photo & Video",
+    "confidence": "medium",
+    "reason": "Control server for media display",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "kaffelogic-studio",
+    "category": "Utilities",
+    "confidence": "low",
+    "reason": "No description provided",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "wistoolbox",
+    "category": "Utilities",
+    "confidence": "low",
+    "reason": "Vague desktop tool description",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "loggly-shipper",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Ships logs to Loggly via rsyslog",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "stakecoind",
+    "category": "Finance",
+    "confidence": "medium",
+    "reason": "Stakecoin cryptocurrency daemon",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "mi-tutorial-leds-joystick",
+    "category": "Education",
+    "confidence": "medium",
+    "reason": "ROS tutorial for controlling LEDs",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "simple-server-vs-june2026",
+    "category": "Developer Tools",
+    "confidence": "medium",
+    "reason": "Simple TCP server",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "netota",
+    "category": "System Tools",
+    "confidence": "medium",
+    "reason": "Network services for SysOTA",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "kria-dashboard",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Dashboard tool for Kria SOM stats",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "mqtt2dmx",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "MQTT to DMX and GPIO bridge",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "magic-device-tool",
+    "category": "Utilities",
+    "confidence": "low",
+    "reason": "No description provided",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "little-orange-display",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Demonstration display app",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "tcr-status-led",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Controls status LED on Microfabricator",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "mqttd",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "MQTT broker",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "oai-ran",
+    "category": "Internet & Communication",
+    "confidence": "medium",
+    "reason": "OpenAirInterface RAN entity",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "oai-smf",
+    "category": "Internet & Communication",
+    "confidence": "medium",
+    "reason": "OpenAirInterface SMF entity",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "webrtc-streamer",
+    "category": "Photo & Video",
+    "confidence": "medium",
+    "reason": "WebRTC streamer",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "simple-openvpn-client-gui",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "OpenVPN client GUI",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "simple-openvpn-client",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "OpenVPN client",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "roscon-toronto-ota-demo",
+    "category": "Developer Tools",
+    "confidence": "medium",
+    "reason": "ROS 2 OTA demonstration",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "rtsp2ws",
+    "category": "Photo & Video",
+    "confidence": "medium",
+    "reason": "RTSP to websocket converter",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "openups",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Control app for UPS products",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "phicomm-r1-controler",
+    "category": "Utilities",
+    "confidence": "low",
+    "reason": "No description provided",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "openiothub",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "OpenIoTHub application",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "opcua-commander",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "OPCUA client for command line",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pslabel",
+    "category": "Utilities",
+    "confidence": "low",
+    "reason": "Vague gateway description",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "psutil-process-monitoring-snap",
+    "category": "System Tools",
+    "confidence": "medium",
+    "reason": "Process monitoring snap using psutil",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "rightplayer",
+    "category": "Photo & Video",
+    "confidence": "high",
+    "reason": "Digital signage application",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "reduct-bridge-ros2",
+    "category": "Developer Tools",
+    "confidence": "medium",
+    "reason": "Bridges robotics data to ReductStore",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "reduct-bridge-ros1",
+    "category": "Developer Tools",
+    "confidence": "medium",
+    "reason": "Bridges robotics data to ReductStore",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "rtmp-video-streamer",
+    "category": "Photo & Video",
+    "confidence": "high",
+    "reason": "Streams video from IP Cam to RTMP",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "reductstore-agent",
+    "category": "Developer Tools",
+    "confidence": "medium",
+    "reason": "ROS 2 recorder for ReductStore",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "raspi-gpio-snap",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "GPIO utility for Raspberry Pi",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "rtsp-test-server",
+    "category": "Photo & Video",
+    "confidence": "high",
+    "reason": "RTSP test stream server",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "webrtsp-signaling-server",
+    "category": "Internet & Communication",
+    "confidence": "medium",
+    "reason": "WebRTSP signaling server",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "ttn-lw-stack",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "LoRaWAN network stack",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "smart-keystore-reports",
+    "category": "Utilities",
+    "confidence": "low",
+    "reason": "No description provided",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "stifts-terminal",
+    "category": "Utilities",
+    "confidence": "low",
+    "reason": "Vague terminal application description",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "skylink",
+    "category": "Utilities",
+    "confidence": "low",
+    "reason": "No description provided",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "velbus-tcp",
+    "category": "Internet & Communication",
+    "confidence": "medium",
+    "reason": "Bridges Velbus installation with TCP",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "wesense-attendance",
+    "category": "Utilities",
+    "confidence": "low",
+    "reason": "No description provided",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "xbfirm",
+    "category": "Utilities",
+    "confidence": "low",
+    "reason": "Placeholder description",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "asciiquarium",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "ASCII aquarium animation",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "acidwarp",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Color eye-candy visualizer",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "aliyundrive-fuse",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "FUSE driver for Aliyun Drive",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "iconny",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "Web browser",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "terminal-parrot",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Parrot animation for terminal",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "get-iplayer",
+    "category": "Photo & Video",
+    "confidence": "high",
+    "reason": "CLI for downloading BBC iPlayer content",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "cbonsai",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Bonsai tree generator in C",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "readarr-tak",
+    "category": "Books & Reference",
+    "confidence": "high",
+    "reason": "Ebook manager and reader",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "characterai-electron",
+    "category": "Internet & Communication",
+    "confidence": "medium",
+    "reason": "Desktop client for Character AI",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "whatami",
+    "category": "Utilities",
+    "confidence": "low",
+    "reason": "Vague description",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "movx",
+    "category": "Utilities",
+    "confidence": "low",
+    "reason": "No description provided",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "ispcine",
+    "category": "Photo & Video",
+    "confidence": "high",
+    "reason": "Browse and play media from ISP portals",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "magic8ball",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Magic 8-ball toy",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "should-i-watch-this",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Movie and show recommendation helper",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "prowlarr-tak",
+    "category": "Internet & Communication",
+    "confidence": "medium",
+    "reason": "Indexer manager for Usenet and BitTorrent",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pdfchampions",
+    "category": "Productivity",
+    "confidence": "high",
+    "reason": "PDF conversion utility",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "sonarr-tak",
+    "category": "Photo & Video",
+    "confidence": "high",
+    "reason": "TV series manager",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "bazarr-tak",
+    "category": "Photo & Video",
+    "confidence": "high",
+    "reason": "Subtitle downloader and manager",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "gydl",
+    "category": "Photo & Video",
+    "confidence": "high",
+    "reason": "Download audio/video from YouTube",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "lidarr-tak",
+    "category": "Music & Audio",
+    "confidence": "high",
+    "reason": "Music collection manager",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "radarr-tak",
+    "category": "Photo & Video",
+    "confidence": "high",
+    "reason": "Movie collection manager",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "xiangqilab",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Xiangqi chess desktop application",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "electronplayer",
+    "category": "Photo & Video",
+    "confidence": "high",
+    "reason": "Web video services player",
+    "model": "gemini-3.5-flash"
   }
 ]

@@ -9,6 +9,8 @@ import {
   APP_CATEGORY_LABEL_VALUES,
   GAME_CATEGORY_LABEL_VALUES,
 } from "../src/curator/enrich/category";
+import { loadLlmModels, type LlmModel } from "../src/curator/enrich/llm-models";
+import { callModel, ModelUnavailable, RetryLater, type BatchResult } from "./_llm-providers";
 
 const CONFIG_PATH = fileURLToPath(new URL("../config/llm-classifications.json", import.meta.url));
 
@@ -32,43 +34,50 @@ function optionalNumberFlag(name: string, defaultValue: number): number | undefi
   return Number.isNaN(parsed) ? defaultValue : parsed;
 }
 
-// Free tier only (no billing on the key's Google project). Google no longer
-// publishes free-tier quotas (only shown per project in AI Studio,
-// https://aistudio.google.com/rate-limit); observed 2026-09-26: 20 requests
-// per day *per model* (GenerateRequestsPerDayPerProjectPerModel-FreeTier),
-// and 503 "high demand" failures appear to count against it too. So
-// requests are the scarce resource: batches are large, a 503 moves on to
-// the next model after one retry instead of burning quota on backoff, and
-// since the cap is per model, the run rotates through MODELS — a model
-// that hits its daily cap is dropped for the rest of the run. Progress is
-// persisted after every batch; when every model is exhausted the run saves
-// and exits cleanly, to be resumed after the reset (midnight Pacific time).
-const batchSize = Number(flag("--batch-size") ?? 200);
-const concurrency = Number(flag("--concurrency") ?? 1);
+// Free tiers only: Gemini with no billing on the key's Google project, Groq
+// on its free plan — exceeding a quota returns a 429, never a bill. Neither
+// quota is generous (observed 2026-09-26: Gemini 20 requests/day per model,
+// Groq 200k tokens/day per model), and they bottleneck on different things,
+// so per-model batch size, pacing, and retries live in
+// config/llm-models.json rather than here. The run is built to be cut short
+// and resumed: progress is persisted after every batch, a model that hits
+// its daily cap is dropped for the rest of the run, and when no model can
+// serve the run saves and exits cleanly (Gemini resets at midnight Pacific
+// time; Groq's per-day window is rolling).
 const limit = flag("--limit") ? Number(flag("--limit")) : undefined;
-// Requests-per-minute pacing across all workers — conservative default so
-// the per-minute quota is rarely what stops a run; a per-minute 429 still
-// waits Google's own retryDelay and retries.
-const rpm = Number(flag("--rpm") ?? 5);
-// Hard cap on real Gemini calls for this run — e.g. to leave part of the
-// day's quota for something else. Unset = run until done or quota-stopped.
+// Hard cap on real API calls for this run, across all models.
 const maxRequests = flag("--max-requests") ? Number(flag("--max-requests")) : undefined;
+// `--models a,b` overrides config/llm-models.json's rotation: only these
+// ids, in this order, disabled ones included — e.g. to sample one model.
+const modelsFlag = flag("--models");
 const dryRun = hasFlag("--dry-run");
-// `--sample [N]` (default 5): real Gemini calls on just N still-unclassified
+// `--sample [N]` (default 5): real API calls on just N still-unclassified
 // apps, to test the whole chain end to end (network, schema, parsing) —
 // distinct from --dry-run (no network call at all, fake data) and from
 // --limit (a real, scoped, PERSISTED run). Sample results are printed, never
-// written to config/llm-classifications.json, so testing never consumes
-// part of the real quota-tracked run or leaves throwaway entries in a
-// committed file. Conflicts with --dry-run (nothing to sample from a fake
-// call) and --limit (redundant scoping) — checked below.
+// written to config/llm-classifications.json, so testing never leaves
+// throwaway entries in a committed file. Conflicts with --dry-run (nothing
+// to sample from a fake call) and --limit (redundant scoping) — checked
+// below.
 const sample = optionalNumberFlag("--sample", 5);
 if (sample !== undefined && dryRun) {
-  throw new Error("--sample makes real Gemini calls; it can't be combined with --dry-run.");
+  throw new Error("--sample makes real API calls; it can't be combined with --dry-run.");
 }
 if (sample !== undefined && limit !== undefined) {
   throw new Error("--sample already scopes the run; --limit alongside it is redundant.");
 }
+
+function resolveModels(): LlmModel[] {
+  const all = loadLlmModels();
+  if (!modelsFlag) return all.filter((model) => model.enabled);
+  return modelsFlag.split(",").map((id) => {
+    const model = all.find((candidate) => candidate.id === id.trim());
+    if (!model) throw new Error(`--models: "${id}" is not in config/llm-models.json`);
+    return model;
+  });
+}
+const MODELS = resolveModels();
+if (MODELS.length === 0) throw new Error("No enabled model in config/llm-models.json.");
 
 // --- Types ---
 interface BatchItem {
@@ -76,78 +85,119 @@ interface BatchItem {
   name: string;
   description: string;
 }
-type Confidence = LlmClassificationEntry["confidence"];
-// `n` echoes the item's 1-based position in the prompt rather than its name:
-// two different apps in one batch can share a display name, and matching
-// back by name would silently assign one's result to the other.
-interface BatchResult {
-  n: number;
-  category: string;
-  confidence: Confidence;
-  reason: string;
-}
-
-// Tried in order. Only full Flash models: on a 20-app side-by-side sample,
-// gemini-3.5-flash-lite applied a wrong category at medium confidence, and
-// every request costs the same quota whatever the model. GEMINI_MODELS
-// (comma-separated) or GEMINI_MODEL (a single one) override the chain.
-const MODELS = (
-  process.env.GEMINI_MODELS ??
-  process.env.GEMINI_MODEL ??
-  "gemini-3.8-flash,gemini-3.6-flash,gemini-3.7-flash,gemini-3.5-flash"
-)
-  .split(",")
-  .map((model) => model.trim())
-  .filter(Boolean);
 
 /**
  * Thrown when this run should stop for now — every model's daily quota
- * spent, the `--max-requests` cap, or every model staying overloaded (503)
- * through several rounds. The caller persists progress and exits cleanly: re-running later
- * resumes where this one left off, so none of these warrant a crash.
+ * spent, the `--max-requests` cap, or every model staying overloaded
+ * through several rounds. The caller persists progress and exits cleanly:
+ * re-running later resumes where this one left off.
  */
 class StopRun extends Error {}
 
-/** One model can't serve right now: `daily` = its per-day quota is spent (drop it for this run), else overloaded (skip it for this batch). */
-class ModelUnavailable extends Error {
-  constructor(
-    message: string,
-    readonly daily: boolean,
-  ) {
-    super(message);
-  }
-}
-
+// `n` echoes the item's 1-based position in the prompt rather than its name:
+// two different apps in one batch can share a display name, and matching
+// back by name would silently assign one's result to the other.
 const SYSTEM_PROMPT =
-  "You classify Linux software packages by their name and short description. Assign each package the single most accurate category from the allowed list, and rate your confidence: 'high' when the name/description make the category unambiguous, 'medium' when it's a reasonable best guess, 'low' when the description is missing, too vague, or fits several categories equally. Prefer an honest 'low' over a confident guess. Keep each reason under 15 words. Respond with valid JSON only, one result per package, echoing each package's number n exactly as given.";
+  "You classify Linux software packages by their name and short description. Assign each package the single most accurate category from the allowed list, and rate your confidence: 'high' when the name/description make the category unambiguous, 'medium' when it's a reasonable best guess, 'low' when the description is missing, too vague, or fits several categories equally. Prefer an honest 'low' over a confident guess. Keep each reason under 8 words. Respond with valid JSON only, one result per package, echoing each package's number n exactly as given.";
 
-function outputSchema(allowedCategories: string[]): Record<string, unknown> {
-  return {
-    type: "object",
-    properties: {
-      results: {
-        type: "array",
-        items: {
-          type: "object",
-          properties: {
-            n: { type: "integer" },
-            category: { type: "string", enum: allowedCategories },
-            confidence: { type: "string", enum: ["high", "medium", "low"] },
-            reason: { type: "string" },
-          },
-          required: ["n", "category", "confidence", "reason"],
-        },
-      },
-    },
-    required: ["results"],
-  };
-}
-
-function buildPrompt(items: BatchItem[]): string {
+// The allowed list is spelled out in the prompt, not only in the output
+// schema: Groq validates its strict schema after generation instead of
+// constraining decoding, and gpt-oss-20b invented off-list categories when
+// the list only lived in the schema.
+function buildPrompt(items: BatchItem[], allowedCategories: string[]): string {
   const lines = items.map(
     (item, i) => `n=${i + 1} name=${item.name} desc=${(item.description || "").slice(0, 200)}`,
   );
-  return `Classify each package below into exactly one category.\n\n${lines.join("\n")}`;
+  return `Allowed categories (use one of these exactly): ${allowedCategories.join(" | ")}\n\nClassify each package below into exactly one category.\n\n${lines.join("\n")}`;
+}
+
+// --- Per-model pacing and stats ---
+interface ModelState {
+  nextSlotAt: number;
+  requests: number;
+  apps: number;
+  tokens: number;
+}
+const state = new Map<string, ModelState>(
+  MODELS.map((model) => [model.id, { nextSlotAt: 0, requests: 0, apps: 0, tokens: 0 }]),
+);
+let requestsMade = 0;
+
+/** Waits for this model's next slot under its `requestsPerMinute` budget, and counts the request. */
+async function paced(model: LlmModel): Promise<void> {
+  if (maxRequests !== undefined && requestsMade >= maxRequests) {
+    throw new StopRun(`--max-requests ${maxRequests} reached`);
+  }
+  requestsMade += 1;
+  const modelState = state.get(model.id) as ModelState;
+  modelState.requests += 1;
+  const now = Date.now();
+  const slot = Math.max(now, modelState.nextSlotAt);
+  modelState.nextSlotAt = slot + 60_000 / model.requestsPerMinute;
+  if (slot > now) await new Promise((resolve) => setTimeout(resolve, slot - now));
+}
+
+/** Token pacing: pushes the model's next slot back by the largest share of a minute's token budget (total, or output-only) this request used. */
+function recordTokens(
+  model: LlmModel,
+  tokens: number | undefined,
+  outputTokens: number | undefined,
+): void {
+  const modelState = state.get(model.id) as ModelState;
+  modelState.tokens += tokens ?? 0;
+  const minutes = Math.max(
+    tokens !== undefined && model.tokensPerMinute !== undefined
+      ? tokens / model.tokensPerMinute
+      : 0,
+    outputTokens !== undefined && model.outputTokensPerMinute !== undefined
+      ? outputTokens / model.outputTokensPerMinute
+      : 0,
+  );
+  modelState.nextSlotAt = Math.max(modelState.nextSlotAt, Date.now() + minutes * 60_000);
+}
+
+/**
+ * One paced call on one model, retrying in place on a per-minute limit
+ * (`RetryLater`, up to 5 times) and on overload up to the model's own
+ * `overloadRetries`; anything else propagates to the rotation. Recursion
+ * rather than a loop so the awaited calls don't trip `no-await-in-loop`.
+ */
+async function callPaced(
+  model: LlmModel,
+  batch: BatchItem[],
+  allowedCategories: string[],
+  attempt = 0,
+  overloadAttempt = 0,
+): Promise<BatchResult[]> {
+  await paced(model);
+  try {
+    const { results, tokens, outputTokens } = await callModel(model, {
+      system: SYSTEM_PROMPT,
+      user: buildPrompt(batch, allowedCategories),
+      allowedCategories,
+    });
+    recordTokens(model, tokens, outputTokens);
+    return results;
+  } catch (error) {
+    if (error instanceof RetryLater && attempt < 5) {
+      console.warn(
+        `${model.id}: ${error.message} — retrying in ${Math.round(error.waitMs / 1000)}s`,
+      );
+      await new Promise((resolve) => setTimeout(resolve, error.waitMs));
+      return callPaced(model, batch, allowedCategories, attempt + 1, overloadAttempt);
+    }
+    if (
+      error instanceof ModelUnavailable &&
+      !error.daily &&
+      overloadAttempt < model.overloadRetries
+    ) {
+      console.warn(`${model.id}: ${error.message} — retrying in 10s`);
+      await new Promise((resolve) => setTimeout(resolve, 10_000));
+      return callPaced(model, batch, allowedCategories, attempt, overloadAttempt + 1);
+    }
+    if (error instanceof RetryLater) throw new ModelUnavailable(error.message, false);
+    throw error;
+  }
 }
 
 // --- Model rotation ---
@@ -155,164 +205,68 @@ const exhaustedModels = new Set<string>();
 // The model that served the last batch — tried first for the next one, so
 // a batch doesn't start by re-hitting a model that was just overloaded.
 let preferredModel: string | undefined;
-// Every 503 costs a request of the model's 20/day, so when the whole chain
-// is overloaded, wait long between passes (overload lasts minutes to
-// hours) rather than probing often: 12 rounds x 5 min = up to an hour.
+// Failed requests can count against a daily quota (observed on Gemini), so
+// when the whole chain is overloaded, wait long between passes rather than
+// probing often: 12 rounds x 5 min = up to an hour.
 const OVERLOAD_ROUNDS = 12;
 const OVERLOAD_ROUND_WAIT_MS = 5 * 60_000;
 
+interface Group {
+  items: BatchItem[];
+  cursor: number;
+  allowedCategories: string[];
+}
+
 /**
- * Classifies one batch on the first model able to serve it, starting from
- * `preferredModel`. Recursion rather than a loop so the awaited calls don't
- * trip `no-await-in-loop`: `offset` walks the model chain, `round` counts
- * full passes where every remaining model was overloaded.
+ * Classifies the group's next batch on the first model able to serve it,
+ * walking the chain from `preferredModel`. The batch is sliced only once
+ * the model is picked, since batch size is per model. Recursion: `offset`
+ * walks the chain, `round` counts full passes where every remaining model
+ * was overloaded.
  */
-async function classifyGemini(
-  items: BatchItem[],
-  allowedCategories: string[],
+async function classifyNextBatch(
+  group: Group,
   offset = 0,
   round = 0,
-): Promise<{ results: BatchResult[]; model: string }> {
-  const available = MODELS.filter((model) => !exhaustedModels.has(model));
+): Promise<{ batch: BatchItem[]; results: BatchResult[]; model: LlmModel }> {
+  const available = MODELS.filter((model) => !exhaustedModels.has(model.id));
   if (available.length === 0) {
-    throw new StopRun(`daily quota spent on every model (${MODELS.join(", ")})`);
+    throw new StopRun(`daily quota spent on every model (${MODELS.map((m) => m.id).join(", ")})`);
   }
   if (offset >= available.length) {
     if (round + 1 >= OVERLOAD_ROUNDS) {
-      throw new StopRun(`every model still overloaded after ${OVERLOAD_ROUNDS} rounds`);
+      throw new StopRun(`every model still unavailable after ${OVERLOAD_ROUNDS} rounds`);
     }
-    console.warn(`All models overloaded — waiting ${OVERLOAD_ROUND_WAIT_MS / 1000}s`);
+    console.warn(`All models unavailable — waiting ${OVERLOAD_ROUND_WAIT_MS / 60_000} min`);
     await new Promise((resolve) => setTimeout(resolve, OVERLOAD_ROUND_WAIT_MS));
-    return classifyGemini(items, allowedCategories, 0, round + 1);
+    return classifyNextBatch(group, 0, round + 1);
   }
-  const start = Math.max(0, available.indexOf(preferredModel ?? ""));
-  const model = available[(start + offset) % available.length] as string;
+  const start = Math.max(
+    0,
+    available.findIndex((model) => model.id === preferredModel),
+  );
+  const model = available[(start + offset) % available.length] as LlmModel;
+  const batch = group.items.slice(group.cursor, group.cursor + model.batchSize);
   try {
-    const results = await classifyWith(model, items, allowedCategories);
-    preferredModel = model;
-    return { results, model };
+    const results = await callPaced(model, batch, group.allowedCategories);
+    preferredModel = model.id;
+    return { batch, results, model };
   } catch (error) {
     if (!(error instanceof ModelUnavailable)) throw error;
     if (error.daily) {
-      exhaustedModels.add(model);
-      console.warn(`${model}: ${error.message} — dropped for this run`);
+      exhaustedModels.add(model.id);
+      console.warn(`${model.id}: ${error.message} — dropped for this run`);
       // `available` shrinks by one, so the same offset now points at the
       // model that came after this one.
-      return classifyGemini(items, allowedCategories, offset, round);
+      return classifyNextBatch(group, offset, round);
     }
-    console.warn(`${model}: ${error.message} — trying the next model`);
-    return classifyGemini(items, allowedCategories, offset + 1, round);
+    console.warn(`${model.id}: ${error.message} — trying the next model`);
+    return classifyNextBatch(group, offset + 1, round);
   }
 }
 
-async function classifyWith(
-  model: string,
-  items: BatchItem[],
-  allowedCategories: string[],
-): Promise<BatchResult[]> {
-  const apiKey = process.env.GEMINI_API_KEY;
-  if (!apiKey)
-    throw new Error("GEMINI_API_KEY is required — see https://aistudio.google.com/apikey");
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
-  const payload = {
-    contents: [{ role: "user", parts: [{ text: `${SYSTEM_PROMPT}\n\n${buildPrompt(items)}` }] }],
-    generationConfig: {
-      responseMimeType: "application/json",
-      responseSchema: outputSchema(allowedCategories),
-      temperature: 0,
-      // Classification from a name + one-line description doesn't need
-      // extended reasoning, and thinking tokens count against the same
-      // free-tier token quota as the answer itself.
-      thinkingConfig: { thinkingLevel: "low" },
-    },
-  };
-  return request(url, payload, 0);
-}
-
-// --- Free-tier pacing ---
-let requestsMade = 0;
-let nextSlotAt = 0;
-/** Reserves the next request slot under the `--rpm` budget, shared by every worker. */
-async function paced(): Promise<void> {
-  if (maxRequests !== undefined && requestsMade >= maxRequests) {
-    throw new StopRun(`--max-requests ${maxRequests} reached`);
-  }
-  requestsMade += 1;
-  const now = Date.now();
-  const slot = Math.max(now, nextSlotAt);
-  nextSlotAt = slot + 60_000 / rpm;
-  if (slot > now) await new Promise((resolve) => setTimeout(resolve, slot - now));
-}
-
-interface GeminiErrorDetail {
-  "@type"?: string;
-  retryDelay?: string;
-  violations?: { quotaId?: string; quotaValue?: string }[];
-}
-
-/**
- * Reads a 429 body's google.rpc details: which quota was hit (a per-day
- * `quotaId` means stop for today, anything else is transient) and Google's
- * own suggested `retryDelay`.
- */
-function parseQuotaError(bodyText: string): { daily: boolean; retryMs?: number; quota: string } {
-  let details: GeminiErrorDetail[] = [];
-  try {
-    details =
-      (JSON.parse(bodyText) as { error?: { details?: GeminiErrorDetail[] } }).error?.details ?? [];
-  } catch {
-    // Non-JSON body — treat as transient, fall back to exponential backoff.
-  }
-  const violations = details.flatMap((detail) => detail.violations ?? []);
-  const quota =
-    violations.map((v) => `${v.quotaId} (limit ${v.quotaValue})`).join(", ") || "unknown quota";
-  const daily = violations.some((v) => /PerDay/i.test(v.quotaId ?? ""));
-  const delay = details.find((detail) => detail.retryDelay)?.retryDelay;
-  const retryMs = delay ? Number.parseFloat(delay) * 1000 : undefined;
-  return { daily, retryMs, quota };
-}
-
-/**
- * One paced Gemini generateContent call on one model. A per-minute 429 is
- * retried after Google's own retryDelay (else exponential backoff); a
- * per-day 429 or any 5xx throws
- * `ModelUnavailable`, letting `classifyGemini` move to the next model.
- * Recursion rather than a loop so the awaited calls don't trip
- * `no-await-in-loop`.
- */
-async function request(url: string, payload: unknown, attempt: number): Promise<BatchResult[]> {
-  await paced();
-  const response = await fetch(url, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(payload),
-  });
-  if (response.ok) {
-    const body = (await response.json()) as {
-      candidates?: { content?: { parts?: { text?: string }[] } }[];
-    };
-    const text = body.candidates?.[0]?.content?.parts?.[0]?.text ?? "{}";
-    return JSON.parse(text).results as BatchResult[];
-  }
-  const bodyText = await response.text();
-  if (response.status === 429) {
-    const { daily, retryMs, quota } = parseQuotaError(bodyText);
-    if (daily) throw new ModelUnavailable(`daily quota hit: ${quota}`, true);
-    if (attempt < 5) {
-      const waitMs = retryMs ?? 5000 * 2 ** attempt;
-      console.warn(`Gemini 429 (${quota}) — retrying in ${Math.round(waitMs / 1000)}s`);
-      await new Promise((resolve) => setTimeout(resolve, waitMs));
-      return request(url, payload, attempt + 1);
-    }
-  } else if (response.status >= 500) {
-    // 5xx here is almost always 503 "high demand" — Google-side overload
-    // that can last hours on one model while another is fine. Failed
-    // requests count against the daily quota (observed 2026-09-26: a model
-    // hit its 20/day cap without a single success), so no retry on the
-    // same model — let the caller move to the next one right away.
-    throw new ModelUnavailable(`overloaded (${response.status})`, false);
-  }
-  throw new Error(`Gemini ${response.status}: ${bodyText}`);
+function toItems(list: { id: string; name: string; shortDescription: string }[]): BatchItem[] {
+  return list.map((app) => ({ id: app.id, name: app.name, description: app.shortDescription }));
 }
 
 function writeConfig(entries: Map<string, LlmClassificationEntry>): void {
@@ -324,19 +278,16 @@ function writeConfig(entries: Map<string, LlmClassificationEntry>): void {
 
 /**
  * Runs the sources + curator pipeline, classifies every still-unclassified
- * app ("To Classify") via the chosen backend, and writes the results back
- * to `config/llm-classifications.json` — which `enrichApps` then consumes
- * as a last-resort signal before its own "To Classify" fallback on the
- * next rebuild.
+ * app ("To Classify") by rotating through config/llm-models.json's models,
+ * and writes the results back to `config/llm-classifications.json` — which
+ * `enrichApps` then consumes as a last-resort signal before its own "To
+ * Classify" fallback on the next rebuild.
  *
- * Uses the Gemini API with structured JSON output (responseSchema). Requires
- * GEMINI_API_KEY from a project with NO billing enabled — that's what keeps
- * it on the free tier, where exceeding a quota returns a 429 instead of a
- * bill. Rotates through MODELS (see there for overrides). Each entry
- * records the model that produced it and the LLM's own `confidence`; `low`
- * ones are stored but not applied (see `llmCategoryMap`). When no model can
- * serve (all daily-capped, or all overloaded) the run saves and exits
- * cleanly — see the free-tier note by the CLI flags above.
+ * Needs GEMINI_API_KEY and/or GROQ_API_KEY, for whichever providers the
+ * enabled models use. Each entry records the model that produced it and
+ * the LLM's own `confidence`; `low` ones are stored but not applied (see
+ * `llmCategoryMap`). When no model can serve (all daily-capped, or all
+ * overloaded) the run saves and exits cleanly.
  *
  * Resumable in every mode (--sample included): re-running skips ids already
  * present in the config file, so a sample run never reclassifies the same
@@ -356,76 +307,74 @@ async function main(): Promise<void> {
   const apps = todo.filter((app) => app.contentType !== "game");
 
   console.log(
-    `To classify: ${todo.length} (${games.length} games, ${apps.length} apps) | batch ${batchSize} (~${Math.ceil(games.length / batchSize) + Math.ceil(apps.length / batchSize)} requests) | ${MODELS.join(" > ")} | ${rpm} RPM | concurrency ${concurrency}${maxRequests !== undefined ? ` | max ${maxRequests} requests` : ""}${dryRun ? " | DRY RUN" : ""}${sample !== undefined ? ` | SAMPLE (${sample}, not persisted)` : ""}`,
+    `To classify: ${todo.length} (${games.length} games, ${apps.length} apps) | ${MODELS.map((m) => `${m.id} (x${m.batchSize})`).join(" > ")}${maxRequests !== undefined ? ` | max ${maxRequests} requests` : ""}${dryRun ? " | DRY RUN" : ""}${sample !== undefined ? ` | SAMPLE (${sample}, not persisted)` : ""}`,
   );
 
   const persist = !dryRun && sample === undefined;
-  const classifier = classifyGemini;
   const results = new Map(existing);
   let newEntries = 0;
 
-  async function runGroup(
-    group: { id: string; name: string; description: string }[],
-    allowedCategories: string[],
-  ): Promise<void> {
-    const batches: BatchItem[][] = [];
-    for (let i = 0; i < group.length; i += batchSize) {
-      batches.push(group.slice(i, i + batchSize));
-    }
-
-    let cursor = 0;
-    async function worker(): Promise<void> {
-      const batch = batches[cursor++];
-      if (!batch) return;
-      if (dryRun) {
-        for (const item of batch) {
-          results.set(item.id, {
-            id: item.id,
-            category: allowedCategories[0] as LlmClassificationEntry["category"],
-            confidence: "low",
-            reason: "dry-run placeholder",
-            model: "dry-run",
-          });
-        }
-      } else {
-        const { results: batchResults, model } = await classifier(batch, allowedCategories);
-        for (const result of batchResults) {
-          const item = batch[result.n - 1];
-          if (!item) continue;
-          results.set(item.id, {
-            id: item.id,
-            category: result.category as LlmClassificationEntry["category"],
-            confidence: result.confidence,
-            reason: result.reason,
-            model,
-          });
-          newEntries += 1;
-        }
+  async function runGroup(group: Group): Promise<void> {
+    if (group.cursor >= group.items.length) return;
+    if (dryRun) {
+      for (const item of group.items) {
+        results.set(item.id, {
+          id: item.id,
+          category: group.allowedCategories[0] as LlmClassificationEntry["category"],
+          confidence: "low",
+          reason: "dry-run placeholder",
+          model: "dry-run",
+        });
       }
-      // Persist after every batch: a batch is a whole request's worth of
-      // scarce free-tier quota, never worth losing to a crash or Ctrl-C.
-      if (persist) writeConfig(results);
-      return worker();
+      group.cursor = group.items.length;
+      return;
     }
-
-    await Promise.all(Array.from({ length: concurrency }, () => worker()));
+    const { batch, results: batchResults, model } = await classifyNextBatch(group);
+    group.cursor += batch.length;
+    for (const result of batchResults) {
+      const item = batch[result.n - 1];
+      if (!item) continue;
+      results.set(item.id, {
+        id: item.id,
+        category: result.category as LlmClassificationEntry["category"],
+        confidence: result.confidence,
+        reason: result.reason,
+        model: model.id,
+      });
+      newEntries += 1;
+      (state.get(model.id) as ModelState).apps += 1;
+    }
+    // Persist after every batch: a batch is a whole request's worth of
+    // scarce free-tier quota, never worth losing to a crash or Ctrl-C.
+    if (persist) writeConfig(results);
+    return runGroup(group);
   }
 
   try {
-    await runGroup(
-      games.map((app) => ({ id: app.id, name: app.name, description: app.shortDescription })),
-      [...GAME_CATEGORY_LABEL_VALUES],
-    );
-    await runGroup(
-      apps.map((app) => ({ id: app.id, name: app.name, description: app.shortDescription })),
-      [...APP_CATEGORY_LABEL_VALUES],
-    );
+    await runGroup({
+      items: toItems(games),
+      cursor: 0,
+      allowedCategories: [...GAME_CATEGORY_LABEL_VALUES],
+    });
+    await runGroup({
+      items: toItems(apps),
+      cursor: 0,
+      allowedCategories: [...APP_CATEGORY_LABEL_VALUES],
+    });
   } catch (error) {
     if (!(error instanceof StopRun)) throw error;
     console.warn(
-      `Stopped: ${error.message}. ${newEntries} new entries saved (${requestsMade} requests this run) — re-run later to continue where this left off (daily quotas reset at midnight Pacific time).`,
+      `Stopped: ${error.message}. ${newEntries} new entries saved (${requestsMade} requests this run) — re-run later to continue where this left off.`,
     );
-    if (sample === undefined) return;
+  }
+
+  // Per-model usage, to calibrate batchSize/tokensPerMinute against real numbers.
+  for (const model of MODELS) {
+    const { requests, apps: appCount, tokens } = state.get(model.id) as ModelState;
+    if (requests === 0) continue;
+    console.log(
+      `  ${model.id}: ${requests} requests, ${appCount} apps, ${tokens} tokens${appCount > 0 && tokens > 0 ? ` (${Math.round(tokens / appCount)}/app)` : ""}`,
+    );
   }
 
   if (dryRun) {
@@ -435,7 +384,7 @@ async function main(): Promise<void> {
 
   if (sample !== undefined) {
     console.log(
-      `Sample complete (${requestsMade} requests) — real Gemini results (not written to config):`,
+      `Sample complete (${requestsMade} requests) — real results (not written to config):`,
     );
     for (const item of todo) {
       const result = results.get(item.id);

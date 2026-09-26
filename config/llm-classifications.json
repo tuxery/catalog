@@ -3498,5 +3498,2805 @@
     "confidence": "high",
     "reason": "Fallout is a classic post-apocalyptic role-playing game.",
     "model": "gemini-3.8-flash"
+  },
+  {
+    "id": "pacman-aur:fallout2-ce-game",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "Fallout 2 is a well-known RPG.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:fathom-git",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "Website analytics utility, not a game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:ficsit-cli-bin",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "Mod manager for Satisfactory game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:final-fight-lns-ultimate",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Beat'em up and fighting game hybrid.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:finite-galaxy-git",
+    "category": "Adventure",
+    "confidence": "high",
+    "reason": "Space exploration game fork.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:flappytiger",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Flappy Bird clone arcade game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:flashorama-bin",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Electron app container wrapper.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:flatpak-games-git",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Utility for converting game installers.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:floatybox",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Endless side-scroller game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:flycasual-bin",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "Miniatures game simulator.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:fmodstudio",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "Audio content creation desktop application.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:fortunate",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Fortune cookie quote utility.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:freeablo",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "Reimplementation of Diablo 1 RPG engine.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:frikqcc",
+    "category": "Action",
+    "confidence": "low",
+    "reason": "QuakeC code compiler.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:frozensynapse-hib",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Turn-based tactical combat game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:fs2_open-appimage",
+    "category": "Simulation",
+    "confidence": "medium",
+    "reason": "FreeSpace 2 space combat engine enhancement.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:funkin",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Rhythm game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:funkin-quack-git",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Friday Night Funkin' rhythm game mod.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:python-pygambit",
+    "category": "Educational",
+    "confidence": "medium",
+    "reason": "Computation tools for mathematical game theory.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gamebreaker",
+    "category": "Action",
+    "confidence": "low",
+    "reason": "Graphics engine for developers.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gameclock-bin",
+    "category": "Sports",
+    "confidence": "low",
+    "reason": "Game time tracking utility.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gamenetworkingsockets-git",
+    "category": "Action",
+    "confidence": "low",
+    "reason": "Networking software library.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gate88-win",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Real-time strategy game in space.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gbm",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "Game save backup monitor.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gemcraft-lost-chapter-labyrinth-zh",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Gemcraft tower defense strategy game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gemcraft0",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Gemcraft tower defense strategy game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gemcraft1",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Tower defense strategy game with magic gems.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gfxbench",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "Graphics benchmarking software.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:giana",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Mario-style platformer game sequel.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gittype",
+    "category": "Educational",
+    "confidence": "high",
+    "reason": "Typing practice challenges using code.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gnome-quod",
+    "category": "Board & Cards",
+    "confidence": "high",
+    "reason": "Abstract board game capturing squares.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gnomekiss",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "Paper doll viewer application.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-7-billion-humans",
+    "category": "Puzzle",
+    "confidence": "high",
+    "reason": "Programming puzzle game about office workers.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-a-short-hike",
+    "category": "Adventure",
+    "confidence": "high",
+    "reason": "Peaceful exploration and hiking adventure game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-baldurs-gate-2-enhanced-edition",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "Classic role-playing video game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-baldurs-gate-enhanced-edition",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "Classic role-playing video game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-battletech",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Turn-based mecha strategy game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-battletech-flashpoint",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "DLC for Battletech strategy game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-battletech-heavy-metal",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "DLC for Battletech strategy game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-battletech-shadowhawk",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "DLC for Battletech strategy game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-battletech-urban-warfare",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "DLC for Battletech strategy game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-beneath-a-steel-sky",
+    "category": "Adventure",
+    "confidence": "high",
+    "reason": "Classic point-and-click graphic adventure.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-book-of-hours-perpetual-edition-dlc",
+    "category": "Puzzle",
+    "confidence": "high",
+    "reason": "DLC for Book of Hours puzzle narrative game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-butcher",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Fast-paced 2D action game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-cuphead",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Run-and-gun action game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-cuphead-the-delicious-last-course",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "DLC for Cuphead action game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-democracy-3",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Political simulation and strategy game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-deponia",
+    "category": "Adventure",
+    "confidence": "high",
+    "reason": "Point-and-click adventure game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-deponia-2-chaos-on-deponia",
+    "category": "Adventure",
+    "confidence": "high",
+    "reason": "Point-and-click adventure game sequel.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-firewatch",
+    "category": "Adventure",
+    "confidence": "high",
+    "reason": "First-person mystery adventure game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-hacknet",
+    "category": "Puzzle",
+    "confidence": "high",
+    "reason": "Story driven hacking puzzle game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-hacknet-labyrinths-dlc",
+    "category": "Puzzle",
+    "confidence": "high",
+    "reason": "DLC for Hacknet hacking puzzle game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-heroes-of-might-and-magic-3-complete-edition",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Turn-based strategy game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-hollow-knight-silksong",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Action-adventure game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-hypnospace-outlaw",
+    "category": "Adventure",
+    "confidence": "high",
+    "reason": "Internet detective adventure game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-jotun",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Action-exploration game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-laurabow2",
+    "category": "Adventure",
+    "confidence": "high",
+    "reason": "Graphic mystery adventure game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-luftrausers",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Fast-paced air combat action game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-pathfinder_kingmaker",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "Isometric computer role-playing game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-pathfinder_kingmaker_arcane_unleashed_dlc",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "DLC for Pathfinder Kingmaker RPG.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-pathfinder_kingmaker_beneath_the_stolen_lands_dlc",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "DLC for Pathfinder Kingmaker RPG.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-pathfinder_kingmaker_bloody_mess_dlc",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "DLC for Pathfinder Kingmaker RPG.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-pathfinder_kingmaker_in_game_pet_red_panda_dlc",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "DLC for Pathfinder Kingmaker RPG.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-pathfinder_kingmaker_in_game_player_s_portraits_dlc",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "DLC for Pathfinder Kingmaker RPG.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-pathfinder_kingmaker_premium_digital_copy_dlc",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "DLC for Pathfinder Kingmaker RPG.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-pathfinder_kingmaker_the_wildcards_dlc",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "DLC for Pathfinder Kingmaker RPG.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-pathfinder_kingmaker_varnhold_s_lot_dlc",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "DLC for Pathfinder Kingmaker RPG.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-pepper-grinder",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Action-packed drill adventure game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-pillars_of_eternity",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "Isometric role-playing game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-pillars_of_eternity_deadfire_pack_dlc",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "DLC for Pillars of Eternity RPG.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-pillars_of_eternity_ii_deadfire_beard_and_hair_pack_dlc",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "DLC for Pillars of Eternity II RPG.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-pillars_of_eternity_ii_deadfire_beast_of_winter_dlc",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "DLC for Pillars of Eternity II RPG.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-pillars_of_eternity_ii_deadfire_critical_role_pack_dlc",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "DLC for Pillars of Eternity II RPG.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-pillars_of_eternity_ii_deadfire_deck_of_many_things_dlc",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "DLC for Pillars of Eternity II RPG.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-pillars_of_eternity_ii_deadfire_explorers_pack_pet_cosmo_dlc",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "DLC for Pillars of Eternity II RPG.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-pillars_of_eternity_ii_deadfire_explorers_pack_tricorn_hat_dlc",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "DLC for Pillars of Eternity II RPG.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-pillars_of_eternity_ii_deadfire_rum_runners_pack_dlc",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "DLC for Pillars of Eternity II RPG.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-pillars_of_eternity_ii_deadfire_scalawag_pack_dlc",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "DLC for Pillars of Eternity II RPG.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-pillars_of_eternity_ii_deadfire_seeker_slayer_survivor_dlc",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "DLC for Pillars of Eternity II RPG.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-pillars_of_eternity_ii_deadfire_the_forgotten_sanctum_dlc",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "DLC for Pillars of Eternity II RPG.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-pillars_of_eternity_preorder_item_and_pet_dlc",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "DLC for Pillars of Eternity RPG.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-pillars_of_eternity_white_march_dlc",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "DLC for Pillars of Eternity RPG.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-qfg1",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "Hybrid adventure and RPG classic.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-qfg2",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "Hybrid adventure and RPG classic.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-race-the-sun",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "High-speed endless arcade flight game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-rail-route",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "Railway network design and management simulator.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-rail-route-demo",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "Demo of railway management simulator.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-rogue-legacy",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Rogue-lite action platformer game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-scott-whiskers-the-search-for-the-golden-cat",
+    "category": "Adventure",
+    "confidence": "high",
+    "reason": "Point-and-click adventure game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-serpent-in-the-staglands",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "Retro computer role-playing game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-slain-back-from-hell",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Gothic action combat game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-stardew-valley",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "Farming life simulation game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-stellaris-anniversary-portraits",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "DLC for Stellaris grand strategy game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-stellaris-horizon-signal",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "DLC for Stellaris grand strategy game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-sudden-strike-4-africa-desert-war",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Add-on for Sudden Strike 4 real-time strategy.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-sudden-strike-4-battle_of_kursk",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Expansion for Sudden Strike 4 real-time strategy.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-sudden-strike-4-finland_winter_storm",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Add-on for Sudden Strike 4 real-time strategy.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-sudden-strike-4-road-to-dunkirk",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Add-on for Sudden Strike 4 real-time strategy.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-sudden-strike-4-the-pacific-war",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Add-on for Sudden Strike 4 real-time strategy.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-surviving_mars",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "Mars colony management simulation.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-surviving_mars_colony_design_set",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "DLC for Surviving Mars simulation game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-surviving_mars_digital_deluxe_edition_upgrade_pack",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "DLC for Surviving Mars simulation game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-surviving_mars_future_contemporary_pack",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "DLC for Surviving Mars simulation game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-surviving_mars_green_planet",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "DLC for Surviving Mars simulation game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-surviving_mars_in_dome_buildings_pack",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "DLC for Surviving Mars simulation game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-surviving_mars_marsvision_song_contest",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "DLC for Surviving Mars simulation game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-surviving_mars_mysteries_resupply_pack",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "DLC for Surviving Mars simulation game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-surviving_mars_project_laika",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "DLC for Surviving Mars simulation game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-surviving_mars_space_race",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "DLC for Surviving Mars simulation game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-surviving_mars_stellaris_dome_set",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "DLC for Surviving Mars simulation game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-tangledeep",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "Dungeon crawler roguelike RPG.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-tangledeep-dawn-of-dragons",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "DLC for Tangledeep roguelike RPG.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-tangledeep-legend-of-shara",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "DLC for Tangledeep roguelike RPG.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-thimbleweedpark-dlc-ransome-unbeeped",
+    "category": "Adventure",
+    "confidence": "high",
+    "reason": "DLC for Thimbleweed Park adventure game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-tis-100",
+    "category": "Puzzle",
+    "confidence": "high",
+    "reason": "Programming puzzle game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-unreal-tournament-goty",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Classic first-person arena shooter.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-vampire-the-masquerade-bloodlines",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "First-person action RPG.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-we-are-not-alone",
+    "category": "Adventure",
+    "confidence": "high",
+    "reason": "Horror adventure game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-x4_cradle_of_humanity",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "DLC for X4 space simulation game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-x4_kingdom_end",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "DLC for X4 space simulation game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-x4_split_vendetta",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "DLC for X4 space simulation game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gog-x4_tides_of_avarice",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "DLC for X4 space simulation game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gogextract-git",
+    "category": "Action",
+    "confidence": "low",
+    "reason": "Utility to unpack game installers.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:goldsearch",
+    "category": "Adventure",
+    "confidence": "medium",
+    "reason": "Game centered on searching for gold.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gravitype",
+    "category": "Educational",
+    "confidence": "high",
+    "reason": "Terminal typing practice game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:gravity_defied_cpp-git",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Motorcycle physics arcade game remake.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:grume-git",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "3D Action RPG game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:guessnumber",
+    "category": "Puzzle",
+    "confidence": "medium",
+    "reason": "Simple number guessing game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:guile-chickadee",
+    "category": "Action",
+    "confidence": "low",
+    "reason": "Game development toolkit software.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:hackmatrix-git",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "3D desktop environment or game engine.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:halcyon",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "Virtual reality world simulator.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:hangman-lite",
+    "category": "Puzzle",
+    "confidence": "high",
+    "reason": "CLI word guessing hangman game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:hearse",
+    "category": "Role-Playing",
+    "confidence": "low",
+    "reason": "File exchange utility for NetHack RPG.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:hlbsp-git",
+    "category": "Action",
+    "confidence": "low",
+    "reason": "Map viewer utility for Half-Life.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:hurrycurry-server",
+    "category": "Simulation",
+    "confidence": "medium",
+    "reason": "Cooking game server software.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:jumpnbump-levels",
+    "category": "Arcade",
+    "confidence": "medium",
+    "reason": "Level pack for Jump 'n' Bump action/arcade game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:jzintvimgui",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "GUI interface for Intellivision emulator.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:jzip",
+    "category": "Adventure",
+    "confidence": "medium",
+    "reason": "Interpreter for Z-code interactive fiction text adventures.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:kaboom-git",
+    "category": "Educational",
+    "confidence": "high",
+    "reason": "CLI typing practice game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:ketm",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Shooter game to kill everything.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:knightsgame",
+    "category": "Action",
+    "confidence": "medium",
+    "reason": "Multiplayer dungeon combat game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:kokua-secondlife",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "Third party viewer for Second Life virtual world.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:leela-zero",
+    "category": "Board & Cards",
+    "confidence": "high",
+    "reason": "Go board game engine based on AI.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:legendofdungeon",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Co-op beat'em up roguelike game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:lgogdownloader",
+    "category": "Action",
+    "confidence": "low",
+    "reason": "Downloader utility for GOG.com.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:linux-air-combat",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "Combat flight simulator.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:linux-air-combat-appimage",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "Combat flight simulator AppImage.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:love07",
+    "category": "Action",
+    "confidence": "low",
+    "reason": "2D game engine software.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:lutris-live-bin",
+    "category": "Action",
+    "confidence": "low",
+    "reason": "Open gaming launcher platform.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:madness-interactive-reloaded",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Action video game based on combat.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:magicmaze-git",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Monster-bashing maze action game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:mangohud-git",
+    "category": "Action",
+    "confidence": "low",
+    "reason": "Performance monitoring overlay tool.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:maszyna-git",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "Train simulation software.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:mazemaze",
+    "category": "Puzzle",
+    "confidence": "medium",
+    "reason": "First-person maze exploration game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:mazespheres-bin",
+    "category": "Puzzle",
+    "confidence": "medium",
+    "reason": "Horror-themed maze game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:mazter",
+    "category": "Puzzle",
+    "confidence": "high",
+    "reason": "Maze game played in terminal.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:meandmyshadow_levelpack_akos-git",
+    "category": "Puzzle",
+    "confidence": "medium",
+    "reason": "Level pack for Me and My Shadow puzzle game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:minecraft-pi-reborn-git",
+    "category": "Adventure",
+    "confidence": "low",
+    "reason": "Modding project for Minecraft Pi.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:minetest-arcade3d",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Pacman inspired 3D arcade game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:minetest-balloonair",
+    "category": "Simulation",
+    "confidence": "medium",
+    "reason": "Hot air balloon flight game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:minetest-berzerkpt",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Action game set in ancient Egypt.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:minetest-blockbomber",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Multiplayer Bomberman clone action game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:minetest-build-n-buy",
+    "category": "Simulation",
+    "confidence": "medium",
+    "reason": "Build and shopping simulation game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:minetest-builda-city",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "City building and power grid simulation.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:minetest-castrum",
+    "category": "Simulation",
+    "confidence": "medium",
+    "reason": "Resource collection and castle building game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:minetest-cellestial-game",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "3D implementation of Conway's Game of Life.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:minetest-coconut-collection",
+    "category": "Arcade",
+    "confidence": "medium",
+    "reason": "Casual coconut collection game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:minetest-colour-hop",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Action platformer defeating dragons.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:minetest-devtest-git",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "Minetest engine development test game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:minetest-dreambuilder",
+    "category": "Simulation",
+    "confidence": "medium",
+    "reason": "Sandbox creative building game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:minetest-driftgame",
+    "category": "Sports",
+    "confidence": "high",
+    "reason": "Car driving and drifting game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:minetest-easytest",
+    "category": "Simulation",
+    "confidence": "medium",
+    "reason": "Minetest gameplay modification and extension.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:minetest-exile",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "Wilderness survival game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:minetest-farlands-reloaded",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "Vague description 'a game'.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:minetest-game-cdb",
+    "category": "Simulation",
+    "confidence": "medium",
+    "reason": "Default Minetest voxel sandbox game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:minetest-server-git",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "Headless server for voxel game engine.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:minetest-common-git",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "Data files for voxel game engine.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:minetest-grand-theft-box",
+    "category": "Action",
+    "confidence": "medium",
+    "reason": "Voxel parody of Grand Theft Auto action game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:minetest-hades-revisited",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "Terraforming and survival sandbox game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:minetest-holiday-horrors",
+    "category": "Action",
+    "confidence": "medium",
+    "reason": "Holiday survival action game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:minetest-jail-escape",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Stealth jail escape game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:minetest-labyrinth",
+    "category": "Puzzle",
+    "confidence": "high",
+    "reason": "Maze solving puzzle game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:minetest-labyrinthus",
+    "category": "Puzzle",
+    "confidence": "high",
+    "reason": "Maze navigation puzzle game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:minetest-little-lady",
+    "category": "Adventure",
+    "confidence": "medium",
+    "reason": "Exploration game as a ladybug.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:minetest-lordofthetest",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "Lord of the Rings fantasy RPG mod.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:minetest-loria",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "Hardcore alien world survival game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:minetest-lott",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "Lord of the Rings fantasy RPG game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:minetest-luckydude",
+    "category": "Puzzle",
+    "confidence": "medium",
+    "reason": "Cube guessing puzzle game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:minetest-mesecons-lab",
+    "category": "Educational",
+    "confidence": "high",
+    "reason": "Tutorials and laboratory for circuit mechanics.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:minetest-minecraftnt-git",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "Recreation of early Minecraft alpha version.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:minetest-minegistic",
+    "category": "Puzzle",
+    "confidence": "medium",
+    "reason": "Resource node logistics puzzle game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:minetest-minetest-extended",
+    "category": "Simulation",
+    "confidence": "medium",
+    "reason": "Extended version of voxel sandbox game.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:minetest-mod-advtrains-git",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "Realistic train mechanics mod.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:minetest-mod-awards",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "Achievements API mod for Minetest.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:minetest-mod-basic-materials",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "Crafting materials mod for Minetest.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:minetest-mod-caverealms-git",
+    "category": "Adventure",
+    "confidence": "medium",
+    "reason": "Underground realms expansion mod.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:minetest-mod-cucina_vegana-git",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "Farming and cooking simulation mod.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:minetest-mod-scifi_nodes-git",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "Sci-fi building blocks mod.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:minetest-mod-stargate-git",
+    "category": "Adventure",
+    "confidence": "medium",
+    "reason": "Stargate teleporter network mod.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:minetest-mod-technic-git",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "Industrial technology and automation mod.",
+    "model": "gemini-3.6-flash"
+  },
+  {
+    "id": "pacman-aur:minetest-mod-unifieddyes-git",
+    "category": "Simulation",
+    "confidence": "medium",
+    "reason": "Minetest mod for unified dyes",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:minetest-mod-working_villages-git",
+    "category": "Simulation",
+    "confidence": "medium",
+    "reason": "Minetest mod for working villages",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:minetest-mod-worldedit",
+    "category": "Simulation",
+    "confidence": "medium",
+    "reason": "Minetest world editing tool",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:minetest-modular-portals",
+    "category": "Adventure",
+    "confidence": "medium",
+    "reason": "Explore a strange hall with portals",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:minetest-moontest",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "Moon Habitat Simulator",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:minetest-newplanet",
+    "category": "Adventure",
+    "confidence": "medium",
+    "reason": "Strange planet exploration with monsters",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:minetest-nodeverse",
+    "category": "Adventure",
+    "confidence": "medium",
+    "reason": "Procedurally generated space exploration game",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:minetest-nomansland",
+    "category": "Action",
+    "confidence": "medium",
+    "reason": "Survive falling TNT",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:minetest-parkour",
+    "category": "Action",
+    "confidence": "medium",
+    "reason": "Parkour game",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:minetest-planet-alive",
+    "category": "Simulation",
+    "confidence": "medium",
+    "reason": "Living world simulation with mobs",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:minetest-prang",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Unofficial port of 2D arcade-style game",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:minetest-proxima-survival",
+    "category": "Adventure",
+    "confidence": "medium",
+    "reason": "Survival on Proxima Centauri B",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:minetest-regnum",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "Fight monsters, collect XP, craft gear",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:minetest-solar-plains-invector",
+    "category": "Sports",
+    "confidence": "high",
+    "reason": "Karting game with track editor",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:minetest-spmeter",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Vague game jam submission description",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:minetest-stella",
+    "category": "Strategy",
+    "confidence": "medium",
+    "reason": "Enlarge a small island starting point",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:minetest-subway-miner",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Subway Surfer inspired game",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:minetest-tutorial",
+    "category": "Educational",
+    "confidence": "high",
+    "reason": "Learn how to play Minetest",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:minetest-update-translations-git",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "Translation script for Minetest mod",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:minetest-voxel-knights",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "Medieval Fantasy Open World PvE game",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:minetest-water-game",
+    "category": "Adventure",
+    "confidence": "medium",
+    "reason": "Underwater exploration and survival",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:minetest-worldmapper",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "Minetest world mapper utility",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:minetest-xaenvironment",
+    "category": "Adventure",
+    "confidence": "medium",
+    "reason": "Game containing lots of environments",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:monika-after-story",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "Simulator of eternal life with Monika",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:monika-after-story-cn",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "Simulator of eternal life with Monika",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:moondust-project-git",
+    "category": "Adventure",
+    "confidence": "medium",
+    "reason": "Engine for platform games",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:moondust-project-master-bin",
+    "category": "Adventure",
+    "confidence": "medium",
+    "reason": "Engine for platform games",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:moondust-project-stable-bin",
+    "category": "Adventure",
+    "confidence": "medium",
+    "reason": "Engine for platform games",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:mtgarena",
+    "category": "Board & Cards",
+    "confidence": "high",
+    "reason": "Magic: the Gathering Arena",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:myman",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Pacman clone",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:naikari",
+    "category": "Adventure",
+    "confidence": "high",
+    "reason": "Space trading and mercenary game",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:nanoinvaders.lv2-git",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Space invaders in audio plugin",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:nap",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "Sleep with progressbar utility",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:nfs2se",
+    "category": "Sports",
+    "confidence": "high",
+    "reason": "Need For Speed II SE wrapper",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:nice-boat",
+    "category": "Adventure",
+    "confidence": "medium",
+    "reason": "Visual novel game engine",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:nothing",
+    "category": "Puzzle",
+    "confidence": "low",
+    "reason": "A game about nothing",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:nxgameinfo-cli-bin",
+    "category": "Strategy",
+    "confidence": "low",
+    "reason": "Nintendo Switch game info tool",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:obozrenie-git",
+    "category": "Action",
+    "confidence": "low",
+    "reason": "Game server browser",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:oh-my-git",
+    "category": "Educational",
+    "confidence": "low",
+    "reason": "Git prompt utility",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:omnispeak",
+    "category": "Adventure",
+    "confidence": "high",
+    "reason": "Commander Keen re-implementation",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:onscripter",
+    "category": "Adventure",
+    "confidence": "high",
+    "reason": "Visual novel game engine",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:open-invaders",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Clone of Space Invaders",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:openage",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Age of Empires II engine clone",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:openarena-omega-engine-bin",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Quake3e engine fork for OpenArena",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:openblack-git",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Reimplementation of Black & White god game",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:openkropki",
+    "category": "Board & Cards",
+    "confidence": "high",
+    "reason": "Implementation of kropki game",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:openlara-bin",
+    "category": "Adventure",
+    "confidence": "high",
+    "reason": "Classic Tomb Raider engine",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:openmw-tes3mp",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "Multiplayer for Morrowind recreation",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:openpref",
+    "category": "Board & Cards",
+    "confidence": "high",
+    "reason": "Preference card game",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:opensim-rake",
+    "category": "Simulation",
+    "confidence": "medium",
+    "reason": "Asset dumper for Second Life/OpenSim",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:opensimulator",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "3D virtual environment server",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:openskyscraper-git",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "Simtower clone",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:openstarruler-git",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Massive scale 4X-RTS",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:opentomb",
+    "category": "Adventure",
+    "confidence": "high",
+    "reason": "Tomb Raider engine reimplementation",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:openttd-openmsx",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "Music set for OpenTTD transport sim",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:openxray",
+    "category": "Action",
+    "confidence": "medium",
+    "reason": "S.T.A.L.K.E.R. X-Ray Engine port",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:osmos",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Physics-based ambient game Osmos",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:othellox",
+    "category": "Board & Cards",
+    "confidence": "high",
+    "reason": "Reversi game",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:outertale",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "Game inspired by Undertale",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:overgrowth-game-git",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Overgrowth game codebase",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:overte-appimage",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "Virtual worlds platform",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:packrom",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Uzebox ROM utility",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:pacman4console",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Ncurses pacman game",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:pacvim-git",
+    "category": "Educational",
+    "confidence": "high",
+    "reason": "Game that teaches vim commands",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:panda3d",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "3D game engine SDK",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:peguni_draem-la",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "Text-based virtual pet simulator",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:phira-bin",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Music rhythm game clone",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:pico-8",
+    "category": "Arcade",
+    "confidence": "medium",
+    "reason": "Fantasy console for tiny games",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:picotron",
+    "category": "Arcade",
+    "confidence": "medium",
+    "reason": "Fantasy workstation for pixelart games",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:piu-piu-sh-git",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Horizontal scroller shoot them all",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:planetmule",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Remake of M.U.L.E. economic strategy",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:play.it",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "Game installer utility",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:pmars",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Corewar programming game",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:pokeclicker-bin",
+    "category": "Role-Playing",
+    "confidence": "medium",
+    "reason": "Catching Pokemon and defeating gym leaders",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:pokeclicker-scripts-bin",
+    "category": "Role-Playing",
+    "confidence": "medium",
+    "reason": "Catching Pokemon and defeating gym leaders",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:pq-cli",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "Progress Quest CLI edition",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:procalc-git",
+    "category": "Puzzle",
+    "confidence": "medium",
+    "reason": "Calculator with secrets to unlock",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:proton-xiv-bin",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "Proton compatibility layer",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:qqsp",
+    "category": "Adventure",
+    "confidence": "high",
+    "reason": "Interactive fiction stories player",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:qtads-mimetype-icons",
+    "category": "Adventure",
+    "confidence": "low",
+    "reason": "Desktop icons for TADS story files",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:quadrupleback",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Clone of Doubleback game",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:radar-contact",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "Airspace management simulation",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:raylua-git",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "LuaJIT binding for raylib",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:reactgame",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Reaction training game",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:rebels-in-the-sky-git",
+    "category": "Sports",
+    "confidence": "medium",
+    "reason": "Spacepirates playing basketball",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:redeemer",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "3d shooting game",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:relive-bin",
+    "category": "Adventure",
+    "confidence": "high",
+    "reason": "Engine replacement for Oddworld",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:reminiscence",
+    "category": "Adventure",
+    "confidence": "high",
+    "reason": "Flashback engine rewrite",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:rescue",
+    "category": "Educational",
+    "confidence": "low",
+    "reason": "Regex vulnerability detection tool",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:robombs_bin",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "LAN game inspired by Bomberman",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:robot-ricochet",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Evade capture by destroying robots",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:rolisteam",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "Virtual tabletop for RPGs",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:rolldice",
+    "category": "Board & Cards",
+    "confidence": "high",
+    "reason": "Virtual dice roller",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:rustcraft",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "Minecraft clone in Rust",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:samory-bin",
+    "category": "Puzzle",
+    "confidence": "high",
+    "reason": "Memory card game",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:scrabble-1d",
+    "category": "Board & Cards",
+    "confidence": "high",
+    "reason": "One-dimensional scrabble game",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:sdate",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "September 1993 date wrapper",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:seihou-shuusou-gyoku",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Seihou project shoot-em-up engine",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:serious-engine-git",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Serious Sam game engine",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:serioussam-dancesworld",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Serious Sam Classic mod",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:serioussam-oddworld",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Serious Sam Classic mod",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:serioussam-pefe2q",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Serious Sam Classic mod",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:serioussam-pese2q",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Serious Sam Classic mod",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:serioussam-tower",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Serious Sam Classic mod",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:seven-waves",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Dodging game with 7 levels",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:shank2",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "2D side-scrolling beat em up",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:slashem",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "Nethack roguelike variant",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:sm-git",
+    "category": "Adventure",
+    "confidence": "high",
+    "reason": "Super Metroid implementation",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:snapshot-git",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "Camera application",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:sonic2013-git",
+    "category": "Adventure",
+    "confidence": "high",
+    "reason": "Sonic 1 & 2 decompilation",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:soniccd-git",
+    "category": "Adventure",
+    "confidence": "high",
+    "reason": "Sonic CD decompilation",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:space-dodge",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Fast-paced space survival game",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:space-snake-bin",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Snake game",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:speed-dreams-appimage",
+    "category": "Sports",
+    "confidence": "high",
+    "reason": "TORCS racing fork",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:spheres-of-chaos",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Asteroids-like arcade game",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:spiral-knights",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "Explore Clockworks in Spiral Knights",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:sqrxz",
+    "category": "Adventure",
+    "confidence": "high",
+    "reason": "Fast paced jump and run",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:sqrxz2",
+    "category": "Adventure",
+    "confidence": "high",
+    "reason": "Fast paced jump and run",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:sqrxz3",
+    "category": "Adventure",
+    "confidence": "high",
+    "reason": "Fast paced jump and run",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:sqrxz4",
+    "category": "Adventure",
+    "confidence": "high",
+    "reason": "Fast paced jump and run",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:stax",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "Git workflow tool",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:steam-appmanifest-git",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "Steam download trick script",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:steam-devices-git",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "Steam device permission list",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:steascree",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "Steam screenshot injector",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:stone-paper-scissors",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Stone-Paper-Scissors game",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:suave",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Drive a small assault tank",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:superflu-riteurnz",
+    "category": "Adventure",
+    "confidence": "high",
+    "reason": "Point and click game",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:superpowers",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "Game making software",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:supersplashbros2-bin",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Last player standing above water",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:supertux-advance",
+    "category": "Adventure",
+    "confidence": "high",
+    "reason": "SuperTux 16bit-style game",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:supertux-old",
+    "category": "Adventure",
+    "confidence": "high",
+    "reason": "Jump and run inspired by Mario",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:system3-sdl2",
+    "category": "Adventure",
+    "confidence": "medium",
+    "reason": "AliceSoft game engine port",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:sysvbanner",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "System-V banner clone",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:tag_puzzle",
+    "category": "Puzzle",
+    "confidence": "high",
+    "reason": "Simple Tag puzzle game",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:taipan",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "China trade simulation game",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:tcgtools-git",
+    "category": "Board & Cards",
+    "confidence": "high",
+    "reason": "TCG card draw probability calculator",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:techmino",
+    "category": "Puzzle",
+    "confidence": "high",
+    "reason": "Modern block game rules collection",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:terasology",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "Minecraft-like block game",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:tesseract-game",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Smooth FPS with map editing",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:tetronimia",
+    "category": "Puzzle",
+    "confidence": "high",
+    "reason": "Falling blocky terminal game",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:the-dark-mod-bin",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "First person stealth game",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:thextech-bin",
+    "category": "Adventure",
+    "confidence": "high",
+    "reason": "Super Mario Bros X engine",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:thief-bin",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "Fishing/distraction utility",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:think",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "Terminal music utility",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:tiny-games-bin",
+    "category": "Arcade",
+    "confidence": "medium",
+    "reason": "Play games with friends",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:titanion",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Strike down swooping insects",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:toontown-rewritten",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "Toontown MMO rewrite",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:trainsported-git",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Writing train AIs game",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:trex-c",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Google T-Rex console game",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:triplane",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Classic dogfighting game",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:tunics",
+    "category": "Adventure",
+    "confidence": "high",
+    "reason": "Zelda-like Solarus game",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:ultrastar-creator",
+    "category": "Arcade",
+    "confidence": "medium",
+    "reason": "UltraStar karaoke song creator",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:unigine-superposition",
+    "category": "Simulation",
+    "confidence": "medium",
+    "reason": "Interactive 3D benchmark walk-through",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:unreal-engine",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "Unreal Engine game engine",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:unreal-engine-4",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "Unreal Engine 4 game engine",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:urho3d",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "Urho3D game engine",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:vexa-git",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "Graphics framework",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:vigor",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "Nvi editor with paperclip",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:vim-gdscript-git",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "Vim syntax for Godot",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:viruskiller",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Arcade shoot em up game",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:vkbasalt",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "Vulkan post-processing layer",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:voxelands",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "Infiniminer/Minecraft inspired game",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:voxelcore",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "Minecraft-like game engine",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:voxelquest",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "Voxel RPG and engine",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:wastesedge",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "Role playing game on Adonthell",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:waveengine",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "Component based game engine",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:webgal-terre-bin",
+    "category": "Adventure",
+    "confidence": "high",
+    "reason": "Visual novel editing tool",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:whip-server",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "InWorldz asset server",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:winegame",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "Windows game runner platform",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:wipeout-rewrite-git",
+    "category": "Sports",
+    "confidence": "high",
+    "reason": "Re-implementation of wipEout",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:wonkey-bin",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "Game programming language",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:wordplay",
+    "category": "Puzzle",
+    "confidence": "medium",
+    "reason": "Anagram generator",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:wormpy",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Worm game port",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:xash3d-fwgs-bin",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Half-Life engine fork",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:xlode",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Lode Runner clone",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:xnine-git",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "Direct3D9 driver for DXVK",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:xpacman",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "X pacman game",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:xplanet-svn",
+    "category": "Simulation",
+    "confidence": "medium",
+    "reason": "Renders earth image to root window",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:xscorch",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Scorched Earth clone",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:xsoldier",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "2D shoot em up game",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:xsystem35-sdl2",
+    "category": "Adventure",
+    "confidence": "medium",
+    "reason": "AliceSoft System 3 engine port",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:xsystem4",
+    "category": "Adventure",
+    "confidence": "medium",
+    "reason": "AliceSoft System 4 engine port",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:xump",
+    "category": "Puzzle",
+    "confidence": "high",
+    "reason": "Simple puzzler game",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:yarg",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Rhythm game like Guitar Hero",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:yzkof-gm-arcade-international",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Play retro arcade games online",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:z-git",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "Directory jumping utility",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "pacman-aur:zff",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "A simple game",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "deb-debian:7kaa-data",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Seven Kingdoms game data",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "deb-debian:abe-data",
+    "category": "Adventure",
+    "confidence": "high",
+    "reason": "Abe's Amazing Adventure data",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "deb-debian:acm",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "Aerial combat simulation",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "deb-debian:alienblaster",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Classic 2D shoot em up",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "deb-debian:alienblaster-data",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Alien Blaster game data",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "deb-debian:animals",
+    "category": "Puzzle",
+    "confidence": "medium",
+    "reason": "Animal guessing game",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "deb-debian:armagetronad-dedicated",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Armagetron Advanced server",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "deb-debian:asc-data",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Advanced Strategic Command data",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "deb-debian:asc-music",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Music pack for ASC strategy",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "deb-debian:asylum",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Platform shooting game",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "deb-debian:asylum-data",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Platform shooting game data",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "deb-debian:atanks-data",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Atomic tanks data",
+    "model": "gemini-3.5-flash"
+  },
+  {
+    "id": "deb-debian:ballz-data",
+    "category": "Arcade",
+    "confidence": "medium",
+    "reason": "B.A.L.L.Z. game data",
+    "model": "gemini-3.5-flash"
   }
 ]

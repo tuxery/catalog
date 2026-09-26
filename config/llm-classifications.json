@@ -2398,5 +2398,605 @@
     "category": "Arcade",
     "confidence": "high",
     "reason": "Locomalito retro fixed-shooter arcade game."
+  },
+  {
+    "id": "virustg",
+    "category": "Action",
+    "confidence": "low",
+    "reason": "Virus games typically feature action/strategy themes, description is very brief."
+  },
+  {
+    "id": "ws-deluxe-lite",
+    "category": "Board & Cards",
+    "confidence": "low",
+    "reason": "Extremely brief name/desc; WS often denotes Wordament or Scrabble, guess low."
+  },
+  {
+    "id": "witch-frog",
+    "category": "Puzzle",
+    "confidence": "high",
+    "reason": "Described explicitly as a combat puzzler."
+  },
+  {
+    "id": "wizardwizard",
+    "category": "Arcade",
+    "confidence": "medium",
+    "reason": "Focus on jumping platforming gameplay suggests arcade/action."
+  },
+  {
+    "id": "woodygammon",
+    "category": "Board & Cards",
+    "confidence": "high",
+    "reason": "Explicitly described as a version of Backgammon."
+  },
+  {
+    "id": "wheel-of-fortune-dlx",
+    "category": "Puzzle",
+    "confidence": "medium",
+    "reason": "Wheel of Fortune is a word puzzle gameshow."
+  },
+  {
+    "id": "war3keys",
+    "category": "Strategy",
+    "confidence": "low",
+    "reason": "Key remap utility for Warcraft 3, a strategy game."
+  },
+  {
+    "id": "yaya",
+    "category": "Board & Cards",
+    "confidence": "high",
+    "reason": "Described as a Yahtzee-esque dice game application."
+  },
+  {
+    "id": "ygig",
+    "category": "Puzzle",
+    "confidence": "high",
+    "reason": "Idiom guessing and word quiz game."
+  },
+  {
+    "id": "yahtzee-windows",
+    "category": "Board & Cards",
+    "confidence": "high",
+    "reason": "Yahtzee is a classic dice/board game."
+  },
+  {
+    "id": "yasc",
+    "category": "Puzzle",
+    "confidence": "high",
+    "reason": "Sokoban is a classic box-pushing puzzle game."
+  },
+  {
+    "id": "5-card-poker-collection",
+    "category": "Board & Cards",
+    "confidence": "high",
+    "reason": "Collection of poker card game variants."
+  },
+  {
+    "id": "space-combat",
+    "category": "Action",
+    "confidence": "medium",
+    "reason": "Space combat typically falls under action games."
+  },
+  {
+    "id": "simant",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "SimAnt is an ant colony simulation game."
+  },
+  {
+    "id": "sports-mogul-baseball",
+    "category": "Sports",
+    "confidence": "high",
+    "reason": "Explicitly described as a sports management simulation."
+  },
+  {
+    "id": "sea-battle",
+    "category": "Board & Cards",
+    "confidence": "high",
+    "reason": "Battleship is a classic board game."
+  },
+  {
+    "id": "sonic3d",
+    "category": "Arcade",
+    "confidence": "medium",
+    "reason": "Sonic games are platformers closely associated with arcade/action."
+  },
+  {
+    "id": "survivor-reborn",
+    "category": "Action",
+    "confidence": "low",
+    "reason": "Survivor games are typically survival action/arcade."
+  },
+  {
+    "id": "star-raptor",
+    "category": "Arcade",
+    "confidence": "medium",
+    "reason": "Top-down or shmup arcade objective 'destroy all enemies'."
+  },
+  {
+    "id": "sonic-exe",
+    "category": "Adventure",
+    "confidence": "medium",
+    "reason": "Horror adventure/platformer fan game."
+  },
+  {
+    "id": "supermariobros-game-builder",
+    "category": "Arcade",
+    "confidence": "medium",
+    "reason": "Super Mario Bros is an iconic platformer/arcade game."
+  },
+  {
+    "id": "soko3d",
+    "category": "Puzzle",
+    "confidence": "high",
+    "reason": "Sokoban is a box-pushing puzzle game."
+  },
+  {
+    "id": "smart-games-puzzle-challenge-3",
+    "category": "Puzzle",
+    "confidence": "high",
+    "reason": "Described explicitly as a collection of puzzles."
+  },
+  {
+    "id": "souptoys",
+    "category": "Simulation",
+    "confidence": "medium",
+    "reason": "A digital desktop toybox simulation."
+  },
+  {
+    "id": "symgrpmad",
+    "category": "Puzzle",
+    "confidence": "medium",
+    "reason": "Game based on overlapping symmetry groups is a puzzle concept."
+  },
+  {
+    "id": "pi",
+    "category": "Educational",
+    "confidence": "low",
+    "reason": "Raspberry Pi gadget/toy."
+  },
+  {
+    "id": "bomberic2",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Described explicitly as a great action game."
+  },
+  {
+    "id": "bomberic",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Described explicitly as a great action game."
+  },
+  {
+    "id": "clone-windows",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Described explicitly as a nice action game."
+  },
+  {
+    "id": "solitude",
+    "category": "Adventure",
+    "confidence": "low",
+    "reason": "A dark room desktop game suggests ambient/adventure."
+  },
+  {
+    "id": "wallstreet",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "Simulates Wall Street news and stock stats in console."
+  },
+  {
+    "id": "pengapop",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Described explicitly as a cool action game."
+  },
+  {
+    "id": "pickingems",
+    "category": "Arcade",
+    "confidence": "medium",
+    "reason": "Pickin' Sticks is a simple gathering arcade game."
+  },
+  {
+    "id": "appimage:tkashkin:GameHub",
+    "category": "Action",
+    "confidence": "low",
+    "reason": "Game launcher/manager, not a game itself."
+  },
+  {
+    "id": "appimage:xxxcucus:planes",
+    "category": "Board & Cards",
+    "confidence": "high",
+    "reason": "Described as a variant of the Battleships board game."
+  },
+  {
+    "id": "pacman-aur:1oom",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Master of Orion is a 4X turn-based strategy game."
+  },
+  {
+    "id": "pacman-aur:2048-cli-git",
+    "category": "Puzzle",
+    "confidence": "high",
+    "reason": "2048 is a sliding block puzzle game."
+  },
+  {
+    "id": "pacman-aur:2048-py",
+    "category": "Puzzle",
+    "confidence": "high",
+    "reason": "2048 is a sliding block puzzle game."
+  },
+  {
+    "id": "pacman-aur:2048-qt",
+    "category": "Puzzle",
+    "confidence": "high",
+    "reason": "2048 is a sliding block puzzle game."
+  },
+  {
+    "id": "pacman-aur:2048-tui",
+    "category": "Puzzle",
+    "confidence": "high",
+    "reason": "2048 is a sliding block puzzle game."
+  },
+  {
+    "id": "pacman-aur:2048.c",
+    "category": "Puzzle",
+    "confidence": "high",
+    "reason": "2048 is a sliding block puzzle game."
+  },
+  {
+    "id": "pacman-aur:2048.cpp-git",
+    "category": "Puzzle",
+    "confidence": "high",
+    "reason": "2048 is a sliding block puzzle game."
+  },
+  {
+    "id": "pacman-aur:2048term-git",
+    "category": "Puzzle",
+    "confidence": "high",
+    "reason": "2048 is a sliding block puzzle game."
+  },
+  {
+    "id": "pacman-aur:7kaa-music",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Seven Kingdoms is an RTS game."
+  },
+  {
+    "id": "pacman-aur:a7xpg",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Described explicitly as a chase action game."
+  },
+  {
+    "id": "pacman-aur:achilles",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "Artificial life and evolution simulator."
+  },
+  {
+    "id": "pacman-aur:adonthell",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "Explicitly described as a role playing game engine."
+  },
+  {
+    "id": "pacman-aur:adventuresofdemo",
+    "category": "Arcade",
+    "confidence": "medium",
+    "reason": "Platformer game based on Super Mario Bros. X engine."
+  },
+  {
+    "id": "pacman-aur:allegro-blasteroids-git",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Blasteroids is an arcade space shooter game."
+  },
+  {
+    "id": "pacman-aur:animetetris",
+    "category": "Puzzle",
+    "confidence": "high",
+    "reason": "Tetris clone, a classic falling block puzzle game."
+  },
+  {
+    "id": "pacman-aur:apx",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "QIX is a classic arcade game."
+  },
+  {
+    "id": "pacman-aur:arrowkeyoracle",
+    "category": "Puzzle",
+    "confidence": "low",
+    "reason": "Guessing/prediction game mechanic."
+  },
+  {
+    "id": "pacman-aur:ascii-battleship",
+    "category": "Board & Cards",
+    "confidence": "high",
+    "reason": "Battleship is a board game."
+  },
+  {
+    "id": "pacman-aur:asciiplanes",
+    "category": "Puzzle",
+    "confidence": "high",
+    "reason": "Grid-based deduction puzzle game similar to Battleship."
+  },
+  {
+    "id": "pacman-aur:ativayeban-git",
+    "category": "Arcade",
+    "confidence": "medium",
+    "reason": "Dodging obstacles while falling is classic arcade gameplay."
+  },
+  {
+    "id": "pacman-aur:bar-lobby-bin",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Lobby for Beyond All Reason, an RTS strategy game."
+  },
+  {
+    "id": "pacman-aur:beatoraja-modernchic",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Rhythm games are categorized under Arcade."
+  },
+  {
+    "id": "pacman-aur:birtty",
+    "category": "Arcade",
+    "confidence": "medium",
+    "reason": "Flappy bird style game where you avoid crashing."
+  },
+  {
+    "id": "pacman-aur:blackpenguin",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Described as an arcade-style jump-on-cubes game."
+  },
+  {
+    "id": "pacman-aur:blackvoxel",
+    "category": "Simulation",
+    "confidence": "medium",
+    "reason": "Automation and programming in a voxel world."
+  },
+  {
+    "id": "pacman-aur:blobwars-data-old",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Described explicitly as a platform action game."
+  },
+  {
+    "id": "pacman-aur:blt4l",
+    "category": "Action",
+    "confidence": "medium",
+    "reason": "Mod loader for Payday 2, an action heist shooter."
+  },
+  {
+    "id": "pacman-aur:blt4l-runtime-bin",
+    "category": "Action",
+    "confidence": "medium",
+    "reason": "Mod loader for Payday 2, an action heist shooter."
+  },
+  {
+    "id": "pacman-aur:bombardier",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "Benchmark tool, not a game."
+  },
+  {
+    "id": "pacman-aur:bombkurdistan-bin",
+    "category": "Action",
+    "confidence": "low",
+    "reason": "Simple bombing game fits action."
+  },
+  {
+    "id": "pacman-aur:bstone",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Blake Stone is a classic first-person shooter action game."
+  },
+  {
+    "id": "pacman-aur:card-mayor",
+    "category": "Board & Cards",
+    "confidence": "medium",
+    "reason": "Deck-builder game genre belongs to cards/board games."
+  },
+  {
+    "id": "pacman-aur:cartlife-bin",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "Explicitly described as a simulation video game."
+  },
+  {
+    "id": "pacman-aur:ccleste",
+    "category": "Action",
+    "confidence": "medium",
+    "reason": "Celeste is a precision platformer action game."
+  },
+  {
+    "id": "pacman-aur:cdogs-mission-pack",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "C-Dogs is a top-down run-and-gun action game."
+  },
+  {
+    "id": "pacman-aur:cirno-catch-frog",
+    "category": "Arcade",
+    "confidence": "medium",
+    "reason": "Simple Touhou minigame catching frogs."
+  },
+  {
+    "id": "pacman-aur:cli-of-life",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "Conway's Game of Life is a cellular automaton simulation."
+  },
+  {
+    "id": "pacman-aur:clmystery-git",
+    "category": "Adventure",
+    "confidence": "high",
+    "reason": "Murder mystery game falls under adventure."
+  },
+  {
+    "id": "pacman-aur:clonehero-ptb",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Guitar Hero-style rhythm games are arcade games."
+  },
+  {
+    "id": "pacman-aur:clonepoint-git",
+    "category": "Puzzle",
+    "confidence": "medium",
+    "reason": "Gunpoint is a stealth puzzle platformer."
+  },
+  {
+    "id": "pacman-aur:connect4-cli",
+    "category": "Board & Cards",
+    "confidence": "high",
+    "reason": "Connect 4 is a traditional board game."
+  },
+  {
+    "id": "pacman-aur:console_snake",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Snake is an archetypal arcade game."
+  },
+  {
+    "id": "pacman-aur:conway-screensaver",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "Conway's Game of Life is a life simulator."
+  },
+  {
+    "id": "pacman-aur:cordial",
+    "category": "Adventure",
+    "confidence": "low",
+    "reason": "Roblox client wrapper; platform hosts various genres, often categorized adventure."
+  },
+  {
+    "id": "pacman-aur:craftrogue",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "Rogue-like terminal game where you kill monsters."
+  },
+  {
+    "id": "pacman-aur:cw",
+    "category": "Educational",
+    "confidence": "low",
+    "reason": "ANSI color wrapper utility, not a game."
+  },
+  {
+    "id": "pacman-aur:daydreamer",
+    "category": "Adventure",
+    "confidence": "high",
+    "reason": "Interactive fiction player, adventure game format."
+  },
+  {
+    "id": "pacman-aur:degrees-of-lewdity",
+    "category": "Role-Playing",
+    "confidence": "medium",
+    "reason": "Text-based life/RPG game."
+  },
+  {
+    "id": "pacman-aur:devilutionx-voices",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "DevilutionX is an engine for Diablo, an action RPG."
+  },
+  {
+    "id": "pacman-aur:dijeweled",
+    "category": "Puzzle",
+    "confidence": "high",
+    "reason": "Bejeweled is a match-3 puzzle game."
+  },
+  {
+    "id": "pacman-aur:dino-brick",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Chrome dino runner is a simple arcade game."
+  },
+  {
+    "id": "pacman-aur:dizzy-git",
+    "category": "Educational",
+    "confidence": "low",
+    "reason": "Network fuzzing toolkit, not a game."
+  },
+  {
+    "id": "pacman-aur:donkey-gauntlet-git",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Donkey.bas is an early arcade driving/avoidance game."
+  },
+  {
+    "id": "pacman-aur:dualsensectl",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "Gamepad control tool, not a game."
+  },
+  {
+    "id": "pacman-aur:duckstation",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "PlayStation 1 emulator package."
+  },
+  {
+    "id": "pacman-aur:dungeonrush",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "Explicitly described as Snake with RPG elements."
+  },
+  {
+    "id": "pacman-aur:dwarffortress-linuxdwarfpack-appimage",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "Dwarf Fortress is a colony simulation and strategy game."
+  },
+  {
+    "id": "pacman-aur:erebus",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "Explicitly described as a role-playing game."
+  },
+  {
+    "id": "pacman-aur:factorio-demo",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Factorio is a management/automation strategy game."
+  },
+  {
+    "id": "pacman-aur:factorio-experimental",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Factorio is a management/automation strategy game."
+  },
+  {
+    "id": "pacman-aur:factorio-headless",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Factorio is a management/automation strategy game."
+  },
+  {
+    "id": "pacman-aur:factorio-headless-experimental",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Factorio is a management/automation strategy game."
+  },
+  {
+    "id": "pacman-aur:factorio-yafc-ce-git",
+    "category": "Strategy",
+    "confidence": "medium",
+    "reason": "Calculator/analyzer utility for Factorio, a strategy game."
+  },
+  {
+    "id": "pacman-aur:factorio-yafc-git",
+    "category": "Strategy",
+    "confidence": "medium",
+    "reason": "Calculator/analyzer utility for Factorio, a strategy game."
+  },
+  {
+    "id": "pacman-aur:fallout1-ce-game",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "Fallout is a classic post-apocalyptic role-playing game."
   }
 ]

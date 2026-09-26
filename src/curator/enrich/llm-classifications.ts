@@ -37,6 +37,11 @@ const LlmClassificationEntrySchema = z.object({
       "The LLM's own certainty in this category. A three-level enum rather than a numeric score — self-reported LLM probabilities are poorly calibrated, so a finer scale would only pretend to precision. 'low' entries are kept for auditability but never applied (see llmCategoryMap).",
     ),
   reason: z.string().describe("Why the LLM assigned this category — for auditability."),
+  model: z
+    .string()
+    .describe(
+      "The Gemini model that produced this entry, e.g. 'gemini-3.8-flash' — classify-llm rotates across models to spread the free tier's per-model daily quota, so quality can be audited per model.",
+    ),
 });
 
 /** Entries at this confidence stay "To Classify" — a wrong category is worse than an honest unknown. */

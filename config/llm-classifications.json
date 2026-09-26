@@ -1,1 +1,1202 @@
-[]
+[
+  {
+    "id": "receiver",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "Radio tuner utility, nearest gaming category is tenuous."
+  },
+  {
+    "id": "net.windower.Lumoria",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "Explicitly described as an MMORPG."
+  },
+  {
+    "id": "page.codeberg.jaerrib.RNGremlin",
+    "category": "Role-Playing",
+    "confidence": "medium",
+    "reason": "TTRPG dice roller utility for role-playing games."
+  },
+  {
+    "id": "lonewolf",
+    "category": "Strategy",
+    "confidence": "low",
+    "reason": "Task organizer utility, closest fit if considered strategy."
+  },
+  {
+    "id": "jigsaw-puzzles-collections",
+    "category": "Puzzle",
+    "confidence": "high",
+    "reason": "Jigsaw puzzles are puzzle games."
+  },
+  {
+    "id": "magic-paint-kaleidoscope",
+    "category": "Educational",
+    "confidence": "low",
+    "reason": "Drawing or kaleidoscope art utility/game."
+  },
+  {
+    "id": "astonischika",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "Described as a pixel-art party RPG."
+  },
+  {
+    "id": "awesome-pygames",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Collection of Pygame games."
+  },
+  {
+    "id": "antsy-alien-attack-pico",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Vertically scrolling shoot 'em up is classic arcade."
+  },
+  {
+    "id": "geforce-now-desktop",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Cloud gaming launcher."
+  },
+  {
+    "id": "helljump",
+    "category": "Action",
+    "confidence": "medium",
+    "reason": "Platformer game."
+  },
+  {
+    "id": "qjoypad-ahimta",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Joypad input mapping utility."
+  },
+  {
+    "id": "neonborn",
+    "category": "Action",
+    "confidence": "low",
+    "reason": "2.5D online multiplayer game."
+  },
+  {
+    "id": "zork",
+    "category": "Adventure",
+    "confidence": "high",
+    "reason": "Classic interactive fiction adventure game."
+  },
+  {
+    "id": "hungrysnake",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Classic Snake arcade game."
+  },
+  {
+    "id": "jsbudbrainspuzzle",
+    "category": "Puzzle",
+    "confidence": "high",
+    "reason": "Jigsaw puzzles."
+  },
+  {
+    "id": "cannonball",
+    "category": "Sports",
+    "confidence": "medium",
+    "reason": "OutRun engine, an arcade driving/racing game."
+  },
+  {
+    "id": "twister-spinner",
+    "category": "Board & Cards",
+    "confidence": "medium",
+    "reason": "Twister game spinner companion."
+  },
+  {
+    "id": "open-syobon-action",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Platformer game."
+  },
+  {
+    "id": "duodom",
+    "category": "Puzzle",
+    "confidence": "high",
+    "reason": "Sliding stone board-clearing puzzle."
+  },
+  {
+    "id": "pepe-party",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Terminal meme toy."
+  },
+  {
+    "id": "flappy-legend",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Flappy Bird style reflex arcade game."
+  },
+  {
+    "id": "sukhi-play",
+    "category": "Educational",
+    "confidence": "low",
+    "reason": "Kids kiosk browser software."
+  },
+  {
+    "id": "game-scorecard-flutter",
+    "category": "Board & Cards",
+    "confidence": "low",
+    "reason": "Scorecard utility for tracking player points."
+  },
+  {
+    "id": "frogmatch",
+    "category": "Puzzle",
+    "confidence": "low",
+    "reason": "Match game indicated by name."
+  },
+  {
+    "id": "farmisfun",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "Farming building and management simulation."
+  },
+  {
+    "id": "budbrainsmarbles",
+    "category": "Puzzle",
+    "confidence": "high",
+    "reason": "Color-sorting marble puzzle."
+  },
+  {
+    "id": "love",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Game engine software."
+  },
+  {
+    "id": "roulette",
+    "category": "Board & Cards",
+    "confidence": "high",
+    "reason": "Roulette casino/board game."
+  },
+  {
+    "id": "little-spy",
+    "category": "Action",
+    "confidence": "medium",
+    "reason": "2D platformer game."
+  },
+  {
+    "id": "word-hustler",
+    "category": "Puzzle",
+    "confidence": "high",
+    "reason": "Spelling Bee word puzzle game."
+  },
+  {
+    "id": "lovely-memory-game",
+    "category": "Puzzle",
+    "confidence": "medium",
+    "reason": "Memory matching puzzle game."
+  },
+  {
+    "id": "dm-tools",
+    "category": "Role-Playing",
+    "confidence": "medium",
+    "reason": "Dungeon Master tools for tabletop RPGs."
+  },
+  {
+    "id": "connectron",
+    "category": "Board & Cards",
+    "confidence": "high",
+    "reason": "Four in a row board game."
+  },
+  {
+    "id": "crazygames",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Web arcade portal."
+  },
+  {
+    "id": "unscripted",
+    "category": "Adventure",
+    "confidence": "high",
+    "reason": "Visual novel is categorized under adventure."
+  },
+  {
+    "id": "synthetic-things",
+    "category": "Simulation",
+    "confidence": "medium",
+    "reason": "Factory production simulation game."
+  },
+  {
+    "id": "minecraft-classic",
+    "category": "Adventure",
+    "confidence": "medium",
+    "reason": "Minecraft Classic sandbox adventure/building game."
+  },
+  {
+    "id": "poki",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Online web game platform."
+  },
+  {
+    "id": "ioncore",
+    "category": "Strategy",
+    "confidence": "low",
+    "reason": "Digital currency cryptocurrency client."
+  },
+  {
+    "id": "antstream-arcade",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Retro arcade gaming platform."
+  },
+  {
+    "id": "agsubsim",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "Subway train simulator."
+  },
+  {
+    "id": "agsubsimpro",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "Subway train simulator."
+  },
+  {
+    "id": "azimuth",
+    "category": "Adventure",
+    "confidence": "high",
+    "reason": "Metroidvania adventure game."
+  },
+  {
+    "id": "alienshooter",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Shooter action game."
+  },
+  {
+    "id": "asciicker",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "Textmode RPG prototype."
+  },
+  {
+    "id": "allwallsmustfall",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Isometric tactics game."
+  },
+  {
+    "id": "avernum2",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "Classic turn-based RPG."
+  },
+  {
+    "id": "armed-to-the-gears",
+    "category": "Action",
+    "confidence": "medium",
+    "reason": "Isometric mech action/tactics game."
+  },
+  {
+    "id": "acid-rain",
+    "category": "Action",
+    "confidence": "medium",
+    "reason": "Dodging and survival action game."
+  },
+  {
+    "id": "ambermoon-net-d042",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "Remake of a classic RPG."
+  },
+  {
+    "id": "azteca",
+    "category": "Puzzle",
+    "confidence": "medium",
+    "reason": "Azteca is a tile-matching/puzzle game."
+  },
+  {
+    "id": "ametadata-game",
+    "category": "Adventure",
+    "confidence": "high",
+    "reason": "Exploration game."
+  },
+  {
+    "id": "atomic-bomberman",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Bomberman maze action game."
+  },
+  {
+    "id": "arkanoid-fangame-rv",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Arkanoid brick-breaker arcade game."
+  },
+  {
+    "id": "atomica",
+    "category": "Puzzle",
+    "confidence": "high",
+    "reason": "PopCap chemistry-themed puzzle game."
+  },
+  {
+    "id": "angband-win",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "Classic roguelike RPG."
+  },
+  {
+    "id": "artifact",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Qix-style area-capture arcade game."
+  },
+  {
+    "id": "airxonix",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "3D remake of classic Qix/Xonix arcade game."
+  },
+  {
+    "id": "mir-kiosk-scummvm",
+    "category": "Adventure",
+    "confidence": "medium",
+    "reason": "Virtual machine for point-and-click adventure games."
+  },
+  {
+    "id": "flycharts",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "Flight planner companion for flight simulators."
+  },
+  {
+    "id": "volleyball2d",
+    "category": "Sports",
+    "confidence": "high",
+    "reason": "Volleyball sports game."
+  },
+  {
+    "id": "iconny-arcade",
+    "category": "Arcade",
+    "confidence": "medium",
+    "reason": "Name explicitly specifies arcade."
+  },
+  {
+    "id": "pigami",
+    "category": "Adventure",
+    "confidence": "medium",
+    "reason": "Rolling block adventure game."
+  },
+  {
+    "id": "icemaze",
+    "category": "Puzzle",
+    "confidence": "medium",
+    "reason": "Sliding block maze puzzle game."
+  },
+  {
+    "id": "polygonflight",
+    "category": "Action",
+    "confidence": "medium",
+    "reason": "Plane shooting game."
+  },
+  {
+    "id": "kango",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Action-adventure platformer."
+  },
+  {
+    "id": "paddleball",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Fast-paced arcade brick breaker."
+  },
+  {
+    "id": "dofus",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "Dofus is a tactical MMORPG."
+  },
+  {
+    "id": "out-of-gas-the-game",
+    "category": "Adventure",
+    "confidence": "medium",
+    "reason": "Survival and puzzle escape adventure."
+  },
+  {
+    "id": "stick-man-game",
+    "category": "Action",
+    "confidence": "low",
+    "reason": "Generic stick man game, typically action."
+  },
+  {
+    "id": "flappy",
+    "category": "Arcade",
+    "confidence": "medium",
+    "reason": "Flappy Bird style arcade game."
+  },
+  {
+    "id": "termbreaker",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Break-out style arcade game."
+  },
+  {
+    "id": "terminaltype",
+    "category": "Educational",
+    "confidence": "medium",
+    "reason": "Typing test skill trainer."
+  },
+  {
+    "id": "piupiu",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Terminal game, likely simple shooter/arcade."
+  },
+  {
+    "id": "letrain",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "Train simulator and logistics tycoon."
+  },
+  {
+    "id": "mr-shredder",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "File destruction simulator."
+  },
+  {
+    "id": "thorium-nova",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "Space simulation game."
+  },
+  {
+    "id": "mc-installer",
+    "category": "Adventure",
+    "confidence": "medium",
+    "reason": "Installer for Minecraft sandbox adventure game."
+  },
+  {
+    "id": "ohmygiraffe",
+    "category": "Action",
+    "confidence": "medium",
+    "reason": "Oh My Giraffe is an action arcade game."
+  },
+  {
+    "id": "block",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Block breaking arcade game."
+  },
+  {
+    "id": "bombsquad",
+    "category": "Action",
+    "confidence": "medium",
+    "reason": "Multiplayer explosive action party game."
+  },
+  {
+    "id": "bug-bounty",
+    "category": "Puzzle",
+    "confidence": "low",
+    "reason": "Bug fixing game, fits puzzle mechanics."
+  },
+  {
+    "id": "bash-shell-rpg",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "Action RPG in command line."
+  },
+  {
+    "id": "boggle-java",
+    "category": "Board & Cards",
+    "confidence": "high",
+    "reason": "Boggle is a classic word board game."
+  },
+  {
+    "id": "bionicle-masksofpowerlegacy",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Action adventure game."
+  },
+  {
+    "id": "batufo",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Multiplayer space battle game."
+  },
+  {
+    "id": "brains",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Shooter game against monsters."
+  },
+  {
+    "id": "billyfrontier",
+    "category": "Action",
+    "confidence": "medium",
+    "reason": "Arcade shooter action game."
+  },
+  {
+    "id": "blood",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "First-person shooter game."
+  },
+  {
+    "id": "bullet-bubby",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Bullet hell shoot 'em up."
+  },
+  {
+    "id": "bubs-brothers-windows",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Bubble Bobble arcade clone."
+  },
+  {
+    "id": "bubble-bobble-nostalgie",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Bubble Bobble arcade remake."
+  },
+  {
+    "id": "battle-city-3",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Battle City tank arcade game."
+  },
+  {
+    "id": "boringman",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "2D online multiplayer battle game."
+  },
+  {
+    "id": "battery-check",
+    "category": "Action",
+    "confidence": "medium",
+    "reason": "Platformer game."
+  },
+  {
+    "id": "beerun",
+    "category": "Arcade",
+    "confidence": "medium",
+    "reason": "Avoidance and item collection arcade runner."
+  },
+  {
+    "id": "bombermaaan",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Bomberman clone."
+  },
+  {
+    "id": "boltstorm",
+    "category": "Action",
+    "confidence": "medium",
+    "reason": "Ludum Dare action rogue-lite game."
+  },
+  {
+    "id": "bridge-3000",
+    "category": "Board & Cards",
+    "confidence": "high",
+    "reason": "Contract Bridge card game."
+  },
+  {
+    "id": "brutal",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "Abstract garden building inside mental prison suggests simulation or puzzle."
+  },
+  {
+    "id": "big-metro",
+    "category": "Strategy",
+    "confidence": "medium",
+    "reason": "Metro and line transit games typically belong to strategy or simulation."
+  },
+  {
+    "id": "bongo-boogie",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Brick breakers are classic arcade games."
+  },
+  {
+    "id": "bonnies-bookstore-dlx",
+    "category": "Puzzle",
+    "confidence": "high",
+    "reason": "Bonnie's Bookstore is a word puzzle game by PopCap."
+  },
+  {
+    "id": "coffeemud",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "MUDs (Multi-User Dungeons) are text-based role-playing games."
+  },
+  {
+    "id": "trex",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Chrome's T-Rex runner is a classic arcade game."
+  },
+  {
+    "id": "mari0-ce",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Mari0 is a Mario platformer with a Portal gun mechanic."
+  },
+  {
+    "id": "liuyi-first-snap",
+    "category": "Action",
+    "confidence": "low",
+    "reason": "Test snap description lacks details; arbitrary fallback."
+  },
+  {
+    "id": "othello-sensei",
+    "category": "Board & Cards",
+    "confidence": "high",
+    "reason": "Othello (Reversi) is a classic board game."
+  },
+  {
+    "id": "covidgame",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "COVID-19 themed games are generally epidemic simulations or strategy."
+  },
+  {
+    "id": "climate-trail",
+    "category": "Educational",
+    "confidence": "medium",
+    "reason": "The Climate Trail is an educational survival game styled after Oregon Trail."
+  },
+  {
+    "id": "creeperx",
+    "category": "Action",
+    "confidence": "low",
+    "reason": "Creeper name implies Minecraft-related action game, but description is generic."
+  },
+  {
+    "id": "cogchime",
+    "category": "Puzzle",
+    "confidence": "high",
+    "reason": "Arranging gears and chimes to wind up music box is a puzzle."
+  },
+  {
+    "id": "casino-sim-95-language-selectable",
+    "category": "Simulation",
+    "confidence": "medium",
+    "reason": "Casino simulator fits simulation category."
+  },
+  {
+    "id": "crowd-master-arcade",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Described explicitly as an arcade crowd runner."
+  },
+  {
+    "id": "carcassonne",
+    "category": "Board & Cards",
+    "confidence": "high",
+    "reason": "Carcassonne is a famous tile-placement board game."
+  },
+  {
+    "id": "conquest-linux",
+    "category": "Strategy",
+    "confidence": "medium",
+    "reason": "Conquest is a classic multi-player space warfare 4X/strategy game."
+  },
+  {
+    "id": "color-match",
+    "category": "Puzzle",
+    "confidence": "high",
+    "reason": "Color matching games are puzzle games."
+  },
+  {
+    "id": "codebreakers",
+    "category": "Puzzle",
+    "confidence": "high",
+    "reason": "Code-guessing games are deductive puzzle games."
+  },
+  {
+    "id": "connect4",
+    "category": "Board & Cards",
+    "confidence": "high",
+    "reason": "Connect 4 is a classic board game."
+  },
+  {
+    "id": "commando",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "8-Bit Commando is a 2D side-scrolling run and gun action game."
+  },
+  {
+    "id": "catshooter",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Shooter games belong to the action category."
+  },
+  {
+    "id": "catacombs",
+    "category": "Action",
+    "confidence": "low",
+    "reason": "Theme implies underground horror action or adventure."
+  },
+  {
+    "id": "codenamelt",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Running away from agents is action-oriented gameplay."
+  },
+  {
+    "id": "chains",
+    "category": "Puzzle",
+    "confidence": "medium",
+    "reason": "Chains is a match-3/physics-based puzzle game."
+  },
+  {
+    "id": "cgoban1",
+    "category": "Board & Cards",
+    "confidence": "high",
+    "reason": "Go (Weiqi/Baduk) is a traditional board game."
+  },
+  {
+    "id": "clairval",
+    "category": "Board & Cards",
+    "confidence": "medium",
+    "reason": "Social deduction games based on Werewolf are categorized under Board & Cards."
+  },
+  {
+    "id": "curseforge",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "Mod manager tool; mostly used for simulation/sandbox games like Minecraft."
+  },
+  {
+    "id": "collisions",
+    "category": "Puzzle",
+    "confidence": "medium",
+    "reason": "Collisions is a logic/puzzle game."
+  },
+  {
+    "id": "cavoke",
+    "category": "Board & Cards",
+    "confidence": "low",
+    "reason": "Cavoke is a network board game platform."
+  },
+  {
+    "id": "cyphesis",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "Server for Worldforge MMORPGs (massively multiplayer online role-playing games)."
+  },
+  {
+    "id": "crobots",
+    "category": "Strategy",
+    "confidence": "medium",
+    "reason": "Programming combat robots is a programming/strategy game."
+  },
+  {
+    "id": "crewmate-rush-space-escape-runner",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Endless runners belong to the arcade category."
+  },
+  {
+    "id": "coff-drop",
+    "category": "Arcade",
+    "confidence": "medium",
+    "reason": "Collecting items across levels to find exit is classic arcade gameplay."
+  },
+  {
+    "id": "cacto-loco",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Top down shoot 'em up game fits action."
+  },
+  {
+    "id": "codename-nuclear",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Action platformer directly classified under action."
+  },
+  {
+    "id": "critical-annihilation",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Shooting invading aliens to eradicate them is action."
+  },
+  {
+    "id": "cake-queen",
+    "category": "Simulation",
+    "confidence": "medium",
+    "reason": "Time management games are management simulations."
+  },
+  {
+    "id": "championship-spades",
+    "category": "Board & Cards",
+    "confidence": "high",
+    "reason": "Spades is a standard card game."
+  },
+  {
+    "id": "carnival-jackpot-extreme",
+    "category": "Puzzle",
+    "confidence": "medium",
+    "reason": "Match games are classified as puzzle."
+  },
+  {
+    "id": "cbeams",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "Terminal animation effect viewer."
+  },
+  {
+    "id": "carnival-jackpot",
+    "category": "Puzzle",
+    "confidence": "medium",
+    "reason": "Match games belong to puzzle."
+  },
+  {
+    "id": "caterpillarnoid",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Brick breaker games are arcade games."
+  },
+  {
+    "id": "cubes",
+    "category": "Puzzle",
+    "confidence": "medium",
+    "reason": "Razor1911's Cubes is a puzzle game."
+  },
+  {
+    "id": "critterding14-hans",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "Artificial life evolution is a simulation."
+  },
+  {
+    "id": "critterding-hans",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "Artificial life evolution is a simulation."
+  },
+  {
+    "id": "dunes-of-terror",
+    "category": "Action",
+    "confidence": "low",
+    "reason": "Title suggests an action or adventure game."
+  },
+  {
+    "id": "darkdimension-rue",
+    "category": "Adventure",
+    "confidence": "medium",
+    "reason": "Narrative game focused on decisions, love, and regret."
+  },
+  {
+    "id": "duckmarines",
+    "category": "Puzzle",
+    "confidence": "high",
+    "reason": "ChuChu Rocket is a classic action-puzzle game."
+  },
+  {
+    "id": "dynahack",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "NetHack is an iconic roguelike role-playing game."
+  },
+  {
+    "id": "digger-classic",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Classic Digger is an arcade game."
+  },
+  {
+    "id": "deep",
+    "category": "Simulation",
+    "confidence": "low",
+    "reason": "Marine life observation or exploration fits simulation."
+  },
+  {
+    "id": "den",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Simple terminal multiplayer game."
+  },
+  {
+    "id": "destruction-darius",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Blowing stuff up points directly to action."
+  },
+  {
+    "id": "dyna-blaster",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Bomberman is a classic arcade maze action game."
+  },
+  {
+    "id": "daves-bumpers",
+    "category": "Puzzle",
+    "confidence": "medium",
+    "reason": "Directing a ball into a target box using bumpers is puzzle gameplay."
+  },
+  {
+    "id": "destructanks",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Tank destruction game belongs to action."
+  },
+  {
+    "id": "doomrl",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "Roguelike games are role-playing games."
+  },
+  {
+    "id": "dndsheetapp",
+    "category": "Role-Playing",
+    "confidence": "high",
+    "reason": "Companion tool for Dungeons & Dragons tabletop RPG."
+  },
+  {
+    "id": "debris",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Asteroids clone is an arcade game."
+  },
+  {
+    "id": "ds-snake-game",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Snake is an arcade game."
+  },
+  {
+    "id": "dice-mj",
+    "category": "Board & Cards",
+    "confidence": "high",
+    "reason": "Dice Mahjong is a board/card/tile game."
+  },
+  {
+    "id": "openra-combined-arms",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Command & Conquer / OpenRA is a real-time strategy game."
+  },
+  {
+    "id": "floating-sandbox",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "Explicitly stated as an interactive physics simulator."
+  },
+  {
+    "id": "tux-planet-2",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Danmaku (bullet hell) games belong to action."
+  },
+  {
+    "id": "gamehubx",
+    "category": "Arcade",
+    "confidence": "medium",
+    "reason": "Casual mini-game hubs are usually arcade collections."
+  },
+  {
+    "id": "sailsim",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "Explicitly named sailing simulator."
+  },
+  {
+    "id": "perfectvermin",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "First-person rage room smashing game is action."
+  },
+  {
+    "id": "obscurant",
+    "category": "Action",
+    "confidence": "medium",
+    "reason": "Hide and seek video games involve stealth/action mechanics."
+  },
+  {
+    "id": "ruscord-net",
+    "category": "Adventure",
+    "confidence": "low",
+    "reason": "Vague title; likely an adventure/action game or community mod."
+  },
+  {
+    "id": "peepeelunky",
+    "category": "Action",
+    "confidence": "medium",
+    "reason": "Spelunky-style mining game fits platformer/action."
+  },
+  {
+    "id": "ruscord",
+    "category": "Adventure",
+    "confidence": "low",
+    "reason": "Vague title; low confidence categorization."
+  },
+  {
+    "id": "intellisphere",
+    "category": "Simulation",
+    "confidence": "medium",
+    "reason": "Jet fighter air combat simulation/action."
+  },
+  {
+    "id": "harpooned",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "Cetacean research simulator is a simulation game."
+  },
+  {
+    "id": "familyfarmdemo-d042",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "Farm management is a simulation genre."
+  },
+  {
+    "id": "einstein-riddle",
+    "category": "Puzzle",
+    "confidence": "high",
+    "reason": "Einstein's Riddle is a classic logic puzzle."
+  },
+  {
+    "id": "explode-bricks",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Brick breaker style games are arcade games."
+  },
+  {
+    "id": "epicpinballpc",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Pinball games are classic arcade games."
+  },
+  {
+    "id": "ellaswar",
+    "category": "Strategy",
+    "confidence": "medium",
+    "reason": "EllasWar is an online browser-based strategy war game."
+  },
+  {
+    "id": "end-dayz",
+    "category": "Action",
+    "confidence": "medium",
+    "reason": "DayZ style survival scavenging games are action games."
+  },
+  {
+    "id": "ic2",
+    "category": "Simulation",
+    "confidence": "medium",
+    "reason": "Industrial Craft 2 is a tech/automation mod for Minecraft sandbox."
+  },
+  {
+    "id": "kglife",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "Conway's Game of Life is a cellular automaton simulation."
+  },
+  {
+    "id": "mudream-online",
+    "category": "Role-Playing",
+    "confidence": "medium",
+    "reason": "MuDream is a private server for the MMORPG MU Online."
+  },
+  {
+    "id": "stmg",
+    "category": "Arcade",
+    "confidence": "medium",
+    "reason": "Classic game collections are typically arcade games."
+  },
+  {
+    "id": "trivia-desktop",
+    "category": "Puzzle",
+    "confidence": "medium",
+    "reason": "Trivia games test knowledge and are categorized under puzzle or educational."
+  },
+  {
+    "id": "spelunky",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Spelunky is a roguelike 2D platformer action game."
+  },
+  {
+    "id": "fifteenpuzzle",
+    "category": "Puzzle",
+    "confidence": "high",
+    "reason": "Game of Fifteen is a classic sliding tile puzzle."
+  },
+  {
+    "id": "future-pinball",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Pinball simulators and editors belong to the arcade category."
+  },
+  {
+    "id": "future-pinball-bam",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Pinball simulator/editor belongs to arcade."
+  },
+  {
+    "id": "flappybros",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Flappy Bird clones are arcade games."
+  },
+  {
+    "id": "fractalattack",
+    "category": "Simulation",
+    "confidence": "high",
+    "reason": "Planet destruction simulation."
+  },
+  {
+    "id": "free-games-webapp",
+    "category": "Arcade",
+    "confidence": "low",
+    "reason": "Web-based simple mini-games are predominantly arcade."
+  },
+  {
+    "id": "farm-kill",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Zombie killing horde survival is action."
+  },
+  {
+    "id": "fortify",
+    "category": "Strategy",
+    "confidence": "high",
+    "reason": "Castle defense / tower defense is a strategy genre."
+  },
+  {
+    "id": "firewing64",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "3D platformers fall under the action category."
+  },
+  {
+    "id": "flappy-bird",
+    "category": "Arcade",
+    "confidence": "high",
+    "reason": "Flappy Bird is an arcade game."
+  },
+  {
+    "id": "wasted",
+    "category": "Action",
+    "confidence": "high",
+    "reason": "Demolition derby destruction game fits action."
+  },
+  {
+    "id": "secondtemple",
+    "category": "Educational",
+    "confidence": "medium",
+    "reason": "Exploring historic Second Temple is an educational virtual reconstruction."
+  },
+  {
+    "id": "rhodes3d",
+    "category": "Adventure",
+    "confidence": "medium",
+    "reason": "Historical exploration of Lindos fits adventure/simulation."
+  },
+  {
+    "id": "simon-remix",
+    "category": "Puzzle",
+    "confidence": "high",
+    "reason": "Simon memory pattern games are puzzle games."
+  }
+]

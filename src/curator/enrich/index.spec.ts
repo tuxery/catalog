@@ -441,7 +441,13 @@ describe("enrichApps", () => {
       { id: "aur:example", packages: [pkg({ source: "pacman-aur", name: "example" })] },
     ];
     const llmClassifications: LlmClassificationEntry[] = [
-      { id: "aur:example", category: "Utilities", confidence: "high", reason: "test fixture" },
+      {
+        id: "aur:example",
+        category: "Utilities",
+        confidence: "high",
+        reason: "test fixture",
+        model: "test",
+      },
     ];
 
     const app = enrichApps(
@@ -467,7 +473,13 @@ describe("enrichApps", () => {
       { id: "aur:example", packages: [pkg({ source: "pacman-aur", name: "example" })] },
     ];
     const llmClassifications: LlmClassificationEntry[] = [
-      { id: "aur:example", category: "Strategy", confidence: "high", reason: "test fixture" },
+      {
+        id: "aur:example",
+        category: "Strategy",
+        confidence: "high",
+        reason: "test fixture",
+        model: "test",
+      },
     ];
 
     const app = enrichApps(
@@ -489,7 +501,13 @@ describe("enrichApps", () => {
       { id: "aur:example", packages: [pkg({ source: "pacman-aur", name: "example" })] },
     ];
     const llmClassifications: LlmClassificationEntry[] = [
-      { id: "aur:example", category: "Utilities", confidence: "low", reason: "test fixture" },
+      {
+        id: "aur:example",
+        category: "Utilities",
+        confidence: "low",
+        reason: "test fixture",
+        model: "test",
+      },
     ];
 
     const app = enrichApps(

@@ -32,16 +32,18 @@ function optionalNumberFlag(name: string, defaultValue: number): number | undefi
   return Number.isNaN(parsed) ? defaultValue : parsed;
 }
 
-// Free tier only (no billing on the key's Google project): Google no longer
-// publishes free-tier quotas (they're only shown per project in AI Studio,
-// https://aistudio.google.com/rate-limit) and they've shrunk over time, so
-// nothing below assumes a specific daily cap. Instead the run is built to
-// be cut short by the daily quota and resumed the next day: requests per
-// day are the scarce resource, so batches are large (fewer requests for
-// the same backlog), progress is persisted after every batch, and a
-// per-day 429 saves and exits cleanly rather than retrying or crashing.
-// Daily quotas reset at midnight Pacific time.
-const batchSize = Number(flag("--batch-size") ?? 100);
+// Free tier only (no billing on the key's Google project). Google no longer
+// publishes free-tier quotas (only shown per project in AI Studio,
+// https://aistudio.google.com/rate-limit); observed 2026-09-26: 20 requests
+// per day *per model* (GenerateRequestsPerDayPerProjectPerModel-FreeTier),
+// and 503 "high demand" failures appear to count against it too. So
+// requests are the scarce resource: batches are large, a 503 moves on to
+// the next model after one retry instead of burning quota on backoff, and
+// since the cap is per model, the run rotates through MODELS — a model
+// that hits its daily cap is dropped for the rest of the run. Progress is
+// persisted after every batch; when every model is exhausted the run saves
+// and exits cleanly, to be resumed after the reset (midnight Pacific time).
+const batchSize = Number(flag("--batch-size") ?? 200);
 const concurrency = Number(flag("--concurrency") ?? 1);
 const limit = flag("--limit") ? Number(flag("--limit")) : undefined;
 // Requests-per-minute pacing across all workers — conservative default so
@@ -85,13 +87,36 @@ interface BatchResult {
   reason: string;
 }
 
+// Tried in order. Only full Flash models: on a 20-app side-by-side sample,
+// gemini-3.5-flash-lite applied a wrong category at medium confidence, and
+// every request costs the same quota whatever the model. GEMINI_MODELS
+// (comma-separated) or GEMINI_MODEL (a single one) override the chain.
+const MODELS = (
+  process.env.GEMINI_MODELS ??
+  process.env.GEMINI_MODEL ??
+  "gemini-3.8-flash,gemini-3.6-flash,gemini-3.7-flash,gemini-3.5-flash"
+)
+  .split(",")
+  .map((model) => model.trim())
+  .filter(Boolean);
+
 /**
- * Thrown when this run should stop for now — a per-day quota 429, the
- * `--max-requests` cap, or Gemini staying overloaded (503) through every
- * retry. The caller persists progress and exits cleanly: re-running later
+ * Thrown when this run should stop for now — every model's daily quota
+ * spent, the `--max-requests` cap, or every model staying overloaded (503)
+ * through several rounds. The caller persists progress and exits cleanly: re-running later
  * resumes where this one left off, so none of these warrant a crash.
  */
 class StopRun extends Error {}
+
+/** One model can't serve right now: `daily` = its per-day quota is spent (drop it for this run), else overloaded (skip it for this batch). */
+class ModelUnavailable extends Error {
+  constructor(
+    message: string,
+    readonly daily: boolean,
+  ) {
+    super(message);
+  }
+}
 
 const SYSTEM_PROMPT =
   "You classify Linux software packages by their name and short description. Assign each package the single most accurate category from the allowed list, and rate your confidence: 'high' when the name/description make the category unambiguous, 'medium' when it's a reasonable best guess, 'low' when the description is missing, too vague, or fits several categories equally. Prefer an honest 'low' over a confident guess. Keep each reason under 15 words. Respond with valid JSON only, one result per package, echoing each package's number n exactly as given.";
@@ -125,14 +150,63 @@ function buildPrompt(items: BatchItem[]): string {
   return `Classify each package below into exactly one category.\n\n${lines.join("\n")}`;
 }
 
+// --- Model rotation ---
+const exhaustedModels = new Set<string>();
+// Index into MODELS of the model to try first — advanced past an
+// overloaded one so the next batch doesn't start by re-hitting it.
+let preferredModel = 0;
+const OVERLOAD_ROUNDS = 3;
+const OVERLOAD_ROUND_WAIT_MS = 60_000;
+
+/**
+ * Classifies one batch on the first model able to serve it, starting from
+ * `preferredModel`. Recursion rather than a loop so the awaited calls don't
+ * trip `no-await-in-loop`: `offset` walks the model chain, `round` counts
+ * full passes where every remaining model was overloaded.
+ */
 async function classifyGemini(
+  items: BatchItem[],
+  allowedCategories: string[],
+  offset = 0,
+  round = 0,
+): Promise<{ results: BatchResult[]; model: string }> {
+  const available = MODELS.filter((model) => !exhaustedModels.has(model));
+  if (available.length === 0) {
+    throw new StopRun(`daily quota spent on every model (${MODELS.join(", ")})`);
+  }
+  if (offset >= available.length) {
+    if (round + 1 >= OVERLOAD_ROUNDS) {
+      throw new StopRun(`every model still overloaded after ${OVERLOAD_ROUNDS} rounds`);
+    }
+    console.warn(`All models overloaded — waiting ${OVERLOAD_ROUND_WAIT_MS / 1000}s`);
+    await new Promise((resolve) => setTimeout(resolve, OVERLOAD_ROUND_WAIT_MS));
+    return classifyGemini(items, allowedCategories, 0, round + 1);
+  }
+  const model = available[(preferredModel + offset) % available.length] as string;
+  try {
+    return { results: await classifyWith(model, items, allowedCategories), model };
+  } catch (error) {
+    if (!(error instanceof ModelUnavailable)) throw error;
+    if (error.daily) {
+      exhaustedModels.add(model);
+      console.warn(`${model}: ${error.message} — dropped for this run`);
+      preferredModel = 0;
+      return classifyGemini(items, allowedCategories, 0, round);
+    }
+    console.warn(`${model}: ${error.message} — trying the next model`);
+    preferredModel = (preferredModel + offset + 1) % available.length;
+    return classifyGemini(items, allowedCategories, offset + 1, round);
+  }
+}
+
+async function classifyWith(
+  model: string,
   items: BatchItem[],
   allowedCategories: string[],
 ): Promise<BatchResult[]> {
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey)
     throw new Error("GEMINI_API_KEY is required — see https://aistudio.google.com/apikey");
-  const model = process.env.GEMINI_MODEL ?? "gemini-3.8-flash";
   const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
   const payload = {
     contents: [{ role: "user", parts: [{ text: `${SYSTEM_PROMPT}\n\n${buildPrompt(items)}` }] }],
@@ -193,10 +267,10 @@ function parseQuotaError(bodyText: string): { daily: boolean; retryMs?: number; 
 }
 
 /**
- * One paced Gemini generateContent call. A per-minute 429 is retried after
- * Google's own retryDelay (else exponential backoff); a 5xx is retried with
- * longer backoff; a per-day 429, or a 5xx outlasting every retry, throws
- * `StopRun` so the run stops cleanly for now.
+ * One paced Gemini generateContent call on one model. A per-minute 429 is
+ * retried after Google's own retryDelay (else exponential backoff); a
+ * per-day 429 or a 5xx that survives one short retry throws
+ * `ModelUnavailable`, letting `classifyGemini` move to the next model.
  * Recursion rather than a loop so the awaited calls don't trip
  * `no-await-in-loop`.
  */
@@ -218,7 +292,7 @@ async function request(url: string, payload: unknown, attempt: number): Promise<
   const retryable = response.status === 429 || response.status >= 500;
   if (response.status === 429) {
     const { daily, retryMs, quota } = parseQuotaError(bodyText);
-    if (daily) throw new StopRun(`daily quota hit: ${quota}`);
+    if (daily) throw new ModelUnavailable(`daily quota hit: ${quota}`, true);
     if (attempt < 5) {
       const waitMs = retryMs ?? 5000 * 2 ** attempt;
       console.warn(`Gemini 429 (${quota}) — retrying in ${Math.round(waitMs / 1000)}s`);
@@ -226,16 +300,15 @@ async function request(url: string, payload: unknown, attempt: number): Promise<
       return request(url, payload, attempt + 1);
     }
   } else if (retryable) {
-    // 5xx here is almost always 503 "high demand" — Google-side overload,
-    // not our quota, and it can last minutes. Retry longer than for 429,
-    // capped at 2 min per wait, then stop the run cleanly for a later
-    // re-run rather than crash.
-    if (attempt >= 8) {
-      throw new StopRun(`Gemini still returning ${response.status} after ${attempt} retries`);
+    // 5xx here is almost always 503 "high demand" — Google-side overload
+    // that can last hours on one model while another is fine, and failed
+    // requests seem to count against the daily quota. One short retry,
+    // then let the caller try another model.
+    if (attempt >= 1) {
+      throw new ModelUnavailable(`still ${response.status} after a retry`, false);
     }
-    const waitMs = Math.min(5000 * 2 ** attempt, 120_000);
-    console.warn(`Gemini ${response.status} — retrying in ${waitMs / 1000}s`);
-    await new Promise((resolve) => setTimeout(resolve, waitMs));
+    console.warn(`Gemini ${response.status} — retrying in 10s`);
+    await new Promise((resolve) => setTimeout(resolve, 10_000));
     return request(url, payload, attempt + 1);
   }
   throw new Error(`Gemini ${response.status}: ${bodyText}`);
@@ -258,11 +331,11 @@ function writeConfig(entries: Map<string, LlmClassificationEntry>): void {
  * Uses the Gemini API with structured JSON output (responseSchema). Requires
  * GEMINI_API_KEY from a project with NO billing enabled — that's what keeps
  * it on the free tier, where exceeding a quota returns a 429 instead of a
- * bill. GEMINI_MODEL overrides the default model. Each entry carries the
- * LLM's own `confidence`; `low` ones are stored but not applied (see
- * `llmCategoryMap`). A per-day quota 429 or a persistent 503 saves and
- * exits cleanly — see the
- * free-tier note by the CLI flags above.
+ * bill. Rotates through MODELS (see there for overrides). Each entry
+ * records the model that produced it and the LLM's own `confidence`; `low`
+ * ones are stored but not applied (see `llmCategoryMap`). When no model can
+ * serve (all daily-capped, or all overloaded) the run saves and exits
+ * cleanly — see the free-tier note by the CLI flags above.
  *
  * Resumable in every mode (--sample included): re-running skips ids already
  * present in the config file, so a sample run never reclassifies the same
@@ -282,7 +355,7 @@ async function main(): Promise<void> {
   const apps = todo.filter((app) => app.contentType !== "game");
 
   console.log(
-    `To classify: ${todo.length} (${games.length} games, ${apps.length} apps) | batch ${batchSize} (~${Math.ceil(games.length / batchSize) + Math.ceil(apps.length / batchSize)} requests) | ${rpm} RPM | concurrency ${concurrency}${maxRequests !== undefined ? ` | max ${maxRequests} requests` : ""}${dryRun ? " | DRY RUN" : ""}${sample !== undefined ? ` | SAMPLE (${sample}, not persisted)` : ""}`,
+    `To classify: ${todo.length} (${games.length} games, ${apps.length} apps) | batch ${batchSize} (~${Math.ceil(games.length / batchSize) + Math.ceil(apps.length / batchSize)} requests) | ${MODELS.join(" > ")} | ${rpm} RPM | concurrency ${concurrency}${maxRequests !== undefined ? ` | max ${maxRequests} requests` : ""}${dryRun ? " | DRY RUN" : ""}${sample !== undefined ? ` | SAMPLE (${sample}, not persisted)` : ""}`,
   );
 
   const persist = !dryRun && sample === undefined;
@@ -310,10 +383,11 @@ async function main(): Promise<void> {
             category: allowedCategories[0] as LlmClassificationEntry["category"],
             confidence: "low",
             reason: "dry-run placeholder",
+            model: "dry-run",
           });
         }
       } else {
-        const batchResults = await classifier(batch, allowedCategories);
+        const { results: batchResults, model } = await classifier(batch, allowedCategories);
         for (const result of batchResults) {
           const item = batch[result.n - 1];
           if (!item) continue;
@@ -322,6 +396,7 @@ async function main(): Promise<void> {
             category: result.category as LlmClassificationEntry["category"],
             confidence: result.confidence,
             reason: result.reason,
+            model,
           });
           newEntries += 1;
         }

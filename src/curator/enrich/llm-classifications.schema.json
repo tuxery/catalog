@@ -58,9 +58,13 @@
       "reason": {
         "type": "string",
         "description": "Why the LLM assigned this category — for auditability."
+      },
+      "model": {
+        "type": "string",
+        "description": "The Gemini model that produced this entry, e.g. 'gemini-3.8-flash' — classify-llm rotates across models to spread the free tier's per-model daily quota, so quality can be audited per model."
       }
     },
-    "required": ["id", "category", "confidence", "reason"],
+    "required": ["id", "category", "confidence", "reason", "model"],
     "additionalProperties": false
   },
   "title": "Enrich: LLM classifications",

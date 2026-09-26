@@ -3,3000 +3,3500 @@
     "id": "receiver",
     "category": "Simulation",
     "confidence": "low",
-    "reason": "Radio tuner utility, nearest gaming category is tenuous."
+    "reason": "Radio tuner utility, nearest gaming category is tenuous.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "net.windower.Lumoria",
     "category": "Role-Playing",
     "confidence": "high",
-    "reason": "Explicitly described as an MMORPG."
+    "reason": "Explicitly described as an MMORPG.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "page.codeberg.jaerrib.RNGremlin",
     "category": "Role-Playing",
     "confidence": "medium",
-    "reason": "TTRPG dice roller utility for role-playing games."
+    "reason": "TTRPG dice roller utility for role-playing games.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "lonewolf",
     "category": "Strategy",
     "confidence": "low",
-    "reason": "Task organizer utility, closest fit if considered strategy."
+    "reason": "Task organizer utility, closest fit if considered strategy.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "jigsaw-puzzles-collections",
     "category": "Puzzle",
     "confidence": "high",
-    "reason": "Jigsaw puzzles are puzzle games."
+    "reason": "Jigsaw puzzles are puzzle games.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "magic-paint-kaleidoscope",
     "category": "Educational",
     "confidence": "low",
-    "reason": "Drawing or kaleidoscope art utility/game."
+    "reason": "Drawing or kaleidoscope art utility/game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "astonischika",
     "category": "Role-Playing",
     "confidence": "high",
-    "reason": "Described as a pixel-art party RPG."
+    "reason": "Described as a pixel-art party RPG.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "awesome-pygames",
     "category": "Arcade",
     "confidence": "low",
-    "reason": "Collection of Pygame games."
+    "reason": "Collection of Pygame games.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "antsy-alien-attack-pico",
     "category": "Arcade",
     "confidence": "high",
-    "reason": "Vertically scrolling shoot 'em up is classic arcade."
+    "reason": "Vertically scrolling shoot 'em up is classic arcade.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "geforce-now-desktop",
     "category": "Arcade",
     "confidence": "low",
-    "reason": "Cloud gaming launcher."
+    "reason": "Cloud gaming launcher.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "helljump",
     "category": "Action",
     "confidence": "medium",
-    "reason": "Platformer game."
+    "reason": "Platformer game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "qjoypad-ahimta",
     "category": "Arcade",
     "confidence": "low",
-    "reason": "Joypad input mapping utility."
+    "reason": "Joypad input mapping utility.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "neonborn",
     "category": "Action",
     "confidence": "low",
-    "reason": "2.5D online multiplayer game."
+    "reason": "2.5D online multiplayer game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "zork",
     "category": "Adventure",
     "confidence": "high",
-    "reason": "Classic interactive fiction adventure game."
+    "reason": "Classic interactive fiction adventure game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "hungrysnake",
     "category": "Arcade",
     "confidence": "high",
-    "reason": "Classic Snake arcade game."
+    "reason": "Classic Snake arcade game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "jsbudbrainspuzzle",
     "category": "Puzzle",
     "confidence": "high",
-    "reason": "Jigsaw puzzles."
+    "reason": "Jigsaw puzzles.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "cannonball",
     "category": "Sports",
     "confidence": "medium",
-    "reason": "OutRun engine, an arcade driving/racing game."
+    "reason": "OutRun engine, an arcade driving/racing game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "twister-spinner",
     "category": "Board & Cards",
     "confidence": "medium",
-    "reason": "Twister game spinner companion."
+    "reason": "Twister game spinner companion.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "open-syobon-action",
     "category": "Action",
     "confidence": "high",
-    "reason": "Platformer game."
+    "reason": "Platformer game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "duodom",
     "category": "Puzzle",
     "confidence": "high",
-    "reason": "Sliding stone board-clearing puzzle."
+    "reason": "Sliding stone board-clearing puzzle.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pepe-party",
     "category": "Arcade",
     "confidence": "low",
-    "reason": "Terminal meme toy."
+    "reason": "Terminal meme toy.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "flappy-legend",
     "category": "Arcade",
     "confidence": "high",
-    "reason": "Flappy Bird style reflex arcade game."
+    "reason": "Flappy Bird style reflex arcade game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "sukhi-play",
     "category": "Educational",
     "confidence": "low",
-    "reason": "Kids kiosk browser software."
+    "reason": "Kids kiosk browser software.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "game-scorecard-flutter",
     "category": "Board & Cards",
     "confidence": "low",
-    "reason": "Scorecard utility for tracking player points."
+    "reason": "Scorecard utility for tracking player points.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "frogmatch",
     "category": "Puzzle",
     "confidence": "low",
-    "reason": "Match game indicated by name."
+    "reason": "Match game indicated by name.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "farmisfun",
     "category": "Simulation",
     "confidence": "high",
-    "reason": "Farming building and management simulation."
+    "reason": "Farming building and management simulation.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "budbrainsmarbles",
     "category": "Puzzle",
     "confidence": "high",
-    "reason": "Color-sorting marble puzzle."
+    "reason": "Color-sorting marble puzzle.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "love",
     "category": "Arcade",
     "confidence": "low",
-    "reason": "Game engine software."
+    "reason": "Game engine software.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "roulette",
     "category": "Board & Cards",
     "confidence": "high",
-    "reason": "Roulette casino/board game."
+    "reason": "Roulette casino/board game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "little-spy",
     "category": "Action",
     "confidence": "medium",
-    "reason": "2D platformer game."
+    "reason": "2D platformer game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "word-hustler",
     "category": "Puzzle",
     "confidence": "high",
-    "reason": "Spelling Bee word puzzle game."
+    "reason": "Spelling Bee word puzzle game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "lovely-memory-game",
     "category": "Puzzle",
     "confidence": "medium",
-    "reason": "Memory matching puzzle game."
+    "reason": "Memory matching puzzle game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "dm-tools",
     "category": "Role-Playing",
     "confidence": "medium",
-    "reason": "Dungeon Master tools for tabletop RPGs."
+    "reason": "Dungeon Master tools for tabletop RPGs.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "connectron",
     "category": "Board & Cards",
     "confidence": "high",
-    "reason": "Four in a row board game."
+    "reason": "Four in a row board game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "crazygames",
     "category": "Arcade",
     "confidence": "low",
-    "reason": "Web arcade portal."
+    "reason": "Web arcade portal.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "unscripted",
     "category": "Adventure",
     "confidence": "high",
-    "reason": "Visual novel is categorized under adventure."
+    "reason": "Visual novel is categorized under adventure.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "synthetic-things",
     "category": "Simulation",
     "confidence": "medium",
-    "reason": "Factory production simulation game."
+    "reason": "Factory production simulation game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "minecraft-classic",
     "category": "Adventure",
     "confidence": "medium",
-    "reason": "Minecraft Classic sandbox adventure/building game."
+    "reason": "Minecraft Classic sandbox adventure/building game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "poki",
     "category": "Arcade",
     "confidence": "low",
-    "reason": "Online web game platform."
+    "reason": "Online web game platform.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "ioncore",
     "category": "Strategy",
     "confidence": "low",
-    "reason": "Digital currency cryptocurrency client."
+    "reason": "Digital currency cryptocurrency client.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "antstream-arcade",
     "category": "Arcade",
     "confidence": "high",
-    "reason": "Retro arcade gaming platform."
+    "reason": "Retro arcade gaming platform.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "agsubsim",
     "category": "Simulation",
     "confidence": "high",
-    "reason": "Subway train simulator."
+    "reason": "Subway train simulator.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "agsubsimpro",
     "category": "Simulation",
     "confidence": "high",
-    "reason": "Subway train simulator."
+    "reason": "Subway train simulator.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "azimuth",
     "category": "Adventure",
     "confidence": "high",
-    "reason": "Metroidvania adventure game."
+    "reason": "Metroidvania adventure game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "alienshooter",
     "category": "Action",
     "confidence": "high",
-    "reason": "Shooter action game."
+    "reason": "Shooter action game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "asciicker",
     "category": "Role-Playing",
     "confidence": "high",
-    "reason": "Textmode RPG prototype."
+    "reason": "Textmode RPG prototype.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "allwallsmustfall",
     "category": "Strategy",
     "confidence": "high",
-    "reason": "Isometric tactics game."
+    "reason": "Isometric tactics game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "avernum2",
     "category": "Role-Playing",
     "confidence": "high",
-    "reason": "Classic turn-based RPG."
+    "reason": "Classic turn-based RPG.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "armed-to-the-gears",
     "category": "Action",
     "confidence": "medium",
-    "reason": "Isometric mech action/tactics game."
+    "reason": "Isometric mech action/tactics game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "acid-rain",
     "category": "Action",
     "confidence": "medium",
-    "reason": "Dodging and survival action game."
+    "reason": "Dodging and survival action game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "ambermoon-net-d042",
     "category": "Role-Playing",
     "confidence": "high",
-    "reason": "Remake of a classic RPG."
+    "reason": "Remake of a classic RPG.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "azteca",
     "category": "Puzzle",
     "confidence": "medium",
-    "reason": "Azteca is a tile-matching/puzzle game."
+    "reason": "Azteca is a tile-matching/puzzle game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "ametadata-game",
     "category": "Adventure",
     "confidence": "high",
-    "reason": "Exploration game."
+    "reason": "Exploration game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "atomic-bomberman",
     "category": "Action",
     "confidence": "high",
-    "reason": "Bomberman maze action game."
+    "reason": "Bomberman maze action game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "arkanoid-fangame-rv",
     "category": "Arcade",
     "confidence": "high",
-    "reason": "Arkanoid brick-breaker arcade game."
+    "reason": "Arkanoid brick-breaker arcade game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "atomica",
     "category": "Puzzle",
     "confidence": "high",
-    "reason": "PopCap chemistry-themed puzzle game."
+    "reason": "PopCap chemistry-themed puzzle game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "angband-win",
     "category": "Role-Playing",
     "confidence": "high",
-    "reason": "Classic roguelike RPG."
+    "reason": "Classic roguelike RPG.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "artifact",
     "category": "Arcade",
     "confidence": "high",
-    "reason": "Qix-style area-capture arcade game."
+    "reason": "Qix-style area-capture arcade game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "airxonix",
     "category": "Arcade",
     "confidence": "high",
-    "reason": "3D remake of classic Qix/Xonix arcade game."
+    "reason": "3D remake of classic Qix/Xonix arcade game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "mir-kiosk-scummvm",
     "category": "Adventure",
     "confidence": "medium",
-    "reason": "Virtual machine for point-and-click adventure games."
+    "reason": "Virtual machine for point-and-click adventure games.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "flycharts",
     "category": "Simulation",
     "confidence": "high",
-    "reason": "Flight planner companion for flight simulators."
+    "reason": "Flight planner companion for flight simulators.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "volleyball2d",
     "category": "Sports",
     "confidence": "high",
-    "reason": "Volleyball sports game."
+    "reason": "Volleyball sports game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "iconny-arcade",
     "category": "Arcade",
     "confidence": "medium",
-    "reason": "Name explicitly specifies arcade."
+    "reason": "Name explicitly specifies arcade.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pigami",
     "category": "Adventure",
     "confidence": "medium",
-    "reason": "Rolling block adventure game."
+    "reason": "Rolling block adventure game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "icemaze",
     "category": "Puzzle",
     "confidence": "medium",
-    "reason": "Sliding block maze puzzle game."
+    "reason": "Sliding block maze puzzle game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "polygonflight",
     "category": "Action",
     "confidence": "medium",
-    "reason": "Plane shooting game."
+    "reason": "Plane shooting game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "kango",
     "category": "Action",
     "confidence": "high",
-    "reason": "Action-adventure platformer."
+    "reason": "Action-adventure platformer.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "paddleball",
     "category": "Arcade",
     "confidence": "high",
-    "reason": "Fast-paced arcade brick breaker."
+    "reason": "Fast-paced arcade brick breaker.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "dofus",
     "category": "Role-Playing",
     "confidence": "high",
-    "reason": "Dofus is a tactical MMORPG."
+    "reason": "Dofus is a tactical MMORPG.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "out-of-gas-the-game",
     "category": "Adventure",
     "confidence": "medium",
-    "reason": "Survival and puzzle escape adventure."
+    "reason": "Survival and puzzle escape adventure.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "stick-man-game",
     "category": "Action",
     "confidence": "low",
-    "reason": "Generic stick man game, typically action."
+    "reason": "Generic stick man game, typically action.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "flappy",
     "category": "Arcade",
     "confidence": "medium",
-    "reason": "Flappy Bird style arcade game."
+    "reason": "Flappy Bird style arcade game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "termbreaker",
     "category": "Arcade",
     "confidence": "high",
-    "reason": "Break-out style arcade game."
+    "reason": "Break-out style arcade game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "terminaltype",
     "category": "Educational",
     "confidence": "medium",
-    "reason": "Typing test skill trainer."
+    "reason": "Typing test skill trainer.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "piupiu",
     "category": "Arcade",
     "confidence": "low",
-    "reason": "Terminal game, likely simple shooter/arcade."
+    "reason": "Terminal game, likely simple shooter/arcade.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "letrain",
     "category": "Simulation",
     "confidence": "high",
-    "reason": "Train simulator and logistics tycoon."
+    "reason": "Train simulator and logistics tycoon.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "mr-shredder",
     "category": "Simulation",
     "confidence": "high",
-    "reason": "File destruction simulator."
+    "reason": "File destruction simulator.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "thorium-nova",
     "category": "Simulation",
     "confidence": "low",
-    "reason": "Space simulation game."
+    "reason": "Space simulation game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "mc-installer",
     "category": "Adventure",
     "confidence": "medium",
-    "reason": "Installer for Minecraft sandbox adventure game."
+    "reason": "Installer for Minecraft sandbox adventure game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "ohmygiraffe",
     "category": "Action",
     "confidence": "medium",
-    "reason": "Oh My Giraffe is an action arcade game."
+    "reason": "Oh My Giraffe is an action arcade game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "block",
     "category": "Arcade",
     "confidence": "high",
-    "reason": "Block breaking arcade game."
+    "reason": "Block breaking arcade game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "bombsquad",
     "category": "Action",
     "confidence": "medium",
-    "reason": "Multiplayer explosive action party game."
+    "reason": "Multiplayer explosive action party game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "bug-bounty",
     "category": "Puzzle",
     "confidence": "low",
-    "reason": "Bug fixing game, fits puzzle mechanics."
+    "reason": "Bug fixing game, fits puzzle mechanics.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "bash-shell-rpg",
     "category": "Role-Playing",
     "confidence": "high",
-    "reason": "Action RPG in command line."
+    "reason": "Action RPG in command line.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "boggle-java",
     "category": "Board & Cards",
     "confidence": "high",
-    "reason": "Boggle is a classic word board game."
+    "reason": "Boggle is a classic word board game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "bionicle-masksofpowerlegacy",
     "category": "Action",
     "confidence": "high",
-    "reason": "Action adventure game."
+    "reason": "Action adventure game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "batufo",
     "category": "Action",
     "confidence": "high",
-    "reason": "Multiplayer space battle game."
+    "reason": "Multiplayer space battle game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "brains",
     "category": "Action",
     "confidence": "high",
-    "reason": "Shooter game against monsters."
+    "reason": "Shooter game against monsters.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "billyfrontier",
     "category": "Action",
     "confidence": "medium",
-    "reason": "Arcade shooter action game."
+    "reason": "Arcade shooter action game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "blood",
     "category": "Action",
     "confidence": "high",
-    "reason": "First-person shooter game."
+    "reason": "First-person shooter game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "bullet-bubby",
     "category": "Arcade",
     "confidence": "high",
-    "reason": "Bullet hell shoot 'em up."
+    "reason": "Bullet hell shoot 'em up.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "bubs-brothers-windows",
     "category": "Arcade",
     "confidence": "high",
-    "reason": "Bubble Bobble arcade clone."
+    "reason": "Bubble Bobble arcade clone.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "bubble-bobble-nostalgie",
     "category": "Arcade",
     "confidence": "high",
-    "reason": "Bubble Bobble arcade remake."
+    "reason": "Bubble Bobble arcade remake.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "battle-city-3",
     "category": "Arcade",
     "confidence": "high",
-    "reason": "Battle City tank arcade game."
+    "reason": "Battle City tank arcade game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "boringman",
     "category": "Action",
     "confidence": "high",
-    "reason": "2D online multiplayer battle game."
+    "reason": "2D online multiplayer battle game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "battery-check",
     "category": "Action",
     "confidence": "medium",
-    "reason": "Platformer game."
+    "reason": "Platformer game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "beerun",
     "category": "Arcade",
     "confidence": "medium",
-    "reason": "Avoidance and item collection arcade runner."
+    "reason": "Avoidance and item collection arcade runner.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "bombermaaan",
     "category": "Action",
     "confidence": "high",
-    "reason": "Bomberman clone."
+    "reason": "Bomberman clone.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "boltstorm",
     "category": "Action",
     "confidence": "medium",
-    "reason": "Ludum Dare action rogue-lite game."
+    "reason": "Ludum Dare action rogue-lite game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "bridge-3000",
     "category": "Board & Cards",
     "confidence": "high",
-    "reason": "Contract Bridge card game."
+    "reason": "Contract Bridge card game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "brutal",
     "category": "Simulation",
     "confidence": "low",
-    "reason": "Abstract garden building inside mental prison suggests simulation or puzzle."
+    "reason": "Abstract garden building inside mental prison suggests simulation or puzzle.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "big-metro",
     "category": "Strategy",
     "confidence": "medium",
-    "reason": "Metro and line transit games typically belong to strategy or simulation."
+    "reason": "Metro and line transit games typically belong to strategy or simulation.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "bongo-boogie",
     "category": "Arcade",
     "confidence": "high",
-    "reason": "Brick breakers are classic arcade games."
+    "reason": "Brick breakers are classic arcade games.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "bonnies-bookstore-dlx",
     "category": "Puzzle",
     "confidence": "high",
-    "reason": "Bonnie's Bookstore is a word puzzle game by PopCap."
+    "reason": "Bonnie's Bookstore is a word puzzle game by PopCap.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "coffeemud",
     "category": "Role-Playing",
     "confidence": "high",
-    "reason": "MUDs (Multi-User Dungeons) are text-based role-playing games."
+    "reason": "MUDs (Multi-User Dungeons) are text-based role-playing games.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "trex",
     "category": "Arcade",
     "confidence": "high",
-    "reason": "Chrome's T-Rex runner is a classic arcade game."
+    "reason": "Chrome's T-Rex runner is a classic arcade game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "mari0-ce",
     "category": "Action",
     "confidence": "high",
-    "reason": "Mari0 is a Mario platformer with a Portal gun mechanic."
+    "reason": "Mari0 is a Mario platformer with a Portal gun mechanic.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "liuyi-first-snap",
     "category": "Action",
     "confidence": "low",
-    "reason": "Test snap description lacks details; arbitrary fallback."
+    "reason": "Test snap description lacks details; arbitrary fallback.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "othello-sensei",
     "category": "Board & Cards",
     "confidence": "high",
-    "reason": "Othello (Reversi) is a classic board game."
+    "reason": "Othello (Reversi) is a classic board game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "covidgame",
     "category": "Simulation",
     "confidence": "low",
-    "reason": "COVID-19 themed games are generally epidemic simulations or strategy."
+    "reason": "COVID-19 themed games are generally epidemic simulations or strategy.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "climate-trail",
     "category": "Educational",
     "confidence": "medium",
-    "reason": "The Climate Trail is an educational survival game styled after Oregon Trail."
+    "reason": "The Climate Trail is an educational survival game styled after Oregon Trail.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "creeperx",
     "category": "Action",
     "confidence": "low",
-    "reason": "Creeper name implies Minecraft-related action game, but description is generic."
+    "reason": "Creeper name implies Minecraft-related action game, but description is generic.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "cogchime",
     "category": "Puzzle",
     "confidence": "high",
-    "reason": "Arranging gears and chimes to wind up music box is a puzzle."
+    "reason": "Arranging gears and chimes to wind up music box is a puzzle.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "casino-sim-95-language-selectable",
     "category": "Simulation",
     "confidence": "medium",
-    "reason": "Casino simulator fits simulation category."
+    "reason": "Casino simulator fits simulation category.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "crowd-master-arcade",
     "category": "Arcade",
     "confidence": "high",
-    "reason": "Described explicitly as an arcade crowd runner."
+    "reason": "Described explicitly as an arcade crowd runner.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "carcassonne",
     "category": "Board & Cards",
     "confidence": "high",
-    "reason": "Carcassonne is a famous tile-placement board game."
+    "reason": "Carcassonne is a famous tile-placement board game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "conquest-linux",
     "category": "Strategy",
     "confidence": "medium",
-    "reason": "Conquest is a classic multi-player space warfare 4X/strategy game."
+    "reason": "Conquest is a classic multi-player space warfare 4X/strategy game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "color-match",
     "category": "Puzzle",
     "confidence": "high",
-    "reason": "Color matching games are puzzle games."
+    "reason": "Color matching games are puzzle games.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "codebreakers",
     "category": "Puzzle",
     "confidence": "high",
-    "reason": "Code-guessing games are deductive puzzle games."
+    "reason": "Code-guessing games are deductive puzzle games.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "connect4",
     "category": "Board & Cards",
     "confidence": "high",
-    "reason": "Connect 4 is a classic board game."
+    "reason": "Connect 4 is a classic board game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "commando",
     "category": "Action",
     "confidence": "high",
-    "reason": "8-Bit Commando is a 2D side-scrolling run and gun action game."
+    "reason": "8-Bit Commando is a 2D side-scrolling run and gun action game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "catshooter",
     "category": "Action",
     "confidence": "high",
-    "reason": "Shooter games belong to the action category."
+    "reason": "Shooter games belong to the action category.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "catacombs",
     "category": "Action",
     "confidence": "low",
-    "reason": "Theme implies underground horror action or adventure."
+    "reason": "Theme implies underground horror action or adventure.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "codenamelt",
     "category": "Action",
     "confidence": "high",
-    "reason": "Running away from agents is action-oriented gameplay."
+    "reason": "Running away from agents is action-oriented gameplay.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "chains",
     "category": "Puzzle",
     "confidence": "medium",
-    "reason": "Chains is a match-3/physics-based puzzle game."
+    "reason": "Chains is a match-3/physics-based puzzle game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "cgoban1",
     "category": "Board & Cards",
     "confidence": "high",
-    "reason": "Go (Weiqi/Baduk) is a traditional board game."
+    "reason": "Go (Weiqi/Baduk) is a traditional board game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "clairval",
     "category": "Board & Cards",
     "confidence": "medium",
-    "reason": "Social deduction games based on Werewolf are categorized under Board & Cards."
+    "reason": "Social deduction games based on Werewolf are categorized under Board & Cards.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "curseforge",
     "category": "Simulation",
     "confidence": "low",
-    "reason": "Mod manager tool; mostly used for simulation/sandbox games like Minecraft."
+    "reason": "Mod manager tool; mostly used for simulation/sandbox games like Minecraft.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "collisions",
     "category": "Puzzle",
     "confidence": "medium",
-    "reason": "Collisions is a logic/puzzle game."
+    "reason": "Collisions is a logic/puzzle game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "cavoke",
     "category": "Board & Cards",
     "confidence": "low",
-    "reason": "Cavoke is a network board game platform."
+    "reason": "Cavoke is a network board game platform.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "cyphesis",
     "category": "Role-Playing",
     "confidence": "high",
-    "reason": "Server for Worldforge MMORPGs (massively multiplayer online role-playing games)."
+    "reason": "Server for Worldforge MMORPGs (massively multiplayer online role-playing games).",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "crobots",
     "category": "Strategy",
     "confidence": "medium",
-    "reason": "Programming combat robots is a programming/strategy game."
+    "reason": "Programming combat robots is a programming/strategy game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "crewmate-rush-space-escape-runner",
     "category": "Arcade",
     "confidence": "high",
-    "reason": "Endless runners belong to the arcade category."
+    "reason": "Endless runners belong to the arcade category.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "coff-drop",
     "category": "Arcade",
     "confidence": "medium",
-    "reason": "Collecting items across levels to find exit is classic arcade gameplay."
+    "reason": "Collecting items across levels to find exit is classic arcade gameplay.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "cacto-loco",
     "category": "Action",
     "confidence": "high",
-    "reason": "Top down shoot 'em up game fits action."
+    "reason": "Top down shoot 'em up game fits action.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "codename-nuclear",
     "category": "Action",
     "confidence": "high",
-    "reason": "Action platformer directly classified under action."
+    "reason": "Action platformer directly classified under action.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "critical-annihilation",
     "category": "Action",
     "confidence": "high",
-    "reason": "Shooting invading aliens to eradicate them is action."
+    "reason": "Shooting invading aliens to eradicate them is action.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "cake-queen",
     "category": "Simulation",
     "confidence": "medium",
-    "reason": "Time management games are management simulations."
+    "reason": "Time management games are management simulations.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "championship-spades",
     "category": "Board & Cards",
     "confidence": "high",
-    "reason": "Spades is a standard card game."
+    "reason": "Spades is a standard card game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "carnival-jackpot-extreme",
     "category": "Puzzle",
     "confidence": "medium",
-    "reason": "Match games are classified as puzzle."
+    "reason": "Match games are classified as puzzle.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "cbeams",
     "category": "Simulation",
     "confidence": "low",
-    "reason": "Terminal animation effect viewer."
+    "reason": "Terminal animation effect viewer.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "carnival-jackpot",
     "category": "Puzzle",
     "confidence": "medium",
-    "reason": "Match games belong to puzzle."
+    "reason": "Match games belong to puzzle.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "caterpillarnoid",
     "category": "Arcade",
     "confidence": "high",
-    "reason": "Brick breaker games are arcade games."
+    "reason": "Brick breaker games are arcade games.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "cubes",
     "category": "Puzzle",
     "confidence": "medium",
-    "reason": "Razor1911's Cubes is a puzzle game."
+    "reason": "Razor1911's Cubes is a puzzle game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "critterding14-hans",
     "category": "Simulation",
     "confidence": "high",
-    "reason": "Artificial life evolution is a simulation."
+    "reason": "Artificial life evolution is a simulation.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "critterding-hans",
     "category": "Simulation",
     "confidence": "high",
-    "reason": "Artificial life evolution is a simulation."
+    "reason": "Artificial life evolution is a simulation.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "dunes-of-terror",
     "category": "Action",
     "confidence": "low",
-    "reason": "Title suggests an action or adventure game."
+    "reason": "Title suggests an action or adventure game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "darkdimension-rue",
     "category": "Adventure",
     "confidence": "medium",
-    "reason": "Narrative game focused on decisions, love, and regret."
+    "reason": "Narrative game focused on decisions, love, and regret.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "duckmarines",
     "category": "Puzzle",
     "confidence": "high",
-    "reason": "ChuChu Rocket is a classic action-puzzle game."
+    "reason": "ChuChu Rocket is a classic action-puzzle game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "dynahack",
     "category": "Role-Playing",
     "confidence": "high",
-    "reason": "NetHack is an iconic roguelike role-playing game."
+    "reason": "NetHack is an iconic roguelike role-playing game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "digger-classic",
     "category": "Arcade",
     "confidence": "high",
-    "reason": "Classic Digger is an arcade game."
+    "reason": "Classic Digger is an arcade game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "deep",
     "category": "Simulation",
     "confidence": "low",
-    "reason": "Marine life observation or exploration fits simulation."
+    "reason": "Marine life observation or exploration fits simulation.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "den",
     "category": "Arcade",
     "confidence": "low",
-    "reason": "Simple terminal multiplayer game."
+    "reason": "Simple terminal multiplayer game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "destruction-darius",
     "category": "Action",
     "confidence": "high",
-    "reason": "Blowing stuff up points directly to action."
+    "reason": "Blowing stuff up points directly to action.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "dyna-blaster",
     "category": "Arcade",
     "confidence": "high",
-    "reason": "Bomberman is a classic arcade maze action game."
+    "reason": "Bomberman is a classic arcade maze action game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "daves-bumpers",
     "category": "Puzzle",
     "confidence": "medium",
-    "reason": "Directing a ball into a target box using bumpers is puzzle gameplay."
+    "reason": "Directing a ball into a target box using bumpers is puzzle gameplay.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "destructanks",
     "category": "Action",
     "confidence": "high",
-    "reason": "Tank destruction game belongs to action."
+    "reason": "Tank destruction game belongs to action.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "doomrl",
     "category": "Role-Playing",
     "confidence": "high",
-    "reason": "Roguelike games are role-playing games."
+    "reason": "Roguelike games are role-playing games.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "dndsheetapp",
     "category": "Role-Playing",
     "confidence": "high",
-    "reason": "Companion tool for Dungeons & Dragons tabletop RPG."
+    "reason": "Companion tool for Dungeons & Dragons tabletop RPG.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "debris",
     "category": "Arcade",
     "confidence": "high",
-    "reason": "Asteroids clone is an arcade game."
+    "reason": "Asteroids clone is an arcade game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "ds-snake-game",
     "category": "Arcade",
     "confidence": "high",
-    "reason": "Snake is an arcade game."
+    "reason": "Snake is an arcade game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "dice-mj",
     "category": "Board & Cards",
     "confidence": "high",
-    "reason": "Dice Mahjong is a board/card/tile game."
+    "reason": "Dice Mahjong is a board/card/tile game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "openra-combined-arms",
     "category": "Strategy",
     "confidence": "high",
-    "reason": "Command & Conquer / OpenRA is a real-time strategy game."
+    "reason": "Command & Conquer / OpenRA is a real-time strategy game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "floating-sandbox",
     "category": "Simulation",
     "confidence": "high",
-    "reason": "Explicitly stated as an interactive physics simulator."
+    "reason": "Explicitly stated as an interactive physics simulator.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "tux-planet-2",
     "category": "Action",
     "confidence": "high",
-    "reason": "Danmaku (bullet hell) games belong to action."
+    "reason": "Danmaku (bullet hell) games belong to action.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "gamehubx",
     "category": "Arcade",
     "confidence": "medium",
-    "reason": "Casual mini-game hubs are usually arcade collections."
+    "reason": "Casual mini-game hubs are usually arcade collections.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "sailsim",
     "category": "Simulation",
     "confidence": "high",
-    "reason": "Explicitly named sailing simulator."
+    "reason": "Explicitly named sailing simulator.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "perfectvermin",
     "category": "Action",
     "confidence": "high",
-    "reason": "First-person rage room smashing game is action."
+    "reason": "First-person rage room smashing game is action.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "obscurant",
     "category": "Action",
     "confidence": "medium",
-    "reason": "Hide and seek video games involve stealth/action mechanics."
+    "reason": "Hide and seek video games involve stealth/action mechanics.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "ruscord-net",
     "category": "Adventure",
     "confidence": "low",
-    "reason": "Vague title; likely an adventure/action game or community mod."
+    "reason": "Vague title; likely an adventure/action game or community mod.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "peepeelunky",
     "category": "Action",
     "confidence": "medium",
-    "reason": "Spelunky-style mining game fits platformer/action."
+    "reason": "Spelunky-style mining game fits platformer/action.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "ruscord",
     "category": "Adventure",
     "confidence": "low",
-    "reason": "Vague title; low confidence categorization."
+    "reason": "Vague title; low confidence categorization.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "intellisphere",
     "category": "Simulation",
     "confidence": "medium",
-    "reason": "Jet fighter air combat simulation/action."
+    "reason": "Jet fighter air combat simulation/action.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "harpooned",
     "category": "Simulation",
     "confidence": "high",
-    "reason": "Cetacean research simulator is a simulation game."
+    "reason": "Cetacean research simulator is a simulation game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "familyfarmdemo-d042",
     "category": "Simulation",
     "confidence": "high",
-    "reason": "Farm management is a simulation genre."
+    "reason": "Farm management is a simulation genre.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "einstein-riddle",
     "category": "Puzzle",
     "confidence": "high",
-    "reason": "Einstein's Riddle is a classic logic puzzle."
+    "reason": "Einstein's Riddle is a classic logic puzzle.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "explode-bricks",
     "category": "Arcade",
     "confidence": "high",
-    "reason": "Brick breaker style games are arcade games."
+    "reason": "Brick breaker style games are arcade games.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "epicpinballpc",
     "category": "Arcade",
     "confidence": "high",
-    "reason": "Pinball games are classic arcade games."
+    "reason": "Pinball games are classic arcade games.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "ellaswar",
     "category": "Strategy",
     "confidence": "medium",
-    "reason": "EllasWar is an online browser-based strategy war game."
+    "reason": "EllasWar is an online browser-based strategy war game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "end-dayz",
     "category": "Action",
     "confidence": "medium",
-    "reason": "DayZ style survival scavenging games are action games."
+    "reason": "DayZ style survival scavenging games are action games.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "ic2",
     "category": "Simulation",
     "confidence": "medium",
-    "reason": "Industrial Craft 2 is a tech/automation mod for Minecraft sandbox."
+    "reason": "Industrial Craft 2 is a tech/automation mod for Minecraft sandbox.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "kglife",
     "category": "Simulation",
     "confidence": "high",
-    "reason": "Conway's Game of Life is a cellular automaton simulation."
+    "reason": "Conway's Game of Life is a cellular automaton simulation.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "mudream-online",
     "category": "Role-Playing",
     "confidence": "medium",
-    "reason": "MuDream is a private server for the MMORPG MU Online."
+    "reason": "MuDream is a private server for the MMORPG MU Online.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "stmg",
     "category": "Arcade",
     "confidence": "medium",
-    "reason": "Classic game collections are typically arcade games."
+    "reason": "Classic game collections are typically arcade games.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "trivia-desktop",
     "category": "Puzzle",
     "confidence": "medium",
-    "reason": "Trivia games test knowledge and are categorized under puzzle or educational."
+    "reason": "Trivia games test knowledge and are categorized under puzzle or educational.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "spelunky",
     "category": "Action",
     "confidence": "high",
-    "reason": "Spelunky is a roguelike 2D platformer action game."
+    "reason": "Spelunky is a roguelike 2D platformer action game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "fifteenpuzzle",
     "category": "Puzzle",
     "confidence": "high",
-    "reason": "Game of Fifteen is a classic sliding tile puzzle."
+    "reason": "Game of Fifteen is a classic sliding tile puzzle.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "future-pinball",
     "category": "Arcade",
     "confidence": "high",
-    "reason": "Pinball simulators and editors belong to the arcade category."
+    "reason": "Pinball simulators and editors belong to the arcade category.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "future-pinball-bam",
     "category": "Arcade",
     "confidence": "high",
-    "reason": "Pinball simulator/editor belongs to arcade."
+    "reason": "Pinball simulator/editor belongs to arcade.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "flappybros",
     "category": "Arcade",
     "confidence": "high",
-    "reason": "Flappy Bird clones are arcade games."
+    "reason": "Flappy Bird clones are arcade games.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "fractalattack",
     "category": "Simulation",
     "confidence": "high",
-    "reason": "Planet destruction simulation."
+    "reason": "Planet destruction simulation.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "free-games-webapp",
     "category": "Arcade",
     "confidence": "low",
-    "reason": "Web-based simple mini-games are predominantly arcade."
+    "reason": "Web-based simple mini-games are predominantly arcade.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "farm-kill",
     "category": "Action",
     "confidence": "high",
-    "reason": "Zombie killing horde survival is action."
+    "reason": "Zombie killing horde survival is action.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "fortify",
     "category": "Strategy",
     "confidence": "high",
-    "reason": "Castle defense / tower defense is a strategy genre."
+    "reason": "Castle defense / tower defense is a strategy genre.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "firewing64",
     "category": "Action",
     "confidence": "high",
-    "reason": "3D platformers fall under the action category."
+    "reason": "3D platformers fall under the action category.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "flappy-bird",
     "category": "Arcade",
     "confidence": "high",
-    "reason": "Flappy Bird is an arcade game."
+    "reason": "Flappy Bird is an arcade game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "wasted",
     "category": "Action",
     "confidence": "high",
-    "reason": "Demolition derby destruction game fits action."
+    "reason": "Demolition derby destruction game fits action.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "secondtemple",
     "category": "Educational",
     "confidence": "medium",
-    "reason": "Exploring historic Second Temple is an educational virtual reconstruction."
+    "reason": "Exploring historic Second Temple is an educational virtual reconstruction.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "rhodes3d",
     "category": "Adventure",
     "confidence": "medium",
-    "reason": "Historical exploration of Lindos fits adventure/simulation."
+    "reason": "Historical exploration of Lindos fits adventure/simulation.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "simon-remix",
     "category": "Puzzle",
     "confidence": "high",
-    "reason": "Simon memory pattern games are puzzle games."
+    "reason": "Simon memory pattern games are puzzle games.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "lizard-game",
     "category": "Arcade",
     "confidence": "medium",
-    "reason": "Jumping to achieve a high score fits classic arcade gameplay."
+    "reason": "Jumping to achieve a high score fits classic arcade gameplay.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "reversit",
     "category": "Board & Cards",
     "confidence": "high",
-    "reason": "Reversit is a variant of the classic board game Reversi/Othello."
+    "reason": "Reversit is a variant of the classic board game Reversi/Othello.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "stacktower",
     "category": "Arcade",
     "confidence": "medium",
-    "reason": "Stacking tower high is typical of arcade-style timing games."
+    "reason": "Stacking tower high is typical of arcade-style timing games.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "gorched",
     "category": "Strategy",
     "confidence": "high",
-    "reason": "Scorched Earth clones are turn-based artillery strategy games."
+    "reason": "Scorched Earth clones are turn-based artillery strategy games.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "game-collector",
     "category": "Arcade",
     "confidence": "medium",
-    "reason": "Collecting as many coins as possible is classic arcade gameplay."
+    "reason": "Collecting as many coins as possible is classic arcade gameplay.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "gdlauncher",
     "category": "Adventure",
     "confidence": "low",
-    "reason": "Launcher for Minecraft; game launchers have no dedicated category."
+    "reason": "Launcher for Minecraft; game launchers have no dedicated category.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "gang-garrison-2",
     "category": "Action",
     "confidence": "high",
-    "reason": "Team Fortress 2 2D demake is a multiplayer action shooter."
+    "reason": "Team Fortress 2 2D demake is a multiplayer action shooter.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "golly-game-of-life",
     "category": "Simulation",
     "confidence": "high",
-    "reason": "Conway's Game of Life is a cellular automaton simulation."
+    "reason": "Conway's Game of Life is a cellular automaton simulation.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "glest-game",
     "category": "Strategy",
     "confidence": "high",
-    "reason": "Glest is a well-known open-source 3D real-time strategy game."
+    "reason": "Glest is a well-known open-source 3D real-time strategy game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "genshin-resource-calc",
     "category": "Role-Playing",
     "confidence": "medium",
-    "reason": "Calculator tool for the role-playing game Genshin Impact."
+    "reason": "Calculator tool for the role-playing game Genshin Impact.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "game-watch-donkeykong-circus",
     "category": "Arcade",
     "confidence": "high",
-    "reason": "Nintendo Game & Watch titles are classic electronic handheld arcade games."
+    "reason": "Nintendo Game & Watch titles are classic electronic handheld arcade games.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "game-watch-donkeykong2",
     "category": "Arcade",
     "confidence": "high",
-    "reason": "Nintendo Game & Watch handheld games belong to the arcade genre."
+    "reason": "Nintendo Game & Watch handheld games belong to the arcade genre.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "game-watch-donkeykong",
     "category": "Arcade",
     "confidence": "high",
-    "reason": "Game & Watch Donkey Kong is a classic handheld arcade game."
+    "reason": "Game & Watch Donkey Kong is a classic handheld arcade game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "game-watch-ball",
     "category": "Arcade",
     "confidence": "high",
-    "reason": "Game & Watch Ball is a classic handheld arcade juggling game."
+    "reason": "Game & Watch Ball is a classic handheld arcade juggling game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "game-watch-dkongjr",
     "category": "Arcade",
     "confidence": "high",
-    "reason": "Game & Watch Donkey Kong Jr. is a classic arcade handheld game."
+    "reason": "Game & Watch Donkey Kong Jr. is a classic arcade handheld game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "going-nowhere",
     "category": "Adventure",
     "confidence": "high",
-    "reason": "Exploring a mysterious dream town describes an adventure game."
+    "reason": "Exploring a mysterious dream town describes an adventure game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "gold-sprinter",
     "category": "Arcade",
     "confidence": "high",
-    "reason": "Lode Runner is a classic platform arcade game."
+    "reason": "Lode Runner is a classic platform arcade game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "galacticgroove",
     "category": "Action",
     "confidence": "high",
-    "reason": "Shoot 'em up (shmup) games belong to the Action genre."
+    "reason": "Shoot 'em up (shmup) games belong to the Action genre.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "gongbat",
     "category": "Action",
     "confidence": "high",
-    "reason": "Taking down colossal bosses and tearing apart the world is action."
+    "reason": "Taking down colossal bosses and tearing apart the world is action.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "ghostbusters",
     "category": "Action",
     "confidence": "medium",
-    "reason": "The classic Ghostbusters game is primarily an action/adventure title."
+    "reason": "The classic Ghostbusters game is primarily an action/adventure title.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "gladupe",
     "category": "Arcade",
     "confidence": "high",
-    "reason": "Nibbles is a classic Snake-style arcade game."
+    "reason": "Nibbles is a classic Snake-style arcade game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "the-traveling-fox",
     "category": "Adventure",
     "confidence": "medium",
-    "reason": "3D platformers commonly categorize as adventure games."
+    "reason": "3D platformers commonly categorize as adventure games.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "squarehead",
     "category": "Arcade",
     "confidence": "low",
-    "reason": "SquareHead classic game is typically an arcade-style game."
+    "reason": "SquareHead classic game is typically an arcade-style game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "hanoi-tower",
     "category": "Puzzle",
     "confidence": "high",
-    "reason": "Tower of Hanoi is a well-known mathematical puzzle."
+    "reason": "Tower of Hanoi is a well-known mathematical puzzle.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "heads-tails",
     "category": "Board & Cards",
     "confidence": "medium",
-    "reason": "Heads or tails is a classic coin/gambling chance game."
+    "reason": "Heads or tails is a classic coin/gambling chance game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "hell",
     "category": "Action",
     "confidence": "low",
-    "reason": "Vague horror description, likely an action or adventure game."
+    "reason": "Vague horror description, likely an action or adventure game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "haunteed",
     "category": "Adventure",
     "confidence": "medium",
-    "reason": "TUI horror games are generally text/interactive fiction adventure games."
+    "reason": "TUI horror games are generally text/interactive fiction adventure games.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "helpshooter",
     "category": "Action",
     "confidence": "low",
-    "reason": "Vague description; brain parasite survival typically aligns with action."
+    "reason": "Vague description; brain parasite survival typically aligns with action.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "hypergolia",
     "category": "Role-Playing",
     "confidence": "low",
-    "reason": "Hyperborea-themed projects are typically fantasy role-playing or adventure games."
+    "reason": "Hyperborea-themed projects are typically fantasy role-playing or adventure games.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "hydorah",
     "category": "Action",
     "confidence": "high",
-    "reason": "Classic shoot 'em up game in space."
+    "reason": "Classic shoot 'em up game in space.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "hover",
     "category": "Action",
     "confidence": "high",
-    "reason": "Hovertank combat involves vehicular action."
+    "reason": "Hovertank combat involves vehicular action.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "hrubos-game-pack-1",
     "category": "Educational",
     "confidence": "medium",
-    "reason": "Games packs for children typically focus on educational or simple casual games."
+    "reason": "Games packs for children typically focus on educational or simple casual games.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "hybris-2404",
     "category": "Arcade",
     "confidence": "low",
-    "reason": "Compatibility library package, not an actual game."
+    "reason": "Compatibility library package, not an actual game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "infinitrap-rehamstered",
     "category": "Action",
     "confidence": "high",
-    "reason": "Hardcore top-down platformer fits Action."
+    "reason": "Hardcore top-down platformer fits Action.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "interstellar-armada",
     "category": "Simulation",
     "confidence": "high",
-    "reason": "3D space combat simulation game."
+    "reason": "3D space combat simulation game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "insatia-demo",
     "category": "Action",
     "confidence": "high",
-    "reason": "Explicitly described as an action game with a worm."
+    "reason": "Explicitly described as an action game with a worm.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "in-the-zone",
     "category": "Action",
     "confidence": "high",
-    "reason": "Earning points for kills indicates an action/combat shooter."
+    "reason": "Earning points for kills indicates an action/combat shooter.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "realpong",
     "category": "Arcade",
     "confidence": "high",
-    "reason": "Pong is an iconic arcade classic."
+    "reason": "Pong is an iconic arcade classic.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "what-lives-below-demo",
     "category": "Adventure",
     "confidence": "high",
-    "reason": "Exploration and escape theme represents an adventure game."
+    "reason": "Exploration and escape theme represents an adventure game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "snakeit",
     "category": "Arcade",
     "confidence": "high",
-    "reason": "Snake is a classic arcade game."
+    "reason": "Snake is a classic arcade game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "terminal-2048",
     "category": "Puzzle",
     "confidence": "high",
-    "reason": "2048 is a sliding block puzzle game."
+    "reason": "2048 is a sliding block puzzle game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "lapin",
     "category": "Arcade",
     "confidence": "low",
-    "reason": "Extremely sparse description; default guess based on casual title."
+    "reason": "Extremely sparse description; default guess based on casual title.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "jbridge",
     "category": "Board & Cards",
     "confidence": "low",
-    "reason": "Bridge is a classic card game."
+    "reason": "Bridge is a classic card game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "jsoko",
     "category": "Puzzle",
     "confidence": "high",
-    "reason": "Sokoban is a classic warehouse block-pushing puzzle game."
+    "reason": "Sokoban is a classic warehouse block-pushing puzzle game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "javarisk",
     "category": "Strategy",
     "confidence": "high",
-    "reason": "Risk is a classic territorial conquest strategy board game."
+    "reason": "Risk is a classic territorial conquest strategy board game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "jewelmaster",
     "category": "Puzzle",
     "confidence": "high",
-    "reason": "Jewel Master is a match-3/tile-matching puzzle game."
+    "reason": "Jewel Master is a match-3/tile-matching puzzle game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "jfreerails",
     "category": "Simulation",
     "confidence": "high",
-    "reason": "Directly described as a train simulation."
+    "reason": "Directly described as a train simulation.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "sdlpal",
     "category": "Role-Playing",
     "confidence": "high",
-    "reason": "PAL (The Legend of Sword and Fairy) is a classic Chinese RPG."
+    "reason": "PAL (The Legend of Sword and Fairy) is a classic Chinese RPG.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "sanmill",
     "category": "Board & Cards",
     "confidence": "high",
-    "reason": "Nine Men's Morris is a traditional strategy board game."
+    "reason": "Nine Men's Morris is a traditional strategy board game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "theocyb",
     "category": "Adventure",
     "confidence": "high",
-    "reason": "Visual novels are classified under Adventure."
+    "reason": "Visual novels are classified under Adventure.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "lemmings",
     "category": "Puzzle",
     "confidence": "high",
-    "reason": "Lemmings is a classic puzzle-strategy game."
+    "reason": "Lemmings is a classic puzzle-strategy game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "open-karaoke-producer",
     "category": "Educational",
     "confidence": "low",
-    "reason": "Karaoke software lacks a direct game category."
+    "reason": "Karaoke software lacks a direct game category.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "keen",
     "category": "Action",
     "confidence": "high",
-    "reason": "Commander Keen is a classic 2D action-platformer."
+    "reason": "Commander Keen is a classic 2D action-platformer.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "minesweeperjs",
     "category": "Puzzle",
     "confidence": "high",
-    "reason": "Minesweeper is a classic logic puzzle game."
+    "reason": "Minesweeper is a classic logic puzzle game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "yahtzee-java",
     "category": "Board & Cards",
     "confidence": "high",
-    "reason": "Yahtzee is a classic dice board game."
+    "reason": "Yahtzee is a classic dice board game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "openjk",
     "category": "Action",
     "confidence": "high",
-    "reason": "Jedi Knight and Jedi Outcast are first/third-person action games."
+    "reason": "Jedi Knight and Jedi Outcast are first/third-person action games.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "nxengine-evo",
     "category": "Adventure",
     "confidence": "medium",
-    "reason": "Cave Story (Doukutsu Monogatari) is a platform-adventure/Metroidvania game."
+    "reason": "Cave Story (Doukutsu Monogatari) is a platform-adventure/Metroidvania game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "konjektkonekto",
     "category": "Educational",
     "confidence": "high",
-    "reason": "Spelling and language guessing games are educational."
+    "reason": "Spelling and language guessing games are educational.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "knockdown",
     "category": "Strategy",
     "confidence": "medium",
-    "reason": "Building and destroying towers with weapons involves tactical strategy."
+    "reason": "Building and destroying towers with weapons involves tactical strategy.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "kaplink",
     "category": "Board & Cards",
     "confidence": "high",
-    "reason": "Connect-4 is an abstract strategy board game."
+    "reason": "Connect-4 is an abstract strategy board game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "sonic3air",
     "category": "Action",
     "confidence": "high",
-    "reason": "Sonic the Hedgehog games are fast-paced action platformers."
+    "reason": "Sonic the Hedgehog games are fast-paced action platformers.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "savekitty",
     "category": "Adventure",
     "confidence": "medium",
-    "reason": "2D rescue platformers fit adventure or action; calm exploration suggests adventure."
+    "reason": "2D rescue platformers fit adventure or action; calm exploration suggests adventure.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "longest-word-lite",
     "category": "Puzzle",
     "confidence": "high",
-    "reason": "Finding hidden words against the clock is a word puzzle game."
+    "reason": "Finding hidden words against the clock is a word puzzle game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "liveforspeed",
     "category": "Simulation",
     "confidence": "high",
-    "reason": "Live for Speed is explicitly an online racing simulator."
+    "reason": "Live for Speed is explicitly an online racing simulator.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "lemonator",
     "category": "Puzzle",
     "confidence": "medium",
-    "reason": "Character guessing games (like Akinator) are classified under puzzle."
+    "reason": "Character guessing games (like Akinator) are classified under puzzle.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "lambdarogue",
     "category": "Role-Playing",
     "confidence": "high",
-    "reason": "LambdaRogue is explicitly described as a roguelike RPG."
+    "reason": "LambdaRogue is explicitly described as a roguelike RPG.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "level9",
     "category": "Adventure",
     "confidence": "high",
-    "reason": "Interactive fiction text games belong to the adventure category."
+    "reason": "Interactive fiction text games belong to the adventure category.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "lostmem",
     "category": "Adventure",
     "confidence": "low",
-    "reason": "'Lost Memories' title suggests a narrative-driven adventure."
+    "reason": "'Lost Memories' title suggests a narrative-driven adventure.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "lucas-chess",
     "category": "Board & Cards",
     "confidence": "high",
-    "reason": "Lucas Chess is a chess training and playing board game program."
+    "reason": "Lucas Chess is a chess training and playing board game program.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "ladybug-2k6",
     "category": "Arcade",
     "confidence": "high",
-    "reason": "Pac-Man style maze games are arcade classics."
+    "reason": "Pac-Man style maze games are arcade classics.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "limload",
     "category": "Simulation",
     "confidence": "high",
-    "reason": "Cockpit flight games featuring military jets are flight simulations."
+    "reason": "Cockpit flight games featuring military jets are flight simulations.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "logyxpack",
     "category": "Puzzle",
     "confidence": "high",
-    "reason": "Collection of logic games falls directly under puzzle."
+    "reason": "Collection of logic games falls directly under puzzle.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "stacker",
     "category": "Arcade",
     "confidence": "high",
-    "reason": "Stacker is a classic arcade prize machine game."
+    "reason": "Stacker is a classic arcade prize machine game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pingus-game",
     "category": "Puzzle",
     "confidence": "high",
-    "reason": "Lemmings clones are puzzle games."
+    "reason": "Lemmings clones are puzzle games.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "mki3dgame-snap",
     "category": "Action",
     "confidence": "medium",
-    "reason": "Avoiding flying monsters and collecting gems represents action gameplay."
+    "reason": "Avoiding flying monsters and collecting gems represents action gameplay.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "moroway-app",
     "category": "Simulation",
     "confidence": "medium",
-    "reason": "MOROway App is a model railway simulation app."
+    "reason": "MOROway App is a model railway simulation app.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "mille-bornes",
     "category": "Board & Cards",
     "confidence": "high",
-    "reason": "Mille Bornes is a classic card game."
+    "reason": "Mille Bornes is a classic card game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "mangband",
     "category": "Role-Playing",
     "confidence": "high",
-    "reason": "Angband is a classic roguelike RPG."
+    "reason": "Angband is a classic roguelike RPG.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "masterofrenaissance",
     "category": "Board & Cards",
     "confidence": "high",
-    "reason": "Masters of Renaissance is an adaptation of the euro-style board game."
+    "reason": "Masters of Renaissance is an adaptation of the euro-style board game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "miksudr",
     "category": "Action",
     "confidence": "high",
-    "reason": "Deathrun and dodging arrows are action game mechanics."
+    "reason": "Deathrun and dodging arrows are action game mechanics.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "myth-makers-trixie-in-toyland",
     "category": "Action",
     "confidence": "high",
-    "reason": "3D action platformer explicitly stated in description."
+    "reason": "3D action platformer explicitly stated in description.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "milky-way-madness",
     "category": "Arcade",
     "confidence": "high",
-    "reason": "Described directly as a classic coin-op style arcade shoot-em-up."
+    "reason": "Described directly as a classic coin-op style arcade shoot-em-up.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "merlins-magic-breakout",
     "category": "Arcade",
     "confidence": "high",
-    "reason": "Breakout is a classic arcade block-breaking game."
+    "reason": "Breakout is a classic arcade block-breaking game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "moabite-stone",
     "category": "Puzzle",
     "confidence": "high",
-    "reason": "Match-3 games are categorized as puzzle games."
+    "reason": "Match-3 games are categorized as puzzle games.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "minigolf-1shot",
     "category": "Sports",
     "confidence": "high",
-    "reason": "Minigolf is a sports game."
+    "reason": "Minigolf is a sports game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "meteor-defence",
     "category": "Arcade",
     "confidence": "high",
-    "reason": "Missile/Meteor defense against alien ships is a classic arcade formula."
+    "reason": "Missile/Meteor defense against alien ships is a classic arcade formula.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "mindrover-europa",
     "category": "Action",
     "confidence": "medium",
-    "reason": "A retro tank game involves vehicle combat action."
+    "reason": "A retro tank game involves vehicle combat action.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "martialcards",
     "category": "Role-Playing",
     "confidence": "high",
-    "reason": "Card-based roguelikes fall under the role-playing game genre."
+    "reason": "Card-based roguelikes fall under the role-playing game genre.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "mspacman",
     "category": "Arcade",
     "confidence": "high",
-    "reason": "Ms. Pac-Man is an iconic arcade classic."
+    "reason": "Ms. Pac-Man is an iconic arcade classic.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "minestorm",
     "category": "Arcade",
     "confidence": "high",
-    "reason": "Mine Storm is a Vectrex Asteroids-style arcade game."
+    "reason": "Mine Storm is a Vectrex Asteroids-style arcade game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "mill",
     "category": "Board & Cards",
     "confidence": "high",
-    "reason": "Mill (Nine Men's Morris) is a traditional board game."
+    "reason": "Mill (Nine Men's Morris) is a traditional board game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "maxishoot-unofficial",
     "category": "Action",
     "confidence": "high",
-    "reason": "Killing enemies in a shooter is action gameplay."
+    "reason": "Killing enemies in a shooter is action gameplay.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "mobalytics-desktop",
     "category": "Strategy",
     "confidence": "low",
-    "reason": "Mobalytics is an analytics assistant for competitive strategy games like LoL."
+    "reason": "Mobalytics is an analytics assistant for competitive strategy games like LoL.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "mazetime",
     "category": "Arcade",
     "confidence": "high",
-    "reason": "Tilt-controlled maze running fits arcade gameplay."
+    "reason": "Tilt-controlled maze running fits arcade gameplay.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "morpion",
     "category": "Board & Cards",
     "confidence": "high",
-    "reason": "Morpion is the French name for Tic-Tac-Toe."
+    "reason": "Morpion is the French name for Tic-Tac-Toe.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "meganimus",
     "category": "Arcade",
     "confidence": "low",
-    "reason": "Tool for games rather than a game itself."
+    "reason": "Tool for games rather than a game itself.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "madfish",
     "category": "Arcade",
     "confidence": "low",
-    "reason": "Big/small fish eating games (like Feeding Frenzy) are arcade games."
+    "reason": "Big/small fish eating games (like Feeding Frenzy) are arcade games.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "my-covid-quizzie",
     "category": "Puzzle",
     "confidence": "medium",
-    "reason": "Quiz games are best classified under puzzle or educational."
+    "reason": "Quiz games are best classified under puzzle or educational.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "nuclear-power-plant-simulator",
     "category": "Simulation",
     "confidence": "high",
-    "reason": "Explicitly a nuclear power plant management simulator."
+    "reason": "Explicitly a nuclear power plant management simulator.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "poirmento",
     "category": "Adventure",
     "confidence": "high",
-    "reason": "Explicitly described as a point-and-click detective adventure."
+    "reason": "Explicitly described as a point-and-click detective adventure.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "nuclear-invaders",
     "category": "Arcade",
     "confidence": "high",
-    "reason": "Remake of classic arcade space invaders style game."
+    "reason": "Remake of classic arcade space invaders style game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "nightfall-hacker",
     "category": "Puzzle",
     "confidence": "medium",
-    "reason": "Hacking-themed game involving planning and solving challenges."
+    "reason": "Hacking-themed game involving planning and solving challenges.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "new-vegas-games",
     "category": "Board & Cards",
     "confidence": "high",
-    "reason": "Casino card and table games."
+    "reason": "Casino card and table games.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "ningpo-mah-jong",
     "category": "Board & Cards",
     "confidence": "high",
-    "reason": "Mah-Jong tile-matching board game."
+    "reason": "Mah-Jong tile-matching board game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "noahs-ark-deluxe",
     "category": "Puzzle",
     "confidence": "high",
-    "reason": "PopCap matching puzzle game."
+    "reason": "PopCap matching puzzle game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "nvchess",
     "category": "Board & Cards",
     "confidence": "high",
-    "reason": "3D version of the board game Chess."
+    "reason": "3D version of the board game Chess.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "springlobby-nsg",
     "category": "Strategy",
     "confidence": "high",
-    "reason": "Lobby for Spring real-time strategy games."
+    "reason": "Lobby for Spring real-time strategy games.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "powtty",
     "category": "Role-Playing",
     "confidence": "high",
-    "reason": "Client for DIKU-based multi-user dungeon (MUD) RPG."
+    "reason": "Client for DIKU-based multi-user dungeon (MUD) RPG.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "tabletop-club-unofficial",
     "category": "Board & Cards",
     "confidence": "high",
-    "reason": "Multiplayer tabletop simulator for board games."
+    "reason": "Multiplayer tabletop simulator for board games.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "openttdrs",
     "category": "Simulation",
     "confidence": "high",
-    "reason": "Isometric transport simulation based on OpenTTD."
+    "reason": "Isometric transport simulation based on OpenTTD.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "opentyrian-windows",
     "category": "Arcade",
     "confidence": "high",
-    "reason": "Port of Tyrian, a classic vertical scrolling arcade shooter."
+    "reason": "Port of Tyrian, a classic vertical scrolling arcade shooter.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "openbor4",
     "category": "Action",
     "confidence": "medium",
-    "reason": "Beat 'em up side scrolling engine."
+    "reason": "Beat 'em up side scrolling engine.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "osgg",
     "category": "Arcade",
     "confidence": "medium",
-    "reason": "Retro gravity-based arcade game."
+    "reason": "Retro gravity-based arcade game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "trigger-rally-ogra",
     "category": "Simulation",
     "confidence": "high",
-    "reason": "3D rally racing simulation with physics engine."
+    "reason": "3D rally racing simulation with physics engine.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "phantom",
     "category": "Simulation",
     "confidence": "low",
-    "reason": "Proxy server, ambiguous relation to games."
+    "reason": "Proxy server, ambiguous relation to games.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "project-g",
     "category": "Action",
     "confidence": "low",
-    "reason": "Vague gaming platform description."
+    "reason": "Vague gaming platform description.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "portal-puzzle",
     "category": "Puzzle",
     "confidence": "high",
-    "reason": "Puzzle game based on the name."
+    "reason": "Puzzle game based on the name.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "puzzle-games",
     "category": "Puzzle",
     "confidence": "high",
-    "reason": "Brain and logic puzzle game collection."
+    "reason": "Brain and logic puzzle game collection.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "package-resolved",
     "category": "Arcade",
     "confidence": "low",
-    "reason": "Collecting items suggests casual arcade gameplay."
+    "reason": "Collecting items suggests casual arcade gameplay.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pixels-game",
     "category": "Arcade",
     "confidence": "low",
-    "reason": "Generic name with no detailed description."
+    "reason": "Generic name with no detailed description.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pace-game",
     "category": "Action",
     "confidence": "low",
-    "reason": "Speed game suggests fast-paced action."
+    "reason": "Speed game suggests fast-paced action.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pyao",
     "category": "Role-Playing",
     "confidence": "high",
-    "reason": "Argentum Online is an open-source MMORPG."
+    "reason": "Argentum Online is an open-source MMORPG.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pepeshooter",
     "category": "Action",
     "confidence": "high",
-    "reason": "Shooter game involving cleaning up memes."
+    "reason": "Shooter game involving cleaning up memes.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "psychedelic",
     "category": "Action",
     "confidence": "high",
-    "reason": "Survival shooter game."
+    "reason": "Survival shooter game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "piggy-dice",
     "category": "Board & Cards",
     "confidence": "high",
-    "reason": "Two-player dice game."
+    "reason": "Two-player dice game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pacmans-revenge",
     "category": "Arcade",
     "confidence": "high",
-    "reason": "Pacman variant, a classic arcade game."
+    "reason": "Pacman variant, a classic arcade game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pigs-n-cows",
     "category": "Arcade",
     "confidence": "medium",
-    "reason": "Casual endless game."
+    "reason": "Casual endless game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "paper-flight",
     "category": "Simulation",
     "confidence": "low",
-    "reason": "Paper airplane game usually entails simulation or arcade."
+    "reason": "Paper airplane game usually entails simulation or arcade.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "playpoker",
     "category": "Board & Cards",
     "confidence": "high",
-    "reason": "Poker card game."
+    "reason": "Poker card game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "parkourland-remastered",
     "category": "Action",
     "confidence": "high",
-    "reason": "Parkour platforming game."
+    "reason": "Parkour platforming game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pinball-const-set",
     "category": "Arcade",
     "confidence": "high",
-    "reason": "Pinball game creation system."
+    "reason": "Pinball game creation system.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "peggle-wow-edition",
     "category": "Puzzle",
     "confidence": "high",
-    "reason": "Peggle is a classic pachinko-style puzzle game."
+    "reason": "Peggle is a classic pachinko-style puzzle game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "puzzle-rally",
     "category": "Puzzle",
     "confidence": "high",
-    "reason": "Pipe connection puzzle game with cars."
+    "reason": "Pipe connection puzzle game with cars.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pacewar",
     "category": "Strategy",
     "confidence": "medium",
-    "reason": "Space faction conflict game typically strategy or action."
+    "reason": "Space faction conflict game typically strategy or action.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "prehistoric",
     "category": "Strategy",
     "confidence": "high",
-    "reason": "Tower defense style game protecting a village."
+    "reason": "Tower defense style game protecting a village.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pacman1",
     "category": "Arcade",
     "confidence": "high",
-    "reason": "Pacman game for children."
+    "reason": "Pacman game for children.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pingpong",
     "category": "Sports",
     "confidence": "high",
-    "reason": "Ping Pong / table tennis game."
+    "reason": "Ping Pong / table tennis game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "quick-blackjack",
     "category": "Board & Cards",
     "confidence": "high",
-    "reason": "Blackjack card game."
+    "reason": "Blackjack card game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "sparky",
     "category": "Adventure",
     "confidence": "medium",
-    "reason": "Narrative-driven game about making friends."
+    "reason": "Narrative-driven game about making friends.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "ultrastar-worldparty",
     "category": "Arcade",
     "confidence": "medium",
-    "reason": "Karaoke rhythm/party game."
+    "reason": "Karaoke rhythm/party game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "source-of-mana",
     "category": "Role-Playing",
     "confidence": "medium",
-    "reason": "Mana-inspired adventure RPG."
+    "reason": "Mana-inspired adventure RPG.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "ruben-match-three-game",
     "category": "Puzzle",
     "confidence": "high",
-    "reason": "Match-three puzzle game."
+    "reason": "Match-three puzzle game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "razmanager",
     "category": "Sports",
     "confidence": "medium",
-    "reason": "Slot car racing manager."
+    "reason": "Slot car racing manager.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "ranger-windows",
     "category": "Action",
     "confidence": "medium",
-    "reason": "Space rescue shooter mission."
+    "reason": "Space rescue shooter mission.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "rubix",
     "category": "Puzzle",
     "confidence": "high",
-    "reason": "Rubik's cube simulator."
+    "reason": "Rubik's cube simulator.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "roguelight",
     "category": "Action",
     "confidence": "medium",
-    "reason": "Roguelike platformer/action shooting arrows."
+    "reason": "Roguelike platformer/action shooting arrows.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "roll",
     "category": "Board & Cards",
     "confidence": "medium",
-    "reason": "Dice rolling utility for tabletop games."
+    "reason": "Dice rolling utility for tabletop games.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "randomit",
     "category": "Puzzle",
     "confidence": "low",
-    "reason": "Vague title and description."
+    "reason": "Vague title and description.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "vaporbreaker",
     "category": "Arcade",
     "confidence": "high",
-    "reason": "Block breaker arcade game."
+    "reason": "Block breaker arcade game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "shenko",
     "category": "Educational",
     "confidence": "low",
-    "reason": "Programming language community project."
+    "reason": "Programming language community project.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "soyjak",
     "category": "Action",
     "confidence": "high",
-    "reason": "Shooter game against Soyjaks."
+    "reason": "Shooter game against Soyjaks.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "spacepurge",
     "category": "Action",
     "confidence": "low",
-    "reason": "Space purge implies space action or shooter."
+    "reason": "Space purge implies space action or shooter.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "stunt-car-remake",
     "category": "Sports",
     "confidence": "high",
-    "reason": "Stunt car racing game remake."
+    "reason": "Stunt car racing game remake.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "superchains",
     "category": "Puzzle",
     "confidence": "medium",
-    "reason": "Chains puzzle matching game."
+    "reason": "Chains puzzle matching game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "santorini",
     "category": "Board & Cards",
     "confidence": "high",
-    "reason": "Digital version of the Santorini board game."
+    "reason": "Digital version of the Santorini board game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "shellsnake",
     "category": "Arcade",
     "confidence": "medium",
-    "reason": "Snake game clone in terminal."
+    "reason": "Snake game clone in terminal.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "sky-hero",
     "category": "Action",
     "confidence": "high",
-    "reason": "Platforming action game with jumping, dashing, and combat."
+    "reason": "Platforming action game with jumping, dashing, and combat.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "sauna-sim",
     "category": "Simulation",
     "confidence": "high",
-    "reason": "Air Traffic Control (ATC) training simulator."
+    "reason": "Air Traffic Control (ATC) training simulator.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "skullarcade",
     "category": "Arcade",
     "confidence": "high",
-    "reason": "Explicitly titled arcade game."
+    "reason": "Explicitly titled arcade game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "super-smash-bros-crusade",
     "category": "Action",
     "confidence": "high",
-    "reason": "Super Smash Bros. fan fighting game."
+    "reason": "Super Smash Bros. fan fighting game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "strandedii",
     "category": "Adventure",
     "confidence": "medium",
-    "reason": "Island survival adventure game."
+    "reason": "Island survival adventure game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "sokobanp",
     "category": "Puzzle",
     "confidence": "high",
-    "reason": "Sokoban box-pushing puzzle game."
+    "reason": "Sokoban box-pushing puzzle game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "sokomind3",
     "category": "Puzzle",
     "confidence": "high",
-    "reason": "Sokomind is a Sokoban-style puzzle game."
+    "reason": "Sokomind is a Sokoban-style puzzle game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "space-cat",
     "category": "Action",
     "confidence": "high",
-    "reason": "Action game described as testing reflexes."
+    "reason": "Action game described as testing reflexes.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "starscape",
     "category": "Action",
     "confidence": "medium",
-    "reason": "Starscape is a space action/shooter game."
+    "reason": "Starscape is a space action/shooter game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "sabaki-go",
     "category": "Board & Cards",
     "confidence": "high",
-    "reason": "Go board game."
+    "reason": "Go board game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "srututu",
     "category": "Board & Cards",
     "confidence": "high",
-    "reason": "Explicitly described as an RPG boardgame."
+    "reason": "Explicitly described as an RPG boardgame.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "strange-attractors",
     "category": "Puzzle",
     "confidence": "medium",
-    "reason": "Physics-based gravity puzzle game."
+    "reason": "Physics-based gravity puzzle game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "shadowofthebeastlegacy",
     "category": "Action",
     "confidence": "high",
-    "reason": "Action platform game based on Shadow of the Beast."
+    "reason": "Action platform game based on Shadow of the Beast.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "super-smash-land",
     "category": "Action",
     "confidence": "high",
-    "reason": "Super Smash Bros. demake fighting game."
+    "reason": "Super Smash Bros. demake fighting game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "soda-pipes",
     "category": "Puzzle",
     "confidence": "high",
-    "reason": "Pipe connection puzzle game."
+    "reason": "Pipe connection puzzle game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "sushido",
     "category": "Simulation",
     "confidence": "medium",
-    "reason": "Cooking/fishing management game."
+    "reason": "Cooking/fishing management game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "the-game-of-life-linux",
     "category": "Simulation",
     "confidence": "high",
-    "reason": "Conway's Game of Life cellular automaton simulation."
+    "reason": "Conway's Game of Life cellular automaton simulation.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "trader-linux",
     "category": "Strategy",
     "confidence": "medium",
-    "reason": "Trading and economic game."
+    "reason": "Trading and economic game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "tmunitedforever",
     "category": "Sports",
     "confidence": "high",
-    "reason": "TrackMania is a stunt racing game."
+    "reason": "TrackMania is a stunt racing game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "tuxfight",
     "category": "Action",
     "confidence": "medium",
-    "reason": "Fighting game featuring Tux."
+    "reason": "Fighting game featuring Tux.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "themammoth-acavepainting",
     "category": "Adventure",
     "confidence": "medium",
-    "reason": "Narrative experience about the life of a mammoth."
+    "reason": "Narrative experience about the life of a mammoth.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "tic-tac-fishies-lite",
     "category": "Board & Cards",
     "confidence": "high",
-    "reason": "Tic-tac-toe variant board game."
+    "reason": "Tic-tac-toe variant board game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "treasureshr",
     "category": "Puzzle",
     "confidence": "medium",
-    "reason": "Falling block/tile matching puzzle game."
+    "reason": "Falling block/tile matching puzzle game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "train-director",
     "category": "Simulation",
     "confidence": "high",
-    "reason": "Train dispatching simulation game."
+    "reason": "Train dispatching simulation game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "tiptop-deluxe",
     "category": "Puzzle",
     "confidence": "high",
-    "reason": "Matching puzzle game by PopCap."
+    "reason": "Matching puzzle game by PopCap.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "the-seventh-door",
     "category": "Adventure",
     "confidence": "medium",
-    "reason": "Community adventure or RPG project."
+    "reason": "Community adventure or RPG project.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "the-spirit-engine",
     "category": "Role-Playing",
     "confidence": "high",
-    "reason": "Explicitly named RPG."
+    "reason": "Explicitly named RPG.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "turbo-risk",
     "category": "Strategy",
     "confidence": "high",
-    "reason": "Digital version of the Risk strategy board game."
+    "reason": "Digital version of the Risk strategy board game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "the-lost-vikings",
     "category": "Puzzle",
     "confidence": "high",
-    "reason": "The Lost Vikings is a puzzle-platformer classic."
+    "reason": "The Lost Vikings is a puzzle-platformer classic.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "tank-d8",
     "category": "Action",
     "confidence": "high",
-    "reason": "Top-down bullet hell arcade action game."
+    "reason": "Top-down bullet hell arcade action game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "the-siren",
     "category": "Action",
     "confidence": "high",
-    "reason": "Flak anti-air shooter action game."
+    "reason": "Flak anti-air shooter action game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "therapywithdralbertkrueger",
     "category": "Adventure",
     "confidence": "high",
-    "reason": "Interactive fiction visual novel / adventure."
+    "reason": "Interactive fiction visual novel / adventure.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "the-three-stooges",
     "category": "Action",
     "confidence": "medium",
-    "reason": "Cinemaware interactive movie/minigame action title."
+    "reason": "Cinemaware interactive movie/minigame action title.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "turtle-odyssey",
     "category": "Adventure",
     "confidence": "medium",
-    "reason": "Side-scrolling platform adventure game."
+    "reason": "Side-scrolling platform adventure game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "techiumeclipse",
     "category": "Arcade",
     "confidence": "high",
-    "reason": "Missile command style arcade meteor defense."
+    "reason": "Missile command style arcade meteor defense.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "turtle-odyssey-2",
     "category": "Adventure",
     "confidence": "medium",
-    "reason": "Side-scrolling platform adventure game."
+    "reason": "Side-scrolling platform adventure game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "taisei-project-d042",
     "category": "Action",
     "confidence": "high",
-    "reason": "Shoot 'em up bullet hell game."
+    "reason": "Shoot 'em up bullet hell game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "the-goonies",
     "category": "Adventure",
     "confidence": "medium",
-    "reason": "Remake of classic platform adventure game."
+    "reason": "Remake of classic platform adventure game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "unleashedrecomp",
     "category": "Action",
     "confidence": "high",
-    "reason": "Platform action game (Sonic the Hedgehog)."
+    "reason": "Platform action game (Sonic the Hedgehog).",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "uwol",
     "category": "Arcade",
     "confidence": "high",
-    "reason": "Retro arcade platformer about collecting coins."
+    "reason": "Retro arcade platformer about collecting coins.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "snake-ubalot",
     "category": "Arcade",
     "confidence": "high",
-    "reason": "Classic Snake arcade game."
+    "reason": "Classic Snake arcade game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "vcl-video-poker",
     "category": "Board & Cards",
     "confidence": "high",
-    "reason": "Video Poker card game."
+    "reason": "Video Poker card game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "venice-deluxe",
     "category": "Puzzle",
     "confidence": "high",
-    "reason": "PopCap puzzle/arcade game."
+    "reason": "PopCap puzzle/arcade game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "verminest",
     "category": "Arcade",
     "confidence": "high",
-    "reason": "Locomalito retro fixed-shooter arcade game."
+    "reason": "Locomalito retro fixed-shooter arcade game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "virustg",
     "category": "Action",
     "confidence": "low",
-    "reason": "Virus games typically feature action/strategy themes, description is very brief."
+    "reason": "Virus games typically feature action/strategy themes, description is very brief.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "ws-deluxe-lite",
     "category": "Board & Cards",
     "confidence": "low",
-    "reason": "Extremely brief name/desc; WS often denotes Wordament or Scrabble, guess low."
+    "reason": "Extremely brief name/desc; WS often denotes Wordament or Scrabble, guess low.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "witch-frog",
     "category": "Puzzle",
     "confidence": "high",
-    "reason": "Described explicitly as a combat puzzler."
+    "reason": "Described explicitly as a combat puzzler.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "wizardwizard",
     "category": "Arcade",
     "confidence": "medium",
-    "reason": "Focus on jumping platforming gameplay suggests arcade/action."
+    "reason": "Focus on jumping platforming gameplay suggests arcade/action.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "woodygammon",
     "category": "Board & Cards",
     "confidence": "high",
-    "reason": "Explicitly described as a version of Backgammon."
+    "reason": "Explicitly described as a version of Backgammon.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "wheel-of-fortune-dlx",
     "category": "Puzzle",
     "confidence": "medium",
-    "reason": "Wheel of Fortune is a word puzzle gameshow."
+    "reason": "Wheel of Fortune is a word puzzle gameshow.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "war3keys",
     "category": "Strategy",
     "confidence": "low",
-    "reason": "Key remap utility for Warcraft 3, a strategy game."
+    "reason": "Key remap utility for Warcraft 3, a strategy game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "yaya",
     "category": "Board & Cards",
     "confidence": "high",
-    "reason": "Described as a Yahtzee-esque dice game application."
+    "reason": "Described as a Yahtzee-esque dice game application.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "ygig",
     "category": "Puzzle",
     "confidence": "high",
-    "reason": "Idiom guessing and word quiz game."
+    "reason": "Idiom guessing and word quiz game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "yahtzee-windows",
     "category": "Board & Cards",
     "confidence": "high",
-    "reason": "Yahtzee is a classic dice/board game."
+    "reason": "Yahtzee is a classic dice/board game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "yasc",
     "category": "Puzzle",
     "confidence": "high",
-    "reason": "Sokoban is a classic box-pushing puzzle game."
+    "reason": "Sokoban is a classic box-pushing puzzle game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "5-card-poker-collection",
     "category": "Board & Cards",
     "confidence": "high",
-    "reason": "Collection of poker card game variants."
+    "reason": "Collection of poker card game variants.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "space-combat",
     "category": "Action",
     "confidence": "medium",
-    "reason": "Space combat typically falls under action games."
+    "reason": "Space combat typically falls under action games.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "simant",
     "category": "Simulation",
     "confidence": "high",
-    "reason": "SimAnt is an ant colony simulation game."
+    "reason": "SimAnt is an ant colony simulation game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "sports-mogul-baseball",
     "category": "Sports",
     "confidence": "high",
-    "reason": "Explicitly described as a sports management simulation."
+    "reason": "Explicitly described as a sports management simulation.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "sea-battle",
     "category": "Board & Cards",
     "confidence": "high",
-    "reason": "Battleship is a classic board game."
+    "reason": "Battleship is a classic board game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "sonic3d",
     "category": "Arcade",
     "confidence": "medium",
-    "reason": "Sonic games are platformers closely associated with arcade/action."
+    "reason": "Sonic games are platformers closely associated with arcade/action.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "survivor-reborn",
     "category": "Action",
     "confidence": "low",
-    "reason": "Survivor games are typically survival action/arcade."
+    "reason": "Survivor games are typically survival action/arcade.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "star-raptor",
     "category": "Arcade",
     "confidence": "medium",
-    "reason": "Top-down or shmup arcade objective 'destroy all enemies'."
+    "reason": "Top-down or shmup arcade objective 'destroy all enemies'.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "sonic-exe",
     "category": "Adventure",
     "confidence": "medium",
-    "reason": "Horror adventure/platformer fan game."
+    "reason": "Horror adventure/platformer fan game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "supermariobros-game-builder",
     "category": "Arcade",
     "confidence": "medium",
-    "reason": "Super Mario Bros is an iconic platformer/arcade game."
+    "reason": "Super Mario Bros is an iconic platformer/arcade game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "soko3d",
     "category": "Puzzle",
     "confidence": "high",
-    "reason": "Sokoban is a box-pushing puzzle game."
+    "reason": "Sokoban is a box-pushing puzzle game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "smart-games-puzzle-challenge-3",
     "category": "Puzzle",
     "confidence": "high",
-    "reason": "Described explicitly as a collection of puzzles."
+    "reason": "Described explicitly as a collection of puzzles.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "souptoys",
     "category": "Simulation",
     "confidence": "medium",
-    "reason": "A digital desktop toybox simulation."
+    "reason": "A digital desktop toybox simulation.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "symgrpmad",
     "category": "Puzzle",
     "confidence": "medium",
-    "reason": "Game based on overlapping symmetry groups is a puzzle concept."
+    "reason": "Game based on overlapping symmetry groups is a puzzle concept.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pi",
     "category": "Educational",
     "confidence": "low",
-    "reason": "Raspberry Pi gadget/toy."
+    "reason": "Raspberry Pi gadget/toy.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "bomberic2",
     "category": "Action",
     "confidence": "high",
-    "reason": "Described explicitly as a great action game."
+    "reason": "Described explicitly as a great action game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "bomberic",
     "category": "Action",
     "confidence": "high",
-    "reason": "Described explicitly as a great action game."
+    "reason": "Described explicitly as a great action game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "clone-windows",
     "category": "Action",
     "confidence": "high",
-    "reason": "Described explicitly as a nice action game."
+    "reason": "Described explicitly as a nice action game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "solitude",
     "category": "Adventure",
     "confidence": "low",
-    "reason": "A dark room desktop game suggests ambient/adventure."
+    "reason": "A dark room desktop game suggests ambient/adventure.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "wallstreet",
     "category": "Simulation",
     "confidence": "low",
-    "reason": "Simulates Wall Street news and stock stats in console."
+    "reason": "Simulates Wall Street news and stock stats in console.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pengapop",
     "category": "Action",
     "confidence": "high",
-    "reason": "Described explicitly as a cool action game."
+    "reason": "Described explicitly as a cool action game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pickingems",
     "category": "Arcade",
     "confidence": "medium",
-    "reason": "Pickin' Sticks is a simple gathering arcade game."
+    "reason": "Pickin' Sticks is a simple gathering arcade game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "appimage:tkashkin:GameHub",
     "category": "Action",
     "confidence": "low",
-    "reason": "Game launcher/manager, not a game itself."
+    "reason": "Game launcher/manager, not a game itself.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "appimage:xxxcucus:planes",
     "category": "Board & Cards",
     "confidence": "high",
-    "reason": "Described as a variant of the Battleships board game."
+    "reason": "Described as a variant of the Battleships board game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pacman-aur:1oom",
     "category": "Strategy",
     "confidence": "high",
-    "reason": "Master of Orion is a 4X turn-based strategy game."
+    "reason": "Master of Orion is a 4X turn-based strategy game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pacman-aur:2048-cli-git",
     "category": "Puzzle",
     "confidence": "high",
-    "reason": "2048 is a sliding block puzzle game."
+    "reason": "2048 is a sliding block puzzle game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pacman-aur:2048-py",
     "category": "Puzzle",
     "confidence": "high",
-    "reason": "2048 is a sliding block puzzle game."
+    "reason": "2048 is a sliding block puzzle game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pacman-aur:2048-qt",
     "category": "Puzzle",
     "confidence": "high",
-    "reason": "2048 is a sliding block puzzle game."
+    "reason": "2048 is a sliding block puzzle game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pacman-aur:2048-tui",
     "category": "Puzzle",
     "confidence": "high",
-    "reason": "2048 is a sliding block puzzle game."
+    "reason": "2048 is a sliding block puzzle game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pacman-aur:2048.c",
     "category": "Puzzle",
     "confidence": "high",
-    "reason": "2048 is a sliding block puzzle game."
+    "reason": "2048 is a sliding block puzzle game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pacman-aur:2048.cpp-git",
     "category": "Puzzle",
     "confidence": "high",
-    "reason": "2048 is a sliding block puzzle game."
+    "reason": "2048 is a sliding block puzzle game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pacman-aur:2048term-git",
     "category": "Puzzle",
     "confidence": "high",
-    "reason": "2048 is a sliding block puzzle game."
+    "reason": "2048 is a sliding block puzzle game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pacman-aur:7kaa-music",
     "category": "Strategy",
     "confidence": "high",
-    "reason": "Seven Kingdoms is an RTS game."
+    "reason": "Seven Kingdoms is an RTS game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pacman-aur:a7xpg",
     "category": "Action",
     "confidence": "high",
-    "reason": "Described explicitly as a chase action game."
+    "reason": "Described explicitly as a chase action game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pacman-aur:achilles",
     "category": "Simulation",
     "confidence": "high",
-    "reason": "Artificial life and evolution simulator."
+    "reason": "Artificial life and evolution simulator.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pacman-aur:adonthell",
     "category": "Role-Playing",
     "confidence": "high",
-    "reason": "Explicitly described as a role playing game engine."
+    "reason": "Explicitly described as a role playing game engine.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pacman-aur:adventuresofdemo",
     "category": "Arcade",
     "confidence": "medium",
-    "reason": "Platformer game based on Super Mario Bros. X engine."
+    "reason": "Platformer game based on Super Mario Bros. X engine.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pacman-aur:allegro-blasteroids-git",
     "category": "Arcade",
     "confidence": "high",
-    "reason": "Blasteroids is an arcade space shooter game."
+    "reason": "Blasteroids is an arcade space shooter game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pacman-aur:animetetris",
     "category": "Puzzle",
     "confidence": "high",
-    "reason": "Tetris clone, a classic falling block puzzle game."
+    "reason": "Tetris clone, a classic falling block puzzle game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pacman-aur:apx",
     "category": "Arcade",
     "confidence": "high",
-    "reason": "QIX is a classic arcade game."
+    "reason": "QIX is a classic arcade game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pacman-aur:arrowkeyoracle",
     "category": "Puzzle",
     "confidence": "low",
-    "reason": "Guessing/prediction game mechanic."
+    "reason": "Guessing/prediction game mechanic.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pacman-aur:ascii-battleship",
     "category": "Board & Cards",
     "confidence": "high",
-    "reason": "Battleship is a board game."
+    "reason": "Battleship is a board game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pacman-aur:asciiplanes",
     "category": "Puzzle",
     "confidence": "high",
-    "reason": "Grid-based deduction puzzle game similar to Battleship."
+    "reason": "Grid-based deduction puzzle game similar to Battleship.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pacman-aur:ativayeban-git",
     "category": "Arcade",
     "confidence": "medium",
-    "reason": "Dodging obstacles while falling is classic arcade gameplay."
+    "reason": "Dodging obstacles while falling is classic arcade gameplay.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pacman-aur:bar-lobby-bin",
     "category": "Strategy",
     "confidence": "high",
-    "reason": "Lobby for Beyond All Reason, an RTS strategy game."
+    "reason": "Lobby for Beyond All Reason, an RTS strategy game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pacman-aur:beatoraja-modernchic",
     "category": "Arcade",
     "confidence": "high",
-    "reason": "Rhythm games are categorized under Arcade."
+    "reason": "Rhythm games are categorized under Arcade.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pacman-aur:birtty",
     "category": "Arcade",
     "confidence": "medium",
-    "reason": "Flappy bird style game where you avoid crashing."
+    "reason": "Flappy bird style game where you avoid crashing.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pacman-aur:blackpenguin",
     "category": "Arcade",
     "confidence": "high",
-    "reason": "Described as an arcade-style jump-on-cubes game."
+    "reason": "Described as an arcade-style jump-on-cubes game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pacman-aur:blackvoxel",
     "category": "Simulation",
     "confidence": "medium",
-    "reason": "Automation and programming in a voxel world."
+    "reason": "Automation and programming in a voxel world.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pacman-aur:blobwars-data-old",
     "category": "Action",
     "confidence": "high",
-    "reason": "Described explicitly as a platform action game."
+    "reason": "Described explicitly as a platform action game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pacman-aur:blt4l",
     "category": "Action",
     "confidence": "medium",
-    "reason": "Mod loader for Payday 2, an action heist shooter."
+    "reason": "Mod loader for Payday 2, an action heist shooter.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pacman-aur:blt4l-runtime-bin",
     "category": "Action",
     "confidence": "medium",
-    "reason": "Mod loader for Payday 2, an action heist shooter."
+    "reason": "Mod loader for Payday 2, an action heist shooter.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pacman-aur:bombardier",
     "category": "Simulation",
     "confidence": "low",
-    "reason": "Benchmark tool, not a game."
+    "reason": "Benchmark tool, not a game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pacman-aur:bombkurdistan-bin",
     "category": "Action",
     "confidence": "low",
-    "reason": "Simple bombing game fits action."
+    "reason": "Simple bombing game fits action.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pacman-aur:bstone",
     "category": "Action",
     "confidence": "high",
-    "reason": "Blake Stone is a classic first-person shooter action game."
+    "reason": "Blake Stone is a classic first-person shooter action game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pacman-aur:card-mayor",
     "category": "Board & Cards",
     "confidence": "medium",
-    "reason": "Deck-builder game genre belongs to cards/board games."
+    "reason": "Deck-builder game genre belongs to cards/board games.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pacman-aur:cartlife-bin",
     "category": "Simulation",
     "confidence": "high",
-    "reason": "Explicitly described as a simulation video game."
+    "reason": "Explicitly described as a simulation video game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pacman-aur:ccleste",
     "category": "Action",
     "confidence": "medium",
-    "reason": "Celeste is a precision platformer action game."
+    "reason": "Celeste is a precision platformer action game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pacman-aur:cdogs-mission-pack",
     "category": "Action",
     "confidence": "high",
-    "reason": "C-Dogs is a top-down run-and-gun action game."
+    "reason": "C-Dogs is a top-down run-and-gun action game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pacman-aur:cirno-catch-frog",
     "category": "Arcade",
     "confidence": "medium",
-    "reason": "Simple Touhou minigame catching frogs."
+    "reason": "Simple Touhou minigame catching frogs.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pacman-aur:cli-of-life",
     "category": "Simulation",
     "confidence": "high",
-    "reason": "Conway's Game of Life is a cellular automaton simulation."
+    "reason": "Conway's Game of Life is a cellular automaton simulation.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pacman-aur:clmystery-git",
     "category": "Adventure",
     "confidence": "high",
-    "reason": "Murder mystery game falls under adventure."
+    "reason": "Murder mystery game falls under adventure.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pacman-aur:clonehero-ptb",
     "category": "Arcade",
     "confidence": "high",
-    "reason": "Guitar Hero-style rhythm games are arcade games."
+    "reason": "Guitar Hero-style rhythm games are arcade games.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pacman-aur:clonepoint-git",
     "category": "Puzzle",
     "confidence": "medium",
-    "reason": "Gunpoint is a stealth puzzle platformer."
+    "reason": "Gunpoint is a stealth puzzle platformer.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pacman-aur:connect4-cli",
     "category": "Board & Cards",
     "confidence": "high",
-    "reason": "Connect 4 is a traditional board game."
+    "reason": "Connect 4 is a traditional board game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pacman-aur:console_snake",
     "category": "Arcade",
     "confidence": "high",
-    "reason": "Snake is an archetypal arcade game."
+    "reason": "Snake is an archetypal arcade game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pacman-aur:conway-screensaver",
     "category": "Simulation",
     "confidence": "high",
-    "reason": "Conway's Game of Life is a life simulator."
+    "reason": "Conway's Game of Life is a life simulator.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pacman-aur:cordial",
     "category": "Adventure",
     "confidence": "low",
-    "reason": "Roblox client wrapper; platform hosts various genres, often categorized adventure."
+    "reason": "Roblox client wrapper; platform hosts various genres, often categorized adventure.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pacman-aur:craftrogue",
     "category": "Role-Playing",
     "confidence": "high",
-    "reason": "Rogue-like terminal game where you kill monsters."
+    "reason": "Rogue-like terminal game where you kill monsters.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pacman-aur:cw",
     "category": "Educational",
     "confidence": "low",
-    "reason": "ANSI color wrapper utility, not a game."
+    "reason": "ANSI color wrapper utility, not a game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pacman-aur:daydreamer",
     "category": "Adventure",
     "confidence": "high",
-    "reason": "Interactive fiction player, adventure game format."
+    "reason": "Interactive fiction player, adventure game format.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pacman-aur:degrees-of-lewdity",
     "category": "Role-Playing",
     "confidence": "medium",
-    "reason": "Text-based life/RPG game."
+    "reason": "Text-based life/RPG game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pacman-aur:devilutionx-voices",
     "category": "Role-Playing",
     "confidence": "high",
-    "reason": "DevilutionX is an engine for Diablo, an action RPG."
+    "reason": "DevilutionX is an engine for Diablo, an action RPG.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pacman-aur:dijeweled",
     "category": "Puzzle",
     "confidence": "high",
-    "reason": "Bejeweled is a match-3 puzzle game."
+    "reason": "Bejeweled is a match-3 puzzle game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pacman-aur:dino-brick",
     "category": "Arcade",
     "confidence": "high",
-    "reason": "Chrome dino runner is a simple arcade game."
+    "reason": "Chrome dino runner is a simple arcade game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pacman-aur:dizzy-git",
     "category": "Educational",
     "confidence": "low",
-    "reason": "Network fuzzing toolkit, not a game."
+    "reason": "Network fuzzing toolkit, not a game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pacman-aur:donkey-gauntlet-git",
     "category": "Arcade",
     "confidence": "high",
-    "reason": "Donkey.bas is an early arcade driving/avoidance game."
+    "reason": "Donkey.bas is an early arcade driving/avoidance game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pacman-aur:dualsensectl",
     "category": "Simulation",
     "confidence": "low",
-    "reason": "Gamepad control tool, not a game."
+    "reason": "Gamepad control tool, not a game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pacman-aur:duckstation",
     "category": "Arcade",
     "confidence": "low",
-    "reason": "PlayStation 1 emulator package."
+    "reason": "PlayStation 1 emulator package.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pacman-aur:dungeonrush",
     "category": "Role-Playing",
     "confidence": "high",
-    "reason": "Explicitly described as Snake with RPG elements."
+    "reason": "Explicitly described as Snake with RPG elements.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pacman-aur:dwarffortress-linuxdwarfpack-appimage",
     "category": "Simulation",
     "confidence": "high",
-    "reason": "Dwarf Fortress is a colony simulation and strategy game."
+    "reason": "Dwarf Fortress is a colony simulation and strategy game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pacman-aur:erebus",
     "category": "Role-Playing",
     "confidence": "high",
-    "reason": "Explicitly described as a role-playing game."
+    "reason": "Explicitly described as a role-playing game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pacman-aur:factorio-demo",
     "category": "Strategy",
     "confidence": "high",
-    "reason": "Factorio is a management/automation strategy game."
+    "reason": "Factorio is a management/automation strategy game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pacman-aur:factorio-experimental",
     "category": "Strategy",
     "confidence": "high",
-    "reason": "Factorio is a management/automation strategy game."
+    "reason": "Factorio is a management/automation strategy game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pacman-aur:factorio-headless",
     "category": "Strategy",
     "confidence": "high",
-    "reason": "Factorio is a management/automation strategy game."
+    "reason": "Factorio is a management/automation strategy game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pacman-aur:factorio-headless-experimental",
     "category": "Strategy",
     "confidence": "high",
-    "reason": "Factorio is a management/automation strategy game."
+    "reason": "Factorio is a management/automation strategy game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pacman-aur:factorio-yafc-ce-git",
     "category": "Strategy",
     "confidence": "medium",
-    "reason": "Calculator/analyzer utility for Factorio, a strategy game."
+    "reason": "Calculator/analyzer utility for Factorio, a strategy game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pacman-aur:factorio-yafc-git",
     "category": "Strategy",
     "confidence": "medium",
-    "reason": "Calculator/analyzer utility for Factorio, a strategy game."
+    "reason": "Calculator/analyzer utility for Factorio, a strategy game.",
+    "model": "gemini-3.8-flash"
   },
   {
     "id": "pacman-aur:fallout1-ce-game",
     "category": "Role-Playing",
     "confidence": "high",
-    "reason": "Fallout is a classic post-apocalyptic role-playing game."
+    "reason": "Fallout is a classic post-apocalyptic role-playing game.",
+    "model": "gemini-3.8-flash"
   }
 ]

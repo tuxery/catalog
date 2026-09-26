@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "string",
+        "description": "The provider's model id, exactly as its API expects it, e.g. 'gemini-3.8-flash' or 'openai/gpt-oss-20b'."
+      },
+      "provider": {
+        "type": "string",
+        "enum": ["gemini", "groq"],
+        "description": "Which API adapter serves this model — decides the request format, auth, and how quota errors are read."
+      },
+      "enabled": {
+        "type": "boolean",
+        "description": "false keeps the settings on file but leaves the model out of the rotation (it can still be forced with --models)."
+      },
+      "batchSize": {
+        "type": "integer",
+        "exclusiveMinimum": 0,
+        "maximum": 9007199254740991,
+        "description": "Apps per request. Large for request-capped providers (Gemini); for token-capped ones (Groq), small enough that one request's input + output + reasoning tokens stay under tokensPerMinute."
+      },
+      "requestsPerMinute": {
+        "type": "number",
+        "exclusiveMinimum": 0,
+        "description": "Request pacing for this model — at or below its per-minute request quota."
+      },
+      "tokensPerMinute": {
+        "description": "Token pacing for token-capped providers: after each request, the model's next slot is pushed back by (tokens used / tokensPerMinute) minutes. Omit for request-capped providers.",
+        "type": "integer",
+        "exclusiveMinimum": 0,
+        "maximum": 9007199254740991
+      },
+      "outputTokensPerMinute": {
+        "description": "Output-only token pacing, for providers that also cap output tokens per minute (Groq's qwen3.8-27b: 1,000). Same mechanism as tokensPerMinute, counting only output tokens.",
+        "type": "integer",
+        "exclusiveMinimum": 0,
+        "maximum": 9007199254740991
+      },
+      "maxOutputTokens": {
+        "description": "Explicit per-request output cap. Needed where the provider checks a request's *requested* output against a per-minute output cap before running it (Groq rejects the request outright otherwise). Keep batchSize small enough that its answers fit — a truncated answer is unparseable and the batch moves to the next model.",
+        "type": "integer",
+        "exclusiveMinimum": 0,
+        "maximum": 9007199254740991
+      },
+      "reasoning": {
+        "type": "string",
+        "enum": ["none", "minimal", "low", "medium", "high"],
+        "description": "Reasoning effort, mapped to the provider's own parameter (Gemini thinkingLevel, Groq reasoning_effort) — reasoning tokens count against quota, and classifying from a name + one line rarely needs more than 'low'. Not every model accepts every level (e.g. Groq's gpt-oss has no 'none')."
+      },
+      "overloadRetries": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 9007199254740991,
+        "description": "Same-model retries on an overload error (5xx) before moving on to the next model. 0 when failed requests count against the daily quota (observed on Gemini's free tier)."
+      },
+      "reason": {
+        "type": "string",
+        "description": "Why this model is in the list, at this position, with these settings — so a later edit knows what it's trading off."
+      }
+    },
+    "required": [
+      "id",
+      "provider",
+      "enabled",
+      "batchSize",
+      "requestsPerMinute",
+      "reasoning",
+      "overloadRetries",
+      "reason"
+    ],
+    "additionalProperties": false
+  },
+  "title": "Enrich: LLM models",
+  "description": "The models `pnpm classify-llm` rotates through, in priority order, with per-model batch size, pacing, reasoning effort, and overload-retry settings tuned to each provider's free-tier quota shape."
+}

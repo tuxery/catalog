@@ -51,6 +51,10 @@
     {
       "fileMatch": ["/config/llm-classifications.json"],
       "url": "./src/curator/enrich/llm-classifications.schema.json"
+    },
+    {
+      "fileMatch": ["/config/llm-models.json"],
+      "url": "./src/curator/enrich/llm-models.schema.json"
     }
   ]
 }

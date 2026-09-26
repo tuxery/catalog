@@ -1,0 +1,66 @@
+[
+  {
+    "id": "gemini-3.8-flash",
+    "provider": "gemini",
+    "enabled": true,
+    "batchSize": 200,
+    "requestsPerMinute": 5,
+    "reasoning": "low",
+    "overloadRetries": 0,
+    "reason": "Best-calibrated model on the 2026-09-25 side-by-side samples. Gemini's free tier caps requests (20/day per model), not tokens, so batches are as large as a 200-app sample showed still come back complete. No overload retry: 503s count against the daily cap."
+  },
+  {
+    "id": "gemini-3.6-flash",
+    "provider": "gemini",
+    "enabled": true,
+    "batchSize": 200,
+    "requestsPerMinute": 5,
+    "reasoning": "low",
+    "overloadRetries": 0,
+    "reason": "Close to 3.8 Flash on a 20-app sample and often less overloaded. Same request-capped settings as 3.8 Flash."
+  },
+  {
+    "id": "gemini-3.7-flash",
+    "provider": "gemini",
+    "enabled": true,
+    "batchSize": 200,
+    "requestsPerMinute": 5,
+    "reasoning": "low",
+    "overloadRetries": 0,
+    "reason": "Extra 20 requests/day of Flash quota. Quality not sampled yet: it was overloaded on every attempt so far."
+  },
+  {
+    "id": "gemini-3.5-flash",
+    "provider": "gemini",
+    "enabled": true,
+    "batchSize": 200,
+    "requestsPerMinute": 5,
+    "reasoning": "low",
+    "overloadRetries": 0,
+    "reason": "Extra 20 requests/day of Flash quota; the original default model. Last of the Gemini chain: the most overloaded one in 2026-09 runs."
+  },
+  {
+    "id": "qwen/qwen3.8-27b",
+    "provider": "groq",
+    "enabled": true,
+    "batchSize": 20,
+    "requestsPerMinute": 25,
+    "tokensPerMinute": 7000,
+    "outputTokensPerMinute": 900,
+    "maxOutputTokens": 950,
+    "reasoning": "none",
+    "overloadRetries": 1,
+    "reason": "Groq fallback once the Gemini chain is spent or overloaded. On the same 29 apps it agreed with Gemini 72% of the time (13/15 on Gemini-high ones), with defensible disagreements and well-calibrated confidence ('low' on description-less apps) — far ahead of gpt-oss-20b (45%) and gpt-oss-120b (52%). Groq's free tier caps it on tokens: 8,000/min, 200,000/day, and above all 1,000 *output* tokens/min, checked against the request's requested output before it runs. At ~35-40 output tokens per app, 20 apps fit under a 950-token output cap; pacing on both total and output tokens (with margins) avoids per-minute 429s. Reasoning 'none' (supported by Qwen, not gpt-oss) keeps output lean."
+  },
+  {
+    "id": "openai/gpt-oss-20b",
+    "provider": "groq",
+    "enabled": false,
+    "batchSize": 50,
+    "requestsPerMinute": 25,
+    "tokensPerMinute": 7000,
+    "reasoning": "low",
+    "overloadRetries": 1,
+    "reason": "Disabled 2026-09-26: on 29 apps Gemini had already classified, it agreed only 45% of the time (6/15 on Gemini-high ones), mostly dumping into System Tools, and rated 'high' apps with no description at all — its confidence can't gate what gets applied. Kept on file for its Groq token-capped settings: 50 apps per request stays well under the 8,000 tokens/min cap, and 'low' is gpt-oss's minimum reasoning effort."
+  }
+]

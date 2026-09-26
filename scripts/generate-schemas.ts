@@ -11,6 +11,7 @@ import { DescriptionCategoryRulesListSchema } from "../src/curator/enrich/descri
 import { CompatWarningsListSchema } from "../src/curator/enrich/compat-warnings";
 import { EnrichSuitesListSchema } from "../src/curator/enrich/suite";
 import { LlmClassificationsListSchema } from "../src/curator/enrich/llm-classifications";
+import { LlmModelsListSchema } from "../src/curator/enrich/llm-models";
 
 /**
  * Regenerates every `config/*.json` file's checked-in `.schema.json`
@@ -60,6 +61,7 @@ const SCHEMAS: { schema: z.ZodType; outFile: string }[] = [
     schema: LlmClassificationsListSchema,
     outFile: "../src/curator/enrich/llm-classifications.schema.json",
   },
+  { schema: LlmModelsListSchema, outFile: "../src/curator/enrich/llm-models.schema.json" },
 ];
 
 for (const { schema, outFile } of SCHEMAS) {

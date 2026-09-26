@@ -155,8 +155,11 @@ const exhaustedModels = new Set<string>();
 // The model that served the last batch — tried first for the next one, so
 // a batch doesn't start by re-hitting a model that was just overloaded.
 let preferredModel: string | undefined;
-const OVERLOAD_ROUNDS = 3;
-const OVERLOAD_ROUND_WAIT_MS = 60_000;
+// Every 503 costs a request of the model's 20/day, so when the whole chain
+// is overloaded, wait long between passes (overload lasts minutes to
+// hours) rather than probing often: 12 rounds x 5 min = up to an hour.
+const OVERLOAD_ROUNDS = 12;
+const OVERLOAD_ROUND_WAIT_MS = 5 * 60_000;
 
 /**
  * Classifies one batch on the first model able to serve it, starting from
@@ -272,7 +275,7 @@ function parseQuotaError(bodyText: string): { daily: boolean; retryMs?: number; 
 /**
  * One paced Gemini generateContent call on one model. A per-minute 429 is
  * retried after Google's own retryDelay (else exponential backoff); a
- * per-day 429 or a 5xx that survives one short retry throws
+ * per-day 429 or any 5xx throws
  * `ModelUnavailable`, letting `classifyGemini` move to the next model.
  * Recursion rather than a loop so the awaited calls don't trip
  * `no-await-in-loop`.
@@ -292,7 +295,6 @@ async function request(url: string, payload: unknown, attempt: number): Promise<
     return JSON.parse(text).results as BatchResult[];
   }
   const bodyText = await response.text();
-  const retryable = response.status === 429 || response.status >= 500;
   if (response.status === 429) {
     const { daily, retryMs, quota } = parseQuotaError(bodyText);
     if (daily) throw new ModelUnavailable(`daily quota hit: ${quota}`, true);
@@ -302,17 +304,13 @@ async function request(url: string, payload: unknown, attempt: number): Promise<
       await new Promise((resolve) => setTimeout(resolve, waitMs));
       return request(url, payload, attempt + 1);
     }
-  } else if (retryable) {
+  } else if (response.status >= 500) {
     // 5xx here is almost always 503 "high demand" — Google-side overload
-    // that can last hours on one model while another is fine, and failed
-    // requests seem to count against the daily quota. One short retry,
-    // then let the caller try another model.
-    if (attempt >= 1) {
-      throw new ModelUnavailable(`still ${response.status} after a retry`, false);
-    }
-    console.warn(`Gemini ${response.status} — retrying in 10s`);
-    await new Promise((resolve) => setTimeout(resolve, 10_000));
-    return request(url, payload, attempt + 1);
+    // that can last hours on one model while another is fine. Failed
+    // requests count against the daily quota (observed 2026-09-26: a model
+    // hit its 20/day cap without a single success), so no retry on the
+    // same model — let the caller move to the next one right away.
+    throw new ModelUnavailable(`overloaded (${response.status})`, false);
   }
   throw new Error(`Gemini ${response.status}: ${bodyText}`);
 }

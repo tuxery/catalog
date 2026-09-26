@@ -152,9 +152,9 @@ function buildPrompt(items: BatchItem[]): string {
 
 // --- Model rotation ---
 const exhaustedModels = new Set<string>();
-// Index into MODELS of the model to try first — advanced past an
-// overloaded one so the next batch doesn't start by re-hitting it.
-let preferredModel = 0;
+// The model that served the last batch — tried first for the next one, so
+// a batch doesn't start by re-hitting a model that was just overloaded.
+let preferredModel: string | undefined;
 const OVERLOAD_ROUNDS = 3;
 const OVERLOAD_ROUND_WAIT_MS = 60_000;
 
@@ -182,19 +182,22 @@ async function classifyGemini(
     await new Promise((resolve) => setTimeout(resolve, OVERLOAD_ROUND_WAIT_MS));
     return classifyGemini(items, allowedCategories, 0, round + 1);
   }
-  const model = available[(preferredModel + offset) % available.length] as string;
+  const start = Math.max(0, available.indexOf(preferredModel ?? ""));
+  const model = available[(start + offset) % available.length] as string;
   try {
-    return { results: await classifyWith(model, items, allowedCategories), model };
+    const results = await classifyWith(model, items, allowedCategories);
+    preferredModel = model;
+    return { results, model };
   } catch (error) {
     if (!(error instanceof ModelUnavailable)) throw error;
     if (error.daily) {
       exhaustedModels.add(model);
       console.warn(`${model}: ${error.message} — dropped for this run`);
-      preferredModel = 0;
-      return classifyGemini(items, allowedCategories, 0, round);
+      // `available` shrinks by one, so the same offset now points at the
+      // model that came after this one.
+      return classifyGemini(items, allowedCategories, offset, round);
     }
     console.warn(`${model}: ${error.message} — trying the next model`);
-    preferredModel = (preferredModel + offset + 1) % available.length;
     return classifyGemini(items, allowedCategories, offset + 1, round);
   }
 }

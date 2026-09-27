@@ -6,8 +6,9 @@ import type { LlmModel } from "../src/curator/enrich/llm-models";
  * the three outcomes the rotation in `classify-llm.ts` acts on:
  *
  * - `RetryLater`: a short per-minute limit — wait and retry this model.
- * - `ModelUnavailable` (daily): this model's daily quota is spent — drop
- *   it for the rest of the run.
+ * - `ModelUnavailable` (daily): this model's daily quota is spent — rest
+ *   it until `retryAt` (Gemini: next midnight Pacific; Groq: its rolling
+ *   window's own "try again in").
  * - `ModelUnavailable` (not daily): overloaded or unusable output — try
  *   the next model for this batch.
  *
@@ -52,9 +53,41 @@ export class ModelUnavailable extends Error {
   constructor(
     message: string,
     readonly daily: boolean,
+    /** For a daily quota: when the provider says it frees up again (epoch ms), if known. */
+    readonly retryAt?: number,
   ) {
     super(message);
   }
+}
+
+/**
+ * Next midnight Pacific time (epoch ms), plus a small margin — when
+ * Gemini's per-day quotas reset. Read off the wall clock in that zone
+ * rather than a fixed UTC offset, so daylight saving is handled.
+ */
+function nextPacificMidnight(now = Date.now()): number {
+  const parts = new Intl.DateTimeFormat("en-US", {
+    timeZone: "America/Los_Angeles",
+    hourCycle: "h23",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+  }).formatToParts(new Date(now));
+  const part = (type: string): number => Number(parts.find((p) => p.type === type)?.value ?? 0);
+  const sinceMidnightMs = (part("hour") * 3600 + part("minute") * 60 + part("second")) * 1000;
+  return now - sinceMidnightMs + 24 * 3600_000 + 5 * 60_000;
+}
+
+/** Parses Groq's "try again in 1h2m31.92s"-style delay (any subset of h/m/s) into ms. */
+function parseTryAgainMs(message: string): number | undefined {
+  const match = /try again in ((?:\d+(?:\.\d+)?[hms])+)/i.exec(message);
+  if (!match?.[1]) return undefined;
+  const units: Record<string, number> = { h: 3600_000, m: 60_000, s: 1000 };
+  let total = 0;
+  for (const [, value, unit] of match[1].matchAll(/(\d+(?:\.\d+)?)([hms])/g)) {
+    total += Number(value) * (units[unit as string] ?? 0);
+  }
+  return total;
 }
 
 /**
@@ -203,7 +236,7 @@ async function callGemini(model: LlmModel, prompt: Prompt): Promise<CallResult> 
     const quota =
       violations.map((v) => `${v.quotaId} (limit ${v.quotaValue})`).join(", ") || "unknown quota";
     if (violations.some((v) => /PerDay/i.test(v.quotaId ?? ""))) {
-      throw new ModelUnavailable(`daily quota hit: ${quota}`, true);
+      throw new ModelUnavailable(`daily quota hit: ${quota}`, true, nextPacificMidnight());
     }
     const delay = details.find((detail) => detail.retryDelay)?.retryDelay;
     throw new RetryLater(`429 ${quota}`, delay ? Number.parseFloat(delay) * 1000 : 30_000);
@@ -274,7 +307,16 @@ async function callGroq(model: LlmModel, prompt: Prompt): Promise<CallResult> {
     // (TPD): Limit 200000 ..." / "... tokens per minute (TPM) ..." /
     // "... requests per day (RPD) ...". Only the per-day ones end this
     // model's run; per-minute ones come with a retry-after header.
-    if (/per day/i.test(message)) throw new ModelUnavailable(`daily quota hit: ${message}`, true);
+    // Groq's per-day windows are rolling: its "try again in ..." says when
+    // enough quota frees up, often minutes away rather than tomorrow.
+    if (/per day/i.test(message)) {
+      const waitMs = parseTryAgainMs(message);
+      throw new ModelUnavailable(
+        `daily quota hit: ${message.split(". ")[0]}`,
+        true,
+        waitMs === undefined ? undefined : Date.now() + waitMs + 30_000,
+      );
+    }
     const retryAfter = Number(response.headers.get("retry-after"));
     throw new RetryLater(
       `429 ${message}`,

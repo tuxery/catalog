@@ -50,6 +50,9 @@ const maxRequests = flag("--max-requests") ? Number(flag("--max-requests")) : un
 // `--models a,b` overrides config/llm-models.json's rotation: only these
 // ids, in this order, disabled ones included — e.g. to sample one model.
 const modelsFlag = flag("--models");
+// When no model can serve right now, wait for the next one only if it's back
+// within this many minutes; otherwise save and exit, printing when to re-run.
+const maxIdleMinutes = Number(flag("--max-idle") ?? 20);
 const dryRun = hasFlag("--dry-run");
 // `--sample [N]` (default 5): real API calls on just N still-unclassified
 // apps, to test the whole chain end to end (network, schema, parsing) —
@@ -201,15 +204,59 @@ async function callPaced(
 }
 
 // --- Model rotation ---
-const exhaustedModels = new Set<string>();
-// The model that served the last batch — tried first for the next one, so
-// a batch doesn't start by re-hitting a model that was just overloaded.
-let preferredModel: string | undefined;
+// Per-model availability instead of a one-way "exhausted" set: a daily cap
+// rests the model until its provider's reset (Groq's rolling window is
+// often back within minutes), an overload rests it with a growing backoff.
 // Failed requests can count against a daily quota (observed on Gemini), so
-// when the whole chain is overloaded, wait long between passes rather than
-// probing often: 12 rounds x 5 min = up to an hour.
-const OVERLOAD_ROUNDS = 12;
-const OVERLOAD_ROUND_WAIT_MS = 5 * 60_000;
+// an overloaded model is probed at most MAX_OVERLOAD_STREAK times in a row
+// before it's dropped for the run — bounding the quota a long outage burns.
+interface Availability {
+  availableAt: number;
+  overloadStreak: number;
+  dropped: boolean;
+}
+const availability = new Map<string, Availability>(
+  MODELS.map((model) => [model.id, { availableAt: 0, overloadStreak: 0, dropped: false }]),
+);
+const MAX_OVERLOAD_STREAK = 5;
+const OVERLOAD_BACKOFF_MS = 2 * 60_000;
+const OVERLOAD_BACKOFF_CAP_MS = 30 * 60_000;
+
+function availabilityOf(model: LlmModel): Availability {
+  return availability.get(model.id) as Availability;
+}
+
+function clock(ms: number): string {
+  return `${new Date(ms).toISOString().slice(0, 16).replace("T", " ")} UTC`;
+}
+
+/** Books the outcome of a failed attempt on this model's availability. */
+function rest(model: LlmModel, error: ModelUnavailable): void {
+  const slot = availabilityOf(model);
+  if (error.daily) {
+    // No reset time known: treat it as spent for the run.
+    if (error.retryAt === undefined) slot.dropped = true;
+    else slot.availableAt = error.retryAt;
+    console.warn(
+      `${model.id}: ${error.message} — ${slot.dropped ? "dropped for this run" : `resting until ${clock(slot.availableAt)}`}`,
+    );
+    return;
+  }
+  slot.overloadStreak += 1;
+  if (slot.overloadStreak >= MAX_OVERLOAD_STREAK) {
+    slot.dropped = true;
+    console.warn(
+      `${model.id}: ${error.message} — ${slot.overloadStreak} in a row, dropped for this run`,
+    );
+    return;
+  }
+  const backoff = Math.min(
+    OVERLOAD_BACKOFF_MS * 2 ** (slot.overloadStreak - 1),
+    OVERLOAD_BACKOFF_CAP_MS,
+  );
+  slot.availableAt = Date.now() + backoff;
+  console.warn(`${model.id}: ${error.message} — resting ${backoff / 60_000} min`);
+}
 
 interface Group {
   items: BatchItem[];
@@ -218,50 +265,46 @@ interface Group {
 }
 
 /**
- * Classifies the group's next batch on the first model able to serve it,
- * walking the chain from `preferredModel`. The batch is sliced only once
- * the model is picked, since batch size is per model. Recursion: `offset`
- * walks the chain, `round` counts full passes where every remaining model
- * was overloaded.
+ * Classifies the group's next batch on the highest-priority model that's
+ * available right now (array order of config/llm-models.json, so a
+ * recovered Gemini model takes over again from Groq). The batch is sliced
+ * only once the model is picked, since batch size is per model. When none
+ * is available, waits for the next one if it's back within --max-idle,
+ * else stops the run cleanly, saying when to re-run. Recursion rather than
+ * a loop so the awaited calls don't trip `no-await-in-loop`.
  */
 async function classifyNextBatch(
   group: Group,
-  offset = 0,
-  round = 0,
 ): Promise<{ batch: BatchItem[]; results: BatchResult[]; model: LlmModel }> {
-  const available = MODELS.filter((model) => !exhaustedModels.has(model.id));
-  if (available.length === 0) {
-    throw new StopRun(`daily quota spent on every model (${MODELS.map((m) => m.id).join(", ")})`);
+  const candidates = MODELS.filter((model) => !availabilityOf(model).dropped);
+  if (candidates.length === 0) {
+    throw new StopRun("no model left to try this run");
   }
-  if (offset >= available.length) {
-    if (round + 1 >= OVERLOAD_ROUNDS) {
-      throw new StopRun(`every model still unavailable after ${OVERLOAD_ROUNDS} rounds`);
+  const now = Date.now();
+  const model = candidates.find((candidate) => availabilityOf(candidate).availableAt <= now);
+  if (!model) {
+    const next = candidates.reduce((best, candidate) =>
+      availabilityOf(candidate).availableAt < availabilityOf(best).availableAt ? candidate : best,
+    );
+    const nextAt = availabilityOf(next).availableAt;
+    if (nextAt - now > maxIdleMinutes * 60_000) {
+      throw new StopRun(
+        `no model available before ${clock(nextAt)} (${next.id}) — re-run after that`,
+      );
     }
-    console.warn(`All models unavailable — waiting ${OVERLOAD_ROUND_WAIT_MS / 60_000} min`);
-    await new Promise((resolve) => setTimeout(resolve, OVERLOAD_ROUND_WAIT_MS));
-    return classifyNextBatch(group, 0, round + 1);
+    console.warn(`No model available — waiting until ${clock(nextAt)} for ${next.id}`);
+    await new Promise((resolve) => setTimeout(resolve, nextAt - now));
+    return classifyNextBatch(group);
   }
-  const start = Math.max(
-    0,
-    available.findIndex((model) => model.id === preferredModel),
-  );
-  const model = available[(start + offset) % available.length] as LlmModel;
   const batch = group.items.slice(group.cursor, group.cursor + model.batchSize);
   try {
     const results = await callPaced(model, batch, group.allowedCategories);
-    preferredModel = model.id;
+    availabilityOf(model).overloadStreak = 0;
     return { batch, results, model };
   } catch (error) {
     if (!(error instanceof ModelUnavailable)) throw error;
-    if (error.daily) {
-      exhaustedModels.add(model.id);
-      console.warn(`${model.id}: ${error.message} — dropped for this run`);
-      // `available` shrinks by one, so the same offset now points at the
-      // model that came after this one.
-      return classifyNextBatch(group, offset, round);
-    }
-    console.warn(`${model.id}: ${error.message} — trying the next model`);
-    return classifyNextBatch(group, offset + 1, round);
+    rest(model, error);
+    return classifyNextBatch(group);
   }
 }
 

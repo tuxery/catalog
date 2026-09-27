@@ -91,71 +91,63 @@ function parseTryAgainMs(message: string): number | undefined {
 }
 
 /**
- * The output schema, shared by both providers. `strict` adds what Groq's
- * strict json_schema mode requires (closed objects); Gemini's
- * responseSchema is an OpenAPI subset that doesn't accept
- * `additionalProperties`, so it gets the plain version.
+ * The output schema, shared by both providers: one "n|category|k|reason"
+ * string per app rather than one JSON object. Measured on qwen3.8-27b
+ * (2026-09-27, same 20 apps): output fell from ~28 to ~12 tokens per app —
+ * per-field JSON punctuation cost about as much as the fields themselves —
+ * with agreement to Gemini unchanged or better, while numbered categories
+ * instead of labels dropped agreement to 50%. The flip side: the provider
+ * can no longer enforce the category enum, so `parseResults` validates
+ * every field itself. `strict` adds what Groq's strict json_schema mode
+ * requires (closed objects); Gemini's responseSchema, an OpenAPI subset,
+ * doesn't accept `additionalProperties`.
  */
-function outputSchema(allowedCategories: string[], strict: boolean): Record<string, unknown> {
-  const closed = strict ? { additionalProperties: false } : {};
+function outputSchema(strict: boolean): Record<string, unknown> {
   return {
     type: "object",
-    properties: {
-      results: {
-        type: "array",
-        items: {
-          type: "object",
-          properties: {
-            n: { type: "integer" },
-            category: { type: "string", enum: allowedCategories },
-            confidence: { type: "string", enum: ["high", "medium", "low"] },
-            reason: { type: "string" },
-          },
-          required: ["n", "category", "confidence", "reason"],
-          ...closed,
-        },
-      },
-    },
+    properties: { results: { type: "array", items: { type: "string" } } },
     required: ["results"],
-    ...closed,
+    ...(strict ? { additionalProperties: false } : {}),
   };
 }
 
-function parseResults(text: string | undefined): BatchResult[] {
-  return (JSON.parse(text ?? "{}") as { results?: BatchResult[] }).results ?? [];
+const CONFIDENCE: Record<string, Confidence> = { h: "high", m: "medium", l: "low" };
+
+/**
+ * Parses "n|category|k|reason" lines into results, keeping only the valid
+ * ones: n an integer, category on the allowed list, k one of h/m/l. An
+ * invalid line is dropped, not fatal — that app just stays unclassified
+ * for a later run. The reason may itself contain "|", so it's the rest of
+ * the line. Throws only when the text isn't JSON at all.
+ */
+function parseResults(text: string | undefined, allowedCategories: string[]): BatchResult[] {
+  const lines = (JSON.parse(text ?? "{}") as { results?: unknown[] }).results ?? [];
+  const allowed = new Set(allowedCategories);
+  return lines.flatMap((line) => {
+    const [n, category = "", k = "", ...reason] = String(line).split("|");
+    const confidence = CONFIDENCE[k.trim()];
+    const index = Number(n);
+    if (!Number.isInteger(index) || !allowed.has(category.trim()) || !confidence) return [];
+    return [{ n: index, category: category.trim(), confidence, reason: reason.join("|").trim() }];
+  });
 }
 
 /** `parseResults` for a successful response: unparseable output (typically truncated at maxOutputTokens) moves the batch to the next model instead of crashing the run. */
-function parseOk(text: string | undefined): BatchResult[] {
+function parseOk(text: string | undefined, allowedCategories: string[]): BatchResult[] {
   try {
-    return parseResults(text);
+    return parseResults(text, allowedCategories);
   } catch {
     throw new ModelUnavailable("unparseable output (truncated? lower batchSize)", false);
   }
 }
 
-/**
- * Keeps the entries of a schema-rejected output that are still valid. On
- * Groq, strict json_schema is validated *after* generation, not enforced
- * while decoding: one invented category (seen on gpt-oss-20b) rejects a
- * whole 50-app batch whose other 49 answers are fine and already paid
- * for. The invalid ones just stay unclassified for a later run.
- */
+/** `parseResults` on a schema-rejected answer: whatever valid lines it has are already paid for. */
 function salvageResults(text: string | undefined, allowedCategories: string[]): BatchResult[] {
-  let parsed: BatchResult[];
   try {
-    parsed = parseResults(text);
+    return parseResults(text, allowedCategories);
   } catch {
     return [];
   }
-  const allowed = new Set(allowedCategories);
-  return parsed.filter(
-    (result) =>
-      Number.isInteger(result.n) &&
-      allowed.has(result.category) &&
-      ["high", "medium", "low"].includes(result.confidence) &&
-      typeof result.reason === "string",
-  );
 }
 
 function requireEnv(name: string, hint: string): string {
@@ -188,10 +180,11 @@ async function callGemini(model: LlmModel, prompt: Prompt): Promise<CallResult> 
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        contents: [{ role: "user", parts: [{ text: `${prompt.system}\n\n${prompt.user}` }] }],
+        systemInstruction: { parts: [{ text: prompt.system }] },
+        contents: [{ role: "user", parts: [{ text: prompt.user }] }],
         generationConfig: {
           responseMimeType: "application/json",
-          responseSchema: outputSchema(prompt.allowedCategories, false),
+          responseSchema: outputSchema(false),
           temperature: 0,
           thinkingConfig: { thinkingLevel: GEMINI_THINKING[model.reasoning] },
           ...(model.maxOutputTokens === undefined
@@ -212,7 +205,7 @@ async function callGemini(model: LlmModel, prompt: Prompt): Promise<CallResult> 
     };
     const usage = body.usageMetadata;
     return {
-      results: parseOk(body.candidates?.[0]?.content?.parts?.[0]?.text),
+      results: parseOk(body.candidates?.[0]?.content?.parts?.[0]?.text, prompt.allowedCategories),
       tokens: usage?.totalTokenCount,
       outputTokens:
         usage?.candidatesTokenCount === undefined
@@ -265,7 +258,7 @@ async function callGroq(model: LlmModel, prompt: Prompt): Promise<CallResult> {
         json_schema: {
           name: "classification_results",
           strict: true,
-          schema: outputSchema(prompt.allowedCategories, true),
+          schema: outputSchema(true),
         },
       },
       temperature: 0,
@@ -281,7 +274,7 @@ async function callGroq(model: LlmModel, prompt: Prompt): Promise<CallResult> {
       usage?: { total_tokens?: number; completion_tokens?: number };
     };
     return {
-      results: parseOk(body.choices?.[0]?.message?.content),
+      results: parseOk(body.choices?.[0]?.message?.content, prompt.allowedCategories),
       tokens: body.usage?.total_tokens,
       outputTokens: body.usage?.completion_tokens,
     };

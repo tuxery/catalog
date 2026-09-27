@@ -97,21 +97,36 @@ interface BatchItem {
  */
 class StopRun extends Error {}
 
-// `n` echoes the item's 1-based position in the prompt rather than its name:
-// two different apps in one batch can share a display name, and matching
-// back by name would silently assign one's result to the other.
-const SYSTEM_PROMPT =
-  "You classify Linux software packages by their name and short description. Assign each package the single most accurate category from the allowed list, and rate your confidence: 'high' when the name/description make the category unambiguous, 'medium' when it's a reasonable best guess, 'low' when the description is missing, too vague, or fits several categories equally. Prefer an honest 'low' over a confident guess. Keep each reason under 8 words. Respond with valid JSON only, one result per package, echoing each package's number n exactly as given.";
+// Fixed per taxonomy (app categories or game genres) and placed first, so
+// it's an identical prefix across requests — cacheable by providers that
+// discount cached tokens (Groq doesn't count them against rate limits).
+// The allowed list is spelled out here, not only enforced downstream: Groq
+// validates schemas after generation rather than while decoding, and
+// models invented off-list categories when the list wasn't in the prompt.
+// `n` echoes the item's 1-based position rather than its name: two apps in
+// one batch can share a display name. Output format: see outputSchema in
+// _llm-providers.ts for why it's one pipe-separated string per app.
+function systemPrompt(allowedCategories: string[]): string {
+  return `Classify each Linux package (n|name|desc) into exactly one category:
+${allowedCategories.join(" | ")}
+k (confidence): h = unambiguous; m = reasonable guess; l = vague/missing desc or several fit. Prefer an honest l.
+r: reason, max 6 words.
+Return {"results":["n|category|k|r", ...]}: one string per package, n echoed exactly, category spelled exactly as listed.`;
+}
 
-// The allowed list is spelled out in the prompt, not only in the output
-// schema: Groq validates its strict schema after generation instead of
-// constraining decoding, and gpt-oss-20b invented off-list categories when
-// the list only lived in the schema.
-function buildPrompt(items: BatchItem[], allowedCategories: string[]): string {
-  const lines = items.map(
-    (item, i) => `n=${i + 1} name=${item.name} desc=${(item.description || "").slice(0, 200)}`,
-  );
-  return `Allowed categories (use one of these exactly): ${allowedCategories.join(" | ")}\n\nClassify each package below into exactly one category.\n\n${lines.join("\n")}`;
+/** "|" and line breaks inside a field would break the one-line "n|name|desc" format. */
+function cleanField(text: string): string {
+  return text.replaceAll("|", "/").replaceAll(/\s+/g, " ").trim();
+}
+
+/** One "n|name|desc" line per app. */
+function userPrompt(items: BatchItem[]): string {
+  return items
+    .map(
+      (item, i) =>
+        `${i + 1}|${cleanField(item.name)}|${cleanField((item.description || "").slice(0, 160))}`,
+    )
+    .join("\n");
 }
 
 // --- Per-model pacing and stats ---
@@ -175,8 +190,8 @@ async function callPaced(
   await paced(model);
   try {
     const { results, tokens, outputTokens } = await callModel(model, {
-      system: SYSTEM_PROMPT,
-      user: buildPrompt(batch, allowedCategories),
+      system: systemPrompt(allowedCategories),
+      user: userPrompt(batch),
       allowedCategories,
     });
     recordTokens(model, tokens, outputTokens);

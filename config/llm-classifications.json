@@ -59750,5 +59750,4905 @@
     "confidence": "high",
     "reason": "Telegram notification sender from CLI.",
     "model": "gemini-3.8-flash"
+  },
+  {
+    "id": "pacman-aur:brettspielwelt",
+    "category": "Education",
+    "confidence": "low",
+    "reason": "Gaming site, vague category fit",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:brev-cli",
+    "category": "Internet & Communication",
+    "confidence": "medium",
+    "reason": "Connects laptop to cloud computers",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:brewbuddy",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Homebrewing software, general utility",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:brewkit",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Build infrastructure for packages",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:briar-desktop",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "Briar is a secure messaging app",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:brickadia-launcher",
+    "category": "Education",
+    "confidence": "low",
+    "reason": "Game, but building/creative focus",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:brickbench",
+    "category": "Education",
+    "confidence": "low",
+    "reason": "Map editor for game, vague",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:brickstrap-git",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Tool for embedded system images",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bricscad-fr_fr",
+    "category": "Graphics & Design",
+    "confidence": "high",
+    "reason": "CAD software (CAO DWG)",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bricscad-pt_br",
+    "category": "Graphics & Design",
+    "confidence": "high",
+    "reason": "CAD software (CAD DWG)",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bridge-bin",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Task list for AI coding sessions",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bridgedesigner",
+    "category": "Education",
+    "confidence": "high",
+    "reason": "Engineering competition for students",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bridle-bin",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Config manager for AI coding assistants",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bright-cmgui",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Cluster management GUI",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bright-nightly-bin",
+    "category": "Settings",
+    "confidence": "high",
+    "reason": "Adjusts brightness automatically",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:brightctrl",
+    "category": "Settings",
+    "confidence": "high",
+    "reason": "Controls monitor brightness",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:brightge",
+    "category": "Settings",
+    "confidence": "high",
+    "reason": "Controls backlight brightness",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:brightness-controller-git",
+    "category": "Settings",
+    "confidence": "high",
+    "reason": "Controls display brightness",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:brightness-git",
+    "category": "Settings",
+    "confidence": "high",
+    "reason": "Controls monitor brightness",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:brightness-slider-git",
+    "category": "Settings",
+    "confidence": "high",
+    "reason": "Brightness slider tray app",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:brightness-xrandr",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Controls display brightness via xrandr",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:brightnessztl",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Controls device backlight brightness",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:brillo",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Controls backlight and LED brightness",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:brisq",
+    "category": "Productivity",
+    "confidence": "high",
+    "reason": "Focus app for staying on track",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:brite-git",
+    "category": "Science",
+    "confidence": "medium",
+    "reason": "Generates internet topology data",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:brix-git",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Scaffolding system for development",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:brlcad",
+    "category": "Graphics & Design",
+    "confidence": "high",
+    "reason": "3D solid modeling system",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:brmodelo",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Database modeling tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:brn2-git",
+    "category": "Utilities",
+    "confidence": "high",
+    "reason": "Bulk file renamer utility",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bro",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Git client wrapper",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:broadband-usage",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "Monitors broadband usage via SNMP",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:broadcast-bin",
+    "category": "Photo & Video",
+    "confidence": "high",
+    "reason": "Records desktop video",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:broadcast-ctl-bin",
+    "category": "Music & Audio",
+    "confidence": "high",
+    "reason": "Audio noise suppression tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:broadcast-gui-bin",
+    "category": "Music & Audio",
+    "confidence": "high",
+    "reason": "Audio noise suppression GUI",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:broadcom-cv3plus-nfc",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Hardware NFC daemon",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:broforce-steam",
+    "category": "Utilities",
+    "confidence": "low",
+    "reason": "Game not in allowed categories",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:brogue-ce-curses",
+    "category": "Utilities",
+    "confidence": "low",
+    "reason": "Game not in allowed categories",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:broguelite",
+    "category": "Utilities",
+    "confidence": "low",
+    "reason": "Game not in allowed categories",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:brokefetch-git",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "System information display tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:broken-link-checker",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Checks HTML links for developers",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:brokkr-flash-appimage",
+    "category": "Utilities",
+    "confidence": "high",
+    "reason": "Device flashing utility",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:brook-systemd-client",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "Network proxy client",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:broom",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Disk cleaning for developers",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bros",
+    "category": "Photo & Video",
+    "confidence": "low",
+    "reason": "Video game platformer",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:brotab",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "Browser tab control",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:brouter",
+    "category": "Travel & Navigation",
+    "confidence": "high",
+    "reason": "Bike/foot routing engine",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:brouwhulp",
+    "category": "Productivity",
+    "confidence": "medium",
+    "reason": "Recipe design and documentation",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:brows",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "CLI tool for GitHub",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:brows3",
+    "category": "Utilities",
+    "confidence": "high",
+    "reason": "S3 storage browser",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:browser-manager-git",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "Browser instance management",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:browser-on-ram-git",
+    "category": "System Tools",
+    "confidence": "medium",
+    "reason": "Synchronizes directories to RAM",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:browser-open-in",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "Browser extension components",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:browser-proxy",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "Routes URLs to browsers",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:browser-use-cli",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Browser automation CLI",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:browser-vacuum",
+    "category": "Utilities",
+    "confidence": "high",
+    "reason": "Clean browser database files",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:browser360-bin",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "Web browser application",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:browserchooser",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "Browser selector tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:browserchooser-x11",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "Browser selector tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:browsercode-bin",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "AI coding agent",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:browseros-bin",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "Agentic web browser",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:browseros-neo-bin",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "AI browser for web navigation",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:browsers-bin",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "Manages web browser selection",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:browserselector",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "Script to select web browsers",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:browserstack-local-x64",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Testing tool for developers",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:browservice",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "Web browser for historical sites",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:browsh",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "Text-based web browser",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:browsr",
+    "category": "Utilities",
+    "confidence": "high",
+    "reason": "File browser application",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:brpaste",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "Pastebin service client",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:brplot-git",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Real-time plotting utility",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:brrtfetch-git",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "ASCII rendering utility",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bruh",
+    "category": "Music & Audio",
+    "confidence": "high",
+    "reason": "Plays sound effect",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bruh-shell",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Minimal shell implementation",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:brum",
+    "category": "Utilities",
+    "confidence": "high",
+    "reason": "File manager application",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:brunsli",
+    "category": "Photo & Video",
+    "confidence": "high",
+    "reason": "JPEG image repacker",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:brush-git",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Bash compatible shell",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:brushshe",
+    "category": "Graphics & Design",
+    "confidence": "high",
+    "reason": "Raster graphics editor",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:brutal-doom",
+    "category": "Utilities",
+    "confidence": "low",
+    "reason": "Game port, no Games category",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bs-manager-bin",
+    "category": "Utilities",
+    "confidence": "low",
+    "reason": "Game manager, no Games category",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bs-thread-pool",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "C++ thread pool library",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bsc-m03",
+    "category": "Utilities",
+    "confidence": "high",
+    "reason": "Data compression tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bscpylgtv",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "Controls webOS TV devices",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bsctools",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Performance analysis tools",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bsd-games2",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Collection of command line games",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bsd-leave",
+    "category": "Productivity",
+    "confidence": "medium",
+    "reason": "Reminds user when to leave",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bsdconv-git",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Charset/encoding converter library",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bsdcoreutils-git",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Port of coreutils",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bsdiff-gui",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "GUI for binary diff tools",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bsdsed",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "BSD variant of sed",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bsed",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Text processing tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bsf-docs-git",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "C++ library for graphics",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bsg-diaspora-sa",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Space fighter combat game",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bshit",
+    "category": "Developer Tools",
+    "confidence": "low",
+    "reason": "Vague C++ implementation description",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bsky-cli-bin",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "Bluesky command-line client",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bsky-desktop",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "Bluesky desktop client",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bsky-electron-bin",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "Bluesky Electron client",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bskyid",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "Fetches BlueSky ID",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bsnes-highscore-git",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Emulator highscore port",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bsnes-plus-git",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Debug-oriented emulator fork",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bsp",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "DOOM nodebuilder tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bsp-layout",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Window manager layout management",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bsp-patch-git",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Patch specification implementation",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bsptab-git",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Window manager integration",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bspwm-gnome-git",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Window manager session integration",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bspwm-layout-manager",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Desktop layout management",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bspwm-ng-git",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Window manager fork",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bspwm-undo-git",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Window manager command utility",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bspwm1-maflorezp-git",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Window manager fork",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bssenglish-bin",
+    "category": "Education",
+    "confidence": "high",
+    "reason": "Vocabulary training software",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bssh-bin",
+    "category": "Security",
+    "confidence": "high",
+    "reason": "SSH client for bastion",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bstatus-git",
+    "category": "System Tools",
+    "confidence": "medium",
+    "reason": "Status line generator",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bstring",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "String library for development",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bsubio-bin",
+    "category": "Developer Tools",
+    "confidence": "medium",
+    "reason": "Cloud compute job CLI",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bsvc_etsiinf-upm",
+    "category": "Education",
+    "confidence": "high",
+    "reason": "Computer architecture simulator",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bsync-git",
+    "category": "Utilities",
+    "confidence": "high",
+    "reason": "File synchronization tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bt-client-bin",
+    "category": "System Tools",
+    "confidence": "medium",
+    "reason": "Multi-machine management tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bt-tracker-add",
+    "category": "Utilities",
+    "confidence": "low",
+    "reason": "Missing description",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:btc-cirrus-reporter",
+    "category": "Finance",
+    "confidence": "high",
+    "reason": "Bitcoin reporting tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:btcaddress-alpha-bin",
+    "category": "Finance",
+    "confidence": "high",
+    "reason": "Bitcoin address utility",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:btcd",
+    "category": "Finance",
+    "confidence": "high",
+    "reason": "Bitcoin node implementation",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:btcwallet",
+    "category": "Finance",
+    "confidence": "high",
+    "reason": "Bitcoin wallet daemon",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:btcdeb",
+    "category": "Finance",
+    "confidence": "high",
+    "reason": "Bitcoin script debugging tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:btcpayserver",
+    "category": "Finance",
+    "confidence": "high",
+    "reason": "Bitcoin payment processor",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:btcpayserver-vault",
+    "category": "Finance",
+    "confidence": "high",
+    "reason": "Hardware wallet access for payments",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:btf2json",
+    "category": "Security",
+    "confidence": "medium",
+    "reason": "Forensic profile generation tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:btllib",
+    "category": "Science",
+    "confidence": "high",
+    "reason": "Bioinformatics library",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:btmux-bin",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Browser-based terminal manager",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:btnx-config-git",
+    "category": "System Tools",
+    "confidence": "medium",
+    "reason": "Configuration for input daemon",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:btnx-git",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Mouse event rerouting daemon",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:btogre",
+    "category": "Graphics & Design",
+    "confidence": "medium",
+    "reason": "3D engine connection library",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:btop-gpu-git",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "System resource monitor",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:btop-intel-git",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "System resource monitor",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:btop-no-gpu",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "System resource monitor",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:btops-git",
+    "category": "System Tools",
+    "confidence": "medium",
+    "reason": "Desktop window management",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:btrbk-pac-git",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Filesystem snapshot automation",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:btrustbiss",
+    "category": "Security",
+    "confidence": "high",
+    "reason": "Digital signing service",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bttf",
+    "category": "Utilities",
+    "confidence": "high",
+    "reason": "Date and time utility",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bubblebuddy-git",
+    "category": "Education",
+    "confidence": "low",
+    "reason": "Educational game for Raspberry Pi",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bubblejail",
+    "category": "Security",
+    "confidence": "high",
+    "reason": "Sandboxing utility",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bubbleplate-bin",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Project generator for developers",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bubbleupnpserver",
+    "category": "Photo & Video",
+    "confidence": "medium",
+    "reason": "Media streaming server",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bubblewrap-suid-git",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Sandboxing tool is system-level",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bubblewrap-ignoresigs",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Sandboxing tool is system-level",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bubbros",
+    "category": "Utilities",
+    "confidence": "low",
+    "reason": "Game not in allowed list",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:buceutils-git",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Generic collection of utilities",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:buchable",
+    "category": "Books & Reference",
+    "confidence": "medium",
+    "reason": "Audiobookshelf app for audio books",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bucklespring-libinput-git",
+    "category": "Music & Audio",
+    "confidence": "medium",
+    "reason": "Keyboard sound sampling tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:buckup",
+    "category": "Developer Tools",
+    "confidence": "medium",
+    "reason": "CLI tool for S3 buckets",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:buddhasay",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Fun terminal utility like cowsay",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:budget-app-bin",
+    "category": "Finance",
+    "confidence": "high",
+    "reason": "Household budget management app",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:budget-tracker",
+    "category": "Finance",
+    "confidence": "high",
+    "reason": "Budget tracker for income/expenses",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:budgetbutlerweb-desktop",
+    "category": "Finance",
+    "confidence": "high",
+    "reason": "Household book/budget app",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:budgeted-ui-bin",
+    "category": "Finance",
+    "confidence": "medium",
+    "reason": "Data pipeline for budget data",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:buf-bin",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Protocol Buffers development tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:buf-cli",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Bootable USB image flasher",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:buffalo-bin",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Web development ecosystem",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:buffr-bin",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "Web browser application",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bug-git",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Bug tracking tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bugmenot",
+    "category": "Security",
+    "confidence": "medium",
+    "reason": "Retrieves credentials from website",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:build-arch-gce",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Builds OS image for GCE",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:build-tools-android-bin",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Android NDK compilation tools",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:buildbox-fuse",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Build sandbox tool for developers",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:buildhosts-git",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Manages system /etc/hosts file",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:buildit-git",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Make alternative build tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:buildkite-agent-bin",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "CI/CD agent for developers",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:buildkite-cli-bin",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "CI/CD command line interface",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:buildnotify",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Build status notification tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:buildnumber-generator",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Generates build version numbers",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:buildprof",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Build process profiling tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:buildroot-meta",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Dependencies for buildroot system",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:buildstream-plugins-container",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "BuildStream container plugins",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:buildstream-plugins-experimental",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Experimental build system plugins",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:buildstuff",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Tools for building packages",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:buku-dmenu",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Bookmark manager frontend",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:buku-rofi-git",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Bookmark manager frontend",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bukubrow",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Bookmark browser host app",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:buku_run-git",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Bookmark manager frontend",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bulbcalculator",
+    "category": "Science",
+    "confidence": "medium",
+    "reason": "Sailboat bulb design tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bulk-rename-plus",
+    "category": "Utilities",
+    "confidence": "high",
+    "reason": "Bulk file renaming utility",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bulk-rename-py",
+    "category": "Utilities",
+    "confidence": "high",
+    "reason": "Bulk file renaming utility",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bulldog-amp-bin",
+    "category": "Music & Audio",
+    "confidence": "high",
+    "reason": "Audio amplifier simulator",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bullet-docs-git",
+    "category": "Books & Reference",
+    "confidence": "high",
+    "reason": "Explicitly documentation package",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bullettrain",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Prompt builder for developers",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bullsandcows",
+    "category": "Education",
+    "confidence": "medium",
+    "reason": "Classic educational game",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bullseye",
+    "category": "Utilities",
+    "confidence": "high",
+    "reason": "Mouse control utility",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bullshit",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Text processing utility",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bullycpp-git",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Microcontroller bootloader driver",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bum-git",
+    "category": "Music & Audio",
+    "confidence": "high",
+    "reason": "Album art for music players",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bump-pydantic",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Code migration tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bump2version",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Software version management",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bumper",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Package version bumping",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bumperl",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Semantic versioning tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bundletool",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Android app bundle tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bunny-cli-bin",
+    "category": "Internet & Communication",
+    "confidence": "medium",
+    "reason": "CLI for web service",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bunnyfetch",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "System info fetcher",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bunnymodxt",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Game speedrun tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bunsen-common-git",
+    "category": "System Tools",
+    "confidence": "medium",
+    "reason": "Desktop environment files",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bunsen-utilities-git",
+    "category": "System Tools",
+    "confidence": "medium",
+    "reason": "Desktop environment scripts",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bupdate-bin",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Package updater tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:burn-cd",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "CD/DVD burning tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:burning-sanders",
+    "category": "Utilities",
+    "confidence": "low",
+    "reason": "Missing description",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:burpsuite",
+    "category": "Security",
+    "confidence": "high",
+    "reason": "Web application security testing platform",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:burpsuite-cnpatch",
+    "category": "Security",
+    "confidence": "high",
+    "reason": "Patch for security testing tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:burpsuite-pro",
+    "category": "Security",
+    "confidence": "high",
+    "reason": "Professional web security testing suite",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:burritun",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Network device wrapper utility",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bus",
+    "category": "System Tools",
+    "confidence": "medium",
+    "reason": "Local message broadcasting daemon",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bushuray-git",
+    "category": "Internet & Communication",
+    "confidence": "medium",
+    "reason": "TUI client for Xray proxy",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:busking-git",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "File opener replacement utility",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bustd",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Process killer for memory management",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bustd-pacman-hooks",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Package hooks for system daemon",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:busylight",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Controls USB presence lights",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:buteo-git",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "XMPP based groupware application",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:butterfish-git",
+    "category": "Developer Tools",
+    "confidence": "medium",
+    "reason": "AI-enhanced shell for developers",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:butterflight-configurator",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Configuration tool for flight controller",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:butterflight-configurator-rc",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Configuration tool for flight controller",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:butterflypack-git",
+    "category": "Science",
+    "confidence": "high",
+    "reason": "Linear systems solver library",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:button-lua",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Generates build descriptions with Lua",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:buun-llama.cpp-hip",
+    "category": "Science",
+    "confidence": "medium",
+    "reason": "Optimized LLM inference engine",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:buzz-desktop-git",
+    "category": "Productivity",
+    "confidence": "medium",
+    "reason": "Collaborative workspace desktop client",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:buzzmachines-git",
+    "category": "Music & Audio",
+    "confidence": "high",
+    "reason": "Audio generators and effects",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bw-pinentry",
+    "category": "Security",
+    "confidence": "high",
+    "reason": "GPG key storage wrapper",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bwfmetaedit-gui",
+    "category": "Photo & Video",
+    "confidence": "high",
+    "reason": "Video/audio file metadata editing",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bwget",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "Web download utility",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bwlog",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Network and CPU monitoring",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bwplotka-bingo",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Go package versioning tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bwrap-common",
+    "category": "Security",
+    "confidence": "high",
+    "reason": "Sandboxing helper utilities",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bwutil-git",
+    "category": "Security",
+    "confidence": "high",
+    "reason": "Bitwarden password manager wrapper",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bwx-cli",
+    "category": "Security",
+    "confidence": "high",
+    "reason": "Bitwarden CLI client",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bxdecay0",
+    "category": "Science",
+    "confidence": "high",
+    "reason": "Physics decay library",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bxdecay0-geant4",
+    "category": "Science",
+    "confidence": "high",
+    "reason": "Physics decay library",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:byd-n16-rgb",
+    "category": "Settings",
+    "confidence": "medium",
+    "reason": "Hardware configuration utility",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:byebyemenu",
+    "category": "Settings",
+    "confidence": "medium",
+    "reason": "System power menu utility",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:byedpi",
+    "category": "System Tools",
+    "confidence": "medium",
+    "reason": "System display scaling tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:byedpi-gtk",
+    "category": "System Tools",
+    "confidence": "medium",
+    "reason": "System display scaling tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:byedroid",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Android development interface",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bynfont",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Console font resource",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:byojeopardy",
+    "category": "Education",
+    "confidence": "medium",
+    "reason": "Educational game creation tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:byond",
+    "category": "Internet & Communication",
+    "confidence": "medium",
+    "reason": "Network game server",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:byp4xx",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "HTTP response handling tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bypass_utility",
+    "category": "System Tools",
+    "confidence": "medium",
+    "reason": "Hardware boot protection bypass",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:byteblitz",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Binary file inspection tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bytecopy-git",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "File and device byte manipulation",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bytehound",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Memory profiler for developers",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bytelizer-git",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Binary packaging library for C",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bytemark-client",
+    "category": "Business",
+    "confidence": "medium",
+    "reason": "Cloud server account management",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:byteonpanel-git",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Network traffic monitoring utility",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:byteowlz-tmpltr",
+    "category": "Productivity",
+    "confidence": "medium",
+    "reason": "Document generation CLI tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bytes-radar",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Code analysis tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bytesize-git",
+    "category": "Utilities",
+    "confidence": "high",
+    "reason": "Unit conversion utility",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bython",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Programming language variant",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bzfs",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "ZFS dataset replication tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:bzzwolfsp",
+    "category": "Photo & Video",
+    "confidence": "low",
+    "reason": "Game engine mod, no game category",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:c++-gtk-utils",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "GTK programming utilities",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:c++-gtk-utils-gtk2",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "GTK programming utilities",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:c-graph",
+    "category": "Education",
+    "confidence": "medium",
+    "reason": "Engineering theory demonstration",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:c-icap-modules",
+    "category": "Internet & Communication",
+    "confidence": "medium",
+    "reason": "ICAP server modules",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:c-intro-and-ref",
+    "category": "Books & Reference",
+    "confidence": "high",
+    "reason": "Language reference manual",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:c-lightning-rest",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "REST API development tools",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:c-lolcat",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Terminal text effect utility",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:c0",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "C programming language subset",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:c001apk-flutter-git",
+    "category": "Internet & Communication",
+    "confidence": "medium",
+    "reason": "Social media client app",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:c0wrk",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "AI coding agent for developers",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:c0wrk-cuda",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "AI coding agent for developers",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:c0wrk-zabbius-cuda-git",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "AI coding agent for developers",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:c0wrk-zabbius-git",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "AI coding agent for developers",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:c10t-git",
+    "category": "Developer Tools",
+    "confidence": "medium",
+    "reason": "Minecraft cartography tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:c19",
+    "category": "News & Weather",
+    "confidence": "medium",
+    "reason": "COVID-19 statistics data",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:c1_displaytool",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Framebuffer mode configuration script",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:c2clat-git",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "CPU latency measurement tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:c2ctl",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "CPU frequency and voltage utility",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:c2ffi-21-git",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "FFI wrapper generator",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:c2ffi-22-git",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "FFI wrapper generator",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:c2prog",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Programming tool for MCUs",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:c2rust",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Code migration tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:c2t-git",
+    "category": "Music & Audio",
+    "confidence": "medium",
+    "reason": "Audio file cassette utility",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:c3c-bin",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "C language compiler/evolution",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:c4go-git",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Code transpiler tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:c51asm",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Macro assembler tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:c64-debugger-git",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Real-time debugger tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:c64tapedecode-svn",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Tape preservation and restoration",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:c64_tap_tool-git",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "File handling command tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:c99-meta",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "C99 preprocessor meta-programming tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ca-certificates-blacklist-anti-china",
+    "category": "Security",
+    "confidence": "high",
+    "reason": "Certificate blacklist for security",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ca-certificates-blacklist-cnnic",
+    "category": "Security",
+    "confidence": "high",
+    "reason": "Certificate blacklist for security",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ca-certificates-blacklist-startcom",
+    "category": "Security",
+    "confidence": "high",
+    "reason": "Certificate blacklist for security",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ca-certificates-blacklist-wosign",
+    "category": "Security",
+    "confidence": "high",
+    "reason": "Certificate blacklist for security",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ca-certificates-bsi",
+    "category": "Security",
+    "confidence": "high",
+    "reason": "Root certificates for trust",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ca-certificates-bundeswehr",
+    "category": "Security",
+    "confidence": "high",
+    "reason": "Root certificates for trust",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ca-certificates-dn42",
+    "category": "Security",
+    "confidence": "high",
+    "reason": "Root certificates for trust",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ca-certificates-dnie",
+    "category": "Security",
+    "confidence": "high",
+    "reason": "Root certificates for trust",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ca-certificates-eidentity",
+    "category": "Security",
+    "confidence": "high",
+    "reason": "Root certificates for trust",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ca-certificates-fnmt",
+    "category": "Security",
+    "confidence": "high",
+    "reason": "Root certificates for trust",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ca-certificates-gts",
+    "category": "Security",
+    "confidence": "high",
+    "reason": "Root certificates for trust",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ca-certificates-ica",
+    "category": "Security",
+    "confidence": "high",
+    "reason": "Root certificates for trust",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ca-certificates-icp_br",
+    "category": "Security",
+    "confidence": "high",
+    "reason": "Root certificates for trust",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ca-certificates-izenpe",
+    "category": "Security",
+    "confidence": "high",
+    "reason": "Root certificates for trust",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ca-certificates-neonetwork",
+    "category": "Security",
+    "confidence": "high",
+    "reason": "Root certificates for trust",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ca-certificates-postsignum",
+    "category": "Security",
+    "confidence": "high",
+    "reason": "Root certificates for trust",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ca-certificates-russian-root",
+    "category": "Security",
+    "confidence": "high",
+    "reason": "Root certificates for trust",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ca-certificates-sap",
+    "category": "Security",
+    "confidence": "high",
+    "reason": "Root certificates for trust",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ca-certificates-vsign-universal-root",
+    "category": "Security",
+    "confidence": "high",
+    "reason": "Root certificates for trust",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ca0132-tools-git",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Assembler/disassembler for DSP",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:caas-git",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "XMPP server compliance web service",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cab",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Haskell package manager maintenance",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cabal-fmt-static-git",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Formats Haskell package files",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cabocha",
+    "category": "Science",
+    "confidence": "medium",
+    "reason": "Linguistic dependency structure analyzer",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cacert-csr",
+    "category": "Security",
+    "confidence": "high",
+    "reason": "Certificate signing request generator",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cache-cleaner",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Cleans system cache and temp",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cacheclean",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Cleans package manager cache",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cachefetch",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Reports system cache file sizes",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cacheprinter",
+    "category": "Travel & Navigation",
+    "confidence": "high",
+    "reason": "Geocaching listings utility",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:caches-manager",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Manages directories via tmpfs",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cachy-auto-update",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Automated system package updates",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cachy-chroot",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Chroot environment helper",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cachy-maint-utility",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "System maintenance and updates",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cachydpi",
+    "category": "Internet & Communication",
+    "confidence": "medium",
+    "reason": "Network DPI bypass tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cachyos-ananicy-rules",
+    "category": "System Tools",
+    "confidence": "medium",
+    "reason": "System process priority rules",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cachyos-downgrade-git",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Downgrades system packages",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cachyos-ksm-settings-git",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Configures kernel memory merging",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cactus-client",
+    "category": "Utilities",
+    "confidence": "low",
+    "reason": "Game modification client",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cad-viewer",
+    "category": "Graphics & Design",
+    "confidence": "high",
+    "reason": "CAD file viewer",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cad2fbd",
+    "category": "Graphics & Design",
+    "confidence": "high",
+    "reason": "CAD geometry converter tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cadassistant-appimage",
+    "category": "Graphics & Design",
+    "confidence": "high",
+    "reason": "3D CAD viewer and converter",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:caddy-crowdsec-git",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "Web server with security modules",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cadet-gtk",
+    "category": "Internet & Communication",
+    "confidence": "medium",
+    "reason": "GNUnet subsystem GUI",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cadius",
+    "category": "Utilities",
+    "confidence": "high",
+    "reason": "Disk imaging utility",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cadmelia",
+    "category": "Utilities",
+    "confidence": "low",
+    "reason": "Missing description",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cadmus-appimage",
+    "category": "Music & Audio",
+    "confidence": "high",
+    "reason": "Audio noise suppression plugin GUI",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cadmus-notes",
+    "category": "Productivity",
+    "confidence": "high",
+    "reason": "Markdown notebook scripts",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cadna_c",
+    "category": "Science",
+    "confidence": "high",
+    "reason": "Numerical application debugging tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cado-nfs-git",
+    "category": "Science",
+    "confidence": "high",
+    "reason": "Number Field Sieve algorithm",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cadoodle-bin",
+    "category": "Graphics & Design",
+    "confidence": "high",
+    "reason": "Drag-and-drop CAD tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cadr-bin",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Codebase cadastre tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cadzinho",
+    "category": "Graphics & Design",
+    "confidence": "high",
+    "reason": "Minimalist CAD software",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cae-v-sim",
+    "category": "Science",
+    "confidence": "high",
+    "reason": "Visualizes atomic structures",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:caelestia-cli",
+    "category": "Settings",
+    "confidence": "medium",
+    "reason": "Dotfiles configuration CLI",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:caelestia-equalizer",
+    "category": "Music & Audio",
+    "confidence": "high",
+    "reason": "Music widget with EQ",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:caelestia-gif",
+    "category": "Settings",
+    "confidence": "medium",
+    "reason": "Shell configuration script",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:caelestia-rgb-sync",
+    "category": "Settings",
+    "confidence": "medium",
+    "reason": "Desktop shell accent sync",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:caelestia-shell",
+    "category": "Settings",
+    "confidence": "medium",
+    "reason": "Desktop shell component",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:caelestia-shell-mango-git",
+    "category": "Settings",
+    "confidence": "medium",
+    "reason": "Desktop shell migration",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:caerbannog-git",
+    "category": "Security",
+    "confidence": "high",
+    "reason": "GUI frontend for pass password manager",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:caescript-bin",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Monkey programming language dialect",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:caesium-image-compressor-bin",
+    "category": "Photo & Video",
+    "confidence": "high",
+    "reason": "Image compression software",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cafeobj-sbcl",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Algebraic specification and programming language",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:caff-git",
+    "category": "Security",
+    "confidence": "high",
+    "reason": "Script for keysigning",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:caffe",
+    "category": "Science",
+    "confidence": "high",
+    "reason": "Deep learning framework",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:caffe-cmake-git",
+    "category": "Science",
+    "confidence": "high",
+    "reason": "Deep learning framework",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:caffe-cuda",
+    "category": "Science",
+    "confidence": "high",
+    "reason": "Deep learning framework",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:caffe-cuda-doc-git",
+    "category": "Science",
+    "confidence": "high",
+    "reason": "Deep learning framework",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:caffe-doc-git",
+    "category": "Science",
+    "confidence": "high",
+    "reason": "Deep learning framework",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:caffe-ssd",
+    "category": "Science",
+    "confidence": "high",
+    "reason": "Deep learning framework",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:caffeinate",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Prevents computer sleep/lock",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:caffeinated",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Idle inhibitor for logind/Wayland",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cage-graph",
+    "category": "Science",
+    "confidence": "medium",
+    "reason": "Chemical and abstract graph environment",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cahute",
+    "category": "Education",
+    "confidence": "medium",
+    "reason": "Toolkit for CASIO calculators",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cai",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Generates git commit messages",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cain-ncnn-vulkan",
+    "category": "Photo & Video",
+    "confidence": "high",
+    "reason": "Video frame interpolation tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:caitsith-lkm",
+    "category": "Security",
+    "confidence": "high",
+    "reason": "LSM-based security module",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:caitsith-tools",
+    "category": "Security",
+    "confidence": "high",
+    "reason": "Userspace tools for security module",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:caj2pdf-git",
+    "category": "Books & Reference",
+    "confidence": "high",
+    "reason": "Converts academic journal files to PDF",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:caj2pdf-qt",
+    "category": "Productivity",
+    "confidence": "high",
+    "reason": "Document conversion tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cake-wallet-bin",
+    "category": "Finance",
+    "confidence": "high",
+    "reason": "Cryptocurrency wallet",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cakebox",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "File management web interface",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cal8tor",
+    "category": "Education",
+    "confidence": "high",
+    "reason": "University timetable extractor",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:calagopus-db-agent-bin",
+    "category": "System Tools",
+    "confidence": "medium",
+    "reason": "Database management agent",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:calagopus-panel-aio-bin",
+    "category": "System Tools",
+    "confidence": "medium",
+    "reason": "Server management panel",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:calagopus-panel-bin",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Game server management panel",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:calagopus-wings-bin",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Game server daemon",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:calcelestial",
+    "category": "Science",
+    "confidence": "high",
+    "reason": "Astronomical calculations",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:calcesara",
+    "category": "Science",
+    "confidence": "high",
+    "reason": "Reliability simulation software",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:calculix-ccx-pardiso",
+    "category": "Science",
+    "confidence": "high",
+    "reason": "Finite element analysis",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:calculix-precice",
+    "category": "Science",
+    "confidence": "high",
+    "reason": "Simulation coupling adapter",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:caldr",
+    "category": "Productivity",
+    "confidence": "high",
+    "reason": "Calendar application",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:caled-git",
+    "category": "Photo & Video",
+    "confidence": "high",
+    "reason": "LUT calibration editor",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:calendar-cli",
+    "category": "Productivity",
+    "confidence": "high",
+    "reason": "Calendar and task management",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:calendar-indicator",
+    "category": "Productivity",
+    "confidence": "high",
+    "reason": "Calendar indicator",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:calendar-tui-git",
+    "category": "Productivity",
+    "confidence": "high",
+    "reason": "Terminal calendar",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:calendarsync-bin",
+    "category": "Productivity",
+    "confidence": "high",
+    "reason": "Calendar synchronization tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:calendula",
+    "category": "Productivity",
+    "confidence": "high",
+    "reason": "Calendar management CLI",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:calf-gui",
+    "category": "Music & Audio",
+    "confidence": "high",
+    "reason": "Audio plugin and host",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:calf-ls",
+    "category": "Internet & Communication",
+    "confidence": "medium",
+    "reason": "CGI web server component",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:calf-no-gui",
+    "category": "Music & Audio",
+    "confidence": "high",
+    "reason": "Audio plug-in suite",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:calibrate-joystick-gui",
+    "category": "Settings",
+    "confidence": "high",
+    "reason": "Input device calibration",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:calibre-plugin-crosspoint",
+    "category": "Books & Reference",
+    "confidence": "high",
+    "reason": "E-book library sync",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:calibre-plugin-goodreads",
+    "category": "Books & Reference",
+    "confidence": "high",
+    "reason": "E-book metadata plugin",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:calibre-plugin-kobo-driver",
+    "category": "Books & Reference",
+    "confidence": "high",
+    "reason": "E-book device driver",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:calibre-tui",
+    "category": "Books & Reference",
+    "confidence": "high",
+    "reason": "E-book library manager",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:calicoctl",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Kubernetes network CLI",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:californium-tools-git",
+    "category": "Developer Tools",
+    "confidence": "medium",
+    "reason": "CoAP protocol tools",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:caligula-bin",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Disk imaging utility",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:calmly-writer-bin",
+    "category": "Productivity",
+    "confidence": "high",
+    "reason": "Writing editor",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:calories",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Health tracking CLI",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:calyxos-flasher-git",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "OS installation tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:calz-bin",
+    "category": "Utilities",
+    "confidence": "high",
+    "reason": "Calendar utility",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cal_nongli",
+    "category": "Utilities",
+    "confidence": "high",
+    "reason": "Calendar utility",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cam-git",
+    "category": "Photo & Video",
+    "confidence": "high",
+    "reason": "Image viewer",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cameracontrol-bin",
+    "category": "Settings",
+    "confidence": "medium",
+    "reason": "Hardware control utility",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cameramonitor-quiet-git",
+    "category": "Security",
+    "confidence": "high",
+    "reason": "Privacy monitoring tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cami",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Code analysis tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:camilladsp",
+    "category": "Music & Audio",
+    "confidence": "high",
+    "reason": "Audio processing engine",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:camillagui",
+    "category": "Music & Audio",
+    "confidence": "high",
+    "reason": "CamillaDSP is an audio processing tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:camillagui-backend",
+    "category": "Music & Audio",
+    "confidence": "high",
+    "reason": "Backend for audio processing GUI",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:camisole-languages",
+    "category": "Developer Tools",
+    "confidence": "medium",
+    "reason": "Meta-package for language support",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:camo.cr-git",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Crystal web framework",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:camodet-git",
+    "category": "Photo & Video",
+    "confidence": "high",
+    "reason": "Camera motion detection application",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:camotics",
+    "category": "Developer Tools",
+    "confidence": "medium",
+    "reason": "NC machining simulation software",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:camoto-studio-git",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "DOS game editor",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:camp2ascii-git",
+    "category": "Science",
+    "confidence": "medium",
+    "reason": "Scientific data format conversion",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:campfire-bin",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Log management tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:campus-ics-feed-git",
+    "category": "Productivity",
+    "confidence": "high",
+    "reason": "Serves calendar files",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:campus-lms-bin",
+    "category": "Education",
+    "confidence": "high",
+    "reason": "Moodle LMS client",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:camset",
+    "category": "Photo & Video",
+    "confidence": "high",
+    "reason": "Camera control GUI",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:camunda-modeler",
+    "category": "Business",
+    "confidence": "high",
+    "reason": "BPMN business process modeling",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:camunda-modeler-plugin-bpmn-js-token-simulation",
+    "category": "Business",
+    "confidence": "high",
+    "reason": "Plugin for business process modeling",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:camunda-modeler-plugin-linter",
+    "category": "Business",
+    "confidence": "high",
+    "reason": "Plugin for business process modeling",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:camunda-modeler-plugin-tooltip",
+    "category": "Business",
+    "confidence": "high",
+    "reason": "Plugin for business process modeling",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:camunda-modeler-token-simulation-plugin",
+    "category": "Business",
+    "confidence": "high",
+    "reason": "Plugin for business process modeling",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cam_board-git",
+    "category": "Productivity",
+    "confidence": "medium",
+    "reason": "Digital whiteboard utility",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:can",
+    "category": "Utilities",
+    "confidence": "high",
+    "reason": "Trash manager utility",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:can-doc-git",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Documentation for developers",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:can-tests-git",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Testing applications for developers",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:canal-cli",
+    "category": "Developer Tools",
+    "confidence": "medium",
+    "reason": "Command line interface tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:canaries-form-415",
+    "category": "Finance",
+    "confidence": "high",
+    "reason": "Tax form helper program",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:canaries-form-420",
+    "category": "Finance",
+    "confidence": "high",
+    "reason": "Tax form helper program",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:canaries-form-425",
+    "category": "Finance",
+    "confidence": "high",
+    "reason": "Tax form helper program",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:canboat",
+    "category": "Travel & Navigation",
+    "confidence": "medium",
+    "reason": "Boat navigation data utilities",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cancept",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Automotive bus testing and analysis",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:candevstudio-git",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Development tool for simulation",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:candl-git",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Data dependence analysis tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:candle-cnc",
+    "category": "Graphics & Design",
+    "confidence": "medium",
+    "reason": "CNC controller and G-Code visualizer",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:candle2-git",
+    "category": "Graphics & Design",
+    "confidence": "medium",
+    "reason": "CNC controller and G-Code visualizer",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:candlelang-git",
+    "category": "Developer Tools",
+    "confidence": "medium",
+    "reason": "Programming language implementation",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cando",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Lisp and C++ integration tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:candybox",
+    "category": "Utilities",
+    "confidence": "low",
+    "reason": "Text-based incremental game",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:candybox2",
+    "category": "Utilities",
+    "confidence": "low",
+    "reason": "Text-based incremental game",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:candycrisis",
+    "category": "Utilities",
+    "confidence": "low",
+    "reason": "Action and puzzle game",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:candyvim-git",
+    "category": "Developer Tools",
+    "confidence": "medium",
+    "reason": "Vim configuration or plugin",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cangaroo",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "CAN bus analyzer software",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cangaroo-hpmicro-canfd-analyzer-git",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "CANFD analyzer hardware/software",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cangjie-lts-tools-bin",
+    "category": "Developer Tools",
+    "confidence": "medium",
+    "reason": "Tools for Cangjie language",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cangjie-lts-runtime-bin",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Runtime for programming language",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cani",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "TUI for developer data",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:canihazgnomeupdate-bin",
+    "category": "System Tools",
+    "confidence": "medium",
+    "reason": "Checks system extension compatibility",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:canmatrix-git",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Utility for CAN database formats",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cannelloni",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Transfers CAN frames between machines",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:canokey-console-legacy",
+    "category": "Security",
+    "confidence": "high",
+    "reason": "Hardware security key console",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:canokey-usbip-git",
+    "category": "Security",
+    "confidence": "high",
+    "reason": "Virtual hardware security key",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:canonical-multipass",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Lightweight VM manager",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:canopenlinux-git",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "CANopen protocol implementation",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cantools-git",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Tools for handling CAN data",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:canvas-downloader",
+    "category": "Education",
+    "confidence": "high",
+    "reason": "Downloads course materials from LMS",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:canvas-rubric-importer",
+    "category": "Education",
+    "confidence": "high",
+    "reason": "Imports rubrics for LMS",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:capa-bin",
+    "category": "Security",
+    "confidence": "high",
+    "reason": "Identifies capabilities in executables",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:capacities-appimage",
+    "category": "Productivity",
+    "confidence": "high",
+    "reason": "Personal Knowledge Management app",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:capacity-tester",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Tests drive capacity authenticity",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:capanalysis",
+    "category": "Security",
+    "confidence": "high",
+    "reason": "Analyzes PCAP network files",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:capasm",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Assembler for specific CPU",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:capbattleship-git",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Battleship game",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:capella-bin",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Systems Engineering tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:capi-desktop-bin",
+    "category": "Music & Audio",
+    "confidence": "high",
+    "reason": "YouTube Music client",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:capi-shell",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Kubernetes cluster management tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:capi-shell-mcp",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "MCP provider for cluster access",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:capo-shell",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "OpenStack cluster management wrapper",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:caprine-ng-git",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "Facebook Messenger desktop app",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:caprover",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "CLI for CapRover deployment",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:caps-indicator",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Simple X11 indicator utility",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:caps-log",
+    "category": "Productivity",
+    "confidence": "medium",
+    "reason": "Terminal-based journaling tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:capsimage",
+    "category": "Developer Tools",
+    "confidence": "medium",
+    "reason": "Library for specific file formats",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:capslock",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "CLI for Go package analysis",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:capstan-git",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Application packaging and running tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:captain-kill-switch-bin",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "System tray application closer",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:capter",
+    "category": "Photo & Video",
+    "confidence": "high",
+    "reason": "Screen capture and annotation tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:captive-browser-git",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "Browser for captive portals",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:capture-packages",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Writes package list to system file",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:capybara-cli",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Small CLI text display utility",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:capypdf",
+    "category": "Graphics & Design",
+    "confidence": "high",
+    "reason": "Color-managed PDF generation library",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:car",
+    "category": "Education",
+    "confidence": "high",
+    "reason": "Dynamic geometry program",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:carbon-cli",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Solana program decoder generator",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:carbon-ir-git",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Intermediate representation language",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:carbon-now-cli-bin",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Generates code images from terminal",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:carbonyl",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "Chromium-based terminal browser",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:carboxyl-servo-git",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "Terminal browser built on Servo",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cardamum-git",
+    "category": "Productivity",
+    "confidence": "high",
+    "reason": "CLI to manage contacts",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cardano-addresses",
+    "category": "Finance",
+    "confidence": "high",
+    "reason": "Cardano blockchain address manipulation",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cardano-conf",
+    "category": "Finance",
+    "confidence": "high",
+    "reason": "Cardano blockchain configuration files",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cardano-node",
+    "category": "Finance",
+    "confidence": "high",
+    "reason": "Cardano blockchain node software",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:carddav2fb-git",
+    "category": "Internet & Communication",
+    "confidence": "medium",
+    "reason": "Syncs contacts to router phonebook",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cardmirror-bin",
+    "category": "Productivity",
+    "confidence": "medium",
+    "reason": "Debate evidence editor tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cardwire",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "GPU manager using eBPF hooks",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:careervector",
+    "category": "Business",
+    "confidence": "medium",
+    "reason": "Career management desktop workspace",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:careervector-tui-bin",
+    "category": "Business",
+    "confidence": "medium",
+    "reason": "Career management terminal workspace",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:caretaker-bin",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Filesystem watcher utility",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:carfirma-bin",
+    "category": "Security",
+    "confidence": "high",
+    "reason": "Electronic signature client",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cargofetch",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Rust project metadata CLI",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:carl-calendar",
+    "category": "Productivity",
+    "confidence": "high",
+    "reason": "Command line calendar app",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:carl-git",
+    "category": "Science",
+    "confidence": "high",
+    "reason": "Computer arithmetic and logic library",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:carl-master14-git",
+    "category": "Science",
+    "confidence": "high",
+    "reason": "Computer arithmetic and logic library",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:carla-bridges-linux32",
+    "category": "Music & Audio",
+    "confidence": "high",
+    "reason": "VST plugin bridge for audio",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:carla-bridges-win",
+    "category": "Music & Audio",
+    "confidence": "high",
+    "reason": "Windows VST plugin bridges",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:carla-bridges-win32",
+    "category": "Music & Audio",
+    "confidence": "high",
+    "reason": "Win32 VST plugin bridge",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:carla-bridges-win64",
+    "category": "Music & Audio",
+    "confidence": "high",
+    "reason": "Carla is an audio plugin host",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:carla-debug-git",
+    "category": "Music & Audio",
+    "confidence": "high",
+    "reason": "Explicitly described as Audio Plugin Host",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:carma",
+    "category": "Science",
+    "confidence": "high",
+    "reason": "Scientific computing library for matrices",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:carmel-git",
+    "category": "Science",
+    "confidence": "high",
+    "reason": "Statistical toolkit for Bayesian training",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:carnagecontest",
+    "category": "Utilities",
+    "confidence": "low",
+    "reason": "Game category missing, closest fit",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:carp",
+    "category": "Security",
+    "confidence": "high",
+    "reason": "EncFS is an encryption tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:carpd-git",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Manages system package updates",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:carrier",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "Facebook Messenger client",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:carrier-cli",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Module manager for developers",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:carryctx",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Project lifecycle control for coding",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cartesi-machine",
+    "category": "System Tools",
+    "confidence": "medium",
+    "reason": "Virtual machine infrastructure component",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cartesi-machine-linux-image",
+    "category": "System Tools",
+    "confidence": "medium",
+    "reason": "Guest kernel image for VM",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cartesi-machine-rootfs-image",
+    "category": "System Tools",
+    "confidence": "medium",
+    "reason": "Guest root filesystem for VM",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:carto-builder",
+    "category": "Graphics & Design",
+    "confidence": "high",
+    "reason": "Data visualization and mapping tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:carto-sql-api",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Node.js API for SQL queries",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:carto-tiler",
+    "category": "Graphics & Design",
+    "confidence": "high",
+    "reason": "Map tiling service component",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:carton-appimage",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "Proxy client for network traffic",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cartridge-cli",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Command-line utility for Tarantool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:carve",
+    "category": "Graphics & Design",
+    "confidence": "high",
+    "reason": "Constructive solid geometry library",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:carveimg",
+    "category": "Utilities",
+    "confidence": "high",
+    "reason": "Terminal image viewing utilities",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:carvel-tools",
+    "category": "Developer Tools",
+    "confidence": "medium",
+    "reason": "Carvel is a developer tool suite",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:casaos",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Home cloud and Docker management",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:casaos-app-management",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Manages application lifecycle and services",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:casaos-cli",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Command-line tool for testing",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:casaos-gateway",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "API gateway service",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:casaos-local-storage",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Local storage and disk management",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:casaos-message-bus",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Internal message bus service",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:casaos-ui",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Front-end interface for system",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:casaos-user-service",
+    "category": "Security",
+    "confidence": "high",
+    "reason": "User management and authentication",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cascadia",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "CSS selector command line tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:casdoor",
+    "category": "Security",
+    "confidence": "high",
+    "reason": "Identity and Access Management",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:caser",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "String conversion utility for devs",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cash-cli",
+    "category": "Finance",
+    "confidence": "high",
+    "reason": "Currency rate conversion tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cash-register",
+    "category": "Business",
+    "confidence": "high",
+    "reason": "Cash register application",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cashlyctl-git",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Deployment operations console",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cashonize-appimage",
+    "category": "Finance",
+    "confidence": "high",
+    "reason": "Bitcoin Cash wallet",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cashshuffle",
+    "category": "Finance",
+    "confidence": "high",
+    "reason": "Bitcoin Cash shuffle server",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:casile",
+    "category": "Developer Tools",
+    "confidence": "medium",
+    "reason": "Publishing toolkit for developers",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cask-server-git",
+    "category": "System Tools",
+    "confidence": "medium",
+    "reason": "Server and API interface",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:casket",
+    "category": "Security",
+    "confidence": "high",
+    "reason": "Encrypted vault manager",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:casm",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Abstract state machine for formal verification",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:casparcg-client",
+    "category": "Photo & Video",
+    "confidence": "high",
+    "reason": "Controls video playout server",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:casparcg-server",
+    "category": "Photo & Video",
+    "confidence": "high",
+    "reason": "Plays out professional graphics and video",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:casparcg-server-headless-git",
+    "category": "Photo & Video",
+    "confidence": "high",
+    "reason": "Plays out professional graphics and video",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:casper-keyboard-rgb",
+    "category": "Settings",
+    "confidence": "medium",
+    "reason": "Controls hardware RGB LED settings",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:casr",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Triages crash reports and errors",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cassandra",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "NoSQL database server",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cassandra-cpp-driver",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Database driver for developers",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:castawesome",
+    "category": "Photo & Video",
+    "confidence": "high",
+    "reason": "Frontend for livestreaming video",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:castblock-git",
+    "category": "Internet & Communication",
+    "confidence": "medium",
+    "reason": "Network tool for Chromecast devices",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:caster-demo",
+    "category": "Utilities",
+    "confidence": "low",
+    "reason": "Action shooter game demo",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:castig",
+    "category": "Photo & Video",
+    "confidence": "high",
+    "reason": "Casts video to Chromecast",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:castigui",
+    "category": "Photo & Video",
+    "confidence": "high",
+    "reason": "Casts video to Chromecast",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:castledb-git",
+    "category": "Developer Tools",
+    "confidence": "medium",
+    "reason": "Level editor and database tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:castnow-git",
+    "category": "Photo & Video",
+    "confidence": "high",
+    "reason": "Plays media on Chromecast",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:castools-git",
+    "category": "Music & Audio",
+    "confidence": "high",
+    "reason": "Converts audio tape files",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:castr",
+    "category": "Photo & Video",
+    "confidence": "high",
+    "reason": "Mirrors screen to TV devices",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:castsound-bin",
+    "category": "Music & Audio",
+    "confidence": "high",
+    "reason": "Streams audio between devices",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:castsponsorskip-bin",
+    "category": "Internet & Communication",
+    "confidence": "medium",
+    "reason": "Network tool for Cast devices",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:castword-gnome",
+    "category": "Productivity",
+    "confidence": "medium",
+    "reason": "Text rewriting and editing tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cast_control",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "Controls network streaming devices",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:casual-pre-loader",
+    "category": "Graphics & Design",
+    "confidence": "medium",
+    "reason": "Game particle visual modifications",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cat-browser-git",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "Web browser application",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cat-git",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Customizable shell environment",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cataclysm-dda-ncurses",
+    "category": "Education",
+    "confidence": "low",
+    "reason": "Roguelike game, no specific category",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cataclysm-tlg-bin",
+    "category": "Education",
+    "confidence": "low",
+    "reason": "Roguelike game, no specific category",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cataclysm-tlg-tiles-bin",
+    "category": "Education",
+    "confidence": "low",
+    "reason": "Roguelike game, no specific category",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:catalystplus-desktop-bin",
+    "category": "Science",
+    "confidence": "high",
+    "reason": "Scientific research aggregation platform",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:catbath",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Text editor for coding",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:catbin-git",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "Pastebin server for sharing",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:catboost-git",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Machine learning library",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:catbox",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "File sharing API wrapper",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:catbox-bash",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "File sharing API implementation",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:catcat-dm-react",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "Live streaming danmaku viewer",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:catcli-git",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Data cataloging utility",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:catclient",
+    "category": "Education",
+    "confidence": "low",
+    "reason": "Game client, no specific category",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:catclock-git",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "System clock utility",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:catdy-git",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Directory categorization tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cate-bossfight-bin",
+    "category": "Education",
+    "confidence": "low",
+    "reason": "Clicker game, no specific category",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cate-gms2-bin",
+    "category": "Education",
+    "confidence": "low",
+    "reason": "Clicker game, no specific category",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:catenary",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Code intelligence for AI coding agents",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:caterva-git",
+    "category": "Science",
+    "confidence": "medium",
+    "reason": "Library for multidimensional scientific datasets",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:catfetch-git",
+    "category": "Utilities",
+    "confidence": "high",
+    "reason": "System information fetch program",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:catfs-git",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Filesystem implementation",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:catgirldownloader",
+    "category": "Photo & Video",
+    "confidence": "medium",
+    "reason": "Downloads images from web",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:catia-git",
+    "category": "Music & Audio",
+    "confidence": "high",
+    "reason": "JACK audio patchbay",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:catless-git",
+    "category": "Utilities",
+    "confidence": "high",
+    "reason": "Text viewing utility",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:catmatrix-forever",
+    "category": "Utilities",
+    "confidence": "low",
+    "reason": "Vague memorial script description",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:catnap",
+    "category": "Utilities",
+    "confidence": "high",
+    "reason": "System information fetch program",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:catnip-visualizer-git",
+    "category": "Music & Audio",
+    "confidence": "high",
+    "reason": "Terminal audio visualizer",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:catp-bin",
+    "category": "Utilities",
+    "confidence": "high",
+    "reason": "Process output printing tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:catppuccinifier-bin",
+    "category": "Graphics & Design",
+    "confidence": "high",
+    "reason": "Image color theme application",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:catppuccinifier-cli-bin",
+    "category": "Graphics & Design",
+    "confidence": "high",
+    "reason": "Image color theme CLI",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:catppuccinifier-gui-bin",
+    "category": "Graphics & Design",
+    "confidence": "high",
+    "reason": "Image color theme GUI",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:catproccpuinfogrepmhz",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "CPU frequency and power monitoring",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:catspeak",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Fun text display program",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:catt",
+    "category": "Photo & Video",
+    "confidence": "high",
+    "reason": "Sends videos to Chromecast",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:catt-qt",
+    "category": "Photo & Video",
+    "confidence": "high",
+    "reason": "Video casting GUI",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cattle",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Programming language toolkit",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:catwalk-bin",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "LLM inference providers and models",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:caudio-git",
+    "category": "Music & Audio",
+    "confidence": "high",
+    "reason": "OpenAL wrapper for audio",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cauralho-git",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "AUR package management tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:caustic-cst",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Python AST package",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:caustic-grammar",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Python grammar package",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cava_cmmk-git",
+    "category": "Music & Audio",
+    "confidence": "high",
+    "reason": "Audio visualizer",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:caveman",
+    "category": "Developer Tools",
+    "confidence": "medium",
+    "reason": "AI coding agent utility",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cavif",
+    "category": "Graphics & Design",
+    "confidence": "high",
+    "reason": "AVIF image creator",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cayley",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Graph database",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cazy-git",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Build tool for add-ins",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cb3sum",
+    "category": "Utilities",
+    "confidence": "high",
+    "reason": "Checksum utility",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cbang-git",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "C++ utility library",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cbfmt-bin",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Code formatting tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cbftp-svn",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "FTP client",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cbm-tool",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "CLI wrapper for MCP",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cbmp-rs",
+    "category": "Graphics & Design",
+    "confidence": "high",
+    "reason": "SVG to PNG converter",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cboard",
+    "category": "Education",
+    "confidence": "medium",
+    "reason": "Chess engine interface",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cboard-chess-git",
+    "category": "Education",
+    "confidence": "medium",
+    "reason": "Chess interface fork",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cbonsai-focus-git",
+    "category": "Productivity",
+    "confidence": "high",
+    "reason": "Focus timer",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cbqn-git",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Programming language implementation",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cbr2pdf-git",
+    "category": "Utilities",
+    "confidence": "high",
+    "reason": "File format converter",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cbxv-git",
+    "category": "Books & Reference",
+    "confidence": "high",
+    "reason": "Comic book viewer",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cbzview-git",
+    "category": "Books & Reference",
+    "confidence": "high",
+    "reason": "Comic and manga viewer",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cc-cli",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Git hook for commits",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cc-cockpit",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Claude Code usage panel",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cc-connect-git",
+    "category": "Internet & Communication",
+    "confidence": "medium",
+    "reason": "Bridges agents to messaging",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cc-map-editor-bin",
+    "category": "Graphics & Design",
+    "confidence": "medium",
+    "reason": "Game map editor",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cc-oci-runtime",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Container runtime",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cc-pocket-bin",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Client for coding agents",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cc-switch",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Assistant for coding CLIs",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cc-switch-cli",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "CLI for coding agents",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cc-switch-cli-musl-bin",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Static binary for coding CLI",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cc-switchy-bin",
+    "category": "Developer Tools",
+    "confidence": "medium",
+    "reason": "Restores coding agent snapshots",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cc3dsfs-bin",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Capture and display program",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ccae-git",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Web accessibility checker",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ccase",
+    "category": "Utilities",
+    "confidence": "high",
+    "reason": "String case converter",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ccat",
+    "category": "Utilities",
+    "confidence": "high",
+    "reason": "Colorizes terminal output",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ccbuddy",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Desktop pet application",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ccd-nav",
+    "category": "Utilities",
+    "confidence": "high",
+    "reason": "Directory navigation tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ccd-python-git",
+    "category": "Utilities",
+    "confidence": "high",
+    "reason": "Directory finder tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ccd2cue",
+    "category": "Utilities",
+    "confidence": "high",
+    "reason": "File format converter",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ccemuredux",
+    "category": "System Tools",
+    "confidence": "low",
+    "reason": "CCEmu is a vague emulator name",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ccextractor-gui",
+    "category": "Photo & Video",
+    "confidence": "high",
+    "reason": "CCExtractor extracts subtitles from video",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ccfe",
+    "category": "Developer Tools",
+    "confidence": "medium",
+    "reason": "Interface for command line scripts",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ccgraphitep11",
+    "category": "Security",
+    "confidence": "high",
+    "reason": "PKCS#11 CryptoCard library",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ccgui-bin",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "VibeCoding editor",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cch",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "CodeForces contest helper",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cchat-gtk-git",
+    "category": "Internet & Communication",
+    "confidence": "medium",
+    "reason": "cchat frontend implies chat",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cchorus",
+    "category": "Music & Audio",
+    "confidence": "high",
+    "reason": "Stereo chorus audio effect plugin",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cchv2",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "CodeForces contest helper",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ccid-morpho",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "USB Smart Card Interface driver",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ccl",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Common Lisp implementation",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ccline-bin",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Claude Code statusline tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ccluster",
+    "category": "Science",
+    "confidence": "high",
+    "reason": "Clustering complex roots of polynomials",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ccmeter",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Claude Code usage analytics dashboard",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ccmux-bin",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Track AI coding agents in tmux",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ccode",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "CLI tool to consolidate code files",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cconsole",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "C version of Python console",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ccpkip11",
+    "category": "Security",
+    "confidence": "high",
+    "reason": "PKCS #11 driver for smart cards",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ccpr-bin",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "CLI for AWS CodeCommit pull requests",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ccp_tree",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Capture project structure and files",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ccr",
+    "category": "Science",
+    "confidence": "high",
+    "reason": "Scientific data compression filters",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ccr-plus-bin",
+    "category": "Education",
+    "confidence": "medium",
+    "reason": "Olympiad judging environment",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ccr-resume",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Code session management tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ccraw",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Terminal visual utility",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ccrs-bin",
+    "category": "Graphics & Design",
+    "confidence": "high",
+    "reason": "Color format conversion",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ccrtp",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "Real-time transport protocol",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ccrtp-openssl1.1",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "Real-time transport protocol",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ccsh-compiler-git",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "C++ shell compiler",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ccsh-wrappers-core-git",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "C++ shell wrapper",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ccsh-shell-git",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "C++ shell implementation",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ccsm-gtk3",
+    "category": "Settings",
+    "confidence": "high",
+    "reason": "Settings manager application",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ccstheia",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Code Composer Studio IDE",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ccsum",
+    "category": "Security",
+    "confidence": "high",
+    "reason": "Checksum verification tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cctag",
+    "category": "Science",
+    "confidence": "medium",
+    "reason": "Computer vision marker detection",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cctbx-bin",
+    "category": "Science",
+    "confidence": "high",
+    "reason": "Crystallography toolbox",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ccti",
+    "category": "Graphics & Design",
+    "confidence": "medium",
+    "reason": "Image generation interface",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cctools-strip",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Binary stripping tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cctui",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "AI provider management",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cctv-watcher",
+    "category": "Security",
+    "confidence": "medium",
+    "reason": "CCTV monitoring application",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ccupdaterui-git",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Game mod updater",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ccusage",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Analyzes coding agent token usage",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ccusage-statusline-rs",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Statusline for Claude Code usage",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ccuse",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Manages Claude Code profiles",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ccut-git",
+    "category": "Utilities",
+    "confidence": "high",
+    "reason": "Unix cut command variant",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ccv",
+    "category": "Graphics & Design",
+    "confidence": "high",
+    "reason": "Computer Vision Library",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ccx2paraview",
+    "category": "Science",
+    "confidence": "high",
+    "reason": "CalculiX to Paraview converter",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cd-bin",
+    "category": "Graphics & Design",
+    "confidence": "high",
+    "reason": "Vector graphics toolkit",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cd-memo",
+    "category": "Utilities",
+    "confidence": "high",
+    "reason": "Enhanced cd command",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cdbcli",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "CouchDB interactive shell",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cdbus-git",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "libdbus helper library",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cddb-py",
+    "category": "Music & Audio",
+    "confidence": "high",
+    "reason": "CDDB-Server access",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cddb_get",
+    "category": "Music & Audio",
+    "confidence": "high",
+    "reason": "Fetches CDDB info for audio CD",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cdduck-bin",
+    "category": "Utilities",
+    "confidence": "high",
+    "reason": "TUI file browser replacing cd",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cdebug",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Container debugging tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cdecl-pjl",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "C declaration converter",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cdecl-to-rsdecl-bin",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Converts C to Rust declarations",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cdecrypt",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Decrypts Wii U content",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cdemu-autostart-git",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Manages mounted images persistence",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cdev",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Claude Code devcontainer environment",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:cdev-mcp",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Claude DevContainer MCP Gateway",
+    "model": "qwen/qwen3.8-27b"
   }
 ]

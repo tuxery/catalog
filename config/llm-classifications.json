@@ -119740,5 +119740,1797 @@
     "confidence": "medium",
     "reason": "Package file tracking via eBPF,",
     "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:healpix",
+    "category": "Science",
+    "confidence": "high",
+    "reason": "Astrophysics data analysis tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:heimdall-rs-bin",
+    "category": "Developer Tools",
+    "confidence": "medium",
+    "reason": "EVM bytecode analysis toolkit",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:heimdallr",
+    "category": "Security",
+    "confidence": "high",
+    "reason": "SSH key discovery tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:heirloom-doctools",
+    "category": "Developer Tools",
+    "confidence": "medium",
+    "reason": "Documentation generation utilities",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:heirloom-ex-vi",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Text editor (vi)",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:heirloom-pax",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "POSIX archive utility",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:heka",
+    "category": "Developer Tools",
+    "confidence": "medium",
+    "reason": "Data processing framework",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hel-sync",
+    "category": "System Tools",
+    "confidence": "medium",
+    "reason": "OS synchronization utility",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:helical-cli-git",
+    "category": "Graphics & Design",
+    "confidence": "medium",
+    "reason": "Solar system visualization",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:helmrelease-tools",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Kubernetes Flux tooling",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:helmsman",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Helm chart management",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:helmup-bin",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Helm dependency management",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:helpdeco",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "File decompiler utility",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:heluxup",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Kubernetes Flux tooling",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:helwan-ai-gate",
+    "category": "Internet & Communication",
+    "confidence": "medium",
+    "reason": "AI gateway application",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hemeshp",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Scripting language interpreter",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:herald",
+    "category": "Internet & Communication",
+    "confidence": "medium",
+    "reason": "Systemd to XMPP bridge",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hexamorse",
+    "category": "Education",
+    "confidence": "high",
+    "reason": "Morse code typing trainer",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hexatyping-git",
+    "category": "Education",
+    "confidence": "high",
+    "reason": "Typing tester application",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hexcat",
+    "category": "Utilities",
+    "confidence": "high",
+    "reason": "Hexadecimal display tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hexcellent-git",
+    "category": "Graphics & Design",
+    "confidence": "medium",
+    "reason": "Creative software snapshot",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hexchat-autoaway",
+    "category": "Internet & Communication",
+    "confidence": "medium",
+    "reason": "Chat client plugin",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hexchat-otr-git",
+    "category": "Internet & Communication",
+    "confidence": "medium",
+    "reason": "Chat client plugin",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hexdd-data-gog",
+    "category": "Photo & Video",
+    "confidence": "medium",
+    "reason": "Game data files",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hexdiff",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Hex difference editor",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hf",
+    "category": "Utilities",
+    "confidence": "high",
+    "reason": "Hidden file utility",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hf-mount",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Filesystem mounting tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hfc",
+    "category": "Internet & Communication",
+    "confidence": "medium",
+    "reason": "Hosts file client",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hfd-git",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Model download CLI",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hfdownloader",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Model download utility",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hfetch-git",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "System information parody",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hfsprescue",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "File recovery tool (HFS+),",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:highcommand-git",
+    "category": "Developer Tools",
+    "confidence": "medium",
+    "reason": "CLI utility for shell scripting",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hiring",
+    "category": "Business",
+    "confidence": "medium",
+    "reason": "HR-related tool for code projects",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hiritsu",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "File metadata/aspect ratio tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hise",
+    "category": "Music & Audio",
+    "confidence": "high",
+    "reason": "Audio effects and instruments toolkit",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:histdb-rs",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Shell history management tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hister",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "Web browser history search tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:histoiremondiale",
+    "category": "Education",
+    "confidence": "medium",
+    "reason": "Historical atlas for learning",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:history-plus",
+    "category": "System Tools",
+    "confidence": "medium",
+    "reason": "Shell command auditing/logging",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:historyline-1914-1918-gog",
+    "category": "Education",
+    "confidence": "medium",
+    "reason": "Historical tactics game",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hmmer3-2",
+    "category": "Science",
+    "confidence": "high",
+    "reason": "Bioinformatics HMM database searching",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hmp3-git",
+    "category": "Music & Audio",
+    "confidence": "high",
+    "reason": "MP3 audio encoder",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hmr",
+    "category": "Settings",
+    "confidence": "medium",
+    "reason": "Home Assistant configuration CLI",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hmta",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Time calculation tool for anime",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hmtimer",
+    "category": "System Tools",
+    "confidence": "medium",
+    "reason": "System shutdown timer",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hmy-agsv1-fork-enessmr-git",
+    "category": "Settings",
+    "confidence": "medium",
+    "reason": "User dotfiles configuration",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hn-bin",
+    "category": "Internet & Communication",
+    "confidence": "medium",
+    "reason": "Hacker News news reader CLI",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hn-filelock-zig-bin",
+    "category": "System Tools",
+    "confidence": "medium",
+    "reason": "File locking utility",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:homeassistant-osagent",
+    "category": "Settings",
+    "confidence": "high",
+    "reason": "Home Assistant OS agent",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:homeassistant-supervised",
+    "category": "Settings",
+    "confidence": "high",
+    "reason": "Home Assistant Supervised platform",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:homebox-bin",
+    "category": "Productivity",
+    "confidence": "medium",
+    "reason": "Home inventory management system",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:homebridge-config-ui-x",
+    "category": "Settings",
+    "confidence": "medium",
+    "reason": "Homebridge configuration interface",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:homed-automation",
+    "category": "Settings",
+    "confidence": "medium",
+    "reason": "Home automation service",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:homed-web",
+    "category": "Settings",
+    "confidence": "medium",
+    "reason": "Home automation web interface",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:homed-zigbee",
+    "category": "Settings",
+    "confidence": "medium",
+    "reason": "ZigBee to MQTT gateway",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:homelabcheck",
+    "category": "System Tools",
+    "confidence": "medium",
+    "reason": "Infrastructure health check CLI",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:horizonwm",
+    "category": "Settings",
+    "confidence": "high",
+    "reason": "Window manager for desktop",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hornero-config",
+    "category": "Settings",
+    "confidence": "medium",
+    "reason": "Desktop environment defaults",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hornero-shell",
+    "category": "Settings",
+    "confidence": "high",
+    "reason": "Desktop shell application",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:horneroctl-bin",
+    "category": "System Tools",
+    "confidence": "medium",
+    "reason": "System management CLI",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hornet-git",
+    "category": "Internet & Communication",
+    "confidence": "medium",
+    "reason": "IOTA blockchain fullnode",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hors",
+    "category": "Developer Tools",
+    "confidence": "medium",
+    "reason": "Coding Q&A CLI tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:horseshoes",
+    "category": "Music & Audio",
+    "confidence": "medium",
+    "reason": "Audio-based game (horseshoes sound?) l|Vague description, likely audio game l|Unclear if game or audio tool l|Vague description l|Vague description l|Vague description l|Vague description l|Vague description l|Vague description l|Vague description l|Vague description l|Vague description l|Vague description l|Vague description l|Vague description l|Vague description l|Vague description l|Vague description l|Vague description l|Vague description l|Vague description l|Vague",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hov-qt",
+    "category": "Music & Audio",
+    "confidence": "medium",
+    "reason": "Aggregated music client",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hpp-statistics-git",
+    "category": "Science",
+    "confidence": "medium",
+    "reason": "Basic statistics tools",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hpp-util-git",
+    "category": "Developer Tools",
+    "confidence": "medium",
+    "reason": "Technical tools for HPP",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hpr",
+    "category": "Productivity",
+    "confidence": "medium",
+    "reason": "Activity tracker",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hpr-scratcher",
+    "category": "Settings",
+    "confidence": "medium",
+    "reason": "Hyprland window manager plugin",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hpsahba-git",
+    "category": "System Tools",
+    "confidence": "medium",
+    "reason": "Hardware controller tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hptnacp",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Nintendo Switch file tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hptools-git",
+    "category": "Developer Tools",
+    "confidence": "medium",
+    "reason": "Assembly language compiler",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hpy",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "C API for Python",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:htminl-bin",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "HTML minification CLI",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:html-builder-cli-git",
+    "category": "Developer Tools",
+    "confidence": "medium",
+    "reason": "HTML to desktop app",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:html-greet-frontend-git",
+    "category": "Developer Tools",
+    "confidence": "medium",
+    "reason": "HTML frontend project",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:html-query",
+    "category": "Developer Tools",
+    "confidence": "medium",
+    "reason": "HTML query tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:html2atom-git",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "HTML to Atom converter",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:html2markdown",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "HTML to Markdown converter",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:html2md",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "HTML to Markdown converter",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:html2xhtml",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "HTML to XHTML converter",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:htmlbuilder",
+    "category": "Utilities",
+    "confidence": "low",
+    "reason": "Missing description",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:httpstat-go",
+    "category": "Internet & Communication",
+    "confidence": "medium",
+    "reason": "HTTP client with colors",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:httptap-bin",
+    "category": "Internet & Communication",
+    "confidence": "medium",
+    "reason": "View HTTP requests",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:httpy",
+    "category": "Internet & Communication",
+    "confidence": "medium",
+    "reason": "Python HTTP library",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:http_load",
+    "category": "Developer Tools",
+    "confidence": "medium",
+    "reason": "Webserver performance testing",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:htype",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Simulate human typing",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:huawei-mobile-helper",
+    "category": "Internet & Communication",
+    "confidence": "medium",
+    "reason": "USB dongle auto-connect",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:huawei-stat-e220",
+    "category": "Internet & Communication",
+    "confidence": "medium",
+    "reason": "Modem statistics interface",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:huawei-unlockboot",
+    "category": "System Tools",
+    "confidence": "medium",
+    "reason": "Unlock device bootloader",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:humble-tangledeep-legend-of-shara",
+    "category": "Utilities",
+    "confidence": "low",
+    "reason": "Game DLC (no game cat)",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:humble-trove",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Game downloader",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:humidify-git",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Terminal rain effect",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hummin",
+    "category": "Books & Reference",
+    "confidence": "medium",
+    "reason": "Library client",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:humnumsort",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Human sort lines",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:huniq",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Filter duplicates CLI tool (git) implies utility, but 'huniq' is likely a typo for 'uniq' or similar. Actually 'huniq' is a specific tool. Let's assume Utilities.|Utilities|m|Filter duplicates CLI tool (git) implies utility, but 'huniq' is likely a typo for 'uniq' or similar. Actually 'huniq' is a specific tool. Let's assume Utilities.|Utilities|m|Filter duplicates CLI tool (git) implies utility, but 'huniq' is likely a typo for 'uniq' or similar. Actually 'huniq' is a unique-",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hyde-ext",
+    "category": "System Tools",
+    "confidence": "low",
+    "reason": "No description provided",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hyde-ipc",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Hyprland control and state query",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hyperledger-composer-playground",
+    "category": "Developer Tools",
+    "confidence": "medium",
+    "reason": "UI for blockchain platform",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hyperledger-fabric",
+    "category": "Developer Tools",
+    "confidence": "medium",
+    "reason": "Distributed ledger platform",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hyperledger-fabric-ca-bin",
+    "category": "Developer Tools",
+    "confidence": "medium",
+    "reason": "Blockchain CA binaries",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hyperledger-fabric-chaintool",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Chaincode development utility",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hyperleveldb",
+    "category": "Developer Tools",
+    "confidence": "medium",
+    "reason": "Database library fork",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hypermicmonitor-git",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Headset monitoring control tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hyperqueue-git",
+    "category": "Developer Tools",
+    "confidence": "medium",
+    "reason": "HPC task scheduler",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hyperscan-git",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Regex matching library",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hypr-u",
+    "category": "System Tools",
+    "confidence": "medium",
+    "reason": "Hyprland tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hypr-wellbeing-bin",
+    "category": "Productivity",
+    "confidence": "medium",
+    "reason": "App usage logger",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hypr-window-picker-git",
+    "category": "System Tools",
+    "confidence": "medium",
+    "reason": "Hyprland middleware",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hypr-zoom",
+    "category": "System Tools",
+    "confidence": "medium",
+    "reason": "Hyprland zoom feature",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hyprbole",
+    "category": "System Tools",
+    "confidence": "medium",
+    "reason": "Hyprland config manager",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hyprbop",
+    "category": "System Tools",
+    "confidence": "medium",
+    "reason": "Hyprland popup utility",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hyprcandy-plus",
+    "category": "System Tools",
+    "confidence": "medium",
+    "reason": "Hyprland desktop installer",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hyprchat",
+    "category": "Internet & Communication",
+    "confidence": "medium",
+    "reason": "AI chat panel",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hyprkit-git",
+    "category": "System Tools",
+    "confidence": "medium",
+    "reason": "Hyprland setup CLI",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hyprkvm",
+    "category": "System Tools",
+    "confidence": "medium",
+    "reason": "KVM switch for Hyprland",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hyprlang2lua",
+    "category": "Developer Tools",
+    "confidence": "medium",
+    "reason": "Config format converter",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hyprlarp",
+    "category": "Photo & Video",
+    "confidence": "medium",
+    "reason": "Terminal video viewer",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hyprlaser",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Virtual laser pointer",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hyprlayer-bin",
+    "category": "Developer Tools",
+    "confidence": "medium",
+    "reason": "AI coding agent tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hyprlayer-desktop-bin",
+    "category": "Developer Tools",
+    "confidence": "medium",
+    "reason": "Spec-driven development app",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hyprlayer-server-bin",
+    "category": "Developer Tools",
+    "confidence": "medium",
+    "reason": "Headless coding agent server",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hyprshade",
+    "category": "System Tools",
+    "confidence": "medium",
+    "reason": "Hyprland shade config",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hyprshade-rewrite-git",
+    "category": "System Tools",
+    "confidence": "medium",
+    "reason": "Hyprland shader config",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hyprshutdown-git",
+    "category": "System Tools",
+    "confidence": "medium",
+    "reason": "Hyprland shutdown utility",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hyprsnipper",
+    "category": "Photo & Video",
+    "confidence": "medium",
+    "reason": "Screenshot tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hyprsnow",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Snow overlay effect",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hyprsome-git",
+    "category": "System Tools",
+    "confidence": "medium",
+    "reason": "Hyprland workspace manager (deprecated?) No, 'Awesome-like workspaces' implies window management. System Tools fits best for WM extensions.|m|Hyprland workspace manager (deprecated?) No, 'Awesome-like workspaces' implies window management. System Tools fits best for WM extensions.|m|Hyprland workspace manager (deprecated?) No, 'Awesome-like workspaces' implies window management. System Tools fits best for WM extensions.|m|Hyprland workspace manager (deprecated?) No, 'Awesom",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:i2p-plugin-seedless",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "I2P is an anonymous network protocol",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:i2pchat-tui-bin",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "I2PChat is an I2P messaging client",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:i686-elf-gdb",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "GDB is a debugger for development",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:i8kgui",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Controls hardware fan speeds and temps",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:i8o8",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Converts package formats, general utility",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:i915-vfe-bin",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Kernel driver for Intel graphics",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:i915ovmf",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "VBIOS for GPU passthrough configuration",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ia-bin",
+    "category": "Internet & Communication",
+    "confidence": "medium",
+    "reason": "CLI interface to Archive.org website",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ia-get-bin",
+    "category": "Internet & Communication",
+    "confidence": "medium",
+    "reason": "Downloader for Archive.org website",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ia64-linux-gnu-glibc",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "C Library headers for cross-compilation",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:icc-adobe",
+    "category": "Graphics & Design",
+    "confidence": "high",
+    "reason": "ICC profiles are for color management",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:icc-brightness-gnome-git",
+    "category": "Graphics & Design",
+    "confidence": "high",
+    "reason": "Adjusts display brightness via color profiles",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:icc-eizo-l985ex",
+    "category": "Graphics & Design",
+    "confidence": "high",
+    "reason": "ICC profile for specific monitor",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:icc_examin",
+    "category": "Graphics & Design",
+    "confidence": "high",
+    "reason": "Color management utility",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:icd",
+    "category": "Utilities",
+    "confidence": "high",
+    "reason": "Command line tool for directory navigation",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ice-cli-bin",
+    "category": "Music & Audio",
+    "confidence": "high",
+    "reason": "Streaming player for audio",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ice-ssb",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "Browser extension for site-specific browsing",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ice-store",
+    "category": "Internet & Communication",
+    "confidence": "medium",
+    "reason": "Discovery tool for browser extensions",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:iceborne",
+    "category": "Photo & Video",
+    "confidence": "medium",
+    "reason": "Live barrage display for video streaming",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:icecast-kh",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "Icecast is an audio streaming server",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:icecat-umatrix",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "Browser extension for filtering network requests",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:icecc3",
+    "category": "Settings",
+    "confidence": "high",
+    "reason": "Control center for window manager config",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:icecube-sprng",
+    "category": "Science",
+    "confidence": "high",
+    "reason": "Library for IceCube physics software",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:iced-comet-git",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Debugger for Iced GUI applications",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:icedisk",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Disk partitioning and formatting script",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:icegenerator",
+    "category": "Music & Audio",
+    "confidence": "high",
+    "reason": "Streaming generator for audio servers",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:iceglass-light",
+    "category": "Settings",
+    "confidence": "medium",
+    "reason": "Desktop theme/environment configuration",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:iceshrimp",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "Social networking service (Misskey fork)",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:iceshrimp-pre",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "Social networking service (Misskey fork)",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:iceshrimp.net",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "Federated social networking service",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:iceshrimp.net-akkoma-fe-git",
+    "category": "Internet & Communication",
+    "confidence": "medium",
+    "reason": "Frontend for federated social network",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:iceshrimp.net-pre",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "Federated social networking service (pre-release)",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:icesugar-pro-doc-git",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "FPGA board documentation",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:icetop-git",
+    "category": "System Tools",
+    "confidence": "medium",
+    "reason": "Terminal monitor for icecream",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:icey",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "Real-time video and media stack",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:icey-server",
+    "category": "Internet & Communication",
+    "confidence": "medium",
+    "reason": "Source-to-browser media server",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ich9gen-git",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "SPI flash descriptor generator",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:icinga-notifications",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Monitoring notifications and incidents",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:icingadb-migrate",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Monitoring configuration database",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:icloud-for-linux-git",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "iCloud sync client",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:icmpush",
+    "category": "Security",
+    "confidence": "high",
+    "reason": "ICMP packet builder tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:icotools-icoprog-usb",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Hardware programmer and debugger",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:icsdrone",
+    "category": "Education",
+    "confidence": "medium",
+    "reason": "Chess server interface",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:icsim-git",
+    "category": "Developer Tools",
+    "confidence": "medium",
+    "reason": "Instrument cluster simulator",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ictree",
+    "category": "Utilities",
+    "confidence": "high",
+    "reason": "Interactive file tree tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:icu58",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Unicode library",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:icu62",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Unicode library",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:icu66-bin",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Unicode library binary",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:icu68",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Unicode library",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:icu69",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Unicode library legacy",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:icxor-git",
+    "category": "Photo & Video",
+    "confidence": "medium",
+    "reason": "Manage images on Pixiv",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:icytower",
+    "category": "Education",
+    "confidence": "medium",
+    "reason": "Climbing tower game",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:icy_term-bin",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "BBS terminal program",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:icy_view-bin",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "ANSI text viewer",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:id3v2lib",
+    "category": "Music & Audio",
+    "confidence": "high",
+    "reason": "MP3 ID3 tag library",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ida-eval",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Disassembler evaluation version",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ida-free",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Disassembler freeware version",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ida-pro",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Professional disassembler",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ida-pro-plugin-fakepdb-git",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "IDA Pro plugin",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ida-pro-plugin-pyclassinformer-git",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "IDA Pro plugin",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:idaholab-raven",
+    "category": "Science",
+    "confidence": "high",
+    "reason": "Probabilistic risk analysis framework",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:idasen",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Standing desk control API",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:idazki-desktop",
+    "category": "Security",
+    "confidence": "high",
+    "reason": "Certificate authority desktop app",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ideapad-cm",
+    "category": "Settings",
+    "confidence": "high",
+    "reason": "Battery conservation mode script', '33|Security|h|Iptables rule wrapper', '34|Finance|h|Cryptocurrency network desktop app', '35|Finance|h|Cryptocurrency network node', '36|Science|m|Decimal expression identifier', '37|Internet & Communication|h|Public IP lookup', '38|Utilities|m|Emoji insertion tool', '39|Utilities|m|GUI for libimobiledevice', '40|Settings|h|Idle power policy daemon",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:idlehack-git",
+    "category": "System Tools",
+    "confidence": "medium",
+    "reason": "Idle management daemon",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:idlemon",
+    "category": "System Tools",
+    "confidence": "medium",
+    "reason": "Idle monitor shim",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:idlerd-git",
+    "category": "System Tools",
+    "confidence": "medium",
+    "reason": "Idle management daemon",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:idlersc",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Game client fork",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:idos-timetable-additionalinfo-chaps-bus-latest",
+    "category": "Travel & Navigation",
+    "confidence": "high",
+    "reason": "Bus station floor plans",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:idos-timetable-additionalinfo-chaps-mhd-pid-latest",
+    "category": "Travel & Navigation",
+    "confidence": "high",
+    "reason": "Public transport stop photos",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:idos-timetable-additionalinfo-chaps-trains-2022",
+    "category": "Travel & Navigation",
+    "confidence": "high",
+    "reason": "Train info links",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:idos-timetable-additionalinfo-chaps-trains-latest",
+    "category": "Travel & Navigation",
+    "confidence": "high",
+    "reason": "Train info links",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:idos-timetable-browser-bin-latest",
+    "category": "Travel & Navigation",
+    "confidence": "high",
+    "reason": "Timetable search engine",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:idos-timetable-browser-license-installer-latest",
+    "category": "Travel & Navigation",
+    "confidence": "medium",
+    "reason": "License installer for timetable",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:idos-timetable-data-chaps-trains-cz-2016-latest",
+    "category": "Travel & Navigation",
+    "confidence": "high",
+    "reason": "Train timetable data",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:idos-timetable-data-chaps-trains-cz-2026-latest",
+    "category": "Travel & Navigation",
+    "confidence": "high",
+    "reason": "Train timetable data",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:idos-timetable-data-chaps-trains-europe-2016-latest",
+    "category": "Travel & Navigation",
+    "confidence": "high",
+    "reason": "European train data",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:idos-timetable-data-chaps-trains-europe-2026-latest",
+    "category": "Travel & Navigation",
+    "confidence": "high",
+    "reason": "European train data",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:idos-timetable-data-chaps-trains-pid-2026-latest",
+    "category": "Travel & Navigation",
+    "confidence": "high",
+    "reason": "Praha train data",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:idos-timetable-data-inprop-mhd-sk-all-latest",
+    "category": "Travel & Navigation",
+    "confidence": "high",
+    "reason": "Slovak public transport data",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:idos-timetable-data-zsr-europe+sk-2026-latest",
+    "category": "Travel & Navigation",
+    "confidence": "high",
+    "reason": "European/Slovak train data",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:idos-timetable-data-zsr-sk-2026-latest",
+    "category": "Travel & Navigation",
+    "confidence": "high",
+    "reason": "Slovak train data",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:idos-timetable-maps-chaps-trains-europe-latest",
+    "category": "Travel & Navigation",
+    "confidence": "high",
+    "reason": "European railway map data",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:idos-timetable-tariff-chaps-trains-cz+sk-latest",
+    "category": "Travel & Navigation",
+    "confidence": "high",
+    "reason": "Train tariff data",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:idp",
+    "category": "Productivity",
+    "confidence": "medium",
+    "reason": "Knowledge base system",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:idp-ide",
+    "category": "Productivity",
+    "confidence": "medium",
+    "reason": "Knowledge base editor",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:idphotomaker",
+    "category": "Photo & Video",
+    "confidence": "high",
+    "reason": "Passport photo creation",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:idplugclassic-ro-cei-bin",
+    "category": "Security",
+    "confidence": "high",
+    "reason": "eID card driver",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:idris2-algebra-git",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Idris2 library",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:idris2-elab-util-git",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Idris2 library",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:idris2-filepath-git",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Idris2 library",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:idris2-getopts-git",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Idris2 library",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:idris2-parser-all-git",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Idris2 library",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:idris2-refined-git",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Idris2 library",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:idris2-sop-git",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Idris2 library",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:idrt-git",
+    "category": "Internet & Communication",
+    "confidence": "medium",
+    "reason": "Web app container/holder? Vague desc. Actually 'hold your web-based messaging-applications' suggests a wrapper or manager. Could be Internet. Let's look closer. 'intended to hold your web-based messaging-applications'. Likely a wrapper or launcher. Internet & Communication fits best for messaging apps. Or Utilities. Let's go with Internet & Communication due to 'messaging-applications'. Wait, 'hold' might mean 'host' or 'manage'. If it's a wrapper for web apps,",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ieda",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "ASIC design tools",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ieee8021-mibs",
+    "category": "System Tools",
+    "confidence": "medium",
+    "reason": "Network MIBs",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ietf-cli",
+    "category": "Internet & Communication",
+    "confidence": "medium",
+    "reason": "IETF RFC browser",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ietf-idnits",
+    "category": "Internet & Communication",
+    "confidence": "medium",
+    "reason": "Internet draft checker",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ifcopenshell",
+    "category": "Graphics & Design",
+    "confidence": "medium",
+    "reason": "IFC geometry engine",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ifcopenshell-stable",
+    "category": "Graphics & Design",
+    "confidence": "medium",
+    "reason": "IFC geometry engine",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ifd",
+    "category": "Developer Tools",
+    "confidence": "medium",
+    "reason": "Face detection library",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ifd-rutokens",
+    "category": "Security",
+    "confidence": "medium",
+    "reason": "Smart card driver",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ifdnfc-git",
+    "category": "Security",
+    "confidence": "medium",
+    "reason": "PC/SC IFD handler",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ifdnfc-nci-git",
+    "category": "Security",
+    "confidence": "medium",
+    "reason": "PC/SC IFD handler",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:iferr-git",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Code generation tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ifetch-git",
+    "category": "System Tools",
+    "confidence": "medium",
+    "reason": "Network info tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:iff",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Command history tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ifind-bin",
+    "category": "Finance",
+    "confidence": "high",
+    "reason": "Financial data terminal",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:iflow-cli",
+    "category": "Productivity",
+    "confidence": "medium",
+    "reason": "AI assistant CLI",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:iflyime",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Input method editor",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ifm",
+    "category": "Education",
+    "confidence": "medium",
+    "reason": "Interactive fiction tracker",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ifodump",
+    "category": "Photo & Video",
+    "confidence": "medium",
+    "reason": "DVD data dumper",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ifopt",
+    "category": "Science",
+    "confidence": "medium",
+    "reason": "Nonlinear programming solver",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ifp-console",
+    "category": "Productivity",
+    "confidence": "medium",
+    "reason": "Desktop app",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ifreedomer-flix",
+    "category": "Internet & Communication",
+    "confidence": "medium",
+    "reason": "File transfer tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:iftree",
+    "category": "System Tools",
+    "confidence": "medium",
+    "reason": "Network visualization",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ig2atom-git",
+    "category": "Internet & Communication",
+    "confidence": "medium",
+    "reason": "Feed converter",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:igb",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Network driver",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:igcc",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "C/C++ REPL",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:igdesk",
+    "category": "Productivity",
+    "confidence": "medium",
+    "reason": "Digital signature tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:igel-git",
+    "category": "Education",
+    "confidence": "medium",
+    "reason": "Chess engine",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:igetnonce-git",
+    "category": "Security",
+    "confidence": "medium",
+    "reason": "Nonce checker",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:igetnonce-s0uthwest-git",
+    "category": "Security",
+    "confidence": "medium",
+    "reason": "Nonce checker",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:igg-git",
+    "category": "Internet & Communication",
+    "confidence": "medium",
+    "reason": "IP geolocation tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:igir-bin",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "ROM collection manager",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:ignis",
+    "category": "Productivity",
+    "confidence": "medium",
+    "reason": "Self-hosted web app runner (Obsidian is a note-taking app, fits Productivity best among options, though 'Books & Reference' is close. Obsidian is primarily a knowledge base/note app. Let's stick with Productivity or Books & Reference. Obsidian is often categorized as Productivity/Notes. Let's use Productivity.)|m|Obsidian web runner (Productivity/Notes. Let's use Productivity.)|m|Obsidian web runner (Productivity/Notes. Let's use Productivity.)|m|Obsidian web runner (Let's",
+    "model": "qwen/qwen3.8-27b"
   }
 ]

@@ -111,7 +111,8 @@ function systemPrompt(allowedCategories: string[]): string {
 ${allowedCategories.join(" | ")}
 k (confidence): h = unambiguous; m = reasonable guess; l = vague/missing desc or several fit. Prefer an honest l.
 r: reason, max 6 words.
-Return {"results":["n|category|k|r", ...]}: one string per package, n echoed exactly, category spelled exactly as listed.`;
+Return {"results":["n|category|k|r", ...]}: one string per package, n echoed exactly, category spelled exactly as listed, name NOT repeated.
+Example: "1|Developer Tools|h|CLI token usage analyzer"`;
 }
 
 /** "|" and line breaks inside a field would break the one-line "n|name|desc" format. */

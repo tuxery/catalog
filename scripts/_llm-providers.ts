@@ -124,7 +124,14 @@ function parseResults(text: string | undefined, allowedCategories: string[]): Ba
   const lines = (JSON.parse(text ?? "{}") as { results?: unknown[] }).results ?? [];
   const allowed = new Set(allowedCategories);
   return lines.flatMap((line) => {
-    const [n, category = "", k = "", ...reason] = String(line).split("|");
+    const fields = String(line).split("|");
+    // Gemini tends to echo the input's "n|name|desc" shape and repeat the
+    // name ("1|ccusage|Developer Tools|h|...", seen 2026-09-29): when the
+    // second field isn't a category but the third is, skip the name.
+    if (!allowed.has((fields[1] ?? "").trim()) && allowed.has((fields[2] ?? "").trim())) {
+      fields.splice(1, 1);
+    }
+    const [n, category = "", k = "", ...reason] = fields;
     const confidence = CONFIDENCE[k.trim()];
     const index = Number(n);
     if (!Number.isInteger(index) || !allowed.has(category.trim()) || !confidence) return [];
@@ -132,13 +139,29 @@ function parseResults(text: string | undefined, allowedCategories: string[]): Ba
   });
 }
 
-/** `parseResults` for a successful response: unparseable output (typically truncated at maxOutputTokens) moves the batch to the next model instead of crashing the run. */
+/**
+ * `parseResults` for a successful response. Unparseable output (typically
+ * truncated at maxOutputTokens), or output with no valid line at all (the
+ * model ignored the format), counts as the model being unavailable, like
+ * an overload: the batch moves to the next model, and a model that keeps
+ * doing it is dropped by the rotation's overload streak — instead of
+ * silently burning quota on answers that yield nothing (11 Gemini requests
+ * for 0 apps, 2026-09-29).
+ */
 function parseOk(text: string | undefined, allowedCategories: string[]): BatchResult[] {
+  let results: BatchResult[];
   try {
-    return parseResults(text, allowedCategories);
+    results = parseResults(text, allowedCategories);
   } catch {
     throw new ModelUnavailable("unparseable output (truncated? lower batchSize)", false);
   }
+  if (results.length === 0) {
+    throw new ModelUnavailable(
+      `no valid result line (format ignored?): ${String(text).slice(0, 160)}`,
+      false,
+    );
+  }
+  return results;
 }
 
 /** `parseResults` on a schema-rejected answer: whatever valid lines it has are already paid for. */

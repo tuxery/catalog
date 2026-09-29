@@ -118844,5 +118844,901 @@
     "confidence": "high",
     "reason": "360-degree video player",
     "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:gotest",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Go testing tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:gowebly-bin",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Web app CLI builder",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:goweight",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Go binary analysis",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:gowin-eda-programmer",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "EDA design environment",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:gowin-eda-edu-programmer",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "EDA design environment",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:goxe",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Log reduction tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:goxel-voxel-editor",
+    "category": "Graphics & Design",
+    "confidence": "high",
+    "reason": "3D voxel editor",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:goxel2",
+    "category": "Graphics & Design",
+    "confidence": "high",
+    "reason": "3D voxel art editor",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:goxlr-utility",
+    "category": "Music & Audio",
+    "confidence": "high",
+    "reason": "Audio interface utility",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:gpmaster",
+    "category": "Security",
+    "confidence": "high",
+    "reason": "Secrets management lockbox",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:gpmdp",
+    "category": "Music & Audio",
+    "confidence": "high",
+    "reason": "Music player",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:gpmp2",
+    "category": "Science",
+    "confidence": "high",
+    "reason": "Motion planner",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:gpng-git",
+    "category": "Security",
+    "confidence": "high",
+    "reason": "GPG message encoding",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:gpod-utils-git",
+    "category": "Utilities",
+    "confidence": "high",
+    "reason": "iPod data tools",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:gpodder2go-git",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "Podcast server replacement",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:gpointing-device-settings",
+    "category": "Settings",
+    "confidence": "high",
+    "reason": "Pointing device settings",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:gposttl-git",
+    "category": "Science",
+    "confidence": "high",
+    "reason": "POS tagger",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:gputest",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "GPU stress test",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:gpvdm-git",
+    "category": "Science",
+    "confidence": "high",
+    "reason": "Solar cell simulation",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:gpwsafe",
+    "category": "Security",
+    "confidence": "high",
+    "reason": "Password database manager",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:gpx-animator",
+    "category": "Travel & Navigation",
+    "confidence": "high",
+    "reason": "GPX map video",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:gpx2map-git",
+    "category": "Travel & Navigation",
+    "confidence": "high",
+    "reason": "GPS track to map",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:gpx2png-git",
+    "category": "Travel & Navigation",
+    "confidence": "high",
+    "reason": "GPX to image",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:gpx2svg-git",
+    "category": "Travel & Navigation",
+    "confidence": "high",
+    "reason": "GPX to SVG",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:gpxlab",
+    "category": "Travel & Navigation",
+    "confidence": "high",
+    "reason": "GPS track manipulation",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:graclus",
+    "category": "Science",
+    "confidence": "high",
+    "reason": "Graph clustering software",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:gradient",
+    "category": "Graphics & Design",
+    "confidence": "high",
+    "reason": "Color gradient tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:gradle-autowrap",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Gradle front-end",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:gradualizer-git",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Erlang type system",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:graf-rs-bin",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Graph visualizer",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:grafana-alloy-bin",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Telemetry collector",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:grafito",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Logs web frontend l|Could be Dev or Sys, vague desc|System Tools|m|Logs web frontend l|Could be Dev or Sys, vague desc|System Tools|m|Logs web frontend l|Could be Dev or Sys, vague desc|System Tools|m|Logs web frontend l|Could be Dev or Sys, vague desc|System Tools|m|Logs web frontend l|Could be Dev or Sys, vague desc|System Tools|m|Logs web frontend l|Could be Dev or Sys, vague desc|System Tools|m|Logs web frontend l|Could be Dev or Sys, vague desc|System Tools|m|Logs web",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:grayskull",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Recipe generator for Conda",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:gridmgr-git",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Window manipulation tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:gridmonger-git",
+    "category": "Education",
+    "confidence": "medium",
+    "reason": "C-RPG mapping companion",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:gridsome-cli",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "CLI for creating projects",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:gridwars-git",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Game clone (Geometry Wars)",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:grim-fandango",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Video game (Grim Fandango)",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:grim-hyprland-git",
+    "category": "Developer Tools",
+    "confidence": "medium",
+    "reason": "Screenshot tool for Hyprland",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:grimatrix-git",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Screen waster (matrix clone)",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:grimodex-bin",
+    "category": "Productivity",
+    "confidence": "medium",
+    "reason": "Novel writing editor",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:gromacs-charmm36",
+    "category": "Science",
+    "confidence": "high",
+    "reason": "Force field for MD",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:gromacs-plumed",
+    "category": "Science",
+    "confidence": "high",
+    "reason": "Molecular dynamics package",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:groonga-gobject",
+    "category": "Developer Tools",
+    "confidence": "medium",
+    "reason": "GObject wrapper library",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:groonga-tokenizer-friso",
+    "category": "Developer Tools",
+    "confidence": "medium",
+    "reason": "Tokenizer for database",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:grooveauthor-bin",
+    "category": "Music & Audio",
+    "confidence": "medium",
+    "reason": "StepMania chart editor",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:groovyserv-bin",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Groovy program runner",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:grotz",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Interactive fiction interpreter",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:groundcoverify-git",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Game plugin converter",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:gsfonts-type1",
+    "category": "Graphics & Design",
+    "confidence": "high",
+    "reason": "Postscript fonts",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:gsh",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Generative shell",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:gshogi",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Shogi game program",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:gshortcuts",
+    "category": "Settings",
+    "confidence": "high",
+    "reason": "Manage GNOME shortcuts",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:gsieve",
+    "category": "Internet & Communication",
+    "confidence": "medium",
+    "reason": "Sieve script editor (email)",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:gsim",
+    "category": "Science",
+    "confidence": "high",
+    "reason": "NMR spectra visualization",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:gsim85",
+    "category": "Education",
+    "confidence": "high",
+    "reason": "8085 simulator for learning",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:gsimplecal-lunar",
+    "category": "Productivity",
+    "confidence": "medium",
+    "reason": "Calendar application",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:gtfsclean-bin",
+    "category": "Business",
+    "confidence": "medium",
+    "reason": "GTFS feed tool (transit)",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:gtherm",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Thermal zone monitor",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:gti-cli",
+    "category": "Productivity",
+    "confidence": "medium",
+    "reason": "Typing speed practice app",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:gtimelog-collabora-git",
+    "category": "Business",
+    "confidence": "high",
+    "reason": "Time tracking application",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:gtirb-git",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Binary intermediate representation",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:gtk2+extra",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "GUI toolkit widgets",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:gtk2fontsel",
+    "category": "Graphics & Design",
+    "confidence": "high",
+    "reason": "Font selection tool (AUR context: dev tool, but font sel is design/util. Let's look at others. gtk2fontsel is a utility for selecting fonts. Often categorized as Graphics or Utilities. Given 'Graphics & Design' exists, font tools fit there. But it's a small tool. Let's stick to Utilities or Graphics. Actually, font selection is often part of design workflows. Let's use Graphics & Design.) | m | Font selection tool | Graphics & Design | m | Font selection tool | m |Font",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:gtree",
+    "category": "Productivity",
+    "confidence": "medium",
+    "reason": "Markdown tree generation aids documentation",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:guidolib-git",
+    "category": "Music & Audio",
+    "confidence": "high",
+    "reason": "Music score rendering engine",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:guierm-git",
+    "category": "System Tools",
+    "confidence": "medium",
+    "reason": "Resource monitoring GUI",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:guifetch-git",
+    "category": "Internet & Communication",
+    "confidence": "medium",
+    "reason": "GUI fetch tool implies web/data retrieval",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:guifinder",
+    "category": "System Tools",
+    "confidence": "medium",
+    "reason": "X11 window viewer utility",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:guijs",
+    "category": "Developer Tools",
+    "confidence": "medium",
+    "reason": "Dev life app",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:guilded_arch_electron",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "Chat for gaming communities",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:guile1.8",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Scheme implementation",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:guile1.8-gui",
+    "category": "Developer Tools",
+    "confidence": "medium",
+    "reason": "Scheme GUI implementation",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:gutenflash",
+    "category": "Books & Reference",
+    "confidence": "medium",
+    "reason": "Text reader for speed reading",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:gutenpy",
+    "category": "Books & Reference",
+    "confidence": "high",
+    "reason": "Project Gutenberg reader",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:guvcview-qt5-git",
+    "category": "Photo & Video",
+    "confidence": "high",
+    "reason": "Video viewer and capturer",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:gv-terminal",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "GTK terminal emulator",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:gvc-git",
+    "category": "Settings",
+    "confidence": "medium",
+    "reason": "Volume control utility",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:gvisor-tap-vsock",
+    "category": "System Tools",
+    "confidence": "medium",
+    "reason": "Network stack component",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:gvsig-desktop-bin",
+    "category": "Science",
+    "confidence": "high",
+    "reason": "GIS software",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:gvst-vst-bin",
+    "category": "Music & Audio",
+    "confidence": "medium",
+    "reason": "VST plugin suite",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:gyroflow",
+    "category": "Photo & Video",
+    "confidence": "high",
+    "reason": "Video stabilization tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:gyroflow-ofx-bin",
+    "category": "Photo & Video",
+    "confidence": "high",
+    "reason": "Video plugin for stabilization",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:gyrolock",
+    "category": "Security",
+    "confidence": "high",
+    "reason": "Locks sessions on movement",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:gytparse",
+    "category": "Internet & Communication",
+    "confidence": "high",
+    "reason": "YouTube downloader/streamer",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:gzippy-bin",
+    "category": "Utilities",
+    "confidence": "high",
+    "reason": "Gzip compression tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:g_lomepro",
+    "category": "Science",
+    "confidence": "medium",
+    "reason": "Membrane property analysis",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:h2c",
+    "category": "Developer Tools",
+    "confidence": "medium",
+    "reason": "HTTP to curl converter",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:h2o-ai-bin",
+    "category": "Science",
+    "confidence": "high",
+    "reason": "Machine learning API",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hackman3d-control-deck",
+    "category": "Developer Tools",
+    "confidence": "medium",
+    "reason": "Programmable hardware controller",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hackmd-cli",
+    "category": "Productivity",
+    "confidence": "medium",
+    "reason": "Markdown editor CLI",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hackmd-desktop",
+    "category": "Productivity",
+    "confidence": "medium",
+    "reason": "Markdown editor desktop client",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hackrf-git",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "SDR driver",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hackrf-spectrum-analyzer",
+    "category": "Developer Tools",
+    "confidence": "medium",
+    "reason": "SDR spectrum analyzer GUI",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hacksaw-git",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Screen region selector",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hacktyper",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Typing simulator game/utility hybrid, fits utilities better than games list? No games category. Utilities is best fit for terminal toy/utility. Actually, is it a game? No 'Games' category. Utilities is the catch-all for non-specific tools. Let's look at categories. No Games. So Utilities or Productivity? It's a simulator. Utilities is safer for terminal tools. Wait, 'Music & Audio' no. 'Graphics' no. 'Utilities' is best for terminal toys. Let's re-evaluate. It's a typing game.",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hamsket",
+    "category": "Internet & Communication",
+    "confidence": "medium",
+    "reason": "Web app aggregator",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:happyx",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Web framework for Nim",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:haproxy-awslc",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "TCP/HTTP load balancer",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hapview",
+    "category": "Science",
+    "confidence": "high",
+    "reason": "Haplotype viewer for genetics",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:har-git",
+    "category": "Developer Tools",
+    "confidence": "medium",
+    "reason": "HAR file utility",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:harakit-git",
+    "category": "Utilities",
+    "confidence": "low",
+    "reason": "Vague description",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:harbor",
+    "category": "Finance",
+    "confidence": "medium",
+    "reason": "Ecash management tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:harbor-cli",
+    "category": "Business",
+    "confidence": "medium",
+    "reason": "Harbor CLI for management",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:harbor-stremio-beta-bin",
+    "category": "Photo & Video",
+    "confidence": "medium",
+    "reason": "Stremio client for media",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hashboot",
+    "category": "Security",
+    "confidence": "high",
+    "reason": "Boot file integrity check",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hashbox",
+    "category": "Security",
+    "confidence": "high",
+    "reason": "Password hashing GUI",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hashcards",
+    "category": "Education",
+    "confidence": "high",
+    "reason": "Spaced repetition flashcards",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hashcc-git",
+    "category": "Utilities",
+    "confidence": "high",
+    "reason": "Hashing utility",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hashclash-cuda-git",
+    "category": "Security",
+    "confidence": "high",
+    "reason": "Cryptanalysis tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hashclash-git",
+    "category": "Security",
+    "confidence": "high",
+    "reason": "Cryptanalysis tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hashcode-en",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "String encoding/decoding",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hashcode-pt",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "String encoding/decoding",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hawk-git",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Awk clone programming tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hawkbit-cli",
+    "category": "Developer Tools",
+    "confidence": "medium",
+    "reason": "CLI for management API",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hawkeye-quicklook-git",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Quick viewer for files",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hawknl-git",
+    "category": "Developer Tools",
+    "confidence": "medium",
+    "reason": "Network API for games",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hawkshaw-bin",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Git review tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hawktracer",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Profiling tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hax",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Terminal coding agent",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hax11-git",
+    "category": "System Tools",
+    "confidence": "medium",
+    "reason": "X11 protocol hooking",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hcloud-upload-image-bin",
+    "category": "System Tools",
+    "confidence": "medium",
+    "reason": "Cloud image management",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hcp-bin",
+    "category": "System Tools",
+    "confidence": "medium",
+    "reason": "Cloud platform administration",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hctl",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Hostlist transformation tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hcxlabtool-git",
+    "category": "Security",
+    "confidence": "high",
+    "reason": "Network packet capture tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hd-git",
+    "category": "Utilities",
+    "confidence": "high",
+    "reason": "Hex dumper utility",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hd-idle-go",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Hard disk spin-down",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:hdas",
+    "category": "System Tools",
+    "confidence": "medium",
+    "reason": "Package file tracking via eBPF,",
+    "model": "qwen/qwen3.8-27b"
   }
 ]

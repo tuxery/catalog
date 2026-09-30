@@ -25,7 +25,10 @@ const PER_PAGE = 100;
 // page guaranteed to 422.
 const MAX_RESULTS = 1000;
 
-const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
+// GITHUB_TOKEN is what CI injects; GH_TOKEN (the devcontainer's gh CLI
+// token) is the local fallback — unauthenticated search hits its rate
+// limit before finishing (a local refresh failed that way, 2026-09-25).
+const GITHUB_TOKEN = process.env.GITHUB_TOKEN ?? process.env.GH_TOKEN;
 
 // GitHub's search endpoint has its own, much stricter rate limit (30
 // req/min authenticated) than the core API (5,000/hr) — 10 pages for

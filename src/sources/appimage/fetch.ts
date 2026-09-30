@@ -9,9 +9,12 @@ const FEED_URL = "https://appimage.github.io/feed.json";
 // GitHub's REST API: 60 req/hr unauthenticated, 5000/hr with a token —
 // ~1,100 repos x 2 calls each (existence + latest release) makes a token
 // effectively required (37+ hours unauthenticated otherwise). Version
-// resolution is skipped entirely when GITHUB_TOKEN isn't set, rather than
-// burning through the unauthenticated budget for nothing.
-const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
+// resolution is skipped entirely when no token is set, rather than
+// burning through the unauthenticated budget for nothing. GITHUB_TOKEN is
+// what CI injects; GH_TOKEN (the devcontainer's gh CLI token) is the local
+// fallback — a local refresh without either silently dropped every version
+// and kept dead repos (2026-09-25).
+const GITHUB_TOKEN = process.env.GITHUB_TOKEN ?? process.env.GH_TOKEN;
 // Concurrent, not sequential (1,100 sequential lookups would take
 // several minutes) but capped rather than firing all at once — GitHub's
 // abuse-detection mechanism throttles/blocks bursts of concurrent

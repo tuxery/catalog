@@ -354,7 +354,14 @@ async function callGroq(model: LlmModel, prompt: Prompt): Promise<CallResult> {
       // per-minute 429 + retry-after fallback for this one request.
       return { results: salvaged };
     }
-    throw new ModelUnavailable(`output failed schema validation: ${message.slice(0, 300)}`, false);
+    // Say what the model actually produced — "Failed to generate JSON"
+    // alone doesn't tell truncation (hit maxOutputTokens) from malformed
+    // output.
+    const generated = failedGeneration ?? "";
+    throw new ModelUnavailable(
+      `output failed schema validation: ${message.split(". ")[0]} (generated ${generated.length} chars, ending ${JSON.stringify(generated.slice(-120))})`,
+      false,
+    );
   }
   if (response.status >= 500 || response.status === 498) {
     // 498 is Groq's "flex tier capacity exceeded" — same meaning as a 503.

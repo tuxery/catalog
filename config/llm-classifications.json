@@ -153599,5 +153599,453 @@
     "confidence": "high",
     "reason": "Meshtastic LoRa receiver",
     "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:meshtasticd-bin",
+    "category": "Internet & Communication",
+    "confidence": "medium",
+    "reason": "Mesh networking daemon",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:meshtui",
+    "category": "Internet & Communication",
+    "confidence": "medium",
+    "reason": "Mesh networking TUI",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:meshup",
+    "category": "Graphics & Design",
+    "confidence": "medium",
+    "reason": "Multibody system visualization",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:meshurl",
+    "category": "Internet & Communication",
+    "confidence": "medium",
+    "reason": "Mesh config URL tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:meshwatch-git",
+    "category": "Internet & Communication",
+    "confidence": "medium",
+    "reason": "Mesh device communication",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:mesmer",
+    "category": "Science",
+    "confidence": "high",
+    "reason": "Chemical reaction solver",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:mesms-git",
+    "category": "Internet & Communication",
+    "confidence": "medium",
+    "reason": "SMS manager TUI",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:meson-cross-aarch64-linux-gnu",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Meson cross build file",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:meson-cross-riscv64-linux-gnu",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Meson cross build file",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:meson-cross-x86-linux-gnu",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Meson cross build file",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:meson-init-cpp-git",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Meson project initializer",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:meson-pypy3",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Python build backend",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:mesonwrap",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Meson build service",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:mesos",
+    "category": "Developer Tools",
+    "confidence": "medium",
+    "reason": "Cluster manager software",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:mesquite",
+    "category": "Science",
+    "confidence": "high",
+    "reason": "Evolutionary biology analysis",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:mesquite-extra",
+    "category": "Science",
+    "confidence": "high",
+    "reason": "Biology data files",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:mess-bin",
+    "category": "Developer Tools",
+    "confidence": "medium",
+    "reason": "Dev clutter removal CLI",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:mestrenova",
+    "category": "Science",
+    "confidence": "high",
+    "reason": "NMR data interpreter",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:mestrenova-12",
+    "category": "Science",
+    "confidence": "high",
+    "reason": "NMR data interpreter",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:meta-rules-dat",
+    "category": "Utilities",
+    "confidence": "low",
+    "reason": "Unknown data files",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:meta-rules-dat-lite",
+    "category": "Utilities",
+    "confidence": "low",
+    "reason": "Unknown data files",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:metabase",
+    "category": "Business",
+    "confidence": "high",
+    "reason": "Business intelligence platform",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:metabase-driver-clickhouse",
+    "category": "Business",
+    "confidence": "high",
+    "reason": "Metabase database driver",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:metabase-driver-csv",
+    "category": "Business",
+    "confidence": "high",
+    "reason": "Metabase CSV driver",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:metabase-driver-dremio",
+    "category": "Business",
+    "confidence": "high",
+    "reason": "Metabase database driver",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:metabase-driver-duckdb",
+    "category": "Business",
+    "confidence": "high",
+    "reason": "Metabase database driver",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:metabase-driver-starburst",
+    "category": "Business",
+    "confidence": "high",
+    "reason": "Metabase database driver",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:metabase-driver-teradata",
+    "category": "Business",
+    "confidence": "high",
+    "reason": "Metabase database driver",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:metabeta-git",
+    "category": "Books & Reference",
+    "confidence": "medium",
+    "reason": "Greek text converter",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:metabuli",
+    "category": "Science",
+    "confidence": "high",
+    "reason": "Metagenomic classification tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:metacall-git",
+    "category": "Developer Tools",
+    "confidence": "medium",
+    "reason": "Inter-language FFI CLI",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:metaclean-git",
+    "category": "Photo & Video",
+    "confidence": "medium",
+    "reason": "Image metadata cleaner",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:metacubexd",
+    "category": "Productivity",
+    "confidence": "medium",
+    "reason": "Dashboard for network proxy management",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:metadata",
+    "category": "Utilities",
+    "confidence": "high",
+    "reason": "Qt metadata editor for media/docs",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:metadump",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "General metadata analysis tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:metaelite-proton",
+    "category": "Education",
+    "confidence": "medium",
+    "reason": "Role-playing environment for game",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:metag-git",
+    "category": "Music & Audio",
+    "confidence": "high",
+    "reason": "Audio tag editor",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:metagedit-git",
+    "category": "Productivity",
+    "confidence": "high",
+    "reason": "Text editor plugin",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:metainfo-builder-git",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "AppStream metadata editor",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:metalang99",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Programming language preprocessor",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:metalcloud-cli-bin",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Cloud service CLI tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:metalctl-bin",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Cloud service CLI tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:metalfan-git",
+    "category": "System Tools",
+    "confidence": "high",
+    "reason": "Hardware fan control script",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:metalslug3",
+    "category": "Photo & Video",
+    "confidence": "medium",
+    "reason": "Sidescrolling platformer game",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:metalua",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Programming language",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:metal_time",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "CLI time display tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:metamorpher",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "File metadata conversion tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:metamorphose2-python3-git",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "File metadata conversion tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:metamovie-git",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "IMDB metadata fetcher",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:metaprint-bin",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "System info rendering tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:metasploit-git",
+    "category": "Security",
+    "confidence": "high",
+    "reason": "Exploit development platform",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:metatube-server-bin",
+    "category": "Utilities",
+    "confidence": "medium",
+    "reason": "Server application",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:meteo-avi-2-gba",
+    "category": "Photo & Video",
+    "confidence": "high",
+    "reason": "Video conversion tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:meteoinfo",
+    "category": "Science",
+    "confidence": "high",
+    "reason": "Scientific computation environment",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:meteoio",
+    "category": "Science",
+    "confidence": "high",
+    "reason": "Environmental data access tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:meteor",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "Git commit helper CLI",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:meteor-build-client",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "App bundling tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:meteor-decode-git",
+    "category": "Science",
+    "confidence": "medium",
+    "reason": "Weather satellite decoder",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:meteor-demod-git",
+    "category": "Science",
+    "confidence": "medium",
+    "reason": "Weather satellite demodulator",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:meteor-rectify-git",
+    "category": "Science",
+    "confidence": "medium",
+    "reason": "Weather image rectifier",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:meteorite",
+    "category": "Photo & Video",
+    "confidence": "high",
+    "reason": "Video file repair tool",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:meteorman",
+    "category": "Internet & Communication",
+    "confidence": "medium",
+    "reason": "DDP client with GUI",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:meter-tray",
+    "category": "Productivity",
+    "confidence": "medium",
+    "reason": "System tray usage tracker",
+    "model": "qwen/qwen3.8-27b"
+  },
+  {
+    "id": "pacman-aur:metrics-monkey",
+    "category": "Developer Tools",
+    "confidence": "high",
+    "reason": "HTTP benchmarking CLI tool",
+    "model": "qwen/qwen3.8-27b"
   }
 ]

@@ -13,7 +13,7 @@ table is the map, the Project is the tracked work.
 | 1   | Flathub               | —                    | Flatpak    | 3,363   | ✅          | Implemented | [1]   |
 | 1b  | Other Flatpak remotes | —                    | Flatpak    | —       | ⚠️          | Not started | [2]   |
 | 2   | Snapcraft             | —                    | Snap       | 10,926  | ⚠️          | Implemented | [3]   |
-| 3   | AppImage              | —                    | AppImage   | 1,052   | ⚠️          | Implemented | [4]   |
+| 3   | AppImage              | —                    | AppImage   | 2,165   | ⚠️          | Implemented | [4]   |
 | 3b  | Manual AppImage seed  | —                    | AppImage   | 1       | ✅          | Implemented | [25]  |
 | 4   | GitHub Releases       | —                    | Any        | 498     | ❌          | Implemented | [5]   |
 | 5a  | AUR (Arch, community) | —                    | Native     | 117,520 | ✅          | Implemented | [6]   |
@@ -109,17 +109,21 @@ because a paragraph per cell made the table unreadable.
    exponential backoff rather than failing the whole multi-minute fetch.
    `src/sources/snap-snapcraft/fetch.ts`.
 4. **AppImage** — [`appimage.github.io/feed.json`](https://appimage.github.io/feed.json)
-   (community-curated — not to be confused with the separate,
-   bot-gated AppImageHub.com, investigated as a second source and found
-   not viable: deprecated API, site now behind bot detection), filtered
-   to entries with a GitHub repo link (~3 in 4 of ~1,400). Each repo
+   (community-curated — not to be confused with the separate
+   AppImageHub.com, first investigated as a second source and found not
+   viable — deprecated API, site behind bot detection — but re-checked
+   2026-09-30: its OCS API at `api.appimagehub.com/ocs/v1/content/data`
+   now answers plain JSON, ~1,600 items with a category (`typename`),
+   version, tags and detail page, so it's a candidate again), filtered
+   to entries with a GitHub repo link (~2,165 of ~2,570 as of
+   2026-09-30, up from ~1,400 items earlier in September). Each repo
    checked for existence via GitHub's API (dropping the ~5% confirmed
    404 — deleted/renamed/private, the feed itself going stale) and, if
    it exists, its real version resolved via the latest GitHub Release
    (86% success on the survivors — the rest exist but have no tagged
    release, e.g. continuous-build-only projects). Needs `GITHUB_TOKEN`
-   set (5000 req/hr vs. 60 unauthenticated, ~1,100 repos × 2 calls
-   each), skipped entirely otherwise rather than burning the
+   (or, locally, the devcontainer's `GH_TOKEN`) set (5000 req/hr vs. 60
+   unauthenticated, ~2,100 repos × 2 calls each), skipped entirely otherwise rather than burning the
    unauthenticated budget for nothing. Depends entirely on community
    curation — not every AppImage publisher is listed.
    `src/sources/appimage/fetch.ts`.

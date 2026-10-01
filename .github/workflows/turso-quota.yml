@@ -5,10 +5,11 @@ name: Turso quota check
 # days — and were only noticed through Turso's own email, once the
 # database already refused queries. Watching CI failures can't catch this
 # either: the counters move with live-site traffic, not with CI runs.
-# `pnpm turso-stats --threshold 80` exits 2 when a monthly quota is >= 80%
-# used, or on track to exceed 100% by month end; that opens (or comments
-# on) a single "Turso quota alert" issue, which notifies the repo's
-# watchers like any new issue.
+# `pnpm turso-stats --threshold 80` exits 2 when a quota is >= 80% used, on
+# track to exceed 100% by the end of the billing period, or when Turso has
+# already blocked reads/writes; that opens (or comments on) a single
+# "Turso quota alert" issue, which notifies the repo's watchers like any
+# new issue.
 on:
   schedule:
     - cron: "0 6 * * *"
@@ -54,7 +55,7 @@ jobs:
         run: |
           set -euo pipefail
           title="Turso quota alert"
-          body="$(printf 'Daily check (%s) found a Turso monthly quota at or above 80%% used, or on track to exceed it:\n\n```\n%s\n```\n\nRun: %s/%s/actions/runs/%s' \
+          body="$(printf 'Daily check (%s) found a Turso quota at or above 80%% used, on track to exceed it, or database access blocked:\n\n```\n%s\n```\n\nRun: %s/%s/actions/runs/%s' \
             "$(date -u +%Y-%m-%d)" "$(cat report.txt)" "$GITHUB_SERVER_URL" "$GITHUB_REPOSITORY" "$GITHUB_RUN_ID")"
           existing="$(gh issue list --state open --search "\"$title\" in:title" --json number --jq '.[0].number // empty')"
           if [ -n "$existing" ]; then

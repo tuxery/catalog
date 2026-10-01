@@ -1,10 +1,10 @@
 import { PREVIEW_ENV_PATH, PROD_ENV_PATH, SHARED_ENV_PATH, readSharedEnv } from "./_shared-env";
 
 /**
- * `pnpm turso-stats`: the Turso org's usage for the current calendar month
- * against its monthly quotas, per-database usage, and each database's
- * costliest queries — and a non-zero exit when usage crosses a threshold,
- * so a scheduled workflow can alert before Turso hard-blocks the database.
+ * `pnpm turso-stats`: the Turso org's usage for the current billing month
+ * against its plan's quotas, per database, and a non-zero exit when usage
+ * crosses a threshold — so a scheduled workflow can alert before Turso
+ * hard-blocks the database.
  *
  * Both past incidents (writes 2026-09-04/05, 10.36M/10M; reads 2026-09-11,
  * 518.93M/500M) were found only after Turso's own email, once the database
@@ -16,9 +16,16 @@ import { PREVIEW_ENV_PATH, PROD_ENV_PATH, SHARED_ENV_PATH, readSharedEnv } from 
  *                                     # or projected to exceed 100% by month end
  *   pnpm turso-stats --json           # machine-readable report
  *
- * Credentials: a Turso *Platform API* token (`TURSO_API_TOKEN`), not the
+ * What it reads (Turso Platform API, verified live 2026-10-01): the org's
+ * `subscription` (plan name + billing period), the plan's `quotas` from
+ * `plans`, and each database's `usage`. Not available through the API: a
+ * per-query breakdown (the documented `/stats` route returns 404) — that
+ * only exists in the CLI (`turso db inspect <db> --queries`, interactive
+ * login), so finding *which* query is expensive stays a manual step.
+ *
+ * Credentials: a Turso Platform API token (`TURSO_API_TOKEN`), not the
  * per-database auth tokens the app uses — those can query a database but
- * can't read its usage. Mint one scoped to the org and read-only:
+ * can't read usage. Mint one scoped to the org and read-only:
  *   turso auth api-tokens mint turso-stats --org <org> --read-only
  * Locally it's read from /workspaces/.dev/.env; in CI from a secret.
  * Databases come from the same TURSO_DB_URLs `pnpm seed --preview/--prod`
@@ -28,17 +35,7 @@ import { PREVIEW_ENV_PATH, PROD_ENV_PATH, SHARED_ENV_PATH, readSharedEnv } from 
 
 const API = "https://api.turso.tech/v1";
 
-// Monthly quotas of the org's plan, as reported in the two incidents
-// (Turso's own alert emails). Turso's org-usage endpoint documents an
-// allowance object, but its exact meaning wasn't verifiable without a
-// token — so the limits are explicit here, overridable per env var, and
-// the raw org response is printed by --json to check against.
-const DEFAULT_LIMITS = {
-  rows_read: 500_000_000,
-  rows_written: 10_000_000,
-};
-
-// Before this share of the month has elapsed, the end-of-month projection
+// Before this share of the billing period has elapsed, the end-of-month projection
 // is too noisy to alert on (a busy first morning extrapolates wildly).
 const MIN_ELAPSED_FOR_PROJECTION = 0.1;
 
@@ -46,13 +43,12 @@ interface Usage {
   rows_read: number;
   rows_written: number;
   storage_bytes: number;
-  bytes_synced: number;
 }
 
-interface TopQuery {
-  query: string;
-  rows_read: number;
-  rows_written: number;
+interface PlanQuotas {
+  rowsRead: number;
+  rowsWritten: number;
+  storage: number;
 }
 
 function flag(name: string): string | undefined {
@@ -62,7 +58,6 @@ function flag(name: string): string | undefined {
 
 const threshold = flag("--threshold") === undefined ? undefined : Number(flag("--threshold"));
 const asJson = process.argv.includes("--json");
-const topCount = Number(flag("--top") ?? 5);
 
 /** `process.env` first (CI secrets), then the devcontainer's shared env file. */
 function env(name: string, file = SHARED_ENV_PATH): string | undefined {
@@ -105,10 +100,10 @@ async function api<T>(token: string, path: string): Promise<T> {
   return (await response.json()) as T;
 }
 
-function monthWindow(now = new Date()): { from: Date; to: Date; elapsed: number } {
-  const from = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), 1));
-  const to = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth() + 1, 1));
-  return { from, to, elapsed: (now.getTime() - from.getTime()) / (to.getTime() - from.getTime()) };
+/** Where `now` sits in the plan's billing period (not the calendar month: Turso's runs from the 1st at 04:00 UTC). */
+function periodElapsed(start: string, end: string, now = Date.now()): number {
+  const from = Date.parse(start);
+  return (now - from) / (Date.parse(end) - from);
 }
 
 function human(n: number): string {
@@ -126,72 +121,112 @@ async function main(): Promise<void> {
     );
   }
   const { org, names } = resolveDatabases();
-  const { from, elapsed } = monthWindow();
-  const limits = {
-    rows_read: Number(env("TURSO_READS_LIMIT") ?? DEFAULT_LIMITS.rows_read),
-    rows_written: Number(env("TURSO_WRITES_LIMIT") ?? DEFAULT_LIMITS.rows_written),
-  };
 
-  const orgUsage = await api<unknown>(token, `/organizations/${org}/usage`);
+  const [subscriptionResponse, plansResponse, orgResponse] = await Promise.all([
+    api<{
+      subscription: {
+        plan: string;
+        current_billing_period_start: string;
+        current_billing_period_end: string;
+      };
+    }>(token, `/organizations/${org}/subscription`),
+    api<{ plans: { name: string; quotas: PlanQuotas }[] }>(token, `/organizations/${org}/plans`),
+    api<{ organization: { blocked_reads: boolean; blocked_writes: boolean } }>(
+      token,
+      `/organizations/${org}`,
+    ),
+  ]);
+  const {
+    plan,
+    current_billing_period_start: periodStart,
+    current_billing_period_end: periodEnd,
+  } = subscriptionResponse.subscription;
+  const quotasOfPlan = plansResponse.plans.find((candidate) => candidate.name === plan)?.quotas;
+  if (!quotasOfPlan) throw new Error(`Plan "${plan}" not found in the org's plan list.`);
+  const { blocked_reads: blockedReads, blocked_writes: blockedWrites } = orgResponse.organization;
+  const elapsed = periodElapsed(periodStart, periodEnd);
+
   const databases = await Promise.all(
     names.map(async (name) => {
-      const [usage, stats] = await Promise.all([
-        api<{ database: { total: Usage } }>(
-          token,
-          `/organizations/${org}/databases/${name}/usage?from=${encodeURIComponent(from.toISOString())}`,
-        ),
-        api<{ top_queries?: TopQuery[] }>(token, `/organizations/${org}/databases/${name}/stats`),
-      ]);
-      // A fresh copy, so sorting in place is safe — toSorted() needs ES2023,
-      // past this repo's lib target (same as turso-client.ts).
-      const topQueries = [...(stats.top_queries ?? [])];
-      // eslint-disable-next-line unicorn/no-array-sort
-      topQueries.sort((a, b) => b.rows_read + b.rows_written - (a.rows_read + a.rows_written));
-      return { name, total: usage.database.total, topQueries: topQueries.slice(0, topCount) };
+      const usage = await api<{ total: Usage }>(
+        token,
+        `/organizations/${org}/databases/${name}/usage?from=${encodeURIComponent(periodStart)}`,
+      );
+      return { name, total: usage.total };
     }),
   );
 
   // Quotas are org-wide: every database's usage counts against the same
-  // monthly allowance.
-  const quotas = (["rows_read", "rows_written"] as const).map((metric) => {
+  // allowance. Storage isn't projected — it doesn't reset each period.
+  const metrics = [
+    { metric: "rows_read", limit: quotasOfPlan.rowsRead, projects: true },
+    { metric: "rows_written", limit: quotasOfPlan.rowsWritten, projects: true },
+    { metric: "storage_bytes", limit: quotasOfPlan.storage, projects: false },
+  ] as const;
+  const quotas = metrics.map(({ metric, limit, projects }) => {
     const used = databases.reduce((sum, db) => sum + (db.total[metric] ?? 0), 0);
-    const limit = limits[metric];
     const percent = (100 * used) / limit;
     const projected = elapsed > 0 ? percent / elapsed : 0;
     const overThreshold = threshold !== undefined && percent >= threshold;
     const projectedOver =
-      threshold !== undefined && elapsed >= MIN_ELAPSED_FOR_PROJECTION && projected >= 100;
-    return { metric, used, limit, percent, projected, alert: overThreshold || projectedOver };
+      projects &&
+      threshold !== undefined &&
+      elapsed >= MIN_ELAPSED_FOR_PROJECTION &&
+      projected >= 100;
+    return {
+      metric,
+      used,
+      limit,
+      percent,
+      projected,
+      projects,
+      alert: overThreshold || projectedOver,
+    };
   });
-  const alert = quotas.some((quota) => quota.alert);
+  // Already hard-blocked is the worst case, whatever the percentages say.
+  const alert = blockedReads || blockedWrites || quotas.some((quota) => quota.alert);
 
   if (asJson) {
     console.log(
-      JSON.stringify({ org, monthElapsed: elapsed, quotas, databases, orgUsage }, null, 2),
+      JSON.stringify(
+        {
+          org,
+          plan,
+          periodStart,
+          periodEnd,
+          elapsed,
+          blockedReads,
+          blockedWrites,
+          quotas,
+          databases,
+        },
+        null,
+        2,
+      ),
     );
   } else {
     console.log(
-      `Turso org "${org}" — ${from.toISOString().slice(0, 7)}, ${Math.round(elapsed * 100)}% of the month elapsed${threshold === undefined ? "" : `, alert at ${threshold}%`}`,
+      `Turso org "${org}" (${plan} plan) — billing period ${periodStart.slice(0, 10)} → ${periodEnd.slice(0, 10)}, ${Math.round(elapsed * 100)}% elapsed${threshold === undefined ? "" : `, alert at ${threshold}%`}`,
     );
+    if (blockedReads || blockedWrites) {
+      console.log(
+        `  ALERT database access is BLOCKED by Turso: reads ${blockedReads ? "blocked" : "ok"}, writes ${blockedWrites ? "blocked" : "ok"}`,
+      );
+    }
     for (const quota of quotas) {
+      const unit = quota.metric === "storage_bytes" ? "B" : "";
       const projection =
-        elapsed >= MIN_ELAPSED_FOR_PROJECTION
-          ? `, on track for ${Math.round(quota.projected)}% by month end`
+        quota.projects && elapsed >= MIN_ELAPSED_FOR_PROJECTION
+          ? `, on track for ${Math.round(quota.projected)}% by period end`
           : "";
       console.log(
-        `  ${quota.alert ? "ALERT" : "ok   "} ${quota.metric.padEnd(13)} ${human(quota.used).padStart(8)} / ${human(quota.limit)} (${quota.percent.toFixed(1)}%${projection})`,
+        `  ${quota.alert ? "ALERT" : "ok   "} ${quota.metric.padEnd(13)} ${(human(quota.used) + unit).padStart(9)} / ${human(quota.limit)}${unit} (${quota.percent.toFixed(1)}%${projection})`,
       );
     }
     for (const db of databases) {
       console.log(
-        `\n  ${db.name}: ${human(db.total.rows_read)} rows read, ${human(db.total.rows_written)} written, ${human(db.total.storage_bytes)}B stored`,
+        `  ${db.name.padEnd(8)} ${human(db.total.rows_read)} read, ${human(db.total.rows_written)} written, ${human(db.total.storage_bytes)}B stored`,
       );
-      for (const query of db.topQueries) {
-        const sql = query.query.replaceAll(/\s+/g, " ").slice(0, 110);
-        console.log(
-          `    ${human(query.rows_read).padStart(8)} read ${human(query.rows_written).padStart(8)} written  ${sql}`,
-        );
-      }
     }
   }
 

@@ -331,8 +331,13 @@ function toItems(list: { id: string; name: string; shortDescription: string }[])
 function writeConfig(entries: Map<string, LlmClassificationEntry>): void {
   // Insertion order is kept (existing entries first, new ones appended) so
   // incremental re-runs append rather than reshuffle — friendlier for git
-  // review of a generated file than a sort would be.
-  writeFileSync(CONFIG_PATH, `${JSON.stringify([...entries.values()], null, 2)}\n`);
+  // review of a generated file than a sort would be. One entry per line,
+  // still a valid JSON array: at ~50k entries, pretty-printing made it ~350k
+  // lines; this is 7x fewer lines and ~30% fewer bytes, with one diff line
+  // per classified app. Kept out of oxfmt via .prettierignore, which would
+  // otherwise expand it back.
+  const lines = [...entries.values()].map((entry) => JSON.stringify(entry));
+  writeFileSync(CONFIG_PATH, `[\n${lines.join(",\n")}\n]\n`);
 }
 
 /**

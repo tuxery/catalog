@@ -1,0 +1,64 @@
+name: Turso quota check
+
+# Daily, because quotas are monthly and both past incidents (writes
+# 2026-09-04/05, reads 2026-09-11) went from fine to hard-blocked within
+# days — and were only noticed through Turso's own email, once the
+# database already refused queries. Watching CI failures can't catch this
+# either: the counters move with live-site traffic, not with CI runs.
+# `pnpm turso-stats --threshold 80` exits 2 when a monthly quota is >= 80%
+# used, or on track to exceed 100% by month end; that opens (or comments
+# on) a single "Turso quota alert" issue, which notifies the repo's
+# watchers like any new issue.
+on:
+  schedule:
+    - cron: "0 6 * * *"
+  workflow_dispatch:
+
+jobs:
+  check:
+    name: Check
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: helpers4/action/setup-pnpm@6fddd178620e7325d446a246c38a44f979569fc4 # main @ 2026-07-29
+        with:
+          node-version: "24"
+
+      - name: Check Turso usage against monthly quotas
+        id: stats
+        env:
+          # A Turso *Platform API* token (org-scoped, read-only), not a
+          # database auth token — see scripts/turso-stats.ts.
+          TURSO_API_TOKEN: ${{ secrets.TURSO_API_TOKEN }}
+          PREVIEW_TURSO_DB_URL: ${{ secrets.PREVIEW_TURSO_DB_URL }}
+          PROD_TURSO_DB_URL: ${{ secrets.PROD_TURSO_DB_URL }}
+        run: |
+          set -uo pipefail
+          status=0
+          pnpm exec tsx scripts/turso-stats.ts --threshold 80 | tee report.txt || status=$?
+          # 2 = over threshold (report the alert below); anything else
+          # non-zero is the check itself failing (bad token, API down),
+          # which should fail this job visibly rather than look healthy.
+          if [ "$status" -ne 0 ] && [ "$status" -ne 2 ]; then exit "$status"; fi
+          echo "alert=$([ "$status" -eq 2 ] && echo true || echo false)" >> "$GITHUB_OUTPUT"
+
+      - name: Open or update the quota alert issue
+        if: steps.stats.outputs.alert == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          title="Turso quota alert"
+          body="$(printf 'Daily check (%s) found a Turso monthly quota at or above 80%% used, or on track to exceed it:\n\n```\n%s\n```\n\nRun: %s/%s/actions/runs/%s' \
+            "$(date -u +%Y-%m-%d)" "$(cat report.txt)" "$GITHUB_SERVER_URL" "$GITHUB_REPOSITORY" "$GITHUB_RUN_ID")"
+          existing="$(gh issue list --state open --search "\"$title\" in:title" --json number --jq '.[0].number // empty')"
+          if [ -n "$existing" ]; then
+            gh issue comment "$existing" --body "$body"
+          else
+            gh issue create --title "$title" --body "$body"
+          fi

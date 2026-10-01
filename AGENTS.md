@@ -176,6 +176,14 @@ seeing an empty or half-populated table. Re-running `pnpm seed` while
   is exactly what burned a month's Turso write quota (10M rows) in two
   nights, 2026-09-03/04 — see `src/store/turso-client.ts`'s
   `APPS_INDEXES_SQL`/`createIndexWithRetry` comments for the incident.
+- Check Turso usage with `pnpm turso-stats` (monthly quotas, per-database
+  usage, costliest queries) rather than waiting for Turso's alert email —
+  `.github/workflows/turso-quota.yml` runs it daily and opens a "Turso
+  quota alert" issue at 80% used or when on track to exceed a quota. It
+  needs a Turso _Platform API_ token (`TURSO_API_TOKEN`, org-scoped and
+  read-only) in `/workspaces/.dev/.env` locally and as a repo secret in
+  CI — the per-database tokens can't read usage. Mint it with:
+  `turso auth api-tokens mint turso-stats --org tuxery --read-only`.
 - Don't wire real upstream network calls into a `src/sources` connector as
   a side effect of unrelated work — per-source rate limits, caching, and
   error handling need deliberate design (see `flathub/fetch.ts` for the

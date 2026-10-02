@@ -325,7 +325,11 @@ function hasPackageFromSource(app: AppRecord, source: string): boolean {
 /** Every category actually present in this dataset — no import of curator's closed label lists needed, and self-maintaining if that list ever changes. */
 function distinctCategories(apps: AppRecord[]): string[] {
   return [
-    ...new Set(apps.map((app) => app.category).filter((category): category is string => category !== undefined)),
+    ...new Set(
+      apps
+        .map((app) => app.category)
+        .filter((category): category is string => category !== undefined),
+    ),
   ];
 }
 
@@ -418,19 +422,24 @@ function computeListingIds(apps: AppRecord[]): Record<string, string[]> {
   for (const typeFilter of typeFilters) {
     ids[`trending:${typeFilter}`] = topIds(
       apps,
-      (app) => app.popularity !== undefined && hasVisualAsset(app) && matchesTypeFilter(app, typeFilter),
+      (app) =>
+        app.popularity !== undefined && hasVisualAsset(app) && matchesTypeFilter(app, typeFilter),
       byPopularityDesc,
       TRENDING_PAGE_SIZE,
     );
     ids[`newApps:${typeFilter}`] = topIds(
       apps,
-      (app) => app.lastUpdated !== undefined && hasVisualAsset(app) && matchesTypeFilter(app, typeFilter),
+      (app) =>
+        app.lastUpdated !== undefined && hasVisualAsset(app) && matchesTypeFilter(app, typeFilter),
       byLastUpdatedDesc,
       TRENDING_PAGE_SIZE,
     );
     ids[`downloadTrending:${typeFilter}`] = topIds(
       apps,
-      (app) => app.installsLast7Days !== undefined && hasVisualAsset(app) && matchesTypeFilter(app, typeFilter),
+      (app) =>
+        app.installsLast7Days !== undefined &&
+        hasVisualAsset(app) &&
+        matchesTypeFilter(app, typeFilter),
       byInstallsLast7DaysDesc,
       TRENDING_PAGE_SIZE,
     );
@@ -448,13 +457,168 @@ function computeListingIds(apps: AppRecord[]): Record<string, string[]> {
   for (const source of distinctSources(apps)) {
     ids[`trendingBySource:${source}`] = topIds(
       apps,
-      (app) => app.popularity !== undefined && hasVisualAsset(app) && hasPackageFromSource(app, source),
+      (app) =>
+        app.popularity !== undefined && hasVisualAsset(app) && hasPackageFromSource(app, source),
       byPopularityDesc,
       TRENDING_PAGE_SIZE,
     );
   }
 
   return ids;
+}
+
+// --- Browse: precomputed counts and per-source id lists ---------------
+//
+// `app`'s `browseApps` (the /browse page, no free-text query) paid two live
+// scans per uncached page: a `COUNT(*)` under whatever filters are active,
+// and — for the `source` filter, `packages_json LIKE '%"source":"X"%'`,
+// leading wildcard, no index can help — the page listing itself, ~337k rows
+// read per request (docs/turso-quota.md, tuxery/catalog#22 and #23).
+// Filter dimensions here are closed sets (3 interface x 3 type x ~84
+// categories x 30 sources), so everything is computed once at publish time
+// from `dataset.apps` already in memory, and the request reads `meta`.
+//
+// Keys live under a *generation* (derived from the dataset's
+// `generatedAt`) so a publish is atomic and can't leave stale answers: the
+// bulk rows of the new generation are written first, invisible until the
+// one `browseKeys` row — written inside the swap transaction, with the new
+// `apps` table — points `app` at them; the previous generation is deleted
+// afterwards. Without that, an upsert-only scheme would leave a count for a
+// combination that dropped to zero (and `app` reads "no such key" as 0).
+// A pre-generation dataset has no `browseKeys` row; `app` then falls back
+// to its live queries, so neither repo has to deploy first.
+
+/** Key of the one row that tells `app` which generation of browse keys is current, and how the id lists are chunked. */
+const BROWSE_KEYS_META_KEY = "browseKeys";
+
+/** Ids per `sourceIds:` chunk row (~11 KB each at ~22 bytes per id). Stored in `browseKeys`, so `app` never needs a mirrored constant. */
+const SOURCE_IDS_CHUNK_SIZE = 500;
+
+type InterfaceFilterValue = "all" | "gui" | "cli";
+
+/** Mirrored by hand in `app`'s `browse-keys.ts` — both sides must agree on the exact string. `source`/`category` are `*` when the filter isn't set; the category comes last because it's the only part that may itself contain ":". */
+function countKey(
+  generation: string,
+  interfaceFilter: InterfaceFilterValue,
+  typeFilter: ListingTypeFilter,
+  source: string,
+  category: string,
+): string {
+  return `count:${generation}:${interfaceFilter}:${typeFilter}:${source}:${category}`;
+}
+
+function sourcesOf(app: AppRecord): string[] {
+  const sources = new Set<string>();
+  for (const pkg of app.packages) {
+    const source = (pkg as { source?: unknown }).source;
+    if (typeof source === "string") sources.add(source);
+  }
+  return [...sources];
+}
+
+/**
+ * Exact result count of every filter combination `browseApps` can build
+ * from its bounded dimensions (interface, type, source, category — each
+ * either unset or one value), non-empty combinations only: a missing key
+ * means 0. One pass over the apps; each app bumps the 2 x 2 x 2 x
+ * (1 + its sources) combinations it belongs to. ~4.1k keys on today's
+ * 174k apps. `kind` is only ever "gui" or unset, so "cli" is "not gui"
+ * (same equivalence `app`'s SQL relies on); an app without a category
+ * only counts toward category-less combinations.
+ */
+function computeBrowseCounts(apps: AppRecord[], generation: string): Map<string, number> {
+  const counts = new Map<string, number>();
+  for (const app of apps) {
+    const interfaces: InterfaceFilterValue[] = ["all", app.kind === "gui" ? "gui" : "cli"];
+    const types: ListingTypeFilter[] = ["all", app.contentType === "game" ? "game" : "app"];
+    const sources = ["*", ...sourcesOf(app)];
+    const categories = app.category === undefined ? ["*"] : ["*", app.category];
+    for (const interfaceFilter of interfaces) {
+      for (const typeFilter of types) {
+        for (const source of sources) {
+          for (const category of categories) {
+            const key = countKey(generation, interfaceFilter, typeFilter, source, category);
+            counts.set(key, (counts.get(key) ?? 0) + 1);
+          }
+        }
+      }
+    }
+  }
+  return counts;
+}
+
+/**
+ * Orders by `name` exactly as SQLite's `ORDER BY name ASC` does — BINARY
+ * collation, i.e. UTF-8 byte order, which differs from JavaScript's
+ * UTF-16 code-unit comparison for characters outside the BMP (emoji
+ * names) — with `id` as the tie-break SQL leaves undefined (21 names are
+ * shared by several apps today), so the order is at least stable.
+ */
+function byNameAscThenId(a: { id: string; name: Buffer }, b: { id: string; name: Buffer }): number {
+  return Buffer.compare(a.name, b.name) || Buffer.compare(Buffer.from(a.id), Buffer.from(b.id));
+}
+
+/**
+ * For each source, the ids of every app with a package from it, in
+ * `name ASC` order, cut into `SOURCE_IDS_CHUNK_SIZE`-id chunk rows
+ * (`sourceIds:<generation>:<source>:<chunk>`). Ascending only: `name
+ * DESC` is the same list read from the end, which `app` does itself
+ * (needs the total, from the counts above), so the sort dimension doesn't
+ * double the rows. `relevance` with no query is `name ASC` too.
+ */
+function computeSourceIdChunks(apps: AppRecord[], generation: string): Map<string, string[]> {
+  const sorted = apps.map((app) => ({ id: app.id, name: Buffer.from(app.name), app }));
+  // eslint-disable-next-line unicorn/no-array-sort
+  sorted.sort(byNameAscThenId);
+
+  const idsBySource = new Map<string, string[]>();
+  for (const { id, app } of sorted) {
+    for (const source of sourcesOf(app)) {
+      const ids = idsBySource.get(source);
+      if (ids) ids.push(id);
+      else idsBySource.set(source, [id]);
+    }
+  }
+
+  const chunks = new Map<string, string[]>();
+  for (const [source, ids] of idsBySource) {
+    chunk(ids, SOURCE_IDS_CHUNK_SIZE).forEach((part, index) => {
+      chunks.set(`sourceIds:${generation}:${source}:${index}`, part);
+    });
+  }
+  return chunks;
+}
+
+// Bulk meta rows go out as multi-row upserts capped by entry count and
+// payload size: the 572 id chunks alone are ~6 MB, well past the ~1 MB
+// request the 500-row `apps` batches already send, and Turso's request
+// limit isn't documented.
+const META_UPSERT_MAX_ENTRIES = 200;
+const META_UPSERT_MAX_BYTES = 750_000;
+
+async function upsertMetaInBatches(db: Client, entries: Array<[string, string]>): Promise<void> {
+  let pending: Array<[string, string]> = [];
+  let bytes = 0;
+  const flush = async (): Promise<void> => {
+    if (pending.length === 0) return;
+    await db.execute({
+      sql: `INSERT INTO meta (key, value) VALUES ${pending.map(() => "(?, ?)").join(", ")}
+            ON CONFLICT(key) DO UPDATE SET value = excluded.value`,
+      args: pending.flat(),
+    });
+    pending = [];
+    bytes = 0;
+  };
+  for (const entry of entries) {
+    const size = entry[0].length + entry[1].length;
+    if (pending.length >= META_UPSERT_MAX_ENTRIES || bytes + size > META_UPSERT_MAX_BYTES) {
+      // eslint-disable-next-line no-await-in-loop
+      await flush();
+    }
+    pending.push(entry);
+    bytes += size;
+  }
+  await flush();
 }
 
 const INDEX_RETRY_ATTEMPTS = 3;
@@ -607,6 +771,17 @@ export function createTursoClient(config: TursoConfig, client?: Client): TursoCl
       );
       const listingIds = computeListingIds(dataset.apps);
 
+      // Digits only, so it's safe inside a LIKE pattern below.
+      const generation = dataset.generatedAt.replaceAll(/\D/g, "");
+      const browseCounts = computeBrowseCounts(dataset.apps, generation);
+      const sourceIdChunks = computeSourceIdChunks(dataset.apps, generation);
+      // Written before the swap, invisible until `browseKeys` flips in the
+      // swap transaction below — see the comment above BROWSE_KEYS_META_KEY.
+      await upsertMetaInBatches(db, [
+        ...[...browseCounts].map(([key, count]): [string, string] => [key, String(count)]),
+        ...[...sourceIdChunks].map(([key, ids]): [string, string] => [key, JSON.stringify(ids)]),
+      ]);
+
       // A dynamic key/value list rather than a hand-written VALUES(?, ?, ...)
       // literal — ~60 precomputed listing keys (3 typeFilter variants x 3
       // metrics, plus one per category and one per source) makes hand-sizing
@@ -619,9 +794,14 @@ export function createTursoClient(config: TursoConfig, client?: Client): TursoCl
         ["categoryCounts:all", JSON.stringify(categoryCountsAll)],
         ["categoryCounts:game", JSON.stringify(categoryCountsGame)],
         ["categoryCounts:app", JSON.stringify(categoryCountsApp)],
-        ...Object.entries(listingIds).map(
-          ([key, ids]): [string, string] => [key, JSON.stringify(ids)],
-        ),
+        [
+          BROWSE_KEYS_META_KEY,
+          JSON.stringify({ generation, sourceIdsChunkSize: SOURCE_IDS_CHUNK_SIZE }),
+        ],
+        ...Object.entries(listingIds).map(([key, ids]): [string, string] => [
+          key,
+          JSON.stringify(ids),
+        ]),
       ];
       const metaValuesSql = metaEntries.map(() => "(?, ?)").join(", ");
 
@@ -638,6 +818,16 @@ export function createTursoClient(config: TursoConfig, client?: Client): TursoCl
         ],
         "write",
       );
+
+      // The previous generation's browse rows are unreachable now that
+      // `browseKeys` points at this one — drop them (and, as a side effect,
+      // any generation a failed publish left behind).
+      await db.execute({
+        sql: `DELETE FROM meta
+              WHERE (key LIKE 'count:%' AND key NOT LIKE ?)
+                 OR (key LIKE 'sourceIds:%' AND key NOT LIKE ?)`,
+        args: [`count:${generation}:%`, `sourceIds:${generation}:%`],
+      });
 
       // Built once over the finished `apps` table, after the swap above
       // has already dropped `apps_old` (and with it, any previous run's

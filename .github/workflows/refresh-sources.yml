@@ -32,11 +32,32 @@ jobs:
     # before the job died partway through lutris, never reaching
     # github-releases or the "Open a PR" step at all.
     timeout-minutes: 60
+    # The default GITHUB_TOKEN only reads here: this org forbids it from
+    # creating pull requests ("GitHub Actions is not permitted to create or
+    # approve pull requests", every scheduled run since 2026-09-05), and the
+    # fix is the Pushinator GitHub App's token below, not loosening that
+    # org-wide setting (which would also let any workflow *approve* PRs).
     permissions:
-      contents: write
-      pull-requests: write
+      contents: read
     steps:
       - uses: actions/checkout@v7
+
+      # First, before the ~30-minute refresh: a missing/misconfigured app
+      # (secrets not set, app not installed on this repo) should fail in
+      # seconds, not after every source has been fetched for nothing.
+      # Needs PUSHINATOR_ID (the app's Client ID, from its settings page;
+      # not actually secret, so it may be an org variable rather than a
+      # secret: both are read) and the secret PUSHINATOR_KEY (a generated
+      # private key, full PEM), and the app installed on this repo with
+      # Contents + Pull requests: write.
+      - name: Mint a token from the Pushinator GitHub App
+        id: pushinator
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0 @ 2026-10-02
+        with:
+          client-id: ${{ vars.PUSHINATOR_ID || secrets.PUSHINATOR_ID }}
+          private-key: ${{ secrets.PUSHINATOR_KEY }}
+          permission-contents: write
+          permission-pull-requests: write
 
       - uses: helpers4/action/setup-pnpm@6fddd178620e7325d446a246c38a44f979569fc4 # main @ 2026-07-29
         with:
@@ -75,10 +96,12 @@ jobs:
       # main is branch-protected (PR + rebase only, org-wide since the
       # PoC exit) -- a scheduled bot can't push straight to it, so this
       # opens a PR the same way a human would, rather than assuming a
-      # bypass that isn't actually configured.
+      # bypass that isn't actually configured. Authored as the Pushinator
+      # app; unlike a PR opened with GITHUB_TOKEN, that also triggers CI.
       - name: Open a PR with the updated caches
         uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1 @ 2026-04-10
         with:
+          token: ${{ steps.pushinator.outputs.token }}
           commit-message: "chore(sources): 🔧 scheduled source cache refresh"
           title: "chore(sources): scheduled source cache refresh"
           body: |

@@ -1,4 +1,4 @@
-import type { Client } from "@libsql/client";
+import { createClient, type Client } from "@libsql/client";
 import { describe, expect, it, vi } from "vitest";
 import { createTursoClient, type AppRecord } from "./turso-client";
 
@@ -14,6 +14,11 @@ const APP: AppRecord = {
 function metaValue(args: unknown[], key: string): string | undefined {
   const index = args.indexOf(key);
   return index === -1 ? undefined : (args[index + 1] as string);
+}
+
+/** The SQL text of an `execute()` argument, which is a plain string or a `{ sql, args }` statement (bulk meta upserts need args). */
+function sqlOf(statement: unknown): string {
+  return typeof statement === "string" ? statement : (statement as { sql: string }).sql;
 }
 
 function fakeClient(tableExists: boolean) {
@@ -58,7 +63,7 @@ describe("createTursoClient", () => {
 
     await tursoClient.publish({ generatedAt: "2026-01-01T00:00:00.000Z", apps: [APP] });
 
-    const executedSql = execute.mock.calls.map((call) => call[0] as string);
+    const executedSql = execute.mock.calls.map((call) => sqlOf(call[0]));
     for (const column of [
       "category",
       "content_type",
@@ -111,17 +116,17 @@ describe("createTursoClient", () => {
       const { batch } = fakeClient(false);
       let failedOnce = false;
       const execute = vi.fn<Client["execute"]>().mockImplementation(async (sql) => {
-        const text = sql as string;
+        const text = sqlOf(sql);
         if (text.includes("CREATE INDEX idx_apps_category ON") && !failedOnce) {
           failedOnce = true;
           throw new Error("SQLite error: index idx_apps_category already exists");
         }
         return { rows: [] } as never;
       });
-      const tursoClient = createTursoClient(
-        { url: "file::memory:" },
-        { execute, batch } as unknown as Client,
-      );
+      const tursoClient = createTursoClient({ url: "file::memory:" }, {
+        execute,
+        batch,
+      } as unknown as Client);
 
       const publishPromise = tursoClient.publish({
         generatedAt: "2026-01-01T00:00:00.000Z",
@@ -131,7 +136,7 @@ describe("createTursoClient", () => {
       await publishPromise;
 
       const categoryIndexCalls = execute.mock.calls.filter((call) =>
-        (call[0] as string).includes("CREATE INDEX idx_apps_category ON"),
+        sqlOf(call[0]).includes("CREATE INDEX idx_apps_category ON"),
       );
       // First attempt fails, retry succeeds — publish() doesn't throw.
       expect(categoryIndexCalls).toHaveLength(2);
@@ -140,34 +145,30 @@ describe("createTursoClient", () => {
     }
   });
 
-  it(
-    "gives up and rethrows after repeated 'already exists' failures, rather than silently skipping the index",
-    async () => {
-      // Real timers here (not fake, per the test above) — the retry
-      // backoff is short (<=1s total across 3 attempts) and mixing fake
-      // timers with an `expect(...).rejects` assertion that must resolve
-      // before the timers advance runs into oxlint's valid-expect rule
-      // (the assertion can't be split into a stored promise and awaited
-      // later just to interleave `vi.runAllTimersAsync()`).
-      const { batch } = fakeClient(false);
-      const execute = vi.fn<Client["execute"]>().mockImplementation(async (sql) => {
-        const text = sql as string;
-        if (text.includes("CREATE INDEX idx_apps_category ON")) {
-          throw new Error("SQLite error: index idx_apps_category already exists");
-        }
-        return { rows: [] } as never;
-      });
-      const tursoClient = createTursoClient(
-        { url: "file::memory:" },
-        { execute, batch } as unknown as Client,
-      );
+  it("gives up and rethrows after repeated 'already exists' failures, rather than silently skipping the index", async () => {
+    // Real timers here (not fake, per the test above) — the retry
+    // backoff is short (<=1s total across 3 attempts) and mixing fake
+    // timers with an `expect(...).rejects` assertion that must resolve
+    // before the timers advance runs into oxlint's valid-expect rule
+    // (the assertion can't be split into a stored promise and awaited
+    // later just to interleave `vi.runAllTimersAsync()`).
+    const { batch } = fakeClient(false);
+    const execute = vi.fn<Client["execute"]>().mockImplementation(async (sql) => {
+      const text = sqlOf(sql);
+      if (text.includes("CREATE INDEX idx_apps_category ON")) {
+        throw new Error("SQLite error: index idx_apps_category already exists");
+      }
+      return { rows: [] } as never;
+    });
+    const tursoClient = createTursoClient({ url: "file::memory:" }, {
+      execute,
+      batch,
+    } as unknown as Client);
 
-      await expect(
-        tursoClient.publish({ generatedAt: "2026-01-01T00:00:00.000Z", apps: [APP] }),
-      ).rejects.toThrow("already exists");
-    },
-    5000,
-  );
+    await expect(
+      tursoClient.publish({ generatedAt: "2026-01-01T00:00:00.000Z", apps: [APP] }),
+    ).rejects.toThrow("already exists");
+  }, 5000);
 
   it("precomputes per-category counts (all/game/app) into meta instead of leaving them for a live COUNT(*) query", async () => {
     const { batch, client } = fakeClient(false);
@@ -206,10 +207,30 @@ describe("createTursoClient", () => {
     const tursoClient = createTursoClient({ url: "file::memory:" }, client);
 
     const apps: AppRecord[] = [
-      { ...APP, id: "low", iconUrl: "icon.png", popularity: 0.2, lastUpdated: "2026-01-01", installsLast7Days: 10 },
-      { ...APP, id: "high", iconUrl: "icon.png", popularity: 0.9, lastUpdated: "2026-03-01", installsLast7Days: 90 },
+      {
+        ...APP,
+        id: "low",
+        iconUrl: "icon.png",
+        popularity: 0.2,
+        lastUpdated: "2026-01-01",
+        installsLast7Days: 10,
+      },
+      {
+        ...APP,
+        id: "high",
+        iconUrl: "icon.png",
+        popularity: 0.9,
+        lastUpdated: "2026-03-01",
+        installsLast7Days: 90,
+      },
       // No icon — excluded from every listing (HAS_VISUAL_ASSET gate), even though it out-ranks "high" on every metric.
-      { ...APP, id: "no-icon", popularity: 0.99, lastUpdated: "2026-04-01", installsLast7Days: 999 },
+      {
+        ...APP,
+        id: "no-icon",
+        popularity: 0.99,
+        lastUpdated: "2026-04-01",
+        installsLast7Days: 999,
+      },
       // A game — only shows up under typeFilter "all"/"game", never "app".
       { ...APP, id: "game", iconUrl: "icon.png", popularity: 0.5, contentType: "game" },
     ];
@@ -274,5 +295,181 @@ describe("createTursoClient", () => {
     const swapBatch = batch.mock.calls[1]?.[0] as { sql: string }[];
     expect(swapBatch.some((s) => s.sql.includes("ALTER TABLE apps RENAME TO apps_old"))).toBe(true);
     expect(swapBatch.some((s) => s.sql.includes("DROP TABLE IF EXISTS apps_old"))).toBe(true);
+  });
+});
+
+/** A test app: `APP` with the given fields overridden. */
+function appWith(overrides: Partial<AppRecord>): AppRecord {
+  return { ...APP, ...overrides };
+}
+
+/** Every `[key, value]` pair bulk-upserted into `meta` through `execute()` (the browse keys are written outside the swap batch). */
+function bulkMeta(execute: { mock: { calls: unknown[][] } }): Map<string, string> {
+  const entries = new Map<string, string>();
+  for (const [statement] of execute.mock.calls) {
+    const { sql, args } = statement as { sql?: string; args?: unknown[] };
+    if (!sql?.includes("INSERT INTO meta") || !args) continue;
+    for (let i = 0; i < args.length; i += 2) entries.set(args[i] as string, args[i + 1] as string);
+  }
+  return entries;
+}
+
+describe("precomputed browse keys", () => {
+  // generatedAt below, digits only
+  const GEN = "20260101000000000";
+
+  it("counts every non-empty filter combination under a generation, and points browseKeys at it inside the swap", async () => {
+    const { execute, batch, client } = fakeClient(false);
+    const tursoClient = createTursoClient({ url: "file::memory:" }, client);
+
+    await tursoClient.publish({
+      generatedAt: "2026-01-01T00:00:00.000Z",
+      apps: [
+        {
+          ...APP,
+          id: "a",
+          kind: "gui",
+          category: "Utilities",
+          packages: [
+            { source: "flathub", name: "a" },
+            { source: "snap", name: "a" },
+          ],
+        },
+        {
+          ...APP,
+          id: "b",
+          contentType: "game",
+          category: "Action",
+          packages: [{ source: "flathub", name: "b" }],
+        },
+        { ...APP, id: "c", packages: [{ source: "aur", name: "c" }] },
+      ],
+    });
+
+    const meta = bulkMeta(execute);
+    const count = (key: string): number | undefined =>
+      meta.has(`count:${GEN}:${key}`) ? Number(meta.get(`count:${GEN}:${key}`)) : undefined;
+
+    expect(count("all:all:*:*")).toBe(3);
+    expect(count("gui:all:*:*")).toBe(1);
+    expect(count("cli:all:*:*")).toBe(2);
+    expect(count("all:game:*:*")).toBe(1);
+    expect(count("all:app:*:*")).toBe(2);
+    expect(count("all:all:flathub:*")).toBe(2);
+    expect(count("all:all:snap:*")).toBe(1);
+    expect(count("all:all:*:Utilities")).toBe(1);
+    expect(count("gui:app:snap:Utilities")).toBe(1);
+    expect(count("cli:game:flathub:Action")).toBe(1);
+    // No app is both gui and a game: a missing key is how an empty
+    // combination reads (app treats it as 0), so it must not be written.
+    expect(count("gui:game:*:*")).toBeUndefined();
+    // An app with no category counts toward category-less keys only.
+    expect(count("all:all:aur:*")).toBe(1);
+    expect(
+      [...meta.keys()].some((key) => key.startsWith(`count:${GEN}:`) && key.endsWith(":")),
+    ).toBe(false);
+
+    // The generation only becomes visible through the swap transaction.
+    const swapBatch = batch.mock.calls.at(-1)?.[0] as { sql: string; args?: unknown[] }[];
+    const swapMeta = swapBatch.find((s) => s.sql.includes("INSERT INTO meta"));
+    expect(JSON.parse(metaValue(swapMeta?.args as unknown[], "browseKeys") ?? "")).toEqual({
+      generation: GEN,
+      sourceIdsChunkSize: 500,
+    });
+    expect(meta.has("browseKeys")).toBe(false);
+  });
+
+  it("drops the previous generation's rows after the swap, keeping only the current one", async () => {
+    const { execute, client } = fakeClient(false);
+    const tursoClient = createTursoClient({ url: "file::memory:" }, client);
+
+    await tursoClient.publish({ generatedAt: "2026-01-01T00:00:00.000Z", apps: [APP] });
+
+    const cleanup = execute.mock.calls
+      .map(([statement]) => statement as { sql?: string; args?: unknown[] })
+      .find((statement) => statement.sql?.includes("DELETE FROM meta"));
+    expect(cleanup?.args).toEqual([`count:${GEN}:%`, `sourceIds:${GEN}:%`]);
+    expect(cleanup?.sql).toContain("NOT LIKE");
+  });
+
+  it("orders each source's id chunks exactly like SQLite's ORDER BY name ASC (UTF-8 byte order), and chunks at 500", async () => {
+    const db = createClient({ url: "file::memory:" });
+    const tursoClient = createTursoClient({ url: "file::memory:" }, db);
+
+    // Names chosen to break a naive JS comparison: case (BINARY sorts
+    // uppercase first), accents, a fullwidth BMP letter (U+FF21) and an
+    // emoji (outside the BMP — UTF-16 puts it *before* U+FF21, UTF-8
+    // bytes after it), and two apps sharing one name.
+    const tricky = ["Zebra", "apple", "Äpfel", "Ａ fullwidth", "😀 emoji", "same", "same", "Same"];
+    const apps: AppRecord[] = [
+      ...tricky.map((name, i) =>
+        appWith({ id: `aur:tricky-${i}`, name, packages: [{ source: "aur", name }] }),
+      ),
+      ...Array.from({ length: 1200 }, (_, i) =>
+        appWith({
+          id: `aur:bulk-${String(i).padStart(4, "0")}`,
+          name: `bulk-${(i * 7919) % 1200}`,
+          packages: [{ source: "aur", name: "x" }],
+        }),
+      ),
+      { ...APP, id: "flathub:other", name: "Other", packages: [{ source: "flathub", name: "o" }] },
+    ];
+
+    await tursoClient.publish({ generatedAt: "2026-01-01T00:00:00.000Z", apps });
+
+    const rows = await db.execute(
+      `SELECT key, value FROM meta WHERE key LIKE 'sourceIds:${GEN}:aur:%'`,
+    );
+    const chunks = rows.rows.map((row) => ({
+      index: Number(String(row.key).split(":").at(-1)),
+      ids: JSON.parse(String(row.value)) as string[],
+    }));
+    // A fresh array, safe to sort in place (toSorted() needs ES2023).
+    // eslint-disable-next-line unicorn/no-array-sort
+    chunks.sort((a, b) => a.index - b.index);
+    expect(chunks.map((chunk) => chunk.ids.length)).toEqual([500, 500, 208]);
+
+    const fromSql = await db.execute(
+      `SELECT id FROM apps WHERE packages_json LIKE '%"source":"aur"%' ORDER BY name ASC, id ASC`,
+    );
+    expect(chunks.flatMap((chunk) => chunk.ids)).toEqual(fromSql.rows.map((row) => String(row.id)));
+
+    // And the count the app uses for the total / for reading `name DESC`
+    // from the end agrees with the list.
+    const total = await db.execute(
+      `SELECT value FROM meta WHERE key = 'count:${GEN}:all:all:aur:*'`,
+    );
+    expect(Number(total.rows[0]?.value)).toBe(1208);
+  });
+
+  it("replaces a previous generation instead of leaving its counts behind (a combination that dropped to zero must not keep its old count)", async () => {
+    const db = createClient({ url: "file::memory:" });
+    const tursoClient = createTursoClient({ url: "file::memory:" }, db);
+    const game = {
+      ...APP,
+      id: "g",
+      contentType: "game" as const,
+      packages: [{ source: "gog", name: "g" }],
+    };
+
+    await tursoClient.publish({ generatedAt: "2026-01-01T00:00:00.000Z", apps: [APP, game] });
+    expect(
+      (await db.execute(`SELECT value FROM meta WHERE key = 'count:${GEN}:all:all:gog:*'`)).rows,
+    ).toHaveLength(1);
+
+    // Second publish: the only gog app is gone.
+    await tursoClient.publish({ generatedAt: "2026-02-01T00:00:00.000Z", apps: [APP] });
+    const keys = (
+      await db.execute(`SELECT key FROM meta WHERE key LIKE 'count:%' OR key LIKE 'sourceIds:%'`)
+    ).rows.map((row) => String(row.key));
+    expect(keys.length).toBeGreaterThan(0);
+    expect(keys.every((key) => key.includes(":20260201000000000:"))).toBe(true);
+    expect(
+      JSON.parse(
+        String(
+          (await db.execute(`SELECT value FROM meta WHERE key = 'browseKeys'`)).rows[0]?.value,
+        ),
+      ),
+    ).toEqual({ generation: "20260201000000000", sourceIdsChunkSize: 500 });
   });
 });

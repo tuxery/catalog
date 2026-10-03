@@ -1,4 +1,5 @@
 import type { LlmModel } from "../src/curator/enrich/llm-models";
+import { parseResults, type BatchResult, type Taxonomy } from "../src/curator/enrich/llm-prompt";
 
 /**
  * One API adapter per provider behind a single `callModel` — request
@@ -17,15 +18,6 @@ import type { LlmModel } from "../src/curator/enrich/llm-models";
  * fix, not something rotating models would solve.
  */
 
-export type Confidence = "high" | "medium" | "low";
-
-export interface BatchResult {
-  n: number;
-  category: string;
-  confidence: Confidence;
-  reason: string;
-}
-
 export interface CallResult {
   results: BatchResult[];
   /** Total tokens billed for the request (input + output + reasoning), when the provider reports it — drives token pacing. */
@@ -37,7 +29,7 @@ export interface CallResult {
 export interface Prompt {
   system: string;
   user: string;
-  allowedCategories: string[];
+  taxonomy: Taxonomy;
 }
 
 export class RetryLater extends Error {
@@ -91,13 +83,13 @@ function parseTryAgainMs(message: string): number | undefined {
 }
 
 /**
- * The output schema, shared by both providers: one "n|category|k|reason"
+ * The output schema, shared by both providers: one "n|type|category|k|reason"
  * string per app rather than one JSON object. Measured on qwen3.8-27b
  * (2026-09-27, same 20 apps): output fell from ~28 to ~12 tokens per app —
  * per-field JSON punctuation cost about as much as the fields themselves —
  * with agreement to Gemini unchanged or better, while numbered categories
  * instead of labels dropped agreement to 50%. The flip side: the provider
- * can no longer enforce the category enum, so `parseResults` validates
+ * can no longer enforce the type/category enums, so `parseResults` validates
  * every field itself. `strict` adds what Groq's strict json_schema mode
  * requires (closed objects); Gemini's responseSchema, an OpenAPI subset,
  * doesn't accept `additionalProperties`.
@@ -111,34 +103,6 @@ function outputSchema(strict: boolean): Record<string, unknown> {
   };
 }
 
-const CONFIDENCE: Record<string, Confidence> = { h: "high", m: "medium", l: "low" };
-
-/**
- * Parses "n|category|k|reason" lines into results, keeping only the valid
- * ones: n an integer, category on the allowed list, k one of h/m/l. An
- * invalid line is dropped, not fatal — that app just stays unclassified
- * for a later run. The reason may itself contain "|", so it's the rest of
- * the line. Throws only when the text isn't JSON at all.
- */
-function parseResults(text: string | undefined, allowedCategories: string[]): BatchResult[] {
-  const lines = (JSON.parse(text ?? "{}") as { results?: unknown[] }).results ?? [];
-  const allowed = new Set(allowedCategories);
-  return lines.flatMap((line) => {
-    const fields = String(line).split("|");
-    // Gemini tends to echo the input's "n|name|desc" shape and repeat the
-    // name ("1|ccusage|Developer Tools|h|...", seen 2026-09-29): when the
-    // second field isn't a category but the third is, skip the name.
-    if (!allowed.has((fields[1] ?? "").trim()) && allowed.has((fields[2] ?? "").trim())) {
-      fields.splice(1, 1);
-    }
-    const [n, category = "", k = "", ...reason] = fields;
-    const confidence = CONFIDENCE[k.trim()];
-    const index = Number(n);
-    if (!Number.isInteger(index) || !allowed.has(category.trim()) || !confidence) return [];
-    return [{ n: index, category: category.trim(), confidence, reason: reason.join("|").trim() }];
-  });
-}
-
 /**
  * `parseResults` for a successful response. Unparseable output (typically
  * truncated at maxOutputTokens), or output with no valid line at all (the
@@ -148,10 +112,10 @@ function parseResults(text: string | undefined, allowedCategories: string[]): Ba
  * silently burning quota on answers that yield nothing (11 Gemini requests
  * for 0 apps, 2026-09-29).
  */
-function parseOk(text: string | undefined, allowedCategories: string[]): BatchResult[] {
+function parseOk(text: string | undefined, taxonomy: Taxonomy): BatchResult[] {
   let results: BatchResult[];
   try {
-    results = parseResults(text, allowedCategories);
+    results = parseResults(text, taxonomy);
   } catch {
     throw new ModelUnavailable("unparseable output (truncated? lower batchSize)", false);
   }
@@ -165,9 +129,9 @@ function parseOk(text: string | undefined, allowedCategories: string[]): BatchRe
 }
 
 /** `parseResults` on a schema-rejected answer: whatever valid lines it has are already paid for. */
-function salvageResults(text: string | undefined, allowedCategories: string[]): BatchResult[] {
+function salvageResults(text: string | undefined, taxonomy: Taxonomy): BatchResult[] {
   try {
-    return parseResults(text, allowedCategories);
+    return parseResults(text, taxonomy);
   } catch {
     return [];
   }
@@ -228,7 +192,7 @@ async function callGemini(model: LlmModel, prompt: Prompt): Promise<CallResult> 
     };
     const usage = body.usageMetadata;
     return {
-      results: parseOk(body.candidates?.[0]?.content?.parts?.[0]?.text, prompt.allowedCategories),
+      results: parseOk(body.candidates?.[0]?.content?.parts?.[0]?.text, prompt.taxonomy),
       tokens: usage?.totalTokenCount,
       outputTokens:
         usage?.candidatesTokenCount === undefined
@@ -297,7 +261,7 @@ async function callGroq(model: LlmModel, prompt: Prompt): Promise<CallResult> {
       usage?: { total_tokens?: number; completion_tokens?: number };
     };
     return {
-      results: parseOk(body.choices?.[0]?.message?.content, prompt.allowedCategories),
+      results: parseOk(body.choices?.[0]?.message?.content, prompt.taxonomy),
       tokens: body.usage?.total_tokens,
       outputTokens: body.usage?.completion_tokens,
     };
@@ -345,7 +309,7 @@ async function callGroq(model: LlmModel, prompt: Prompt): Promise<CallResult> {
     throw new Error(`Groq ${model.id}: batch too large for its per-minute token cap — ${message}`);
   }
   if (response.status === 400 && code === "json_validate_failed") {
-    const salvaged = salvageResults(failedGeneration, prompt.allowedCategories);
+    const salvaged = salvageResults(failedGeneration, prompt.taxonomy);
     if (salvaged.length > 0) {
       console.warn(
         `${model.id}: output failed schema validation — salvaged ${salvaged.length} valid results`,

@@ -2,15 +2,32 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "type": "array",
   "items": {
-    "type": "object",
-    "properties": {
-      "id": {
-        "type": "string",
-        "description": "The CatalogApp id this category was assigned to, e.g. 'pacman-aur:wings3d'."
-      },
-      "category": {
-        "anyOf": [
-          {
+    "oneOf": [
+      {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The CatalogApp id this classification was assigned to, e.g. 'pacman-aur:wings3d'."
+          },
+          "confidence": {
+            "type": "string",
+            "enum": ["high", "medium", "low"],
+            "description": "The LLM's own certainty in this classification. A three-level enum rather than a numeric score — self-reported LLM probabilities are poorly calibrated, so a finer scale would only pretend to precision. 'low' entries are kept for auditability but never applied (see llmClassificationMap)."
+          },
+          "reason": {
+            "type": "string",
+            "description": "Why the LLM assigned this classification — for auditability."
+          },
+          "model": {
+            "type": "string",
+            "description": "The model that produced this entry, e.g. 'gemini-3.8-flash' or 'openai/gpt-oss-20b' — classify-llm rotates across config/llm-models.json's models to spread their free tiers' per-model quotas, so quality can be audited per model."
+          },
+          "type": {
+            "type": "string",
+            "const": "app"
+          },
+          "category": {
             "type": "string",
             "enum": [
               "Developer Tools",
@@ -30,9 +47,38 @@
               "System Tools",
               "Settings",
               "Utilities"
-            ]
+            ],
+            "description": "One of the app categories."
+          }
+        },
+        "required": ["id", "confidence", "reason", "model", "type", "category"],
+        "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The CatalogApp id this classification was assigned to, e.g. 'pacman-aur:wings3d'."
           },
-          {
+          "confidence": {
+            "type": "string",
+            "enum": ["high", "medium", "low"],
+            "description": "The LLM's own certainty in this classification. A three-level enum rather than a numeric score — self-reported LLM probabilities are poorly calibrated, so a finer scale would only pretend to precision. 'low' entries are kept for auditability but never applied (see llmClassificationMap)."
+          },
+          "reason": {
+            "type": "string",
+            "description": "Why the LLM assigned this classification — for auditability."
+          },
+          "model": {
+            "type": "string",
+            "description": "The model that produced this entry, e.g. 'gemini-3.8-flash' or 'openai/gpt-oss-20b' — classify-llm rotates across config/llm-models.json's models to spread their free tiers' per-model quotas, so quality can be audited per model."
+          },
+          "type": {
+            "type": "string",
+            "const": "game"
+          },
+          "category": {
             "type": "string",
             "enum": [
               "Action",
@@ -45,38 +91,15 @@
               "Simulation",
               "Sports",
               "Strategy"
-            ]
+            ],
+            "description": "One of the game genres."
           }
-        ],
-        "description": "The assigned label — an app category or a game genre, consistent with the app's contentType."
-      },
-      "confidence": {
-        "type": "string",
-        "enum": [
-          "high",
-          "medium",
-          "low"
-        ],
-        "description": "The LLM's own certainty in this category. A three-level enum rather than a numeric score — self-reported LLM probabilities are poorly calibrated, so a finer scale would only pretend to precision. 'low' entries are kept for auditability but never applied (see llmCategoryMap)."
-      },
-      "reason": {
-        "type": "string",
-        "description": "Why the LLM assigned this category — for auditability."
-      },
-      "model": {
-        "type": "string",
-        "description": "The model that produced this entry, e.g. 'gemini-3.8-flash' or 'openai/gpt-oss-20b' — classify-llm rotates across config/llm-models.json's models to spread their free tiers' per-model quotas, so quality can be audited per model."
+        },
+        "required": ["id", "confidence", "reason", "model", "type", "category"],
+        "additionalProperties": false
       }
-    },
-    "required": [
-      "id",
-      "category",
-      "confidence",
-      "reason",
-      "model"
-    ],
-    "additionalProperties": false
+    ]
   },
   "title": "Enrich: LLM classifications",
-  "description": "LLM-assigned categories for apps the deterministic signals couldn't classify — checked last in pickCategoryLabel, just before the 'To Classify' fallback. Generated by `pnpm classify-llm` (free-tier LLMs, see config/llm-models.json), committed and consumed at build time; never hand-edited."
+  "description": "LLM-assigned type (app or game) and category for apps the deterministic signals couldn't classify — checked last in enrichApps, just before the 'To Classify' fallback. Generated by `pnpm classify-llm` (free-tier LLMs, see config/llm-models.json), committed and consumed at build time; never hand-edited."
 }

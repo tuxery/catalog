@@ -8,7 +8,12 @@ import {
   loadAppStoreFrontends,
   type AppStoreFrontendEntry,
 } from "./app-store-frontend";
-import { isGameAdjacentToolCategory, pickCategory, TO_CLASSIFY } from "./category";
+import {
+  isGameAdjacentToolCategory,
+  pickCategory,
+  TO_CLASSIFY,
+  type ContentType,
+} from "./category";
 import { computeDataConfidence, forceMatchedKeys } from "./data-confidence";
 import { loadCategoryRules, matchCategoryRule, type CategoryRuleEntry } from "./category-rules";
 import {
@@ -44,9 +49,8 @@ import {
 import { getCompatWarnings, loadCompatWarnings, type CompatWarningEntry } from "./compat-warnings";
 import { applySuites, loadSuiteOverrides, type SuiteOverrideEntry } from "./suite";
 import {
-  llmCategoryMap,
+  llmClassificationMap,
   loadLlmClassifications,
-  pickLlmClassification,
   type LlmClassificationEntry,
 } from "./llm-classifications";
 import type { CatalogApp } from "./types";
@@ -178,7 +182,7 @@ function hasGameNameEvidence(pkg: SourcedPackage): boolean {
 // Minecraft/general game launchers, mod launchers/managers, modpacks) —
 // duplicated here as raw patterns rather than cross-referencing the JSON
 // file by category label, since `isGameAdjacentToolDescription` needs to
-// run before `pickCategoryLabel` even sees whether isGame is true, at a
+// run before `pickCategoryLabel` even sees whether the app is a game, at a
 // point where reusing the loaded rule list by name would be more
 // indirection than three small regexes are worth. Keep these two in sync
 // if either changes: a phrase added here should almost always get the
@@ -268,7 +272,7 @@ const GAME_ADJACENT_TOOL_DESCRIPTION_PATTERNS: RegExp[] = [
 // distro-packaging convention (godot-classic, godot-common, godot-mono-bin,
 // godot-mono-beta-bin, godot-mono-git, ...), the same family
 // `config/category-rules.json`'s existing "godot-*" rule already resolves
-// to Developer Tools once isGame is false. Verified live against the whole
+// to Developer Tools once the app isn't a game. Verified live against the whole
 // games "To Classify" pool AND the already-genred real-games pool
 // (2026-09-04): every "godot-" prefixed member across both pools is a real
 // build/binding variant of the engine itself, zero unrelated collisions.
@@ -486,7 +490,7 @@ function isGameAdjacentToolDescription(shortDescription: string, names: string[]
  */
 function pickCategoryLabel(
   packages: SourcedPackage[],
-  isGame: boolean,
+  type: ContentType,
   categoryRules: CategoryRuleEntry[],
   gameCategoryRules: GameCategoryRuleEntry[],
   descriptionCategoryRules: DescriptionCategoryRuleEntry[],
@@ -496,10 +500,10 @@ function pickCategoryLabel(
   const categories = pickField(packages, (pkg) =>
     pkg.categories && pkg.categories.length > 0 ? pkg.categories : undefined,
   );
-  const picked = pickCategory(categories ?? [], isGame);
+  const picked = pickCategory(categories ?? [], type);
   if (picked !== TO_CLASSIFY) return picked;
 
-  if (isGame) {
+  if (type === "game") {
     const sectionGenre = findMap(
       packages,
       (pkg) =>
@@ -630,7 +634,7 @@ export function enrichApps(
   llmClassifications: LlmClassificationEntry[] = loadLlmClassifications(),
   matchOverrides: MatchOverrides = loadMatchOverrides(),
 ): CatalogApp[] {
-  const llmCategories = llmCategoryMap(llmClassifications);
+  const llmByAppId = llmClassificationMap(llmClassifications);
   const forceKeys = forceMatchedKeys(matchOverrides);
 
   const apps: CatalogApp[] = matched.map((app) => {
@@ -641,8 +645,8 @@ export function enrichApps(
       pickField(app.packages, (pkg) =>
         pkg.categories && pkg.categories.length > 0 ? pkg.categories : undefined,
       ) ?? [];
-    const hasKnownGameGenre = pickCategory(categories, true) !== TO_CLASSIFY;
-    const isGame =
+    const hasKnownGameGenre = pickCategory(categories, "game") !== TO_CLASSIFY;
+    const heuristicType: ContentType =
       (app.packages.some(hasGameEvidence) ||
         app.packages.some(hasGameNameEvidence) ||
         looksLikeGameDescription(
@@ -654,11 +658,13 @@ export function enrichApps(
         !isGameAdjacentToolDescription(
           shortDescription,
           app.packages.map((pkg) => pkg.name),
-        ));
+        ))
+        ? "game"
+        : "app";
 
     const deterministicCategory = pickCategoryLabel(
       app.packages,
-      isGame,
+      heuristicType,
       categoryRules,
       gameCategoryRules,
       descriptionCategoryRules,
@@ -666,15 +672,12 @@ export function enrichApps(
       shortDescription,
     );
     // Last resort, only for what the deterministic signals left in "To
-    // Classify": the LLM's verdict wins outright, including on game vs.
-    // app — its label's taxonomy overrides `isGame` (a game the heuristics
-    // missed becomes one; a tool they mistook for a game stops being one).
-    const llm =
-      deterministicCategory === TO_CLASSIFY
-        ? pickLlmClassification(llmCategories, app.id)
-        : undefined;
+    // Classify": the LLM's answer wins outright, type included — it carries
+    // its own app-or-game verdict, so a game the heuristics missed becomes
+    // one, and a tool they mistook for a game stops being one.
+    const llm = deterministicCategory === TO_CLASSIFY ? llmByAppId.get(app.id) : undefined;
+    const type: ContentType = llm?.type ?? heuristicType;
     const pickedCategory = llm?.category ?? deterministicCategory;
-    const contentIsGame = llm?.isGame ?? isGame;
 
     return {
       id: app.id,
@@ -683,7 +686,7 @@ export function enrichApps(
       homepage: representative.homepage,
       packages: app.packages,
       kind: app.packages.some(hasGuiEvidence) ? "gui" : undefined,
-      contentType: contentIsGame ? "game" : undefined,
+      contentType: type === "game" ? "game" : undefined,
       appStoreFrontend: isAppStoreFrontend(app.packages, appStoreFrontends) ? true : undefined,
       category: pickedCategory,
       iconUrl: pickField(app.packages, (pkg) => pkg.iconUrl),

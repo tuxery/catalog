@@ -1,9 +1,9 @@
 {
   "source": "appimage",
-  "fetchedAt": "2026-09-30T14:20:48.549Z",
+  "fetchedAt": "2026-10-03T09:53:53.339Z",
   "url": "https://appimage.github.io/feed.json",
-  "entryCount": 2165,
-  "totalFeedItems": 2569,
-  "versionsResolved": 2027,
-  "deadReposDropped": 54
+  "entryCount": 2498,
+  "totalFeedItems": 2906,
+  "versionsResolved": 2351,
+  "deadReposDropped": 58
 }

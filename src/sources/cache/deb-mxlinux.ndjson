@@ -84,19 +84,19 @@
 {"name":"mx-menu-editor","description":"editor for Xfce application menus","version":"26.09","section":"admin"}
 {"name":"mx-network-assistant","description":"MX program for network troubleshooting and configuration","version":"26.03","homepage":"https://github.com/MX-Linux/mx-network-assistant","section":"admin"}
 {"name":"mx-packageinstaller","description":"Package installation tool for MX Linux","version":"26.09","homepage":"https://github.com/MX-Linux/mx-packageinstaller","section":"admin"}
-{"name":"mx-packageinstaller-pkglist","description":"Part of MX program for installing additional packages.","version":"26.09.6mx25","section":"admin"}
+{"name":"mx-packageinstaller-pkglist","description":"Part of MX program for installing additional packages.","version":"26.10.1mx25","section":"admin"}
 {"name":"mx-remaster","description":"Tools for live persistence and remastering.","version":"26.06.03mx25","homepage":"http://mxlinux.org","section":"system"}
 {"name":"mx-remastercc","description":"Remaster Control Center for MX Linux","version":"26.03","homepage":"https://github.com/MX-Linux/mx-remastercc","section":"admin"}
 {"name":"mx-repo-list","description":"Part of MX program for managing repos.","version":"26.06","section":"admin"}
 {"name":"mx-repo-manager","description":"Repository management tool for MX Linux","version":"26.09","homepage":"https://github.com/MX-Linux/mx-repo-manager","section":"admin"}
 {"name":"mx-rofi-manager","description":"Manager of rofi themes and settings","version":"25.11.01","homepage":"https:/mxlinux.org","section":"desktop"}
-{"name":"mx-samba-config","description":"Samba configuration tool for MX Linux","version":"26.03","homepage":"https://github.com/MX-Linux/mx-samba-config","section":"admin"}
+{"name":"mx-samba-config","description":"Samba configuration tool for MX Linux","version":"26.09","homepage":"https://github.com/MX-Linux/mx-samba-config","section":"admin"}
 {"name":"mx-select-sound","description":"Sound card selection tool for MX Linux","version":"26.08","homepage":"https://github.com/MX-Linux/mx-select-sound","section":"admin"}
 {"name":"mx-service-manager","description":"Service management tool for MX Linux","version":"26.08","homepage":"https://github.com/MX-Linux/mx-service-manager","section":"admin"}
 {"name":"mx-snapshot","description":"System snapshot tool for MX Linux","version":"26.08","homepage":"https://github.com/MX-Linux/mx-snapshot","section":"admin"}
 {"name":"mx-sound-theme-borealis","description":"Sound theme for mx-system-sounds","version":"17.6mx16","homepage":"http://github.com/mx-linux","section":"system"}
 {"name":"mx-sound-theme-fresh-and-clean","description":"Fresh and Clean sound theme packaged for mx-system-sounds","version":"16.12mx16","homepage":"http://github.com/mx-linux","section":"system"}
-{"name":"mx-system","description":"metapackage for packages needed for system functions","version":"26.09.05mx25","section":"system"}
+{"name":"mx-system","description":"metapackage for packages needed for system functions","version":"26.09.06mx25","section":"system"}
 {"name":"mx-system-kde","description":"metapackage for packages needed for system functions on KDE-plasma","version":"20.09.01","section":"system"}
 {"name":"mx-system-sounds","description":"System sound configuration tool for MX Linux","version":"26.03","homepage":"https://github.com/MX-Linux/mx-system-sounds","section":"admin"}
 {"name":"mx-theme-colors","description":"Edit the highlight colors of MX-Linux themes","version":"26.09.01","homepage":"<https:/mxlinux.org>","section":"miscellaneous"}
@@ -107,7 +107,7 @@
 {"name":"mx-updater","description":"tray applet to notify of system and application updates","version":"26.09.01mx25","homepage":"https://github.com/MX-Linux/mx-updater","section":"admin"}
 {"name":"mx-usb-unmounter","description":"Tray application for unmounting removable media","version":"26.07.1","homepage":"https://mxlinux.org","section":"admin"}
 {"name":"mx-user","description":"MX User Manager","version":"26.07.1","homepage":"https://github.com/mx-linux/mx-user","section":"admin"}
-{"name":"mx-viewer","description":"Lightweight web browser for MX Linux","version":"26.06","section":"web"}
+{"name":"mx-viewer","description":"Lightweight web browser for MX Linux","version":"26.09.1","section":"web"}
 {"name":"mx-welcome","description":"Welcome screen for MX Linux","version":"26.09.6mx25","homepage":"https://github.com/AdrianTM/mx-welcome","section":"admin"}
 {"name":"mx-welcome-data","description":"configuration information for mx-welcome","version":"25.11.01mx25","section":"admin"}
 {"name":"mx14-artwork","description":"Default wallpaper backgrounds for MX14","version":"14.03.24","section":"xfce"}

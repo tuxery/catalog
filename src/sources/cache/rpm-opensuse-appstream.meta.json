@@ -1,8 +1,8 @@
 {
   "source": "rpm-opensuse-appstream",
-  "fetchedAt": "2026-09-25T21:39:40.831Z",
+  "fetchedAt": "2026-10-03T09:55:14.264Z",
   "url": "https://download.opensuse.org/tumbleweed/repo/oss, https://download.opensuse.org/tumbleweed/repo/non-oss",
-  "entryCount": 889,
+  "entryCount": 891,
   "reposFetched": [
     "oss",
     "non-oss"

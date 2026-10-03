@@ -46,7 +46,7 @@ import { applySuites, loadSuiteOverrides, type SuiteOverrideEntry } from "./suit
 import {
   llmCategoryMap,
   loadLlmClassifications,
-  pickLlmCategory,
+  pickLlmClassification,
   type LlmClassificationEntry,
 } from "./llm-classifications";
 import type { CatalogApp } from "./types";
@@ -656,7 +656,7 @@ export function enrichApps(
           app.packages.map((pkg) => pkg.name),
         ));
 
-    const pickedCategory = pickCategoryLabel(
+    const deterministicCategory = pickCategoryLabel(
       app.packages,
       isGame,
       categoryRules,
@@ -665,6 +665,16 @@ export function enrichApps(
       descriptionGameCategoryRules,
       shortDescription,
     );
+    // Last resort, only for what the deterministic signals left in "To
+    // Classify": the LLM's verdict wins outright, including on game vs.
+    // app — its label's taxonomy overrides `isGame` (a game the heuristics
+    // missed becomes one; a tool they mistook for a game stops being one).
+    const llm =
+      deterministicCategory === TO_CLASSIFY
+        ? pickLlmClassification(llmCategories, app.id)
+        : undefined;
+    const pickedCategory = llm?.category ?? deterministicCategory;
+    const contentIsGame = llm?.isGame ?? isGame;
 
     return {
       id: app.id,
@@ -673,12 +683,9 @@ export function enrichApps(
       homepage: representative.homepage,
       packages: app.packages,
       kind: app.packages.some(hasGuiEvidence) ? "gui" : undefined,
-      contentType: isGame ? "game" : undefined,
+      contentType: contentIsGame ? "game" : undefined,
       appStoreFrontend: isAppStoreFrontend(app.packages, appStoreFrontends) ? true : undefined,
-      category:
-        pickedCategory !== TO_CLASSIFY
-          ? pickedCategory
-          : (pickLlmCategory(llmCategories, app.id, isGame) ?? TO_CLASSIFY),
+      category: pickedCategory,
       iconUrl: pickField(app.packages, (pkg) => pkg.iconUrl),
       approxSizeBytes: pickField(app.packages, (pkg) => pkg.approxSizeBytes),
       license: pickField(app.packages, (pkg) => pkg.license),

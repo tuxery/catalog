@@ -97,7 +97,7 @@ interface BatchItem {
  */
 class StopRun extends Error {}
 
-// Fixed per taxonomy (app categories or game genres) and placed first, so
+// Fixed (both taxonomies, the same for every request) and placed first, so
 // it's an identical prefix across requests — cacheable by providers that
 // discount cached tokens (Groq doesn't count them against rate limits).
 // The allowed list is spelled out here, not only enforced downstream: Groq
@@ -106,12 +106,14 @@ class StopRun extends Error {}
 // `n` echoes the item's 1-based position rather than its name: two apps in
 // one batch can share a display name. Output format: see outputSchema in
 // _llm-providers.ts for why it's one pipe-separated string per app.
-function systemPrompt(allowedCategories: string[]): string {
-  return `Classify each Linux package (n|name|desc) into exactly one category:
-${allowedCategories.join(" | ")}
+function systemPrompt(appCategories: string[], gameGenres: string[]): string {
+  return `Classify each Linux package (n|name|desc) into exactly one label.
+Playable video/board/card game -> a game genre: ${gameGenres.join(" | ")}
+Anything else -> an app category: ${appCategories.join(" | ")}
+Decide game vs app yourself from the name and description; ignore where the package comes from. Tools around games (launchers, emulators, engines, mod managers, data/asset packs) are not games: use an app category.
 k (confidence): h = unambiguous; m = reasonable guess; l = vague/missing desc or several fit. Prefer an honest l.
 r: reason, max 6 words.
-Return {"results":["n|category|k|r", ...]}: one string per package, n echoed exactly, category spelled exactly as listed, name NOT repeated.
+Return {"results":["n|label|k|r", ...]}: one string per package, n echoed exactly, label spelled exactly as listed, name NOT repeated.
 Example: "1|Developer Tools|h|CLI token usage analyzer"`;
 }
 
@@ -191,7 +193,7 @@ async function callPaced(
   await paced(model);
   try {
     const { results, tokens, outputTokens } = await callModel(model, {
-      system: systemPrompt(allowedCategories),
+      system: systemPrompt([...APP_CATEGORY_LABEL_VALUES], [...GAME_CATEGORY_LABEL_VALUES]),
       user: userPrompt(batch),
       allowedCategories,
     });
@@ -361,17 +363,18 @@ function writeConfig(entries: Map<string, LlmClassificationEntry>): void {
 async function main(): Promise<void> {
   const dataset = await buildDataset();
   const existing = new Map(loadLlmClassifications().map((entry) => [entry.id, entry]));
+  // `--retry-low` also re-asks the entries a previous run left at "low".
+  const retryLow = hasFlag("--retry-low");
   const toClassify = dataset.apps.filter(
-    (app) => app.category === "To Classify" && !existing.has(app.id),
+    (app) =>
+      app.category === "To Classify" &&
+      (!existing.has(app.id) || (retryLow && existing.get(app.id)?.confidence === "low")),
   );
   const effectiveLimit = sample ?? limit;
   const todo = effectiveLimit === undefined ? toClassify : toClassify.slice(0, effectiveLimit);
 
-  const games = todo.filter((app) => app.contentType === "game");
-  const apps = todo.filter((app) => app.contentType !== "game");
-
   console.log(
-    `To classify: ${todo.length} (${games.length} games, ${apps.length} apps) | ${MODELS.map((m) => `${m.id} (x${m.batchSize})`).join(" > ")}${maxRequests !== undefined ? ` | max ${maxRequests} requests` : ""}${dryRun ? " | DRY RUN" : ""}${sample !== undefined ? ` | SAMPLE (${sample}, not persisted)` : ""}`,
+    `To classify: ${todo.length} | ${MODELS.map((m) => `${m.id} (x${m.batchSize})`).join(" > ")}${maxRequests !== undefined ? ` | max ${maxRequests} requests` : ""}${dryRun ? " | DRY RUN" : ""}${sample !== undefined ? ` | SAMPLE (${sample}, not persisted)` : ""}`,
   );
 
   const persist = !dryRun && sample === undefined;
@@ -416,14 +419,9 @@ async function main(): Promise<void> {
 
   try {
     await runGroup({
-      items: toItems(games),
+      items: toItems(todo),
       cursor: 0,
-      allowedCategories: [...GAME_CATEGORY_LABEL_VALUES],
-    });
-    await runGroup({
-      items: toItems(apps),
-      cursor: 0,
-      allowedCategories: [...APP_CATEGORY_LABEL_VALUES],
+      allowedCategories: [...APP_CATEGORY_LABEL_VALUES, ...GAME_CATEGORY_LABEL_VALUES],
     });
   } catch (error) {
     if (!(error instanceof StopRun)) throw error;

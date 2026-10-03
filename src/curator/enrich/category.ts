@@ -56,6 +56,15 @@ export const GAME_CATEGORY_LABEL_VALUES = [
   "Strategy",
 ] as const;
 
+/**
+ * What a catalog entry is: a playable `game`, or an `app` (everything else,
+ * tools around games included). Each type has its own closed category set —
+ * app categories for `app`, genres for `game` — so a category is only
+ * meaningful together with its type.
+ */
+export const CONTENT_TYPE_VALUES = ["app", "game"] as const;
+export type ContentType = (typeof CONTENT_TYPE_VALUES)[number];
+
 /** `config/categories-apps.json`'s own label vocabulary — see `AppCategoryLabel`/`APP_CATEGORY_LABEL_VALUES` above for why it's a closed set. */
 export const AppCategoryLabelSchema = z.enum(APP_CATEGORY_LABEL_VALUES);
 export type AppCategoryLabel = z.infer<typeof AppCategoryLabelSchema>;
@@ -116,10 +125,10 @@ const GAME_CATEGORY_PREFERENCE = Object.keys(GAME_CATEGORY_LABELS);
 // games are both puzzle games in every real store researched). "KidsGame"
 // and the freedesktop "Education" Main Category (real co-occurrence with
 // "Game" on real data) both fold into "Educational".
-export function pickCategory(categories: string[], isGame: boolean): string {
+export function pickCategory(categories: string[], type: ContentType): string {
   const present = new Set(categories);
-  const labels = isGame ? GAME_CATEGORY_LABELS : APP_CATEGORY_LABELS;
-  const preference = isGame ? GAME_CATEGORY_PREFERENCE : APP_CATEGORY_PREFERENCE;
+  const labels = type === "game" ? GAME_CATEGORY_LABELS : APP_CATEGORY_LABELS;
+  const preference = type === "game" ? GAME_CATEGORY_PREFERENCE : APP_CATEGORY_PREFERENCE;
   const match = preference.find((category) => present.has(category));
   return (match && labels[match]) || TO_CLASSIFY;
 }

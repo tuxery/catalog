@@ -5,12 +5,15 @@ import {
   loadLlmClassifications,
   type LlmClassificationEntry,
 } from "../src/curator/enrich/llm-classifications";
-import {
-  APP_CATEGORY_LABEL_VALUES,
-  GAME_CATEGORY_LABEL_VALUES,
-} from "../src/curator/enrich/category";
 import { loadLlmModels, type LlmModel } from "../src/curator/enrich/llm-models";
-import { callModel, ModelUnavailable, RetryLater, type BatchResult } from "./_llm-providers";
+import {
+  buildSystemPrompt,
+  buildUserPrompt,
+  TAXONOMY,
+  type BatchItem,
+  type BatchResult,
+} from "../src/curator/enrich/llm-prompt";
+import { callModel, ModelUnavailable, RetryLater } from "./_llm-providers";
 
 const CONFIG_PATH = fileURLToPath(new URL("../config/llm-classifications.json", import.meta.url));
 
@@ -53,6 +56,10 @@ const modelsFlag = flag("--models");
 // When no model can serve right now, wait for the next one only if it's back
 // within this many minutes; otherwise save and exit, printing when to re-run.
 const maxIdleMinutes = Number(flag("--max-idle") ?? 20);
+// `--source <id>` restricts the run to apps with a package from that source
+// (e.g. `lutris`) — with `--sample`, to check the prompt on a source whose
+// mix of games and apps differs from the backlog's AUR-heavy head.
+const sourceFilter = flag("--source");
 const dryRun = hasFlag("--dry-run");
 // `--sample [N]` (default 5): real API calls on just N still-unclassified
 // apps, to test the whole chain end to end (network, schema, parsing) —
@@ -83,12 +90,6 @@ const MODELS = resolveModels();
 if (MODELS.length === 0) throw new Error("No enabled model in config/llm-models.json.");
 
 // --- Types ---
-interface BatchItem {
-  id: string;
-  name: string;
-  description: string;
-}
-
 /**
  * Thrown when this run should stop for now — every model's daily quota
  * spent, the `--max-requests` cap, or every model staying overloaded
@@ -97,40 +98,7 @@ interface BatchItem {
  */
 class StopRun extends Error {}
 
-// Fixed (both taxonomies, the same for every request) and placed first, so
-// it's an identical prefix across requests — cacheable by providers that
-// discount cached tokens (Groq doesn't count them against rate limits).
-// The allowed list is spelled out here, not only enforced downstream: Groq
-// validates schemas after generation rather than while decoding, and
-// models invented off-list categories when the list wasn't in the prompt.
-// `n` echoes the item's 1-based position rather than its name: two apps in
-// one batch can share a display name. Output format: see outputSchema in
-// _llm-providers.ts for why it's one pipe-separated string per app.
-function systemPrompt(appCategories: string[], gameGenres: string[]): string {
-  return `Classify each Linux package (n|name|desc) into exactly one label.
-Playable video/board/card game -> a game genre: ${gameGenres.join(" | ")}
-Anything else -> an app category: ${appCategories.join(" | ")}
-Decide game vs app yourself from the name and description; ignore where the package comes from. Tools around games (launchers, emulators, engines, mod managers, data/asset packs) are not games: use an app category.
-k (confidence): h = unambiguous; m = reasonable guess; l = vague/missing desc or several fit. Prefer an honest l.
-r: reason, max 6 words.
-Return {"results":["n|label|k|r", ...]}: one string per package, n echoed exactly, label spelled exactly as listed, name NOT repeated.
-Example: "1|Developer Tools|h|CLI token usage analyzer"`;
-}
-
-/** "|" and line breaks inside a field would break the one-line "n|name|desc" format. */
-function cleanField(text: string): string {
-  return text.replaceAll("|", "/").replaceAll(/\s+/g, " ").trim();
-}
-
-/** One "n|name|desc" line per app. */
-function userPrompt(items: BatchItem[]): string {
-  return items
-    .map(
-      (item, i) =>
-        `${i + 1}|${cleanField(item.name)}|${cleanField((item.description || "").slice(0, 160))}`,
-    )
-    .join("\n");
-}
+const SYSTEM_PROMPT = buildSystemPrompt();
 
 // --- Per-model pacing and stats ---
 interface ModelState {
@@ -186,16 +154,15 @@ function recordTokens(
 async function callPaced(
   model: LlmModel,
   batch: BatchItem[],
-  allowedCategories: string[],
   attempt = 0,
   overloadAttempt = 0,
 ): Promise<BatchResult[]> {
   await paced(model);
   try {
     const { results, tokens, outputTokens } = await callModel(model, {
-      system: systemPrompt([...APP_CATEGORY_LABEL_VALUES], [...GAME_CATEGORY_LABEL_VALUES]),
-      user: userPrompt(batch),
-      allowedCategories,
+      system: SYSTEM_PROMPT,
+      user: buildUserPrompt(batch),
+      taxonomy: TAXONOMY,
     });
     recordTokens(model, tokens, outputTokens);
     return results;
@@ -205,7 +172,7 @@ async function callPaced(
         `${model.id}: ${error.message} — retrying in ${Math.round(error.waitMs / 1000)}s`,
       );
       await new Promise((resolve) => setTimeout(resolve, error.waitMs));
-      return callPaced(model, batch, allowedCategories, attempt + 1, overloadAttempt);
+      return callPaced(model, batch, attempt + 1, overloadAttempt);
     }
     if (
       error instanceof ModelUnavailable &&
@@ -214,7 +181,7 @@ async function callPaced(
     ) {
       console.warn(`${model.id}: ${error.message} — retrying in 10s`);
       await new Promise((resolve) => setTimeout(resolve, 10_000));
-      return callPaced(model, batch, allowedCategories, attempt, overloadAttempt + 1);
+      return callPaced(model, batch, attempt, overloadAttempt + 1);
     }
     if (error instanceof RetryLater) throw new ModelUnavailable(error.message, false);
     throw error;
@@ -279,7 +246,6 @@ function rest(model: LlmModel, error: ModelUnavailable): void {
 interface Group {
   items: BatchItem[];
   cursor: number;
-  allowedCategories: string[];
 }
 
 /**
@@ -316,7 +282,7 @@ async function classifyNextBatch(
   }
   const batch = group.items.slice(group.cursor, group.cursor + model.batchSize);
   try {
-    const results = await callPaced(model, batch, group.allowedCategories);
+    const results = await callPaced(model, batch);
     availabilityOf(model).overloadStreak = 0;
     return { batch, results, model };
   } catch (error) {
@@ -352,7 +318,7 @@ function writeConfig(entries: Map<string, LlmClassificationEntry>): void {
  * Needs GEMINI_API_KEY and/or GROQ_API_KEY, for whichever providers the
  * enabled models use. Each entry records the model that produced it and
  * the LLM's own `confidence`; `low` ones are stored but not applied (see
- * `llmCategoryMap`). When no model can serve (all daily-capped, or all
+ * `llmClassificationMap`). When no model can serve (all daily-capped, or all
  * overloaded) the run saves and exits cleanly.
  *
  * Resumable in every mode (--sample included): re-running skips ids already
@@ -368,6 +334,7 @@ async function main(): Promise<void> {
   const toClassify = dataset.apps.filter(
     (app) =>
       app.category === "To Classify" &&
+      (sourceFilter === undefined || app.packages.some((pkg) => pkg.source === sourceFilter)) &&
       (!existing.has(app.id) || (retryLow && existing.get(app.id)?.confidence === "low")),
   );
   const effectiveLimit = sample ?? limit;
@@ -387,11 +354,12 @@ async function main(): Promise<void> {
       for (const item of group.items) {
         results.set(item.id, {
           id: item.id,
-          category: group.allowedCategories[0] as LlmClassificationEntry["category"],
+          type: "app",
+          category: TAXONOMY.app[0] as LlmClassificationEntry["category"],
           confidence: "low",
           reason: "dry-run placeholder",
           model: "dry-run",
-        });
+        } as LlmClassificationEntry);
       }
       group.cursor = group.items.length;
       return;
@@ -403,11 +371,12 @@ async function main(): Promise<void> {
       if (!item) continue;
       results.set(item.id, {
         id: item.id,
-        category: result.category as LlmClassificationEntry["category"],
+        type: result.type,
+        category: result.category,
         confidence: result.confidence,
         reason: result.reason,
         model: model.id,
-      });
+      } as LlmClassificationEntry);
       newEntries += 1;
       (state.get(model.id) as ModelState).apps += 1;
     }
@@ -418,11 +387,7 @@ async function main(): Promise<void> {
   }
 
   try {
-    await runGroup({
-      items: toItems(todo),
-      cursor: 0,
-      allowedCategories: [...APP_CATEGORY_LABEL_VALUES, ...GAME_CATEGORY_LABEL_VALUES],
-    });
+    await runGroup({ items: toItems(todo), cursor: 0 });
   } catch (error) {
     if (!(error instanceof StopRun)) throw error;
     console.warn(
@@ -451,7 +416,7 @@ async function main(): Promise<void> {
     for (const item of todo) {
       const result = results.get(item.id);
       console.log(
-        `  [${result?.confidence ?? "-"}] ${item.name} -> ${result?.category ?? "(no result)"} (${result?.reason ?? ""}) — ${item.shortDescription.slice(0, 80)}`,
+        `  [${result?.confidence ?? "-"}] ${item.name} -> ${result ? `${result.type}/${result.category}` : "(no result)"} (${result?.reason ?? ""}) — ${item.shortDescription.slice(0, 80)}`,
       );
     }
     return;

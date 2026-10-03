@@ -436,13 +436,14 @@ describe("enrichApps", () => {
     expect(app?.category).toBe(TO_CLASSIFY);
   });
 
-  it("applies a stored LLM classification whose taxonomy matches the app's current contentType", () => {
+  it("applies a stored LLM classification to an app the heuristics left unclassified", () => {
     const matched: MatchedApp[] = [
       { id: "aur:example", packages: [pkg({ source: "pacman-aur", name: "example" })] },
     ];
     const llmClassifications: LlmClassificationEntry[] = [
       {
         id: "aur:example",
+        type: "app",
         category: "Utilities",
         confidence: "high",
         reason: "test fixture",
@@ -464,15 +465,16 @@ describe("enrichApps", () => {
     expect(app?.category).toBe("Utilities");
   });
 
-  it("lets a stored LLM game genre turn a non-game app into a game", () => {
-    // The LLM's label carries its game-or-app verdict: a genre on an app the
-    // heuristics left unclassified makes it a game.
+  it("lets a stored LLM `game` entry turn a non-game app into a game", () => {
+    // The entry's own `type` is the LLM's game-or-app verdict: `game` on an
+    // app the heuristics left unclassified makes it a game.
     const matched: MatchedApp[] = [
       { id: "aur:example", packages: [pkg({ source: "pacman-aur", name: "example" })] },
     ];
     const llmClassifications: LlmClassificationEntry[] = [
       {
         id: "aur:example",
+        type: "game",
         category: "Strategy",
         confidence: "high",
         reason: "test fixture",
@@ -495,7 +497,7 @@ describe("enrichApps", () => {
     expect(app?.contentType).toBe("game");
   });
 
-  it("lets a stored LLM app category turn a game-flagged app into a non-game", () => {
+  it("lets a stored LLM `app` entry turn a game-flagged app into a non-game", () => {
     const matched: MatchedApp[] = [
       {
         id: "flathub:example",
@@ -512,6 +514,7 @@ describe("enrichApps", () => {
     const llmClassifications: LlmClassificationEntry[] = [
       {
         id: "flathub:example",
+        type: "app",
         category: "System Tools",
         confidence: "medium",
         reason: "test fixture",
@@ -541,6 +544,7 @@ describe("enrichApps", () => {
     const llmClassifications: LlmClassificationEntry[] = [
       {
         id: "aur:example",
+        type: "app",
         category: "Utilities",
         confidence: "low",
         reason: "test fixture",

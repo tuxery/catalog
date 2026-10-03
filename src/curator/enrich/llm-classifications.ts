@@ -17,10 +17,13 @@ const LLM_CLASSIFICATIONS_PATH = fileURLToPath(
  * reintroduce (see `match/group.ts`'s GENERIC_NAME_BLOCKLIST).
  *
  * `category` is a union of the two disjoint taxonomies: an app label for
- * non-game apps, a game genre for games. The generating script
- * (`scripts/classify-llm.ts`) always emits the type consistent with each
- * app's own `contentType`, so a lookup never returns a genre for an app
- * or vice versa.
+ * non-game apps, a game genre for games. The label itself carries the
+ * LLM's verdict on whether the package is a game at all: the generating
+ * script (`scripts/classify-llm.ts`) offers both taxonomies for every app,
+ * and `pickLlmClassification` derives `contentType` from which one the
+ * answer belongs to — the deterministic isGame heuristics can't override
+ * it (they already had their say: only apps they left in "To Classify"
+ * reach the LLM).
  */
 const LlmClassificationEntrySchema = z.object({
   id: z
@@ -69,24 +72,28 @@ export function llmCategoryMap(entries: LlmClassificationEntry[]): Map<string, s
   );
 }
 
+/** What an applied LLM entry decides for an app: its category label, and — implied by which taxonomy that label belongs to — whether it's a game. */
+export interface LlmClassification {
+  category: string;
+  isGame: boolean;
+}
+
 /**
- * Looks up an app's LLM-assigned category, but only returns it if it still
- * matches the app's *current* isGame taxonomy (an app label for a non-game,
- * a genre for a game). The stored entry is only guaranteed consistent with
- * contentType at generation time (see `LlmClassificationEntrySchema`'s doc
- * comment) — a later change to the deterministic isGame signals (tightened
- * or loosened without rerunning `pnpm classify-llm`) can flip an app's
- * isGame without regenerating `config/llm-classifications.json`, which
- * would otherwise leak a stale genre label onto a non-game app or vice
- * versa instead of falling back to `TO_CLASSIFY`.
+ * Looks up an app's LLM-assigned classification. The label's taxonomy is
+ * the LLM's own game-or-app verdict (see `LlmClassificationEntrySchema`),
+ * so it's returned as `isGame` for the caller to apply — an entry is never
+ * rejected for disagreeing with the deterministic isGame signals, which
+ * is the whole point of asking the LLM about the apps those signals
+ * couldn't place. Returns undefined for an unknown id or a label outside
+ * both taxonomies (a stale entry after a taxonomy change).
  */
-export function pickLlmCategory(
+export function pickLlmClassification(
   map: Map<string, string>,
   id: string,
-  isGame: boolean,
-): string | undefined {
+): LlmClassification | undefined {
   const category = map.get(id);
   if (category === undefined) return undefined;
-  const schema = isGame ? GameCategoryLabelSchema : AppCategoryLabelSchema;
-  return schema.safeParse(category).success ? category : undefined;
+  if (GameCategoryLabelSchema.safeParse(category).success) return { category, isGame: true };
+  if (AppCategoryLabelSchema.safeParse(category).success) return { category, isGame: false };
+  return undefined;
 }

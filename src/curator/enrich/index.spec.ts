@@ -464,11 +464,9 @@ describe("enrichApps", () => {
     expect(app?.category).toBe("Utilities");
   });
 
-  it("ignores a stored LLM classification whose taxonomy no longer matches the app's current contentType", () => {
-    // Simulates a deterministic isGame signal changing between the LLM
-    // classification run and this rebuild (e.g. a heuristic tightened or
-    // loosened) without config/llm-classifications.json being regenerated
-    // — the app is a non-game here, but the stored entry is a game genre.
+  it("lets a stored LLM game genre turn a non-game app into a game", () => {
+    // The LLM's label carries its game-or-app verdict: a genre on an app the
+    // heuristics left unclassified makes it a game.
     const matched: MatchedApp[] = [
       { id: "aur:example", packages: [pkg({ source: "pacman-aur", name: "example" })] },
     ];
@@ -493,7 +491,47 @@ describe("enrichApps", () => {
       undefined,
       llmClassifications,
     )[0];
-    expect(app?.category).toBe(TO_CLASSIFY);
+    expect(app?.category).toBe("Strategy");
+    expect(app?.contentType).toBe("game");
+  });
+
+  it("lets a stored LLM app category turn a game-flagged app into a non-game", () => {
+    const matched: MatchedApp[] = [
+      {
+        id: "flathub:example",
+        packages: [
+          pkg({
+            source: "flatpak-flathub",
+            name: "example",
+            hasGameCategory: true,
+            categories: ["Game"],
+          }),
+        ],
+      },
+    ];
+    const llmClassifications: LlmClassificationEntry[] = [
+      {
+        id: "flathub:example",
+        category: "System Tools",
+        confidence: "medium",
+        reason: "test fixture",
+        model: "test",
+      },
+    ];
+
+    const app = enrichApps(
+      matched,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      llmClassifications,
+    )[0];
+    expect(app?.category).toBe("System Tools");
+    expect(app?.contentType).toBeUndefined();
   });
 
   it("ignores a stored LLM classification the LLM itself rated low-confidence", () => {

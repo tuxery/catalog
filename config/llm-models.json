@@ -53,57 +53,16 @@
     "reason": "Groq fallback once the Gemini chain is spent or overloaded. On the same 29 apps it agreed with Gemini 72% of the time (13/15 on Gemini-high ones), with defensible disagreements and well-calibrated confidence ('low' on description-less apps) — far ahead of gpt-oss-20b (45%) and gpt-oss-120b (52%). Groq's free tier caps it on tokens: 8,000/min, 200,000/day, and above all 1,000 *output* tokens/min, checked against the request's requested output before it runs. With the pipe-string output format (~12 output tokens/app, measured 2026-09-27; 78% agreement with Gemini on 64 apps), batches are capped at 32 apps: on Groq's strict json_schema, qwen3.8-27b never returns more than 32 array items (finish_reason 'stop' at 32, ~470 output tokens, even when told the exact count — measured 2026-09-30), so larger batches paid input tokens for apps that never got an answer. 32 apps also fit well under a 950-token output cap. Pacing on both total and output tokens (with margins) avoids per-minute 429s. Reasoning 'none' (supported by Qwen, not gpt-oss) keeps output lean."
   },
   {
-    "id": "gemma-3-27b-it",
+    "id": "gemma-4-26b-a4b-it",
     "provider": "gemini",
     "enabled": false,
     "batchSize": 100,
     "requestsPerMinute": 25,
     "tokensPerMinute": 13000,
-    "maxOutputTokens": 2000,
-    "plainPrompt": true,
-    "reasoning": "none",
+    "maxOutputTokens": 3000,
+    "reasoning": "minimal",
     "overloadRetries": 1,
-    "reason": "Not calibrated yet (added 2026-10-04) — enable once a --sample run agrees with Gemini Flash. Gemma 3 on the Gemini API free tier is announced at 30 requests/min and 14,400 requests/day, but 15,000 tokens/min: token-capped like Groq, not request-capped like Flash, hence token pacing with a margin (13,000) and 100-app batches (~830-token system prompt + ~45 input and ~14 output tokens per app, about 6,700 tokens a request). Gemma takes neither a system instruction nor JSON mode on this API (plainPrompt), so parseResults extracts the JSON from free text. If its quality holds, it's the biggest free volume of the list."
-  },
-  {
-    "id": "mistral-small-latest",
-    "provider": "openai",
-    "baseUrl": "https://api.mistral.ai/v1",
-    "apiKeyEnv": "MISTRAL_API_KEY",
-    "enabled": false,
-    "batchSize": 200,
-    "requestsPerMinute": 2,
-    "maxOutputTokens": 4000,
-    "reasoning": "none",
-    "overloadRetries": 1,
-    "reason": "Not calibrated yet (added 2026-10-04). Mistral's free 'Experiment' tier: about 1 billion tokens/month with a low request rate (exact limits only shown in the console — check before raising requestsPerMinute), and it requires opting in to training on the prompts, acceptable here since they're public package metadata. Request-capped, so large batches like Gemini Flash."
-  },
-  {
-    "id": "meta/llama-3.3-70b-instruct",
-    "provider": "openai",
-    "baseUrl": "https://integrate.api.nvidia.com/v1",
-    "apiKeyEnv": "NVIDIA_API_KEY",
-    "enabled": false,
-    "batchSize": 100,
-    "requestsPerMinute": 35,
-    "maxOutputTokens": 2000,
-    "responseFormat": "json_object",
-    "reasoning": "none",
-    "overloadRetries": 1,
-    "reason": "Not calibrated yet (added 2026-10-04). NVIDIA NIM's build.nvidia.com API: 40 requests/min with no daily cap announced, but presented as a trial for evaluation and prototyping, with a credit system that's poorly documented — check on the account whether credits run out before relying on it. json_object rather than json_schema: NIM's support for the latter is unverified. Other open models on the same endpoint (Qwen, Nemotron, ...) are worth sampling too."
-  },
-  {
-    "id": "openai/gpt-4.1-mini",
-    "provider": "openai",
-    "baseUrl": "https://models.github.ai/inference",
-    "apiKeyEnv": "GITHUB_MODELS_TOKEN",
-    "enabled": false,
-    "batchSize": 80,
-    "requestsPerMinute": 10,
-    "maxOutputTokens": 1500,
-    "reasoning": "none",
-    "overloadRetries": 0,
-    "reason": "Not calibrated yet (added 2026-10-04). GitHub Models' free tier: roughly 150-1,000 requests/day depending on the model tier, and a small per-request token cap (about 8,000 in, 4,000 out), hence 80-app batches. Needs a GitHub token with the models:read scope in GITHUB_MODELS_TOKEN."
+    "reason": "Disabled until its free-tier quota is checked in AI Studio (Gemma 3 was announced at 14,400 requests/day but 15,000 tokens/min). Gemma 3 is no longer served on the Gemini API (2026-10-04). Gemma 4 takes the normal Gemini path (system instruction, JSON mode), but needs reasoning 'minimal': otherwise it thinks until maxOutputTokens runs out. On a 118-app hand-labelled sample (2026-10-04): 92% right type, 81% right type + category, zero real app called library/other at high confidence, but only 22/30 libraries caught — below Gemini 3.1 Flash-Lite and Qwen 3.8 27B (91-92%). Worth it only as a high-volume fallback. Token-capped: 100-app batches stay well under the per-minute cap (~53 tokens/app). Gemma 4 31B scored nothing: overloaded on every try."
   },
   {
     "id": "openai/gpt-oss-20b",

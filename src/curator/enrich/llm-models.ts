@@ -24,26 +24,26 @@ const LlmModelSchema = z
     provider: z
       .enum(["gemini", "groq", "openai"])
       .describe(
-        "Which API adapter serves this model — decides the request format, auth, and how quota errors are read. 'openai' is any OpenAI-compatible chat-completions API (Mistral, NVIDIA NIM, GitHub Models, OpenRouter, ...): it needs baseUrl and apiKeyEnv.",
+        "Which API adapter serves this model — decides the request format, auth, and how quota errors are read. 'openai' is any OpenAI-compatible chat-completions API: it needs baseUrl and apiKeyEnv.",
       ),
     baseUrl: z
       .url()
       .optional()
       .describe(
-        "OpenAI-compatible API root, without '/chat/completions' — e.g. 'https://api.mistral.ai/v1'. Required for provider 'openai', ignored otherwise.",
+        "OpenAI-compatible API root, without '/chat/completions' — e.g. 'https://openrouter.ai/api/v1'. Required for provider 'openai', ignored otherwise.",
       ),
     apiKeyEnv: z
       .string()
       .regex(/^[A-Z][A-Z0-9_]*$/)
       .optional()
       .describe(
-        "Environment variable holding the API key, e.g. 'MISTRAL_API_KEY'. Required for provider 'openai'; defaults to GEMINI_API_KEY / GROQ_API_KEY for the other two.",
+        "Environment variable holding the API key, e.g. 'OPENROUTER_API_KEY'. Required for provider 'openai'; defaults to GEMINI_API_KEY / GROQ_API_KEY for the other two.",
       ),
     plainPrompt: z
       .boolean()
       .optional()
       .describe(
-        "true for models that accept neither a system instruction nor a JSON mode/schema (Gemma on the Gemini API): the system prompt is sent at the top of the user message, the JSON shape is only asked for in the prompt text, and parseResults copes with stray text around it.",
+        "true for models that accept neither a system instruction nor a JSON mode/schema : the system prompt is sent at the top of the user message, the JSON shape is only asked for in the prompt text, and parseResults copes with stray text around it.",
       ),
     responseFormat: z
       .enum(["json_schema", "json_object"])

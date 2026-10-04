@@ -157,8 +157,8 @@ function parseType(token: string): LlmType | undefined {
 const NO_CATEGORY = new Set(["-", ""]);
 
 /**
- * The outermost `{...}` of a reply: models with no JSON mode (Gemma,
- * `plainPrompt`) tend to wrap it in a ```json fence or a sentence. Text
+ * The outermost `{...}` of a reply: models with no JSON mode
+ * (`plainPrompt`) tend to wrap it in a ```json fence or a sentence. Text
  * with no brace at all is returned as-is, so `JSON.parse` still throws on it.
  */
 function jsonPart(text: string): string {
@@ -180,9 +180,12 @@ export function parseResults(
   text: string | undefined,
   taxonomy: Taxonomy = TAXONOMY,
 ): BatchResult[] {
-  const lines = (JSON.parse(jsonPart(text ?? "{}")) as { results?: unknown[] }).results ?? [];
+  const entries = (JSON.parse(jsonPart(text ?? "{}")) as { results?: unknown[] }).results ?? [];
+  // Some models (Gemma 4, seen 2026-10-04) put every line in one array
+  // entry, newline-separated: each line still counts on its own.
+  const lines = entries.flatMap((entry) => String(entry).split("\n"));
   return lines.flatMap((line): BatchResult[] => {
-    const fields = String(line).split("|");
+    const fields = line.split("|");
     // Gemini tends to echo the input's "n|name|desc" shape and repeat the
     // name ("1|ccusage|app|Developer Tools|h|...", seen 2026-09-29): when
     // the second field isn't a type but the third is, skip the name.

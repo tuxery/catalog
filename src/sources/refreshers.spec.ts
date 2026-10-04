@@ -7,8 +7,7 @@ describe("REFRESHERS", () => {
   it("has a refresher for every committed source cache, and nothing else", () => {
     const cached = readdirSync(fileURLToPath(new URL("./cache", import.meta.url)))
       .filter((file) => file.endsWith(".ndjson"))
-      .map((file) => file.replace(/\.ndjson$/, ""))
-      .sort();
-    expect(Object.keys(REFRESHERS).sort()).toEqual(cached);
+      .map((file) => file.replace(/\.ndjson$/, ""));
+    expect(new Set(Object.keys(REFRESHERS))).toEqual(new Set(cached));
   });
 });

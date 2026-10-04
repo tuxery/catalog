@@ -467,6 +467,68 @@ function computeListingIds(apps: AppRecord[]): Record<string, string[]> {
   return ids;
 }
 
+/**
+ * Every listing above, pre-rendered as the summary rows `app` would
+ * otherwise fetch with `SELECT <SUMMARY_COLUMNS> FROM apps WHERE id IN
+ * (...)` — stored under `listingRows:<listing key>` so a homepage row, the
+ * /apps and /games trending grids or a source's trending row cost one
+ * `meta` row read instead of one row per app (60 for a trending list).
+ * Column names mirror `app`'s `SUMMARY_COLUMNS` (src/catalog.ts) by hand,
+ * so `app` runs each row through its existing `toSummary()` unchanged —
+ * the summary logic (ratings by source, channels, verified sources) stays
+ * in `app` only. `packages_json` is cut down to the four package fields
+ * that logic reads: the popular apps these lists hold carry the largest
+ * package lists in the dataset (~200 KB of `packages_json` for one
+ * 60-app trending list, measured on the 2026-10-01 dataset), almost all
+ * of it fields a card never shows.
+ */
+function toListingRow(app: AppRecord): Record<string, unknown> {
+  return {
+    id: app.id,
+    name: app.name,
+    short_description: app.shortDescription,
+    icon_url: app.iconUrl ?? null,
+    kind: app.kind ?? null,
+    content_type: app.contentType ?? null,
+    category: app.category ?? null,
+    rating_average: app.rating?.average ?? null,
+    rating_count: app.rating?.count ?? null,
+    packages_json: JSON.stringify(app.packages.map(toListingPackage)),
+  };
+}
+
+function toListingPackage(pkg: unknown): Record<string, unknown> {
+  const { source, channel, rating, storeCollections } = pkg as {
+    source?: unknown;
+    channel?: unknown;
+    rating?: unknown;
+    storeCollections?: unknown;
+  };
+  const verified = Array.isArray(storeCollections) && storeCollections.includes("verified");
+  return {
+    source,
+    ...(channel === undefined ? {} : { channel }),
+    ...(rating === undefined ? {} : { rating }),
+    ...(verified ? { storeCollections: ["verified"] } : {}),
+  };
+}
+
+function computeListingRows(
+  apps: AppRecord[],
+  listingIds: Record<string, string[]>,
+): Array<[string, string]> {
+  const byId = new Map(apps.map((app) => [app.id, app]));
+  return Object.entries(listingIds).map(([key, ids]): [string, string] => [
+    `listingRows:${key}`,
+    JSON.stringify(
+      ids.flatMap((id) => {
+        const app = byId.get(id);
+        return app ? [toListingRow(app)] : [];
+      }),
+    ),
+  ]);
+}
+
 // --- Browse: precomputed counts and per-source id lists ---------------
 //
 // `app`'s `browseApps` (the /browse page, no free-text query) paid two live
@@ -775,9 +837,14 @@ export function createTursoClient(config: TursoConfig, client?: Client): TursoCl
       const generation = dataset.generatedAt.replaceAll(/\D/g, "");
       const browseCounts = computeBrowseCounts(dataset.apps, generation);
       const sourceIdChunks = computeSourceIdChunks(dataset.apps, generation);
-      // Written before the swap, invisible until `browseKeys` flips in the
-      // swap transaction below — see the comment above BROWSE_KEYS_META_KEY.
+      // Browse rows are written before the swap, invisible until `browseKeys`
+      // flips in the swap transaction below — see the comment above
+      // BROWSE_KEYS_META_KEY. Listing rows aren't generation-scoped: each is
+      // self-contained (never joined against `apps`), so going live a few
+      // seconds before the swap is harmless, and keeping them (up to ~30 KB
+      // per list) out of the swap transaction's single request matters more.
       await upsertMetaInBatches(db, [
+        ...computeListingRows(dataset.apps, listingIds),
         ...[...browseCounts].map(([key, count]): [string, string] => [key, String(count)]),
         ...[...sourceIdChunks].map(([key, ids]): [string, string] => [key, JSON.stringify(ids)]),
       ]);

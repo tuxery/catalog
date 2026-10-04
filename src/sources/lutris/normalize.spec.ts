@@ -93,7 +93,7 @@ describe("lutris normalize", () => {
     expect(normalize([entry])[0]).toMatchObject({ description: "", longDescription: undefined });
   });
 
-  it("leaves hasGameCategory and categories unset when a game has no genres", () => {
+  it("leaves hasGameCategory and categories unset with neither genres nor a game record", () => {
     const entry: LutrisCacheEntry = {
       gameId: 1,
       gameSlug: "app",
@@ -104,6 +104,21 @@ describe("lutris normalize", () => {
     };
 
     expect(normalize([entry])[0]?.hasGameCategory).toBeUndefined();
+    expect(normalize([entry])[0]?.categories).toBeUndefined();
+  });
+
+  it("sets hasGameCategory from a game record alone, without inventing categories", () => {
+    const entry: LutrisCacheEntry = {
+      gameId: 2,
+      gameSlug: "wasteland-3",
+      installerSlug: "wasteland-3-gog",
+      name: "Wasteland 3",
+      description: "",
+      genres: [],
+      gameDescription: "A post-apocalyptic tactical RPG.",
+    };
+
+    expect(normalize([entry])[0]?.hasGameCategory).toBe(true);
     expect(normalize([entry])[0]?.categories).toBeUndefined();
   });
 

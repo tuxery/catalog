@@ -15,6 +15,21 @@ function pkg(overrides: Partial<SourcedPackage>): SourcedPackage {
   };
 }
 
+/** The first enriched app, with only the LLM classifications injected (every other config file real). */
+function withLlm(matched: MatchedApp[], entries: LlmClassificationEntry[]) {
+  return enrichApps(
+    matched,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    entries,
+  )[0];
+}
+
 describe("enrichApps", () => {
   it("uses the sole package's fields for a single-source group", () => {
     const matched: MatchedApp[] = [
@@ -578,6 +593,97 @@ describe("enrichApps", () => {
       llmClassifications,
     )[0];
     expect(app?.category).toBe(TO_CLASSIFY);
+  });
+
+  describe("LLM precedence: upstream categories > LLM > heuristics", () => {
+    const fixture = { reason: "test fixture", model: "test" } as const;
+    // A category-rules.json name match (→ Utilities) with no upstream
+    // categories: an app decided by in-house heuristics alone.
+    const heuristicApp: MatchedApp[] = [
+      {
+        id: "aur:proton-cachyos-native",
+        packages: [pkg({ source: "pacman-aur", name: "proton-cachyos-native" })],
+      },
+    ];
+
+    it("keeps an upstream game genre against an LLM `app` verdict", () => {
+      const app = withLlm(
+        [
+          {
+            id: "flathub:example",
+            packages: [
+              pkg({
+                source: "flatpak-flathub",
+                name: "example",
+                hasGameCategory: true,
+                categories: ["Game", "ArcadeGame"],
+              }),
+            ],
+          },
+        ],
+        [
+          {
+            id: "flathub:example",
+            type: "app",
+            category: "Utilities",
+            confidence: "high",
+            ...fixture,
+          },
+        ],
+      );
+      expect(app?.contentType).toBe("game");
+      expect(app?.category).toBe("Arcade");
+    });
+
+    it("lets an LLM `game` verdict override a heuristics-only app", () => {
+      const app = withLlm(heuristicApp, [
+        {
+          id: "aur:proton-cachyos-native",
+          type: "game",
+          category: "Strategy",
+          confidence: "medium",
+          ...fixture,
+        },
+      ]);
+      expect(app?.contentType).toBe("game");
+      expect(app?.category).toBe("Strategy");
+    });
+
+    it("keeps the rule-based category when the LLM confirms the type", () => {
+      const app = withLlm(heuristicApp, [
+        {
+          id: "aur:proton-cachyos-native",
+          type: "app",
+          category: "System Tools",
+          confidence: "high",
+          ...fixture,
+        },
+      ]);
+      expect(app?.contentType).toBeUndefined();
+      expect(app?.category).toBe("Utilities");
+    });
+
+    it("hides an app the LLM calls a library with high confidence, even with upstream categories", () => {
+      const app = withLlm(
+        [
+          {
+            id: "flathub:libfoo",
+            packages: [pkg({ source: "flatpak-flathub", name: "libfoo", categories: ["Science"] })],
+          },
+        ],
+        [{ id: "flathub:libfoo", type: "library", confidence: "high", ...fixture }],
+      );
+      expect(app?.excluded).toBe("library");
+      expect(app?.category).toBe("Science");
+    });
+
+    it("leaves an app visible under its deterministic type when `library`/`other` is only medium", () => {
+      const app = withLlm(heuristicApp, [
+        { id: "aur:proton-cachyos-native", type: "other", confidence: "medium", ...fixture },
+      ]);
+      expect(app?.excluded).toBeUndefined();
+      expect(app?.category).toBe("Utilities");
+    });
   });
 
   it("falls back to a category-rules.json name-pattern match when no member package has any category data", () => {

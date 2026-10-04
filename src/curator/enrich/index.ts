@@ -13,6 +13,7 @@ import {
   pickCategory,
   TO_CLASSIFY,
   type ContentType,
+  type HiddenType,
 } from "./category";
 import { computeDataConfidence, forceMatchedKeys } from "./data-confidence";
 import { loadCategoryRules, matchCategoryRule, type CategoryRuleEntry } from "./category-rules";
@@ -49,8 +50,10 @@ import {
 import { getCompatWarnings, loadCompatWarnings, type CompatWarningEntry } from "./compat-warnings";
 import { applySuites, loadSuiteOverrides, type SuiteOverrideEntry } from "./suite";
 import {
+  HIDE_CONFIDENCE,
   llmClassificationMap,
   loadLlmClassifications,
+  type LlmClassification,
   type LlmClassificationEntry,
 } from "./llm-classifications";
 import type { CatalogApp } from "./types";
@@ -624,6 +627,66 @@ function sumField(
   return values.length > 0 ? sum(values) : undefined;
 }
 
+/**
+ * True when the group's own upstream store metadata — the AppStream /
+ * store categories carried by Flathub, AppCenter, the distro *-appstream
+ * feeds, Snapcraft, GOG, Lutris — maps to a known app category or game
+ * genre. Maintainer-curated, so it outranks the LLM; anything decided
+ * without it (name/section/description heuristics) does not.
+ */
+export function hasUpstreamCategory(packages: SourcedPackage[]): boolean {
+  const categories = pickCategories(packages);
+  return (
+    pickCategory(categories, "app") !== TO_CLASSIFY ||
+    pickCategory(categories, "game") !== TO_CLASSIFY
+  );
+}
+
+/** The highest-priority member package's non-empty upstream `categories`, if any. */
+function pickCategories(packages: SourcedPackage[]): string[] {
+  return (
+    pickField(packages, (pkg) =>
+      pkg.categories && pkg.categories.length > 0 ? pkg.categories : undefined,
+    ) ?? []
+  );
+}
+
+/**
+ * Merges an app's LLM classification (if any, low-confidence ones already
+ * dropped by `llmClassificationMap`) into its deterministic result, by
+ * precedence: upstream store categories > LLM > in-house heuristics.
+ *
+ * - `library`/`other` at `HIDE_CONFIDENCE` hide the app (`excluded`)
+ *   wherever its type came from — a library isn't a better app because a
+ *   store tagged it. Below that, the deterministic result stands.
+ * - `app`/`game` set the type unless upstream metadata already decided it
+ *   (or the deterministic pass left the app in "To Classify", where the
+ *   LLM is the only signal). The category then comes from the
+ *   deterministic rules *for that type* when they have one, the LLM's own
+ *   otherwise — so a rule-based category survives a type the LLM confirms.
+ */
+function applyLlmClassification(
+  llm: LlmClassification | undefined,
+  upstream: boolean,
+  heuristicType: ContentType,
+  deterministicCategory: string,
+  pickLabel: (type: ContentType) => string,
+): { type: ContentType; category: string; excluded?: HiddenType } {
+  const deterministic = { type: heuristicType, category: deterministicCategory };
+  if (llm === undefined) return deterministic;
+  if (llm.type === "library" || llm.type === "other") {
+    return llm.confidence === HIDE_CONFIDENCE
+      ? { ...deterministic, excluded: llm.type }
+      : deterministic;
+  }
+  if (upstream && deterministicCategory !== TO_CLASSIFY) return deterministic;
+  const ruleCategory = llm.type === heuristicType ? deterministicCategory : pickLabel(llm.type);
+  return {
+    type: llm.type,
+    category: ruleCategory !== TO_CLASSIFY ? ruleCategory : (llm.category ?? TO_CLASSIFY),
+  };
+}
+
 /** Turns grouped packages into the display-ready `CatalogApp` records the website reads — see `types.ts` for what's populated today vs. tracked as roadmap. */
 export function enrichApps(
   matched: MatchedApp[],
@@ -644,10 +707,7 @@ export function enrichApps(
     const representative = pickByPriority(app.packages);
     const shortDescription = pickDescription(app.packages);
     const warnings = getCompatWarnings(app.packages, compatWarnings);
-    const categories =
-      pickField(app.packages, (pkg) =>
-        pkg.categories && pkg.categories.length > 0 ? pkg.categories : undefined,
-      ) ?? [];
+    const categories = pickCategories(app.packages);
     const hasKnownGameGenre = pickCategory(categories, "game") !== TO_CLASSIFY;
     const heuristicType: ContentType =
       (app.packages.some(hasGameEvidence) ||
@@ -665,22 +725,24 @@ export function enrichApps(
         ? "game"
         : "app";
 
-    const deterministicCategory = pickCategoryLabel(
-      app.packages,
+    const pickLabel = (type: ContentType): string =>
+      pickCategoryLabel(
+        app.packages,
+        type,
+        categoryRules,
+        gameCategoryRules,
+        descriptionCategoryRules,
+        descriptionGameCategoryRules,
+        shortDescription,
+      );
+    const deterministicCategory = pickLabel(heuristicType);
+    const { type, category, excluded } = applyLlmClassification(
+      llmByAppId.get(app.id),
+      hasUpstreamCategory(app.packages),
       heuristicType,
-      categoryRules,
-      gameCategoryRules,
-      descriptionCategoryRules,
-      descriptionGameCategoryRules,
-      shortDescription,
+      deterministicCategory,
+      pickLabel,
     );
-    // Last resort, only for what the deterministic signals left in "To
-    // Classify": the LLM's answer wins outright, type included — it carries
-    // its own app-or-game verdict, so a game the heuristics missed becomes
-    // one, and a tool they mistook for a game stops being one.
-    const llm = deterministicCategory === TO_CLASSIFY ? llmByAppId.get(app.id) : undefined;
-    const type: ContentType = llm?.type ?? heuristicType;
-    const pickedCategory = llm?.category ?? deterministicCategory;
 
     return {
       id: app.id,
@@ -690,8 +752,9 @@ export function enrichApps(
       packages: app.packages,
       kind: app.packages.some(hasGuiEvidence) ? "gui" : undefined,
       contentType: type === "game" ? "game" : undefined,
+      excluded,
       appStoreFrontend: isAppStoreFrontend(app.packages, appStoreFrontends) ? true : undefined,
-      category: pickedCategory,
+      category,
       iconUrl: pickField(app.packages, (pkg) => pkg.iconUrl),
       approxSizeBytes: pickField(app.packages, (pkg) => pkg.approxSizeBytes),
       license: pickField(app.packages, (pkg) => pkg.license),

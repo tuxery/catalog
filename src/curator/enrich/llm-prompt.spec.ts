@@ -7,6 +7,10 @@ const reply = (...lines: string[]): string => JSON.stringify({ results: lines })
 describe("buildSystemPrompt", () => {
   const prompt = buildSystemPrompt();
 
+  it("names the four types", () => {
+    for (const type of ['"game"', '"app"', '"lib"', '"other"']) expect(prompt).toContain(type);
+  });
+
   it("lists every category of both types", () => {
     for (const label of [...APP_CATEGORY_LABEL_VALUES, ...GAME_CATEGORY_LABEL_VALUES]) {
       expect(prompt).toContain(label);
@@ -36,6 +40,17 @@ describe("parseResults", () => {
     ]);
   });
 
+  it("parses lib (normalized to library) and other, which take '-' as category", () => {
+    expect(parseResults(reply("1|lib|-|h|Python bindings", "2|other|-|m|Icon theme"))).toEqual([
+      { n: 1, confidence: "high", reason: "Python bindings", type: "library" },
+      { n: 2, confidence: "medium", reason: "Icon theme", type: "other" },
+    ]);
+  });
+
+  it("drops lib/other with a real category", () => {
+    expect(parseResults(reply("1|lib|Developer Tools|h|x", "2|other|Puzzle|h|x"))).toEqual([]);
+  });
+
   it("drops a category that belongs to the other type", () => {
     expect(parseResults(reply("1|app|Puzzle|h|x", "2|game|Utilities|h|x"))).toEqual([]);
   });
@@ -45,6 +60,7 @@ describe("parseResults", () => {
       parseResults(
         reply(
           "1|tool|Utilities|h|x",
+          "1|constructor|Utilities|h|x",
           "2|app|Nope|h|x",
           "3|app|Utilities|z|x",
           "x|app|Utilities|h|x",

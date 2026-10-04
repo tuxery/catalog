@@ -1,10 +1,12 @@
 import { writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
-import { buildDataset } from "../src/pipeline";
+import { hasUpstreamCategory, type CatalogApp } from "../src/curator";
+import { TO_CLASSIFY } from "../src/curator/enrich/category";
 import {
   loadLlmClassifications,
   type LlmClassificationEntry,
 } from "../src/curator/enrich/llm-classifications";
+import { buildDataset } from "../src/pipeline";
 import { loadLlmModels, type LlmModel } from "../src/curator/enrich/llm-models";
 import {
   buildSystemPrompt,
@@ -60,6 +62,13 @@ const maxIdleMinutes = Number(flag("--max-idle") ?? 20);
 // (e.g. `lutris`) — with `--sample`, to check the prompt on a source whose
 // mix of games and apps differs from the backlog's AUR-heavy head.
 const sourceFilter = flag("--source");
+// `--include-upstream` also queues apps whose upstream store categories
+// (Flathub, AppStream feeds, ...) already decided their type and category:
+// there the LLM can only hide a library, so they're off by default.
+const includeUpstream = hasFlag("--include-upstream");
+// `--report`: no API call — compares the stored entries with the purely
+// deterministic result and prints where they disagree (see `report`).
+const reportOnly = hasFlag("--report");
 const dryRun = hasFlag("--dry-run");
 // `--sample [N]` (default 5): real API calls on just N still-unclassified
 // apps, to test the whole chain end to end (network, schema, parsing) —
@@ -309,33 +318,146 @@ function writeConfig(entries: Map<string, LlmClassificationEntry>): void {
 }
 
 /**
- * Runs the sources + curator pipeline, classifies every still-unclassified
- * app ("To Classify") by rotating through config/llm-models.json's models,
- * and writes the results back to `config/llm-classifications.json` — which
- * `enrichApps` then consumes as a last-resort signal before its own "To
- * Classify" fallback on the next rebuild.
+ * Splits the apps still to ask into the queue's priority groups, in order:
+ * apps the deterministic signals left in "To Classify" (no category at
+ * all), then apps whose type and category came from the in-house
+ * heuristics alone (where the LLM has the final say — mostly AUR, Arch,
+ * Debian and AppImage, where libraries and game/app mistakes concentrate),
+ * then apps with upstream store categories (`--include-upstream` only).
+ * `apps` is the deterministic dataset, so an app's group never depends on
+ * an earlier LLM answer.
+ */
+function queueGroups(
+  apps: CatalogApp[],
+  isPending: (app: CatalogApp) => boolean,
+): { toClassify: CatalogApp[]; heuristicOnly: CatalogApp[]; upstream: CatalogApp[] } {
+  const groups = {
+    toClassify: [] as CatalogApp[],
+    heuristicOnly: [] as CatalogApp[],
+    upstream: [] as CatalogApp[],
+  };
+  for (const app of apps) {
+    if (!isPending(app)) continue;
+    if (app.category === TO_CLASSIFY) groups.toClassify.push(app);
+    else if (hasUpstreamCategory(app.packages)) groups.upstream.push(app);
+    else groups.heuristicOnly.push(app);
+  }
+  return groups;
+}
+
+function deterministicType(app: CatalogApp): "app" | "game" {
+  return app.contentType === "game" ? "game" : "app";
+}
+
+/** Prints the `top` most frequent keys of a count map, most frequent first. */
+function printTop(title: string, counts: Map<string, string[]>, top = 15): void {
+  const total = [...counts.values()].reduce((sum, list) => sum + list.length, 0);
+  console.log(`\n${title}: ${total}`);
+  // A fresh array from the spread, safe to sort in place — toSorted() needs
+  // ES2023, beyond this tsconfig's lib (same as src/store/turso-client.ts).
+  // eslint-disable-next-line unicorn/no-array-sort
+  const sorted = [...counts.entries()].sort((a, b) => b[1].length - a[1].length);
+  for (const [key, examples] of sorted.slice(0, top)) {
+    console.log(
+      `  ${examples.length.toString().padStart(6)}  ${key}  e.g. ${examples.slice(0, 4).join(", ")}`,
+    );
+  }
+}
+
+function bump(counts: Map<string, string[]>, key: string, example: string): void {
+  const list = counts.get(key) ?? [];
+  list.push(example);
+  counts.set(key, list);
+}
+
+/**
+ * `--report`: where the stored (applied, not low) LLM entries disagree with
+ * the purely deterministic result — which apps they hide, which type they
+ * flip, which flips upstream metadata blocks, and which categories they
+ * change within the same type. Frequent disagreements point at a
+ * heuristic worth fixing (e.g. a GAME_ADJACENT_TOOL_* pattern) rather than
+ * leaving the LLM to patch it app by app.
+ */
+function report(apps: CatalogApp[], entries: LlmClassificationEntry[]): void {
+  const byId = new Map(apps.map((app) => [app.id, app]));
+  const hidden = new Map<string, string[]>();
+  const flipped = new Map<string, string[]>();
+  const blocked = new Map<string, string[]>();
+  const recategorized = new Map<string, string[]>();
+  let applied = 0;
+  for (const entry of entries) {
+    if (entry.confidence === "low") continue;
+    const app = byId.get(entry.id);
+    if (!app) continue;
+    applied += 1;
+    const sources = [...new Set(app.packages.map((pkg) => pkg.source))].join("+");
+    const type = deterministicType(app);
+    if (entry.type === "library" || entry.type === "other") {
+      if (entry.confidence === "high") bump(hidden, `${entry.type} (${sources})`, app.name);
+      continue;
+    }
+    const upstream = hasUpstreamCategory(app.packages) && app.category !== TO_CLASSIFY;
+    if (entry.type !== type) {
+      bump(upstream ? blocked : flipped, `${type} -> ${entry.type} (${sources})`, app.name);
+    } else if (app.category !== TO_CLASSIFY && app.category !== entry.category && !upstream) {
+      bump(recategorized, `${type}: ${app.category} -> ${entry.category}`, app.name);
+    }
+  }
+  console.log(
+    `${applied} applied entries (medium/high) matched against the deterministic dataset.`,
+  );
+  printTop("Hidden (library/other, high)", hidden);
+  printTop("Type flipped by the LLM (heuristics only)", flipped);
+  printTop("Type flip blocked by upstream categories", blocked);
+  printTop("Category changed by the LLM (same type, rule-based category)", recategorized);
+}
+
+/**
+ * Runs the sources + curator pipeline and asks the LLM, by rotating
+ * through config/llm-models.json's models, what each app is — `app`,
+ * `game`, `library` or `other`, with a category for apps and games — in
+ * the priority order of `queueGroups`. Results go to
+ * `config/llm-classifications.json`, which `enrichApps` applies on the next
+ * rebuild (upstream store categories > LLM > heuristics; library/other
+ * hide the app at high confidence).
  *
- * Needs GEMINI_API_KEY and/or GROQ_API_KEY, for whichever providers the
- * enabled models use. Each entry records the model that produced it and
- * the LLM's own `confidence`; `low` ones are stored but not applied (see
- * `llmClassificationMap`). When no model can serve (all daily-capped, or all
- * overloaded) the run saves and exits cleanly.
+ * Needs the API key of every provider the enabled models use (see each
+ * model's `apiKeyEnv` in config/llm-models.json). Each entry records the
+ * model that produced it and the LLM's own `confidence`; `low` ones are
+ * stored but not applied (see `llmClassificationMap`). When no model can
+ * serve (all daily-capped, or all overloaded) the run saves and exits
+ * cleanly.
  *
  * Resumable in every mode (--sample included): re-running skips ids already
  * present in the config file, so a sample run never reclassifies the same
  * handful of apps twice in a row — it naturally samples further into the
- * "To Classify" backlog each time, same as a real run would.
+ * queue each time, same as a real run would.
  */
 async function main(): Promise<void> {
-  const dataset = await buildDataset();
-  const existing = new Map(loadLlmClassifications().map((entry) => [entry.id, entry]));
+  // Deterministic view (no LLM entry applied): queue groups and the report
+  // compare against what the rules alone decide.
+  const dataset = await buildDataset({ llmClassifications: [], includeExcluded: true });
+  const stored = loadLlmClassifications();
+  if (reportOnly) {
+    report(dataset.apps, stored);
+    return;
+  }
+  const existing = new Map(stored.map((entry) => [entry.id, entry]));
   // `--retry-low` also re-asks the entries a previous run left at "low".
   const retryLow = hasFlag("--retry-low");
-  const toClassify = dataset.apps.filter(
+  const groups = queueGroups(
+    dataset.apps,
     (app) =>
-      app.category === "To Classify" &&
       (sourceFilter === undefined || app.packages.some((pkg) => pkg.source === sourceFilter)) &&
       (!existing.has(app.id) || (retryLow && existing.get(app.id)?.confidence === "low")),
+  );
+  const toClassify = [
+    ...groups.toClassify,
+    ...groups.heuristicOnly,
+    ...(includeUpstream ? groups.upstream : []),
+  ];
+  console.log(
+    `Queue: ${groups.toClassify.length} To Classify > ${groups.heuristicOnly.length} heuristics-only > ${groups.upstream.length} upstream${includeUpstream ? "" : " (skipped, --include-upstream)"}`,
   );
   const effectiveLimit = sample ?? limit;
   const todo = effectiveLimit === undefined ? toClassify : toClassify.slice(0, effectiveLimit);
@@ -355,7 +477,7 @@ async function main(): Promise<void> {
         results.set(item.id, {
           id: item.id,
           type: "app",
-          category: TAXONOMY.app[0] as LlmClassificationEntry["category"],
+          category: TAXONOMY.app[0],
           confidence: "low",
           reason: "dry-run placeholder",
           model: "dry-run",
@@ -372,7 +494,7 @@ async function main(): Promise<void> {
       results.set(item.id, {
         id: item.id,
         type: result.type,
-        category: result.category,
+        ...("category" in result ? { category: result.category } : {}),
         confidence: result.confidence,
         reason: result.reason,
         model: model.id,
@@ -416,7 +538,7 @@ async function main(): Promise<void> {
     for (const item of todo) {
       const result = results.get(item.id);
       console.log(
-        `  [${result?.confidence ?? "-"}] ${item.name} -> ${result ? `${result.type}/${result.category}` : "(no result)"} (${result?.reason ?? ""}) — ${item.shortDescription.slice(0, 80)}`,
+        `  [${result?.confidence ?? "-"}] ${item.name} -> ${result ? `${result.type}/${"category" in result ? result.category : "-"}` : "(no result)"} (${result?.reason ?? ""}) — ${item.shortDescription.slice(0, 80)}`,
       );
     }
     return;

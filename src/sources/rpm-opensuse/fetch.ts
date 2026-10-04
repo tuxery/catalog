@@ -17,8 +17,8 @@ import type { OpenSuseCacheEntry, OpenSuseFetchMetadata } from "./types";
 // real data that's only ever "x86_64" or "noarch", so no arch filtering is
 // needed either.
 const REPOS = [
-  { id: "oss", base: "https://download.opensuse.org/tumbleweed/repo/oss" },
-  { id: "non-oss", base: "https://download.opensuse.org/tumbleweed/repo/non-oss" },
+  { id: "oss", base: "https://downloadcontent.opensuse.org/tumbleweed/repo/oss" },
+  { id: "non-oss", base: "https://downloadcontent.opensuse.org/tumbleweed/repo/non-oss" },
 ] as const;
 
 /**
@@ -43,9 +43,13 @@ export function parsePrimary(xml: string, repo: OpenSuseCacheEntry["repo"]): Ope
  * Downloads one repo's repodata (see `_shared/rpm-repodata.ts`'s
  * `fetchPrimaryXml` for the repomd.xml -> primary.xml.zst mechanics,
  * shared with Fedora) and parses it into cache rows.
- * `download.opensuse.org` 302-redirects to the actual mirror; Node's
- * `fetch()` follows that transparently, same as a browser, so no
- * special handling is needed.
+ * Read from `downloadcontent.opensuse.org`, SUSE's origin content server,
+ * not `download.opensuse.org`: Tumbleweed is republished many times a day
+ * and the latter 302-redirects to a geographic mirror that may not have the
+ * newest hash-named repodata files yet, so `repomd.xml` lists a file the
+ * mirror 404s on (seen 2026-10-04 from a mirror in Ukraine, for both this
+ * connector and the AppStream one, identically on retry). The origin serves
+ * `repomd.xml` and the files it names as one consistent snapshot.
  */
 async function fetchRepo(repo: (typeof REPOS)[number]): Promise<OpenSuseCacheEntry[]> {
   const xml = await fetchPrimaryXml(repo.base, "openSUSE");

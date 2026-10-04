@@ -1,9 +1,11 @@
-import { existsSync, mkdirSync, readFileSync } from "node:fs";
+import { copyFileSync, existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync } from "node:fs";
 import { spawnSync } from "node:child_process";
-import { dirname } from "node:path";
+import { tmpdir } from "node:os";
+import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { createTursoClient, type TursoDataset } from "../src/store";
 import { refreshSources } from "./_refresh-sources";
+import { readSqldStats, startSqld, waitForSqld } from "./_sqld";
 import { PREVIEW_ENV_PATH, PROD_ENV_PATH, readSharedEnv } from "./_shared-env";
 
 const DATASET_PATH = fileURLToPath(new URL("../dist/dataset.json", import.meta.url));
@@ -43,6 +45,7 @@ function resolveTursoEnv(envPath: string): Record<string, string | undefined> {
 const force = process.argv.includes("--force");
 const prod = process.argv.includes("--prod");
 const preview = process.argv.includes("--preview");
+const measure = process.argv.includes("--measure");
 const remote = preview || prod;
 
 if (force) refreshSources();
@@ -55,7 +58,46 @@ if (force || !existsSync(DATASET_PATH)) {
 
 const dataset = JSON.parse(readFileSync(DATASET_PATH, "utf8")) as TursoDataset;
 
-if (remote) {
+if (measure) {
+  // What one publish costs in Turso's billed counters, without spending any
+  // quota: publish through a throwaway sqld (on spare ports, so a running
+  // `pnpm serve` is untouched) over a copy of the local database, so the
+  // swap replaces a real previous dataset like a re-publish to preview/prod
+  // does. An estimate to calibrate against `pnpm turso-stats` around a real
+  // publish, not a bill (see scripts/_sqld.ts).
+  const dir = mkdtempSync(join(tmpdir(), "catalog-measure-"));
+  const dbFile = join(dir, "measure.db");
+  if (existsSync(LOCAL_DB_PATH)) copyFileSync(LOCAL_DB_PATH, dbFile);
+  else
+    console.log(
+      `No ${LOCAL_DB_PATH} to start from: measuring a first publish into an empty database.`,
+    );
+  const sqld = startSqld(dbFile, { port: 18080, adminPort: 18081, stdio: "ignore" });
+  try {
+    await waitForSqld(sqld.url);
+    const before = await readSqldStats(sqld.adminUrl);
+    const started = Date.now();
+    await createTursoClient({ url: sqld.url }).publish(dataset);
+    const after = await readSqldStats(sqld.adminUrl);
+    console.log(
+      `\nOne publish of ${dataset.apps.length} apps (${Math.round((Date.now() - started) / 1000)}s): ` +
+        `${after.rows_written_count - before.rows_written_count} rows written, ` +
+        `${after.rows_read_count - before.rows_read_count} rows read (local sqld estimate).`,
+    );
+    console.log("Top statements (cumulative):");
+    // A fresh copy: toSorted() needs ES2023 (see turso-client.ts).
+    // eslint-disable-next-line unicorn/no-array-sort
+    const top = [...after.top_queries].sort((a, b) => b.rows_written - a.rows_written);
+    for (const query of top) {
+      console.log(
+        `  ${String(query.rows_written).padStart(9)} written ${String(query.rows_read).padStart(9)} read  ${query.query.replace(/\s+/g, " ").slice(0, 100)}`,
+      );
+    }
+  } finally {
+    sqld.stop();
+    rmSync(dir, { recursive: true, force: true });
+  }
+} else if (remote) {
   const mode = prod ? "prod" : "preview";
   const envPath = prod ? PROD_ENV_PATH : PREVIEW_ENV_PATH;
   const env = resolveTursoEnv(envPath);

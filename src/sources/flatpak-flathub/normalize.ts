@@ -8,6 +8,11 @@ export function normalize(entries: FlathubCacheEntry[]): SourcedPackage[] {
     description: entry.summary,
     version: entry.version ?? "unknown",
     appId: entry.id,
+    // The only branch this connector fetches is Flathub's stable repo
+    // (`dl.flathub.org/repo`); its separate beta repo isn't read, so every
+    // package is stable by construction. Recorded explicitly rather than
+    // left undefined, like the other sources that pick one track.
+    channel: "stable",
     iconFilename: entry.iconFilename,
     iconUrl: entry.iconUrl,
     homepage: entry.homepage,

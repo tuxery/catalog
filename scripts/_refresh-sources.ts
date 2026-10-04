@@ -1,38 +1,7 @@
 import { spawnSync } from "node:child_process";
+import { REFRESHERS } from "../src/sources/refreshers";
 
-// Kept as a literal list rather than importing it: `PackageSourceId` (src/
-// sources/types.ts) is a type, not a runtime value — nothing to import.
-// Keep this in sync with that union by hand.
-const ALL_SOURCE_IDS = [
-  "flatpak-flathub",
-  "flatpak-appcenter",
-  "snap-snapcraft",
-  "appimage",
-  "appimage-manual",
-  "pacman-aur",
-  "deb-debian",
-  "deb-debian-appstream",
-  "deb-ubuntu",
-  "deb-ubuntu-appstream",
-  "rpm-fedora",
-  "pacman-arch",
-  "nix-nixpkgs",
-  "rpm-opensuse",
-  "rpm-opensuse-appstream",
-  "rpm-rpmfusion",
-  "apk-alpine",
-  "xbps-void",
-  "slackware",
-  "eopkg-solus",
-  "ebuild-gentoo",
-  "deb-mint",
-  "deb-popos",
-  "deb-deepin",
-  "deb-mxlinux",
-  "gog",
-  "lutris",
-  "github-releases",
-];
+const ALL_SOURCE_IDS = Object.keys(REFRESHERS);
 
 /** Re-fetches the given sources (default: all) via the `refresh` script, one at a time. */
 export function refreshSources(sourceIds: string[] = ALL_SOURCE_IDS): void {

@@ -157,17 +157,6 @@ function parseType(token: string): LlmType | undefined {
 const NO_CATEGORY = new Set(["-", ""]);
 
 /**
- * The outermost `{...}` of a reply: models with no JSON mode
- * (`plainPrompt`) tend to wrap it in a ```json fence or a sentence. Text
- * with no brace at all is returned as-is, so `JSON.parse` still throws on it.
- */
-function jsonPart(text: string): string {
-  const start = text.indexOf("{");
-  const end = text.lastIndexOf("}");
-  return start >= 0 && end > start ? text.slice(start, end + 1) : text;
-}
-
-/**
  * Parses "n|type|category|k|reason" lines into results, keeping only the
  * valid ones: n an integer, type one of app/game/lib/other, category on
  * *that type's* list for app/game (a genre on an `app` is invalid) and "-"
@@ -180,7 +169,7 @@ export function parseResults(
   text: string | undefined,
   taxonomy: Taxonomy = TAXONOMY,
 ): BatchResult[] {
-  const entries = (JSON.parse(jsonPart(text ?? "{}")) as { results?: unknown[] }).results ?? [];
+  const entries = (JSON.parse(text ?? "{}") as { results?: unknown[] }).results ?? [];
   // Some models (Gemma 4, seen 2026-10-04) put every line in one array
   // entry, newline-separated: each line still counts on its own.
   const lines = entries.flatMap((entry) => String(entry).split("\n"));

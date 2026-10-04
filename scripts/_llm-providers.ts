@@ -159,21 +159,38 @@ const GEMINI_THINKING: Record<LlmModel["reasoning"], string> = {
   high: "high",
 };
 
+/** The system prompt folded into the user message, for `plainPrompt` models that take no system role. */
+function plainUserText(prompt: Prompt): string {
+  return `${prompt.system}\n\n${prompt.user}`;
+}
+
 async function callGemini(model: LlmModel, prompt: Prompt): Promise<CallResult> {
-  const apiKey = requireEnv("GEMINI_API_KEY", "https://aistudio.google.com/apikey");
+  const apiKey = requireEnv(
+    model.apiKeyEnv ?? "GEMINI_API_KEY",
+    "https://aistudio.google.com/apikey",
+  );
+  // Gemma on the Gemini API (`plainPrompt`) rejects systemInstruction, JSON
+  // mode and thinkingConfig alike: everything goes in the one user message.
+  const plain = model.plainPrompt === true;
   const response = await fetch(
     `https://generativelanguage.googleapis.com/v1beta/models/${model.id}:generateContent?key=${apiKey}`,
     {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        systemInstruction: { parts: [{ text: prompt.system }] },
-        contents: [{ role: "user", parts: [{ text: prompt.user }] }],
+        ...(plain ? {} : { systemInstruction: { parts: [{ text: prompt.system }] } }),
+        contents: [
+          { role: "user", parts: [{ text: plain ? plainUserText(prompt) : prompt.user }] },
+        ],
         generationConfig: {
-          responseMimeType: "application/json",
-          responseSchema: outputSchema(false),
+          ...(plain
+            ? {}
+            : {
+                responseMimeType: "application/json",
+                responseSchema: outputSchema(false),
+                thinkingConfig: { thinkingLevel: GEMINI_THINKING[model.reasoning] },
+              }),
           temperature: 0,
-          thinkingConfig: { thinkingLevel: GEMINI_THINKING[model.reasoning] },
           ...(model.maxOutputTokens === undefined
             ? {}
             : { maxOutputTokens: model.maxOutputTokens }),
@@ -227,29 +244,47 @@ async function callGemini(model: LlmModel, prompt: Prompt): Promise<CallResult> 
   throw new Error(`Gemini ${model.id} ${response.status}: ${bodyText}`);
 }
 
-// --- Groq ---
+// --- OpenAI-compatible (Groq, and provider "openai": Mistral, NVIDIA NIM, ...) ---
 
-async function callGroq(model: LlmModel, prompt: Prompt): Promise<CallResult> {
-  const apiKey = requireEnv("GROQ_API_KEY", "https://console.groq.com/keys");
-  const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+const GROQ_BASE_URL = "https://api.groq.com/openai/v1";
+
+function responseFormat(model: LlmModel): Record<string, unknown> {
+  if (model.responseFormat === "json_object") return { type: "json_object" };
+  return {
+    type: "json_schema",
+    json_schema: { name: "classification_results", strict: true, schema: outputSchema(true) },
+  };
+}
+
+/**
+ * One chat-completions call. Groq is this same API with its own base URL,
+ * key and `reasoning_effort` (the generic "openai" provider doesn't send
+ * it: support varies per API). Error handling is Groq's, the most detailed
+ * of the lot — its specific codes (413, json_validate_failed, 498) simply
+ * never occur elsewhere, and a generic 429 is read the same way: "per day"
+ * / "daily" in the message means the daily quota.
+ */
+async function callOpenAiCompatible(model: LlmModel, prompt: Prompt): Promise<CallResult> {
+  const groq = model.provider === "groq";
+  const label = groq ? "Groq" : (model.baseUrl ?? "openai");
+  const apiKey = groq
+    ? requireEnv(model.apiKeyEnv ?? "GROQ_API_KEY", "https://console.groq.com/keys")
+    : requireEnv(model.apiKeyEnv ?? "", "config/llm-models.json's apiKeyEnv for this model");
+  const plain = model.plainPrompt === true;
+  const response = await fetch(`${groq ? GROQ_BASE_URL : model.baseUrl}/chat/completions`, {
     method: "POST",
     headers: { "Content-Type": "application/json", Authorization: `Bearer ${apiKey}` },
     body: JSON.stringify({
       model: model.id,
-      messages: [
-        { role: "system", content: prompt.system },
-        { role: "user", content: prompt.user },
-      ],
-      response_format: {
-        type: "json_schema",
-        json_schema: {
-          name: "classification_results",
-          strict: true,
-          schema: outputSchema(true),
-        },
-      },
+      messages: plain
+        ? [{ role: "user", content: plainUserText(prompt) }]
+        : [
+            { role: "system", content: prompt.system },
+            { role: "user", content: prompt.user },
+          ],
+      ...(plain ? {} : { response_format: responseFormat(model) }),
       temperature: 0,
-      reasoning_effort: model.reasoning,
+      ...(groq && !plain ? { reasoning_effort: model.reasoning } : {}),
       ...(model.maxOutputTokens === undefined
         ? {}
         : { max_completion_tokens: model.maxOutputTokens }),
@@ -289,7 +324,7 @@ async function callGroq(model: LlmModel, prompt: Prompt): Promise<CallResult> {
     // model's run; per-minute ones come with a retry-after header.
     // Groq's per-day windows are rolling: its "try again in ..." says when
     // enough quota frees up, often minutes away rather than tomorrow.
-    if (/per day/i.test(message)) {
+    if (/per day|daily/i.test(message)) {
       const waitMs = parseTryAgainMs(message);
       throw new ModelUnavailable(
         `daily quota hit: ${message.split(". ")[0]}`,
@@ -306,7 +341,9 @@ async function callGroq(model: LlmModel, prompt: Prompt): Promise<CallResult> {
   if (response.status === 413) {
     // One request larger than the per-minute token cap can never succeed —
     // lower this model's batchSize in config/llm-models.json.
-    throw new Error(`Groq ${model.id}: batch too large for its per-minute token cap — ${message}`);
+    throw new Error(
+      `${label} ${model.id}: batch too large for its per-minute token cap — ${message}`,
+    );
   }
   if (response.status === 400 && code === "json_validate_failed") {
     const salvaged = salvageResults(failedGeneration, prompt.taxonomy);
@@ -331,9 +368,11 @@ async function callGroq(model: LlmModel, prompt: Prompt): Promise<CallResult> {
     // 498 is Groq's "flex tier capacity exceeded" — same meaning as a 503.
     throw new ModelUnavailable(`overloaded (${response.status})`, false);
   }
-  throw new Error(`Groq ${model.id} ${response.status}: ${message}`);
+  throw new Error(`${label} ${model.id} ${response.status}: ${message}`);
 }
 
 export function callModel(model: LlmModel, prompt: Prompt): Promise<CallResult> {
-  return model.provider === "gemini" ? callGemini(model, prompt) : callGroq(model, prompt);
+  return model.provider === "gemini"
+    ? callGemini(model, prompt)
+    : callOpenAiCompatible(model, prompt);
 }

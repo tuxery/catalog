@@ -157,6 +157,17 @@ function parseType(token: string): LlmType | undefined {
 const NO_CATEGORY = new Set(["-", ""]);
 
 /**
+ * The outermost `{...}` of a reply: models with no JSON mode (Gemma,
+ * `plainPrompt`) tend to wrap it in a ```json fence or a sentence. Text
+ * with no brace at all is returned as-is, so `JSON.parse` still throws on it.
+ */
+function jsonPart(text: string): string {
+  const start = text.indexOf("{");
+  const end = text.lastIndexOf("}");
+  return start >= 0 && end > start ? text.slice(start, end + 1) : text;
+}
+
+/**
  * Parses "n|type|category|k|reason" lines into results, keeping only the
  * valid ones: n an integer, type one of app/game/lib/other, category on
  * *that type's* list for app/game (a genre on an `app` is invalid) and "-"
@@ -169,7 +180,7 @@ export function parseResults(
   text: string | undefined,
   taxonomy: Taxonomy = TAXONOMY,
 ): BatchResult[] {
-  const lines = (JSON.parse(text ?? "{}") as { results?: unknown[] }).results ?? [];
+  const lines = (JSON.parse(jsonPart(text ?? "{}")) as { results?: unknown[] }).results ?? [];
   return lines.flatMap((line): BatchResult[] => {
     const fields = String(line).split("|");
     // Gemini tends to echo the input's "n|name|desc" shape and repeat the

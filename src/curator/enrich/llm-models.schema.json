@@ -10,8 +10,27 @@
       },
       "provider": {
         "type": "string",
-        "enum": ["gemini", "groq"],
-        "description": "Which API adapter serves this model — decides the request format, auth, and how quota errors are read."
+        "enum": ["gemini", "groq", "openai"],
+        "description": "Which API adapter serves this model — decides the request format, auth, and how quota errors are read. 'openai' is any OpenAI-compatible chat-completions API (Mistral, NVIDIA NIM, GitHub Models, OpenRouter, ...): it needs baseUrl and apiKeyEnv."
+      },
+      "baseUrl": {
+        "description": "OpenAI-compatible API root, without '/chat/completions' — e.g. 'https://api.mistral.ai/v1'. Required for provider 'openai', ignored otherwise.",
+        "type": "string",
+        "format": "uri"
+      },
+      "apiKeyEnv": {
+        "description": "Environment variable holding the API key, e.g. 'MISTRAL_API_KEY'. Required for provider 'openai'; defaults to GEMINI_API_KEY / GROQ_API_KEY for the other two.",
+        "type": "string",
+        "pattern": "^[A-Z][A-Z0-9_]*$"
+      },
+      "plainPrompt": {
+        "description": "true for models that accept neither a system instruction nor a JSON mode/schema (Gemma on the Gemini API): the system prompt is sent at the top of the user message, the JSON shape is only asked for in the prompt text, and parseResults copes with stray text around it.",
+        "type": "boolean"
+      },
+      "responseFormat": {
+        "description": "Provider 'openai' only: how to request JSON — a strict json_schema (default) or plain json_object, for APIs that don't support json_schema. Ignored when plainPrompt is true.",
+        "type": "string",
+        "enum": ["json_schema", "json_object"]
       },
       "enabled": {
         "type": "boolean",
@@ -49,7 +68,7 @@
       "reasoning": {
         "type": "string",
         "enum": ["none", "minimal", "low", "medium", "high"],
-        "description": "Reasoning effort, mapped to the provider's own parameter (Gemini thinkingLevel, Groq reasoning_effort) — reasoning tokens count against quota, and classifying from a name + one line rarely needs more than 'low'. Not every model accepts every level (e.g. Groq's gpt-oss has no 'none')."
+        "description": "Reasoning effort, mapped to the provider's own parameter (Gemini thinkingLevel, Groq reasoning_effort; not sent for provider 'openai' or plainPrompt models, whose APIs vary) — reasoning tokens count against quota, and classifying from a name + one line rarely needs more than 'low'. Not every model accepts every level (e.g. Groq's gpt-oss has no 'none')."
       },
       "overloadRetries": {
         "type": "integer",

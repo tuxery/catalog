@@ -22,9 +22,34 @@ const LlmModelSchema = z
         "The provider's model id, exactly as its API expects it, e.g. 'gemini-3.8-flash' or 'openai/gpt-oss-20b'.",
       ),
     provider: z
-      .enum(["gemini", "groq"])
+      .enum(["gemini", "groq", "openai"])
       .describe(
-        "Which API adapter serves this model — decides the request format, auth, and how quota errors are read.",
+        "Which API adapter serves this model — decides the request format, auth, and how quota errors are read. 'openai' is any OpenAI-compatible chat-completions API (Mistral, NVIDIA NIM, GitHub Models, OpenRouter, ...): it needs baseUrl and apiKeyEnv.",
+      ),
+    baseUrl: z
+      .url()
+      .optional()
+      .describe(
+        "OpenAI-compatible API root, without '/chat/completions' — e.g. 'https://api.mistral.ai/v1'. Required for provider 'openai', ignored otherwise.",
+      ),
+    apiKeyEnv: z
+      .string()
+      .regex(/^[A-Z][A-Z0-9_]*$/)
+      .optional()
+      .describe(
+        "Environment variable holding the API key, e.g. 'MISTRAL_API_KEY'. Required for provider 'openai'; defaults to GEMINI_API_KEY / GROQ_API_KEY for the other two.",
+      ),
+    plainPrompt: z
+      .boolean()
+      .optional()
+      .describe(
+        "true for models that accept neither a system instruction nor a JSON mode/schema (Gemma on the Gemini API): the system prompt is sent at the top of the user message, the JSON shape is only asked for in the prompt text, and parseResults copes with stray text around it.",
+      ),
+    responseFormat: z
+      .enum(["json_schema", "json_object"])
+      .optional()
+      .describe(
+        "Provider 'openai' only: how to request JSON — a strict json_schema (default) or plain json_object, for APIs that don't support json_schema. Ignored when plainPrompt is true.",
       ),
     enabled: z
       .boolean()
@@ -65,7 +90,7 @@ const LlmModelSchema = z
     reasoning: z
       .enum(["none", "minimal", "low", "medium", "high"])
       .describe(
-        "Reasoning effort, mapped to the provider's own parameter (Gemini thinkingLevel, Groq reasoning_effort) — reasoning tokens count against quota, and classifying from a name + one line rarely needs more than 'low'. Not every model accepts every level (e.g. Groq's gpt-oss has no 'none').",
+        "Reasoning effort, mapped to the provider's own parameter (Gemini thinkingLevel, Groq reasoning_effort; not sent for provider 'openai' or plainPrompt models, whose APIs vary) — reasoning tokens count against quota, and classifying from a name + one line rarely needs more than 'low'. Not every model accepts every level (e.g. Groq's gpt-oss has no 'none').",
       ),
     overloadRetries: z
       .int()
@@ -79,7 +104,10 @@ const LlmModelSchema = z
         "Why this model is in the list, at this position, with these settings — so a later edit knows what it's trading off.",
       ),
   })
-  .strict();
+  .strict()
+  .refine((model) => model.provider !== "openai" || (model.baseUrl && model.apiKeyEnv), {
+    message: "provider 'openai' needs baseUrl and apiKeyEnv",
+  });
 
 export type LlmModel = z.infer<typeof LlmModelSchema>;
 

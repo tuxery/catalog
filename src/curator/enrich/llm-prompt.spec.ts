@@ -69,6 +69,11 @@ describe("parseResults", () => {
     ).toEqual([]);
   });
 
+  it("finds the JSON inside a code fence or surrounding text (models with no JSON mode)", () => {
+    const fenced = "Here you go:\n```json\n" + reply("1|game|Puzzle|h|x") + "\n```";
+    expect(parseResults(fenced)).toHaveLength(1);
+  });
+
   it("skips a name echoed after n", () => {
     expect(parseResults(reply("1|ccusage|app|Developer Tools|h|CLI"))).toEqual([
       { n: 1, type: "app", category: "Developer Tools", confidence: "high", reason: "CLI" },

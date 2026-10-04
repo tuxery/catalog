@@ -28,6 +28,30 @@ describe("groupPackages", () => {
     expect(groups[0]?.packages).toHaveLength(2);
   });
 
+  it("merges an AUR gog-* wrapper (variant suffix included) with the GOG.com listing of the same title", () => {
+    const packages = [
+      pkg({ source: "gog", name: "Stardew Valley" }),
+      pkg({ source: "pacman-aur", name: "gog-stardew-valley" }),
+      pkg({ source: "pacman-aur", name: "gog-hollow-knight-bin" }),
+      pkg({ source: "gog", name: "Hollow Knight" }),
+    ];
+
+    const groups = groupPackages(packages, NO_OVERRIDES);
+
+    expect(groups).toHaveLength(2);
+    expect(groups.every((group) => group.packages.length === 2)).toBe(true);
+  });
+
+  it("doesn't strip gog- from other sources or match a gog-* wrapper to a non-GOG package", () => {
+    const packages = [
+      pkg({ source: "flatpak-flathub", name: "Stardew Valley" }),
+      pkg({ source: "pacman-aur", name: "gog-stardew-valley" }),
+      pkg({ source: "deb-debian", name: "gog-stardew-valley" }),
+    ];
+
+    expect(groupPackages(packages, NO_OVERRIDES)).toHaveLength(2);
+  });
+
   it("keeps unrelated packages in separate groups", () => {
     const packages = [
       pkg({ source: "flatpak-flathub", name: "Discord", appId: "com.discordapp.Discord" }),

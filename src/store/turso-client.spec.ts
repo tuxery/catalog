@@ -314,6 +314,79 @@ function bulkMeta(execute: { mock: { calls: unknown[][] } }): Map<string, string
   return entries;
 }
 
+describe("precomputed listing rows", () => {
+  it("pre-renders every listing as app's summary rows, in listing order, with packages cut to what a card reads", async () => {
+    const { execute, client } = fakeClient(false);
+    const tursoClient = createTursoClient({ url: "file::memory:" }, client);
+
+    await tursoClient.publish({
+      generatedAt: "2026-01-01T00:00:00.000Z",
+      apps: [
+        {
+          ...APP,
+          id: "low",
+          iconUrl: "low.png",
+          popularity: 0.2,
+          category: "Utilities",
+          packages: [{ source: "aur", name: "low", channel: "git", version: "1.0", deps: ["x"] }],
+        },
+        {
+          ...APP,
+          id: "high",
+          iconUrl: "high.png",
+          popularity: 0.9,
+          kind: "gui",
+          contentType: "game",
+          category: "Utilities",
+          rating: { average: 4.5, count: 10 },
+          packages: [
+            {
+              source: "flatpak-flathub",
+              name: "high",
+              rating: { average: 4, count: 3 },
+              storeCollections: ["verified", "recently-updated"],
+              screenshots: ["a.png"],
+            },
+          ],
+        },
+      ],
+    });
+
+    const meta = bulkMeta(execute);
+    const rows = JSON.parse(meta.get("listingRows:trending:all") ?? "[]") as Record<
+      string,
+      unknown
+    >[];
+
+    expect(rows.map((row) => row.id)).toEqual(["high", "low"]);
+    expect(rows[0]).toEqual({
+      id: "high",
+      name: "VLC",
+      short_description: "Media player",
+      icon_url: "high.png",
+      kind: "gui",
+      content_type: "game",
+      category: "Utilities",
+      rating_average: 4.5,
+      rating_count: 10,
+      packages_json: JSON.stringify([
+        {
+          source: "flatpak-flathub",
+          rating: { average: 4, count: 3 },
+          storeCollections: ["verified"],
+        },
+      ]),
+    });
+    expect(JSON.parse(rows[1]?.packages_json as string)).toEqual([
+      { source: "aur", channel: "git" },
+    ]);
+    expect(rows[1]).toMatchObject({ kind: null, content_type: null, rating_average: null });
+    // Every listing key gets its rows, same ids as the id list itself.
+    expect(meta.has("listingRows:categoryPreview:Utilities")).toBe(true);
+    expect(meta.has("listingRows:trendingBySource:aur")).toBe(true);
+  });
+});
+
 describe("precomputed browse keys", () => {
   // generatedAt below, digits only
   const GEN = "20260101000000000";

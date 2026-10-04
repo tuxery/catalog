@@ -235,6 +235,22 @@ export function stripVariantSuffix(pkg: Pick<SourcedPackage, "source" | "name">)
  *   bare package, or any other source's) rather than staying a permanent
  *   duplicate.
  */
+/**
+ * Tier 2b: AUR's `gog-<title>` wrappers (community packages around a GOG.com
+ * installer, ~150 of them) against the `gog` source's own listing of the
+ * same title. Scoped to exactly those two sources: a blanket "strip a
+ * vendor prefix" rule would be far too broad, but a `gog-` AUR package that
+ * normalizes onto a GOG.com title is that game by construction, and no other
+ * source is keyed here, so nothing else can collide with it.
+ */
+function gogWrapperKey(pkg: SourcedPackage): string | undefined {
+  if (pkg.source === "gog") return normalizeName(pkg.name);
+  if (pkg.source === "pacman-aur" && pkg.name.startsWith("gog-")) {
+    return normalizeName(stripVariantSuffix({ ...pkg, name: pkg.name.slice("gog-".length) }));
+  }
+  return undefined;
+}
+
 function tier2Key(pkg: SourcedPackage): string | undefined {
   const normalized = normalizeName(stripVariantSuffix(pkg));
   return GENERIC_NAME_BLOCKLIST.has(normalized) ? undefined : normalized;
@@ -347,6 +363,9 @@ export function groupPackages(
 
   // Tier 2: exact normalized-name match.
   unionByExactKey(uf, packages, tier2Key, overrides.denyPairs);
+
+  // Tier 2b: AUR's gog-* wrappers onto the matching GOG.com listing.
+  unionByExactKey(uf, packages, gogWrapperKey, overrides.denyPairs);
 
   // Collect final groups — id is picked from every member at once (see
   // `buildAppId`), not just the first package seen for each root, since

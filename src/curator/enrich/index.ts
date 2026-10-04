@@ -67,6 +67,9 @@ const SOURCE_PRIORITY: PackageSourceId[] = [
   "flatpak-flathub",
   "snap-snapcraft",
   "appimage",
+  // Display-quality names ("Brave Origin", "Google Chrome") from the vendor
+  // itself, ahead of the AppStream feeds and any packager-style name.
+  "vendor-repos",
   "rpm-opensuse-appstream",
   "deb-debian-appstream",
   "deb-ubuntu-appstream",

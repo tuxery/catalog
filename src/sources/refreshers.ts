@@ -27,6 +27,7 @@ import { fetchSnapcraft } from "./snap-snapcraft/fetch";
 import { fetchSolus } from "./eopkg-solus/fetch";
 import { fetchUbuntu } from "./deb-ubuntu/fetch";
 import { fetchUbuntuAppstream } from "./deb-ubuntu-appstream/fetch";
+import { fetchVendorRepos } from "./vendor-repos/fetch";
 import { fetchVoid } from "./xbps-void/fetch";
 
 /**
@@ -67,4 +68,5 @@ export const REFRESHERS: Record<string, (cachePath: string) => Promise<number>> 
   gog: fetchGog,
   lutris: fetchLutris,
   "github-releases": fetchGithubReleases,
+  "vendor-repos": fetchVendorRepos,
 };

@@ -41,7 +41,8 @@ export type PackageSourceId =
   | "deb-ubuntu-appstream"
   | "gog"
   | "lutris"
-  | "github-releases";
+  | "github-releases"
+  | "vendor-repos";
 
 /**
  * A single package as reported by one source, before deduplication.

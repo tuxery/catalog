@@ -74,6 +74,10 @@ describe("parseResults", () => {
     expect(parseResults(fenced)).toHaveLength(1);
   });
 
+  it("splits an entry holding several newline-separated lines", () => {
+    expect(parseResults(reply("1|game|Puzzle|h|x\n2|lib|-|m|y"))).toHaveLength(2);
+  });
+
   it("skips a name echoed after n", () => {
     expect(parseResults(reply("1|ccusage|app|Developer Tools|h|CLI"))).toEqual([
       { n: 1, type: "app", category: "Developer Tools", confidence: "high", reason: "CLI" },

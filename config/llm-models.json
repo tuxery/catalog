@@ -40,6 +40,16 @@
     "reason": "Extra 20 requests/day of Flash quota; the original default model. Last of the Gemini chain: the most overloaded one in 2026-09 runs."
   },
   {
+    "id": "gemini-3.1-flash-lite",
+    "provider": "gemini",
+    "enabled": true,
+    "batchSize": 200,
+    "requestsPerMinute": 5,
+    "reasoning": "minimal",
+    "overloadRetries": 0,
+    "reason": "Fallback after the Gemini Flash chain: its own free daily quota, separate from the Flash models'. On a 118-app hand-labelled sample (2026-10-04, 60-app batches), it scored 95% right type and 91% right type + category, with zero real app called library/other at high confidence. That's on par with qwen3.8-27b (97% / 92%), so it goes before Groq's token-capped quota. The Flash models couldn't be measured on that sample: every request got a 503 that day. Same request-capped settings as the Flash models; reasoning 'minimal' keeps output lean. Check its requests/day in AI Studio before raising batchSize."
+  },
+  {
     "id": "qwen/qwen3.8-27b",
     "provider": "groq",
     "enabled": true,
@@ -53,6 +63,16 @@
     "reason": "Groq fallback once the Gemini chain is spent or overloaded. On the same 29 apps it agreed with Gemini 72% of the time (13/15 on Gemini-high ones), with defensible disagreements and well-calibrated confidence ('low' on description-less apps) — far ahead of gpt-oss-20b (45%) and gpt-oss-120b (52%). Groq's free tier caps it on tokens: 8,000/min, 200,000/day, and above all 1,000 *output* tokens/min, checked against the request's requested output before it runs. With the pipe-string output format (~12 output tokens/app, measured 2026-09-27; 78% agreement with Gemini on 64 apps), batches are capped at 32 apps: on Groq's strict json_schema, qwen3.8-27b never returns more than 32 array items (finish_reason 'stop' at 32, ~470 output tokens, even when told the exact count — measured 2026-09-30), so larger batches paid input tokens for apps that never got an answer. 32 apps also fit well under a 950-token output cap. Pacing on both total and output tokens (with margins) avoids per-minute 429s. Reasoning 'none' (supported by Qwen, not gpt-oss) keeps output lean."
   },
   {
+    "id": "gemini-3.5-flash-lite",
+    "provider": "gemini",
+    "enabled": true,
+    "batchSize": 200,
+    "requestsPerMinute": 5,
+    "reasoning": "minimal",
+    "overloadRetries": 0,
+    "reason": "Last enabled fallback: one more separate free daily quota. On the same 118-app sample (2026-10-04), it scored 91% right type but only 83% right type + category, and it caught fewer libraries (20/30) than gemini-3.1-flash-lite (26/30). Hence after Groq."
+  },
+  {
     "id": "gemma-4-26b-a4b-it",
     "provider": "gemini",
     "enabled": false,
@@ -62,7 +82,7 @@
     "maxOutputTokens": 3000,
     "reasoning": "minimal",
     "overloadRetries": 1,
-    "reason": "Disabled until its free-tier quota is checked in AI Studio (Gemma 3 was announced at 14,400 requests/day but 15,000 tokens/min). Gemma 3 is no longer served on the Gemini API (2026-10-04). Gemma 4 takes the normal Gemini path (system instruction, JSON mode), but needs reasoning 'minimal': otherwise it thinks until maxOutputTokens runs out. On a 118-app hand-labelled sample (2026-10-04): 92% right type, 81% right type + category, zero real app called library/other at high confidence, but only 22/30 libraries caught — below Gemini 3.1 Flash-Lite and Qwen 3.8 27B (91-92%). Worth it only as a high-volume fallback. Token-capped: 100-app batches stay well under the per-minute cap (~53 tokens/app). Gemma 4 31B scored nothing: overloaded on every try."
+    "reason": "Disabled until its free-tier quota is checked in AI Studio (Gemma 3 was announced at 14,400 requests/day but 15,000 tokens/min). Gemma 3 is no longer served on the Gemini API (2026-10-04). Gemma 4 takes system instructions and JSON mode like the Flash models, but needs reasoning 'minimal': otherwise it thinks until maxOutputTokens runs out. On a 118-app hand-labelled sample (2026-10-04): 92% right type, 81% right type + category, zero real app called library/other at high confidence, but only 22/30 libraries caught — below Gemini 3.1 Flash-Lite and Qwen 3.8 27B (91-92%). Worth it only as a high-volume fallback. Token-capped: 100-app batches stay well under the per-minute cap (~53 tokens/app). Gemma 4 31B scored nothing: overloaded on every try."
   },
   {
     "id": "openai/gpt-oss-20b",

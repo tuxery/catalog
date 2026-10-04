@@ -280,7 +280,7 @@
 {"name":"vdr-xineliboutput-plugin","summary":"Plugins for watching VDR over Xine","version":"2.3.0","homepage":"http://sourceforge.net/projects/xineliboutput","group":"Unspecified","hasDesktopFile":false}
 {"name":"vdrsync","summary":"Recording demultiplexer for VDR","version":"0.1.3","homepage":"http://vdrsync.vdr-portal.de/","group":"Unspecified","hasDesktopFile":false}
 {"name":"videomorph","summary":"Small GUI wrapper for FFMPEG based on PyQt5","version":"1.4.1","homepage":"https://github.com/videomorph-dev/videomorph","group":"Unspecified","hasDesktopFile":true}
-{"name":"vlc-plugins-freeworld","summary":"H.264, and HEVC codec plugins for VLC media player","version":"3.0.23","homepage":"https://www.videolan.org","group":"Unspecified","hasDesktopFile":false}
+{"name":"vlc-plugins-freeworld","summary":"H.264, and HEVC codec plugins for VLC media player","version":"3.0.24","homepage":"https://www.videolan.org","group":"Unspecified","hasDesktopFile":false}
 {"name":"vvdec","summary":"The Fraunhofer Versatile Video Decoder","version":"3.0.0","homepage":"https://github.com/fraunhoferhhi/vvdec","group":"Unspecified","hasDesktopFile":false}
 {"name":"vvdec-devel","summary":"Header files for vvdec development","version":"3.0.0","homepage":"https://github.com/fraunhoferhhi/vvdec","group":"Unspecified","hasDesktopFile":false}
 {"name":"vvdec-libs","summary":"Library  files for vvdec","version":"3.0.0","homepage":"https://github.com/fraunhoferhhi/vvdec","group":"Unspecified","hasDesktopFile":false}
@@ -533,18 +533,22 @@
 {"name":"yapeSDL","summary":"A Commodore 264 family (C16, plus/4 etc.) emulator","version":"0.81.1","homepage":"https://github.com/calmopyrin/yapesdl","group":"Unspecified","hasDesktopFile":true}
 {"name":"zerotier-one","summary":"Smart Ethernet Switch for Earth","version":"1.16.2","homepage":"https://zerotier.com","group":"Unspecified","hasDesktopFile":false}
 {"name":"dvdstyler","summary":"Cross-platform DVD authoring application","version":"3.3","homepage":"http://www.dvdstyler.de/","group":"Unspecified","hasDesktopFile":true}
-{"name":"redumper","summary":"Low level CD dumper utility","version":"b752","homepage":"https://github.com/superg/redumper","group":"Unspecified","hasDesktopFile":false}
-{"name":"libdriveio","summary":"A drive interrogation library used by MakeMKV","version":"1.18.4","homepage":"https://www.makemkv.com/","group":"Unspecified","hasDesktopFile":false}
-{"name":"libdriveio-devel","summary":"Development files for libdriveio","version":"1.18.4","homepage":"https://www.makemkv.com/","group":"Unspecified","hasDesktopFile":false}
-{"name":"libmakemkv","summary":"A MKV multiplexer library used by MakeMKV","version":"1.18.4","homepage":"https://www.makemkv.com/","group":"Unspecified","hasDesktopFile":false}
-{"name":"libmakemkv-devel","summary":"Development files for libmakemkv","version":"1.18.4","homepage":"https://www.makemkv.com/","group":"Unspecified","hasDesktopFile":false}
-{"name":"libmmbd","summary":"A library for decrypting Blu-ray files using MakeMKV","version":"1.18.4","homepage":"https://www.makemkv.com/","group":"Unspecified","hasDesktopFile":false}
-{"name":"libmmbd-devel","summary":"Development files for libmmbd","version":"1.18.4","homepage":"https://www.makemkv.com/","group":"Unspecified","hasDesktopFile":false}
-{"name":"makemkv","summary":"A decryption and transcoding tool for DVD and Blu-ray discs","version":"1.18.4","homepage":"https://www.makemkv.com/","group":"Unspecified","hasDesktopFile":true}
-{"name":"makemkv-bin","summary":"A decryption and transcoding tool for DVD and Blu-ray discs","version":"1.18.4","homepage":"https://www.makemkv.com/","group":"Unspecified","hasDesktopFile":false}
-{"name":"makemkv-blues","summary":"MakeMKV's BD-J emulation server (BLUES)","version":"1.18.4","homepage":"https://www.makemkv.com/","group":"Unspecified","hasDesktopFile":false}
-{"name":"makemkv-blues-javadoc","summary":"JavaDoc documentation for MakeMKV's Java component (BLUES)","version":"1.18.4","homepage":"https://www.makemkv.com/","group":"Unspecified","hasDesktopFile":false}
-{"name":"makemkv-oss","summary":"The open-source components of MakeMKV","version":"1.18.4","homepage":"https://www.makemkv.com/","group":"Unspecified","hasDesktopFile":false}
+{"name":"redumper","summary":"Low level CD dumper utility","version":"b753","homepage":"https://github.com/superg/redumper","group":"Unspecified","hasDesktopFile":false}
+{"name":"libdriveio","summary":"A drive interrogation library used by MakeMKV","version":"2.0.0","homepage":"https://www.makemkv.com/","group":"Unspecified","hasDesktopFile":false}
+{"name":"libdriveio-devel","summary":"Development files for libdriveio","version":"2.0.0","homepage":"https://www.makemkv.com/","group":"Unspecified","hasDesktopFile":false}
+{"name":"libmakemkv","summary":"A MKV multiplexer library used by MakeMKV","version":"2.0.0","homepage":"https://www.makemkv.com/","group":"Unspecified","hasDesktopFile":false}
+{"name":"libmakemkv-devel","summary":"Development files for libmakemkv","version":"2.0.0","homepage":"https://www.makemkv.com/","group":"Unspecified","hasDesktopFile":false}
+{"name":"libmmbd","summary":"A library for decrypting Blu-ray files using MakeMKV","version":"2.0.0","homepage":"https://www.makemkv.com/","group":"Unspecified","hasDesktopFile":false}
+{"name":"libmmbd-devel","summary":"Development files for libmmbd","version":"2.0.0","homepage":"https://www.makemkv.com/","group":"Unspecified","hasDesktopFile":false}
+{"name":"makemkv","summary":"A decryption and transcoding tool for DVD and Blu-ray discs","version":"2.0.0","homepage":"https://www.makemkv.com/","group":"Unspecified","hasDesktopFile":true}
+{"name":"makemkv-bin","summary":"A decryption and transcoding tool for DVD and Blu-ray discs","version":"2.0.0","homepage":"https://www.makemkv.com/","group":"Unspecified","hasDesktopFile":false}
+{"name":"makemkv-blues","summary":"MakeMKV's BD-J emulation server (BLUES)","version":"2.0.0","homepage":"https://www.makemkv.com/","group":"Unspecified","hasDesktopFile":false}
+{"name":"makemkv-blues-javadoc","summary":"JavaDoc documentation for MakeMKV's Java component (BLUES)","version":"2.0.0","homepage":"https://www.makemkv.com/","group":"Unspecified","hasDesktopFile":false}
+{"name":"makemkv-oss","summary":"The open-source components of MakeMKV","version":"2.0.0","homepage":"https://www.makemkv.com/","group":"Unspecified","hasDesktopFile":false}
 {"name":"nautilus-megasync","summary":"Extension for Nautilus to interact with Megasync","version":"6.6.1.0","homepage":"https://mega.nz","group":"Unspecified","hasDesktopFile":false}
+{"name":"pico-sdk","summary":"Metapackage for the Raspberry Pi Pico SDK","version":"2.3.1","homepage":"https://github.com/raspberrypi/pico-sdk","group":"Unspecified","hasDesktopFile":false}
+{"name":"pico-sdk-source","summary":"SDK for RP-series microcontrollers","version":"2.3.1","homepage":"https://github.com/raspberrypi/pico-sdk","group":"Unspecified","hasDesktopFile":false}
+{"name":"picotool","summary":"Tool for working with RP-series binaries and devices","version":"2.3.1","homepage":"https://github.com/raspberrypi/picotool","group":"Unspecified","hasDesktopFile":false}
+{"name":"pioasm","summary":"Assembler for PIO programs","version":"2.3.1","homepage":"https://github.com/raspberrypi/pico-sdk","group":"Unspecified","hasDesktopFile":false}
 {"name":"steam-arch-transition","summary":"Transition package for migrating Steam from i686 to x86_64","version":"1.0.0.87","homepage":"http://www.steampowered.com/","group":"Unspecified","hasDesktopFile":false}
 {"name":"thunar-megasync","summary":"Extension for Thunar to interact with Megasync","version":"6.6.1.0","homepage":"https://mega.nz","group":"Unspecified","hasDesktopFile":false}

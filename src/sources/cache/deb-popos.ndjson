@@ -5,8 +5,8 @@
 {"name":"cosmic-design-demo","description":"libcosmic demo displaying its design elements and capabilities","version":"0.1.0~1704748391~26.04~d58cfad","homepage":"https://github.com/pop-os/libcosmic","section":"utils"}
 {"name":"cosmic-edit","description":"Cosmic Text Editor","version":"1.9.0~1790184654~26.04~bfc98bf","homepage":"https://github.com/pop-os/cosmic-edit","section":"admin"}
 {"name":"cosmic-files","description":"Cosmic File Manager","version":"1.9.0~1790181896~26.04~d1f0af7","homepage":"https://github.com/pop-os/cosmic-files","section":"admin"}
-{"name":"cosmic-greeter-daemon","description":"Cosmic Greeter daemon","version":"0.1.0~1790118659~26.04~b87331f","homepage":"https://github.com/pop-os/cosmic-greeter","section":"admin"}
-{"name":"cosmic-greeter","description":"Cosmic Greeter","version":"0.1.0~1790118659~26.04~b87331f","homepage":"https://github.com/pop-os/cosmic-greeter","section":"admin"}
+{"name":"cosmic-greeter-daemon","description":"Cosmic Greeter daemon","version":"0.1.0~1790462629~26.04~bfb2745","homepage":"https://github.com/pop-os/cosmic-greeter","section":"admin"}
+{"name":"cosmic-greeter","description":"Cosmic Greeter","version":"0.1.0~1790462629~26.04~bfb2745","homepage":"https://github.com/pop-os/cosmic-greeter","section":"admin"}
 {"name":"cosmic-icons","description":"Cosmic Icons","version":"0.1.0~1788213180~26.04~343c007","homepage":"https://github.com/pop-os/cosmic-icons","section":"admin"}
 {"name":"cosmic-idle","description":"Cosmic idle daemon","version":"0.1.0~1771011327~26.04~c95d066","homepage":"https://github.com/pop-os/cosmic-idle","section":"admin"}
 {"name":"cosmic-initial-setup-casper","description":"Disable COSMIC Initial Setup in casper","version":"1.0.0~1789502018~26.04~9b5a949","homepage":"https://github.com/pop-os/cosmic-initial-setup","section":"admin"}

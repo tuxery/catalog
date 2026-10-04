@@ -241,24 +241,24 @@
 {"name":"apache-mod-auth-radius","description":"Apache authentication module to become RADIUS client for AAA requests","version":"1.6.0-r3","homepage":"http://freeradius.org/mod_auth_radius/","repo":"main"}
 {"name":"apache-mod-fcgid","description":"FastCGI module for Apache 2.x","version":"2.3.9-r6","homepage":"https://httpd.apache.org/mod_fcgid/","repo":"main"}
 {"name":"apache-mod-fcgid-doc","description":"FastCGI module for Apache 2.x (documentation)","version":"2.3.9-r6","homepage":"https://httpd.apache.org/mod_fcgid/","repo":"main"}
-{"name":"apache2","description":"A high performance Unix-based HTTP server","version":"2.4.68-r0","homepage":"https://httpd.apache.org/","repo":"main"}
-{"name":"apache2-brotli","description":"Brotli content compression for the Apache HTTP Server","version":"2.4.68-r0","homepage":"https://httpd.apache.org/","repo":"main"}
-{"name":"apache2-ctl","description":"Apache control script","version":"2.4.68-r0","homepage":"https://httpd.apache.org/","repo":"main"}
-{"name":"apache2-dev","description":"A high performance Unix-based HTTP server (development files)","version":"2.4.68-r0","homepage":"https://httpd.apache.org/","repo":"main"}
-{"name":"apache2-doc","description":"A high performance Unix-based HTTP server (documentation)","version":"2.4.68-r0","homepage":"https://httpd.apache.org/","repo":"main"}
-{"name":"apache2-error","description":"Apache Multi Language Custom Error Documents","version":"2.4.68-r0","homepage":"https://httpd.apache.org/","repo":"main"}
-{"name":"apache2-http2","description":"HTTP/2 transport layer for the Apache HTTP Server","version":"2.4.68-r0","homepage":"https://httpd.apache.org/","repo":"main"}
-{"name":"apache2-icons","description":"Apache Public Domain Icons","version":"2.4.68-r0","homepage":"https://httpd.apache.org/","repo":"main"}
-{"name":"apache2-ldap","description":"LDAP authentication/authorization module for the Apache HTTP Server","version":"2.4.68-r0","homepage":"https://httpd.apache.org/docs/2.4/mod/mod_authnz_ldap.html","repo":"main"}
-{"name":"apache2-lua","description":"Lua support for the Apache HTTP server","version":"2.4.68-r0","homepage":"https://httpd.apache.org/","repo":"main"}
+{"name":"apache2","description":"A high performance Unix-based HTTP server","version":"2.4.69-r0","homepage":"https://httpd.apache.org/","repo":"main"}
+{"name":"apache2-brotli","description":"Brotli content compression for the Apache HTTP Server","version":"2.4.69-r0","homepage":"https://httpd.apache.org/","repo":"main"}
+{"name":"apache2-ctl","description":"Apache control script","version":"2.4.69-r0","homepage":"https://httpd.apache.org/","repo":"main"}
+{"name":"apache2-dev","description":"A high performance Unix-based HTTP server (development files)","version":"2.4.69-r0","homepage":"https://httpd.apache.org/","repo":"main"}
+{"name":"apache2-doc","description":"A high performance Unix-based HTTP server (documentation)","version":"2.4.69-r0","homepage":"https://httpd.apache.org/","repo":"main"}
+{"name":"apache2-error","description":"Apache Multi Language Custom Error Documents","version":"2.4.69-r0","homepage":"https://httpd.apache.org/","repo":"main"}
+{"name":"apache2-http2","description":"HTTP/2 transport layer for the Apache HTTP Server","version":"2.4.69-r0","homepage":"https://httpd.apache.org/","repo":"main"}
+{"name":"apache2-icons","description":"Apache Public Domain Icons","version":"2.4.69-r0","homepage":"https://httpd.apache.org/","repo":"main"}
+{"name":"apache2-ldap","description":"LDAP authentication/authorization module for the Apache HTTP Server","version":"2.4.69-r0","homepage":"https://httpd.apache.org/docs/2.4/mod/mod_authnz_ldap.html","repo":"main"}
+{"name":"apache2-lua","description":"Lua support for the Apache HTTP server","version":"2.4.69-r0","homepage":"https://httpd.apache.org/","repo":"main"}
 {"name":"apache2-mod-wsgi","description":"Python WSGI Module for Apache2","version":"5.0.2-r1","homepage":"https://github.com/GrahamDumpleton/mod_wsgi","repo":"main"}
 {"name":"apache2-mod-wsgi-doc","description":"Python WSGI Module for Apache2 (documentation)","version":"5.0.2-r1","homepage":"https://github.com/GrahamDumpleton/mod_wsgi","repo":"main"}
-{"name":"apache2-openrc","description":"A high performance Unix-based HTTP server (OpenRC init scripts)","version":"2.4.68-r0","homepage":"https://httpd.apache.org/","repo":"main"}
-{"name":"apache2-proxy","description":"Proxy modules for the Apache HTTP Server","version":"2.4.68-r0","homepage":"https://httpd.apache.org/","repo":"main"}
-{"name":"apache2-proxy-html","description":"HTML and XML content filters for the Apache HTTP Server","version":"2.4.68-r0","homepage":"https://httpd.apache.org/","repo":"main"}
-{"name":"apache2-ssl","description":"SSL/TLS module for the Apache HTTP Server","version":"2.4.68-r0","homepage":"https://httpd.apache.org/","repo":"main"}
-{"name":"apache2-utils","description":"Apache utility programs for webservers","version":"2.4.68-r0","homepage":"https://httpd.apache.org/","repo":"main"}
-{"name":"apache2-webdav","description":"WebDAV support for the Apache HTTP Server","version":"2.4.68-r0","homepage":"https://httpd.apache.org/","repo":"main"}
+{"name":"apache2-openrc","description":"A high performance Unix-based HTTP server (OpenRC init scripts)","version":"2.4.69-r0","homepage":"https://httpd.apache.org/","repo":"main"}
+{"name":"apache2-proxy","description":"Proxy modules for the Apache HTTP Server","version":"2.4.69-r0","homepage":"https://httpd.apache.org/","repo":"main"}
+{"name":"apache2-proxy-html","description":"HTML and XML content filters for the Apache HTTP Server","version":"2.4.69-r0","homepage":"https://httpd.apache.org/","repo":"main"}
+{"name":"apache2-ssl","description":"SSL/TLS module for the Apache HTTP Server","version":"2.4.69-r0","homepage":"https://httpd.apache.org/","repo":"main"}
+{"name":"apache2-utils","description":"Apache utility programs for webservers","version":"2.4.69-r0","homepage":"https://httpd.apache.org/","repo":"main"}
+{"name":"apache2-webdav","description":"WebDAV support for the Apache HTTP Server","version":"2.4.69-r0","homepage":"https://httpd.apache.org/","repo":"main"}
 {"name":"apcupsd","description":"A Daemon to control APC UPSes","version":"3.14.14-r6","homepage":"http://www.apcupsd.org","repo":"main"}
 {"name":"apcupsd-doc","description":"A Daemon to control APC UPSes (documentation)","version":"3.14.14-r6","homepage":"http://www.apcupsd.org","repo":"main"}
 {"name":"apcupsd-openrc","description":"A Daemon to control APC UPSes (OpenRC init scripts)","version":"3.14.14-r6","homepage":"http://www.apcupsd.org","repo":"main"}
@@ -462,16 +462,16 @@
 {"name":"bearssl-static","description":"The BearSSL implementation of the SSL/TLS protocol (static library)","version":"0.6_git20260508-r0","homepage":"https://bearssl.org/","repo":"main"}
 {"name":"beep","description":"A terminal bell","version":"1.4.12-r1","homepage":"https://github.com/spkr-beep/beep","repo":"main"}
 {"name":"beep-doc","description":"A terminal bell (documentation)","version":"1.4.12-r1","homepage":"https://github.com/spkr-beep/beep","repo":"main"}
-{"name":"bind","description":"The ISC DNS server","version":"9.20.27-r0","homepage":"https://www.isc.org/bind/","repo":"main"}
-{"name":"bind-dbg","description":"The ISC DNS server (debug symbols)","version":"9.20.27-r0","homepage":"https://www.isc.org/bind/","repo":"main"}
-{"name":"bind-dev","description":"The ISC DNS server (development files)","version":"9.20.27-r0","homepage":"https://www.isc.org/bind/","repo":"main"}
-{"name":"bind-dnssec-root","description":"ISC BIND DNSSEC Root Keys","version":"9.20.27-r0","homepage":"https://www.isc.org/bind/","repo":"main"}
-{"name":"bind-dnssec-tools","description":"Utilities for DNSSEC keys and DNS zone files management","version":"9.20.27-r0","homepage":"https://www.isc.org/bind/","repo":"main"}
-{"name":"bind-doc","description":"The ISC DNS server (documentation)","version":"9.20.27-r0","homepage":"https://www.isc.org/bind/","repo":"main"}
-{"name":"bind-libs","description":"The ISC DNS server (libraries)","version":"9.20.27-r0","homepage":"https://www.isc.org/bind/","repo":"main"}
-{"name":"bind-openrc","description":"The ISC DNS server (OpenRC init scripts)","version":"9.20.27-r0","homepage":"https://www.isc.org/bind/","repo":"main"}
-{"name":"bind-plugins","description":"The ISC DNS server plugins","version":"9.20.27-r0","homepage":"https://www.isc.org/bind/","repo":"main"}
-{"name":"bind-tools","description":"The ISC DNS tools","version":"9.20.27-r0","homepage":"https://www.isc.org/bind/","repo":"main"}
+{"name":"bind","description":"The ISC DNS server","version":"9.20.29-r0","homepage":"https://www.isc.org/bind/","repo":"main"}
+{"name":"bind-dbg","description":"The ISC DNS server (debug symbols)","version":"9.20.29-r0","homepage":"https://www.isc.org/bind/","repo":"main"}
+{"name":"bind-dev","description":"The ISC DNS server (development files)","version":"9.20.29-r0","homepage":"https://www.isc.org/bind/","repo":"main"}
+{"name":"bind-dnssec-root","description":"ISC BIND DNSSEC Root Keys","version":"9.20.29-r0","homepage":"https://www.isc.org/bind/","repo":"main"}
+{"name":"bind-dnssec-tools","description":"Utilities for DNSSEC keys and DNS zone files management","version":"9.20.29-r0","homepage":"https://www.isc.org/bind/","repo":"main"}
+{"name":"bind-doc","description":"The ISC DNS server (documentation)","version":"9.20.29-r0","homepage":"https://www.isc.org/bind/","repo":"main"}
+{"name":"bind-libs","description":"The ISC DNS server (libraries)","version":"9.20.29-r0","homepage":"https://www.isc.org/bind/","repo":"main"}
+{"name":"bind-openrc","description":"The ISC DNS server (OpenRC init scripts)","version":"9.20.29-r0","homepage":"https://www.isc.org/bind/","repo":"main"}
+{"name":"bind-plugins","description":"The ISC DNS server plugins","version":"9.20.29-r0","homepage":"https://www.isc.org/bind/","repo":"main"}
+{"name":"bind-tools","description":"The ISC DNS tools","version":"9.20.29-r0","homepage":"https://www.isc.org/bind/","repo":"main"}
 {"name":"binutils","description":"Tools necessary to build programs","version":"2.45.1-r1","homepage":"https://www.gnu.org/software/binutils/","repo":"main"}
 {"name":"binutils-aarch64","description":"Tools necessary to build programs for aarch64","version":"2.45.1-r1","homepage":"https://www.gnu.org/software/binutils/","repo":"main"}
 {"name":"binutils-armhf","description":"Tools necessary to build programs for armhf","version":"2.45.1-r1","homepage":"https://www.gnu.org/software/binutils/","repo":"main"}
@@ -1397,8 +1397,8 @@
 {"name":"graphviz-libs","description":"Graph Visualization Tools (libraries)","version":"12.2.1-r3","homepage":"https://www.graphviz.org/","repo":"main"}
 {"name":"grep","description":"Searches input files for lines containing a match to a specified pattern","version":"3.12-r0","homepage":"https://www.gnu.org/software/grep/grep.html","repo":"main"}
 {"name":"grep-doc","description":"Searches input files for lines containing a match to a specified pattern (documentation)","version":"3.12-r0","homepage":"https://www.gnu.org/software/grep/grep.html","repo":"main"}
-{"name":"groff","description":"GNU troff text-formatting system","version":"1.24.1-r0","homepage":"https://www.gnu.org/software/groff/groff.html","repo":"main"}
-{"name":"groff-doc","description":"GNU troff text-formatting system (documentation)","version":"1.24.1-r0","homepage":"https://www.gnu.org/software/groff/groff.html","repo":"main"}
+{"name":"groff","description":"GNU troff text-formatting system","version":"1.24.2-r0","homepage":"https://www.gnu.org/software/groff/groff.html","repo":"main"}
+{"name":"groff-doc","description":"GNU troff text-formatting system (documentation)","version":"1.24.2-r0","homepage":"https://www.gnu.org/software/groff/groff.html","repo":"main"}
 {"name":"gross","description":"Greylisting of suspicious sources","version":"1.0.4-r1","homepage":"https://codeberg.org/bizdelnick/gross","repo":"main"}
 {"name":"gross-dev","description":"Greylisting of suspicious sources (development files)","version":"1.0.4-r1","homepage":"https://codeberg.org/bizdelnick/gross","repo":"main"}
 {"name":"gross-doc","description":"Greylisting of suspicious sources (documentation)","version":"1.0.4-r1","homepage":"https://codeberg.org/bizdelnick/gross","repo":"main"}
@@ -1445,9 +1445,9 @@
 {"name":"gyp-pyc","description":"Precompiled Python bytecode for gyp","version":"0.21.1-r1","homepage":"https://gyp.gsrc.io","repo":"main"}
 {"name":"gzip","description":"Popular data compression program","version":"1.14-r3","homepage":"https://www.gnu.org/software/gzip/","repo":"main"}
 {"name":"gzip-doc","description":"Popular data compression program (documentation)","version":"1.14-r3","homepage":"https://www.gnu.org/software/gzip/","repo":"main"}
-{"name":"haproxy","description":"A TCP/HTTP reverse proxy for high availability environments","version":"3.4.5-r0","homepage":"https://www.haproxy.org/","repo":"main"}
-{"name":"haproxy-doc","description":"A TCP/HTTP reverse proxy for high availability environments (documentation)","version":"3.4.5-r0","homepage":"https://www.haproxy.org/","repo":"main"}
-{"name":"haproxy-openrc","description":"A TCP/HTTP reverse proxy for high availability environments (OpenRC init scripts)","version":"3.4.5-r0","homepage":"https://www.haproxy.org/","repo":"main"}
+{"name":"haproxy","description":"A TCP/HTTP reverse proxy for high availability environments","version":"3.4.6-r0","homepage":"https://www.haproxy.org/","repo":"main"}
+{"name":"haproxy-doc","description":"A TCP/HTTP reverse proxy for high availability environments (documentation)","version":"3.4.6-r0","homepage":"https://www.haproxy.org/","repo":"main"}
+{"name":"haproxy-openrc","description":"A TCP/HTTP reverse proxy for high availability environments (OpenRC init scripts)","version":"3.4.6-r0","homepage":"https://www.haproxy.org/","repo":"main"}
 {"name":"harfbuzz","description":"Text shaping library","version":"13.2.1-r0","homepage":"https://harfbuzz.github.io/","repo":"main"}
 {"name":"harfbuzz-cairo","description":"Harfbuzz cairo library","version":"13.2.1-r0","homepage":"https://harfbuzz.github.io/","repo":"main"}
 {"name":"harfbuzz-dev","description":"Text shaping library (development files)","version":"13.2.1-r0","homepage":"https://harfbuzz.github.io/","repo":"main"}
@@ -1900,7 +1900,7 @@
 {"name":"libconfig-dev","description":"A simple library for manipulating structured configuration files (development files)","version":"1.8.2-r0","homepage":"https://www.hyperrealm.com/libconfig/libconfig.html","repo":"main"}
 {"name":"libconfig-doc","description":"A simple library for manipulating structured configuration files (documentation)","version":"1.8.2-r0","homepage":"https://www.hyperrealm.com/libconfig/libconfig.html","repo":"main"}
 {"name":"libconfig-static","description":"A simple library for manipulating structured configuration files (static libraries)","version":"1.8.2-r0","homepage":"https://www.hyperrealm.com/libconfig/libconfig.html","repo":"main"}
-{"name":"libcrypto3","description":"Crypto library from openssl","version":"3.5.8-r0","homepage":"https://www.openssl.org/","repo":"main"}
+{"name":"libcrypto3","description":"Crypto library from openssl","version":"3.5.9-r0","homepage":"https://www.openssl.org/","repo":"main"}
 {"name":"libcurl","description":"The multiprotocol file transfer library","version":"8.22.0-r0","homepage":"https://curl.se/","repo":"main"}
 {"name":"libdaemon","description":"A lightweight C library which eases the writing of UNIX daemons","version":"0.14-r6","homepage":"https://0pointer.de/lennart/projects/libdaemon/","repo":"main"}
 {"name":"libdaemon-dev","description":"A lightweight C library which eases the writing of UNIX daemons (development files)","version":"0.14-r6","homepage":"https://0pointer.de/lennart/projects/libdaemon/","repo":"main"}
@@ -2034,7 +2034,7 @@
 {"name":"libksba-dev","description":"Libksba is a CMS and X.509 access library (development files)","version":"1.7.0-r0","homepage":"https://www.gnupg.org/software/libksba/index.html","repo":"main"}
 {"name":"libksba-doc","description":"Libksba is a CMS and X.509 access library (documentation)","version":"1.7.0-r0","homepage":"https://www.gnupg.org/software/libksba/index.html","repo":"main"}
 {"name":"liblastlog2","description":"Y2038 safe version of lastlog","version":"2.42.3-r1","homepage":"https://git.kernel.org/cgit/utils/util-linux/util-linux.git","repo":"main"}
-{"name":"libldap","description":"OpenLDAP libraries","version":"2.6.14-r0","homepage":"https://www.openldap.org/","repo":"main"}
+{"name":"libldap","description":"OpenLDAP libraries","version":"2.6.15-r0","homepage":"https://www.openldap.org/","repo":"main"}
 {"name":"liblibdwarfp","description":"Parsing library for DWARF2 and later debugging file format","version":"2.1.0-r0","homepage":"https://www.prevanders.net/dwarf.html","repo":"main"}
 {"name":"liblksctp","description":"User-space access to Linux Kernel SCTP (libraries)","version":"1.0.19-r5","homepage":"https://lksctp.sourceforge.net/","repo":"main"}
 {"name":"liblockfile","description":"Shared library with NFS-safe locking functions","version":"1.17-r4","homepage":"https://github.com/miquels/liblockfile","repo":"main"}
@@ -2128,15 +2128,15 @@
 {"name":"libpciaccess-dev","description":"X11 PCI access library (development files)","version":"0.19-r0","homepage":"https://xorg.freedesktop.org/","repo":"main"}
 {"name":"libpciaccess-doc","description":"X11 PCI access library (documentation)","version":"0.19-r0","homepage":"https://xorg.freedesktop.org/","repo":"main"}
 {"name":"libpcre16","description":"PCRE with 16 bit character support","version":"8.45-r4","homepage":"https://www.pcre.org/","repo":"main"}
-{"name":"libpcre2-16","description":"PCRE2 with 16 bit character support","version":"10.48-r0","homepage":"https://pcre.org/","repo":"main"}
-{"name":"libpcre2-32","description":"PCRE2 with 32 bit character support","version":"10.48-r0","homepage":"https://pcre.org/","repo":"main"}
+{"name":"libpcre2-16","description":"PCRE2 with 16 bit character support","version":"10.49-r0","homepage":"https://pcre.org/","repo":"main"}
+{"name":"libpcre2-32","description":"PCRE2 with 32 bit character support","version":"10.49-r0","homepage":"https://pcre.org/","repo":"main"}
 {"name":"libpcre32","description":"PCRE with 32 bit character support","version":"8.45-r4","homepage":"https://www.pcre.org/","repo":"main"}
 {"name":"libpcrecpp","description":"C++ bindings for PCRE","version":"8.45-r4","homepage":"https://www.pcre.org/","repo":"main"}
-{"name":"libpng","description":"Portable Network Graphics library","version":"1.6.58-r1","homepage":"http://www.libpng.org","repo":"main"}
-{"name":"libpng-dev","description":"Portable Network Graphics library (development files)","version":"1.6.58-r1","homepage":"http://www.libpng.org","repo":"main"}
-{"name":"libpng-doc","description":"Portable Network Graphics library (documentation)","version":"1.6.58-r1","homepage":"http://www.libpng.org","repo":"main"}
-{"name":"libpng-static","description":"Portable Network Graphics library (static library)","version":"1.6.58-r1","homepage":"http://www.libpng.org","repo":"main"}
-{"name":"libpng-utils","description":"Portable Network Graphics library (pngfix utils)","version":"1.6.58-r1","homepage":"http://www.libpng.org","repo":"main"}
+{"name":"libpng","description":"Portable Network Graphics library","version":"1.6.59-r0","homepage":"http://www.libpng.org","repo":"main"}
+{"name":"libpng-dev","description":"Portable Network Graphics library (development files)","version":"1.6.59-r0","homepage":"http://www.libpng.org","repo":"main"}
+{"name":"libpng-doc","description":"Portable Network Graphics library (documentation)","version":"1.6.59-r0","homepage":"http://www.libpng.org","repo":"main"}
+{"name":"libpng-static","description":"Portable Network Graphics library (static library)","version":"1.6.59-r0","homepage":"http://www.libpng.org","repo":"main"}
+{"name":"libpng-utils","description":"Portable Network Graphics library (pngfix utils)","version":"1.6.59-r0","homepage":"http://www.libpng.org","repo":"main"}
 {"name":"libportaudiocxx","description":"C++ bindings library for portaudio","version":"19.7.0-r3","homepage":"http://www.portaudio.com/","repo":"main"}
 {"name":"libpq","description":"PostgreSQL client library","version":"18.6-r0","homepage":"https://www.postgresql.org/","repo":"main"}
 {"name":"libpq-dev","description":"PostgreSQL client library (development files)","version":"18.6-r0","homepage":"https://www.postgresql.org/","repo":"main"}
@@ -2204,7 +2204,7 @@
 {"name":"libssh2-dev","description":"library for accessing ssh1/ssh2 protocol servers (development files)","version":"1.11.1-r3","homepage":"https://libssh2.org/","repo":"main"}
 {"name":"libssh2-doc","description":"library for accessing ssh1/ssh2 protocol servers (documentation)","version":"1.11.1-r3","homepage":"https://libssh2.org/","repo":"main"}
 {"name":"libssh2-static","description":"library for accessing ssh1/ssh2 protocol servers (static library)","version":"1.11.1-r3","homepage":"https://libssh2.org/","repo":"main"}
-{"name":"libssl3","description":"SSL shared libraries","version":"3.5.8-r0","homepage":"https://www.openssl.org/","repo":"main"}
+{"name":"libssl3","description":"SSL shared libraries","version":"3.5.9-r0","homepage":"https://www.openssl.org/","repo":"main"}
 {"name":"libstdc++","description":"GNU C++ standard runtime library","version":"15.2.0-r5","homepage":"https://gcc.gnu.org","repo":"main"}
 {"name":"libstdc++-dev","description":"GNU C++ standard runtime library (development files)","version":"15.2.0-r5","homepage":"https://gcc.gnu.org","repo":"main"}
 {"name":"libstemmer","description":"Snowball rule-based stemming algorithms","version":"2.2.0-r0","homepage":"https://snowballstem.org/","repo":"main"}
@@ -2393,20 +2393,20 @@
 {"name":"lighttpd-mod_auth","description":"Authentication module for lighttpd","version":"1.4.85-r0","homepage":"https://www.lighttpd.net","repo":"main"}
 {"name":"lighttpd-mod_webdav","description":"WebDAV module for lighttpd","version":"1.4.85-r0","homepage":"https://www.lighttpd.net","repo":"main"}
 {"name":"lighttpd-openrc","description":"Secure, fast, compliant and very flexible web-server (OpenRC init scripts)","version":"1.4.85-r0","homepage":"https://www.lighttpd.net","repo":"main"}
-{"name":"limine","description":"Modern, secure, portable, multiprotocol bootloader and boot manager","version":"12.9.0-r0","homepage":"https://limine-bootloader.org","repo":"main"}
-{"name":"limine-bios","description":"Modern, secure, portable, multiprotocol bootloader and boot manager (BIOS sys file)","version":"12.9.0-r0","homepage":"https://limine-bootloader.org","repo":"main"}
-{"name":"limine-bios-cd","description":"Modern, secure, portable, multiprotocol bootloader and boot manager (BIOS CD binary)","version":"12.9.0-r0","homepage":"https://limine-bootloader.org","repo":"main"}
-{"name":"limine-bios-pxe","description":"Modern, secure, portable, multiprotocol bootloader and boot manager (BIOS PXE executable)","version":"12.9.0-r0","homepage":"https://limine-bootloader.org","repo":"main"}
-{"name":"limine-bios-updater","description":"Limine auto-updater for BIOS","version":"12.9.0-r0","homepage":"https://limine-bootloader.org","repo":"main"}
-{"name":"limine-doc","description":"Modern, secure, portable, multiprotocol bootloader and boot manager (documentation)","version":"12.9.0-r0","homepage":"https://limine-bootloader.org","repo":"main"}
-{"name":"limine-efi-aarch64","description":"Modern, secure, portable, multiprotocol bootloader and boot manager (aarch64 EFI image)","version":"12.9.0-r0","homepage":"https://limine-bootloader.org","repo":"main"}
-{"name":"limine-efi-cd","description":"Modern, secure, portable, multiprotocol bootloader and boot manager (EFI CD binary)","version":"12.9.0-r0","homepage":"https://limine-bootloader.org","repo":"main"}
-{"name":"limine-efi-loongarch64","description":"Modern, secure, portable, multiprotocol bootloader and boot manager (loongarch64 EFI image)","version":"12.9.0-r0","homepage":"https://limine-bootloader.org","repo":"main"}
-{"name":"limine-efi-riscv64","description":"Modern, secure, portable, multiprotocol bootloader and boot manager (riscv64 EFI image)","version":"12.9.0-r0","homepage":"https://limine-bootloader.org","repo":"main"}
-{"name":"limine-efi-updater","description":"Limine auto-updater for EFI payload","version":"12.9.0-r0","homepage":"https://limine-bootloader.org","repo":"main"}
-{"name":"limine-efi-x86","description":"Modern, secure, portable, multiprotocol bootloader and boot manager (IA-32 EFI image)","version":"12.9.0-r0","homepage":"https://limine-bootloader.org","repo":"main"}
-{"name":"limine-efi-x86_64","description":"Modern, secure, portable, multiprotocol bootloader and boot manager (x86-64 EFI image)","version":"12.9.0-r0","homepage":"https://limine-bootloader.org","repo":"main"}
-{"name":"limine-tool","description":"Limine host tool","version":"12.9.0-r0","homepage":"https://limine-bootloader.org","repo":"main"}
+{"name":"limine","description":"Modern, secure, portable, multiprotocol bootloader and boot manager","version":"12.9.1-r0","homepage":"https://limine-bootloader.org","repo":"main"}
+{"name":"limine-bios","description":"Modern, secure, portable, multiprotocol bootloader and boot manager (BIOS sys file)","version":"12.9.1-r0","homepage":"https://limine-bootloader.org","repo":"main"}
+{"name":"limine-bios-cd","description":"Modern, secure, portable, multiprotocol bootloader and boot manager (BIOS CD binary)","version":"12.9.1-r0","homepage":"https://limine-bootloader.org","repo":"main"}
+{"name":"limine-bios-pxe","description":"Modern, secure, portable, multiprotocol bootloader and boot manager (BIOS PXE executable)","version":"12.9.1-r0","homepage":"https://limine-bootloader.org","repo":"main"}
+{"name":"limine-bios-updater","description":"Limine auto-updater for BIOS","version":"12.9.1-r0","homepage":"https://limine-bootloader.org","repo":"main"}
+{"name":"limine-doc","description":"Modern, secure, portable, multiprotocol bootloader and boot manager (documentation)","version":"12.9.1-r0","homepage":"https://limine-bootloader.org","repo":"main"}
+{"name":"limine-efi-aarch64","description":"Modern, secure, portable, multiprotocol bootloader and boot manager (aarch64 EFI image)","version":"12.9.1-r0","homepage":"https://limine-bootloader.org","repo":"main"}
+{"name":"limine-efi-cd","description":"Modern, secure, portable, multiprotocol bootloader and boot manager (EFI CD binary)","version":"12.9.1-r0","homepage":"https://limine-bootloader.org","repo":"main"}
+{"name":"limine-efi-loongarch64","description":"Modern, secure, portable, multiprotocol bootloader and boot manager (loongarch64 EFI image)","version":"12.9.1-r0","homepage":"https://limine-bootloader.org","repo":"main"}
+{"name":"limine-efi-riscv64","description":"Modern, secure, portable, multiprotocol bootloader and boot manager (riscv64 EFI image)","version":"12.9.1-r0","homepage":"https://limine-bootloader.org","repo":"main"}
+{"name":"limine-efi-updater","description":"Limine auto-updater for EFI payload","version":"12.9.1-r0","homepage":"https://limine-bootloader.org","repo":"main"}
+{"name":"limine-efi-x86","description":"Modern, secure, portable, multiprotocol bootloader and boot manager (IA-32 EFI image)","version":"12.9.1-r0","homepage":"https://limine-bootloader.org","repo":"main"}
+{"name":"limine-efi-x86_64","description":"Modern, secure, portable, multiprotocol bootloader and boot manager (x86-64 EFI image)","version":"12.9.1-r0","homepage":"https://limine-bootloader.org","repo":"main"}
+{"name":"limine-tool","description":"Limine host tool","version":"12.9.1-r0","homepage":"https://limine-bootloader.org","repo":"main"}
 {"name":"linenoise","description":"Minimal replacement for readline","version":"1.0-r5","homepage":"https://github.com/antirez/linenoise","repo":"main"}
 {"name":"linenoise-dev","description":"Minimal replacement for readline (development files)","version":"1.0-r5","homepage":"https://github.com/antirez/linenoise","repo":"main"}
 {"name":"links","description":"Web browser running in both graphics and text mode","version":"2.30-r1","homepage":"http://links.twibright.com/","repo":"main"}
@@ -2525,9 +2525,9 @@
 {"name":"linux-firmware-yam","description":"firmware files for linux (yam folder)","version":"20260519-r0","homepage":"https://git.kernel.org/?p=linux/kernel/git/firmware/linux-firmware.git;a=summary","repo":"main"}
 {"name":"linux-firmware-yamaha","description":"firmware files for linux (yamaha folder)","version":"20260519-r0","homepage":"https://git.kernel.org/?p=linux/kernel/git/firmware/linux-firmware.git;a=summary","repo":"main"}
 {"name":"linux-headers","description":"Linux system headers","version":"7.0.0-r1","homepage":"https://kernel.org/","repo":"main"}
-{"name":"linux-lts","description":"Linux lts kernel","version":"6.18.53-r0","homepage":"https://www.kernel.org","repo":"main"}
-{"name":"linux-lts-dev","description":"Headers and script for third party modules for lts kernel","version":"6.18.53-r0","homepage":"https://www.kernel.org","repo":"main"}
-{"name":"linux-lts-doc","description":"Linux lts kernel (documentation)","version":"6.18.53-r0","homepage":"https://www.kernel.org","repo":"main"}
+{"name":"linux-lts","description":"Linux lts kernel","version":"6.18.54-r0","homepage":"https://www.kernel.org","repo":"main"}
+{"name":"linux-lts-dev","description":"Headers and script for third party modules for lts kernel","version":"6.18.54-r0","homepage":"https://www.kernel.org","repo":"main"}
+{"name":"linux-lts-doc","description":"Linux lts kernel (documentation)","version":"6.18.54-r0","homepage":"https://www.kernel.org","repo":"main"}
 {"name":"linux-pam","description":"Linux PAM (Pluggable Authentication Modules for Linux)","version":"1.7.1-r2","homepage":"https://www.kernel.org/pub/linux/libs/pam","repo":"main"}
 {"name":"linux-pam-dev","description":"Linux PAM (Pluggable Authentication Modules for Linux) (development files)","version":"1.7.1-r2","homepage":"https://www.kernel.org/pub/linux/libs/pam","repo":"main"}
 {"name":"linux-pam-doc","description":"Linux PAM (Pluggable Authentication Modules for Linux) (documentation)","version":"1.7.1-r2","homepage":"https://www.kernel.org/pub/linux/libs/pam","repo":"main"}
@@ -2542,8 +2542,8 @@
 {"name":"linux-tools-tmon","description":"Linux kernel thermal monitor tools","version":"7.1.5-r0","homepage":"https://www.kernel.org/","repo":"main"}
 {"name":"linux-tools-usbip","description":"utilities for USB device sharing over IP network","version":"7.1.5-r0","homepage":"https://www.kernel.org/","repo":"main"}
 {"name":"linux-tools-usbip-openrc","description":"utilities for USB device sharing over IP network (OpenRC init scripts)","version":"7.1.5-r0","homepage":"https://www.kernel.org/","repo":"main"}
-{"name":"linux-virt","description":"Linux lts kernel","version":"6.18.53-r0","homepage":"https://www.kernel.org","repo":"main"}
-{"name":"linux-virt-dev","description":"Headers and script for third party modules for virt kernel","version":"6.18.53-r0","homepage":"https://www.kernel.org","repo":"main"}
+{"name":"linux-virt","description":"Linux lts kernel","version":"6.18.54-r0","homepage":"https://www.kernel.org","repo":"main"}
+{"name":"linux-virt-dev","description":"Headers and script for third party modules for virt kernel","version":"6.18.54-r0","homepage":"https://www.kernel.org","repo":"main"}
 {"name":"lksctp-tools","description":"User-space access to Linux Kernel SCTP","version":"1.0.19-r5","homepage":"https://lksctp.sourceforge.net/","repo":"main"}
 {"name":"lksctp-tools-dev","description":"User-space access to Linux Kernel SCTP (development files)","version":"1.0.19-r5","homepage":"https://lksctp.sourceforge.net/","repo":"main"}
 {"name":"lksctp-tools-doc","description":"User-space access to Linux Kernel SCTP (documentation)","version":"1.0.19-r5","homepage":"https://lksctp.sourceforge.net/","repo":"main"}
@@ -3421,11 +3421,11 @@
 {"name":"nftables-rulesets","description":"Meta package for pulling in all nftables rulesets","version":"1.1.6-r1","homepage":"https://netfilter.org/projects/nftables","repo":"main"}
 {"name":"nftables-static","description":"Netfilter tables userspace tools (static library)","version":"1.1.6-r1","homepage":"https://netfilter.org/projects/nftables","repo":"main"}
 {"name":"nftables-systemd","description":"Netfilter tables userspace tools (systemd files)","version":"1.1.6-r1","homepage":"https://netfilter.org/projects/nftables","repo":"main"}
-{"name":"nghttp2","description":"HTTP/2 C client, server and proxy","version":"1.69.0-r0","homepage":"https://nghttp2.org","repo":"main"}
-{"name":"nghttp2-dev","description":"HTTP/2 C client, server and proxy (development files)","version":"1.69.0-r0","homepage":"https://nghttp2.org","repo":"main"}
-{"name":"nghttp2-doc","description":"HTTP/2 C client, server and proxy (documentation)","version":"1.69.0-r0","homepage":"https://nghttp2.org","repo":"main"}
-{"name":"nghttp2-libs","description":"HTTP/2 C client, server and proxy (libraries)","version":"1.69.0-r0","homepage":"https://nghttp2.org","repo":"main"}
-{"name":"nghttp2-static","description":"HTTP/2 C client, server and proxy (static library)","version":"1.69.0-r0","homepage":"https://nghttp2.org","repo":"main"}
+{"name":"nghttp2","description":"HTTP/2 C client, server and proxy","version":"1.70.0-r0","homepage":"https://nghttp2.org","repo":"main"}
+{"name":"nghttp2-dev","description":"HTTP/2 C client, server and proxy (development files)","version":"1.70.0-r0","homepage":"https://nghttp2.org","repo":"main"}
+{"name":"nghttp2-doc","description":"HTTP/2 C client, server and proxy (documentation)","version":"1.70.0-r0","homepage":"https://nghttp2.org","repo":"main"}
+{"name":"nghttp2-libs","description":"HTTP/2 C client, server and proxy (libraries)","version":"1.70.0-r0","homepage":"https://nghttp2.org","repo":"main"}
+{"name":"nghttp2-static","description":"HTTP/2 C client, server and proxy (static library)","version":"1.70.0-r0","homepage":"https://nghttp2.org","repo":"main"}
 {"name":"nghttp3","description":"HTTP/3 library written in C","version":"1.15.0-r0","homepage":"https://github.com/ngtcp2/nghttp3","repo":"main"}
 {"name":"nghttp3-dev","description":"HTTP/3 library written in C (development files)","version":"1.15.0-r0","homepage":"https://github.com/ngtcp2/nghttp3","repo":"main"}
 {"name":"nghttp3-static","description":"HTTP/3 library written in C (static library)","version":"1.15.0-r0","homepage":"https://github.com/ngtcp2/nghttp3","repo":"main"}
@@ -3569,55 +3569,55 @@
 {"name":"openjpeg","description":"Open-source implementation of JPEG2000 image codec","version":"2.5.4-r1","homepage":"https://www.openjpeg.org/","repo":"main"}
 {"name":"openjpeg-dev","description":"Open-source implementation of JPEG2000 image codec (development files)","version":"2.5.4-r1","homepage":"https://www.openjpeg.org/","repo":"main"}
 {"name":"openjpeg-tools","description":"Open-source implementation of JPEG2000 image codec - tools","version":"2.5.4-r1","homepage":"https://www.openjpeg.org/","repo":"main"}
-{"name":"openldap","description":"LDAP Server","version":"2.6.14-r0","homepage":"https://www.openldap.org/","repo":"main"}
-{"name":"openldap-back-asyncmeta","description":"OpenLDAP asyncmeta backend","version":"2.6.14-r0","homepage":"https://www.openldap.org/","repo":"main"}
-{"name":"openldap-back-dnssrv","description":"OpenLDAP dnssrv backend","version":"2.6.14-r0","homepage":"https://www.openldap.org/","repo":"main"}
-{"name":"openldap-back-ldap","description":"OpenLDAP ldap backend","version":"2.6.14-r0","homepage":"https://www.openldap.org/","repo":"main"}
-{"name":"openldap-back-lload","description":"OpenLDAP load balancer backend (module)","version":"2.6.14-r0","homepage":"https://www.openldap.org/","repo":"main"}
-{"name":"openldap-back-mdb","description":"OpenLDAP mdb backend","version":"2.6.14-r0","homepage":"https://www.openldap.org/","repo":"main"}
-{"name":"openldap-back-meta","description":"OpenLDAP meta backend","version":"2.6.14-r0","homepage":"https://www.openldap.org/","repo":"main"}
-{"name":"openldap-back-null","description":"OpenLDAP null backend","version":"2.6.14-r0","homepage":"https://www.openldap.org/","repo":"main"}
-{"name":"openldap-back-passwd","description":"OpenLDAP passwd backend","version":"2.6.14-r0","homepage":"https://www.openldap.org/","repo":"main"}
-{"name":"openldap-back-relay","description":"OpenLDAP relay backend","version":"2.6.14-r0","homepage":"https://www.openldap.org/","repo":"main"}
-{"name":"openldap-back-sock","description":"OpenLDAP sock backend","version":"2.6.14-r0","homepage":"https://www.openldap.org/","repo":"main"}
-{"name":"openldap-back-sql","description":"OpenLDAP sql backend","version":"2.6.14-r0","homepage":"https://www.openldap.org/","repo":"main"}
-{"name":"openldap-backend-all","description":"Virtual package that installs all OpenLDAP backends","version":"2.6.14-r0","homepage":"https://www.openldap.org/","repo":"main"}
-{"name":"openldap-clients","description":"LDAP client utilities","version":"2.6.14-r0","homepage":"https://www.openldap.org/","repo":"main"}
-{"name":"openldap-dev","description":"LDAP Server (development files)","version":"2.6.14-r0","homepage":"https://www.openldap.org/","repo":"main"}
-{"name":"openldap-doc","description":"LDAP Server (documentation)","version":"2.6.14-r0","homepage":"https://www.openldap.org/","repo":"main"}
-{"name":"openldap-lloadd","description":"Standalone LDAP Load Balancer Daemon","version":"2.6.14-r0","homepage":"https://www.openldap.org/","repo":"main"}
-{"name":"openldap-lloadd-openrc","description":"Standalone LDAP Load Balancer Daemon (OpenRC init scripts)","version":"2.6.14-r0","homepage":"https://www.openldap.org/","repo":"main"}
-{"name":"openldap-openrc","description":"LDAP Server (OpenRC init scripts)","version":"2.6.14-r0","homepage":"https://www.openldap.org/","repo":"main"}
-{"name":"openldap-overlay-accesslog","description":"OpenLDAP accesslog overlay","version":"2.6.14-r0","homepage":"https://www.openldap.org/","repo":"main"}
-{"name":"openldap-overlay-all","description":"Virtual package that installs all OpenLDAP overlays","version":"2.6.14-r0","homepage":"https://www.openldap.org/","repo":"main"}
-{"name":"openldap-overlay-auditlog","description":"OpenLDAP auditlog overlay","version":"2.6.14-r0","homepage":"https://www.openldap.org/","repo":"main"}
-{"name":"openldap-overlay-autoca","description":"OpenLDAP autoca overlay","version":"2.6.14-r0","homepage":"https://www.openldap.org/","repo":"main"}
-{"name":"openldap-overlay-collect","description":"OpenLDAP collect overlay","version":"2.6.14-r0","homepage":"https://www.openldap.org/","repo":"main"}
-{"name":"openldap-overlay-constraint","description":"OpenLDAP constraint overlay","version":"2.6.14-r0","homepage":"https://www.openldap.org/","repo":"main"}
-{"name":"openldap-overlay-dds","description":"OpenLDAP dds overlay","version":"2.6.14-r0","homepage":"https://www.openldap.org/","repo":"main"}
-{"name":"openldap-overlay-deref","description":"OpenLDAP deref overlay","version":"2.6.14-r0","homepage":"https://www.openldap.org/","repo":"main"}
-{"name":"openldap-overlay-dyngroup","description":"OpenLDAP dyngroup overlay","version":"2.6.14-r0","homepage":"https://www.openldap.org/","repo":"main"}
-{"name":"openldap-overlay-dynlist","description":"OpenLDAP dynlist overlay","version":"2.6.14-r0","homepage":"https://www.openldap.org/","repo":"main"}
-{"name":"openldap-overlay-homedir","description":"OpenLDAP homedir overlay","version":"2.6.14-r0","homepage":"https://www.openldap.org/","repo":"main"}
-{"name":"openldap-overlay-lastbind","description":"OpenLDAP lastbind overlay","version":"2.6.14-r0","homepage":"https://www.openldap.org/","repo":"main"}
-{"name":"openldap-overlay-memberof","description":"OpenLDAP memberof overlay","version":"2.6.14-r0","homepage":"https://www.openldap.org/","repo":"main"}
-{"name":"openldap-overlay-mqtt","description":"OpenLDAP mqtt overlay","version":"2.6.14-r0","homepage":"https://www.openldap.org/","repo":"main"}
-{"name":"openldap-overlay-otp","description":"OpenLDAP otp overlay","version":"2.6.14-r0","homepage":"https://www.openldap.org/","repo":"main"}
-{"name":"openldap-overlay-ppolicy","description":"OpenLDAP ppolicy overlay","version":"2.6.14-r0","homepage":"https://www.openldap.org/","repo":"main"}
-{"name":"openldap-overlay-proxycache","description":"OpenLDAP proxycache overlay","version":"2.6.14-r0","homepage":"https://www.openldap.org/","repo":"main"}
-{"name":"openldap-overlay-refint","description":"OpenLDAP refint overlay","version":"2.6.14-r0","homepage":"https://www.openldap.org/","repo":"main"}
-{"name":"openldap-overlay-remoteauth","description":"OpenLDAP remoteauth overlay","version":"2.6.14-r0","homepage":"https://www.openldap.org/","repo":"main"}
-{"name":"openldap-overlay-retcode","description":"OpenLDAP retcode overlay","version":"2.6.14-r0","homepage":"https://www.openldap.org/","repo":"main"}
-{"name":"openldap-overlay-rwm","description":"OpenLDAP rwm overlay","version":"2.6.14-r0","homepage":"https://www.openldap.org/","repo":"main"}
-{"name":"openldap-overlay-seqmod","description":"OpenLDAP seqmod overlay","version":"2.6.14-r0","homepage":"https://www.openldap.org/","repo":"main"}
-{"name":"openldap-overlay-sssvlv","description":"OpenLDAP sssvlv overlay","version":"2.6.14-r0","homepage":"https://www.openldap.org/","repo":"main"}
-{"name":"openldap-overlay-syncprov","description":"OpenLDAP syncprov overlay","version":"2.6.14-r0","homepage":"https://www.openldap.org/","repo":"main"}
-{"name":"openldap-overlay-translucent","description":"OpenLDAP translucent overlay","version":"2.6.14-r0","homepage":"https://www.openldap.org/","repo":"main"}
-{"name":"openldap-overlay-unique","description":"OpenLDAP unique overlay","version":"2.6.14-r0","homepage":"https://www.openldap.org/","repo":"main"}
-{"name":"openldap-overlay-valsort","description":"OpenLDAP valsort overlay","version":"2.6.14-r0","homepage":"https://www.openldap.org/","repo":"main"}
-{"name":"openldap-passwd-argon2","description":"Argon2 OpenLDAP support","version":"2.6.14-r0","homepage":"https://www.openldap.org/","repo":"main"}
-{"name":"openldap-passwd-pbkdf2","description":"PBKDF2 OpenLDAP support","version":"2.6.14-r0","homepage":"https://www.openldap.org/","repo":"main"}
-{"name":"openldap-passwd-sha2","description":"SHA2 OpenLDAP support","version":"2.6.14-r0","homepage":"https://www.openldap.org/","repo":"main"}
+{"name":"openldap","description":"LDAP Server","version":"2.6.15-r0","homepage":"https://www.openldap.org/","repo":"main"}
+{"name":"openldap-back-asyncmeta","description":"OpenLDAP asyncmeta backend","version":"2.6.15-r0","homepage":"https://www.openldap.org/","repo":"main"}
+{"name":"openldap-back-dnssrv","description":"OpenLDAP dnssrv backend","version":"2.6.15-r0","homepage":"https://www.openldap.org/","repo":"main"}
+{"name":"openldap-back-ldap","description":"OpenLDAP ldap backend","version":"2.6.15-r0","homepage":"https://www.openldap.org/","repo":"main"}
+{"name":"openldap-back-lload","description":"OpenLDAP load balancer backend (module)","version":"2.6.15-r0","homepage":"https://www.openldap.org/","repo":"main"}
+{"name":"openldap-back-mdb","description":"OpenLDAP mdb backend","version":"2.6.15-r0","homepage":"https://www.openldap.org/","repo":"main"}
+{"name":"openldap-back-meta","description":"OpenLDAP meta backend","version":"2.6.15-r0","homepage":"https://www.openldap.org/","repo":"main"}
+{"name":"openldap-back-null","description":"OpenLDAP null backend","version":"2.6.15-r0","homepage":"https://www.openldap.org/","repo":"main"}
+{"name":"openldap-back-passwd","description":"OpenLDAP passwd backend","version":"2.6.15-r0","homepage":"https://www.openldap.org/","repo":"main"}
+{"name":"openldap-back-relay","description":"OpenLDAP relay backend","version":"2.6.15-r0","homepage":"https://www.openldap.org/","repo":"main"}
+{"name":"openldap-back-sock","description":"OpenLDAP sock backend","version":"2.6.15-r0","homepage":"https://www.openldap.org/","repo":"main"}
+{"name":"openldap-back-sql","description":"OpenLDAP sql backend","version":"2.6.15-r0","homepage":"https://www.openldap.org/","repo":"main"}
+{"name":"openldap-backend-all","description":"Virtual package that installs all OpenLDAP backends","version":"2.6.15-r0","homepage":"https://www.openldap.org/","repo":"main"}
+{"name":"openldap-clients","description":"LDAP client utilities","version":"2.6.15-r0","homepage":"https://www.openldap.org/","repo":"main"}
+{"name":"openldap-dev","description":"LDAP Server (development files)","version":"2.6.15-r0","homepage":"https://www.openldap.org/","repo":"main"}
+{"name":"openldap-doc","description":"LDAP Server (documentation)","version":"2.6.15-r0","homepage":"https://www.openldap.org/","repo":"main"}
+{"name":"openldap-lloadd","description":"Standalone LDAP Load Balancer Daemon","version":"2.6.15-r0","homepage":"https://www.openldap.org/","repo":"main"}
+{"name":"openldap-lloadd-openrc","description":"Standalone LDAP Load Balancer Daemon (OpenRC init scripts)","version":"2.6.15-r0","homepage":"https://www.openldap.org/","repo":"main"}
+{"name":"openldap-openrc","description":"LDAP Server (OpenRC init scripts)","version":"2.6.15-r0","homepage":"https://www.openldap.org/","repo":"main"}
+{"name":"openldap-overlay-accesslog","description":"OpenLDAP accesslog overlay","version":"2.6.15-r0","homepage":"https://www.openldap.org/","repo":"main"}
+{"name":"openldap-overlay-all","description":"Virtual package that installs all OpenLDAP overlays","version":"2.6.15-r0","homepage":"https://www.openldap.org/","repo":"main"}
+{"name":"openldap-overlay-auditlog","description":"OpenLDAP auditlog overlay","version":"2.6.15-r0","homepage":"https://www.openldap.org/","repo":"main"}
+{"name":"openldap-overlay-autoca","description":"OpenLDAP autoca overlay","version":"2.6.15-r0","homepage":"https://www.openldap.org/","repo":"main"}
+{"name":"openldap-overlay-collect","description":"OpenLDAP collect overlay","version":"2.6.15-r0","homepage":"https://www.openldap.org/","repo":"main"}
+{"name":"openldap-overlay-constraint","description":"OpenLDAP constraint overlay","version":"2.6.15-r0","homepage":"https://www.openldap.org/","repo":"main"}
+{"name":"openldap-overlay-dds","description":"OpenLDAP dds overlay","version":"2.6.15-r0","homepage":"https://www.openldap.org/","repo":"main"}
+{"name":"openldap-overlay-deref","description":"OpenLDAP deref overlay","version":"2.6.15-r0","homepage":"https://www.openldap.org/","repo":"main"}
+{"name":"openldap-overlay-dyngroup","description":"OpenLDAP dyngroup overlay","version":"2.6.15-r0","homepage":"https://www.openldap.org/","repo":"main"}
+{"name":"openldap-overlay-dynlist","description":"OpenLDAP dynlist overlay","version":"2.6.15-r0","homepage":"https://www.openldap.org/","repo":"main"}
+{"name":"openldap-overlay-homedir","description":"OpenLDAP homedir overlay","version":"2.6.15-r0","homepage":"https://www.openldap.org/","repo":"main"}
+{"name":"openldap-overlay-lastbind","description":"OpenLDAP lastbind overlay","version":"2.6.15-r0","homepage":"https://www.openldap.org/","repo":"main"}
+{"name":"openldap-overlay-memberof","description":"OpenLDAP memberof overlay","version":"2.6.15-r0","homepage":"https://www.openldap.org/","repo":"main"}
+{"name":"openldap-overlay-mqtt","description":"OpenLDAP mqtt overlay","version":"2.6.15-r0","homepage":"https://www.openldap.org/","repo":"main"}
+{"name":"openldap-overlay-otp","description":"OpenLDAP otp overlay","version":"2.6.15-r0","homepage":"https://www.openldap.org/","repo":"main"}
+{"name":"openldap-overlay-ppolicy","description":"OpenLDAP ppolicy overlay","version":"2.6.15-r0","homepage":"https://www.openldap.org/","repo":"main"}
+{"name":"openldap-overlay-proxycache","description":"OpenLDAP proxycache overlay","version":"2.6.15-r0","homepage":"https://www.openldap.org/","repo":"main"}
+{"name":"openldap-overlay-refint","description":"OpenLDAP refint overlay","version":"2.6.15-r0","homepage":"https://www.openldap.org/","repo":"main"}
+{"name":"openldap-overlay-remoteauth","description":"OpenLDAP remoteauth overlay","version":"2.6.15-r0","homepage":"https://www.openldap.org/","repo":"main"}
+{"name":"openldap-overlay-retcode","description":"OpenLDAP retcode overlay","version":"2.6.15-r0","homepage":"https://www.openldap.org/","repo":"main"}
+{"name":"openldap-overlay-rwm","description":"OpenLDAP rwm overlay","version":"2.6.15-r0","homepage":"https://www.openldap.org/","repo":"main"}
+{"name":"openldap-overlay-seqmod","description":"OpenLDAP seqmod overlay","version":"2.6.15-r0","homepage":"https://www.openldap.org/","repo":"main"}
+{"name":"openldap-overlay-sssvlv","description":"OpenLDAP sssvlv overlay","version":"2.6.15-r0","homepage":"https://www.openldap.org/","repo":"main"}
+{"name":"openldap-overlay-syncprov","description":"OpenLDAP syncprov overlay","version":"2.6.15-r0","homepage":"https://www.openldap.org/","repo":"main"}
+{"name":"openldap-overlay-translucent","description":"OpenLDAP translucent overlay","version":"2.6.15-r0","homepage":"https://www.openldap.org/","repo":"main"}
+{"name":"openldap-overlay-unique","description":"OpenLDAP unique overlay","version":"2.6.15-r0","homepage":"https://www.openldap.org/","repo":"main"}
+{"name":"openldap-overlay-valsort","description":"OpenLDAP valsort overlay","version":"2.6.15-r0","homepage":"https://www.openldap.org/","repo":"main"}
+{"name":"openldap-passwd-argon2","description":"Argon2 OpenLDAP support","version":"2.6.15-r0","homepage":"https://www.openldap.org/","repo":"main"}
+{"name":"openldap-passwd-pbkdf2","description":"PBKDF2 OpenLDAP support","version":"2.6.15-r0","homepage":"https://www.openldap.org/","repo":"main"}
+{"name":"openldap-passwd-sha2","description":"SHA2 OpenLDAP support","version":"2.6.15-r0","homepage":"https://www.openldap.org/","repo":"main"}
 {"name":"opennhrp","description":"NBMA Next Hop Resolution Protocol daemon","version":"0.14.1-r12","homepage":"https://sourceforge.net/projects/opennhrp/","repo":"main"}
 {"name":"opennhrp-doc","description":"NBMA Next Hop Resolution Protocol daemon (documentation)","version":"0.14.1-r12","homepage":"https://sourceforge.net/projects/opennhrp/","repo":"main"}
 {"name":"opennhrp-openrc","description":"NBMA Next Hop Resolution Protocol daemon (OpenRC init scripts)","version":"0.14.1-r12","homepage":"https://sourceforge.net/projects/opennhrp/","repo":"main"}
@@ -3663,13 +3663,13 @@
 {"name":"openssh-server-pam","description":"OpenSSH server with pam support","version":"10.3_p1-r1","homepage":"https://www.openssh.com/portable.html","repo":"main"}
 {"name":"openssh-sftp-server","description":"ssh sftp server module","version":"10.3_p1-r1","homepage":"https://www.openssh.com/portable.html","repo":"main"}
 {"name":"openssh-sk-helper","description":"OpenSSH libfido2 security key helper","version":"10.3_p1-r1","homepage":"https://www.openssh.com/portable.html","repo":"main"}
-{"name":"openssl","description":"Toolkit for Transport Layer Security (TLS)","version":"3.5.8-r0","homepage":"https://www.openssl.org/","repo":"main"}
-{"name":"openssl-dbg","description":"Toolkit for Transport Layer Security (TLS) (debug symbols)","version":"3.5.8-r0","homepage":"https://www.openssl.org/","repo":"main"}
-{"name":"openssl-dev","description":"Toolkit for Transport Layer Security (TLS) (development files)","version":"3.5.8-r0","homepage":"https://www.openssl.org/","repo":"main"}
-{"name":"openssl-doc","description":"Toolkit for Transport Layer Security (TLS) (documentation)","version":"3.5.8-r0","homepage":"https://www.openssl.org/","repo":"main"}
-{"name":"openssl-fips","description":"FIPS module from openssl","version":"3.5.8-r0","homepage":"https://www.openssl.org/","repo":"main"}
-{"name":"openssl-libs-static","description":"Toolkit for Transport Layer Security (TLS) (static library)","version":"3.5.8-r0","homepage":"https://www.openssl.org/","repo":"main"}
-{"name":"openssl-misc","description":"Various perl scripts from openssl","version":"3.5.8-r0","homepage":"https://www.openssl.org/","repo":"main"}
+{"name":"openssl","description":"Toolkit for Transport Layer Security (TLS)","version":"3.5.9-r0","homepage":"https://www.openssl.org/","repo":"main"}
+{"name":"openssl-dbg","description":"Toolkit for Transport Layer Security (TLS) (debug symbols)","version":"3.5.9-r0","homepage":"https://www.openssl.org/","repo":"main"}
+{"name":"openssl-dev","description":"Toolkit for Transport Layer Security (TLS) (development files)","version":"3.5.9-r0","homepage":"https://www.openssl.org/","repo":"main"}
+{"name":"openssl-doc","description":"Toolkit for Transport Layer Security (TLS) (documentation)","version":"3.5.9-r0","homepage":"https://www.openssl.org/","repo":"main"}
+{"name":"openssl-fips","description":"FIPS module from openssl","version":"3.5.9-r0","homepage":"https://www.openssl.org/","repo":"main"}
+{"name":"openssl-libs-static","description":"Toolkit for Transport Layer Security (TLS) (static library)","version":"3.5.9-r0","homepage":"https://www.openssl.org/","repo":"main"}
+{"name":"openssl-misc","description":"Various perl scripts from openssl","version":"3.5.9-r0","homepage":"https://www.openssl.org/","repo":"main"}
 {"name":"openvpn","description":"Robust, and highly configurable VPN (Virtual Private Network)","version":"2.7.7-r0","homepage":"https://openvpn.net/","repo":"main"}
 {"name":"openvpn-ad-check","description":"Authenticate OpenVPN users against AD server and verify if they are member of a specific group.","version":"1.1-r4","homepage":"https://sourceforge.net/p/openvpnadcheck","repo":"main"}
 {"name":"openvpn-auth-ldap","description":"LDAP authentication and authorization plugin for OpenVPN 2.x","version":"2.0.4-r8","homepage":"https://github.com/threerings/openvpn-auth-ldap/","repo":"main"}
@@ -3736,11 +3736,11 @@
 {"name":"pcre-doc","description":"Perl-compatible regular expression library (documentation)","version":"8.45-r4","homepage":"https://www.pcre.org/","repo":"main"}
 {"name":"pcre-static","description":"Perl-compatible regular expression library (static library)","version":"8.45-r4","homepage":"https://www.pcre.org/","repo":"main"}
 {"name":"pcre-tools","description":"Auxiliary utilities for PCRE","version":"8.45-r4","homepage":"https://www.pcre.org/","repo":"main"}
-{"name":"pcre2","description":"Perl-compatible regular expression library","version":"10.48-r0","homepage":"https://pcre.org/","repo":"main"}
-{"name":"pcre2-dev","description":"Perl-compatible regular expression library (development files)","version":"10.48-r0","homepage":"https://pcre.org/","repo":"main"}
-{"name":"pcre2-doc","description":"Perl-compatible regular expression library (documentation)","version":"10.48-r0","homepage":"https://pcre.org/","repo":"main"}
-{"name":"pcre2-static","description":"Perl-compatible regular expression library (static library)","version":"10.48-r0","homepage":"https://pcre.org/","repo":"main"}
-{"name":"pcre2-tools","description":"Auxiliary utilities for PCRE2","version":"10.48-r0","homepage":"https://pcre.org/","repo":"main"}
+{"name":"pcre2","description":"Perl-compatible regular expression library","version":"10.49-r0","homepage":"https://pcre.org/","repo":"main"}
+{"name":"pcre2-dev","description":"Perl-compatible regular expression library (development files)","version":"10.49-r0","homepage":"https://pcre.org/","repo":"main"}
+{"name":"pcre2-doc","description":"Perl-compatible regular expression library (documentation)","version":"10.49-r0","homepage":"https://pcre.org/","repo":"main"}
+{"name":"pcre2-static","description":"Perl-compatible regular expression library (static library)","version":"10.49-r0","homepage":"https://pcre.org/","repo":"main"}
+{"name":"pcre2-tools","description":"Auxiliary utilities for PCRE2","version":"10.49-r0","homepage":"https://pcre.org/","repo":"main"}
 {"name":"pcsc-lite","description":"Middleware to access a smart card using SCard API (PC/SC)","version":"2.4.0-r4","homepage":"https://pcsclite.apdu.fr/","repo":"main"}
 {"name":"pcsc-lite-dev","description":"Middleware to access a smart card using SCard API (PC/SC) (development files)","version":"2.4.0-r4","homepage":"https://pcsclite.apdu.fr/","repo":"main"}
 {"name":"pcsc-lite-doc","description":"Middleware to access a smart card using SCard API (PC/SC) (documentation)","version":"2.4.0-r4","homepage":"https://pcsclite.apdu.fr/","repo":"main"}
@@ -4919,21 +4919,21 @@
 {"name":"py3-xmlschema-pyc","description":"Precompiled Python bytecode for py3-xmlschema","version":"4.3.1-r2","homepage":"https://github.com/sissaschool/xmlschema","repo":"main"}
 {"name":"py3-yaml","description":"Python3 bindings for YAML","version":"6.0.3-r2","homepage":"https://pyyaml.org/","repo":"main"}
 {"name":"py3-yaml-pyc","description":"Precompiled Python bytecode for py3-yaml","version":"6.0.3-r2","homepage":"https://pyyaml.org/","repo":"main"}
-{"name":"pyc","description":"Meta package for pulling in all -pyc packages","version":"3.14.7-r1","homepage":"https://www.python.org/","repo":"main"}
-{"name":"python3","description":"High-level scripting language","version":"3.14.7-r1","homepage":"https://www.python.org/","repo":"main"}
-{"name":"python3-dbg","description":"High-level scripting language (debug symbols)","version":"3.14.7-r1","homepage":"https://www.python.org/","repo":"main"}
-{"name":"python3-dev","description":"High-level scripting language (development files)","version":"3.14.7-r1","homepage":"https://www.python.org/","repo":"main"}
-{"name":"python3-doc","description":"High-level scripting language (documentation)","version":"3.14.7-r1","homepage":"https://www.python.org/","repo":"main"}
-{"name":"python3-gdbm","description":"Python backend for GNU gdbm","version":"3.14.7-r1","homepage":"https://www.python.org/","repo":"main"}
-{"name":"python3-idle","description":"IDE for Python3 using Tkinter","version":"3.14.7-r0","homepage":"https://wiki.python.org/moin/TkInter","repo":"main"}
-{"name":"python3-pyc","description":"High-level scripting language (install .pyc cache files)","version":"3.14.7-r1","homepage":"https://www.python.org/","repo":"main"}
-{"name":"python3-pycache-pyc0","description":"High-level scripting language (.pyc pycache files)","version":"3.14.7-r1","homepage":"https://www.python.org/","repo":"main"}
-{"name":"python3-pycache-pyc1","description":"High-level scripting language (.opt-1.pyc pycache files)","version":"3.14.7-r1","homepage":"https://www.python.org/","repo":"main"}
-{"name":"python3-pycache-pyc2","description":"High-level scripting language (.opt-2.pyc pycache files)","version":"3.14.7-r1","homepage":"https://www.python.org/","repo":"main"}
-{"name":"python3-tests","description":"The test modules from the main python package","version":"3.14.7-r1","homepage":"https://www.python.org/","repo":"main"}
-{"name":"python3-tkinter","description":"A graphical user interface for the Python programming language","version":"3.14.7-r0","homepage":"https://wiki.python.org/moin/TkInter","repo":"main"}
-{"name":"python3-tkinter-pyc","description":"Precompiled Python bytecode for python3-tkinter","version":"3.14.7-r0","homepage":"https://wiki.python.org/moin/TkInter","repo":"main"}
-{"name":"python3-tkinter-tests","description":"The test modules from the main python package for tkinter","version":"3.14.7-r0","homepage":"https://wiki.python.org/moin/TkInter","repo":"main"}
+{"name":"pyc","description":"Meta package for pulling in all -pyc packages","version":"3.14.8-r0","homepage":"https://www.python.org/","repo":"main"}
+{"name":"python3","description":"High-level scripting language","version":"3.14.8-r0","homepage":"https://www.python.org/","repo":"main"}
+{"name":"python3-dbg","description":"High-level scripting language (debug symbols)","version":"3.14.8-r0","homepage":"https://www.python.org/","repo":"main"}
+{"name":"python3-dev","description":"High-level scripting language (development files)","version":"3.14.8-r0","homepage":"https://www.python.org/","repo":"main"}
+{"name":"python3-doc","description":"High-level scripting language (documentation)","version":"3.14.8-r0","homepage":"https://www.python.org/","repo":"main"}
+{"name":"python3-gdbm","description":"Python backend for GNU gdbm","version":"3.14.8-r0","homepage":"https://www.python.org/","repo":"main"}
+{"name":"python3-idle","description":"IDE for Python3 using Tkinter","version":"3.14.8-r0","homepage":"https://wiki.python.org/moin/TkInter","repo":"main"}
+{"name":"python3-pyc","description":"High-level scripting language (install .pyc cache files)","version":"3.14.8-r0","homepage":"https://www.python.org/","repo":"main"}
+{"name":"python3-pycache-pyc0","description":"High-level scripting language (.pyc pycache files)","version":"3.14.8-r0","homepage":"https://www.python.org/","repo":"main"}
+{"name":"python3-pycache-pyc1","description":"High-level scripting language (.opt-1.pyc pycache files)","version":"3.14.8-r0","homepage":"https://www.python.org/","repo":"main"}
+{"name":"python3-pycache-pyc2","description":"High-level scripting language (.opt-2.pyc pycache files)","version":"3.14.8-r0","homepage":"https://www.python.org/","repo":"main"}
+{"name":"python3-tests","description":"The test modules from the main python package","version":"3.14.8-r0","homepage":"https://www.python.org/","repo":"main"}
+{"name":"python3-tkinter","description":"A graphical user interface for the Python programming language","version":"3.14.8-r0","homepage":"https://wiki.python.org/moin/TkInter","repo":"main"}
+{"name":"python3-tkinter-pyc","description":"Precompiled Python bytecode for python3-tkinter","version":"3.14.8-r0","homepage":"https://wiki.python.org/moin/TkInter","repo":"main"}
+{"name":"python3-tkinter-tests","description":"The test modules from the main python package for tkinter","version":"3.14.8-r0","homepage":"https://wiki.python.org/moin/TkInter","repo":"main"}
 {"name":"quagga","description":"A free routing daemon replacing Zebra supporting RIP, OSPF, BGP and NHRP","version":"1.2.4-r11","homepage":"https://www.nongnu.org/quagga/","repo":"main"}
 {"name":"quagga-dbg","description":"A free routing daemon replacing Zebra supporting RIP, OSPF, BGP and NHRP (debug symbols)","version":"1.2.4-r11","homepage":"https://www.nongnu.org/quagga/","repo":"main"}
 {"name":"quagga-dev","description":"A free routing daemon replacing Zebra supporting RIP, OSPF, BGP and NHRP (development files)","version":"1.2.4-r11","homepage":"https://www.nongnu.org/quagga/","repo":"main"}
@@ -5894,7 +5894,7 @@
 {"name":"xorriso","description":"ISO-9660 and Rock Ridge image manipulation tool","version":"1.5.8-r0","homepage":"https://dev.lovelyhq.com/libburnia/libisoburn","repo":"main"}
 {"name":"xtables-addons","description":"Netfilter userspace extensions for iptables","version":"3.30-r0","homepage":"https://inai.de/projects/xtables-addons/","repo":"main"}
 {"name":"xtables-addons-doc","description":"Netfilter userspace extensions for iptables (documentation)","version":"3.30-r0","homepage":"https://inai.de/projects/xtables-addons/","repo":"main"}
-{"name":"xtables-addons-lts","description":"Iptables extensions kernel modules","version":"6.18.53-r0","homepage":"https://inai.de/projects/xtables-addons/","repo":"main"}
+{"name":"xtables-addons-lts","description":"Iptables extensions kernel modules","version":"6.18.54-r0","homepage":"https://inai.de/projects/xtables-addons/","repo":"main"}
 {"name":"xtrans","description":"X transport library","version":"1.6.0-r0","homepage":"https://xorg.freedesktop.org/","repo":"main"}
 {"name":"xxhash","description":"Extremely fast non-cryptographic hash algorithm","version":"0.8.3-r1","homepage":"https://cyan4973.github.io/xxHash/","repo":"main"}
 {"name":"xxhash-dev","description":"Extremely fast non-cryptographic hash algorithm (development files)","version":"0.8.3-r1","homepage":"https://cyan4973.github.io/xxHash/","repo":"main"}
@@ -5927,14 +5927,14 @@
 {"name":"zfs-doc","description":"Advanced filesystem and volume manager (documentation)","version":"2.4.4-r0","homepage":"https://openzfs.org","repo":"main"}
 {"name":"zfs-dracut","description":"Advanced filesystem and volume manager (dracut)","version":"2.4.4-r0","homepage":"https://openzfs.org","repo":"main"}
 {"name":"zfs-libs","description":"Advanced filesystem and volume manager (libraries)","version":"2.4.4-r0","homepage":"https://openzfs.org","repo":"main"}
-{"name":"zfs-lts","description":"ZFS Linux kernel modules","version":"6.18.53-r0","homepage":"https://openzfs.org","repo":"main"}
-{"name":"zfs-lts-dev","description":"ZFS Linux kernel modules (development files)","version":"6.18.53-r0","homepage":"https://openzfs.org","repo":"main"}
+{"name":"zfs-lts","description":"ZFS Linux kernel modules","version":"6.18.54-r0","homepage":"https://openzfs.org","repo":"main"}
+{"name":"zfs-lts-dev","description":"ZFS Linux kernel modules (development files)","version":"6.18.54-r0","homepage":"https://openzfs.org","repo":"main"}
 {"name":"zfs-openrc","description":"Advanced filesystem and volume manager (OpenRC init scripts)","version":"2.4.4-r0","homepage":"https://openzfs.org","repo":"main"}
 {"name":"zfs-scripts","description":"Advanced filesystem and volume manager (scripts)","version":"2.4.4-r0","homepage":"https://openzfs.org","repo":"main"}
 {"name":"zfs-systemd","description":"Advanced filesystem and volume manager (systemd files)","version":"2.4.4-r0","homepage":"https://openzfs.org","repo":"main"}
 {"name":"zfs-udev","description":"Advanced filesystem and volume manager (udev rules)","version":"2.4.4-r0","homepage":"https://openzfs.org","repo":"main"}
 {"name":"zfs-utils-py","description":"Advanced filesystem and volume manager (python utils)","version":"2.4.4-r0","homepage":"https://openzfs.org","repo":"main"}
-{"name":"zfs-virt","description":"ZFS Linux kernel modules for virt","version":"6.18.53-r0","homepage":"https://openzfs.org","repo":"main"}
+{"name":"zfs-virt","description":"ZFS Linux kernel modules for virt","version":"6.18.54-r0","homepage":"https://openzfs.org","repo":"main"}
 {"name":"zfs-zsh-completion","description":"Zsh completions for zfs","version":"5.9-r7","homepage":"https://www.zsh.org/","repo":"main"}
 {"name":"zip","description":"Creates PKZIP-compatible .zip files","version":"3.0-r13","homepage":"http://www.info-zip.org/pub/infozip/Zip.html","repo":"main"}
 {"name":"zip-doc","description":"Creates PKZIP-compatible .zip files (documentation)","version":"3.0-r13","homepage":"http://www.info-zip.org/pub/infozip/Zip.html","repo":"main"}
@@ -6287,7 +6287,7 @@
 {"name":"anytun-dev","description":"Secure anycast tunneling protocol implementation for flexible and fault-tolerant VPNs (development files)","version":"0.3.8-r12","homepage":"https://www.anytun.org/","repo":"community"}
 {"name":"anytun-doc","description":"Secure anycast tunneling protocol implementation for flexible and fault-tolerant VPNs (documentation)","version":"0.3.8-r12","homepage":"https://www.anytun.org/","repo":"community"}
 {"name":"anytun-openrc","description":"Secure anycast tunneling protocol implementation for flexible and fault-tolerant VPNs (OpenRC init scripts)","version":"0.3.8-r12","homepage":"https://www.anytun.org/","repo":"community"}
-{"name":"apache-ant","description":"A java-based build tool","version":"1.10.16-r0","homepage":"https://ant.apache.org/","repo":"community"}
+{"name":"apache-ant","description":"A java-based build tool","version":"1.10.18-r0","homepage":"https://ant.apache.org/","repo":"community"}
 {"name":"apache-arrow","description":"multi-language toolbox for accelerated data interchange and in-memory processing","version":"23.0.1-r2","homepage":"https://arrow.apache.org/","repo":"community"}
 {"name":"apache-arrow-dev","description":"multi-language toolbox for accelerated data interchange and in-memory processing (development files)","version":"23.0.1-r2","homepage":"https://arrow.apache.org/","repo":"community"}
 {"name":"apache-arrow-doc","description":"multi-language toolbox for accelerated data interchange and in-memory processing (documentation)","version":"23.0.1-r2","homepage":"https://arrow.apache.org/","repo":"community"}
@@ -8413,9 +8413,9 @@
 {"name":"crosstool-ng","description":"Versatile tool for building (cross-)toolchains","version":"1.28.0-r1","homepage":"https://crosstool-ng.github.io/","repo":"community"}
 {"name":"crosstool-ng-bash-completion","description":"Bash completions for crosstool-ng","version":"1.28.0-r1","homepage":"https://crosstool-ng.github.io/","repo":"community"}
 {"name":"crosstool-ng-doc","description":"Versatile tool for building (cross-)toolchains (documentation)","version":"1.28.0-r1","homepage":"https://crosstool-ng.github.io/","repo":"community"}
-{"name":"crun","description":"Fast and lightweight fully featured OCI runtime and C library for running containers","version":"1.28-r0","homepage":"https://github.com/containers/crun","repo":"community"}
-{"name":"crun-doc","description":"Fast and lightweight fully featured OCI runtime and C library for running containers (documentation)","version":"1.28-r0","homepage":"https://github.com/containers/crun","repo":"community"}
-{"name":"crun-static","description":"Fast and lightweight fully featured OCI runtime and C library for running containers (static library)","version":"1.28-r0","homepage":"https://github.com/containers/crun","repo":"community"}
+{"name":"crun","description":"Fast and lightweight fully featured OCI runtime and C library for running containers","version":"1.30.1-r0","homepage":"https://github.com/containers/crun","repo":"community"}
+{"name":"crun-doc","description":"Fast and lightweight fully featured OCI runtime and C library for running containers (documentation)","version":"1.30.1-r0","homepage":"https://github.com/containers/crun","repo":"community"}
+{"name":"crun-static","description":"Fast and lightweight fully featured OCI runtime and C library for running containers (static library)","version":"1.30.1-r0","homepage":"https://github.com/containers/crun","repo":"community"}
 {"name":"crypto++","description":"Free C++ class library of cryptographic schemes","version":"8.9.0-r2","homepage":"https://github.com/weidai11/cryptopp","repo":"community"}
 {"name":"crypto++-dev","description":"Free C++ class library of cryptographic schemes (development files)","version":"8.9.0-r2","homepage":"https://github.com/weidai11/cryptopp","repo":"community"}
 {"name":"crystal","description":"The Crystal Programming Language","version":"1.20.3-r0","homepage":"https://crystal-lang.org/","repo":"community"}
@@ -8431,9 +8431,9 @@
 {"name":"csview-fish-completion","description":"Fish completions for csview","version":"1.3.4-r0","homepage":"https://github.com/wfxr/csview","repo":"community"}
 {"name":"csview-zsh-completion","description":"Zsh completions for csview","version":"1.3.4-r0","homepage":"https://github.com/wfxr/csview","repo":"community"}
 {"name":"csvq","description":"SQL-like query language for csv format","version":"1.18.1-r28","homepage":"https://github.com/mithrandie/csvq","repo":"community"}
-{"name":"csync2","description":"Cluster synchronization tool","version":"2.0-r5","homepage":"https://github.com/LINBIT/csync2","repo":"community"}
-{"name":"csync2-doc","description":"Cluster synchronization tool (documentation)","version":"2.0-r5","homepage":"https://github.com/LINBIT/csync2","repo":"community"}
-{"name":"csync2-openrc","description":"Cluster synchronization tool (OpenRC init scripts)","version":"2.0-r5","homepage":"https://github.com/LINBIT/csync2","repo":"community"}
+{"name":"csync2","description":"Cluster synchronization tool","version":"2.0-r6","homepage":"https://github.com/LINBIT/csync2","repo":"community"}
+{"name":"csync2-doc","description":"Cluster synchronization tool (documentation)","version":"2.0-r6","homepage":"https://github.com/LINBIT/csync2","repo":"community"}
+{"name":"csync2-openrc","description":"Cluster synchronization tool (OpenRC init scripts)","version":"2.0-r6","homepage":"https://github.com/LINBIT/csync2","repo":"community"}
 {"name":"ctags","description":"Generator of tags for all types of C/C++ languages","version":"6.2.1-r0","homepage":"https://ctags.io/","repo":"community"}
 {"name":"ctags-doc","description":"Generator of tags for all types of C/C++ languages (documentation)","version":"6.2.1-r0","homepage":"https://ctags.io/","repo":"community"}
 {"name":"ctop","description":"Top-like interface for container metrics","version":"0.7.7-r37","homepage":"https://ctop.sh/","repo":"community"}
@@ -8743,26 +8743,26 @@
 {"name":"do-agent","description":"Collects system metrics from DigitalOcean Droplets","version":"3.18.14-r1","homepage":"https://github.com/digitalocean/do-agent","repo":"community"}
 {"name":"do-agent-doc","description":"Collects system metrics from DigitalOcean Droplets (documentation)","version":"3.18.14-r1","homepage":"https://github.com/digitalocean/do-agent","repo":"community"}
 {"name":"do-agent-openrc","description":"Collects system metrics from DigitalOcean Droplets (OpenRC init scripts)","version":"3.18.14-r1","homepage":"https://github.com/digitalocean/do-agent","repo":"community"}
-{"name":"docker","description":"Pack, ship and run any application as a lightweight container","version":"29.5.3-r1","homepage":"https://www.docker.io/","repo":"community"}
+{"name":"docker","description":"Pack, ship and run any application as a lightweight container","version":"29.8.2-r0","homepage":"https://www.docker.io/","repo":"community"}
 {"name":"docker-auth","description":"Authentication server for Docker Registry 2","version":"1.14.0-r8","homepage":"https://github.com/cesanta/docker_auth","repo":"community"}
 {"name":"docker-auth-doc","description":"Authentication server for Docker Registry 2 (documentation)","version":"1.14.0-r8","homepage":"https://github.com/cesanta/docker_auth","repo":"community"}
 {"name":"docker-auth-openrc","description":"Authentication server for Docker Registry 2 (OpenRC init scripts)","version":"1.14.0-r8","homepage":"https://github.com/cesanta/docker_auth","repo":"community"}
-{"name":"docker-bash-completion","description":"Bash completions for docker","version":"29.5.3-r1","homepage":"https://www.docker.io/","repo":"community"}
-{"name":"docker-cli","description":"Docker CLI","version":"29.5.3-r1","homepage":"https://www.docker.io/","repo":"community"}
+{"name":"docker-bash-completion","description":"Bash completions for docker","version":"29.8.2-r0","homepage":"https://www.docker.io/","repo":"community"}
+{"name":"docker-cli","description":"Docker CLI","version":"29.8.2-r0","homepage":"https://www.docker.io/","repo":"community"}
 {"name":"docker-cli-buildx","description":"A Docker CLI plugin for extended build capabilities","version":"0.34.1-r1","homepage":"https://docs.docker.com/engine/reference/commandline/buildx_build","repo":"community"}
 {"name":"docker-cli-compose","description":"Docker CLI plugin for extended build capabilities","version":"5.1.4-r1","homepage":"https://docs.docker.com/compose/cli-command","repo":"community"}
 {"name":"docker-credential-ecr-login","description":"Credential helper for Docker to use the AWS Elastic Container Registry","version":"0.12.0-r4","homepage":"https://github.com/awslabs/amazon-ecr-credential-helper","repo":"community"}
 {"name":"docker-credential-ecr-login-doc","description":"Credential helper for Docker to use the AWS Elastic Container Registry (documentation)","version":"0.12.0-r4","homepage":"https://github.com/awslabs/amazon-ecr-credential-helper","repo":"community"}
-{"name":"docker-doc","description":"Documentation for Docker","version":"29.5.3-r1","homepage":"https://www.docker.io/","repo":"community"}
-{"name":"docker-engine","description":"Docker Engine (dockerd)","version":"29.5.3-r1","homepage":"https://www.docker.io/","repo":"community"}
-{"name":"docker-fish-completion","description":"Fish completions for docker","version":"29.5.3-r1","homepage":"https://www.docker.io/","repo":"community"}
-{"name":"docker-openrc","description":"Pack, ship and run any application as a lightweight container (OpenRC init scripts)","version":"29.5.3-r1","homepage":"https://www.docker.io/","repo":"community"}
+{"name":"docker-doc","description":"Documentation for Docker","version":"29.8.2-r0","homepage":"https://www.docker.io/","repo":"community"}
+{"name":"docker-engine","description":"Docker Engine (dockerd)","version":"29.8.2-r0","homepage":"https://www.docker.io/","repo":"community"}
+{"name":"docker-fish-completion","description":"Fish completions for docker","version":"29.8.2-r0","homepage":"https://www.docker.io/","repo":"community"}
+{"name":"docker-openrc","description":"Pack, ship and run any application as a lightweight container (OpenRC init scripts)","version":"29.8.2-r0","homepage":"https://www.docker.io/","repo":"community"}
 {"name":"docker-registry","description":"An implementation of the Docker Registry HTTP API V2 for use with docker 1.6+","version":"2.8.3-r24","homepage":"https://distribution.github.io/distribution","repo":"community"}
 {"name":"docker-registry-openrc","description":"An implementation of the Docker Registry HTTP API V2 for use with docker 1.6+ (OpenRC init scripts)","version":"2.8.3-r24","homepage":"https://distribution.github.io/distribution","repo":"community"}
-{"name":"docker-rootless-extras","description":"Extras to run docker as in rootless mode","version":"29.5.3-r1","homepage":"https://docs.docker.com/engine/security/rootless/","repo":"community"}
-{"name":"docker-rootless-extras-openrc","description":"OpenRC scripts for running docker in rootless mode","version":"29.5.3-r1","homepage":"https://www.docker.io/","repo":"community"}
-{"name":"docker-systemd","description":"Pack, ship and run any application as a lightweight container (systemd files)","version":"29.5.3-r1","homepage":"https://www.docker.io/","repo":"community"}
-{"name":"docker-zsh-completion","description":"Zsh completions for docker","version":"29.5.3-r1","homepage":"https://www.docker.io/","repo":"community"}
+{"name":"docker-rootless-extras","description":"Extras to run docker as in rootless mode","version":"29.8.2-r0","homepage":"https://docs.docker.com/engine/security/rootless/","repo":"community"}
+{"name":"docker-rootless-extras-openrc","description":"OpenRC scripts for running docker in rootless mode","version":"29.8.2-r0","homepage":"https://www.docker.io/","repo":"community"}
+{"name":"docker-systemd","description":"Pack, ship and run any application as a lightweight container (systemd files)","version":"29.8.2-r0","homepage":"https://www.docker.io/","repo":"community"}
+{"name":"docker-zsh-completion","description":"Zsh completions for docker","version":"29.8.2-r0","homepage":"https://www.docker.io/","repo":"community"}
 {"name":"dockviz","description":"Visualizing Docker Data","version":"0.6.4-r33","homepage":"https://github.com/justone/dockviz","repo":"community"}
 {"name":"docopt-cpp","description":"Command line arguments parser for C++11 and later","version":"0.6.3-r3","homepage":"https://github.com/docopt/docopt.cpp/","repo":"community"}
 {"name":"docopt-cpp-dev","description":"Command line arguments parser for C++11 and later (development files)","version":"0.6.3-r3","homepage":"https://github.com/docopt/docopt.cpp/","repo":"community"}
@@ -9087,8 +9087,8 @@
 {"name":"drawpile-tools","description":"Collaborative drawing program (Drawpile tools)","version":"2.3.0-r1","homepage":"https://drawpile.net/","repo":"community"}
 {"name":"drawterm","description":"Connect to Plan 9 CPU servers from other operating systems","version":"0_git20240320-r0","homepage":"https://git.9front.org/plan9front/drawterm","repo":"community"}
 {"name":"drawterm-dbg","description":"Connect to Plan 9 CPU servers from other operating systems (debug symbols)","version":"0_git20240320-r0","homepage":"https://git.9front.org/plan9front/drawterm","repo":"community"}
-{"name":"drbd9-lts","description":"LINBIT DRBD Kernel module version 9","version":"6.18.53-r0","homepage":"https://linbit.com/drbd/","repo":"community"}
-{"name":"drbd9-virt","description":"virt kernel modules for DRBD9","version":"6.18.53-r0","homepage":"https://linbit.com/drbd/","repo":"community"}
+{"name":"drbd9-lts","description":"LINBIT DRBD Kernel module version 9","version":"6.18.54-r0","homepage":"https://linbit.com/drbd/","repo":"community"}
+{"name":"drbd9-virt","description":"virt kernel modules for DRBD9","version":"6.18.54-r0","homepage":"https://linbit.com/drbd/","repo":"community"}
 {"name":"drm_info","description":"Small utility to dump info about DRM devices","version":"2.9.0-r0","homepage":"https://gitlab.freedesktop.org/emersion/drm_info","repo":"community"}
 {"name":"drm_info-doc","description":"Small utility to dump info about DRM devices (documentation)","version":"2.9.0-r0","homepage":"https://gitlab.freedesktop.org/emersion/drm_info","repo":"community"}
 {"name":"drone","description":"Container-Native, Continuous Delivery Platform","version":"2.25.0-r17","homepage":"https://drone.io/","repo":"community"}
@@ -12566,8 +12566,8 @@
 {"name":"john-doc","description":"John the Ripper password cracker (documentation)","version":"1.9.0-r8","homepage":"https://www.openwall.com/john","repo":"community"}
 {"name":"john-zsh-completion","description":"Zsh completions for john","version":"1.9.0-r8","homepage":"https://www.openwall.com/john","repo":"community"}
 {"name":"joker","description":"Small Clojure interpreter, linter and formatter written in Go","version":"1.5.8-r7","homepage":"https://joker-lang.org/","repo":"community"}
-{"name":"jool-modules-lts","description":"SIIT and NAT64 for Linux (kernel modules for linux-lts)","version":"6.18.53-r0","homepage":"https://nicmx.github.io/Jool/","repo":"community"}
-{"name":"jool-modules-virt","description":"SIIT and NAT64 for Linux (kernel modules for linux-virt)","version":"6.18.53-r0","homepage":"https://nicmx.github.io/Jool/","repo":"community"}
+{"name":"jool-modules-lts","description":"SIIT and NAT64 for Linux (kernel modules for linux-lts)","version":"6.18.54-r0","homepage":"https://nicmx.github.io/Jool/","repo":"community"}
+{"name":"jool-modules-virt","description":"SIIT and NAT64 for Linux (kernel modules for linux-virt)","version":"6.18.54-r0","homepage":"https://nicmx.github.io/Jool/","repo":"community"}
 {"name":"jool-tools","description":"Userspace control tools for SIIT / NAT64 Jool","version":"4.1.14-r0","homepage":"https://nicmx.github.io/Jool/","repo":"community"}
 {"name":"jool-tools-bash-completion","description":"Bash completions for jool-tools","version":"4.1.14-r0","homepage":"https://nicmx.github.io/Jool/","repo":"community"}
 {"name":"jool-tools-doc","description":"Userspace control tools for SIIT / NAT64 Jool (documentation)","version":"4.1.14-r0","homepage":"https://nicmx.github.io/Jool/","repo":"community"}
@@ -13748,9 +13748,9 @@
 {"name":"ladspa","description":"Linux Audio Developer's Simple Plug-in API, examples and tools","version":"1.17-r0","homepage":"https://www.ladspa.org","repo":"community"}
 {"name":"ladspa-dev","description":"Linux Audio Developer's Simple Plug-in API, examples and tools (development files)","version":"1.17-r0","homepage":"https://www.ladspa.org","repo":"community"}
 {"name":"lager","description":"C++ library for value-oriented design using the unidirectional data-flow architecture","version":"0.1.1-r1","homepage":"https://sinusoid.es/lager","repo":"community"}
-{"name":"lagrange","description":"Beautiful Gemini client","version":"1.21.1-r0","homepage":"https://gmi.skyjake.fi/lagrange","repo":"community"}
-{"name":"lagrange-dbg","description":"Beautiful Gemini client (debug symbols)","version":"1.21.1-r0","homepage":"https://gmi.skyjake.fi/lagrange","repo":"community"}
-{"name":"lagrange-doc","description":"Beautiful Gemini client (documentation)","version":"1.21.1-r0","homepage":"https://gmi.skyjake.fi/lagrange","repo":"community"}
+{"name":"lagrange","description":"Beautiful Gemini client","version":"1.21.2-r0","homepage":"https://gmi.skyjake.fi/lagrange","repo":"community"}
+{"name":"lagrange-dbg","description":"Beautiful Gemini client (debug symbols)","version":"1.21.2-r0","homepage":"https://gmi.skyjake.fi/lagrange","repo":"community"}
+{"name":"lagrange-doc","description":"Beautiful Gemini client (documentation)","version":"1.21.2-r0","homepage":"https://gmi.skyjake.fi/lagrange","repo":"community"}
 {"name":"laminar","description":"Fast and lightweight Continuous Integration server","version":"1.3-r10","homepage":"https://laminar.ohwg.net/","repo":"community"}
 {"name":"laminar-bash-completion","description":"Bash completions for laminar","version":"1.3-r10","homepage":"https://laminar.ohwg.net/","repo":"community"}
 {"name":"laminar-doc","description":"Fast and lightweight Continuous Integration server (documentation)","version":"1.3-r10","homepage":"https://laminar.ohwg.net/","repo":"community"}
@@ -15086,9 +15086,9 @@
 {"name":"libressl4.3-libcrypto","description":"libressl libcrypto library","version":"4.3.1-r0","homepage":"https://www.libressl.org/","repo":"community"}
 {"name":"libressl4.3-libssl","description":"libressl libssl library","version":"4.3.1-r0","homepage":"https://www.libressl.org/","repo":"community"}
 {"name":"libressl4.3-libtls","description":"libressl libtls library","version":"4.3.1-r0","homepage":"https://www.libressl.org/","repo":"community"}
-{"name":"libreswan","description":"IPsec implementation for Linux","version":"5.3-r0","homepage":"https://libreswan.org/","repo":"community"}
-{"name":"libreswan-doc","description":"IPsec implementation for Linux (documentation)","version":"5.3-r0","homepage":"https://libreswan.org/","repo":"community"}
-{"name":"libreswan-openrc","description":"IPsec implementation for Linux (OpenRC init scripts)","version":"5.3-r0","homepage":"https://libreswan.org/","repo":"community"}
+{"name":"libreswan","description":"IPsec implementation for Linux","version":"5.3.2-r0","homepage":"https://libreswan.org/","repo":"community"}
+{"name":"libreswan-doc","description":"IPsec implementation for Linux (documentation)","version":"5.3.2-r0","homepage":"https://libreswan.org/","repo":"community"}
+{"name":"libreswan-openrc","description":"IPsec implementation for Linux (OpenRC init scripts)","version":"5.3.2-r0","homepage":"https://libreswan.org/","repo":"community"}
 {"name":"libretls","description":"port of libtls from libressl to openssl","version":"3.8.1-r0","homepage":"https://git.causal.agency/libretls/","repo":"community"}
 {"name":"libretls-dev","description":"port of libtls from libressl to openssl (development files)","version":"3.8.1-r0","homepage":"https://git.causal.agency/libretls/","repo":"community"}
 {"name":"libretls-doc","description":"port of libtls from libressl to openssl (documentation)","version":"3.8.1-r0","homepage":"https://git.causal.agency/libretls/","repo":"community"}
@@ -17136,95 +17136,95 @@
 {"name":"newsboat-lang","description":"Languages for package newsboat","version":"2.43-r0","homepage":"https://newsboat.org/","repo":"community"}
 {"name":"newsflash","description":"An rss feed reader that supports various web based services","version":"4.2.1-r0","homepage":"https://gitlab.com/news-flash/news_flash_gtk/","repo":"community"}
 {"name":"newsflash-lang","description":"Languages for package newsflash","version":"4.2.1-r0","homepage":"https://gitlab.com/news-flash/news_flash_gtk/","repo":"community"}
-{"name":"newsraft","description":"Feed reader with text-based user interface","version":"0.37-r0","homepage":"https://codeberg.org/newsraft/newsraft","repo":"community"}
-{"name":"newsraft-doc","description":"Feed reader with text-based user interface (documentation)","version":"0.37-r0","homepage":"https://codeberg.org/newsraft/newsraft","repo":"community"}
+{"name":"newsraft","description":"Feed reader with text-based user interface","version":"0.38-r0","homepage":"https://codeberg.org/newsraft/newsraft","repo":"community"}
+{"name":"newsraft-doc","description":"Feed reader with text-based user interface (documentation)","version":"0.38-r0","homepage":"https://codeberg.org/newsraft/newsraft","repo":"community"}
 {"name":"nextcloud-client","description":"Nextcloud Desktop Client","version":"33.0.1-r0","homepage":"https://github.com/nextcloud/desktop","repo":"community"}
 {"name":"nextcloud-client-dev","description":"Nextcloud Desktop Client (development files)","version":"33.0.1-r0","homepage":"https://github.com/nextcloud/desktop","repo":"community"}
 {"name":"nextcloud-client-dolphin","description":"Nextcloud Desktop Client - KDE Dolphin integration","version":"33.0.1-r0","homepage":"https://github.com/nextcloud/desktop","repo":"community"}
-{"name":"nextcloud32","description":"A safe home for all your data","version":"32.0.14-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud32-activity","description":"Nextcloud Activity app","version":"32.0.14-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud32-admin_audit","description":"Nextcloud Auditing / Logging app","version":"32.0.14-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud32-app_api","description":"Nextcloud AppAPI app","version":"32.0.14-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud32-circles","description":"Nextcloud Teams app","version":"32.0.14-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud32-comments","description":"Nextcloud Comments app","version":"32.0.14-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud32-dashboard","description":"Nextcloud Dashboard app","version":"32.0.14-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud32-default-apps","description":"Nextcloud default apps","version":"32.0.14-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud32-doc","description":"A safe home for all your data (documentation)","version":"32.0.14-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud32-encryption","description":"Nextcloud Default encryption module app","version":"32.0.14-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud32-federation","description":"Nextcloud Federation app","version":"32.0.14-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud32-files_downloadlimit","description":"Nextcloud Files download limit app","version":"32.0.14-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud32-files_external","description":"Nextcloud External storage support app","version":"32.0.14-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud32-files_pdfviewer","description":"Nextcloud PDF viewer app","version":"32.0.14-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud32-files_reminders","description":"Nextcloud File reminders app","version":"32.0.14-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud32-files_sharing","description":"Nextcloud File sharing app","version":"32.0.14-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud32-files_trashbin","description":"Nextcloud Deleted files app","version":"32.0.14-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud32-files_versions","description":"Nextcloud Versions app","version":"32.0.14-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud32-firstrunwizard","description":"Nextcloud First run wizard app","version":"32.0.14-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud32-initscript","description":"Init script that runs Nextcloud with php-fpm","version":"32.0.14-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud32-logreader","description":"Nextcloud Log Reader app","version":"32.0.14-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud32-mysql","description":"Nextcloud MySQL support","version":"32.0.14-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud32-nextcloud_announcements","description":"Nextcloud Nextcloud announcements app","version":"32.0.14-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud32-notifications","description":"Nextcloud Notifications app","version":"32.0.14-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud32-occ","description":"Nextcloud OCC cmd","version":"32.0.14-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud32-password_policy","description":"Nextcloud Password policy app","version":"32.0.14-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud32-pgsql","description":"Nextcloud PostgreSQL support","version":"32.0.14-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud32-photos","description":"Nextcloud Photos app","version":"32.0.14-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud32-privacy","description":"Nextcloud Privacy app","version":"32.0.14-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud32-recommendations","description":"Nextcloud Recommendations app","version":"32.0.14-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud32-serverinfo","description":"Nextcloud Monitoring app","version":"32.0.14-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud32-sharebymail","description":"Nextcloud Share by mail app","version":"32.0.14-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud32-sqlite","description":"Nextcloud SQLite support","version":"32.0.14-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud32-support","description":"Nextcloud Support app","version":"32.0.14-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud32-survey_client","description":"Nextcloud Usage survey app","version":"32.0.14-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud32-suspicious_login","description":"Nextcloud Suspicious Login app","version":"32.0.14-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud32-systemtags","description":"Nextcloud Collaborative tags app","version":"32.0.14-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud32-text","description":"Nextcloud Text app","version":"32.0.14-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud32-user_ldap","description":"Nextcloud LDAP user and group backend app","version":"32.0.14-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud32-user_status","description":"Nextcloud User status app","version":"32.0.14-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud32-weather_status","description":"Nextcloud Weather status app","version":"32.0.14-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud32-webhook_listeners","description":"Nextcloud Nextcloud webhook support app","version":"32.0.14-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud33","description":"A safe home for all your data","version":"33.0.8-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud33-activity","description":"Nextcloud Activity app","version":"33.0.8-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud33-admin_audit","description":"Nextcloud Auditing / Logging app","version":"33.0.8-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud33-app_api","description":"Nextcloud AppAPI app","version":"33.0.8-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud33-circles","description":"Nextcloud Teams app","version":"33.0.8-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud33-comments","description":"Nextcloud Comments app","version":"33.0.8-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud33-dashboard","description":"Nextcloud Dashboard app","version":"33.0.8-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud33-default-apps","description":"Nextcloud default apps","version":"33.0.8-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud33-doc","description":"A safe home for all your data (documentation)","version":"33.0.8-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud33-encryption","description":"Nextcloud Default Encryption Module app","version":"33.0.8-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud33-federation","description":"Nextcloud Federation app","version":"33.0.8-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud33-files_downloadlimit","description":"Nextcloud Files download limit app","version":"33.0.8-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud33-files_external","description":"Nextcloud External storage support app","version":"33.0.8-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud33-files_pdfviewer","description":"Nextcloud PDF viewer app","version":"33.0.8-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud33-files_reminders","description":"Nextcloud File reminders app","version":"33.0.8-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud33-files_sharing","description":"Nextcloud File sharing app","version":"33.0.8-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud33-files_trashbin","description":"Nextcloud Deleted files app","version":"33.0.8-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud33-files_versions","description":"Nextcloud Versions app","version":"33.0.8-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud33-firstrunwizard","description":"Nextcloud First run wizard app","version":"33.0.8-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud33-initscript","description":"Init script that runs Nextcloud with php-fpm","version":"33.0.8-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud33-logreader","description":"Nextcloud Log Reader app","version":"33.0.8-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud33-mysql","description":"Nextcloud MySQL support","version":"33.0.8-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud33-nextcloud_announcements","description":"Nextcloud Nextcloud announcements app","version":"33.0.8-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud33-notifications","description":"Nextcloud Notifications app","version":"33.0.8-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud33-occ","description":"Nextcloud OCC cmd","version":"33.0.8-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud33-password_policy","description":"Nextcloud Password policy app","version":"33.0.8-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud33-pgsql","description":"Nextcloud PostgreSQL support","version":"33.0.8-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud33-photos","description":"Nextcloud Photos app","version":"33.0.8-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud33-privacy","description":"Nextcloud Privacy app","version":"33.0.8-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud33-recommendations","description":"Nextcloud Recommendations app","version":"33.0.8-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud33-serverinfo","description":"Nextcloud Monitoring app","version":"33.0.8-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud33-sharebymail","description":"Nextcloud Share by mail app","version":"33.0.8-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud33-sqlite","description":"Nextcloud SQLite support","version":"33.0.8-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud33-support","description":"Nextcloud Support app","version":"33.0.8-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud33-survey_client","description":"Nextcloud Usage survey app","version":"33.0.8-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud33-suspicious_login","description":"Nextcloud Suspicious Login app","version":"33.0.8-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud33-systemtags","description":"Nextcloud Collaborative tags app","version":"33.0.8-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud33-text","description":"Nextcloud Text app","version":"33.0.8-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud33-user_ldap","description":"Nextcloud LDAP user and group backend app","version":"33.0.8-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud33-user_status","description":"Nextcloud User status app","version":"33.0.8-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud33-weather_status","description":"Nextcloud Weather status app","version":"33.0.8-r0","homepage":"https://nextcloud.com/","repo":"community"}
-{"name":"nextcloud33-webhook_listeners","description":"Nextcloud Nextcloud Webhook Support app","version":"33.0.8-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud32","description":"A safe home for all your data","version":"32.0.15-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud32-activity","description":"Nextcloud Activity app","version":"32.0.15-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud32-admin_audit","description":"Nextcloud Auditing / Logging app","version":"32.0.15-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud32-app_api","description":"Nextcloud AppAPI app","version":"32.0.15-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud32-circles","description":"Nextcloud Teams app","version":"32.0.15-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud32-comments","description":"Nextcloud Comments app","version":"32.0.15-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud32-dashboard","description":"Nextcloud Dashboard app","version":"32.0.15-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud32-default-apps","description":"Nextcloud default apps","version":"32.0.15-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud32-doc","description":"A safe home for all your data (documentation)","version":"32.0.15-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud32-encryption","description":"Nextcloud Default encryption module app","version":"32.0.15-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud32-federation","description":"Nextcloud Federation app","version":"32.0.15-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud32-files_downloadlimit","description":"Nextcloud Files download limit app","version":"32.0.15-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud32-files_external","description":"Nextcloud External storage support app","version":"32.0.15-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud32-files_pdfviewer","description":"Nextcloud PDF viewer app","version":"32.0.15-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud32-files_reminders","description":"Nextcloud File reminders app","version":"32.0.15-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud32-files_sharing","description":"Nextcloud File sharing app","version":"32.0.15-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud32-files_trashbin","description":"Nextcloud Deleted files app","version":"32.0.15-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud32-files_versions","description":"Nextcloud Versions app","version":"32.0.15-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud32-firstrunwizard","description":"Nextcloud First run wizard app","version":"32.0.15-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud32-initscript","description":"Init script that runs Nextcloud with php-fpm","version":"32.0.15-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud32-logreader","description":"Nextcloud Log Reader app","version":"32.0.15-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud32-mysql","description":"Nextcloud MySQL support","version":"32.0.15-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud32-nextcloud_announcements","description":"Nextcloud Nextcloud announcements app","version":"32.0.15-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud32-notifications","description":"Nextcloud Notifications app","version":"32.0.15-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud32-occ","description":"Nextcloud OCC cmd","version":"32.0.15-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud32-password_policy","description":"Nextcloud Password policy app","version":"32.0.15-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud32-pgsql","description":"Nextcloud PostgreSQL support","version":"32.0.15-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud32-photos","description":"Nextcloud Photos app","version":"32.0.15-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud32-privacy","description":"Nextcloud Privacy app","version":"32.0.15-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud32-recommendations","description":"Nextcloud Recommendations app","version":"32.0.15-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud32-serverinfo","description":"Nextcloud Monitoring app","version":"32.0.15-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud32-sharebymail","description":"Nextcloud Share by mail app","version":"32.0.15-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud32-sqlite","description":"Nextcloud SQLite support","version":"32.0.15-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud32-support","description":"Nextcloud Support app","version":"32.0.15-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud32-survey_client","description":"Nextcloud Usage survey app","version":"32.0.15-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud32-suspicious_login","description":"Nextcloud Suspicious Login app","version":"32.0.15-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud32-systemtags","description":"Nextcloud Collaborative tags app","version":"32.0.15-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud32-text","description":"Nextcloud Text app","version":"32.0.15-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud32-user_ldap","description":"Nextcloud LDAP user and group backend app","version":"32.0.15-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud32-user_status","description":"Nextcloud User status app","version":"32.0.15-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud32-weather_status","description":"Nextcloud Weather status app","version":"32.0.15-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud32-webhook_listeners","description":"Nextcloud Nextcloud webhook support app","version":"32.0.15-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud33","description":"A safe home for all your data","version":"33.0.9-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud33-activity","description":"Nextcloud Activity app","version":"33.0.9-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud33-admin_audit","description":"Nextcloud Auditing / Logging app","version":"33.0.9-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud33-app_api","description":"Nextcloud AppAPI app","version":"33.0.9-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud33-circles","description":"Nextcloud Teams app","version":"33.0.9-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud33-comments","description":"Nextcloud Comments app","version":"33.0.9-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud33-dashboard","description":"Nextcloud Dashboard app","version":"33.0.9-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud33-default-apps","description":"Nextcloud default apps","version":"33.0.9-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud33-doc","description":"A safe home for all your data (documentation)","version":"33.0.9-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud33-encryption","description":"Nextcloud Default Encryption Module app","version":"33.0.9-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud33-federation","description":"Nextcloud Federation app","version":"33.0.9-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud33-files_downloadlimit","description":"Nextcloud Files download limit app","version":"33.0.9-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud33-files_external","description":"Nextcloud External storage support app","version":"33.0.9-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud33-files_pdfviewer","description":"Nextcloud PDF viewer app","version":"33.0.9-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud33-files_reminders","description":"Nextcloud File reminders app","version":"33.0.9-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud33-files_sharing","description":"Nextcloud File sharing app","version":"33.0.9-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud33-files_trashbin","description":"Nextcloud Deleted files app","version":"33.0.9-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud33-files_versions","description":"Nextcloud Versions app","version":"33.0.9-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud33-firstrunwizard","description":"Nextcloud First run wizard app","version":"33.0.9-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud33-initscript","description":"Init script that runs Nextcloud with php-fpm","version":"33.0.9-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud33-logreader","description":"Nextcloud Log Reader app","version":"33.0.9-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud33-mysql","description":"Nextcloud MySQL support","version":"33.0.9-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud33-nextcloud_announcements","description":"Nextcloud Nextcloud announcements app","version":"33.0.9-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud33-notifications","description":"Nextcloud Notifications app","version":"33.0.9-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud33-occ","description":"Nextcloud OCC cmd","version":"33.0.9-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud33-password_policy","description":"Nextcloud Password policy app","version":"33.0.9-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud33-pgsql","description":"Nextcloud PostgreSQL support","version":"33.0.9-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud33-photos","description":"Nextcloud Photos app","version":"33.0.9-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud33-privacy","description":"Nextcloud Privacy app","version":"33.0.9-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud33-recommendations","description":"Nextcloud Recommendations app","version":"33.0.9-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud33-serverinfo","description":"Nextcloud Monitoring app","version":"33.0.9-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud33-sharebymail","description":"Nextcloud Share by mail app","version":"33.0.9-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud33-sqlite","description":"Nextcloud SQLite support","version":"33.0.9-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud33-support","description":"Nextcloud Support app","version":"33.0.9-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud33-survey_client","description":"Nextcloud Usage survey app","version":"33.0.9-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud33-suspicious_login","description":"Nextcloud Suspicious Login app","version":"33.0.9-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud33-systemtags","description":"Nextcloud Collaborative tags app","version":"33.0.9-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud33-text","description":"Nextcloud Text app","version":"33.0.9-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud33-user_ldap","description":"Nextcloud LDAP user and group backend app","version":"33.0.9-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud33-user_status","description":"Nextcloud User status app","version":"33.0.9-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud33-weather_status","description":"Nextcloud Weather status app","version":"33.0.9-r0","homepage":"https://nextcloud.com/","repo":"community"}
+{"name":"nextcloud33-webhook_listeners","description":"Nextcloud Nextcloud Webhook Support app","version":"33.0.9-r0","homepage":"https://nextcloud.com/","repo":"community"}
 {"name":"nextvi","description":"A small vi/ex terminal text editor (neatvi rewrite)","version":"5.3-r0","homepage":"https://github.com/kyx0r/nextvi/","repo":"community"}
 {"name":"nextvi-doc","description":"A small vi/ex terminal text editor (neatvi rewrite) (documentation)","version":"5.3-r0","homepage":"https://github.com/kyx0r/nextvi/","repo":"community"}
 {"name":"nextvi-vi","description":"nextvi vi provider","version":"5.3-r0","homepage":"https://github.com/kyx0r/nextvi/","repo":"community"}
@@ -20546,22 +20546,22 @@
 {"name":"poco","description":"C++ class libraries for building network- and internet-based applications","version":"1.15.1-r0","homepage":"https://pocoproject.org/","repo":"community"}
 {"name":"poco-bin","description":"C++ class libraries for building network- and internet-based applications","version":"1.15.1-r0","homepage":"https://pocoproject.org/","repo":"community"}
 {"name":"poco-dev","description":"C++ class libraries for building network- and internet-based applications (development files)","version":"1.15.1-r0","homepage":"https://pocoproject.org/","repo":"community"}
-{"name":"podman","description":"Simple management tool for pods, containers and images","version":"5.8.6-r1","homepage":"https://podman.io/","repo":"community"}
-{"name":"podman-bash-completion","description":"Bash completions for podman","version":"5.8.6-r1","homepage":"https://podman.io/","repo":"community"}
+{"name":"podman","description":"Simple management tool for pods, containers and images","version":"5.8.8-r0","homepage":"https://podman.io/","repo":"community"}
+{"name":"podman-bash-completion","description":"Bash completions for podman","version":"5.8.8-r0","homepage":"https://podman.io/","repo":"community"}
 {"name":"podman-compose","description":"Script to run docker-compose.yml using podman","version":"1.6.0-r0","homepage":"https://github.com/containers/podman-compose","repo":"community"}
 {"name":"podman-compose-bash-completion","description":"Bash completions for podman-compose","version":"1.6.0-r0","homepage":"https://github.com/containers/podman-compose","repo":"community"}
 {"name":"podman-compose-doc","description":"Script to run docker-compose.yml using podman (documentation)","version":"1.6.0-r0","homepage":"https://github.com/containers/podman-compose","repo":"community"}
 {"name":"podman-compose-pyc","description":"Precompiled Python bytecode for podman-compose","version":"1.6.0-r0","homepage":"https://github.com/containers/podman-compose","repo":"community"}
-{"name":"podman-doc","description":"Simple management tool for pods, containers and images (documentation)","version":"5.8.6-r1","homepage":"https://podman.io/","repo":"community"}
-{"name":"podman-docker","description":"Emulate Docker CLI using Podman","version":"5.8.6-r1","homepage":"https://podman.io/","repo":"community"}
-{"name":"podman-docker-doc","description":"Emulate Docker CLI using Podman (documentation)","version":"5.8.6-r1","homepage":"https://podman.io/","repo":"community"}
-{"name":"podman-docker-systemd","description":"Emulate Docker CLI using Podman (systemd files)","version":"5.8.6-r1","homepage":"https://podman.io/","repo":"community"}
-{"name":"podman-fish-completion","description":"Fish completions for podman","version":"5.8.6-r1","homepage":"https://podman.io/","repo":"community"}
-{"name":"podman-openrc","description":"Simple management tool for pods, containers and images (OpenRC init scripts)","version":"5.8.6-r1","homepage":"https://podman.io/","repo":"community"}
-{"name":"podman-remote","description":"Remote CLI for Podman","version":"5.8.6-r1","homepage":"https://podman.io/","repo":"community"}
-{"name":"podman-systemd","description":"Simple management tool for pods, containers and images (systemd files)","version":"5.8.6-r1","homepage":"https://podman.io/","repo":"community"}
+{"name":"podman-doc","description":"Simple management tool for pods, containers and images (documentation)","version":"5.8.8-r0","homepage":"https://podman.io/","repo":"community"}
+{"name":"podman-docker","description":"Emulate Docker CLI using Podman","version":"5.8.8-r0","homepage":"https://podman.io/","repo":"community"}
+{"name":"podman-docker-doc","description":"Emulate Docker CLI using Podman (documentation)","version":"5.8.8-r0","homepage":"https://podman.io/","repo":"community"}
+{"name":"podman-docker-systemd","description":"Emulate Docker CLI using Podman (systemd files)","version":"5.8.8-r0","homepage":"https://podman.io/","repo":"community"}
+{"name":"podman-fish-completion","description":"Fish completions for podman","version":"5.8.8-r0","homepage":"https://podman.io/","repo":"community"}
+{"name":"podman-openrc","description":"Simple management tool for pods, containers and images (OpenRC init scripts)","version":"5.8.8-r0","homepage":"https://podman.io/","repo":"community"}
+{"name":"podman-remote","description":"Remote CLI for Podman","version":"5.8.8-r0","homepage":"https://podman.io/","repo":"community"}
+{"name":"podman-systemd","description":"Simple management tool for pods, containers and images (systemd files)","version":"5.8.8-r0","homepage":"https://podman.io/","repo":"community"}
 {"name":"podman-tui","description":"Terminal user interface for Podman v4 & v5","version":"1.9.0-r10","homepage":"https://github.com/containers/podman-tui","repo":"community"}
-{"name":"podman-zsh-completion","description":"Zsh completions for podman","version":"5.8.6-r1","homepage":"https://podman.io/","repo":"community"}
+{"name":"podman-zsh-completion","description":"Zsh completions for podman","version":"5.8.8-r0","homepage":"https://podman.io/","repo":"community"}
 {"name":"podofo","description":"C++ library to work with the PDF file format","version":"1.1.0-r0","homepage":"https://podofo.sourceforge.net/","repo":"community"}
 {"name":"podofo-dev","description":"C++ library to work with the PDF file format (development files)","version":"1.1.0-r0","homepage":"https://podofo.sourceforge.net/","repo":"community"}
 {"name":"poedit","description":"cross-platform translations editor","version":"3.9-r0","homepage":"https://www.poedit.net","repo":"community"}
@@ -21878,8 +21878,8 @@
 {"name":"py3-gitlab","description":"Python wrapper for Gitlab's API","version":"8.0.0-r1","homepage":"https://github.com/python-gitlab/python-gitlab","repo":"community"}
 {"name":"py3-gitlab-doc","description":"Python wrapper for Gitlab's API (documentation)","version":"8.0.0-r1","homepage":"https://github.com/python-gitlab/python-gitlab","repo":"community"}
 {"name":"py3-gitlab-pyc","description":"Precompiled Python bytecode for py3-gitlab","version":"8.0.0-r1","homepage":"https://github.com/python-gitlab/python-gitlab","repo":"community"}
-{"name":"py3-gitpython","description":"Python3 Git Library","version":"3.1.49-r0","homepage":"https://github.com/gitpython-developers/GitPython","repo":"community"}
-{"name":"py3-gitpython-pyc","description":"Precompiled Python bytecode for py3-gitpython","version":"3.1.49-r0","homepage":"https://github.com/gitpython-developers/GitPython","repo":"community"}
+{"name":"py3-gitpython","description":"Python3 Git Library","version":"3.1.61-r0","homepage":"https://github.com/gitpython-developers/GitPython","repo":"community"}
+{"name":"py3-gitpython-pyc","description":"Precompiled Python bytecode for py3-gitpython","version":"3.1.61-r0","homepage":"https://github.com/gitpython-developers/GitPython","repo":"community"}
 {"name":"py3-glad","description":"Multi-Language Vulkan/GL/GLES/EGL/GLX/WGL Loader-Generator based on the official specs","version":"2.0.8-r1","homepage":"https://github.com/Dav1dde/glad","repo":"community"}
 {"name":"py3-glad-pyc","description":"Precompiled Python bytecode for py3-glad","version":"2.0.8-r1","homepage":"https://github.com/Dav1dde/glad","repo":"community"}
 {"name":"py3-gnucash","description":"GnuCash Double-Entry Accounting Program (python bindings)","version":"5.14-r1","homepage":"https://gnucash.org/","repo":"community"}
@@ -23671,8 +23671,8 @@
 {"name":"py3-txacme-pyc","description":"Precompiled Python bytecode for py3-txacme","version":"0.9.3-r9","homepage":"https://github.com/twisted/txacme","repo":"community"}
 {"name":"py3-txaio","description":"Compatibility API between asyncio/Twisted/Trollius","version":"23.1.1-r3","homepage":"https://github.com/crossbario/txaio","repo":"community"}
 {"name":"py3-txaio-pyc","description":"Precompiled Python bytecode for py3-txaio","version":"23.1.1-r3","homepage":"https://github.com/crossbario/txaio","repo":"community"}
-{"name":"py3-txredisapi","description":"non-blocking redis client for python twisted","version":"1.4.10-r2","homepage":"https://github.com/IlyaSkriblovsky/txredisapi","repo":"community"}
-{"name":"py3-txredisapi-pyc","description":"Precompiled Python bytecode for py3-txredisapi","version":"1.4.10-r2","homepage":"https://github.com/IlyaSkriblovsky/txredisapi","repo":"community"}
+{"name":"py3-txredisapi","description":"non-blocking redis client for python twisted","version":"1.5.0-r0","homepage":"https://github.com/IlyaSkriblovsky/txredisapi","repo":"community"}
+{"name":"py3-txredisapi-pyc","description":"Precompiled Python bytecode for py3-txredisapi","version":"1.5.0-r0","homepage":"https://github.com/IlyaSkriblovsky/txredisapi","repo":"community"}
 {"name":"py3-txsni","description":"Simple support for running a TLS server with Twisted","version":"0.2.0-r7","homepage":"https://github.com/glyph/txsni","repo":"community"}
 {"name":"py3-txsni-pyc","description":"Precompiled Python bytecode for py3-txsni","version":"0.2.0-r7","homepage":"https://github.com/glyph/txsni","repo":"community"}
 {"name":"py3-typeguard","description":"run-time type checker for Python ","version":"4.5.2-r0","homepage":"https://typeguard.readthedocs.io/","repo":"community"}
@@ -24935,10 +24935,10 @@
 {"name":"rtorrent-doc","description":"Ncurses BitTorrent client based on libTorrent (documentation)","version":"0.16.12-r0","homepage":"https://rakshasa.github.io/rtorrent/","repo":"community"}
 {"name":"rtpengine","description":"Proxy for RTP traffic and other UDP based media traffic","version":"12.2.1.4-r2","homepage":"https://github.com/sipwise/rtpengine","repo":"community"}
 {"name":"rtpengine-doc","description":"Proxy for RTP traffic and other UDP based media traffic (documentation)","version":"12.2.1.4-r2","homepage":"https://github.com/sipwise/rtpengine","repo":"community"}
-{"name":"rtpengine-lts","description":"Kernel module for rtpengine","version":"6.18.53-r0","homepage":"https://github.com/sipwise/rtpengine","repo":"community"}
+{"name":"rtpengine-lts","description":"Kernel module for rtpengine","version":"6.18.54-r0","homepage":"https://github.com/sipwise/rtpengine","repo":"community"}
 {"name":"rtpengine-openrc","description":"Proxy for RTP traffic and other UDP based media traffic (OpenRC init scripts)","version":"12.2.1.4-r2","homepage":"https://github.com/sipwise/rtpengine","repo":"community"}
 {"name":"rtpengine-recording","description":"Proxy for RTP traffic and other UDP based media traffic","version":"12.2.1.4-r2","homepage":"https://github.com/sipwise/rtpengine","repo":"community"}
-{"name":"rtpengine-virt","description":"virt kernel modules for rtpengine","version":"6.18.53-r0","homepage":"https://github.com/sipwise/rtpengine","repo":"community"}
+{"name":"rtpengine-virt","description":"virt kernel modules for rtpengine","version":"6.18.54-r0","homepage":"https://github.com/sipwise/rtpengine","repo":"community"}
 {"name":"rtrlib","description":"Open-source C implementation of the RPKI/Router Protocol client","version":"0.8.0-r6","homepage":"https://github.com/rtrlib/rtrlib","repo":"community"}
 {"name":"rtrlib-dev","description":"Open-source C implementation of the RPKI/Router Protocol client (development files)","version":"0.8.0-r6","homepage":"https://github.com/rtrlib/rtrlib","repo":"community"}
 {"name":"rtrlib-doc","description":"Open-source C implementation of the RPKI/Router Protocol client (documentation)","version":"0.8.0-r6","homepage":"https://github.com/rtrlib/rtrlib","repo":"community"}
@@ -26008,10 +26008,10 @@
 {"name":"stubby-openrc","description":"DNS Privacy stub resolver (OpenRC init scripts)","version":"0.4.3-r2","homepage":"https://dnsprivacy.org/dns_privacy_daemon_-_stubby/","repo":"community"}
 {"name":"stubbyboot","description":"Simple UEFI stub","version":"1.0.4-r3","homepage":"https://github.com/puzzleos/stubby","repo":"community"}
 {"name":"stubbyboot-efistub","description":"Linux UEFI stub from the stubby bootloader project","version":"1.0.4-r3","homepage":"https://github.com/puzzleos/stubby","repo":"community"}
-{"name":"stunnel","description":"SSL encryption wrapper between network client and server","version":"5.76-r0","homepage":"https://www.stunnel.org","repo":"community"}
-{"name":"stunnel-doc","description":"SSL encryption wrapper between network client and server (documentation)","version":"5.76-r0","homepage":"https://www.stunnel.org","repo":"community"}
-{"name":"stunnel-openrc","description":"SSL encryption wrapper between network client and server (OpenRC init scripts)","version":"5.76-r0","homepage":"https://www.stunnel.org","repo":"community"}
-{"name":"stunnel3","description":"Perl wrapper to use stunnel 3.x syntax in stunnel >=4.05","version":"5.76-r0","homepage":"https://www.stunnel.org","repo":"community"}
+{"name":"stunnel","description":"SSL encryption wrapper between network client and server","version":"5.82-r0","homepage":"https://www.stunnel.org","repo":"community"}
+{"name":"stunnel-doc","description":"SSL encryption wrapper between network client and server (documentation)","version":"5.82-r0","homepage":"https://www.stunnel.org","repo":"community"}
+{"name":"stunnel-openrc","description":"SSL encryption wrapper between network client and server (OpenRC init scripts)","version":"5.82-r0","homepage":"https://www.stunnel.org","repo":"community"}
+{"name":"stunnel3","description":"Perl wrapper to use stunnel 3.x syntax in stunnel >=4.05","version":"5.82-r0","homepage":"https://www.stunnel.org","repo":"community"}
 {"name":"stylua","description":"Opinionated Lua code formatter","version":"2.5.2-r0","homepage":"https://github.com/JohnnyMorganz/StyLua","repo":"community"}
 {"name":"subtitlecomposer","description":"The open source text-based subtitle editor","version":"0.8.2-r3","homepage":"https://subtitlecomposer.kde.org/","repo":"community"}
 {"name":"subtitlecomposer-lang","description":"Languages for package subtitlecomposer","version":"0.8.2-r3","homepage":"https://subtitlecomposer.kde.org/","repo":"community"}
@@ -26173,9 +26173,9 @@
 {"name":"sympow-doc","description":"Compute special values of symmetric power elliptic curve L-functions (documentation)","version":"2.023.7-r3","homepage":"https://gitlab.com/rezozer/forks/sympow","repo":"community"}
 {"name":"synadm","description":"Command line admin tool for Synapse","version":"0.49.2-r1","homepage":"https://synadm.readthedocs.io/","repo":"community"}
 {"name":"synadm-pyc","description":"Precompiled Python bytecode for synadm","version":"0.49.2-r1","homepage":"https://synadm.readthedocs.io/","repo":"community"}
-{"name":"synapse","description":"Matrix reference homeserver","version":"1.161.0-r0","homepage":"https://github.com/element-hq/synapse","repo":"community"}
-{"name":"synapse-openrc","description":"Matrix reference homeserver (OpenRC init scripts)","version":"1.161.0-r0","homepage":"https://github.com/element-hq/synapse","repo":"community"}
-{"name":"synapse-pyc","description":"Precompiled Python bytecode for synapse","version":"1.161.0-r0","homepage":"https://github.com/element-hq/synapse","repo":"community"}
+{"name":"synapse","description":"Matrix reference homeserver","version":"1.162.0-r0","homepage":"https://github.com/element-hq/synapse","repo":"community"}
+{"name":"synapse-openrc","description":"Matrix reference homeserver (OpenRC init scripts)","version":"1.162.0-r0","homepage":"https://github.com/element-hq/synapse","repo":"community"}
+{"name":"synapse-pyc","description":"Precompiled Python bytecode for synapse","version":"1.162.0-r0","homepage":"https://github.com/element-hq/synapse","repo":"community"}
 {"name":"syncoid","description":"Policy-driven snapshot management and replication tools","version":"2.3.0-r0","homepage":"https://github.com/jimsalterjrs/sanoid","repo":"community"}
 {"name":"syncplay","description":"Synchronize watching movies on mplayer2, vlc, mpv, and mpc-hc across many computers","version":"1.7.5-r0","homepage":"https://syncplay.pl/","repo":"community"}
 {"name":"syncplay-client","description":"Synchronize watching movies on mplayer2, vlc, mpv, and mpc-hc across many computers","version":"1.7.5-r0","homepage":"https://syncplay.pl/","repo":"community"}
@@ -26736,8 +26736,8 @@
 {"name":"tmatrix-bash-completion","description":"Bash completions for tmatrix","version":"1.4-r2","homepage":"https://github.com/M4444/TMatrix","repo":"community"}
 {"name":"tmatrix-doc","description":"Terminal based replica of the digital rain from The Matrix (documentation)","version":"1.4-r2","homepage":"https://github.com/M4444/TMatrix","repo":"community"}
 {"name":"tmatrix-zsh-completion","description":"Zsh completions for tmatrix","version":"1.4-r2","homepage":"https://github.com/M4444/TMatrix","repo":"community"}
-{"name":"tmux-rime","description":"Use Rime input method with tmux","version":"0.0.5-r1","homepage":"https://github.com/rimeinn/tmux-rime","repo":"community"}
-{"name":"tmux-rime-dev","description":"Use Rime input method with tmux (development files)","version":"0.0.5-r1","homepage":"https://github.com/rimeinn/tmux-rime","repo":"community"}
+{"name":"tmux-rime","description":"Use Rime input method with tmux","version":"0.0.6-r0","homepage":"https://github.com/rimeinn/tmux-rime","repo":"community"}
+{"name":"tmux-rime-dev","description":"Use Rime input method with tmux (development files)","version":"0.0.6-r0","homepage":"https://github.com/rimeinn/tmux-rime","repo":"community"}
 {"name":"tmuxinator","description":"manage complex tmux sessions easily","version":"3.4.0-r0","homepage":"https://github.com/tmuxinator/tmuxinator","repo":"community"}
 {"name":"tmuxinator-bash-completion","description":"Bash completions for tmuxinator","version":"3.4.0-r0","homepage":"https://github.com/tmuxinator/tmuxinator","repo":"community"}
 {"name":"tmuxinator-fish-completion","description":"Fish completions for tmuxinator","version":"3.4.0-r0","homepage":"https://github.com/tmuxinator/tmuxinator","repo":"community"}
@@ -27416,8 +27416,8 @@
 {"name":"virt-viewer-lang","description":"Languages for package virt-viewer","version":"11.0-r3","homepage":"https://virt-manager.org","repo":"community"}
 {"name":"virt-what","description":"Detect if we are running in a virtual machine","version":"1.27-r1","homepage":"https://people.redhat.com/~rjones/virt-what/","repo":"community"}
 {"name":"virt-what-doc","description":"Detect if we are running in a virtual machine (documentation)","version":"1.27-r1","homepage":"https://people.redhat.com/~rjones/virt-what/","repo":"community"}
-{"name":"virtio_vmmci-lts","description":"VirtIO driver for OpenBSD VMM Control Interface","version":"6.18.53-r0","homepage":"https://github.com/voutilad/virtio_vmmci","repo":"community"}
-{"name":"virtio_vmmci-virt","description":"VirtIO driver for OpenBSD VMM Control Interface for virt kernel","version":"6.18.53-r0","homepage":"https://github.com/voutilad/virtio_vmmci","repo":"community"}
+{"name":"virtio_vmmci-lts","description":"VirtIO driver for OpenBSD VMM Control Interface","version":"6.18.54-r0","homepage":"https://github.com/voutilad/virtio_vmmci","repo":"community"}
+{"name":"virtio_vmmci-virt","description":"VirtIO driver for OpenBSD VMM Control Interface for virt kernel","version":"6.18.54-r0","homepage":"https://github.com/voutilad/virtio_vmmci","repo":"community"}
 {"name":"virtiofsd","description":"virtio-fs vhost-user device daemon","version":"1.13.3-r0","homepage":"https://gitlab.com/virtio-fs/virtiofsd","repo":"community"}
 {"name":"virtualbox-guest-additions","description":"VirtualBox Addtions userland components","version":"7.0.22-r0","homepage":"https://virtualbox.org/","repo":"community"}
 {"name":"virtualbox-guest-additions-openrc","description":"VirtualBox Addtions userland components (OpenRC init scripts)","version":"7.0.22-r0","homepage":"https://virtualbox.org/","repo":"community"}
@@ -27437,8 +27437,8 @@
 {"name":"vlc-libs","description":"Multi-platform MPEG, VCD/DVD, and DivX player (libraries)","version":"3.0.23-r4","homepage":"https://www.videolan.org/vlc/","repo":"community"}
 {"name":"vlc-nftrules","description":"Multi-platform MPEG, VCD/DVD, and DivX player (nftables ruleset)","version":"3.0.23-r4","homepage":"https://www.videolan.org/vlc/","repo":"community"}
 {"name":"vlc-qt","description":"Qt frontend for VLC","version":"3.0.23-r4","homepage":"https://www.videolan.org/vlc/","repo":"community"}
-{"name":"vmm_clock-lts","description":"clocksource under OpenBSD VMM","version":"6.18.53-r0","homepage":"https://github.com/voutilad/vmm_clock","repo":"community"}
-{"name":"vmm_clock-virt","description":"clocksource under OpenBSD VMM for virt kernel","version":"6.18.53-r0","homepage":"https://github.com/voutilad/vmm_clock","repo":"community"}
+{"name":"vmm_clock-lts","description":"clocksource under OpenBSD VMM","version":"6.18.54-r0","homepage":"https://github.com/voutilad/vmm_clock","repo":"community"}
+{"name":"vmm_clock-virt","description":"clocksource under OpenBSD VMM for virt kernel","version":"6.18.54-r0","homepage":"https://github.com/voutilad/vmm_clock","repo":"community"}
 {"name":"vnstat","description":"Console-based network traffic monitor","version":"2.13-r1","homepage":"https://humdi.net/vnstat","repo":"community"}
 {"name":"vnstat-doc","description":"Console-based network traffic monitor (documentation)","version":"2.13-r1","homepage":"https://humdi.net/vnstat","repo":"community"}
 {"name":"vnstat-openrc","description":"Console-based network traffic monitor (OpenRC init scripts)","version":"2.13-r1","homepage":"https://humdi.net/vnstat","repo":"community"}

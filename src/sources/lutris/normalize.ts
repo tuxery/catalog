@@ -82,10 +82,15 @@ export function normalize(entries: LutrisCacheEntry[]): SourcedPackage[] {
       appId: entry.installerSlug,
       homepage: `https://lutris.net/games/${entry.gameSlug}/`,
       channel: entry.version,
-      // A game's IGDB genres are positive evidence it's a game — the signal
-      // the old "never set hasGameCategory" comment said didn't exist. A
-      // non-game installer (Discord, Battle.net) carries no genres.
-      hasGameCategory: entry.genres.length > 0 || undefined,
+      // Positive game evidence: IGDB genres, or a game record at all —
+      // `gameDescription` comes from `/api/games/<slug>`, Lutris's catalog
+      // of games. ~290 of 2,262 installers have no genre yet are almost all
+      // games (Humble/GOG/itch.io builds, source ports: Wasteland 3, Hand of
+      // Fate 2...), and without this they were classified as apps. The few
+      // non-games Lutris also models as "games" (Steam, Modrinth, Technic
+      // Launcher, Xbox Cloud Gaming) are left to enrich's game-adjacent-tool
+      // checks, which strip the flag from launchers and clients.
+      hasGameCategory: entry.genres.length > 0 || !!gameDescription || undefined,
       categories: categories.length > 0 ? categories : undefined,
     };
   });

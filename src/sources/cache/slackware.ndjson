@@ -1,4 +1,4 @@
-{"name":"AMF-headers","version":"1.5.2-2","summary":"AMF-headers (Advanced Media Framework headers)","homepage":"https://github.com/GPUOpen-LibrariesAndSDKs/AMF/wiki","series":"d"}
+{"name":"AMF-headers","version":"1.5.3-1","summary":"AMF-headers (Advanced Media Framework headers)","homepage":"https://github.com/GPUOpen-LibrariesAndSDKs/AMF/wiki","series":"d"}
 {"name":"Cython","version":"3.3.0-2","summary":"Cython (C bindings for Python)","homepage":"http://www.cython.org/","series":"d"}
 {"name":"GConf","version":"3.2.6-10","summary":"GConf (GNOME configuration library)","series":"l"}
 {"name":"Greybird","version":"3.23.4-2","summary":"Greybird (Desktop theme suite for Xfce)","homepage":"https://github.com/shimmerproject/Greybird","series":"xfce"}
@@ -21,11 +21,11 @@
 {"name":"SDL2_mixer","version":"2.8.2-2","summary":"SDL2_mixer (SDL2 multi-channel audio mixer library)","homepage":"https://github.com/libsdl-org/SDL_mixer","series":"l"}
 {"name":"SDL2_net","version":"2.4.0-2","summary":"SDL2_net (SDL2 network library)","homepage":"https://github.com/libsdl-org/SDL_net","series":"l"}
 {"name":"SDL2_ttf","version":"2.24.0-2","summary":"SDL2_ttf (SDL2 TrueType font library)","homepage":"https://github.com/libsdl-org/SDL_ttf","series":"l"}
-{"name":"SDL3","version":"3.4.16-1","summary":"SDL3 (Simple DirectMedia Layer Version 3)","homepage":"http://www.libsdl.org","series":"l"}
+{"name":"SDL3","version":"3.4.18-1","summary":"SDL3 (Simple DirectMedia Layer Version 3)","homepage":"http://www.libsdl.org","series":"l"}
 {"name":"SDL3_ttf","version":"3.2.2-2","summary":"SDL3_ttf (Support for TrueType fonts with SDL3)","homepage":"https://github.com/libsdl-org/SDL_ttf","series":"l"}
 {"name":"a2ps","version":"4.15.8-2","summary":"a2ps (any to PostScript filter)","homepage":"https://www.gnu.org/software/a2ps/","series":"ap"}
 {"name":"a52dec","version":"0.8.0-2","summary":"a52dec (test program for liba52)","homepage":"https://git.adelielinux.org/community/a52dec/","series":"l"}
-{"name":"aaa_base","version":"15.1-3","summary":"aaa_base (Basic Linux filesystem package)","series":"a"}
+{"name":"aaa_base","version":"16.0-2","summary":"aaa_base (Basic Linux filesystem package)","series":"a"}
 {"name":"aaa_glibc-solibs","version":"2.44-7","summary":"aaa_glibc-solibs (shared GNU C libraries)","series":"a"}
 {"name":"aaa_libraries","version":"16.0-1","summary":"aaa_libraries (shared libraries needed by many programs)","series":"a"}
 {"name":"aaa_terminfo","version":"6.6-2","summary":"aaa_terminfo (a basic collection of terminfo entries)","series":"a"}
@@ -42,7 +42,7 @@
 {"name":"adwaita-icon-theme-legacy","version":"20240517_7642b10-2","summary":"adwaita-icon-theme-legacy (fallback icons from old Adwaita theme)","homepage":"https://gitlab.gnome.org/jimmac/adwaita-icon-theme-legacy","series":"l"}
 {"name":"aha","version":"0.5.1-2","summary":"aha (convert ANSI escape sequences to HTML)","homepage":"https://github.com/theZiz/aha","series":"ap"}
 {"name":"akonadi","version":"26.08.1-1","summary":"akonadi (PIM storage service)","homepage":"https://www.kdepim.org/akonadi/","series":"kde"}
-{"name":"akonadi-calendar","version":"26.08.1-1","summary":"akonadi-calendar (Akonadi calendar integration)","series":"kde"}
+{"name":"akonadi-calendar","version":"26.08.1-2","summary":"akonadi-calendar (Akonadi calendar integration)","series":"kde"}
 {"name":"akonadi-calendar-tools","version":"26.08.1-1","summary":"akonadi-calendar-tools (CLI tools to manage Akonadi calendars)","series":"kde"}
 {"name":"akonadi-contacts","version":"26.08.1-1","summary":"akonadi-contacts (contact management for Akonadi)","series":"kde"}
 {"name":"akonadi-import-wizard","version":"26.08.1-1","summary":"akonadi-import-wizard (import data to KMail)","series":"kde"}
@@ -73,7 +73,7 @@
 {"name":"aspell","version":"0.60.8.2-2","summary":"aspell (spell checker)","series":"l"}
 {"name":"aspell-en","version":"2026.02.25_0-1","summary":"aspell-en","series":"l"}
 {"name":"at","version":"3.2.5-2","summary":"at (delayed command execution)","homepage":"http://blog.calhariz.com/tag/at","series":"ap"}
-{"name":"at-spi2-core","version":"2.62.0.1-1","summary":"at-spi2-core (Assistive Technology Service Provider Interface core)","series":"l"}
+{"name":"at-spi2-core","version":"2.62.0.1-2","summary":"at-spi2-core (Assistive Technology Service Provider Interface core)","series":"l"}
 {"name":"atkmm","version":"2.28.5-2","summary":"atkmm (C++ bindings for ATK)","homepage":"http://www.gtkmm.org/","series":"l"}
 {"name":"atkmm2","version":"2.36.4-2","summary":"atkmm2 (C++ bindings for ATK, ABI 2.36)","homepage":"http://www.gtkmm.org/","series":"l"}
 {"name":"attica","version":"6.30.0-1","summary":"attica (Open Collaboration Service library)","series":"kde"}
@@ -97,6 +97,7 @@
 {"name":"bash","version":"5.3.020-1","summary":"bash (sh-compatible shell)","series":"a"}
 {"name":"bc","version":"1.08.2-2","summary":"bc (An arbitrary precision calculator language)","series":"ap"}
 {"name":"bcachefs-tools","version":"1.39.6-1","summary":"bcachefs-tools (tools for bcachefs filesystem)","homepage":"https://bcachefs.org","series":"a"}
+{"name":"bdf2psf","version":"1.249-1","summary":"bdf2psf (convert fonts from bdf to psf format)","series":"x"}
 {"name":"bdftopcf","version":"1.1.2-2","summary":"bdftopcf (font compiler for the X server and font server)","series":"x"}
 {"name":"beforelight","version":"1.0.6-2","summary":"beforelight (X11 screensaver)","series":"x"}
 {"name":"biff+comsat","version":"0.17-5","summary":"biff+comsat (mail arrival notification daemon)","series":"n"}
@@ -140,7 +141,7 @@
 {"name":"cargo-c","version":"0.10.25-2","summary":"cargo-c (cargo C-ABI helpers)","homepage":"https://github.com/lu-zero/cargo-c/","series":"d"}
 {"name":"cargo-vendor-filterer","version":"0.5.18-2","summary":"cargo-vendor-filterer (Vendor rust libraries based on filters)","homepage":"https://github.com/coreos/cargo-vendor-filterer","series":"d"}
 {"name":"cbindgen","version":"0.29.4-2","summary":"cbindgen (Generate C/C++ headers for Rust libraries)","homepage":"https://github.com/eqrion/cbindgen","series":"d"}
-{"name":"ccache","version":"4.14-2","summary":"ccache (a fast compiler cache)","homepage":"https://ccache.dev/","series":"d"}
+{"name":"ccache","version":"4.14.1-1","summary":"ccache (a fast compiler cache)","homepage":"https://ccache.dev/","series":"d"}
 {"name":"ccid","version":"1.8.4-1","summary":"ccid (PC/SC driver for USB CCID smart card readers)","homepage":"https://ccid.apdu.fr","series":"l"}
 {"name":"cdparanoia","version":"III_10.2-6","summary":"cdparanoia (digital audio extraction tool)","series":"ap"}
 {"name":"cdrdao","version":"1.2.6-2","summary":"cdrdao (CD burning utility)","series":"ap"}
@@ -148,12 +149,12 @@
 {"name":"cfitsio","version":"4.7.0-2","summary":"cfitsio (FITS file subroutine library)","homepage":"https://heasarc.gsfc.nasa.gov/docs/software/fitsio/","series":"l"}
 {"name":"check","version":"0.15.2-4","summary":"check (unit test framework)","homepage":"https://libcheck.github.io/check","series":"d"}
 {"name":"chmlib","version":"0.40-6","summary":"chmlib (library for accessing CHM files)","homepage":"http://www.jedrea.com/chmlib/","series":"l"}
-{"name":"cifs-utils","version":"7.7-2","summary":"cifs-utils (CIFS filesystem utilities)","homepage":"https://wiki.samba.org/index.php/LinuxCIFS_utils","series":"n"}
+{"name":"cifs-utils","version":"7.8-1","summary":"cifs-utils (CIFS filesystem utilities)","homepage":"https://wiki.samba.org/index.php/LinuxCIFS_utils","series":"n"}
 {"name":"cldr-emoji-annotation","version":"37.0_13.0_0_2-5","summary":"cldr-emoji-annotation (emoji annotation files in CLDR)","homepage":"https://github.com/fujiwarat/cldr-emoji-annotation","series":"x"}
-{"name":"clinfo","version":"3.0.25.02.14-2","summary":"clinfo (Show OpenCL implementation information)","homepage":"https://github.com/Oblomov/clinfo","series":"d"}
+{"name":"clinfo","version":"3.1.26.09.26-1","summary":"clinfo (Show OpenCL implementation information)","homepage":"https://github.com/Oblomov/clinfo","series":"d"}
 {"name":"clisp","version":"2.50_20260903_efbd7a4bf-1","summary":"clisp (a Common Lisp implementation)","series":"d"}
 {"name":"clucene","version":"2.3.3.4-6","summary":"clucene (Text-Search Engine)","homepage":"http://clucene.sourceforge.net","series":"l"}
-{"name":"cmake","version":"4.4.3-2","summary":"cmake (cross-platform, open-source make system)","homepage":"http://www.cmake.org","series":"d"}
+{"name":"cmake","version":"4.4.4-1","summary":"cmake (cross-platform, open-source make system)","homepage":"http://www.cmake.org","series":"d"}
 {"name":"cmark","version":"0.31.2-2","summary":"cmark (CommonMark parsing/rendering library)","homepage":"https://commonmark.org/","series":"l"}
 {"name":"cmark-gfm","version":"0.29.0.gfm.13-4","summary":"cmark-gfm (extended CommonMark parsing/rendering library)","homepage":"https://github.com/github/cmark-gfm","series":"l"}
 {"name":"colord","version":"1.4.8-2","summary":"colord (color profile daemon)","homepage":"http://www.freedesktop.org/software/colord","series":"l"}
@@ -167,7 +168,7 @@
 {"name":"cracklib","version":"2.10.3-2","summary":"cracklib (password checking library)","homepage":"https://github.com/cracklib/cracklib","series":"a"}
 {"name":"cryfs","version":"1.0.3-3","summary":"cryfs (cryptographic filesystem)","homepage":"https://www.cryfs.org","series":"l"}
 {"name":"cryptopp","version":"8.9.0-3","summary":"cryptopp (library of cryptographic schemes)","homepage":"http://www.cryptopp.com/","series":"l"}
-{"name":"cryptsetup","version":"2.8.8-1","summary":"cryptsetup (utility for setting up encrypted filesystems)","homepage":"https://gitlab.com/cryptsetup/cryptsetup","series":"a"}
+{"name":"cryptsetup","version":"2.8.8-2","summary":"cryptsetup (utility for setting up encrypted filesystems)","homepage":"https://gitlab.com/cryptsetup/cryptsetup","series":"a"}
 {"name":"crystal-dock","version":"2.16-2","summary":"crystal-dock (a dock for the desktop)","homepage":"https://github.com/dangvd/crystal-dock","series":"kde"}
 {"name":"cscope","version":"15.9-5","summary":"cscope (source code browsing tool)","homepage":"http://cscope.sourceforge.net","series":"d"}
 {"name":"cups","version":"2.4.19-2","summary":"cups (Common UNIX Printing System)","series":"ap"}
@@ -183,8 +184,8 @@
 {"name":"dav1d","version":"1.5.4-2","summary":"dav1d (AV1 decoder)","homepage":"https://code.videolan.org/videolan/dav1d","series":"l"}
 {"name":"db48","version":"4.8.30-7","summary":"db48 (Berkeley database library version 4.8.x)","series":"l"}
 {"name":"dbus","version":"1.16.2-5","summary":"dbus (D-Bus message bus system)","homepage":"https://dbus.freedesktop.org/","series":"a"}
-{"name":"dbus-glib","version":"0.114-2","summary":"dbus-glib (Glib bindings for dbus)","series":"l"}
-{"name":"dbus-python","version":"1.4.0-2","summary":"dbus-python (Python bindings for dbus)","series":"l"}
+{"name":"dbus-glib","version":"0.116-1","summary":"dbus-glib (Glib bindings for dbus)","series":"l"}
+{"name":"dbus-python","version":"1.5.0-1","summary":"dbus-python (Python bindings for dbus)","series":"l"}
 {"name":"dc3dd","version":"7.3.1-2","summary":"dc3dd (version of dd designed for computer forensics)","series":"ap"}
 {"name":"dconf","version":"51.0-1","summary":"dconf (low-level configuration system)","homepage":"https://wiki.gnome.org/Projects/dconf","series":"l"}
 {"name":"dconf-editor","version":"49.0-2","summary":"dconf-editor (graphical editor for dconf)","series":"l"}
@@ -229,7 +230,7 @@
 {"name":"editres","version":"1.1.1-2","summary":"editres (X11 resource editor)","series":"x"}
 {"name":"efibootmgr","version":"18-2","summary":"efibootmgr (tool to modify UEFI boot entries)","homepage":"https://github.com/rhboot/efibootmgr","series":"a"}
 {"name":"efivar","version":"20201015_cff88dd-2","summary":"efivar (library and utilities to handle UEFI variables)","homepage":"https://github.com/rhboot/efivar","series":"a"}
-{"name":"egl-wayland","version":"1.1.22-1","summary":"egl-wayland (Wayland EGL External Platform library)","series":"x"}
+{"name":"egl-wayland","version":"1.1.23-1","summary":"egl-wayland (Wayland EGL External Platform library)","series":"x"}
 {"name":"eglexternalplatform","version":"1.2.1-2","summary":"eglexternalplatform (EGL External Platform Interface headers)","series":"x"}
 {"name":"eigen","version":"5.0.1-2","summary":"eigen (C++ math library)","homepage":"https://eigen.tuxfamily.org","series":"l"}
 {"name":"electricsheep","version":"20090306-9","summary":"electricsheep (distributed screensaver)","series":"xap"}
@@ -238,7 +239,7 @@
 {"name":"elilo","version":"3.16-19","summary":"elilo (Linux Loader for EFI-based platforms)","homepage":"http://elilo.sourceforge.net","series":"a"}
 {"name":"elisa","version":"26.08.1-1","summary":"elisa (music player)","homepage":"https://community.kde.org/Elisa","series":"kde"}
 {"name":"elm","version":"2.5.8-9","summary":"elm (Menu-driven user mail program)","series":"n"}
-{"name":"elogind","version":"257.16-4","summary":"elogind (logind extracted from systemd)","homepage":"https://github.com/elogind/elogind","series":"a"}
+{"name":"elogind","version":"257.16-6","summary":"elogind (logind extracted from systemd)","homepage":"https://github.com/elogind/elogind","series":"a"}
 {"name":"elvis","version":"2.2_0-10","summary":"elvis (ex/vi text editor)","series":"a"}
 {"name":"emacs","version":"31.1-2","summary":"emacs (GNU Emacs)","homepage":"http://www.gnu.org/software/emacs/","series":"e"}
 {"name":"emacspeak","version":"60.0-3","summary":"emacspeak (Emacs speech interface)","series":"e"}
@@ -250,7 +251,7 @@
 {"name":"espeak-ng","version":"1.52.0-2","summary":"espeak-ng (text-to-speech synthesizer)","homepage":"https://github.com/espeak-ng/espeak-ng","series":"l"}
 {"name":"etc","version":"15.1-18","summary":"etc (system configuration files)","series":"a"}
 {"name":"ethtool","version":"7.1-2","summary":"ethtool (a tool for examining and tuning a network interface)","series":"n"}
-{"name":"eudev","version":"3.2.14-5","summary":"eudev (dynamic device directory system)","homepage":"https://github.com/eudev-project/eudev","series":"a"}
+{"name":"eudev","version":"3.2.15-1","summary":"eudev (dynamic device directory system)","homepage":"https://github.com/eudev-project/eudev","series":"a"}
 {"name":"eventviews","version":"26.08.1-1","summary":"eventviews (library for creating events)","series":"kde"}
 {"name":"exfatprogs","version":"1.4.3-2","summary":"exfatprogs (exFAT filesystem utilities)","homepage":"https://github.com/exfatprogs/exfatprogs","series":"a"}
 {"name":"exiv2","version":"0.28.9-2","summary":"exiv2 (Exif and IPTC Metadata Library and Tools)","homepage":"https://www.exiv2.org/","series":"l"}
@@ -258,7 +259,8 @@
 {"name":"expat","version":"2.8.5-1","summary":"expat (C library for parsing XML)","homepage":"https://libexpat.github.io","series":"l"}
 {"name":"expect","version":"5.45.4-5","summary":"expect (program that talks to other interactive programs)","series":"tcl"}
 {"name":"extra-cmake-modules","version":"6.30.0-1","summary":"extra-cmake-modules (extra KDE CMake modules)","series":"kde"}
-{"name":"f2fs-tools","version":"1.16.0-3","summary":"f2fs-tools (Flash-Friendly File System)","series":"a"}
+{"name":"f2fs-tools","version":"1.17.0-1","summary":"f2fs-tools (Flash-Friendly File System)","series":"a"}
+{"name":"f3","version":"10.0-1","summary":"f3 (Fight Fake Flash)","homepage":"https://github.com/AltraMayor/f3","series":"ap"}
 {"name":"falkon","version":"26.08.1-1","summary":"falkon (KDE web browser)","series":"kde"}
 {"name":"farstream","version":"0.2.9-4","summary":"farstream (GStreamer videoconferencing support)","homepage":"https://www.freedesktop.org/wiki/Software/Farstream","series":"l"}
 {"name":"fast_float","version":"8.3.0-1","summary":"fast_float (fast_float number parsing library)","homepage":"https://github.com/fastfloat/fast_float","series":"l"}
@@ -276,7 +278,7 @@
 {"name":"fcitx5-table-other","version":"5.1.8-1","summary":"fcitx5-table-other (Other tables for fcitx5)","homepage":"https://fcitx-im.org/wiki/Fcitx_5","series":"x"}
 {"name":"fcitx5-theme-breeze","version":"2.0.0-2","summary":"fcitx5-theme-breeze (Fcitx5 breeze theme)","homepage":"https://github.com/scratch-er/fcitx5-breeze","series":"kde"}
 {"name":"fcitx5-unikey","version":"5.1.12-1","summary":"fcitx5-unikey (Vietnamese input support for fcitx5)","homepage":"https://fcitx-im.org/wiki/Fcitx_5","series":"x"}
-{"name":"fetchmail","version":"6.6.8-1","summary":"fetchmail (mail retrieval and forwarding utility)","series":"n"}
+{"name":"fetchmail","version":"6.6.9-1","summary":"fetchmail (mail retrieval and forwarding utility)","series":"n"}
 {"name":"ffmpeg","version":"9.0.2-1","summary":"ffmpeg (software to record, convert and stream audio and video)","homepage":"https://ffmpeg.org/","series":"l"}
 {"name":"ffmpegthumbnailer","version":"2.3.1-2","summary":"ffmpegthumbnailer (Lightweight Video Thumbnailer)","homepage":"https://github.com/dirkvdb/ffmpegthumbnailer","series":"xap"}
 {"name":"ffmpegthumbs","version":"26.08.1-1","summary":"ffmpegthumbs (video thumbnail generator using ffmpeg)","series":"kde"}
@@ -330,6 +332,7 @@
 {"name":"font-winitzki-cyrillic","version":"1.0.4-2","summary":"font-winitzki-cyrillic (bitmap fonts for X11)","series":"x"}
 {"name":"font-xfree86-type1","version":"1.0.5-2","summary":"font-xfree86-type1 (scalable fonts for X11)","series":"x"}
 {"name":"fontconfig","version":"2.18.3-2","summary":"fontconfig (Font library and tools)","homepage":"https://www.fontconfig.org","series":"x"}
+{"name":"fonts-uw-ttyp0","version":"2.1-2","summary":"fonts-uw-ttyp0 (monospaced bitmap screen fonts)","homepage":"https://people.mpi-inf.mpg.de/~uwe/misc/uw-ttyp0/","series":"ap"}
 {"name":"fonttosfnt","version":"1.2.5-2","summary":"fonttosfnt (utility to wrap a bitmap font in a sfnt wrapper)","series":"x"}
 {"name":"fprintd","version":"1.94.5-2","summary":"fprintd (fingerprint scanning daemon available over D-Bus)","homepage":"https://fprint.freedesktop.org/","series":"l"}
 {"name":"frameworkintegration","version":"6.30.0-1","summary":"frameworkintegration (applications integration with KDE)","homepage":"https://community.kde.org/Frameworks","series":"kde"}
@@ -337,9 +340,9 @@
 {"name":"francis","version":"26.08.1-1","summary":"francis (KDE time tracker)","series":"kde"}
 {"name":"freecell-solver","version":"6.16.0-2","summary":"freecell-solver (solve layouts of freecell games)","homepage":"https://fc-solve.shlomifish.org/","series":"l"}
 {"name":"freeglut","version":"3.8.0-2","summary":"freeglut (alternative GLUT library)","homepage":"https://freeglut.sourceforge.net/","series":"x"}
-{"name":"freerdp","version":"3.32.0-1","summary":"freerdp (Free Remote Desktop Protocol)","homepage":"https://www.freerdp.com","series":"xap"}
+{"name":"freerdp","version":"3.32.1-1","summary":"freerdp (Free Remote Desktop Protocol)","homepage":"https://www.freerdp.com","series":"xap"}
 {"name":"freetype","version":"2.14.3-2","summary":"freetype (A free, high-quality, and portable font engine)","homepage":"http://www.freetype.org","series":"l"}
-{"name":"frei0r-plugins","version":"3.5.0-3","summary":"frei0r-plugins (API for video effects)","homepage":"https://frei0r.dyne.org","series":"l"}
+{"name":"frei0r-plugins","version":"3.6.0-1","summary":"frei0r-plugins (API for video effects)","homepage":"https://frei0r.dyne.org","series":"l"}
 {"name":"fribidi","version":"1.0.17-1","summary":"fribidi (Unicode BiDirectional algorithm library)","homepage":"https://github.com/fribidi/fribidi","series":"l"}
 {"name":"fslsfonts","version":"1.0.7-2","summary":"fslsfonts (produces a list of fonts served by an X font server)","series":"x"}
 {"name":"fstobdf","version":"1.0.8-2","summary":"fstobdf (copy fonts from an X11 font server)","series":"x"}
@@ -367,7 +370,7 @@
 {"name":"gcr","version":"3.41.2-2","summary":"gcr (crypto library and ui for gnome-keyring)","series":"l"}
 {"name":"gcr4","version":"4.4.1-1","summary":"gcr4 (crypto library and ui for gnome-keyring)","series":"l"}
 {"name":"gd","version":"2.3.3-4","summary":"gd (a graphics library)","homepage":"https://www.libgd.org","series":"l"}
-{"name":"gdb","version":"17.2-2","summary":"gdb (the GNU symbolic debugger)","series":"d"}
+{"name":"gdb","version":"18.1-1","summary":"gdb (the GNU symbolic debugger)","series":"d"}
 {"name":"gdbm","version":"1.26-2","summary":"gdbm (GNU database routines)","series":"l"}
 {"name":"gdk-pixbuf2","version":"2.44.8-2","summary":"gdk-pixbuf2 (image library used by GTK+ v2)","series":"l"}
 {"name":"gdk-pixbuf2-xlib","version":"2.40.2-5","summary":"gdk-pixbuf2-xlib (GdkPixbuf/Xlib API)","series":"l"}
@@ -384,7 +387,7 @@
 {"name":"gi-docgen","version":"2026.1-2","summary":"gi-docgen (Document generator for GObject-based libraries)","homepage":"https://gnome.pages.gitlab.gnome.org/gi-docgen/","series":"l"}
 {"name":"giflib","version":"6.1.3-2","summary":"giflib (GIF image format library)","series":"l"}
 {"name":"gimp","version":"3.2.6-2","summary":"gimp (GNU Image Manipulation Program)","homepage":"https://www.gimp.org","series":"xap"}
-{"name":"git","version":"2.55.0-2","summary":"git (the stupid content tracker)","series":"d"}
+{"name":"git","version":"2.56.0-1","summary":"git (the stupid content tracker)","series":"d"}
 {"name":"gjs","version":"1.90.0-1","summary":"gjs (javascript bindings for GNOME)","homepage":"https://gitlab.gnome.org/GNOME/gjs/","series":"l"}
 {"name":"gkrellm","version":"2.5.1-2","summary":"gkrellm (GNU Krell Monitors)","series":"xap"}
 {"name":"glade","version":"3.40.0-6","summary":"glade (Glade UI Designer)","homepage":"http://glade.gnome.org/","series":"l"}
@@ -396,7 +399,7 @@
 {"name":"glibc","version":"2.44-7","summary":"glibc (GNU C libraries)","homepage":"https://www.gnu.org/software/libc/","series":"l"}
 {"name":"glibc-i18n","version":"2.44-7","summary":"glibc-i18n (locale files from glibc)","series":"l"}
 {"name":"glibc-profile","version":"2.44-7","summary":"glibc-profile (GNU C libraries with profiling support)","series":"l"}
-{"name":"glibc-zoneinfo","version":"2026d-1","summary":"glibc-zoneinfo (timezone database)","series":"a"}
+{"name":"glibc-zoneinfo","version":"2026e-1","summary":"glibc-zoneinfo (timezone database)","series":"a"}
 {"name":"glibmm","version":"2.66.10-1","summary":"glibmm (C++ bindings for glib)","homepage":"http://www.gtkmm.org/","series":"l"}
 {"name":"glibmm2","version":"2.90.0-1","summary":"glibmm2 (C++ bindings for glib, ABI 2.68)","homepage":"http://www.gtkmm.org/","series":"l"}
 {"name":"glu","version":"9.0.3-2","summary":"glu (Mesa OpenGL utility library)","series":"x"}
@@ -414,7 +417,7 @@
 {"name":"gnuplot","version":"6.0.5-2","summary":"gnuplot (plotting utility)","series":"xap"}
 {"name":"gnutls","version":"3.8.13-2","summary":"gnutls (GNU TLS library)","homepage":"https://www.gnu.org/software/gnutls/","series":"n"}
 {"name":"gobject-introspection","version":"1.86.0-2","summary":"gobject-introspection (GObject interface introspection library)","homepage":"https://gi.readthedocs.io/en/latest/","series":"l"}
-{"name":"google-go-lang","version":"1.27.0-2","summary":"google-go-lang (Google's Go language)","homepage":"https://go.dev","series":"d"}
+{"name":"google-go-lang","version":"1.27.1-1","summary":"google-go-lang (Google's Go language)","homepage":"https://go.dev","series":"d"}
 {"name":"googletest","version":"1.18.0-2","summary":"googletest (Google's C++ test framework)","homepage":"https://google.github.io/googletest","series":"d"}
 {"name":"gpa","version":"0.11.1-3","summary":"gpa (GNU Privacy Assistant)","series":"n"}
 {"name":"gparted","version":"1.8.1-2","summary":"gparted (Graphical partition editor)","series":"xap"}
@@ -431,11 +434,11 @@
 {"name":"graphite2","version":"1.3.15-3","summary":"graphite2 (rendering engine for graphite fonts)","homepage":"http://graphite.sil.org/","series":"l"}
 {"name":"graphviz","version":"16.1.0-1","summary":"graphviz (graph visualization tools)","homepage":"https://www.graphviz.org/","series":"l"}
 {"name":"grep","version":"3.12-2","summary":"grep (print lines matching a pattern)","series":"a"}
-{"name":"groff","version":"1.24.1-3","summary":"groff (document formatting system)","series":"ap"}
-{"name":"grub","version":"2.14-5","summary":"grub (the GRand Unified Bootloader)","homepage":"https://www.gnu.org/software/grub/","series":"a"}
+{"name":"groff","version":"1.24.2-2","summary":"groff (document formatting system)","series":"ap"}
+{"name":"grub","version":"2.16-3","summary":"grub (the GRand Unified Bootloader)","homepage":"https://www.gnu.org/software/grub/","series":"a"}
 {"name":"gsettings-desktop-schemas","version":"51.0-1","summary":"gsettings-desktop-schemas (GSettings schemas)","series":"l"}
 {"name":"gsl","version":"2.8-2","summary":"gsl (a numerical library for C and C++ programmers)","homepage":"http://www.gnu.org/software/gsl/","series":"l"}
-{"name":"gspell","version":"1.14.4-2","summary":"gspell (GTK spell checking library)","series":"l"}
+{"name":"gspell","version":"1.14.5-1","summary":"gspell (GTK spell checking library)","series":"l"}
 {"name":"gst-plugins-bad-free","version":"1.28.7-3","summary":"gst-plugins-bad-free (bad set of GStreamer plugins)","series":"l"}
 {"name":"gst-plugins-base","version":"1.28.7-1","summary":"gst-plugins-base (base set of GStreamer plugins)","series":"l"}
 {"name":"gst-plugins-good","version":"1.28.7-1","summary":"gst-plugins-good (good set of GStreamer plugins)","series":"l"}
@@ -445,7 +448,7 @@
 {"name":"gtk+2","version":"2.24.33-6","summary":"gtk+2 (multi-platform GUI toolkit v2)","series":"l"}
 {"name":"gtk+3","version":"3.24.52-2","summary":"gtk+3 (multi-platform GUI toolkit v3)","series":"l"}
 {"name":"gtk-layer-shell","version":"0.10.1-2","summary":"gtk-layer-shell (GTK3 Layer Shell library)","homepage":"https://github.com/wmww/gtk-layer-shell","series":"x"}
-{"name":"gtk4","version":"4.24.0-1","summary":"gtk4 (multi-platform GUI toolkit v4)","series":"l"}
+{"name":"gtk4","version":"4.24.1-1","summary":"gtk4 (multi-platform GUI toolkit v4)","series":"l"}
 {"name":"gtkmm2","version":"2.24.5-5","summary":"gtkmm2 (C++ interface for GTK+2)","homepage":"http://www.gtkmm.org/","series":"l"}
 {"name":"gtkmm3","version":"3.24.11-2","summary":"gtkmm3 (C++ interface for GTK+3)","homepage":"http://www.gtkmm.org/","series":"l"}
 {"name":"gtkmm4","version":"4.24.0-1","summary":"gtkmm4 (C++ interface for GTK4)","homepage":"http://www.gtkmm.org/","series":"l"}
@@ -455,12 +458,12 @@
 {"name":"guile","version":"3.0.11-2","summary":"guile (GNU extension language library)","series":"d"}
 {"name":"gutenprint","version":"5.3.5-3","summary":"gutenprint (IJS printer driver for Ghostscript and CUPS)","homepage":"https://gutenprint.sourceforge.net/","series":"ap"}
 {"name":"gv","version":"3.7.4-6","summary":"gv (PS/PDF file viewer)","series":"xap"}
-{"name":"gvfs","version":"1.62.0-1","summary":"gvfs (glib virtual filesystems)","series":"l"}
+{"name":"gvfs","version":"1.62.0-2","summary":"gvfs (glib virtual filesystems)","series":"l"}
 {"name":"gwenview","version":"26.08.1-1","summary":"gwenview (image viewer for KDE)","series":"kde"}
 {"name":"gyp","version":"20210831_d6c5dd51-5","summary":"gyp (Generate Your Projects)","homepage":"https://gyp.gsrc.io/","series":"d"}
 {"name":"gzip","version":"1.15-1","summary":"gzip (file compression utility)","series":"a"}
 {"name":"hack-fonts-ttf","version":"3.003-5","summary":"hack-fonts-ttf (TrueType monospaced font)","homepage":"http://sourcefoundry.org/hack/","series":"x"}
-{"name":"harfbuzz","version":"14.5.0-1","summary":"harfbuzz (OpenType text shaping engine)","homepage":"http://harfbuzz.org","series":"l"}
+{"name":"harfbuzz","version":"14.5.1-1","summary":"harfbuzz (OpenType text shaping engine)","homepage":"http://harfbuzz.org","series":"l"}
 {"name":"haruna","version":"1.8.1-3","summary":"haruna (Qt based media player)","homepage":"https://haruna.kde.org","series":"kde"}
 {"name":"haveged","version":"1.9.26-2","summary":"haveged (A simple entropy daemon)","homepage":"http://www.issihosts.com/haveged/index.html","series":"a"}
 {"name":"hdparm","version":"9.65-2","summary":"hdparm (read/set hard drive parameters)","homepage":"https://sourceforge.net/projects/hdparm/","series":"a"}
@@ -473,9 +476,9 @@
 {"name":"hplip","version":"3.26.6-1","summary":"hplip (HP print/scan/fax support)","homepage":"http://hplipopensource.com","series":"ap"}
 {"name":"htdig","version":"3.2.0b6-11","summary":"htdig (web indexing and searching system)","series":"n"}
 {"name":"htop","version":"3.5.3-2","summary":"htop (ncurses-based interactive process viewer)","homepage":"http://hisham.hm/htop/","series":"ap"}
-{"name":"httpd","version":"2.4.68-2","summary":"httpd (The Apache HTTP Server)","series":"n"}
-{"name":"hunspell","version":"1.7.3-2","summary":"hunspell (spell checker and morphological analyzer library)","homepage":"https://hunspell.sourceforge.net/","series":"l"}
-{"name":"hwdata","version":"0.411-1","summary":"hwdata (hardware identification and configuration data)","homepage":"https://github.com/vcrhonek/hwdata","series":"a"}
+{"name":"httpd","version":"2.4.69-1","summary":"httpd (The Apache HTTP Server)","series":"n"}
+{"name":"hunspell","version":"1.7.4-1","summary":"hunspell (spell checker and morphological analyzer library)","homepage":"https://hunspell.sourceforge.net/","series":"l"}
+{"name":"hwdata","version":"0.412-1","summary":"hwdata (hardware identification and configuration data)","homepage":"https://github.com/vcrhonek/hwdata","series":"a"}
 {"name":"hyphen","version":"2.8.9-2","summary":"hyphen (hyphenation and justification library)","homepage":"https://github.com/hunspell/hyphen","series":"l"}
 {"name":"ibus","version":"1.5.35_beta2-1","summary":"ibus (Intelligent Input Bus)","homepage":"https://github.com/ibus/ibus/wiki","series":"x"}
 {"name":"ibus-anthy","version":"1.5.18-2","summary":"ibus-anthy (Japanese input engine for IBus)","homepage":"https://github.com/ibus/ibus-anthy","series":"x"}
@@ -493,8 +496,8 @@
 {"name":"icu4c","version":"78.3-2","summary":"icu4c (International Components for Unicode)","homepage":"http://www.icu-project.org/","series":"l"}
 {"name":"id3lib","version":"3.8.3-5","summary":"id3lib (ID3 tag manipulation library)","homepage":"http://id3lib.sourceforge.net/","series":"l"}
 {"name":"iftop","version":"1.0pre4-6","summary":"iftop (Display bandwidth usage on an interface)","homepage":"http://www.ex-parrot.com/~pdw/iftop/","series":"n"}
-{"name":"igt-gpu-tools","version":"2.5-2","summary":"igt-gpu-tools (DRM driver testing tools)","homepage":"https://cgit.freedesktop.org/drm/igt-gpu-tools","series":"x"}
-{"name":"imagemagick","version":"7.1.2_31-2","summary":"imagemagick (a robust collection of image processing tools)","series":"l"}
+{"name":"igt-gpu-tools","version":"2.6-1","summary":"igt-gpu-tools (DRM driver testing tools)","homepage":"https://cgit.freedesktop.org/drm/igt-gpu-tools","series":"x"}
+{"name":"imagemagick","version":"7.1.2_32-1","summary":"imagemagick (a robust collection of image processing tools)","series":"l"}
 {"name":"imake","version":"1.0.11-2","summary":"imake (C preprocessor interface to the make utility)","series":"x"}
 {"name":"immer","version":"0.9.1-2","summary":"immer (persistent and immutable data structures for C++)","homepage":"https://github.com/arximboldi/immer","series":"l"}
 {"name":"incidenceeditor","version":"26.08.1-1","summary":"incidenceeditor (KDE PIM incidence editor)","series":"kde"}
@@ -503,10 +506,10 @@
 {"name":"infozip","version":"6.0-9","summary":"infozip (Info-ZIP's zip and unzip utilities)","series":"a"}
 {"name":"inih","version":"62-2","summary":"inih (INI Not Invented Here)","homepage":"https://github.com/benhoyt/inih","series":"a"}
 {"name":"iniparser","version":"4.3.0-1","summary":"iniparser (ini file parsing library)","homepage":"https://github.com/ndevilla/iniparser","series":"a"}
-{"name":"inotify-tools","version":"4.25.9.0-2","summary":"inotify-tools (command line utilities for inotify)","homepage":"http://wiki.github.com/rvoicilas/inotify-tools/","series":"a"}
+{"name":"inotify-tools","version":"4.26.262-1","summary":"inotify-tools (command line utilities for inotify)","homepage":"http://wiki.github.com/rvoicilas/inotify-tools/","series":"a"}
 {"name":"intel-gmmlib","version":"22.10.2-1","summary":"intel-gmmlib (Intel Graphics Memory Management Library)","homepage":"https://github.com/intel/gmmlib","series":"x"}
 {"name":"intel-media-driver","version":"26.3.5-1","summary":"intel-media-driver (Intel Media Driver for VAAPI)","homepage":"https://github.com/intel/media-driver","series":"x"}
-{"name":"intel-microcode","version":"20260812-2","summary":"intel-microcode (Intel Processor Microcode)","series":"a"}
+{"name":"intel-microcode","version":"20260925-1","summary":"intel-microcode (Intel Processor Microcode)","series":"a"}
 {"name":"intel-vaapi-driver","version":"2.4.5-2","summary":"intel-vaapi-driver (VA driver for Intel G45 & HD Graphics family)","homepage":"https://github.com/irql-notlessorequal/intel-vaapi-driver","series":"x"}
 {"name":"intltool","version":"0.51.0-7","summary":"intltool (Utilities for translation support)","homepage":"https://edge.launchpad.net/intltool","series":"d"}
 {"name":"inxi","version":"3.3.41_1-2","summary":"inxi (system information tool)","homepage":"https://codeberg.org/smxi/inxi","series":"ap"}
@@ -565,7 +568,7 @@
 {"name":"kauth","version":"6.30.0-1","summary":"kauth (Execute actions as privileged user)","series":"kde"}
 {"name":"kauth5","version":"5.116.0-2","summary":"kauth5 (Execute actions as privileged user)","series":"kde"}
 {"name":"kbackup","version":"26.08.1-1","summary":"kbackup (KDE backup program)","homepage":"https://www.kde.org/applications/utilities/kbackup/","series":"kde"}
-{"name":"kbd","version":"2.10.0-4","summary":"kbd (keyboard maps and console fonts)","series":"a"}
+{"name":"kbd","version":"2.10.0-6","summary":"kbd (keyboard maps and console fonts)","series":"a"}
 {"name":"kblackbox","version":"26.08.1-1","summary":"kblackbox (a game of hide and seek)","series":"kde"}
 {"name":"kblocks","version":"26.08.1-1","summary":"kblocks (falling blocks game for KDE)","series":"kde"}
 {"name":"kbookmarks","version":"6.30.0-1","summary":"kbookmarks (Bookmarks management library)","series":"kde"}
@@ -645,14 +648,14 @@
 {"name":"kdsingleapplication","version":"1.2.1-2","summary":"kdsingleapplication (helper class for KDAB apps)","homepage":"https://github.com/KDAB/KDSingleApplication","series":"kde"}
 {"name":"kdsoap","version":"2.3.0-2","summary":"kdsoap (Qt-based client/server SOAP component)","series":"l"}
 {"name":"kdsoap-ws-discovery-client","version":"0.4.0-2","summary":"kdsoap-ws-discovery-client (library for finding WS-Discovery devices)","homepage":"https://invent.kde.org/libraries/kdsoap-ws-discovery-client","series":"kde"}
-{"name":"kea","version":"3.2.0-2","summary":"kea (DHCPv4 and DHCPv6 servers)","homepage":"https://gitlab.isc.org/isc-projects/kea/","series":"n"}
+{"name":"kea","version":"3.2.1-1","summary":"kea (DHCPv4 and DHCPv6 servers)","homepage":"https://gitlab.isc.org/isc-projects/kea/","series":"n"}
 {"name":"keditbookmarks","version":"26.08.1-1","summary":"keditbookmarks (Bookmark organizer and editor)","series":"kde"}
 {"name":"keepsecret","version":"26.08.1-1","summary":"keepsecret (password manager GUI)","series":"kde"}
 {"name":"kemoticons5","version":"5.116.0-2","summary":"kemoticons5 (Convert text emoticons to graphical emoticons)","series":"kde"}
-{"name":"kernel-firmware","version":"20260919_2b8daaf-1","summary":"kernel-firmware (Firmware for the kernel)","series":"a"}
-{"name":"kernel-generic","version":"7.2.7-1","summary":"kernel-generic (general purpose Linux kernel/modules)","series":"a"}
-{"name":"kernel-headers","version":"7.2.7-1","summary":"kernel-headers (Linux kernel include files)","series":"d"}
-{"name":"kernel-source","version":"7.2.7-1","summary":"kernel-source (Linux kernel source)","series":"k"}
+{"name":"kernel-firmware","version":"20261002_d947e4e-1","summary":"kernel-firmware (Firmware for the kernel)","series":"a"}
+{"name":"kernel-generic","version":"7.2.9-1","summary":"kernel-generic (general purpose Linux kernel/modules)","series":"a"}
+{"name":"kernel-headers","version":"7.2.9-1","summary":"kernel-headers (Linux kernel include files)","series":"d"}
+{"name":"kernel-source","version":"7.2.9-1","summary":"kernel-source (Linux kernel source)","series":"k"}
 {"name":"keybinder3","version":"3.0_0.3.2-4","summary":"keybinder3 (keyboard shortcut library for GTK+ v3)","homepage":"https://github.com/engla/keybinder","series":"l"}
 {"name":"keysmith","version":"26.08.1-1","summary":"keysmith (2FA token generator)","homepage":"https://invent.kde.org/bshah/keysmith","series":"kde"}
 {"name":"keyutils","version":"1.6.3-4","summary":"keyutils (Kernel key management utilities)","homepage":"http://people.redhat.com/~dhowells/keyutils/","series":"l"}
@@ -697,7 +700,7 @@
 {"name":"kinit5","version":"5.116.0-2","summary":"kinit5 (startup helper library)","series":"kde"}
 {"name":"kio","version":"6.30.0-1","summary":"kio (network transparent file library)","series":"kde"}
 {"name":"kio-admin","version":"26.08.1-1","summary":"kio-admin (administrative file access KIO)","series":"kde"}
-{"name":"kio-extras","version":"26.08.1-2","summary":"kio-extras (Additional components for KIO)","series":"kde"}
+{"name":"kio-extras","version":"26.08.1-3","summary":"kio-extras (Additional components for KIO)","series":"kde"}
 {"name":"kio-gdrive","version":"26.08.1-1","summary":"kio-gdrive (Google Drive KIO helper)","homepage":"https://community.kde.org/KIO_GDrive","series":"kde"}
 {"name":"kio-snapshot","version":"1.0.0-2","summary":"kio-snapshot (Btrfs filesystem snapshots for KDE)","series":"kde"}
 {"name":"kio-zeroconf","version":"26.08.1-1","summary":"kio-zeroconf (network monitor for zeroconf)","series":"kde"}
@@ -814,7 +817,7 @@
 {"name":"kspaceduel","version":"26.08.1-1","summary":"kspaceduel (space arcade game)","series":"kde"}
 {"name":"ksquares","version":"26.08.1-1","summary":"ksquares (connect the dots to create squares)","series":"kde"}
 {"name":"ksshaskpass","version":"6.7.5-1","summary":"ksshaskpass (GUI for entering ssh key passwords)","series":"kde"}
-{"name":"kstars","version":"3.8.4.1-3","summary":"kstars (a desktop planetarium)","homepage":"https://edu.kde.org/kstars","series":"kde"}
+{"name":"kstars","version":"3.8.5-1","summary":"kstars (a desktop planetarium)","homepage":"https://edu.kde.org/kstars","series":"kde"}
 {"name":"kstatusnotifieritem","version":"6.30.0-1","summary":"kstatusnotifieritem (implementation of Status Notifier Items)","series":"kde"}
 {"name":"ksudoku","version":"26.08.1-1","summary":"ksudoku (sudoku game)","series":"kde"}
 {"name":"ksvg","version":"6.30.0-1","summary":"ksvg (components for handling SVGs)","series":"kde"}
@@ -931,7 +934,7 @@
 {"name":"libcdio","version":"2.4.0-2","summary":"libcdio (GNU CD access library)","series":"l"}
 {"name":"libcdio-paranoia","version":"10.2+2.0.2-3","summary":"libcdio-paranoia (CD paranoia libraries from libcdio)","series":"l"}
 {"name":"libcec","version":"8.1.7-1","summary":"libcec (library for the Pulse-Eight USB-HDMI CEC adapter)","homepage":"http://libcec.pulse-eight.com/","series":"l"}
-{"name":"libcgroup","version":"3.2.0-2","summary":"libcgroup (library and utilities for kernel control groups)","homepage":"https://github.com/libcgroup/libcgroup","series":"a"}
+{"name":"libcgroup","version":"3.2.0-4","summary":"libcgroup (library and utilities for kernel control groups)","homepage":"https://github.com/libcgroup/libcgroup","series":"a"}
 {"name":"libclc","version":"23.1.2-1","summary":"libclc (OpenCL 1.1 libraries)","homepage":"https://libclc.llvm.org/","series":"l"}
 {"name":"libcue","version":"2.3.0-2","summary":"libcue (CUE sheet parser library)","homepage":"https://github.com/lipnitsk/libcue","series":"l"}
 {"name":"libcupsfilters","version":"2.1.1-4","summary":"libcupsfilters (printer filter library)","homepage":"https://www.openprinting.org","series":"l"}
@@ -970,9 +973,9 @@
 {"name":"libgnt","version":"2.14.4_dev-3","summary":"libgnt (The GLib Ncurses Toolkit)","homepage":"https://keep.imfreedom.org/libgnt/libgnt","series":"l"}
 {"name":"libgpg-error","version":"1.61-2","summary":"libgpg-error (GnuPG Error Definitions Library)","series":"n"}
 {"name":"libgphoto2","version":"2.5.34-2","summary":"libgphoto2 (Digital Camera Library)","homepage":"http://www.gphoto.org/","series":"l"}
-{"name":"libgpod","version":"0.8.3-16","summary":"libgpod (A library for connecting to some sort of media device ;-)","series":"l"}
+{"name":"libgpod","version":"0.8.3-17","summary":"libgpod (A library for connecting to some sort of media device ;-)","series":"l"}
 {"name":"libgravatar","version":"26.08.1-1","summary":"libgravatar (Gravatar support library)","series":"kde"}
-{"name":"libgsf","version":"1.14.59-1","summary":"libgsf (structured file I/O library)","series":"l"}
+{"name":"libgsf","version":"1.14.60-1","summary":"libgsf (structured file I/O library)","series":"l"}
 {"name":"libgtop","version":"2.41.3-4","summary":"libgtop (a top-like library)","series":"l"}
 {"name":"libgudev","version":"238-2","summary":"libgudev (udev GObject bindings library)","homepage":"http://wiki.gnome.org/Projects/libgudev","series":"a"}
 {"name":"libgusb","version":"0.4.9-2","summary":"libgusb (GObject wrapper for libusb1)","homepage":"https://github.com/hughsie/libgusb","series":"l"}
@@ -985,9 +988,9 @@
 {"name":"libidn2","version":"2.3.8-2","summary":"libidn2 (GNU Internationalized Domain Name library version 2)","series":"l"}
 {"name":"libieee1284","version":"0.2.11-9","summary":"libieee1284 (parallel port library)","series":"l"}
 {"name":"libime","version":"1.1.17-1","summary":"libime (Generic input method library)","homepage":"https://fcitx-im.org/wiki/Fcitx_5","series":"x"}
-{"name":"libimobiledevice","version":"20231007_04c0233-3","summary":"libimobiledevice (iOS device communication library)","series":"l"}
-{"name":"libimobiledevice-glue","version":"20231110_e314faa-2","summary":"libimobiledevice-glue (glue library for libimobiledevice)","series":"l"}
-{"name":"libindi","version":"2.2.4.2-2","summary":"libindi (Instrument Neutral Distributed Interface)","homepage":"https://www.indilib.org","series":"kde"}
+{"name":"libimobiledevice","version":"1.4.0-1","summary":"libimobiledevice (iOS device communication library)","homepage":"https://www.libimobiledevice.org/","series":"l"}
+{"name":"libimobiledevice-glue","version":"1.3.2-1","summary":"libimobiledevice-glue (glue library for libimobiledevice)","series":"l"}
+{"name":"libindi","version":"2.2.5-1","summary":"libindi (Instrument Neutral Distributed Interface)","homepage":"https://www.indilib.org","series":"kde"}
 {"name":"libindicator","version":"12.10.1-4","summary":"libindicator (support functions for indicators)","homepage":"https://launchpad.net/libindicator","series":"l"}
 {"name":"libinput","version":"1.32.0-1","summary":"libinput (GUI input library)","homepage":"https://www.freedesktop.org/wiki/Software/libinput/","series":"x"}
 {"name":"libiodbc","version":"3.52.16-2","summary":"libiodbc (Independent Open DataBase Connectivity)","homepage":"https://www.iodbc.org","series":"l"}
@@ -1052,8 +1055,8 @@
 {"name":"libpinyin","version":"2.10.3-2","summary":"libpinyin (Chinese pinyin input library)","homepage":"https://github.com/libpinyin/libpinyin","series":"x"}
 {"name":"libplacebo","version":"7.360.1-2","summary":"libplacebo (GPU-accelerated video processing library)","homepage":"https://code.videolan.org/videolan/libplacebo","series":"l"}
 {"name":"libplasma","version":"6.7.5-1","summary":"libplasma (Plasma libraries and components)","series":"kde"}
-{"name":"libplist","version":"2.7.0-2","summary":"libplist (A library for Apple Binary and XML Property Lists)","series":"l"}
-{"name":"libpng","version":"1.6.58-2","summary":"libpng (Portable Network Graphics library)","series":"l"}
+{"name":"libplist","version":"2.8.0-1","summary":"libplist (A library for Apple Binary and XML Property Lists)","series":"l"}
+{"name":"libpng","version":"1.6.59-1","summary":"libpng (Portable Network Graphics library)","series":"l"}
 {"name":"libportal","version":"0.11.0-1","summary":"libportal (Flatpak portal library)","homepage":"https://libportal.org","series":"x"}
 {"name":"libppd","version":"2.1.1-2","summary":"libppd (legacy printer driver library)","homepage":"http://www.openprinting.org","series":"l"}
 {"name":"libproxy","version":"0.5.12-2","summary":"libproxy (proxy configuration library)","homepage":"https://github.com/libproxy/libproxy","series":"l"}
@@ -1080,11 +1083,12 @@
 {"name":"libsndfile","version":"1.2.2-3","summary":"libsndfile (C library for reading and writing wav files)","homepage":"http://www.mega-nerd.com/libsndfile/","series":"l"}
 {"name":"libsodium","version":"1.0.22-2","summary":"libsodium (Sodium crypto library)","homepage":"https://libsodium.org","series":"l"}
 {"name":"libsoup","version":"2.74.3-3","summary":"libsoup (an HTTP client/server library)","series":"l"}
-{"name":"libsoup3","version":"3.6.6-2","summary":"libsoup3 (an HTTP client/server library, v3)","series":"l"}
+{"name":"libsoup3","version":"3.8.0-1","summary":"libsoup3 (an HTTP client/server library, v3)","series":"l"}
 {"name":"libspectre","version":"0.2.12-3","summary":"libspectre (ghostscript wrapper library)","homepage":"http://libspectre.freedesktop.org","series":"l"}
 {"name":"libssh","version":"0.12.2-2","summary":"libssh (library implementing ssh protocols)","homepage":"http://www.libssh.org/","series":"l"}
 {"name":"libssh2","version":"1.11.1-2","summary":"libssh2 (SSH2 library)","homepage":"https://www.libssh2.org/","series":"l"}
 {"name":"libtasn1","version":"4.21.0-2","summary":"libtasn1 (ASN.1 library)","series":"l"}
+{"name":"libtatsu","version":"1.0.5-1","summary":"libtatsu (Library for Apple's Tatsu Signing Server)","homepage":"https://github.com/libimobiledevice/libtatsu","series":"l"}
 {"name":"libtheora","version":"1.2.0-3","summary":"libtheora (Theora video codec library)","series":"l"}
 {"name":"libtiff","version":"4.7.2-2","summary":"libtiff (a library for reading and writing TIFF files)","homepage":"http://www.simplesystems.org/libtiff","series":"l"}
 {"name":"libtirpc","version":"1.3.8-1","summary":"libtirpc (Transport-Independent RPC library)","homepage":"https://sourceforge.net/projects/libtirpc/","series":"n"}
@@ -1097,7 +1101,7 @@
 {"name":"liburing","version":"2.15-2","summary":"liburing (io_uring instance library)","homepage":"https://git.kernel.dk/cgit/liburing/","series":"l"}
 {"name":"libusb","version":"1.0.30-2","summary":"libusb (USB library)","homepage":"http://libusb.info","series":"l"}
 {"name":"libusb-compat","version":"0.1.9-2","summary":"libusb-compat (Compatibility library for libusb-0.1 apps)","homepage":"https://libusb.info","series":"l"}
-{"name":"libusbmuxd","version":"20230901_30e678d-2","summary":"libusbmuxd (iOS USB connection library)","series":"l"}
+{"name":"libusbmuxd","version":"2.1.1-1","summary":"libusbmuxd (iOS USB connection library)","homepage":"https://github.com/libimobiledevice/libusbmuxd","series":"l"}
 {"name":"libuv","version":"1.53.0-1","summary":"libuv (asynchronous I/O library)","homepage":"https://libuv.org","series":"l"}
 {"name":"libva","version":"2.24.1-2","summary":"libva (Video Acceleration API)","homepage":"https://01.org/linuxmedia/vaapi","series":"x"}
 {"name":"libva-utils","version":"2.24.0-2","summary":"libva-utils (VA-API utilities)","homepage":"https://01.org/linuxmedia/vaapi","series":"x"}
@@ -1130,7 +1134,7 @@
 {"name":"libxslt","version":"1.1.45-2","summary":"libxslt (XML transformation library)","series":"l"}
 {"name":"libyaml","version":"0.2.5-4","summary":"libyaml (YAML parser, written in C)","homepage":"http://pyyaml.org/wiki/LibYAML","series":"l"}
 {"name":"libzip","version":"1.11.4-2","summary":"libzip (A library to read, create, and modify Zip archives)","homepage":"https://libzip.org","series":"l"}
-{"name":"lilo","version":"24.2-16","summary":"lilo (Linux Loader)","series":"a"}
+{"name":"lilo","version":"24.2-17","summary":"lilo (Linux Loader)","series":"a"}
 {"name":"links","version":"2.30-2","summary":"links (WWW browser for the console)","series":"n"}
 {"name":"linux-faqs","version":"20060228-1","summary":"linux-faqs (Linux FAQ collection from ibiblio.org)","series":"f"}
 {"name":"linux-howtos","version":"20160401-1","summary":"linux-howtos (HOWTOs from the Linux Documentation Project)","series":"f"}
@@ -1152,8 +1156,8 @@
 {"name":"luajit","version":"2.1.1787165859-2","summary":"luajit (Just-In-Time Lua compiler)","homepage":"https://luajit.org/","series":"d"}
 {"name":"luajit-lgi","version":"0.9.2-2","summary":"luajit-lgi (Lua bindings to use GObject libraries)","homepage":"https://github.com/pavouk/lgi","series":"l"}
 {"name":"luit","version":"1.1.1-6","summary":"luit (character encoding convertor for X11 terminals)","series":"x"}
-{"name":"lvm2","version":"2.03.42-2","summary":"lvm2 (Logical Volume Manager version 2)","series":"a"}
-{"name":"lxc","version":"7.0.0-3","summary":"lxc (Linux Containers)","homepage":"https://linuxcontainers.org","series":"ap"}
+{"name":"lvm2","version":"2.03.43-1","summary":"lvm2 (Logical Volume Manager version 2)","series":"a"}
+{"name":"lxc","version":"7.0.0-4","summary":"lxc (Linux Containers)","homepage":"https://linuxcontainers.org","series":"ap"}
 {"name":"lynx","version":"2.9.3-2","summary":"lynx (text mode browser)","homepage":"https://lynx.browser.org/","series":"n"}
 {"name":"lz4","version":"1.10.0-3","summary":"lz4 (fast lossless compression algorithm)","homepage":"https://lz4.github.io/lz4","series":"l"}
 {"name":"lzip","version":"1.26-2","summary":"lzip (a lossless data compressor)","homepage":"https://www.nongnu.org/lzip/lzip.html","series":"a"}
@@ -1182,9 +1186,9 @@
 {"name":"media-player-info","version":"26-2","summary":"media-player-info (media player capability data)","series":"l"}
 {"name":"mercurial","version":"7.2.4-2","summary":"mercurial (a distributed source management system)","series":"d"}
 {"name":"merkuro","version":"26.08.1-1","summary":"merkuro (calendar and task management application)","series":"kde"}
-{"name":"mesa","version":"26.2.3-2","summary":"mesa (a 3-D graphics library)","homepage":"https://www.mesa3d.org","series":"x"}
+{"name":"mesa","version":"26.2.4-1","summary":"mesa (a 3-D graphics library)","homepage":"https://www.mesa3d.org","series":"x"}
 {"name":"meson","version":"1.12.1-1","summary":"meson (A high performance build system)","homepage":"https://mesonbuild.com/","series":"d"}
-{"name":"meson-python","version":"0.21.1-1","summary":"meson-python (Meson Python build backend, PEP517)","homepage":"https://github.com/mesonbuild/meson-python","series":"l"}
+{"name":"meson-python","version":"0.22.1-1","summary":"meson-python (Meson Python build backend, PEP517)","homepage":"https://github.com/mesonbuild/meson-python","series":"l"}
 {"name":"messagelib","version":"26.08.1-1","summary":"messagelib (KDE PIM messaging library)","series":"kde"}
 {"name":"metamail","version":"2.7-12","summary":"metamail (MIME extensions for mail)","series":"n"}
 {"name":"mhash","version":"0.9.9.9-7","summary":"mhash (Thread-safe hash library)","series":"l"}
@@ -1194,7 +1198,7 @@
 {"name":"minuet","version":"26.08.1-1","summary":"minuet (software for music education)","series":"kde"}
 {"name":"mkcomposecache","version":"1.2.3-2","summary":"mkcomposecache (creates global (system-wide) Compose cache files)","series":"x"}
 {"name":"mkfontscale","version":"1.2.4-2","summary":"mkfontscale (X11 font utility)","series":"x"}
-{"name":"mkinitrd","version":"1.4.11-80","summary":"mkinitrd (make an initial ramdisk)","series":"a"}
+{"name":"mkinitrd","version":"1.4.11-81","summary":"mkinitrd (make an initial ramdisk)","series":"a"}
 {"name":"mlocate","version":"0.26-5","summary":"mlocate (locate/updatedb implementation)","series":"a"}
 {"name":"mlt","version":"7.40.0-6","summary":"mlt (open source multimedia framework)","homepage":"https://www.mltframework.org/","series":"l"}
 {"name":"mm","version":"1.4.2-6","summary":"mm (Shared Memory Allocation library)","series":"l"}
@@ -1208,10 +1212,10 @@
 {"name":"motif","version":"2.5.2-3","summary":"motif (Motif X libraries)","homepage":"https://motif.ics.com","series":"x"}
 {"name":"mousepad","version":"0.7.0-2","summary":"mousepad (simple text editor)","homepage":"https://gitlab.xfce.org/apps/mousepad/","series":"xfce"}
 {"name":"movit","version":"1.7.2-2","summary":"movit (Modern Video Toolkit)","homepage":"https://movit.sesse.net","series":"l"}
-{"name":"mozilla-firefox","version":"153.3.0esr-2","summary":"mozilla-firefox (Mozilla Firefox web browser)","homepage":"https://www.mozilla.org/firefox","series":"xap"}
+{"name":"mozilla-firefox","version":"153.4.0esr-1","summary":"mozilla-firefox (Mozilla Firefox web browser)","homepage":"https://www.mozilla.org/firefox","series":"xap"}
 {"name":"mozilla-nss","version":"3.130-1","summary":"mozilla-nss (Network Security Services)","series":"l"}
-{"name":"mozilla-thunderbird","version":"153.3.1esr-1","summary":"mozilla-thunderbird (Mozilla Thunderbird mail application)","homepage":"https://www.mozilla.org/projects/thunderbird/","series":"xap"}
-{"name":"mozjs140","version":"140.16.0esr-1","summary":"mozjs140 (Mozilla's JavaScript Engine)","series":"l"}
+{"name":"mozilla-thunderbird","version":"153.4.0esr-1","summary":"mozilla-thunderbird (Mozilla Thunderbird mail application)","homepage":"https://www.mozilla.org/projects/thunderbird/","series":"xap"}
+{"name":"mozjs140","version":"140.17.0esr-1","summary":"mozjs140 (Mozilla's JavaScript Engine)","series":"l"}
 {"name":"mpfr","version":"4.2.2-2","summary":"mpfr (Multiple-Precision Floating-Point Reliable Library)","series":"l"}
 {"name":"mpg123","version":"1.33.7-2","summary":"mpg123 (a command-line mp3 player)","homepage":"http://mpg123.org/","series":"ap"}
 {"name":"mpv","version":"0.41.0-9","summary":"mpv (a command-line media player)","homepage":"https://mpv.io/","series":"xap"}
@@ -1235,7 +1239,7 @@
 {"name":"neon","version":"0.37.1-2","summary":"neon (HTTP and WebDAV client library)","series":"l"}
 {"name":"net-snmp","version":"5.9.5.2-3","summary":"net-snmp (Simple Network Management Protocol tools)","series":"n"}
 {"name":"net-tools","version":"20181103_0eebece-6","summary":"net-tools (Linux networking utilities)","series":"n"}
-{"name":"netatalk","version":"4.6.0-1","summary":"netatalk (Appletalk file and print server)","series":"n"}
+{"name":"netatalk","version":"4.6.1-1","summary":"netatalk (Appletalk file and print server)","series":"n"}
 {"name":"netdate","version":"bsd4-5","summary":"netdate (simple network time utility)","series":"n"}
 {"name":"nethack","version":"5.0.0-5","summary":"nethack (Rogue-like game)","homepage":"http://www.nethack.org","series":"y"}
 {"name":"netkit-bootparamd","version":"0.17-7","summary":"netkit-bootparamd (boot parameter server)","series":"n"}
@@ -1248,17 +1252,17 @@
 {"name":"netkit-rwho","version":"0.17-6","summary":"netkit-rwho (who is logged in on local machines)","series":"n"}
 {"name":"netkit-timed","version":"0.17-5","summary":"netkit-timed (time server daemon)","series":"n"}
 {"name":"netpbm","version":"11.15.08-1","summary":"netpbm (graphics conversion utilities)","homepage":"http://netpbm.sourceforge.net","series":"l"}
-{"name":"netpipes","version":"4.2-5","summary":"netpipes (TCP/IP pipe utilities)","series":"n"}
+{"name":"netpipes","version":"4.2-6","summary":"netpipes (TCP/IP pipe utilities)","series":"n"}
 {"name":"nettle","version":"3.10.2-2","summary":"nettle (small cryptographic library)","homepage":"http://www.lysator.liu.se/~nisse/nettle/","series":"n"}
 {"name":"netwatch","version":"1.3.1_2-7","summary":"netwatch (a network monitor)","series":"n"}
 {"name":"network-manager-applet","version":"1.36.0-2","summary":"network-manager-applet (NetworkManager Applet)","series":"xap"}
-{"name":"network-scripts","version":"15.1-2","summary":"network-scripts (Scripts to configure a network)","series":"n"}
+{"name":"network-scripts","version":"16.0-2","summary":"network-scripts (Scripts to configure a network)","series":"n"}
 {"name":"networkmanager-qt","version":"6.30.0-1","summary":"networkmanager-qt (NetworkManager Qt bindings)","series":"kde"}
 {"name":"netwrite","version":"0.17-5","summary":"netwrite (in.writed daemon for accepting network \"write\")","series":"n"}
 {"name":"newspost","version":"2.1.1-5","summary":"newspost (binary posting utility)","series":"n"}
 {"name":"newt","version":"0.52.25-2","summary":"newt (Not Erik's Windowing Toolkit)","homepage":"https://fedorahosted.org/newt/","series":"l"}
 {"name":"nfacct","version":"1.0.2-5","summary":"nfacct (tool to create/retrieve/delete accounting objects)","series":"n"}
-{"name":"nfs-utils","version":"3.1.1-1","summary":"nfs-utils (Network File System daemons and utilities)","homepage":"https://linux-nfs.org","series":"n"}
+{"name":"nfs-utils","version":"3.1.1-2","summary":"nfs-utils (Network File System daemons and utilities)","homepage":"https://linux-nfs.org","series":"n"}
 {"name":"nftables","version":"1.1.7-1","summary":"nftables (packet filtering and classification)","homepage":"http://www.netfilter.org/projects/nftables/","series":"n"}
 {"name":"nghttp2","version":"1.70.0-2","summary":"nghttp2 (HTTP/2 library)","homepage":"https://nghttp2.org/","series":"n"}
 {"name":"nghttp3","version":"1.18.0-2","summary":"nghttp3 (thin HTTP/3 layer over a QUIC stack)","homepage":"https://github.com/ngtcp2/nghttp3","series":"n"}
@@ -1271,11 +1275,11 @@
 {"name":"normalize","version":"0.7.7-6","summary":"normalize (adjusts volume levels of audio files)","series":"ap"}
 {"name":"noto-cjk-fonts-ttf","version":"2.004-2","summary":"noto-cjk-fonts-ttf (Google's Noto CJK fonts)","homepage":"https://github.com/googlefonts/noto-cjk","series":"x"}
 {"name":"noto-emoji","version":"2.051-2","summary":"noto-emoji (Google's Noto Emoji fonts)","homepage":"https://github.com/googlei18n/noto-emoji","series":"x"}
-{"name":"noto-fonts-ttf","version":"2026.09.01-2","summary":"noto-fonts-ttf (Google's Noto fonts)","homepage":"https://github.com/googlefonts/noto-fonts","series":"x"}
+{"name":"noto-fonts-ttf","version":"2026.10.01-1","summary":"noto-fonts-ttf (Google's Noto fonts)","homepage":"https://github.com/googlefonts/noto-fonts","series":"x"}
 {"name":"npth","version":"1.8-2","summary":"npth (New GNU Portable Threads)","series":"n"}
 {"name":"nss-mdns","version":"0.15.1-2","summary":"nss-mdns (NSS plugin for mDNS lookups)","homepage":"http://0pointer.de/lennart/projects/nss-mdns/","series":"n"}
 {"name":"nss-pam-ldapd","version":"0.9.13-2","summary":"nss-pam-ldapd (LDAP NSS/PAM module)","homepage":"https://arthurdejong.org/nss-pam-ldapd/","series":"n"}
-{"name":"ntfs-3g","version":"2026.9.18-1","summary":"ntfs-3g (NTFS read-write filesystem driver)","homepage":"https://www.tuxera.com/community/open-source-ntfs-3g/","series":"a"}
+{"name":"ntfs-3g","version":"2026.9.28-1","summary":"ntfs-3g (NTFS read-write filesystem driver)","homepage":"https://www.tuxera.com/community/open-source-ntfs-3g/","series":"a"}
 {"name":"ntp","version":"4.2.8p18-10","summary":"ntp (Network Time Protocol daemon)","homepage":"https://www.ntp.org","series":"n"}
 {"name":"nut","version":"2.8.5-2","summary":"nut (Network UPS Tools)","homepage":"https://www.networkupstools.org","series":"a"}
 {"name":"nv-codec-headers","version":"13.1.15.0-2","summary":"nv-codec-headers (Headers for NVidia's codec APIs)","series":"d"}
@@ -1293,7 +1297,7 @@
 {"name":"openblas","version":"0.3.34-2","summary":"openblas (Basic Linear Algebra Subprograms library)","homepage":"http://www.openmathlib.org/OpenBLAS","series":"l"}
 {"name":"opencl-headers","version":"2025.07.22-2","summary":"opencl-headers (OpenCL header files)","homepage":"https://github.com/KhronosGroup/OpenCL-Headers","series":"d"}
 {"name":"opencv","version":"5.0.0-3","summary":"opencv (Open Source Computer Vision)","homepage":"https://opencv.org","series":"l"}
-{"name":"openexr","version":"3.5.0-1","summary":"openexr (HDR Image File Format & Library)","homepage":"http://www.openexr.org/","series":"l"}
+{"name":"openexr","version":"3.5.2-1","summary":"openexr (HDR Image File Format & Library)","homepage":"http://www.openexr.org/","series":"l"}
 {"name":"openjpeg","version":"2.5.4-2","summary":"openjpeg (JPEG2000 Codec)","homepage":"http://www.openjpeg.org","series":"l"}
 {"name":"openjph","version":"0.32.0-1","summary":"openjph (JPEG2000 library)","homepage":"https://github.com/aous72/OpenJPH","series":"l"}
 {"name":"openldap","version":"2.7.1-1","summary":"openldap (Lightweight Directory Access Protocol)","homepage":"https://www.openldap.org/","series":"n"}
@@ -1302,8 +1306,8 @@
 {"name":"openrsync","version":"20250126_a257c0f-2","summary":"openrsync (BSD licensed rsync implementation)","homepage":"https://github.com/kristapsdz/openrsync","series":"n"}
 {"name":"opensc","version":"0.27.1-2","summary":"opensc (PKCS#11/15 smart card support)","homepage":"https://github.com/OpenSC/OpenSC/wiki/","series":"l"}
 {"name":"openssh","version":"10.5p1-2","summary":"openssh (Secure Shell daemon and clients)","series":"n"}
-{"name":"openssl","version":"3.5.8-2","summary":"openssl (Secure Sockets Layer toolkit)","series":"n"}
-{"name":"openssl-solibs","version":"3.5.8-2","summary":"openssl-solibs (OpenSSL shared libraries)","series":"a"}
+{"name":"openssl","version":"3.5.9-1","summary":"openssl (Secure Sockets Layer toolkit)","series":"n"}
+{"name":"openssl-solibs","version":"3.5.9-1","summary":"openssl-solibs (OpenSSL shared libraries)","series":"a"}
 {"name":"opentimelineio","version":"0.18.1-2","summary":"opentimelineio (interchange format and API for editorial cuts)","homepage":"https://opentimeline.io/","series":"l"}
 {"name":"openvpn","version":"2.7.7-1","summary":"openvpn (secure IP tunnel daemon)","series":"n"}
 {"name":"oprofile","version":"1.4.0-22","summary":"oprofile (system profiling tool)","homepage":"https://oprofile.sourceforge.net","series":"d"}
@@ -1333,13 +1337,13 @@
 {"name":"parted","version":"3.8-1","summary":"parted (GNU disk partitioning tool)","series":"l"}
 {"name":"partitionmanager","version":"26.08.1-1","summary":"partitionmanager (Graphical partition manager)","series":"kde"}
 {"name":"patch","version":"2.8-2","summary":"patch (apply a diff file to an original file or files)","series":"a"}
-{"name":"patchelf","version":"0.19.1-2","summary":"patchelf (tool to modify ELF binaries/libraries)","homepage":"https://nixos.org/patchelf.html","series":"d"}
+{"name":"patchelf","version":"0.19.2-1","summary":"patchelf (tool to modify ELF binaries/libraries)","homepage":"https://nixos.org/patchelf.html","series":"d"}
 {"name":"pavucontrol","version":"6.2-2","summary":"pavucontrol (PulseAudio Volume Controller)","homepage":"https://freedesktop.org/software/pulseaudio/pavucontrol","series":"xap"}
 {"name":"pcaudiolib","version":"1.3-2","summary":"pcaudiolib (Portable C Audio Library)","homepage":"https://github.com/espeak-ng/pcaudiolib","series":"l"}
 {"name":"pciutils","version":"3.15.0-2","summary":"pciutils (PCI utilities)","series":"a"}
 {"name":"pcmciautils","version":"018-6","summary":"pcmciautils (Utilities for using PCMCIA cards with 2.6+ kernels)","series":"a"}
 {"name":"pcre","version":"8.45-2","summary":"pcre (Perl-compatible regular expression library)","homepage":"https://www.pcre.org","series":"l"}
-{"name":"pcre2","version":"10.48-2","summary":"pcre2 (Perl-compatible regular expression library v2)","homepage":"http://www.pcre.org/","series":"l"}
+{"name":"pcre2","version":"10.49-1","summary":"pcre2 (Perl-compatible regular expression library v2)","homepage":"http://www.pcre.org/","series":"l"}
 {"name":"pcsc-lite","version":"2.5.2-1","summary":"pcsc-lite (PC/SC API smartcard library/daemon)","homepage":"https://pcsclite.apdu.fr","series":"l"}
 {"name":"pdfio","version":"1.6.5-2","summary":"pdfio (PDF read/write library)","homepage":"https://github.com/michaelrsweet/pdfio","series":"l"}
 {"name":"perl","version":"5.44.0-2","summary":"perl (Practical Extraction and Report Language)","homepage":"https://www.perl.org","series":"d"}
@@ -1358,7 +1362,7 @@
 {"name":"pipewire","version":"1.6.9-2","summary":"pipewire (multimedia processing)","homepage":"https://pipewire.org/","series":"l"}
 {"name":"pixman","version":"0.46.4-2","summary":"pixman (pixel manipulation library)","series":"x"}
 {"name":"pkgconf","version":"3.0.7-1","summary":"pkgconf (system for managing library compile/link flags)","homepage":"http://pkgconf.org","series":"d"}
-{"name":"pkgtools","version":"15.1-34","summary":"pkgtools (The Slackware package maintenance system)","series":"a"}
+{"name":"pkgtools","version":"16.0-1","summary":"pkgtools (The Slackware package maintenance system)","series":"a"}
 {"name":"plasma-activities","version":"6.7.5-1","summary":"plasma-activities (API for using Activities)","series":"kde"}
 {"name":"plasma-activities-stats","version":"6.7.5-1","summary":"plasma-activities-stats (component of KDE Activities)","series":"kde"}
 {"name":"plasma-bigscreen","version":"6.7.5-1","summary":"plasma-bigscreen (Plasma for the big screen)","series":"kde"}
@@ -1398,7 +1402,7 @@
 {"name":"print-manager","version":"6.7.5-1","summary":"print-manager (manage print jobs and printers)","homepage":"https://projects.kde.org/projects/kde/kdeutils/print-manager","series":"kde"}
 {"name":"prison","version":"6.30.0-1","summary":"prison (Qt based Barcode API)","homepage":"https://anongit.kde.org/prison","series":"kde"}
 {"name":"prison5","version":"5.116.0-2","summary":"prison5 (Qt based Barcode API)","homepage":"https://anongit.kde.org/prison5","series":"kde"}
-{"name":"procmail","version":"3.24-4","summary":"procmail (mail processing and local delivery program)","series":"n"}
+{"name":"procmail","version":"3.24-5","summary":"procmail (mail processing and local delivery program)","series":"n"}
 {"name":"procps-ng","version":"4.0.7-2","summary":"procps-ng (utilities for displaying process information)","homepage":"https://gitlab.com/procps-ng/procps","series":"a"}
 {"name":"proftpd","version":"1.3.9d-2","summary":"proftpd (FTP server daemon)","homepage":"http://www.proftpd.org","series":"n"}
 {"name":"protobuf","version":"36.2-1","summary":"protobuf (Google's data interchange format)","homepage":"https://github.com/google/protobuf","series":"l"}
@@ -1413,7 +1417,7 @@
 {"name":"pygobject3","version":"3.58.0-2","summary":"pygobject3 (GObject bindings for Python, v3)","homepage":"https://pygobject.readthedocs.io","series":"l"}
 {"name":"pyparsing","version":"3.3.3-1","summary":"pyparsing (parsing module for python)","homepage":"http://pypi.python.org/pypi/pyparsing/","series":"l"}
 {"name":"python-Jinja2","version":"3.1.6-2","summary":"python-Jinja2 (A very fast and expressive template engine)","homepage":"https://palletsprojects.com/p/jinja/","series":"l"}
-{"name":"python-MarkupSafe","version":"3.0.3-2","summary":"python-MarkupSafe (Safely add untrusted strings to HTML/XML markup)","homepage":"https://palletsprojects.com/p/markupsafe/","series":"l"}
+{"name":"python-MarkupSafe","version":"3.0.4-1","summary":"python-MarkupSafe (Safely add untrusted strings to HTML/XML markup)","homepage":"https://palletsprojects.com/p/markupsafe/","series":"l"}
 {"name":"python-PyYAML","version":"6.0.3-2","summary":"python-PyYAML (YAML parser and emitter for Python)","homepage":"https://pyyaml.org/","series":"l"}
 {"name":"python-accessible-pygments","version":"0.0.5-2","summary":"python-accessible-pygments (accessible themes for pygments)","homepage":"https://pypi.python.org/project/accessible-pygments/","series":"l"}
 {"name":"python-alabaster","version":"1.0.0-3","summary":"python-alabaster (Python Sphinx theme)","homepage":"http://alabaster.readthedocs.io","series":"l"}
@@ -1425,7 +1429,7 @@
 {"name":"python-certifi","version":"2026.7.22-2","summary":"python-certifi (Python package for providing Mozilla's CA Bundle)","homepage":"http://certifi.io/","series":"l"}
 {"name":"python-cffi","version":"2.1.1-2","summary":"python-cffi (C Foreign Function Interface for Python)","homepage":"https://pypi.python.org/project/cffi/","series":"l"}
 {"name":"python-chardet","version":"5.2.0-4","summary":"python-chardet (Universal encoding detector for Python 2 and 3)","homepage":"https://chardet.readthedocs.io","series":"l"}
-{"name":"python-charset-normalizer","version":"3.5.1-2","summary":"python-charset-normalizer (charset detection for python)","series":"l"}
+{"name":"python-charset-normalizer","version":"3.5.2-1","summary":"python-charset-normalizer (charset detection for python)","series":"l"}
 {"name":"python-distro","version":"1.9.0-4","summary":"python-distro (OS platform information API)","homepage":"https://github.com/nir0s/distro","series":"l"}
 {"name":"python-dnspython","version":"2.8.0-2","summary":"python-dnspython (DNS toolkit for Python)","homepage":"https://www.dnspython.org/","series":"l"}
 {"name":"python-docutils","version":"0.23-2","summary":"python-docutils (Python Documentation Utilities)","homepage":"http://docutils.sourceforge.net/","series":"l"}
@@ -1444,7 +1448,7 @@
 {"name":"python-importlib_metadata","version":"8.7.0-2","summary":"python-importlib_metadata (access Python package metadata)","homepage":"https://github.com/python/importlib_metadata","series":"l"}
 {"name":"python-installer","version":"1.0.1-2","summary":"python-installer (Library for installing Python packages from wheels)","series":"l"}
 {"name":"python-lxml","version":"6.1.3-1","summary":"python-lxml (Python bindings for libxml2/libxslt)","series":"l"}
-{"name":"python-markdown","version":"3.10.3-2","summary":"python-markdown (Python Markdown implementation)","homepage":"https://Python-Markdown.github.io/","series":"l"}
+{"name":"python-markdown","version":"3.11-1","summary":"python-markdown (Python Markdown implementation)","homepage":"https://Python-Markdown.github.io/","series":"l"}
 {"name":"python-notify2","version":"0.3.1-13","summary":"python-notify2 (Python interface to DBus notifications)","homepage":"https://pypi.python.org/pypi/notify2","series":"l"}
 {"name":"python-numpy","version":"2.5.3-1","summary":"python-numpy (Python module for scientific computing)","homepage":"https://www.numpy.org/","series":"l"}
 {"name":"python-packaging","version":"26.3-2","summary":"python-packaging (Core utilities for Python packages)","homepage":"https://pypi.org/project/packaging/","series":"l"}
@@ -1466,9 +1470,9 @@
 {"name":"python-requests","version":"2.34.2-2","summary":"python-requests (HTTP request library for python)","homepage":"http://docs.python-requests.org/en/master/","series":"l"}
 {"name":"python-roman-numerals","version":"4.1.0-2","summary":"python-roman-numerals (Roman numerals library)","homepage":"https://pypi.org/project/roman-numerals","series":"l"}
 {"name":"python-sane","version":"2.9.2-2","summary":"python-sane (SANE interface for python)","homepage":"https://github.com/python-pillow/Sane","series":"l"}
-{"name":"python-scikit-build-core","version":"1.0.3-2","summary":"python-scikit-build-core (extension build system using CMake)","homepage":"https://github.com/scikit-build/scikit-build-core","series":"l"}
+{"name":"python-scikit-build-core","version":"1.1.1-1","summary":"python-scikit-build-core (extension build system using CMake)","homepage":"https://github.com/scikit-build/scikit-build-core","series":"l"}
 {"name":"python-setuptools","version":"84.0.0-2","summary":"python-setuptools (a collection of enhancements to Python distutils)","homepage":"https://pypi.python.org/pypi/setuptools","series":"d"}
-{"name":"python-setuptools-gettext","version":"0.1.18-2","summary":"python-setuptools-gettext (gettext plugin for setuptools)","homepage":"https://pypi.org/project/setuptools-gettext/","series":"l"}
+{"name":"python-setuptools-gettext","version":"0.1.19-1","summary":"python-setuptools-gettext (gettext plugin for setuptools)","homepage":"https://pypi.org/project/setuptools-gettext/","series":"l"}
 {"name":"python-setuptools_scm","version":"10.3.4-1","summary":"python-setuptools_scm (manages versions in SCM metadata)","homepage":"https://github.com/pypa/setuptools_scm/","series":"l"}
 {"name":"python-six","version":"1.17.0-2","summary":"python-six (Python 2 and 3 compatibility library)","homepage":"http://pypi.python.org/pypi/six/","series":"l"}
 {"name":"python-smartypants","version":"2.0.2-2","summary":"python-smartypants (Translate ASCII characters to HTML entities)","series":"l"}
@@ -1492,11 +1496,11 @@
 {"name":"qalculate-qt","version":"5.12.0-2","summary":"qalculate-qt (Qt calculator frontend)","homepage":"http://qalculate.github.io/","series":"xap"}
 {"name":"qca","version":"2.3.12-2","summary":"qca (Qt Cryptographic Architecture)","homepage":"https://github.com/KDE/qca","series":"kde"}
 {"name":"qcoro","version":"0.13.0-3","summary":"qcoro (Coroutines for Qt)","homepage":"https://github.com/danvratil/qcoro","series":"kde"}
-{"name":"qemu","version":"11.1.1-2","summary":"qemu (the Quick Emulator)","homepage":"https://qemu.org","series":"ap"}
-{"name":"qemu-guest-agent","version":"11.1.1-2","summary":"qemu-guest-agent (QEMU Guest Agent daemon)","homepage":"https://qemu.org","series":"ap"}
+{"name":"qemu","version":"11.1.2-1","summary":"qemu (the Quick Emulator)","homepage":"https://qemu.org","series":"ap"}
+{"name":"qemu-guest-agent","version":"11.1.2-1","summary":"qemu-guest-agent (QEMU Guest Agent daemon)","homepage":"https://qemu.org","series":"ap"}
 {"name":"qgpgme","version":"2.2.0-2","summary":"qgpgme (Qt API bindings for GPGME)","homepage":"https://gnupg.org/software/gpgme/index.html","series":"kde"}
 {"name":"qml-box2d","version":"20250930_e3674e0-2","summary":"qml-box2d (QML Box2D plugin)","series":"kde"}
-{"name":"qpdf","version":"12.4.1-2","summary":"qpdf (Command-line tools and library for transforming PDF files)","homepage":"http://qpdf.sourceforge.net/","series":"ap"}
+{"name":"qpdf","version":"12.4.2-1","summary":"qpdf (Command-line tools and library for transforming PDF files)","homepage":"http://qpdf.sourceforge.net/","series":"ap"}
 {"name":"qqc2-breeze-style","version":"6.7.5-1","summary":"qqc2-breeze-style (QQC2 Breeze Style)","series":"kde"}
 {"name":"qqc2-desktop-style","version":"6.30.0-1","summary":"qqc2-desktop-style (desktop integration for Qt Quick Controls 2)","homepage":"https://api.kde.org/frameworks/qqc2-desktop-style/html/","series":"kde"}
 {"name":"qqc2-desktop-style5","version":"5.116.1-2","summary":"qqc2-desktop-style5 (desktop integration for Qt Quick Controls 2)","homepage":"https://api.kde.org/frameworks/qqc2-desktop-style5/html/","series":"kde"}
@@ -1523,7 +1527,7 @@
 {"name":"rnnoise","version":"0.2-2","summary":"rnnoise (noise suppression library)","homepage":"https://gitlab.xiph.org/xiph/rnnoise","series":"l"}
 {"name":"rocs","version":"26.08.1-1","summary":"rocs (graph theory IDE)","homepage":"https://www.kde.org/applications/education/rocs","series":"kde"}
 {"name":"rp-pppoe","version":"4.0-5","summary":"rp-pppoe (Roaring Penguin PPPoE client)","homepage":"https://dianne.skoll.ca/projects/rp-pppoe/","series":"n"}
-{"name":"rpcbind","version":"1.3.1-1","summary":"rpcbind (a daemon to manage RPC connections)","homepage":"https://sourceforge.net/projects/rpcbind/","series":"n"}
+{"name":"rpcbind","version":"1.3.1-3","summary":"rpcbind (a daemon to manage RPC connections)","homepage":"https://sourceforge.net/projects/rpcbind/","series":"n"}
 {"name":"rpcsvc-proto","version":"1.4.4-2","summary":"rpcsvc-proto (rpcsvc proto.x files)","homepage":"https://github.com/thkukuk/rpcsvc-proto","series":"l"}
 {"name":"rpm","version":"6.1.0-2","summary":"rpm (RPM package format tool)","series":"ap"}
 {"name":"rpm2tgz","version":"1.2.2-8","summary":"rpm2tgz (a tool for converting an RPM archive into a tar+gz one)","series":"a"}
@@ -1531,12 +1535,12 @@
 {"name":"rttr","version":"0.9.6-5","summary":"rttr (C++ Reflection library)","homepage":"http://www.rttr.org/","series":"l"}
 {"name":"ruby","version":"4.0.7-1","summary":"ruby (Interpreted object-oriented scripting language)","homepage":"https://www.ruby-lang.org/","series":"d"}
 {"name":"rubygem-asciidoctor","version":"2.0.26-3","summary":"rubygem-asciidoctor (text processor and publishing toolchain)","homepage":"https://asciidoctor.org","series":"l"}
-{"name":"rust","version":"1.98.1-2","summary":"rust (a safe, concurrent, practical language)","homepage":"https://rust-lang.org","series":"d"}
+{"name":"rust","version":"1.99.0-1","summary":"rust (a safe, concurrent, practical language)","homepage":"https://rust-lang.org","series":"d"}
 {"name":"rust-bindgen","version":"0.73.2-1","summary":"rust-bindgen (Generate Rust FFI bindings to C and C++ libraries)","homepage":"https://github.com/rust-lang/rust-bindgen","series":"d"}
 {"name":"rxvt-unicode","version":"9.31-6","summary":"rxvt-unicode (terminal emulator)","homepage":"http://software.schmorp.de/pkg/rxvt-unicode.html","series":"xap"}
 {"name":"rzip","version":"2.1-5","summary":"rzip (a large-file compression program)","series":"ap"}
 {"name":"s-nail","version":"14.9.25-2","summary":"s-nail (mail sending and receiving utility)","homepage":"https://www.sdaoden.eu/code.html#s-mailx","series":"n"}
-{"name":"samba","version":"4.24.7-1","summary":"samba (CIFS file and print server)","series":"n"}
+{"name":"samba","version":"4.25.0-1","summary":"samba (CIFS file and print server)","series":"n"}
 {"name":"sane","version":"1.4.0-4","summary":"sane (Scanner Access Now Easy)","homepage":"http://www.sane-project.org","series":"xap"}
 {"name":"sassc","version":"3.6.2-3","summary":"sassc (Sass CSS preprocessor)","homepage":"https://sass-lang.com","series":"d"}
 {"name":"sazanami-fonts-ttf","version":"20040629-6","summary":"sazanami-fonts-ttf (Japanese TrueType Unicode fonts)","homepage":"http://sourceforge.jp/projects/efont/","series":"x"}
@@ -1553,7 +1557,7 @@
 {"name":"seamonkey","version":"2.53.24-2","summary":"seamonkey (an open-source web browser suite)","homepage":"https://www.seamonkey-project.org/","series":"xap"}
 {"name":"seatd","version":"0.9.3-2","summary":"seatd (a minimal seat management deamon/library)","homepage":"https://sr.ht/~kennylevinsen/seatd/","series":"l"}
 {"name":"sed","version":"4.10-2","summary":"sed (stream editor)","series":"a"}
-{"name":"seejpeg","version":"1.10-5","summary":"seejpeg (console JPEG viewer)","series":"ap"}
+{"name":"seejpeg","version":"1.10-6","summary":"seejpeg (console JPEG viewer)","series":"ap"}
 {"name":"serf","version":"1.3.10-3","summary":"serf (high-performance asynchronous HTTP client library)","homepage":"https://serf.apache.org/","series":"l"}
 {"name":"sessreg","version":"1.1.4-2","summary":"sessreg (simple program for managing utmp/wtmp entries for X sessions)","series":"x"}
 {"name":"setxkbmap","version":"1.3.5-2","summary":"setxkbmap (change X11 keyboard layout)","series":"x"}
@@ -1570,7 +1574,7 @@
 {"name":"skanpage","version":"26.08.1-1","summary":"skanpage (scanning program)","homepage":"https://invent.kde.org/utilities/skanpage/","series":"kde"}
 {"name":"skkdic","version":"20210919-2","summary":"skkdic (dictionaries for SKK)","homepage":"http://openlab.ring.gr.jp/skk/","series":"x"}
 {"name":"skladnik","version":"26.08.1-1","summary":"skladnik (KDE sokoban game)","series":"kde"}
-{"name":"slackpkg","version":"16.0.0-1","summary":"slackpkg (Slackware package upgrade manager)","series":"ap"}
+{"name":"slackpkg","version":"16.0.1-2","summary":"slackpkg (Slackware package upgrade manager)","series":"ap"}
 {"name":"slacktrack","version":"2.24-2","summary":"slacktrack (Slackware package building utilities)","series":"d"}
 {"name":"slang","version":"2.3.3-2","summary":"slang (S-Lang interpreter version 2)","homepage":"http://www.jedsoft.org/slang/","series":"l"}
 {"name":"slang1","version":"1.4.9-5","summary":"slang1 (S-Lang interpreter version 1)","series":"l"}
@@ -1580,8 +1584,8 @@
 {"name":"snownews","version":"1.11-3","summary":"snownews (a console RSS newsreader)","homepage":"https://sourceforge.net/projects/snownews","series":"n"}
 {"name":"socat","version":"1.8.1.3-2","summary":"socat (Multipurpose relay - SOcket CAT)","homepage":"http://www.dest-unreach.org/socat","series":"n"}
 {"name":"sof-firmware","version":"2026.09.1-1","summary":"sof-firmware (SOF firmware and topology binaries)","homepage":"https://www.sofproject.org","series":"l"}
-{"name":"solid","version":"6.30.0-1","summary":"solid (Desktop hardware abstraction)","homepage":"https://api.kde.org/frameworks/solid/html/","series":"kde"}
-{"name":"solid5","version":"5.116.0-2","summary":"solid5 (Desktop hardware abstraction)","homepage":"https://api.kde.org/frameworks/solid5/html/","series":"kde"}
+{"name":"solid","version":"6.30.0-2","summary":"solid (Desktop hardware abstraction)","homepage":"https://api.kde.org/frameworks/solid/html/","series":"kde"}
+{"name":"solid5","version":"5.116.0-3","summary":"solid5 (Desktop hardware abstraction)","homepage":"https://api.kde.org/frameworks/solid5/html/","series":"kde"}
 {"name":"soma","version":"3.3.7-4","summary":"soma (a dialog/MPlayer internet radio player and recorder)","homepage":"http://tty1.uk/slackbuilds/noversion/soma","series":"ap"}
 {"name":"sonnet","version":"6.30.0-1","summary":"sonnet (Multi-language spell checker)","series":"kde"}
 {"name":"sonnet5","version":"5.116.0-2","summary":"sonnet5 (Multi-language spell checker)","series":"kde"}
@@ -1594,7 +1598,8 @@
 {"name":"speexdsp","version":"1.2.1-2","summary":"speexdsp (DSP library)","homepage":"http://www.speex.org/","series":"l"}
 {"name":"spice","version":"0.16.0-2","summary":"spice (remote computing solution)","homepage":"https://www.spice-space.org","series":"n"}
 {"name":"spice-protocol","version":"0.14.5-2","summary":"spice-protocol (spice protocol headers)","homepage":"https://www.spice-space.org","series":"n"}
-{"name":"spirv-llvm-translator","version":"23.1.1-1","summary":"spirv-llvm-translator (LLVM/SPIR-V Bi-Directional Translator)","homepage":"https://github.com/KhronosGroup/SPIRV-LLVM-Translator","series":"l"}
+{"name":"spirv-llvm-translator","version":"23.1.2-1","summary":"spirv-llvm-translator (LLVM/SPIR-V Bi-Directional Translator)","homepage":"https://github.com/KhronosGroup/SPIRV-LLVM-Translator","series":"l"}
+{"name":"spleen","version":"2.2.0-1","summary":"spleen (monospaced bitmap fonts)","homepage":"https://www.cambus.net/spleen-monospaced-bitmap-fonts/","series":"ap"}
 {"name":"splitvt","version":"1.6.6-6","summary":"splitvt (run multiple shells in a single window)","homepage":"https://slouken.libsdl.org/projects/splitvt/","series":"a"}
 {"name":"sqlite","version":"3.53.4-2","summary":"sqlite (simple, self contained database engine)","homepage":"https://www.sqlite.org/","series":"ap"}
 {"name":"squashfs-tools","version":"4.7.5-2","summary":"squashfs-tools (squashed read-only filesystem for Linux)","homepage":"https://github.com/plougher/squashfs-tools/","series":"ap"}
@@ -1627,7 +1632,7 @@
 {"name":"systemsettings","version":"6.7.5-1","summary":"systemsettings (system settings utility)","series":"kde"}
 {"name":"sysvinit","version":"3.18-3","summary":"sysvinit (init, the parent of all processes)","homepage":"https://codeberg.org/thejessesmith/sysvinit","series":"a"}
 {"name":"sysvinit-functions","version":"8.53-7","summary":"sysvinit-functions (/etc/init.d/functions)","series":"a"}
-{"name":"sysvinit-scripts","version":"16.0-3","summary":"sysvinit-scripts (the basic scripts used to boot your machine)","series":"a"}
+{"name":"sysvinit-scripts","version":"16.0-6","summary":"sysvinit-scripts (the basic scripts used to boot your machine)","series":"a"}
 {"name":"t1lib","version":"5.1.2-7","summary":"t1lib (Type 1 font rasterizer library)","series":"l"}
 {"name":"taglib","version":"2.3.2-1","summary":"taglib (audio meta-data library)","homepage":"https://taglib.org","series":"l"}
 {"name":"talloc","version":"2.5.0-2","summary":"talloc (memory pool system library)","homepage":"https://talloc.samba.org","series":"l"}
@@ -1646,7 +1651,7 @@
 {"name":"tevent","version":"0.17.2-2","summary":"tevent (event system library)","homepage":"https://tevent.samba.org","series":"l"}
 {"name":"texinfo","version":"7.3-3","summary":"texinfo (GNU software documentation system)","series":"ap"}
 {"name":"texlive","version":"2024.240409-6","summary":"texlive (TeX binaries, support files, and formats)","series":"t"}
-{"name":"tftp-hpa","version":"6.1-1","summary":"tftp-hpa (Trivial File Transfer Protocol)","series":"n"}
+{"name":"tftp-hpa","version":"7.2-1","summary":"tftp-hpa (Trivial File Transfer Protocol)","series":"n"}
 {"name":"thin-provisioning-tools","version":"1.3.4-1","summary":"thin-provisioning-tools (Thin provisioning tools for device mapper)","homepage":"https://github.com/jthornber/thin-provisioning-tools","series":"a"}
 {"name":"threadweaver","version":"6.30.0-1","summary":"threadweaver (threaded programming helper)","series":"kde"}
 {"name":"threadweaver5","version":"5.116.0-2","summary":"threadweaver5 (threaded programming helper)","series":"kde"}
@@ -1677,18 +1682,18 @@
 {"name":"unicode-ucd","version":"18.0.0-1","summary":"unicode-ucd (Unicode Character Database)","homepage":"https://www.unicode.org","series":"l"}
 {"name":"union","version":"6.7.5-1","summary":"union (A Qt style supporting QtQuick and QtWidgets)","series":"kde"}
 {"name":"universal-ctags","version":"6.2.1-2","summary":"universal-ctags (Universal Ctags)","homepage":"https://ctags.io","series":"d"}
-{"name":"upower","version":"1.91.4-1","summary":"UPower (power management abstraction daemon)","homepage":"http://upower.freedesktop.org/","series":"a"}
+{"name":"upower","version":"1.91.4-2","summary":"UPower (power management abstraction daemon)","homepage":"http://upower.freedesktop.org/","series":"a"}
 {"name":"urw-core35-fonts-otf","version":"20170801_91edd6e_git-5","summary":"urw-core35-fonts-otf (URW++ core35 fonts in OpenType Format)","series":"x"}
 {"name":"usb_modeswitch","version":"2.6.2-2","summary":"usb_modeswitch (mode switching tool for multiple mode USB devices)","homepage":"http://www.draisberghof.de/usb_modeswitch","series":"a"}
-{"name":"usbmuxd","version":"20240916_0b1b233-2","summary":"usbmuxd (iOS USB connection daemon)","series":"ap"}
+{"name":"usbmuxd","version":"20240916_0b1b233-3","summary":"usbmuxd (iOS USB connection daemon)","series":"ap"}
 {"name":"usbredir","version":"0.15.0-2","summary":"usbredir (USB redirection protocol)","homepage":"https://www.spice-space.org","series":"l"}
 {"name":"usbutils","version":"019-2","summary":"usbutils (USB utilities)","series":"a"}
 {"name":"userspace-rcu","version":"0.15.7-1","summary":"userspace-rcu (userspace read-copy-update library)","homepage":"https://liburcu.org","series":"a"}
 {"name":"utempter","version":"1.2.3-2","summary":"utempter (utmp updating library and utility)","homepage":"https://github.com/altlinux/libutempter","series":"a"}
-{"name":"utf8proc","version":"2.11.3-2","summary":"utf8proc (Unicode processing library)","homepage":"https://github.com/JuliaStrings/utf8proc","series":"l"}
+{"name":"utf8proc","version":"2.12.0-1","summary":"utf8proc (Unicode processing library)","homepage":"https://github.com/JuliaStrings/utf8proc","series":"l"}
 {"name":"util-linux","version":"2.42.4-1","summary":"util-linux (a huge collection of essential utilities)","homepage":"https://www.kernel.org/pub/linux/utils/util-linux/","series":"a"}
 {"name":"util-macros","version":"1.20.2-2","summary":"util-macros (autoconf support for X11)","series":"x"}
-{"name":"uucp","version":"1.07-8","summary":"uucp (Taylor UUCP)","series":"n"}
+{"name":"uucp","version":"1.07-9","summary":"uucp (Taylor UUCP)","series":"n"}
 {"name":"v4l-utils","version":"1.32.0-2","summary":"v4l-utils (libraries and utilities for video4linux)","homepage":"http://linuxtv.org","series":"l"}
 {"name":"vala","version":"0.56.19-3","summary":"vala (GNOME programming language)","homepage":"https://wiki.gnome.org/Projects/Vala","series":"d"}
 {"name":"valgrind","version":"3.27.1-2","summary":"valgrind (Valgrind memory debugger)","homepage":"https://www.valgrind.org","series":"d"}
@@ -1710,7 +1715,7 @@
 {"name":"wayland","version":"1.26.0-2","summary":"wayland (Wayland display server)","homepage":"https://wayland.freedesktop.org/","series":"x"}
 {"name":"wayland-protocols","version":"1.49-2","summary":"wayland-protocols (extended Wayland protocols)","homepage":"https://wayland.freedesktop.org/","series":"x"}
 {"name":"wayland-utils","version":"1.3.0-2","summary":"wayland-utils (display info about Wayland)","homepage":"https://gitlab.freedesktop.org/wayland/wayland-utils","series":"x"}
-{"name":"wcslib","version":"8.9-2","summary":"wcslib (FITS WCS standard library)","homepage":"https://www.atnf.csiro.au/people/Mark.Calabretta/WCS/","series":"kde"}
+{"name":"wcslib","version":"8.10-2","summary":"wcslib (FITS WCS standard library)","homepage":"https://www.atnf.csiro.au/people/Mark.Calabretta/WCS/","series":"kde"}
 {"name":"wget","version":"1.25.0-2","summary":"wget (a non-interactive network retriever)","series":"n"}
 {"name":"wget2","version":"2.3.0-1","summary":"wget2 (a non-interactive network retriever v2)","series":"n"}
 {"name":"which","version":"2.25-2","summary":"which (shows the full path to shell commands)","series":"a"}
@@ -1719,7 +1724,7 @@
 {"name":"wireguard-tools","version":"1.0.20260223-2","summary":"wireguard-tools (Utilities for WireGuard tunnels)","homepage":"https://git.zx2c4.com/wireguard-tools","series":"n"}
 {"name":"wireless-regdb","version":"2026.09.03-1","summary":"wireless-regdb (radio regulatory compliance database)","homepage":"https://wireless.wiki.kernel.org","series":"n"}
 {"name":"wireless_tools","version":"30.pre9-6","summary":"wireless_tools (utilities for wireless networking)","series":"n"}
-{"name":"wireplumber","version":"0.5.17-1","summary":"wireplumber (session and policy manager for pipewire)","homepage":"https://gitlab.freedesktop.org/pipewire/wireplumber","series":"l"}
+{"name":"wireplumber","version":"0.5.18-1","summary":"wireplumber (session and policy manager for pipewire)","homepage":"https://gitlab.freedesktop.org/pipewire/wireplumber","series":"l"}
 {"name":"wlroots","version":"0.20.2-3","summary":"wlroots (a modular Wayland compositor library)","homepage":"https://gitlab.freedesktop.org/wlroots/wlroots/","series":"x"}
 {"name":"woff2","version":"20231106_0f4d304-3","summary":"woff2 (WOFF File Format 2.0 library)","homepage":"https://github.com/google/woff2","series":"l"}
 {"name":"wpa_supplicant","version":"2.12-2","summary":"wpa_supplicant (WPA/WPA2/IEEE 802.1X Supplicant)","homepage":"https://w1.fi/wpa_supplicant/","series":"n"}

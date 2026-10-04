@@ -1,6 +1,6 @@
 {
   "source": "deb-ubuntu-appstream",
-  "fetchedAt": "2026-09-25T21:39:11.352Z",
+  "fetchedAt": "2026-10-04T15:35:19.841Z",
   "url": "https://archive.ubuntu.com/ubuntu/dists/resolute/main/dep11/Components-amd64.yml.gz, https://archive.ubuntu.com/ubuntu/dists/resolute/universe/dep11/Components-amd64.yml.gz, https://archive.ubuntu.com/ubuntu/dists/resolute/multiverse/dep11/Components-amd64.yml.gz",
   "entryCount": 2235,
   "suite": "resolute",

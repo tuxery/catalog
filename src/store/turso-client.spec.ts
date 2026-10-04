@@ -286,6 +286,46 @@ describe("createTursoClient", () => {
     expect(idsFor("trendingBySource:snap")).toEqual(["other-source"]);
   });
 
+  it("builds the trigram search index from apps_next and swaps it in with apps, in the same transaction", async () => {
+    const { execute, batch, client } = fakeClient(false);
+    const tursoClient = createTursoClient({ url: "file::memory:" }, client);
+
+    await tursoClient.publish({ generatedAt: "2026-01-01T00:00:00.000Z", apps: [APP] });
+
+    const statements = execute.mock.calls.map(([statement]) => sqlOf(statement));
+    const create = statements.findIndex((sql) =>
+      sql.includes("CREATE VIRTUAL TABLE apps_fts_next"),
+    );
+    const fill = statements.findIndex((sql) => sql.includes("INSERT INTO apps_fts_next (id"));
+    const optimize = statements.findIndex((sql) => sql.includes("VALUES ('optimize')"));
+    expect(statements[create]).toContain("fts5(id, name, short_description");
+    expect(statements[create]).toContain("tokenize='trigram'");
+    expect(statements[create]).toContain("detail='full'");
+    expect(statements[fill]).toContain("FROM apps_next");
+    expect(create).toBeLessThan(fill);
+    expect(fill).toBeLessThan(optimize);
+
+    const swap =
+      (batch.mock.calls[1]?.[0] as { sql: string }[] | undefined)?.map((s) => s.sql) ?? [];
+    // First run: nothing to move out of the way.
+    expect(swap).not.toContain("ALTER TABLE apps_fts RENAME TO apps_fts_old");
+    expect(swap).toContain("ALTER TABLE apps_fts_next RENAME TO apps_fts");
+  });
+
+  it("renames the existing search index out of the way before swapping when one already exists", async () => {
+    const { batch, client } = fakeClient(true);
+    const tursoClient = createTursoClient({ url: "file::memory:" }, client);
+
+    await tursoClient.publish({ generatedAt: "2026-01-01T00:00:00.000Z", apps: [APP] });
+
+    const swap =
+      (batch.mock.calls[1]?.[0] as { sql: string }[] | undefined)?.map((s) => s.sql) ?? [];
+    const out = swap.indexOf("ALTER TABLE apps_fts RENAME TO apps_fts_old");
+    expect(out).toBeGreaterThan(-1);
+    expect(swap.indexOf("ALTER TABLE apps_fts_next RENAME TO apps_fts")).toBeGreaterThan(out);
+    expect(swap).toContain("DROP TABLE IF EXISTS apps_fts_old");
+  });
+
   it("renames the existing apps table out of the way before swapping when one already exists", async () => {
     const { batch, client } = fakeClient(true);
     const tursoClient = createTursoClient({ url: "file::memory:" }, client);

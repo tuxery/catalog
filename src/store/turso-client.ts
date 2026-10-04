@@ -771,6 +771,37 @@ function toRow(app: AppRecord): unknown[] {
   ];
 }
 
+// Free-text search index for `app`'s `/browse/?q=` (tuxery/catalog#24).
+// Without it every search was `(id LIKE '%w%' OR name LIKE '%w%' OR
+// short_description LIKE '%w%')` — a leading wildcard no b-tree index can
+// serve, so two full scans of `apps` (~172k rows each, one for the page,
+// one for COUNT(*)) per request: by far the largest read cost left,
+// measured on preview 2026-10-04.
+//
+// SQLite FTS5 with the `trigram` tokenizer, not Turso's Tantivy `USING
+// fts` index (#24's first idea): that one only exists on the new
+// `tursodb` engine behind an experimental flag (tursodatabase/turso#7800),
+// and this database is libSQL — `CREATE INDEX ... USING fts` doesn't even
+// parse here, while FTS5 is compiled in. Trigram matches any substring of
+// 3+ characters, i.e. exactly the rows `LIKE '%word%'` matches, so `app`
+// uses it only to find the candidate rows and keeps ranking them with its
+// own scoring: on preview, same totals and same pages as the live LIKE
+// query for every query tried, at ~5 rows read per match (page + count)
+// instead of ~344k per search. `detail='full'` because trigram turns any
+// word over 3 characters into a phrase query, which the smaller detail
+// modes reject.
+//
+// A standalone table (its own copy of the three columns) rather than an
+// external-content one over `apps`: an external-content index keys rows by
+// `apps`' rowid, and the `apps_next` -> `apps` swap below changes every
+// rowid, so it would point at the wrong apps until rebuilt. Built as
+// `apps_fts_next` from `apps_next` and renamed in the same swap
+// transaction instead, so search always matches the live table. Cost:
+// one counted row write per app per publish (~172k, the same again as the
+// `apps` insert itself).
+const APPS_FTS_SQL = (tableName: string): string =>
+  `CREATE VIRTUAL TABLE ${tableName} USING fts5(id, name, short_description, tokenize='trigram', detail='full')`;
+
 /**
  * Publishes a dataset to a Turso/libSQL database — same code path for a
  * local dev file, a local `turso dev` server, or the real hosted DB, only
@@ -800,6 +831,8 @@ export function createTursoClient(config: TursoConfig, client?: Client): TursoCl
       // itself fails before reaching that point.
       await db.execute(`DROP TABLE IF EXISTS apps_old`);
       await db.execute(`DROP TABLE IF EXISTS apps_next`);
+      await db.execute(`DROP TABLE IF EXISTS apps_fts_old`);
+      await db.execute(`DROP TABLE IF EXISTS apps_fts_next`);
       await db.execute(appsTableSql("apps_next"));
 
       // Sequential on purpose: each batch already groups BATCH_SIZE rows
@@ -817,11 +850,22 @@ export function createTursoClient(config: TursoConfig, client?: Client): TursoCl
         );
       }
 
+      // See APPS_FTS_SQL. `optimize` merges the bulk insert's segments
+      // into one, which every later search would otherwise pay for.
+      await db.execute(APPS_FTS_SQL("apps_fts_next"));
+      await db.execute(
+        `INSERT INTO apps_fts_next (id, name, short_description) SELECT id, name, short_description FROM apps_next`,
+      );
+      await db.execute(`INSERT INTO apps_fts_next (apps_fts_next) VALUES ('optimize')`);
+
       await db.execute(
         `CREATE TABLE IF NOT EXISTS meta (key TEXT PRIMARY KEY, value TEXT NOT NULL)`,
       );
       const existing = await db.execute(
         `SELECT name FROM sqlite_master WHERE type='table' AND name='apps'`,
+      );
+      const existingFts = await db.execute(
+        `SELECT name FROM sqlite_master WHERE type='table' AND name='apps_fts'`,
       );
 
       const categoryCountsAll = countByCategory(dataset.apps);
@@ -877,6 +921,11 @@ export function createTursoClient(config: TursoConfig, client?: Client): TursoCl
           ...(existing.rows.length > 0 ? [{ sql: `ALTER TABLE apps RENAME TO apps_old` }] : []),
           { sql: `ALTER TABLE apps_next RENAME TO apps` },
           { sql: `DROP TABLE IF EXISTS apps_old` },
+          ...(existingFts.rows.length > 0
+            ? [{ sql: `ALTER TABLE apps_fts RENAME TO apps_fts_old` }]
+            : []),
+          { sql: `ALTER TABLE apps_fts_next RENAME TO apps_fts` },
+          { sql: `DROP TABLE IF EXISTS apps_fts_old` },
           {
             sql: `INSERT INTO meta (key, value) VALUES ${metaValuesSql}
                   ON CONFLICT(key) DO UPDATE SET value = excluded.value`,

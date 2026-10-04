@@ -169,8 +169,8 @@ async function callGemini(model: LlmModel, prompt: Prompt): Promise<CallResult> 
     model.apiKeyEnv ?? "GEMINI_API_KEY",
     "https://aistudio.google.com/apikey",
   );
-  // Gemma on the Gemini API (`plainPrompt`) rejects systemInstruction, JSON
-  // mode and thinkingConfig alike: everything goes in the one user message.
+  // `plainPrompt` models take neither systemInstruction, JSON mode nor
+  // thinkingConfig: everything goes in the one user message.
   const plain = model.plainPrompt === true;
   const response = await fetch(
     `https://generativelanguage.googleapis.com/v1beta/models/${model.id}:generateContent?key=${apiKey}`,
@@ -244,7 +244,7 @@ async function callGemini(model: LlmModel, prompt: Prompt): Promise<CallResult> 
   throw new Error(`Gemini ${model.id} ${response.status}: ${bodyText}`);
 }
 
-// --- OpenAI-compatible (Groq, and provider "openai": Mistral, NVIDIA NIM, ...) ---
+// --- OpenAI-compatible (Groq, and provider "openai") ---
 
 const GROQ_BASE_URL = "https://api.groq.com/openai/v1";
 

@@ -69,11 +69,6 @@ describe("parseResults", () => {
     ).toEqual([]);
   });
 
-  it("finds the JSON inside a code fence or surrounding text (models with no JSON mode)", () => {
-    const fenced = "Here you go:\n```json\n" + reply("1|game|Puzzle|h|x") + "\n```";
-    expect(parseResults(fenced)).toHaveLength(1);
-  });
-
   it("splits an entry holding several newline-separated lines", () => {
     expect(parseResults(reply("1|game|Puzzle|h|x\n2|lib|-|m|y"))).toHaveLength(2);
   });

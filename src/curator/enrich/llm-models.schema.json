@@ -11,20 +11,20 @@
       "provider": {
         "type": "string",
         "enum": ["gemini", "groq", "openai"],
-        "description": "Which API adapter serves this model — decides the request format, auth, and how quota errors are read. 'openai' is any OpenAI-compatible chat-completions API: it needs baseUrl and apiKeyEnv."
+        "description": "Which API adapter serves this model — decides the request format, auth, and how quota errors are read. 'openai' is any OpenAI-compatible chat-completions API (Mistral, NVIDIA NIM, GitHub Models, OpenRouter, ...): it needs baseUrl and apiKeyEnv."
       },
       "baseUrl": {
-        "description": "OpenAI-compatible API root, without '/chat/completions' — e.g. 'https://openrouter.ai/api/v1'. Required for provider 'openai', ignored otherwise.",
+        "description": "OpenAI-compatible API root, without '/chat/completions' — e.g. 'https://api.mistral.ai/v1'. Required for provider 'openai', ignored otherwise.",
         "type": "string",
         "format": "uri"
       },
       "apiKeyEnv": {
-        "description": "Environment variable holding the API key, e.g. 'OPENROUTER_API_KEY'. Required for provider 'openai'; defaults to GEMINI_API_KEY / GROQ_API_KEY for the other two.",
+        "description": "Environment variable holding the API key, e.g. 'MISTRAL_API_KEY'. Required for provider 'openai'; defaults to GEMINI_API_KEY / GROQ_API_KEY for the other two.",
         "type": "string",
         "pattern": "^[A-Z][A-Z0-9_]*$"
       },
       "plainPrompt": {
-        "description": "true for models that accept neither a system instruction nor a JSON mode/schema : the system prompt is sent at the top of the user message, the JSON shape is only asked for in the prompt text, and parseResults copes with stray text around it.",
+        "description": "true for models that accept neither a system instruction nor a JSON mode/schema (Gemma on the Gemini API): the system prompt is sent at the top of the user message, the JSON shape is only asked for in the prompt text, and parseResults copes with stray text around it.",
         "type": "boolean"
       },
       "responseFormat": {

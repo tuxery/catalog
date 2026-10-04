@@ -21,6 +21,7 @@ export { searchSlackware } from "./slackware";
 export { searchSolus } from "./eopkg-solus";
 export { searchGentoo } from "./ebuild-gentoo";
 export { searchMint } from "./deb-mint";
+export { searchVendorRepos } from "./vendor-repos";
 export { searchPopOs } from "./deb-popos";
 export { searchDeepin } from "./deb-deepin";
 export { searchMxLinux } from "./deb-mxlinux";

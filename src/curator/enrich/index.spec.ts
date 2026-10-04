@@ -436,6 +436,20 @@ describe("enrichApps", () => {
     expect(app?.category).toBe(TO_CLASSIFY);
   });
 
+  it("draws the display name from the vendor's own repo over a packager-style name", () => {
+    const matched: MatchedApp[] = [
+      {
+        id: "pacman-aur:brave-origin-beta-bin",
+        packages: [
+          pkg({ source: "pacman-aur", name: "brave-origin-beta-bin", description: "" }),
+          pkg({ source: "vendor-repos", name: "Brave Origin", description: "The web browser" }),
+        ],
+      },
+    ];
+
+    expect(enrichApps(matched)[0]?.name).toBe("Brave Origin");
+  });
+
   it("applies a stored LLM classification to an app the heuristics left unclassified", () => {
     const matched: MatchedApp[] = [
       { id: "aur:example", packages: [pkg({ source: "pacman-aur", name: "example" })] },

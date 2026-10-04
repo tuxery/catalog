@@ -16,6 +16,7 @@ import { searchGithubReleases } from "./github-releases";
 import { searchGog } from "./gog";
 import { searchLutris } from "./lutris";
 import { searchMint } from "./deb-mint";
+import { searchVendorRepos } from "./vendor-repos";
 import { searchMxLinux } from "./deb-mxlinux";
 import { searchNixpkgs } from "./nix-nixpkgs";
 import { searchOpenSuse } from "./rpm-opensuse";
@@ -59,6 +60,7 @@ export async function searchAllSources(query: string): Promise<SourcedPackage[]>
     searchSolus(query),
     searchGentoo(query),
     searchMint(query),
+    searchVendorRepos(query),
     searchPopOs(query),
     searchDeepin(query),
     searchMxLinux(query),

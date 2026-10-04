@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { normalize } from "./normalize";
+import { channelFromKeywords, normalize } from "./normalize";
 import type { GentooCacheEntry } from "./types";
 
 describe("gentoo normalize", () => {
@@ -23,5 +23,31 @@ describe("gentoo normalize", () => {
         section: "games-strategy",
       },
     ]);
+  });
+
+  it("derives the channel from the amd64 keyword", () => {
+    const entry: GentooCacheEntry = {
+      category: "app-misc",
+      name: "foo",
+      version: "1.0",
+      description: "",
+      keywords: "~arm64 amd64",
+    };
+    expect(normalize([entry])[0]?.channel).toBe("stable");
+    expect(normalize([{ ...entry, keywords: undefined }])[0]?.channel).toBeUndefined();
+  });
+});
+
+describe("channelFromKeywords", () => {
+  it("maps amd64 to stable and ~amd64 to testing", () => {
+    expect(channelFromKeywords("amd64 arm64")).toBe("stable");
+    expect(channelFromKeywords("~amd64 ~arm64")).toBe("testing");
+  });
+
+  it("leaves other cases undefined", () => {
+    expect(channelFromKeywords("arm64 ~x86")).toBeUndefined();
+    expect(channelFromKeywords("-amd64")).toBeUndefined();
+    expect(channelFromKeywords("")).toBeUndefined();
+    expect(channelFromKeywords(undefined)).toBeUndefined();
   });
 });

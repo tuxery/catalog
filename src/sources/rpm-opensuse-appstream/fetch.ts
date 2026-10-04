@@ -6,8 +6,8 @@ import type { OpenSuseAppstreamCacheEntry, OpenSuseAppstreamFetchMetadata } from
 
 // Same two repos as rpm-opensuse: oss (free) and non-oss (proprietary).
 const REPOS = [
-  { id: "oss", base: "https://download.opensuse.org/tumbleweed/repo/oss" },
-  { id: "non-oss", base: "https://download.opensuse.org/tumbleweed/repo/non-oss" },
+  { id: "oss", base: "https://downloadcontent.opensuse.org/tumbleweed/repo/oss" },
+  { id: "non-oss", base: "https://downloadcontent.opensuse.org/tumbleweed/repo/non-oss" },
 ] as const;
 
 /**

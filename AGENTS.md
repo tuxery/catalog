@@ -116,12 +116,14 @@ dev DB was retired 2026-09-03 in favor of this):
    `dist/dataset.json` if it already exists; else rebuild it from the
    git-committed source caches (`pnpm start`, no network); `pnpm seed
 --force` skips both and re-fetches every source fresh first.
-2. `pnpm serve` (this repo) runs a local `turso dev` server (part of
-   the Turso CLI) in front of that file — foreground, blocking, its own
-   terminal. A Workers isolate can't open a SQLite file directly, so
-   this repo (owning the data) is the one that fronts it with a server,
-   speaking the same libSQL HTTP protocol `catalog.ts` uses against a
-   real hosted DB in preview/prod.
+2. `pnpm serve` (this repo) runs libSQL's `sqld` server (shipped with
+   the Turso CLI in `~/.turso`, what `turso dev` wraps) in front of that
+   file on :8080 — foreground, blocking, its own terminal. A Workers
+   isolate can't open a SQLite file directly, so this repo (owning the
+   data) is the one that fronts it with a server, speaking the same
+   libSQL HTTP protocol `catalog.ts` uses against a real hosted DB in
+   preview/prod. `sqld` runs directly rather than through `turso dev`
+   (see `scripts/_sqld.ts`) for its admin API on :8081.
 3. `app`'s `pnpm dev` connects to that server. Unlimited reads/writes,
    no network, for fast iteration.
 
@@ -134,6 +136,23 @@ than duplicated per repo:
 
 - **preview**: backs Cloudflare's preview Worker deployment.
 - **prod**: backs the production Worker.
+
+**Measuring Turso cost locally, without spending quota.** `sqld` counts
+`rows_read`/`rows_written` per query, the counters Turso bills on:
+
+- `pnpm turso-stats --local`: totals and top queries of the running
+  `pnpm serve` since it started. Compare two runs for one page's or one
+  test suite's cost.
+- `pnpm seed --measure`: one publish through a throwaway `sqld` over a
+  copy of the local database (spare ports, `pnpm serve` untouched).
+  2026-10-04, 173,785 apps: ~2.6M rows written, ~4.4M read, mostly one
+  write per row per index.
+
+Local is not iso with Turso Cloud: released `sqld` (0.24.32) embeds
+SQLite 3.45.1 without `ENABLE_STAT4`, the cloud runs 3.47.0 with it. Calibrated
+2026-10-04 on `app`'s `browseApps` searches against preview's measured
+costs: within ~1-3% (firefox 993 vs 948 rows read, lib 27,980 vs 27,970).
+Good enough to catch a regression or size a publish, not a bill.
 
 `.github/workflows/publish.yml` targets either one, but is
 `workflow_dispatch`-only (manual, pick `preview` or `prod` from the

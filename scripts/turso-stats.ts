@@ -1,3 +1,4 @@
+import { SQLD_ADMIN_PORT, readSqldStats } from "./_sqld";
 import { PREVIEW_ENV_PATH, PROD_ENV_PATH, SHARED_ENV_PATH, readSharedEnv } from "./_shared-env";
 
 /**
@@ -15,6 +16,8 @@ import { PREVIEW_ENV_PATH, PROD_ENV_PATH, SHARED_ENV_PATH, readSharedEnv } from 
  *   pnpm turso-stats --threshold 80   # exit 2 if any quota is >= 80% used,
  *                                     # or projected to exceed 100% by month end
  *   pnpm turso-stats --json           # machine-readable report
+ *   pnpm turso-stats --local          # rows read/written by `pnpm serve`'s
+ *                                     # local sqld since it started, per query
  *
  * What it reads (Turso Platform API, verified live 2026-10-01): the org's
  * `subscription` (plan name + billing period), the plan's `quotas` from
@@ -113,7 +116,38 @@ function human(n: number): string {
   return String(n);
 }
 
+/**
+ * `--local`: the same two counters from `pnpm serve`'s sqld (admin API),
+ * cumulative since it started, with its top queries — no quota, no token.
+ * Compare two runs to get one page's or one test suite's cost. An estimate,
+ * not Turso's bill: see scripts/_sqld.ts for how local differs.
+ */
+async function localStats(): Promise<void> {
+  const stats = await readSqldStats(`http://127.0.0.1:${SQLD_ADMIN_PORT}`).catch((error) => {
+    throw new Error(`Local sqld not reachable — is \`pnpm serve\` running? (${error.message})`);
+  });
+  if (asJson) {
+    console.log(JSON.stringify(stats, null, 2));
+    return;
+  }
+  console.log(
+    `Local sqld since start: ${human(stats.rows_read_count)} rows read, ${human(stats.rows_written_count)} written`,
+  );
+  // A fresh copy: toSorted() needs ES2023 (see turso-client.ts).
+  // eslint-disable-next-line unicorn/no-array-sort
+  const top = [...stats.top_queries].sort(
+    (a, b) => b.rows_read + b.rows_written - (a.rows_read + a.rows_written),
+  );
+  for (const query of top) {
+    const sql = query.query.replace(/\s+/g, " ");
+    console.log(
+      `  ${human(query.rows_read).padStart(7)} read ${human(query.rows_written).padStart(7)} written  ${sql.length > 110 ? `${sql.slice(0, 110)}…` : sql}`,
+    );
+  }
+}
+
 async function main(): Promise<void> {
+  if (process.argv.includes("--local")) return localStats();
   const token = env("TURSO_API_TOKEN");
   if (!token) {
     throw new Error(

@@ -36,6 +36,10 @@ describe("buildDataset", () => {
     expect(packageCount).toBeGreaterThan(220_000);
   });
 
+  it("leaves out every app the LLM marked excluded (libraries, other non-apps)", () => {
+    expect(dataset.apps.some((app) => app.excluded !== undefined)).toBe(false);
+  });
+
   it("enriches every app with a display-ready id and name", () => {
     for (const app of dataset.apps) {
       expect(app.id).toBeTruthy();

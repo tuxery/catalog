@@ -1,4 +1,5 @@
 import type { SourcedPackage, StoreCollectionTag } from "../../sources";
+import type { HiddenType } from "./category";
 import type { DataConfidence } from "./data-confidence";
 
 /**
@@ -59,6 +60,16 @@ export interface CatalogApp {
    * doesn't attempt to solve.
    */
   contentType?: "game";
+
+  /**
+   * Set when a high-confidence LLM classification (see
+   * `llm-classifications.ts`) says this isn't an app or a game at all: a
+   * `library` or `other` (data, fonts, themes, add-ons, test packages, ...).
+   * The app stays in the enriched list — `classify-llm` and audits still
+   * see it — but `buildDataset` leaves it out of the published dataset, so
+   * the site never shows it.
+   */
+  excluded?: HiddenType;
 
   /**
    * `true` for apps whose whole purpose is browsing/installing other

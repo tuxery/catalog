@@ -65,6 +65,19 @@ export const GAME_CATEGORY_LABEL_VALUES = [
 export const CONTENT_TYPE_VALUES = ["app", "game"] as const;
 export type ContentType = (typeof CONTENT_TYPE_VALUES)[number];
 
+/**
+ * What the LLM can say a package is: one of the displayed `ContentType`s,
+ * or something the catalog doesn't show — a `library` (code for other
+ * programs to use) or `other` (data, fonts, themes, docs, add-ons,
+ * metapackages, test/placeholder packages). Only `app` and `game` carry a
+ * category.
+ */
+export const LLM_TYPE_VALUES = [...CONTENT_TYPE_VALUES, "library", "other"] as const;
+export type LlmType = (typeof LLM_TYPE_VALUES)[number];
+
+/** The `LlmType`s the catalog never shows — see `CatalogApp.excluded`. */
+export type HiddenType = Exclude<LlmType, ContentType>;
+
 /** `config/categories-apps.json`'s own label vocabulary — see `AppCategoryLabel`/`APP_CATEGORY_LABEL_VALUES` above for why it's a closed set. */
 export const AppCategoryLabelSchema = z.enum(APP_CATEGORY_LABEL_VALUES);
 export type AppCategoryLabel = z.infer<typeof AppCategoryLabelSchema>;

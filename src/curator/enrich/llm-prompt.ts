@@ -4,15 +4,18 @@ import {
   type AppCategoryLabel,
   type ContentType,
   type GameCategoryLabel,
+  type LlmType,
 } from "./category";
 
 /**
  * The prompt `scripts/classify-llm.ts` sends and the parser for what comes
  * back, kept here (pure, no I/O) so both are unit-tested.
  *
- * The model answers a `type` (`app` | `game`) and then a category taken
- * from *that type's* list; the parser rejects a category that doesn't
- * belong to the answered type. Nothing about a package is decided before
+ * The model answers a `type` (`app` | `game` | `lib` | `other`) and, for
+ * `app`/`game` only, a category taken from *that type's* list; the parser
+ * rejects a category that doesn't belong to the answered type. `lib` is
+ * what the model writes (one token cheaper per app than "library"); the
+ * parser normalizes it to `library`. Nothing about a package is decided before
  * the LLM sees it: the heuristics' own game/app guess is not passed in
  * (they only hand over what they couldn't place), and neither is the
  * source — every source mixes both (Lutris and GOG are ~90-99% games, yet
@@ -32,8 +35,7 @@ export const TAXONOMY: Taxonomy = {
 // game genre "Educational", racing has no genre of its own). Typed as
 // Records over the label unions, so a new category can't ship without one.
 const APP_GLOSS: Record<AppCategoryLabel, string> = {
-  "Developer Tools":
-    "IDEs, compilers, debuggers, build/VCS tools, SDKs and libraries for programmers",
+  "Developer Tools": "IDEs, compilers, debuggers, build/VCS tools, CLI tools for programmers",
   Science: "science, engineering, maths, astronomy, GIS",
   Education: "software for learning: languages, typing tutors, quizzes, school tools",
   Security: "passwords, encryption, VPN, antivirus, pentesting",
@@ -81,11 +83,13 @@ function glossed<T extends string>(labels: readonly T[], gloss: Record<T, string
  */
 export function buildSystemPrompt(): string {
   return `Classify Linux packages. Each input line is n|name|description (the description may be empty).
-For each, answer its type, then ONE category from that type's list.
+For each, answer its type; for app and game, also ONE category from that type's list.
 
 type "game": a game you play (video, board or card), including clones, remakes and open-source reimplementations of a game.
-type "app": everything else, including software AROUND games: launchers, emulators, engines/SDKs, mod and save editors, Wine/Proton helpers, data or asset packs.
-Decide from the name and description only. Packages come from any source and either type can appear in any batch.
+type "app": a program a user runs, including software AROUND games: launchers, emulators, engines/SDKs, mod and save editors, Wine/Proton helpers.
+type "lib": code for other programs to use, not run by a user: libraries, headers/-dev files, language bindings and modules.
+type "other": not a program a user runs: data or asset packs, fonts, themes and icons, documentation, plugins and add-ons for another program, metapackages, test/hello-world/placeholder packages.
+Decide from the name and description only. Packages come from any source and any type can appear in any batch.
 
 app categories: ${glossed(APP_CATEGORY_LABEL_VALUES, APP_GLOSS)}
 game categories: ${glossed(GAME_CATEGORY_LABEL_VALUES, GAME_GLOSS)}
@@ -93,12 +97,14 @@ game categories: ${glossed(GAME_CATEGORY_LABEL_VALUES, GAME_GLOSS)}
 k = confidence: h = the name or description makes it clear; m = plausible reading; l = description empty or vague, name opaque, or several categories fit. Prefer an honest l over a guess.
 r = reason, 6 words max.
 
-Return {"results":["n|type|category|k|r", ...]}: one string per line, in order, n echoed exactly, type and category spelled exactly as listed, the name NOT repeated.
+Return {"results":["n|type|category|k|r", ...]}: one string per line, in order, n echoed exactly, type and category spelled exactly as listed, category "-" for lib and other, the name NOT repeated.
 Examples:
 1|app|Developer Tools|h|CLI token usage analyzer
 2|game|Puzzle|h|Falling-block puzzle clone
 3|app|System Tools|m|Steam compatibility tool manager
-4|app|Utilities|l|Empty description`;
+4|lib|-|h|Python bindings for libfoo
+5|other|-|h|Hello-world test snap
+6|app|Utilities|l|Empty description`;
 }
 
 export interface BatchItem {
@@ -124,54 +130,64 @@ export function buildUserPrompt(items: BatchItem[]): string {
 
 export type Confidence = "high" | "medium" | "low";
 
-export interface BatchResult {
+/** One parsed answer. `category` is present exactly when `type` is `app` or `game`. */
+export type BatchResult = {
   n: number;
-  type: ContentType;
-  category: string;
   confidence: Confidence;
   reason: string;
-}
+} & ({ type: ContentType; category: string } | { type: Exclude<LlmType, ContentType> });
 
 const CONFIDENCE: Record<string, Confidence> = { h: "high", m: "medium", l: "low" };
 
-function isContentType(value: string): value is ContentType {
-  return value === "app" || value === "game";
+/** The model's own spelling of each type ("lib", not "library"). */
+const TYPE_TOKENS: Record<string, LlmType> = {
+  app: "app",
+  game: "game",
+  lib: "library",
+  library: "library",
+  other: "other",
+};
+
+function parseType(token: string): LlmType | undefined {
+  const key = token.trim();
+  return Object.hasOwn(TYPE_TOKENS, key) ? TYPE_TOKENS[key] : undefined;
 }
+
+/** A type without a category: the model must answer "-" (an empty field is tolerated). */
+const NO_CATEGORY = new Set(["-", ""]);
 
 /**
  * Parses "n|type|category|k|reason" lines into results, keeping only the
- * valid ones: n an integer, type `app` or `game`, category on *that type's*
- * list (a genre on an `app` is invalid), k one of h/m/l. An invalid line is
- * dropped, not fatal — that app just stays unclassified for a later run.
- * The reason may itself contain "|", so it's the rest of the line. Throws
- * only when the text isn't JSON at all.
+ * valid ones: n an integer, type one of app/game/lib/other, category on
+ * *that type's* list for app/game (a genre on an `app` is invalid) and "-"
+ * for lib/other, k one of h/m/l. An invalid line is dropped, not fatal —
+ * that app just stays unclassified for a later run. The reason may itself
+ * contain "|", so it's the rest of the line. Throws only when the text
+ * isn't JSON at all.
  */
 export function parseResults(
   text: string | undefined,
   taxonomy: Taxonomy = TAXONOMY,
 ): BatchResult[] {
   const lines = (JSON.parse(text ?? "{}") as { results?: unknown[] }).results ?? [];
-  return lines.flatMap((line) => {
+  return lines.flatMap((line): BatchResult[] => {
     const fields = String(line).split("|");
     // Gemini tends to echo the input's "n|name|desc" shape and repeat the
     // name ("1|ccusage|app|Developer Tools|h|...", seen 2026-09-29): when
     // the second field isn't a type but the third is, skip the name.
-    if (!isContentType((fields[1] ?? "").trim()) && isContentType((fields[2] ?? "").trim())) {
+    if (!parseType(fields[1] ?? "") && parseType(fields[2] ?? "")) {
       fields.splice(1, 1);
     }
     const [n, rawType = "", rawCategory = "", k = "", ...reason] = fields;
-    const type = rawType.trim();
+    const type = parseType(rawType);
     const category = rawCategory.trim();
     const confidence = CONFIDENCE[k.trim()];
     const index = Number(n);
-    if (
-      !Number.isInteger(index) ||
-      !isContentType(type) ||
-      !taxonomy[type].includes(category) ||
-      !confidence
-    ) {
-      return [];
+    if (!Number.isInteger(index) || type === undefined || !confidence) return [];
+    const common = { n: index, confidence, reason: reason.join("|").trim() };
+    if (type === "library" || type === "other") {
+      return NO_CATEGORY.has(category) ? [{ ...common, type }] : [];
     }
-    return [{ n: index, type, category, confidence, reason: reason.join("|").trim() }];
+    return taxonomy[type].includes(category) ? [{ ...common, type, category }] : [];
   });
 }

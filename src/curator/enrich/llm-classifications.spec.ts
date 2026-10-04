@@ -25,6 +25,20 @@ describe("LlmClassificationsListSchema", () => {
     ).toBe(false);
   });
 
+  it("accepts library and other without a category, and rejects them with one", () => {
+    expect(
+      LlmClassificationsListSchema.safeParse([
+        { id: "l:1", type: "library", ...base },
+        { id: "o:1", type: "other", ...base },
+      ]).success,
+    ).toBe(true);
+    expect(
+      LlmClassificationsListSchema.safeParse([
+        { id: "l:1", type: "library", category: "Developer Tools", ...base },
+      ]).success,
+    ).toBe(false);
+  });
+
   it("rejects an entry without a type", () => {
     expect(
       LlmClassificationsListSchema.safeParse([{ id: "a:1", category: "Utilities", ...base }])
@@ -34,14 +48,16 @@ describe("LlmClassificationsListSchema", () => {
 });
 
 describe("llmClassificationMap", () => {
-  it("maps ids to type + category and skips low-confidence entries", () => {
+  it("maps ids to type + category + confidence and skips low-confidence entries", () => {
     const map = llmClassificationMap([
       { id: "a:1", type: "app", category: "Utilities", ...base },
       { id: "g:1", type: "game", category: "Puzzle", ...base, confidence: "medium" },
+      { id: "l:1", type: "library", ...base },
       { id: "a:2", type: "app", category: "Utilities", ...base, confidence: "low" },
     ]);
-    expect(map.get("a:1")).toEqual({ type: "app", category: "Utilities" });
-    expect(map.get("g:1")).toEqual({ type: "game", category: "Puzzle" });
+    expect(map.get("a:1")).toEqual({ type: "app", category: "Utilities", confidence: "high" });
+    expect(map.get("g:1")).toEqual({ type: "game", category: "Puzzle", confidence: "medium" });
+    expect(map.get("l:1")).toEqual({ type: "library", category: undefined, confidence: "high" });
     expect(map.has("a:2")).toBe(false);
   });
 });

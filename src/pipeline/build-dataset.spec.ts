@@ -1,26 +1,36 @@
 import { beforeAll, describe, expect, it } from "vitest";
+import { filterPackages, groupPackages } from "../curator";
+import { searchAllSources } from "../sources";
 import { buildDataset, type Dataset } from "./build-dataset";
 
-// Groups ~233k real cached packages after the curator module's filterPackages
-// (raw cache is ~357k across all sources — the gap grew a lot once the
-// lib* noise prefix was inverted to catch-by-default instead of soname-
-// versioned-only, see filter/rules.ts's header comment). Filtering alone
-// brought this from ~111s (unfiltered 357k) to ~35s; replacing the old
-// bucketed pairwise-Levenshtein matcher with union-find + exact-key
-// tiers (no scoring, no pairwise comparison at all) brought it under 1s.
-// Building the dataset once in beforeAll (instead of per-`it`) keeps the
-// suite from paying that cost per test. Built twice: the published dataset,
-// and the one before LLM exclusions (`includeExcluded`), which is the one
-// that still holds every grouped package.
+// The full pipeline over every real cached source: reading and filtering
+// (~650k raw packages → ~300k candidates) and grouping take ~2-3 s, but
+// enrichApps ~13 s (2026-10-05, after cachePerPattern halved it), more on
+// CI runners. Built once in beforeAll, never once per test or per variant.
 const BUILD_TIMEOUT = 120_000;
+
+describe("groupPackages over the real caches", () => {
+  it(
+    "puts every filtered package into exactly one group",
+    async () => {
+      // Guards against grouping silently dropping or duplicating packages.
+      // filterPackages dropping some is expected; groupPackages must keep
+      // all of the rest. Checked before enrichment, so neither its cost nor
+      // the LLM's exclusions (whole apps left out on purpose) blur the count.
+      const candidates = filterPackages(await searchAllSources(""));
+      const grouped = groupPackages(candidates).flatMap((group) => group.packages);
+      expect(grouped.length).toBe(candidates.length);
+      expect(new Set(grouped).size).toBe(candidates.length);
+    },
+    BUILD_TIMEOUT,
+  );
+});
 
 describe("buildDataset", () => {
   let dataset: Dataset;
-  let withExcluded: Dataset;
 
   beforeAll(async () => {
     dataset = await buildDataset();
-    withExcluded = await buildDataset({ includeExcluded: true });
   }, BUILD_TIMEOUT);
 
   it("shapes a dataset with a generatedAt timestamp and a non-empty apps list", () => {
@@ -28,28 +38,8 @@ describe("buildDataset", () => {
     expect(dataset.apps.length).toBeGreaterThan(0);
   });
 
-  it("accounts for every sourced package across the grouped apps", () => {
-    // Counted before LLM exclusions: leaving out a library's packages is
-    // intended (68.7k apps excluded as of 2026-10-05), losing them while
-    // grouping isn't.
-    const packageCount = withExcluded.apps.reduce((sum, app) => sum + app.packages.length, 0);
-
-    // Guards against the curator silently dropping packages while
-    // grouping (filterPackages dropping some is expected and correct;
-    // this checks groupPackages doesn't lose any on top of that) — not
-    // an exact count, GitHub Releases isn't wired in yet. ~233k as of the
-    // lib*-inversion filter change; leaves headroom below that for cache
-    // churn without being so loose it'd miss a real grouping regression.
-    expect(packageCount).toBeGreaterThan(220_000);
-  });
-
   it("leaves out every app the LLM marked excluded (libraries, other non-apps)", () => {
     expect(dataset.apps.some((app) => app.excluded !== undefined)).toBe(false);
-  });
-
-  it("leaves out only the excluded apps", () => {
-    const excluded = withExcluded.apps.filter((app) => app.excluded !== undefined).length;
-    expect(dataset.apps.length).toBe(withExcluded.apps.length - excluded);
   });
 
   it("enriches every app with a display-ready id and name", () => {

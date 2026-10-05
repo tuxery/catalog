@@ -1,8 +1,8 @@
 import { fileURLToPath } from "node:url";
-import { memoize } from "helpers4/function";
 import { z } from "zod";
 import { readJson } from "../_shared/json";
 import { GameCategoryLabelSchema, type GameCategoryLabel } from "./category";
+import { cachePerPattern } from "./glob-match";
 
 const DESCRIPTION_GAME_CATEGORY_RULES_PATH = fileURLToPath(
   new URL("../../../config/description-game-category-rules.json", import.meta.url),
@@ -43,7 +43,7 @@ export function loadDescriptionGameCategoryRules(): DescriptionGameCategoryRuleE
 
 // Same "compile once, reuse across every app" reasoning as
 // description-category-rules.ts's compilePattern.
-const compilePattern = memoize((pattern: string): RegExp => new RegExp(pattern, "i"));
+const compilePattern = cachePerPattern((pattern: string): RegExp => new RegExp(pattern, "i"));
 
 /**
  * The first rule (in file order — earlier entries win) whose pattern

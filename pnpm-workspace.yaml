@@ -29,5 +29,13 @@ minimumReleaseAgeExclude:
 # XML-injection advisories (GHSA-6mj3-qw4j-hgrw and others, all fixed in
 # 0.9.12) — plist has no newer major that bumps it itself, so pinned
 # directly here instead.
+#
+# oxfmt pins tinypool 2.1.0 exactly (prototype pollution to RCE,
+# GHSA-85c8-ppgw-ccpr and GHSA-5gmw-xhrv-c9v3, fixed in 2.1.2), and
+# vite's postcss resolves source-map-js 1.2.1 (event-loop DoS,
+# GHSA-68fv-2mgg-jv7q, fixed in 1.2.2). Dev tooling only, pinned until
+# the parents' own ranges move past them.
 overrides:
   "@xmldom/xmldom": ">=0.9.12"
+  "tinypool": ">=2.1.2"
+  "source-map-js": ">=1.2.2"

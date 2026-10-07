@@ -85,8 +85,8 @@ export function buildSystemPrompt(): string {
   return `Classify Linux packages. Each input line is n|name|description (the description may be empty).
 For each, answer its type; for app and game, also ONE category from that type's list.
 
-type "game": a game you play (video, board or card), including clones, remakes and open-source reimplementations of a game.
-type "app": a program a user runs, including software AROUND games: launchers, emulators, engines/SDKs, mod and save editors, Wine/Proton helpers.
+type "game": a game you play (video, board or card), including clones, remakes and open-source reimplementations of a game. An installer, wrapper, patch, port or client made for ONE specific game IS that game ("Installer for X", "X on Linux", a game's own launcher or client).
+type "app": a program a user runs, including software AROUND games in general: launchers for many games or for a store, emulators, generic engines/SDKs, mod and save editors, Wine/Proton helpers.
 type "lib": code for other programs to use, not run by a user: libraries, headers/-dev files, language bindings and modules.
 type "other": not a program a user runs: data or asset packs, fonts, themes and icons, documentation, plugins and add-ons for another program, metapackages, test/hello-world/placeholder packages.
 Decide from the name and description only. Packages come from any source and any type can appear in any batch.

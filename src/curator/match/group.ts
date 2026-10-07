@@ -246,6 +246,74 @@ export function stripVariantSuffix(pkg: Pick<SourcedPackage, "source" | "name">)
  *   bare package, or any other source's) rather than staying a permanent
  *   duplicate.
  */
+// AUR names a patched or re-packaged build as "<project>-<what's different>"
+// (`pidgin-gnutls`, `firefox-vaapi`, `rssguard-nowebengine-git`), usually
+// keeping the project's own description, sometimes with a parenthesised
+// note appended. Name prefix alone is far too loose (`firefox-sync` is a
+// tmpfs script, not Firefox), so a package unions with the project named
+// by one of its hyphen-prefixes only when the two descriptions also agree:
+// identical, or one is the start of the other (both at least 25 chars, so
+// "A tool" can't qualify). Measured on the real caches (2026-10-07): 610
+// single-package AUR entries match on identical descriptions, 1,059 more
+// on the prefix form; hand-checked samples of both were almost all true
+// variants (`bleachbit-cli`, `android-studio-system`, `firefox-pure`,
+// `firefox-vaapi`).
+const MIN_DESCRIPTION_LENGTH = 25;
+const MIN_BASE_NAME_LENGTH = 3;
+
+function normalizeDescription(text: string | undefined): string {
+  return (text ?? "")
+    .replaceAll(/<[^>]+>/g, " ")
+    .replaceAll(/\s+/g, " ")
+    .trim()
+    .toLowerCase();
+}
+
+function descriptionsAgree(a: string, b: string): boolean {
+  if (a === b) return true;
+  const [short, long] = a.length <= b.length ? [a, b] : [b, a];
+  return short.length >= MIN_DESCRIPTION_LENGTH && long.startsWith(short);
+}
+
+/** Tier 2c: AUR variants of a project, matched by name prefix + description. */
+function unionDescribedVariants(
+  uf: UnionFind<string>,
+  packages: SourcedPackage[],
+  denyPairs: Set<string>,
+): void {
+  const byName = new Map<string, SourcedPackage[]>();
+  for (const pkg of packages) {
+    const name = normalizeName(stripVariantSuffix(pkg));
+    if (GENERIC_NAME_BLOCKLIST.has(name)) continue;
+    const list = byName.get(name) ?? [];
+    list.push(pkg);
+    byName.set(name, list);
+  }
+
+  for (const pkg of packages) {
+    // `gog-<title>` wrappers have their own tier, and sequels often reuse the
+    // prequel's blurb (`gog-deponia-2-...` is not a variant of `gog-deponia`).
+    if (pkg.source !== "pacman-aur" || pkg.name.startsWith("gog-")) continue;
+    const description = normalizeDescription(pkg.description);
+    if (description.length < MIN_DESCRIPTION_LENGTH) continue;
+
+    const parts = stripVariantSuffix(pkg).toLowerCase().split("-");
+    const pkgKey = packageKey(pkg);
+    search: for (let cut = parts.length - 1; cut >= 1; cut -= 1) {
+      const base = normalizeName(parts.slice(0, cut).join("-"));
+      if (base.length < MIN_BASE_NAME_LENGTH) break;
+      for (const candidate of byName.get(base) ?? []) {
+        if (candidate === pkg) continue;
+        if (!descriptionsAgree(description, normalizeDescription(candidate.description))) continue;
+        const candidateKey = packageKey(candidate);
+        if (denyPairs.has(unorderedPairKey(pkgKey, candidateKey))) continue;
+        uf.union(pkgKey, candidateKey);
+        break search;
+      }
+    }
+  }
+}
+
 /**
  * Tier 2b: AUR's `gog-<title>` wrappers (community packages around a GOG.com
  * installer, ~150 of them) against the `gog` source's own listing of the
@@ -377,6 +445,9 @@ export function groupPackages(
 
   // Tier 2b: AUR's gog-* wrappers onto the matching GOG.com listing.
   unionByExactKey(uf, packages, gogWrapperKey, overrides.denyPairs);
+
+  // Tier 2c: AUR variants (`<project>-<difference>`) of a project whose description they share.
+  unionDescribedVariants(uf, packages, overrides.denyPairs);
 
   // Collect final groups — id is picked from every member at once (see
   // `buildAppId`), not just the first package seen for each root, since

@@ -128,6 +128,74 @@ describe("groupPackages", () => {
     expect(groupPackages(packages, NO_OVERRIDES)).toHaveLength(4);
   });
 
+  it("unions an AUR variant with the project its name prefixes when the descriptions agree (tier 2c)", () => {
+    const browser = "Fast, Private & Safe Web Browser";
+    const packages = [
+      pkg({ source: "deb-debian", name: "firefox", description: browser }),
+      pkg({ source: "pacman-aur", name: "firefox-pure", description: browser }),
+      pkg({
+        source: "pacman-aur",
+        name: "firefox-vaapi",
+        description: `${browser} (with VA-API patches for Nvidia)`,
+      }),
+    ];
+
+    const groups = groupPackages(packages, NO_OVERRIDES);
+
+    expect(groups).toHaveLength(1);
+    expect(groups[0]?.packages).toHaveLength(3);
+  });
+
+  it("keeps an AUR package that only shares a name prefix, or whose description is too short to compare", () => {
+    const packages = [
+      pkg({
+        source: "deb-debian",
+        name: "firefox",
+        description: "Fast, Private & Safe Web Browser",
+      }),
+      pkg({
+        source: "pacman-aur",
+        name: "firefox-sync",
+        description: "Speed up Firefox using tmpfs.",
+      }),
+      pkg({ source: "deb-debian", name: "tool", description: "A tool" }),
+      pkg({ source: "pacman-aur", name: "tool-extra", description: "A tool" }),
+      pkg({
+        source: "pacman-aur",
+        name: "firefox-esr",
+        description: "Fast, Private & Safe Web Browser",
+      }),
+    ];
+
+    const groups = groupPackages(packages, NO_OVERRIDES);
+
+    // firefox + firefox-esr merge (identical long description); the other two
+    // AUR/short-description cases stay alone.
+    const sizes = groups.map((g) => g.packages.length);
+    expect(sizes.filter((size) => size === 2)).toHaveLength(1);
+    expect(sizes.filter((size) => size === 1)).toHaveLength(3);
+  });
+
+  it("leaves gog-* sequels alone even when they reuse the prequel's description", () => {
+    const description = "Rufus is not a pleasant guy. Ill-tempered and selfish.";
+    const packages = [
+      pkg({ source: "pacman-aur", name: "gog-deponia", description }),
+      pkg({ source: "pacman-aur", name: "gog-deponia-2-chaos-on-deponia", description }),
+    ];
+
+    expect(groupPackages(packages, NO_OVERRIDES)).toHaveLength(2);
+  });
+
+  it("does not apply the prefix rule to other sources", () => {
+    const description = "Fast, Private & Safe Web Browser";
+    const packages = [
+      pkg({ source: "deb-debian", name: "firefox", description }),
+      pkg({ source: "rpm-fedora", name: "firefox-pure", description }),
+    ];
+
+    expect(groupPackages(packages, NO_OVERRIDES)).toHaveLength(2);
+  });
+
   it("unions a Gentoo -bin ebuild with its build-from-source twin — the real firefox-bin bug report", () => {
     const packages = [
       pkg({ source: "ebuild-gentoo", name: "firefox", appId: undefined }),

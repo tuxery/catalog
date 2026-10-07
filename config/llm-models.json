@@ -1,5 +1,15 @@
 [
   {
+    "id": "gemini-3.1-flash-lite",
+    "provider": "gemini",
+    "enabled": true,
+    "batchSize": 200,
+    "requestsPerMinute": 5,
+    "reasoning": "minimal",
+    "overloadRetries": 0,
+    "reason": "First in the chain: it produced 53,648 of the 55,565 entries of the 2026-10-04 run anyway, while the Flash models (20 requests/day each) were mostly 503. On a 118-app hand-labelled sample (2026-10-04, 60-app batches) it scored 95% right type and 91% right type + category, with zero real app called library/other at high confidence, on par with qwen3.8-27b (97% / 92%). Own free daily quota, separate from the Flash models'. Same request-capped settings; reasoning 'minimal' keeps output lean. Check its requests/day in AI Studio before raising batchSize."
+  },
+  {
     "id": "gemini-3.8-flash",
     "provider": "gemini",
     "enabled": true,
@@ -38,16 +48,6 @@
     "reasoning": "low",
     "overloadRetries": 0,
     "reason": "Extra 20 requests/day of Flash quota; the original default model. Last of the Gemini chain: the most overloaded one in 2026-09 runs."
-  },
-  {
-    "id": "gemini-3.1-flash-lite",
-    "provider": "gemini",
-    "enabled": true,
-    "batchSize": 200,
-    "requestsPerMinute": 5,
-    "reasoning": "minimal",
-    "overloadRetries": 0,
-    "reason": "Fallback after the Gemini Flash chain: its own free daily quota, separate from the Flash models'. On a 118-app hand-labelled sample (2026-10-04, 60-app batches), it scored 95% right type and 91% right type + category, with zero real app called library/other at high confidence. That's on par with qwen3.8-27b (97% / 92%), so it goes before Groq's token-capped quota. The Flash models couldn't be measured on that sample: every request got a 503 that day. Same request-capped settings as the Flash models; reasoning 'minimal' keeps output lean. Check its requests/day in AI Studio before raising batchSize."
   },
   {
     "id": "qwen/qwen3.8-27b",

@@ -103,6 +103,31 @@ describe("groupPackages", () => {
     expect(groups[0]?.packages).toHaveLength(2);
   });
 
+  it("unions an AUR -appimage package and a nixpkgs -unwrapped package with their unsuffixed twins — the real GoldenDict-ng and Firefox PWA cases", () => {
+    const packages = [
+      pkg({ source: "deb-debian", name: "goldendict-ng" }),
+      pkg({ source: "pacman-aur", name: "goldendict-ng-appimage" }),
+      pkg({ source: "pacman-arch", name: "firefoxpwa" }),
+      pkg({ source: "nix-nixpkgs", name: "firefoxpwa-unwrapped" }),
+    ];
+
+    const groups = groupPackages(packages, NO_OVERRIDES);
+
+    expect(groups).toHaveLength(2);
+    expect(groups.map((g) => g.packages.length)).toEqual([2, 2]);
+  });
+
+  it("does not strip -appimage or -unwrapped from other sources", () => {
+    const packages = [
+      pkg({ source: "deb-debian", name: "foo" }),
+      pkg({ source: "deb-ubuntu", name: "foo-appimage" }),
+      pkg({ source: "rpm-fedora", name: "bar-unwrapped" }),
+      pkg({ source: "rpm-opensuse", name: "bar" }),
+    ];
+
+    expect(groupPackages(packages, NO_OVERRIDES)).toHaveLength(4);
+  });
+
   it("unions a Gentoo -bin ebuild with its build-from-source twin — the real firefox-bin bug report", () => {
     const packages = [
       pkg({ source: "ebuild-gentoo", name: "firefox", appId: undefined }),

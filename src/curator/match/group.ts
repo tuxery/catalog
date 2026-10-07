@@ -203,6 +203,16 @@ const CHANNEL_WORD_SUFFIX =
 const VARIANT_SUFFIX = /-(git|svn|hg|bzr|cvs|bin)$/;
 const SOURCES_WITH_VARIANT_SUFFIXES = new Set(["pacman-aur", "ebuild-gentoo"]);
 
+// Two more single-source conventions of the same "alternate build of the
+// same software" shape, checked against the real caches (2026-10-07): AUR's
+// `-appimage` (a package that installs the project's upstream AppImage
+// instead of building it: 427 names, 223 with an exact same-name twin once
+// stripped, e.g. `goldendict-ng-appimage` / `goldendict-ng`), and nixpkgs'
+// `-unwrapped` (the raw package a wrapper derivation is built from: 61 names,
+// 57 with a twin, e.g. `firefoxpwa-unwrapped` / `firefoxpwa`).
+const AUR_APPIMAGE_SUFFIX = /-appimage$/;
+const NIX_UNWRAPPED_SUFFIX = /-unwrapped$/;
+
 /**
  * Strips AUR/Gentoo's own build-variant/channel-word suffix convention
  * (`-git`/`-bin`/`-beta-bin`/...) from a package's name, when that
@@ -215,9 +225,10 @@ const SOURCES_WITH_VARIANT_SUFFIXES = new Set(["pacman-aur", "ebuild-gentoo"]);
  * would read as a name conflict, which it isn't.
  */
 export function stripVariantSuffix(pkg: Pick<SourcedPackage, "source" | "name">): string {
-  return SOURCES_WITH_VARIANT_SUFFIXES.has(pkg.source)
-    ? pkg.name.replace(CHANNEL_WORD_SUFFIX, "").replace(VARIANT_SUFFIX, "")
-    : pkg.name;
+  if (pkg.source === "nix-nixpkgs") return pkg.name.replace(NIX_UNWRAPPED_SUFFIX, "");
+  if (!SOURCES_WITH_VARIANT_SUFFIXES.has(pkg.source)) return pkg.name;
+  const name = pkg.source === "pacman-aur" ? pkg.name.replace(AUR_APPIMAGE_SUFFIX, "") : pkg.name;
+  return name.replace(CHANNEL_WORD_SUFFIX, "").replace(VARIANT_SUFFIX, "");
 }
 
 /**

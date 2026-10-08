@@ -75,6 +75,28 @@ describe("createTursoClient", () => {
     );
   });
 
+  it("writes companions, their counts and relations as JSON columns", async () => {
+    const { batch, client } = fakeClient(false);
+    const tursoClient = createTursoClient({ url: "file::memory:" }, client);
+    const companions = [{ name: "vlc-plugin-x", kind: "plugin", description: "", packages: [] }];
+    const relations = [
+      { type: "forkOf", direction: "incoming", app: { id: "y", name: "Y" }, origin: "curated" },
+    ];
+
+    await tursoClient.publish({
+      generatedAt: "2026-01-01T00:00:00.000Z",
+      apps: [{ ...APP, companions, companionCounts: { plugin: 1 }, relations }],
+    });
+
+    const insertBatch = batch.mock.calls[0]?.[0] as { args: unknown[] }[];
+    const args = insertBatch[0]?.args;
+    expect(args?.slice(-3)).toEqual([
+      JSON.stringify(companions),
+      JSON.stringify({ plugin: 1 }),
+      JSON.stringify(relations),
+    ]);
+  });
+
   it("builds every filter/sort index on apps, after the rename swap has already dropped the old table", async () => {
     const { execute, batch, client } = fakeClient(false);
     const tursoClient = createTursoClient({ url: "file::memory:" }, client);
@@ -386,7 +408,16 @@ describe("precomputed listing rows", () => {
           iconUrl: "low.png",
           popularity: 0.2,
           category: "Utilities",
-          packages: [{ source: "aur", name: "low", risk: "git", flavors: ["bin"], version: "1.0", deps: ["x"] }],
+          packages: [
+            {
+              source: "aur",
+              name: "low",
+              risk: "git",
+              flavors: ["bin"],
+              version: "1.0",
+              deps: ["x"],
+            },
+          ],
         },
         {
           ...APP,

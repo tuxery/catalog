@@ -70,6 +70,11 @@ export interface AppRecord {
     signals: Array<{ signal: string; delta: number; detail: string }>;
   };
   packages: unknown[];
+  /** Companions listed on this product's page, capped per kind, and their full counts per kind — see `CatalogApp.companions`/`companionCounts`. */
+  companions?: unknown[];
+  companionCounts?: Record<string, number>;
+  /** Forks, successors, wrappers, ... both directions — see `CatalogApp.relations`. */
+  relations?: unknown[];
 }
 
 export interface TursoDataset {
@@ -129,6 +134,9 @@ const INSERT_COLUMNS = [
   "compat_warnings_json",
   "data_confidence_json",
   "packages_json",
+  "companions_json",
+  "companion_counts_json",
+  "relations_json",
 ];
 
 function appsTableSql(tableName: string): string {
@@ -172,7 +180,10 @@ function appsTableSql(tableName: string): string {
       suite_json TEXT,
       compat_warnings_json TEXT,
       data_confidence_json TEXT NOT NULL,
-      packages_json TEXT NOT NULL
+      packages_json TEXT NOT NULL,
+      companions_json TEXT,
+      companion_counts_json TEXT,
+      relations_json TEXT
     )
   `;
 }
@@ -772,6 +783,9 @@ function toRow(app: AppRecord): unknown[] {
     toJsonColumn(app.compatibilityWarnings),
     JSON.stringify(app.dataConfidence),
     JSON.stringify(app.packages.map(toStoredPackage)),
+    toJsonColumn(app.companions),
+    toJsonColumn(app.companionCounts),
+    toJsonColumn(app.relations),
   ];
 }
 

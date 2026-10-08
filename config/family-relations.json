@@ -1,0 +1,62 @@
+[
+  {
+    "type": "forkOf",
+    "from": { "source": "flatpak-flathub", "appId": "io.gitlab.librewolf-community" },
+    "to": { "source": "flatpak-flathub", "appId": "org.mozilla.firefox" },
+    "reason": "LibreWolf is a privacy-focused fork of Firefox (librewolf.net)."
+  },
+  {
+    "type": "forkOf",
+    "from": { "source": "flatpak-flathub", "appId": "one.ablaze.floorp" },
+    "to": { "source": "flatpak-flathub", "appId": "org.mozilla.firefox" },
+    "reason": "Floorp is a Firefox-based browser from Ablaze (floorp.app)."
+  },
+  {
+    "type": "forkOf",
+    "from": { "source": "flatpak-flathub", "appId": "net.waterfox.waterfox" },
+    "to": { "source": "flatpak-flathub", "appId": "org.mozilla.firefox" },
+    "reason": "Waterfox is a Firefox fork (waterfox.net)."
+  },
+  {
+    "type": "forkOf",
+    "from": { "source": "pacman-aur", "appId": "zen-browser" },
+    "to": { "source": "flatpak-flathub", "appId": "org.mozilla.firefox" },
+    "reason": "Zen Browser is built on Firefox (zen-browser.app)."
+  },
+  {
+    "type": "forkOf",
+    "from": { "source": "pacman-aur", "appId": "ungoogled-chromium" },
+    "to": { "source": "deb-debian", "appId": "chromium" },
+    "reason": "ungoogled-chromium is Chromium with Google integration removed (github.com/ungoogled-software)."
+  },
+  {
+    "type": "forkOf",
+    "from": { "source": "flatpak-flathub", "appId": "io.neovim.nvim" },
+    "to": { "source": "flatpak-flathub", "appId": "org.vim.Vim.desktop" },
+    "reason": "Neovim started in 2014 as a fork of Vim (neovim.io)."
+  },
+  {
+    "type": "forkOf",
+    "from": { "source": "pacman-aur", "appId": "chiaki-ng" },
+    "to": { "source": "snap-snapcraft", "appId": "chiaki" },
+    "reason": "chiaki-ng is the maintained fork of the discontinued Chiaki (github.com/streetpea/chiaki-ng)."
+  },
+  {
+    "type": "forkOf",
+    "from": { "source": "nix-nixpkgs", "appId": "picocrypt-ng" },
+    "to": { "source": "flatpak-flathub", "appId": "io.github.picocrypt.Picocrypt" },
+    "reason": "Picocrypt-NG is the community fork of the archived Picocrypt (github.com/Picocrypt-NG)."
+  },
+  {
+    "type": "replaces",
+    "from": { "source": "flatpak-flathub", "appId": "io.github.xiaoyifang.goldendict_ng" },
+    "to": { "source": "pacman-aur", "appId": "goldendict" },
+    "reason": "Debian's goldendict is now a transitional package to goldendict-ng, the maintained fork."
+  },
+  {
+    "type": "wrapperOf",
+    "from": { "source": "pacman-aur", "appId": "claude-tauri-desktop-git" },
+    "to": { "source": "pacman-aur", "appId": "claude-desktop" },
+    "reason": "A third-party desktop client for Claude (github.com/0xgingi/claude-tauri-desktop), not Anthropic's app."
+  }
+]

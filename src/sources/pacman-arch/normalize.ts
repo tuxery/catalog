@@ -10,6 +10,7 @@ export function normalize(entries: ArchCacheEntry[]): SourcedPackage[] {
     // Arch package names are unique across core+extra together.
     appId: entry.name,
     homepage: entry.homepage,
+    formal: entry.formal,
     // entry.repo (core/extra) isn't threaded through yet — SourcedPackage
     // has no slot for it, though it stays available in the cache row
     // either way.

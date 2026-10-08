@@ -18,6 +18,7 @@ export function normalize(entries: UbuntuCacheEntry[]): SourcedPackage[] {
     // work resumes (see the "Matcher bucket sizes growing again" card).
     appId: entry.name,
     homepage: entry.homepage,
+    formal: entry.formal,
     section: normalizeSection(entry.section),
     // entry.component (main/universe) isn't threaded through yet —
     // SourcedPackage has no slot for it. See the "Thread arch/channel

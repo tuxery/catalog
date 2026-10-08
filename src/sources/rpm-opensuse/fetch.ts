@@ -27,7 +27,7 @@ const REPOS = [
  */
 export function parsePrimary(xml: string, repo: OpenSuseCacheEntry["repo"]): OpenSuseCacheEntry[] {
   return parsePrimaryXml(xml).map(
-    ({ name, summary, version, homepage, group, hasDesktopFile }) => ({
+    ({ name, summary, version, homepage, group, hasDesktopFile, formal }) => ({
       name,
       summary,
       version,
@@ -35,6 +35,7 @@ export function parsePrimary(xml: string, repo: OpenSuseCacheEntry["repo"]): Ope
       repo,
       group,
       hasDesktopFile,
+      formal,
     }),
   );
 }

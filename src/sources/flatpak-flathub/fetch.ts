@@ -1,5 +1,5 @@
 import { parallel } from "helpers4/promise";
-import { parseAppstreamXml, resolveIconUrl } from "../_shared/appstream";
+import { isAddonComponent, parseAppstreamXml, resolveIconUrl } from "../_shared/appstream";
 import { fetchOrThrow, fetchGunzippedText } from "../_shared/http";
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
@@ -248,7 +248,7 @@ export function parseAppstream(
   popularityRanks: Map<string, number>,
   storeCollectionTags: Map<string, StoreCollectionTag[]> = new Map(),
 ): FlathubCacheEntry[] {
-  return parseAppstreamXml(xml).map((entry) =>
+  return parseAppstreamXml(xml, { includeAddons: true }).map((entry) =>
     Object.assign(entry, {
       iconUrl: resolveIconUrl(entry, REPO_BASE),
       rating: pickOdrsRating(odrsRatings, entry.id),
@@ -272,7 +272,14 @@ export async function fetchFlathub(cachePath: string): Promise<number> {
     fetchStoreCollectionTags(),
   ]);
   const parsed = parseAppstream(xml, odrsRatings, popularityRanks, storeCollectionTags);
-  const entries = await resolveAppExtras(parsed, fetchAppExtras, EXTRAS_CONCURRENCY);
+  // Install stats and download size are only shown for apps; add-ons skip
+  // the two per-entry API calls.
+  const apps = await resolveAppExtras(
+    parsed.filter((entry) => !isAddonComponent(entry)),
+    fetchAppExtras,
+    EXTRAS_CONCURRENCY,
+  );
+  const entries = [...apps, ...parsed.filter(isAddonComponent)];
 
   writeNdjson(cachePath, entries);
   writeMetadata<FlathubFetchMetadata>(cachePath, {

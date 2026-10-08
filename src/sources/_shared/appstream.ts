@@ -1,9 +1,17 @@
 import { XMLParser } from "fast-xml-parser";
+import type { FormalSignals } from "../types";
+import { compactFormal } from "./formal";
 
 // AppStream also lists "addon"/"runtime"/"localization"/"generic" components
 // (extensions, Flatpak runtimes, translation packs, ...) — not apps a user
 // would search for in a store.
 const APP_TYPES = new Set(["desktop-application", "desktop", "console-application"]);
+// Components that extend another one through a formal `<extends>` — kept
+// only when a caller asks (`includeAddons`), for the product-families
+// companion stage (see docs/product-families.md). Verified on Flathub's
+// bulk feed 2026-10-08: 861 `addon` components, each with `<extends>`
+// (e.g. org.gnome.Boxes.Extension.OsinfoDb -> org.gnome.Boxes.desktop).
+const ADDON_TYPES = new Set(["addon", "localization"]);
 
 interface RawTextNode {
   "#text"?: string;
@@ -85,6 +93,8 @@ interface RawComponent {
   developer?: RawDeveloper;
   screenshots?: { screenshot?: RawScreenshot[] };
   languages?: RawLanguages;
+  extends?: string[];
+  replaces?: { id?: string[] };
 }
 
 /**
@@ -124,6 +134,13 @@ export interface AppstreamComponent {
   changelog?: string;
   /** The newest `<release>`'s own `@_timestamp` (Unix epoch seconds), converted to an ISO date string — see `SourcedPackage.lastUpdated`. `undefined` when the newest release has no timestamp, or the value doesn't parse as a real number. */
   lastUpdated?: string;
+  /** Component type, `<extends>` and `<replaces>` — see `FormalSignals`. Always carries `componentType`. */
+  formal?: FormalSignals;
+}
+
+/** Whether a parsed component is an add-on kept by `includeAddons` rather than an app. */
+export function isAddonComponent(component: { formal?: FormalSignals }): boolean {
+  return ADDON_TYPES.has(component.formal?.componentType ?? "");
 }
 
 /**
@@ -282,12 +299,15 @@ function pickScreenshots(screenshots: { screenshot?: RawScreenshot[] } | undefin
  * the same situation `deb822.ts`/`rpm-repodata.ts` share between their
  * own respective source pairs. Pure — no I/O.
  */
-export function parseAppstreamXml(xml: string): AppstreamComponent[] {
+export function parseAppstreamXml(
+  xml: string,
+  { includeAddons = false }: { includeAddons?: boolean } = {},
+): AppstreamComponent[] {
   const parser = new XMLParser({
     ignoreAttributes: false,
     attributeNamePrefix: "@_",
     textNodeName: "#text",
-    isArray: (name) =>
+    isArray: (name, jpath) =>
       [
         "component",
         "icon",
@@ -305,7 +325,8 @@ export function parseAppstreamXml(xml: string): AppstreamComponent[] {
         "screenshot",
         "image",
         "lang",
-      ].includes(name),
+        "extends",
+      ].includes(name) || String(jpath).endsWith(".replaces.id"),
     // Without this, fast-xml-parser silently turns purely-numeric text
     // into a JS number (bit Fedora's fetcher for real: a package named
     // "65535" came back as the number 65535). Every field here is meant
@@ -318,7 +339,10 @@ export function parseAppstreamXml(xml: string): AppstreamComponent[] {
   const components = parsed.components?.component ?? [];
 
   return components
-    .filter((component) => APP_TYPES.has(component["@_type"] ?? ""))
+    .filter((component) => {
+      const type = component["@_type"] ?? "";
+      return APP_TYPES.has(type) || (includeAddons && ADDON_TYPES.has(type));
+    })
     .map((component) => ({
       id: component.id ?? "",
       pkgname: component.pkgname || undefined,
@@ -340,6 +364,13 @@ export function parseAppstreamXml(xml: string): AppstreamComponent[] {
       languages: pickLanguages(component.languages),
       changelog: pickChangelog(component.releases),
       lastUpdated: pickLastUpdated(component.releases),
+      formal: compactFormal(component.id ?? "", {
+        // `desktop` is AppStream's deprecated spelling of `desktop-application`.
+        componentType:
+          component["@_type"] === "desktop" ? "desktop-application" : component["@_type"],
+        extends: component.extends?.filter(Boolean),
+        replaces: component.replaces?.id?.filter(Boolean),
+      }),
     }))
     .filter((entry) => entry.id && entry.name);
 }

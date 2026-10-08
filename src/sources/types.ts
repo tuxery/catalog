@@ -267,6 +267,36 @@ export interface SourcedPackage {
    * figure.
    */
   approxSizeBytes?: number;
+  /** See `FormalSignals`. Used by the curator only — the store doesn't publish it. */
+  formal?: FormalSignals;
+}
+
+/**
+ * Relationships a source's own metadata formally declares for one
+ * package — the strongest signals behind product families (see
+ * docs/product-families.md, "Signals"). Package names only: version
+ * constraints, architecture qualifiers and synthetic capabilities
+ * (`libfoo.so()`, `pkgconfig(...)`, file paths) are stripped, and a
+ * package never lists itself. Every field is `undefined` when the
+ * source doesn't declare it, never an empty array.
+ */
+export interface FormalSignals {
+  /** The source package this binary package was built from, when it differs from the package's own name — AUR/Arch `pkgbase`, Debian `Source`, RPM source rpm. Siblings of one split build (`firefox-esr-i18n-*`) share it. */
+  base?: string;
+  /** Names this package can stand in for — AUR/Arch `provides`, Debian `Provides`, RPM `provides`. */
+  provides?: string[];
+  /** Names this package can't be installed alongside — AUR/Arch `conflicts`, Debian `Conflicts`, RPM `conflicts`. */
+  conflicts?: string[];
+  /** Packages this one supersedes — AUR/Arch `replaces`, Debian `Replaces`, RPM `obsoletes`, AppStream `<replaces>`. */
+  replaces?: string[];
+  /** Hard runtime dependencies — AUR/Arch `depends`, Debian `Depends`/`Pre-Depends` (alternatives flattened), RPM `requires`. */
+  depends?: string[];
+  /** Packages this one adds to — Debian `Enhances`, RPM `enhances`/`supplements`. */
+  enhances?: string[];
+  /** AppStream ids this add-on extends (`<extends>`), only on `componentType: "addon"`. */
+  extends?: string[];
+  /** AppStream component type when the source is AppStream (`desktop-application`, `console-application`, `addon`, `localization`, ...). */
+  componentType?: string;
 }
 
 export type StoreCollectionTag = "verified" | "recently-added" | "recently-updated" | "featured";

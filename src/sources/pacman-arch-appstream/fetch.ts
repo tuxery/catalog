@@ -113,7 +113,7 @@ async function fetchArchComponents(): Promise<{
         ),
       )
     )
-      .filter((gz): gz is Buffer => gz !== undefined)
+      .filter((gz) => gz !== undefined)
       .flatMap((gz) => parseAppstreamXml(gunzipSync(gz).toString("utf8")));
     return toCacheEntries(components);
   });

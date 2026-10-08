@@ -207,7 +207,7 @@ because a paragraph per cell made the table unreadable.
     repo: `repodata/repomd.xml` first (to find the current
     content-hashed `primary.xml.zst` path — RPM repos don't use a fixed
     filename like Debian's `Packages.gz`), then that file,
-    Zstandard-compressed (Node 24's built-in zlib decodes it, no new
+    Zstandard-compressed (Node's built-in zlib decodes it, no new
     dependency). Fetches both the current release's Everything repo (the
     frozen release-day snapshot, release number resolved live via
     Bodhi's API rather than hardcoded — see the "Fedora/Ubuntu release

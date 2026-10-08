@@ -133,7 +133,7 @@ link without a verifiable signal. In order of strength:
    - AppStream (Flathub, AppCenter, `*-appstream`): component type, `extends`, `replaces`.
    - nixpkgs attribute path (`vimPlugins.*`, `gnomeExtensions.*`), Gentoo category (`app-vim/*`, `x11-themes/*`).
 2. **Curated config** for the cases signals cannot settle: tracks of
-   well-known products (`config/families.json`), relations
+   well-known products (`config/match-tracks.json`), relations
    (`config/relations.json`).
 3. **Name conventions** (`-git`, `-bin`, `-beta`, `-esr`, version
    suffixes) — a fallback, and a corroboration for formal signals.
@@ -150,22 +150,45 @@ same signal also comes from forks (`ungoogled-chromium` provides
 `chromium`, `goldendict-ng` provides `goldendict`) and from shims
 (`neovim-symlinks` provides `vim`). So:
 
-- folded as a flavor of X only when the name is also `X-<suffix>` and
-  the suffix is not a fork marker (`-ng`, `-ce`, `-classic`, ... — kept
-  in config);
-- otherwise a candidate `forkOf`/`replaces` relation, which needs a
-  curated entry or a second signal.
+- folded into X only when the name is also `X-<rest>`, the rest is not
+  a fork, rewrite, shim or language-pack marker (`ng`, `next`, `fork`,
+  `classic`, `rs`, `rust`, `go`, `zig`, `symlink`, `i18n`, ... — listed
+  with their evidence in `src/curator/match/variants.ts`), and the
+  description is about X (names it, or shares a significant word with
+  X's own: 3,048 of the 3,223 AUR/Arch candidates; the 175 others are
+  almost all unrelated software whose files collide, like `ack-cpm`, a
+  C compiler, against `ack`, a grep tool);
+- the rest then gives the build's axes: track words and version numbers
+  (`esr`, `lts-22`, `1.31`), risk words (`rc`, `snapshot`, `devel`,
+  `insiders`, ...), locale codes (`locale:zh`), and whatever remains as
+  one flavor (`vaapi`, `no-notmuch`);
+- otherwise it stays its own product — a candidate `forkOf`/`replaces`
+  relation, which needs a curated entry or a second signal.
+
+The same markers also stop the older name-prefix + same-description
+rule: `goldendict-ng-appimage` reuses `goldendict`'s blurb, and used to
+merge GoldenDict and GoldenDict-ng into one card through it.
+
+### Naming a product
+
+A card's id comes from its default build: a package with a track or a
+build-difference flavor (`thunar-extended`, `firefox-esr`) never names
+it while a plain one exists, and among Flatpak ids the one others extend
+wins (`com.vscodium.codium` over `com.vscodium.codium-insiders`). Risk and
+packaging flavors (`-git`, `-bin`, `-appimage`) don't count, so ids that
+already named a card keep doing so. When a card's own id has no LLM
+classification, the one a default build's own id carries applies.
 
 ## Determination per axis
 
-| Axis       | Signals                                                                                                    |
-| ---------- | ---------------------------------------------------------------------------------------------------------- |
-| Risk       | Name words (`-beta`, `-nightly`, `-git`, ...), Snap risk, Flathub branch, Gentoo keywords                  |
-| Track      | `config/families.json`, `-esr`/`-lts` names, version-suffixed names (`openjdk-17`), Snap track             |
-| Flavor     | `-bin`/`-appimage`/`-unwrapped`, suffix of a folded drop-in build, locale suffix of a full build           |
-| Provenance | Per-source default (table above), refined by flavor (`bin` → repack, patch flavor → patched)               |
-| Companion  | AppStream `extends`, Debian `enhances`, `depends` on the parent + name, nixpkgs namespace, Gentoo category |
-| Relation   | `replaces`/`obsoletes`, non-folded `provides`+`conflicts`, `config/relations.json`                         |
+| Axis       | Signals                                                                                                              |
+| ---------- | -------------------------------------------------------------------------------------------------------------------- |
+| Risk       | Name words (`-beta`, `-nightly`, `-git`, ...), Snap risk, Flathub branch, Gentoo keywords                            |
+| Track      | `config/match-tracks.json`, track words and version numbers in a folded build's name (`asterisk-lts-22`), Snap track |
+| Flavor     | `-bin`/`-appimage`/`-unwrapped`, suffix of a folded drop-in build, locale suffix of a full build                     |
+| Provenance | Per-source default (table above), refined by flavor (`bin` → repack, patch flavor → patched)                         |
+| Companion  | AppStream `extends`, Debian `enhances`, `depends` on the parent + name, nixpkgs namespace, Gentoo category           |
+| Relation   | `replaces`/`obsoletes`, non-folded `provides`+`conflicts`, `config/relations.json`                                   |
 
 ## Storage
 

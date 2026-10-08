@@ -545,3 +545,102 @@ describe("buildAppId (via groupPackages' id field)", () => {
     expect(groups[0]?.id).toBe("github-releases:AkashaProject:Community");
   });
 });
+
+describe("groupPackages — product families", () => {
+  const aur = (name: string, description: string, formal?: SourcedPackage["formal"]) =>
+    pkg({ source: "pacman-aur", name, appId: name, description, formal });
+
+  it("folds a drop-in build into its project and labels its flavor and provenance", () => {
+    const groups = groupPackages(
+      [
+        aur("firefox", "Fast, Private & Safe Web Browser"),
+        aur("firefox-globalmenu", "Firefox with the global menu patch", {
+          provides: ["firefox"],
+          conflicts: ["firefox"],
+        }),
+      ],
+      NO_OVERRIDES,
+    );
+
+    expect(groups).toHaveLength(1);
+    expect(groups[0]?.packages[1]).toMatchObject({
+      flavors: ["globalmenu"],
+      provenance: "community-patched",
+    });
+  });
+
+  it("keeps forks and unrelated colliding packages apart, even when they declare provides+conflicts", () => {
+    const groups = groupPackages(
+      [
+        aur("goldendict", "Feature-rich dictionary lookup program"),
+        aur("goldendict-ng", "Feature-rich dictionary lookup program", {
+          provides: ["goldendict"],
+          conflicts: ["goldendict"],
+        }),
+        aur("ack", "A Perl-based grep replacement"),
+        aur("ack-cpm", "A C compiler for 8-bit CPUs", { provides: ["ack"], conflicts: ["ack"] }),
+      ],
+      NO_OVERRIDES,
+    );
+
+    expect(groups).toHaveLength(4);
+  });
+
+  it("merges and labels a curated track, keeping the product's own id", () => {
+    const groups = groupPackages(
+      [
+        pkg({ source: "pacman-aur", name: "firefox-esr-bin", appId: "firefox-esr-bin" }),
+        pkg({ source: "deb-debian", name: "firefox-esr", appId: "firefox-esr" }),
+        pkg({ source: "pacman-arch", name: "firefox", appId: "firefox" }),
+      ],
+      {
+        ...NO_OVERRIDES,
+        tracks: [{ product: "firefox", track: "esr", names: ["firefox-esr"], reason: "test" }],
+      },
+    );
+
+    expect(groups).toHaveLength(1);
+    expect(groups[0]?.id).toBe("pacman-arch:firefox");
+    expect(groups[0]?.packages.map((member) => member.track)).toEqual(["esr", "esr", undefined]);
+  });
+
+  it("names a group after its default build, not a patched one", () => {
+    const groups = groupPackages(
+      [
+        aur("thunar-extended", "File Browser", { provides: ["thunar"], conflicts: ["thunar"] }),
+        aur("thunar-git", "File Browser"),
+        pkg({
+          source: "pacman-arch",
+          name: "thunar",
+          appId: "thunar",
+          description: "File Browser",
+        }),
+      ],
+      NO_OVERRIDES,
+    );
+
+    expect(groups).toHaveLength(1);
+    expect(groups[0]?.id).toBe("pacman-aur:thunar-git");
+  });
+
+  it("names a Flatpak group after the id its other ids extend", () => {
+    const groups = groupPackages(
+      [
+        pkg({ name: "VSCodium Insiders", appId: "com.vscodium.codium-insiders" }),
+        pkg({ name: "VSCodium", appId: "com.vscodium.codium" }),
+      ],
+      {
+        ...NO_OVERRIDES,
+        force: [
+          {
+            destination: { source: "flatpak-flathub", appId: "com.vscodium.codium" },
+            sources: [{ source: "flatpak-flathub", appId: "com.vscodium.codium-insiders" }],
+            reason: "test",
+          },
+        ],
+      },
+    );
+
+    expect(groups[0]?.id).toBe("com.vscodium.codium");
+  });
+});

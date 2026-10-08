@@ -47,7 +47,7 @@ export interface FlathubCacheEntry {
   installsLast7Days?: number;
   /** See `SourcedPackage.approxSizeBytes`. */
   approxSizeBytes?: number;
-  /** Component type, `<extends>`, `<replaces>` — see `FormalSignals`. Add-on rows are cached but not yet normalized into packages (see `normalize.ts`). */
+  /** Component type, `<extends>`, `<replaces>` — see `FormalSignals`. Add-on rows become packages too; the pipeline attaches them to the app they extend as companions. */
   formal?: FormalSignals;
 }
 

@@ -16,6 +16,7 @@ import { CompatWarningsListSchema } from "../src/curator/enrich/compat-warnings"
 import { EnrichSuitesListSchema } from "../src/curator/enrich/suite";
 import { LlmClassificationsListSchema } from "../src/curator/enrich/llm-classifications";
 import { LlmModelsListSchema } from "../src/curator/enrich/llm-models";
+import { FamilyRelationsListSchema } from "../src/curator/family/types";
 
 /**
  * Regenerates every `config/*.json` file's checked-in `.schema.json`
@@ -39,6 +40,10 @@ const SCHEMAS: { schema: z.ZodType; outFile: string }[] = [
   { schema: MatchForceListSchema, outFile: "../src/curator/match/match-force.schema.json" },
   { schema: MatchDenyListSchema, outFile: "../src/curator/match/match-deny.schema.json" },
   { schema: MatchTracksListSchema, outFile: "../src/curator/match/match-tracks.schema.json" },
+  {
+    schema: FamilyRelationsListSchema,
+    outFile: "../src/curator/family/family-relations.schema.json",
+  },
   {
     schema: AppStoreTagsListSchema,
     outFile: "../src/curator/enrich/enrich-app-store-tags.schema.json",

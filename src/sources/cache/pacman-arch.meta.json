@@ -1,8 +1,8 @@
 {
   "source": "pacman-arch",
-  "fetchedAt": "2026-10-04T15:33:53.694Z",
+  "fetchedAt": "2026-10-08T20:05:43.954Z",
   "url": "https://geo.mirror.pkgbuild.com/{core,extra,multilib}/os/x86_64/*.db",
-  "entryCount": 15494,
+  "entryCount": 15512,
   "repos": [
     "core",
     "extra",

@@ -1,4 +1,4 @@
-import { parseDeb822Stanzas, parseDebtags } from "../_shared/deb822";
+import { debFormalSignals, parseDeb822Stanzas, parseDebtags } from "../_shared/deb822";
 import { fetchGunzippedText } from "../_shared/http";
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
@@ -46,9 +46,8 @@ export function hasGameDebtag(tags: string[]): boolean {
  */
 export function parsePackages(text: string, component: string): DebianCacheEntry[] {
   return parseDeb822Stanzas(text)
-    .filter(
-      (stanza): stanza is typeof stanza & { fields: { Package: string } } =>
-        Boolean(stanza.fields.Package),
+    .filter((stanza): stanza is typeof stanza & { fields: { Package: string } } =>
+      Boolean(stanza.fields.Package),
     )
     .map(({ fields, raw }) => ({
       name: fields.Package,
@@ -57,6 +56,7 @@ export function parsePackages(text: string, component: string): DebianCacheEntry
       homepage: fields.Homepage || undefined,
       component,
       section: fields.Section || undefined,
+      formal: debFormalSignals(fields),
       hasGameCategory: hasGameDebtag(parseDebtags(raw)),
     }));
 }

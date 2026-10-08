@@ -1,4 +1,5 @@
 import type { FetchMetadata } from "../_shared/metadata";
+import type { FormalSignals } from "../types";
 
 /**
  * One `<package>` entry from RPM Fusion's `primary.xml` repodata, the
@@ -17,6 +18,8 @@ export interface RpmFusionCacheEntry {
   homepage?: string;
   group?: string;
   hasDesktopFile: boolean;
+  /** See `RpmPrimaryEntry.formal`. */
+  formal?: FormalSignals;
 }
 
 export interface RpmFusionFetchMetadata extends FetchMetadata {

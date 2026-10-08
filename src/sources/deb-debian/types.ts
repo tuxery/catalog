@@ -1,4 +1,5 @@
 import type { FetchMetadata } from "../_shared/metadata";
+import type { FormalSignals } from "../types";
 
 /**
  * One stanza from Debian's `Packages.gz` (deb822 format), the shape
@@ -19,6 +20,8 @@ export interface DebianCacheEntry {
   component: string;
   /** Debian's `Section` field, e.g. "libs", "games", "doc" — see SourcedPackage.section. */
   section?: string;
+  /** `Source`/`Provides`/`Conflicts`/`Replaces`/`Depends`/`Enhances` — see `FormalSignals`. */
+  formal?: FormalSignals;
   /**
    * Whether this stanza's Debtags (`Tag:` field) directly signal a game —
    * see fetch.ts's `hasGameDebtag`. Only ~37% of Debian stable main's

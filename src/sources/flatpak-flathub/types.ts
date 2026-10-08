@@ -1,5 +1,5 @@
 import type { FetchMetadata } from "../_shared/metadata";
-import type { StoreCollectionTag } from "../types";
+import type { FormalSignals, StoreCollectionTag } from "../types";
 
 /**
  * One `<component>` entry from Flathub's appstream repodata
@@ -47,6 +47,8 @@ export interface FlathubCacheEntry {
   installsLast7Days?: number;
   /** See `SourcedPackage.approxSizeBytes`. */
   approxSizeBytes?: number;
+  /** Component type, `<extends>`, `<replaces>` — see `FormalSignals`. Add-on rows are cached but not yet normalized into packages (see `normalize.ts`). */
+  formal?: FormalSignals;
 }
 
 export interface FlathubFetchMetadata extends FetchMetadata {

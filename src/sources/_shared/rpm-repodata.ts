@@ -1,8 +1,14 @@
 import { XMLParser } from "fast-xml-parser";
+import type { FormalSignals } from "../types";
+import { compactFormal, relationNames, sourceRpmName } from "./formal";
 import { fetchGunzippedText, fetchText, fetchZstdText } from "./http";
 
 interface RawRpmProvidesEntry {
   "@_name"?: string;
+}
+
+interface RawRpmEntryList {
+  "rpm:entry"?: RawRpmProvidesEntry[];
 }
 
 interface RawRpmPackage {
@@ -12,7 +18,13 @@ interface RawRpmPackage {
   url?: string;
   format?: {
     "rpm:group"?: string;
-    "rpm:provides"?: { "rpm:entry"?: RawRpmProvidesEntry[] };
+    "rpm:sourcerpm"?: string;
+    "rpm:provides"?: RawRpmEntryList;
+    "rpm:conflicts"?: RawRpmEntryList;
+    "rpm:obsoletes"?: RawRpmEntryList;
+    "rpm:requires"?: RawRpmEntryList;
+    "rpm:supplements"?: RawRpmEntryList;
+    "rpm:enhances"?: RawRpmEntryList;
   };
 }
 
@@ -37,6 +49,16 @@ export interface RpmPrimaryEntry {
    * isn't evidence of "not a GUI app", only presence is meaningful.
    */
   hasDesktopFile: boolean;
+  /** `sourcerpm`/`provides`/`conflicts`/`obsoletes`/`requires`/`enhances`+`supplements` — see `FormalSignals`. */
+  formal?: FormalSignals;
+}
+
+/** The plain package names of one `<rpm:provides>`-style list — see `relationNames`. */
+function entryNames(list: RawRpmEntryList | undefined, self: string): string[] | undefined {
+  return relationNames(
+    (list?.["rpm:entry"] ?? []).map((entry) => entry["@_name"] ?? ""),
+    self,
+  );
 }
 
 const DESKTOP_PROVIDES_PATTERN = /^application\(.*\.desktop\)$/;
@@ -80,9 +102,11 @@ export function parsePrimaryXml(xml: string): RpmPrimaryEntry[] {
   return packages
     .filter((pkg) => pkg.name)
     .map((pkg) => {
-      const provides = pkg.format?.["rpm:provides"]?.["rpm:entry"] ?? [];
+      const format = pkg.format;
+      const provides = format?.["rpm:provides"]?.["rpm:entry"] ?? [];
+      const name = pkg.name ?? "";
       return {
-        name: pkg.name ?? "",
+        name,
         summary: pkg.summary ?? "",
         version: pkg.version?.["@_ver"] ?? "unknown",
         homepage: pkg.url || undefined,
@@ -90,6 +114,17 @@ export function parsePrimaryXml(xml: string): RpmPrimaryEntry[] {
         hasDesktopFile: provides.some((entry) =>
           DESKTOP_PROVIDES_PATTERN.test(entry["@_name"] ?? ""),
         ),
+        formal: compactFormal(name, {
+          base: sourceRpmName(format?.["rpm:sourcerpm"]),
+          provides: entryNames(format?.["rpm:provides"], name),
+          conflicts: entryNames(format?.["rpm:conflicts"], name),
+          replaces: entryNames(format?.["rpm:obsoletes"], name),
+          depends: entryNames(format?.["rpm:requires"], name),
+          enhances: [
+            ...(entryNames(format?.["rpm:enhances"], name) ?? []),
+            ...(entryNames(format?.["rpm:supplements"], name) ?? []),
+          ],
+        }),
       };
     });
 }

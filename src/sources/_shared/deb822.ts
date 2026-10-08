@@ -1,3 +1,6 @@
+import type { FormalSignals } from "../types";
+import { compactFormal, debRelationNames, relationName } from "./formal";
+
 /**
  * One deb822 stanza, both parsed and raw. `fields` drops continuation
  * lines the same way `parseDeb822` always has (see its doc comment); `raw`
@@ -77,4 +80,26 @@ export function parseDebtags(raw: string): string[] {
     .split(",")
     .map((tag) => tag.trim())
     .filter((tag) => tag.length > 0);
+}
+
+/**
+ * The formal relations a Packages stanza declares (`Source`, `Provides`,
+ * `Conflicts`, `Replaces`, `Depends` + `Pre-Depends`, `Enhances`) — see
+ * `FormalSignals`. `Source` may carry its own version in parentheses
+ * (`firefox-esr (115.0-1)`) when it differs from the binary's. Shared by
+ * every deb822 connector. Pure — no I/O.
+ */
+export function debFormalSignals(fields: Record<string, string>): FormalSignals | undefined {
+  const name = fields.Package ?? "";
+  return compactFormal(name, {
+    base: fields.Source ? relationName(fields.Source) : undefined,
+    provides: debRelationNames(fields.Provides, name),
+    conflicts: debRelationNames(fields.Conflicts, name),
+    replaces: debRelationNames(fields.Replaces, name),
+    depends: debRelationNames(
+      [fields["Pre-Depends"], fields.Depends].filter(Boolean).join(","),
+      name,
+    ),
+    enhances: debRelationNames(fields.Enhances, name),
+  });
 }

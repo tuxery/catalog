@@ -12,5 +12,6 @@ export function normalize(entries: RpmFusionCacheEntry[]): SourcedPackage[] {
     homepage: entry.homepage,
     section: entry.group,
     hasDesktopFile: entry.hasDesktopFile,
+    formal: entry.formal,
   }));
 }

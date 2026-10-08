@@ -1,4 +1,5 @@
 import type { FetchMetadata } from "../_shared/metadata";
+import type { FormalSignals } from "../types";
 
 /**
  * One `<package>` entry from Fedora's `primary.xml` repodata, the shape
@@ -12,6 +13,8 @@ export interface FedoraCacheEntry {
   homepage?: string;
   /** Whether this package's RPM provides list includes a synthetic `application(*.desktop)` entry — see `SourcedPackage.hasDesktopFile`. */
   hasDesktopFile: boolean;
+  /** See `RpmPrimaryEntry.formal`. */
+  formal?: FormalSignals;
 }
 
 export interface FedoraFetchMetadata extends FetchMetadata {

@@ -32,13 +32,14 @@ function repoBasesFor(release: string): string[] {
  */
 export function parsePrimary(xml: string): RpmFusionCacheEntry[] {
   return parsePrimaryXml(xml).map(
-    ({ name, summary, version, homepage, group, hasDesktopFile }) => ({
+    ({ name, summary, version, homepage, group, hasDesktopFile, formal }) => ({
       name,
       summary,
       version,
       homepage,
       group,
       hasDesktopFile,
+      formal,
     }),
   );
 }

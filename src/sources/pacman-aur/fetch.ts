@@ -1,3 +1,4 @@
+import { compactFormal, relationNames } from "../_shared/formal";
 import { fetchGunzippedText } from "../_shared/http";
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
@@ -15,6 +16,12 @@ interface RawPackage {
   /** SPDX-ish license strings (e.g. ["GPL3"]) — see `AurCacheEntry.license`. */
   License?: string[] | null;
   Popularity?: number;
+  /** Formal relations — see `AurCacheEntry.formal`. */
+  PackageBase?: string;
+  Provides?: string[] | null;
+  Conflicts?: string[] | null;
+  Replaces?: string[] | null;
+  Depends?: string[] | null;
 }
 
 /**
@@ -64,6 +71,13 @@ export function mapPackages(
       keywords: pkg.Keywords?.filter((keyword) => keyword.trim().length > 0),
       license: pkg.License?.length ? pkg.License.join(" AND ") : undefined,
       popularity: popularityRanks.get(pkg.Name),
+      formal: compactFormal(pkg.Name, {
+        base: pkg.PackageBase,
+        provides: relationNames(pkg.Provides, pkg.Name),
+        conflicts: relationNames(pkg.Conflicts, pkg.Name),
+        replaces: relationNames(pkg.Replaces, pkg.Name),
+        depends: relationNames(pkg.Depends, pkg.Name),
+      }),
     });
   }
 

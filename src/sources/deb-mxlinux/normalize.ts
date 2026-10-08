@@ -11,6 +11,7 @@ export function normalize(entries: MxLinuxCacheEntry[]): SourcedPackage[] {
     // fetched here.
     appId: entry.name,
     homepage: entry.homepage,
+    formal: entry.formal,
     section: entry.section,
   }));
 }

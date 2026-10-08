@@ -29,7 +29,7 @@ export function parseAppstream(
   xml: string,
   odrsRatings: Map<string, OdrsRating>,
 ): AppCenterCacheEntry[] {
-  return parseAppstreamXml(xml).map((entry) =>
+  return parseAppstreamXml(xml, { includeAddons: true }).map((entry) =>
     Object.assign(entry, {
       iconUrl: resolveIconUrl(entry, REPO_BASE),
       rating: pickOdrsRating(odrsRatings, entry.id),

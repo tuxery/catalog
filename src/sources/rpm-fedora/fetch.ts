@@ -37,13 +37,16 @@ function repoBasesFor(release: string): string[] {
  * comment) is kept. Pure — no I/O.
  */
 export function parsePrimary(xml: string): FedoraCacheEntry[] {
-  return parsePrimaryXml(xml).map(({ name, summary, version, homepage, hasDesktopFile }) => ({
-    name,
-    summary,
-    version,
-    homepage,
-    hasDesktopFile,
-  }));
+  return parsePrimaryXml(xml).map(
+    ({ name, summary, version, homepage, hasDesktopFile, formal }) => ({
+      name,
+      summary,
+      version,
+      homepage,
+      hasDesktopFile,
+      formal,
+    }),
+  );
 }
 
 /**

@@ -57,6 +57,24 @@ describe("createTursoClient", () => {
     expect(swapBatch.some((s) => s.sql.includes("INSERT INTO meta"))).toBe(true);
   });
 
+  it("leaves each package's formal signals out of packages_json", async () => {
+    const { batch, client } = fakeClient(false);
+    const tursoClient = createTursoClient({ url: "file::memory:" }, client);
+    const app = {
+      ...APP,
+      packages: [
+        { source: "pacman-aur", name: "firefox-vaapi", formal: { provides: ["firefox"] } },
+      ],
+    };
+
+    await tursoClient.publish({ generatedAt: "2026-01-01T00:00:00.000Z", apps: [app] });
+
+    const insertBatch = batch.mock.calls[0]?.[0] as { args: unknown[] }[];
+    expect(insertBatch[0]?.args).toContain(
+      JSON.stringify([{ source: "pacman-aur", name: "firefox-vaapi" }]),
+    );
+  });
+
   it("builds every filter/sort index on apps, after the rename swap has already dropped the old table", async () => {
     const { execute, batch, client } = fakeClient(false);
     const tursoClient = createTursoClient({ url: "file::memory:" }, client);

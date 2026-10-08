@@ -1,4 +1,5 @@
 import type { FetchMetadata } from "../_shared/metadata";
+import type { FormalSignals } from "../types";
 
 /**
  * One package's `desc` file from Arch's official repo databases
@@ -20,6 +21,8 @@ export interface ArchCacheEntry {
    * know, and this is cheap to keep.
    */
   repo: "core" | "extra" | "multilib";
+  /** `%BASE%`/`%PROVIDES%`/`%CONFLICTS%`/`%REPLACES%`/`%DEPENDS%` — see `FormalSignals`. */
+  formal?: FormalSignals;
 }
 
 export interface ArchFetchMetadata extends FetchMetadata {

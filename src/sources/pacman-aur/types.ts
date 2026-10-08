@@ -1,4 +1,5 @@
 import type { FetchMetadata } from "../_shared/metadata";
+import type { FormalSignals } from "../types";
 
 /**
  * One entry from the AUR's `packages-meta-ext-v1.json.gz` metadata dump,
@@ -22,6 +23,8 @@ export interface AurCacheEntry {
   license?: string;
   /** See `SourcedPackage.popularity`. */
   popularity?: number;
+  /** `PackageBase`/`Provides`/`Conflicts`/`Replaces`/`Depends` from the dump — see `FormalSignals`. */
+  formal?: FormalSignals;
 }
 
 export type AurFetchMetadata = FetchMetadata;

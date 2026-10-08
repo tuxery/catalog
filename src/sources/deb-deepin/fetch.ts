@@ -1,4 +1,4 @@
-import { parseDeb822 } from "../_shared/deb822";
+import { debFormalSignals, parseDeb822 } from "../_shared/deb822";
 import { fetchGunzippedText } from "../_shared/http";
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
@@ -65,6 +65,7 @@ export function parsePackages(text: string): DeepinCacheEntry[] {
       version: fields.Version ?? "unknown",
       homepage: fields.Homepage || undefined,
       section: fields.Section || undefined,
+      formal: debFormalSignals(fields),
     }));
 
   return dedupeByNewest(entries);

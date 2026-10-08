@@ -23,6 +23,27 @@ describe("mapPackages", () => {
     ]);
   });
 
+  it("keeps the package's formal relations, by name", () => {
+    const [entry] = mapPackages(
+      [
+        {
+          Name: "firefox-vaapi",
+          PackageBase: "firefox-vaapi",
+          Provides: ["firefox=157.0"],
+          Conflicts: ["firefox"],
+          Depends: ["gtk3", "libpulse>=15", "firefox-vaapi"],
+        },
+      ],
+      new Map(),
+    );
+
+    expect(entry?.formal).toEqual({
+      provides: ["firefox"],
+      conflicts: ["firefox"],
+      depends: ["gtk3", "libpulse"],
+    });
+  });
+
   it("drops entries with no name", () => {
     expect(mapPackages([{ Description: "orphaned" }], new Map())).toEqual([]);
   });

@@ -1,6 +1,7 @@
 import { mkdir, readdir, readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import * as tar from "tar";
+import { compactFormal, relationNames } from "../_shared/formal";
 import { fetchOrThrow } from "../_shared/http";
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
@@ -19,44 +20,54 @@ const MIRROR_BASE = "https://geo.mirror.pkgbuild.com";
 
 /**
  * Parses one package's `desc` file — Arch's own format, `%FIELD%` on its
- * own line followed by the value, blocks separated by a blank line (some
- * fields like `%DEPENDS%` have multi-line values; only the first value
- * line is kept, which is all `NAME`/`VERSION`/`DESC`/`URL` ever use).
+ * own line followed by its value lines, blocks separated by a blank line.
+ * List fields (`%DEPENDS%`, `%PROVIDES%`, ...) carry one value per line.
  * Pure — no I/O.
  */
-export function parseDesc(content: string): Record<string, string> {
-  const fields: Record<string, string> = {};
+export function parseDescValues(content: string): Record<string, string[]> {
+  const fields: Record<string, string[]> = {};
 
   for (const block of content.split(/\n\n+/)) {
     const lines = block.split("\n").filter((line) => line.length > 0);
     const fieldLine = lines[0];
     if (!fieldLine || !fieldLine.startsWith("%") || !fieldLine.endsWith("%")) continue;
 
-    const value = lines[1];
-    if (value !== undefined) fields[fieldLine.slice(1, -1)] = value;
+    if (lines.length > 1) fields[fieldLine.slice(1, -1)] = lines.slice(1);
   }
 
   return fields;
 }
 
 /**
- * Maps parsed `desc` field maps to cache rows, stamping which repo they
- * came from (a package belongs to exactly one of core/extra, never both).
- * Pure — no I/O — so it's covered by tests, along with `parseDesc`.
+ * Maps parsed `desc` files (see `parseDescValues`) to cache rows, stamping
+ * which repo they came from (a package belongs to exactly one of
+ * core/extra/multilib, never several). Pure — no I/O — so it's covered by
+ * tests, along with `parseDescValues`.
  */
 export function mapDescFiles(
-  descFields: Record<string, string>[],
+  descFields: Record<string, string[]>[],
   repo: ArchRepo,
 ): ArchCacheEntry[] {
-  return descFields
-    .filter((fields): fields is typeof fields & { NAME: string } => Boolean(fields.NAME))
-    .map((fields) => ({
-      name: fields.NAME,
-      description: fields.DESC ?? "",
-      version: fields.VERSION ?? "unknown",
-      homepage: fields.URL || undefined,
-      repo,
-    }));
+  return descFields.flatMap((fields) => {
+    const name = fields.NAME?.[0];
+    if (!name) return [];
+    return [
+      {
+        name,
+        description: fields.DESC?.[0] ?? "",
+        version: fields.VERSION?.[0] ?? "unknown",
+        homepage: fields.URL?.[0] || undefined,
+        repo,
+        formal: compactFormal(name, {
+          base: fields.BASE?.[0],
+          provides: relationNames(fields.PROVIDES, name),
+          conflicts: relationNames(fields.CONFLICTS, name),
+          replaces: relationNames(fields.REPLACES, name),
+          depends: relationNames(fields.DEPENDS, name),
+        }),
+      },
+    ];
+  });
 }
 
 async function fetchRepoEntries(repo: ArchRepo, workDir: string): Promise<ArchCacheEntry[]> {
@@ -79,7 +90,7 @@ async function fetchRepoEntries(repo: ArchRepo, workDir: string): Promise<ArchCa
   );
   const descFields = contents
     .filter((content): content is string => content !== undefined)
-    .map(parseDesc);
+    .map(parseDescValues);
 
   return mapDescFiles(descFields, repo);
 }

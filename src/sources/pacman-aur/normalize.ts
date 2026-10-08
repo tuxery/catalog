@@ -43,6 +43,7 @@ export function normalize(entries: AurCacheEntry[]): SourcedPackage[] {
       keywords: entry.keywords,
       license: entry.license,
       popularity: entry.popularity,
+      formal: entry.formal,
       channel: channelMatch ? channelMatch[1] : variantMatch ? variantMatch[1] : undefined,
     };
   });

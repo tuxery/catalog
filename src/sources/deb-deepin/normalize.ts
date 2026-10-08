@@ -12,6 +12,7 @@ export function normalize(entries: DeepinCacheEntry[]): SourcedPackage[] {
     // fetch.ts's dedupeByNewest).
     appId: entry.name,
     homepage: entry.homepage,
+    formal: entry.formal,
     section: entry.section,
   }));
 }

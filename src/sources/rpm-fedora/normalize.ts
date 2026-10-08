@@ -11,5 +11,6 @@ export function normalize(entries: FedoraCacheEntry[]): SourcedPackage[] {
     appId: entry.name,
     homepage: entry.homepage,
     hasDesktopFile: entry.hasDesktopFile,
+    formal: entry.formal,
   }));
 }

@@ -1,4 +1,5 @@
 import type { FetchMetadata } from "../_shared/metadata";
+import type { FormalSignals } from "../types";
 
 /**
  * One stanza from Ubuntu's `Packages.gz` — same deb822 format as Debian's
@@ -27,6 +28,8 @@ export interface UbuntuCacheEntry {
    * directly comparable to Debian's bare value. See SourcedPackage.section.
    */
   section?: string;
+  /** `Source`/`Provides`/`Conflicts`/`Replaces`/`Depends`/`Enhances` — see `FormalSignals`. */
+  formal?: FormalSignals;
 }
 
 export interface UbuntuFetchMetadata extends FetchMetadata {

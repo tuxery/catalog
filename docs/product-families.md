@@ -101,7 +101,29 @@ cards, not in search results, not in browse grids. Dedicated browse
 sections (Extensions, Themes, ...) are a later project.
 
 A package with no identifiable parent stays what it is today: an app if
-it is one, excluded if it is not.
+it is one, excluded if it is not. AppStream add-ons with no parent in
+the catalog (SDK and runtime extensions) are dropped, never apps.
+
+How a parent is found (`src/curator/family/`), measured 2026-10-08:
+
+- an AppStream add-on's `<extends>` (Flathub, AppCenter);
+- a companion token after a product's own package name, longest name
+  first: `chromium-extension-*`, `asf-plugin-*`, `alacritty-themes`,
+  `firefox-esr-i18n-fr` (to `firefox-esr`, so Firefox), `*-native-host`
+  — but not a tool about them (`kitty-theme-manager`,
+  `gnome-extension-manager`) nor a build (`nemo-with-extensions`);
+- Debian's `Enhances`, only for packages the filter already rejects as
+  non-apps (`elpa-*` to Emacs) — on real apps it misleads (`abook`
+  enhances mutt, `alttab` enhances awesome, both standalone tools).
+
+A group holding an AppStream application (`desktop-application`,
+`console-application`) always stays a product. A name prefix plus a
+dependency on the product is not used: it mixes standalone tools
+(`git-filter-repo`, `apt-file`), GUI frontends (`avast-gui`) and real
+data packs — a `toolFor` relation to curate, not a companion. Most
+companions come from packages the filter dropped before this stage
+existed: on the 2026-10-08 data, 10,842 companions on 1,025 products
+(Firefox 609, LibreOffice 387, Thunderbird 209).
 
 ### Relation
 
@@ -134,7 +156,7 @@ link without a verifiable signal. In order of strength:
    - nixpkgs attribute path (`vimPlugins.*`, `gnomeExtensions.*`), Gentoo category (`app-vim/*`, `x11-themes/*`).
 2. **Curated config** for the cases signals cannot settle: tracks of
    well-known products (`config/match-tracks.json`), relations
-   (`config/relations.json`).
+   (`config/family-relations.json`).
 3. **Name conventions** (`-git`, `-bin`, `-beta`, `-esr`, version
    suffixes) — a fallback, and a corroboration for formal signals.
 4. **LLM classifications** — corroboration only (e.g. `type: other`
@@ -188,7 +210,7 @@ classification, the one a default build's own id carries applies.
 | Flavor     | `-bin`/`-appimage`/`-unwrapped`, suffix of a folded drop-in build, locale suffix of a full build                     |
 | Provenance | Per-source default (table above), refined by flavor (`bin` → repack, patch flavor → patched)                         |
 | Companion  | AppStream `extends`, Debian `enhances`, `depends` on the parent + name, nixpkgs namespace, Gentoo category           |
-| Relation   | `replaces`/`obsoletes`, non-folded `provides`+`conflicts`, `config/relations.json`                                   |
+| Relation   | `config/family-relations.json`, AppStream `<replaces>` pointing at another product                                   |
 
 ## Storage
 
@@ -197,9 +219,13 @@ the binding constraint (see `src/store/turso-client.ts`). On `apps`:
 
 - `packages_json` carries `track`, `risk`, `flavors`, `provenance` per
   package;
-- `companions_json` — compact list on the parent (name, kind, source,
-  short description);
-- `relations_json` — both directions, precomputed.
+- `companions_json` — compact list on the parent (name, kind, short
+  description, sources), at most 100 per kind, the most widely shipped
+  first;
+- `companion_counts_json` — the full count per kind (GNOME Extensions
+  has 1,909 shell extensions, AIMP 748 skins);
+- `relations_json` — both directions, precomputed, only between
+  published products.
 
 Folding builds and moving companions under their parent lowers the row
 count. Companions become rows only when dedicated browse sections need

@@ -25,6 +25,10 @@
       "url": "./src/curator/match/match-tracks.schema.json"
     },
     {
+      "fileMatch": ["/config/family-relations.json"],
+      "url": "./src/curator/family/family-relations.schema.json"
+    },
+    {
       "fileMatch": ["/config/enrich-compat-warnings.json"],
       "url": "./src/curator/enrich/enrich-compat-warnings.schema.json"
     },

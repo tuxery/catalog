@@ -1,5 +1,6 @@
 import type { SourcedPackage, StoreCollectionTag } from "../../sources";
 import type { HiddenType } from "./category";
+import type { Companion, CompanionKind, Relation } from "../family/types";
 import type { DataConfidence } from "./data-confidence";
 
 /**
@@ -270,4 +271,23 @@ export interface CatalogApp {
    * separately), not yet done.
    */
   dataConfidence: DataConfidence;
+
+  /**
+   * Extensions, plugins, themes, language packs, data packs, native hosts
+   * and config packages that add to this product — listed on its page,
+   * never cards of their own. Set by the product-families stage
+   * (`family/index.ts`'s `attachFamilies`, docs/product-families.md).
+   * `undefined` when none.
+   */
+  companions?: Companion[];
+  /** How many companions of each kind this product has in full — `companions` keeps at most 100 per kind (see `family/companions.ts`). Set together with `companions`. */
+  companionCounts?: Partial<Record<CompanionKind, number>>;
+  /**
+   * Set on a group that is itself a companion of another product (its
+   * id) — `buildDataset` leaves it out like `excluded`, and it shows up
+   * in that product's `companions` instead.
+   */
+  companionOf?: string;
+  /** Forks, successors, unofficial wrappers, ... linking this product to others, both directions — see `Relation`. `undefined` when none. */
+  relations?: Relation[];
 }

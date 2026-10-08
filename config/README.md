@@ -15,6 +15,7 @@ umbrella hiding five different actions behind one name.
 | [`match-force.json`](match-force.json)                               | match  | forces every listed source package to merge into one destination, no scoring                                                                                                                                                                                                                                                                                                           |
 | [`match-deny.json`](match-deny.json)                                 | match  | forbids a specific pair from ever merging, even if the auto tiers would                                                                                                                                                                                                                                                                                                                |
 | [`match-tracks.json`](match-tracks.json)                             | match  | merges a product's parallel lines (Firefox ESR, LibreOffice Still, ...) into it and labels each package with its track — see [`docs/product-families.md`](../docs/product-families.md)                                                                                                                                                                                                 |
+| [`family-relations.json`](family-relations.json)                     | family | links two products: fork of, replaces, unofficial wrapper of, part of, tool for — shown both ways on their pages, see [`docs/product-families.md`](../docs/product-families.md)                                                                                                                                                                                                        |
 | [`enrich-app-store-tags.json`](enrich-app-store-tags.json)           | enrich | **tags** a package as an app-store/package-manager frontend (`CatalogApp.appStoreFrontend`) — doesn't exclude or change anything else about it                                                                                                                                                                                                                                         |
 | [`enrich-compat-warnings.json`](enrich-compat-warnings.json)         | enrich | attaches a known packaging-format compatibility warning to one specific `{source, name}`                                                                                                                                                                                                                                                                                               |
 | [`enrich-suites.json`](enrich-suites.json)                           | enrich | defines a software-suite relationship (one main app + separately-installable components)                                                                                                                                                                                                                                                                                               |
@@ -34,7 +35,7 @@ no separate tool needed.
 
 Every `.schema.json` is generated from a Zod schema (`pnpm
 generate-schemas`), the same one that validates the file's contents at
-load time — `_shared/json.ts`'s `readJson` for the nine override-style
+load time — `_shared/json.ts`'s `readJson` for the ten override-style
 files, a direct parse in `enrich/category.ts` for
 `categories-apps.json`/`categories-games.json` (a required base
 taxonomy, not an optional override list) — one definition backs the
@@ -62,7 +63,7 @@ an app. Not automatable (no "has a desktop entry" / "ships an executable
 meant to be run directly" signal exists in the data model), so this has
 to be judged by hand per entry, same as everything else in this folder.
 
-Every entry in the nine override-style files (everything except
+Every entry in the ten override-style files (everything except
 `categories-apps.json`/`categories-games.json`) needs a real `reason` so the exception is auditable
 later, not just an unexplained line — each one only grows as a real case
 is found and verified, never pre-filled speculatively.

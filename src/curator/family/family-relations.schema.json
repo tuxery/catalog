@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "type": {
+        "type": "string",
+        "enum": ["forkOf", "replaces", "wrapperOf", "partOf", "toolFor"],
+        "description": "How `from` relates to `to`, read as `from <type> to`."
+      },
+      "from": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "string",
+            "description": "A PackageSourceId, e.g. \"flatpak-flathub\"."
+          },
+          "appId": {
+            "type": "string",
+            "description": "SourcedPackage.appId on that source."
+          }
+        },
+        "required": ["source", "appId"],
+        "additionalProperties": false,
+        "description": "A package of the product the relation starts from."
+      },
+      "to": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "string",
+            "description": "A PackageSourceId, e.g. \"flatpak-flathub\"."
+          },
+          "appId": {
+            "type": "string",
+            "description": "SourcedPackage.appId on that source."
+          }
+        },
+        "required": ["source", "appId"],
+        "additionalProperties": false,
+        "description": "A package of the product it points to."
+      },
+      "reason": {
+        "type": "string",
+        "description": "The evidence behind this relation — auditable later."
+      }
+    },
+    "required": ["type", "from", "to", "reason"],
+    "additionalProperties": false
+  },
+  "title": "Family: relations between products",
+  "description": "Forks, successors, unofficial wrappers, suite components and companion tools between two products, each identified by one of its packages — see docs/product-families.md."
+}

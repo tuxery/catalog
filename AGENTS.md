@@ -181,6 +181,21 @@ seeing an empty or half-populated table. Re-running `pnpm seed` while
 `pnpm serve` is already running is safe: the swap happens on the file
 `pnpm serve` is reading live, no restart needed.
 
+## Product families vocabulary
+
+One card per product. Inside it, each package carries a **track**
+(parallel line: `default`, `esr`, `17`), a **risk** (`stable` ·
+`candidate` · `beta` · `nightly` · `git`), zero or more **flavors**
+(`bin`, `appimage`, `vaapi`, `locale:de`, ...) and a **provenance**
+(`upstream` · `distro` · `community-repack` · `community-patched`).
+**Companions** (extensions, themes, plugins, language packs, data
+packs, native hosts, config) are listed on their parent product, not
+as cards. **Relations** (`forkOf`, `replaces`, `wrapperOf`, `partOf`,
+`toolFor`) link two products. There is no `channel` any more. Full
+definitions, signals and decisions:
+[`docs/product-families.md`](docs/product-families.md) — use these
+terms in code, config, comments and cards.
+
 ## Rules
 
 - Don't add a local `TODO.md`/`ROADMAP.md` — track work as cards on the

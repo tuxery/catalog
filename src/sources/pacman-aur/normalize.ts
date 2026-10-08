@@ -9,7 +9,11 @@ import type { AurCacheEntry } from "./types";
 // build instead of building from source (e.g. `zen-browser-bin`). Also
 // used by the curator module's match tier to merge each variant into its
 // base package's app; see `match/group.ts`'s `VARIANT_SUFFIX`.
-const VARIANT_SUFFIX = /-(git|svn|hg|bzr|cvs|bin)$/;
+// `-appimage` marks a package that installs the project's upstream AppImage
+// (match/group.ts folds it into the project's app too). It needs its own
+// channel: left unlabeled it reads "Stable" like the base package, and the
+// app's install drawer then names both tabs after their package names.
+const VARIANT_SUFFIX = /-(git|svn|hg|bzr|cvs|bin|appimage)$/;
 
 // A release-channel word, optionally followed by one of the build-variant
 // suffixes above (e.g. `-beta-bin`) — same "alternate build" shape as

@@ -13,5 +13,9 @@ export function normalize(entries: NixpkgsCacheEntry[]): SourcedPackage[] {
     appId: entry.attrPath,
     homepage: entry.homepage,
     section: entry.prefix,
+    // nixpkgs' `-unwrapped` is the raw package a wrapper derivation of the
+    // same name is built from (match/group.ts folds them together); labeled
+    // so the two don't both read "Stable" in the install drawer.
+    channel: entry.name.endsWith("-unwrapped") ? "unwrapped" : undefined,
   }));
 }

@@ -46,6 +46,17 @@ describe("aur normalize", () => {
     expect(normalize([entry])[0]?.channel).toBe("bin");
   });
 
+  it("reads an AppImage-installing package's channel from its name", () => {
+    const entry: AurCacheEntry = {
+      name: "jan-appimage",
+      description: "Jan - Run LLMs locally",
+      version: "0.6.0-1",
+      homepage: "https://jan.ai",
+    };
+
+    expect(normalize([entry])[0]?.channel).toBe("appimage");
+  });
+
   it("reads a release-channel word from its name, even combined with a build-variant suffix", () => {
     // Real bug, found live: brave-origin-beta-bin/brave-origin-nightly-bin
     // never unioned with the stable brave-origin-bin build at all — the

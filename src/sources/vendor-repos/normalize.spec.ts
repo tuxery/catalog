@@ -24,7 +24,7 @@ describe("vendor-repos normalize", () => {
         version: "141.0.7390.54-1",
         appId: "google/google-chrome-stable",
         homepage: "https://www.google.com/chrome/",
-        channel: "stable",
+        provenance: "upstream",
       },
     ]);
   });

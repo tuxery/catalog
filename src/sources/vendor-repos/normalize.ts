@@ -13,7 +13,7 @@ export function normalize(entries: VendorRepoCacheEntry[]): SourcedPackage[] {
     // vendors' repos.
     appId: `${entry.vendor}/${entry.package}`,
     homepage: entry.homepage,
-    // Stable packages only, by construction of the seed list.
-    channel: "stable",
+    // The vendor's own apt repo: its own binaries.
+    provenance: "upstream",
   }));
 }

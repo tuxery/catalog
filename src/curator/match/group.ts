@@ -1,9 +1,11 @@
 import { unorderedPairKey } from "helpers4/string";
 import { createUnionFind, type UnionFind } from "helpers4/structure";
 import type { SourcedPackage } from "../../sources";
-import { packageKey } from "./keys";
+import { annotateMembers, dropInTargets, trackNames } from "./families";
+import { packageKey, standaloneAppId } from "./keys";
 import { normalizeName } from "./normalize";
 import { loadMatchOverrides, type MatchOverrides } from "./overrides";
+import { describesTarget, isVariantRest } from "./variants";
 
 export interface MatchedApp {
   /** This group's canonical id — see `buildAppId`'s doc comment for how it's picked. */
@@ -300,6 +302,10 @@ function unionDescribedVariants(
     const parts = stripVariantSuffix(pkg).toLowerCase().split("-");
     const pkgKey = packageKey(pkg);
     search: for (let cut = parts.length - 1; cut >= 1; cut -= 1) {
+      // A fork or shim keeps the project's blurb as often as a build does
+      // (goldendict-ng-appimage reuses goldendict's), so the name has to
+      // say "build" too — and a shorter base only adds tokens to the rest.
+      if (!isVariantRest(parts.slice(cut))) break;
       const base = normalizeName(parts.slice(0, cut).join("-"));
       if (base.length < MIN_BASE_NAME_LENGTH) break;
       for (const candidate of byName.get(base) ?? []) {
@@ -330,9 +336,109 @@ function gogWrapperKey(pkg: SourcedPackage): string | undefined {
   return undefined;
 }
 
+/**
+ * Tier 2d: AUR/Arch drop-in builds — a package declaring `provides` and
+ * `conflicts` on X, named `X-<build difference>` (see `dropInTargets`),
+ * unions with X itself on either repo, when its description is about X
+ * too (`describesTarget`). Measured 2026-10-08: 3,223 such
+ * packages beyond the plain `-git`/`-bin` ones tier 2 already folds, e.g.
+ * `firefox-globalmenu`, `firefox-vrr`, `7zip-zstd`, `alacritty-sixel-git`.
+ */
+function unionDropInBuilds(
+  uf: UnionFind<string>,
+  packages: SourcedPackage[],
+  denyPairs: Set<string>,
+): void {
+  const pacmanByName = new Map<string, SourcedPackage[]>();
+  for (const pkg of packages) {
+    if (pkg.source !== "pacman-aur" && pkg.source !== "pacman-arch") continue;
+    const list = pacmanByName.get(pkg.name) ?? [];
+    list.push(pkg);
+    pacmanByName.set(pkg.name, list);
+  }
+
+  for (const pkg of packages) {
+    if (pkg.source !== "pacman-aur" && pkg.source !== "pacman-arch") continue;
+    const pkgKey = packageKey(pkg);
+    for (const target of dropInTargets(pkg, stripVariantSuffix(pkg))) {
+      for (const candidate of pacmanByName.get(target) ?? []) {
+        if (!describesTarget(pkg.description, target, candidate.description)) continue;
+        const candidateKey = packageKey(candidate);
+        if (denyPairs.has(unorderedPairKey(pkgKey, candidateKey))) continue;
+        uf.union(pkgKey, candidateKey);
+      }
+    }
+  }
+}
+
+/**
+ * Tier 0b: curated tracks (`config/match-tracks.json`) — every package
+ * whose build-suffix-stripped name is one of a track's names joins the
+ * product's group, on any source.
+ */
+function unionCuratedTracks(
+  uf: UnionFind<string>,
+  packages: SourcedPackage[],
+  tracks: NonNullable<MatchOverrides["tracks"]>,
+): void {
+  const productByTrackName = new Map<string, string>();
+  for (const entry of tracks) {
+    for (const name of entry.names) productByTrackName.set(name.toLowerCase(), entry.product);
+  }
+  const anchorByProduct = new Map<string, string>();
+  for (const pkg of packages) {
+    const name = stripVariantSuffix(pkg).toLowerCase();
+    if (tracks.some((entry) => entry.product === name) && !anchorByProduct.has(name)) {
+      anchorByProduct.set(name, packageKey(pkg));
+    }
+  }
+  for (const pkg of packages) {
+    const product = productByTrackName.get(stripVariantSuffix(pkg).toLowerCase());
+    const anchor = product ? anchorByProduct.get(product) : undefined;
+    if (anchor) uf.union(anchor, packageKey(pkg));
+  }
+}
+
 function tier2Key(pkg: SourcedPackage): string | undefined {
   const normalized = normalizeName(stripVariantSuffix(pkg));
   return GENERIC_NAME_BLOCKLIST.has(normalized) ? undefined : normalized;
+}
+
+// How a package is shipped rather than what was built: AUR's `-bin`/
+// `-appimage`, nixpkgs' `-unwrapped`. An AUR `-bin` package often is the
+// only package of an app and has named its group for a long time.
+const PACKAGING_FLAVORS = new Set(["bin", "appimage", "unwrapped"]);
+
+/**
+ * Whether a package is a build of its product rather than the product
+ * itself: a track or a build-difference flavor (`thunar-extended`,
+ * `pulseaudio-dummy`, `firefox-esr`). Risk and packaging flavors don't
+ * count — a snap published on `edge`
+ * or AUR's `-git`/`-bin` package is still the product's own listing, and
+ * has named groups that way since long before tracks and flavors existed.
+ */
+export function isBuildVariant(pkg: SourcedPackage): boolean {
+  return (
+    Boolean(pkg.track) || Boolean(pkg.flavors?.some((flavor) => !PACKAGING_FLAVORS.has(flavor)))
+  );
+}
+
+/** The package whose id names a tier's group — see `buildAppId`. */
+function pickNaming(candidates: SourcedPackage[], idOf: (pkg: SourcedPackage) => string) {
+  const plain = candidates.filter((pkg) => !isBuildVariant(pkg));
+  const pool = plain.length > 0 ? plain : candidates;
+  // `com.vscodium.codium` over `com.vscodium.codium-insiders`: an id
+  // another candidate's id extends names the product, not a build of it.
+  return (
+    pool.find((pkg) =>
+      pool.some(
+        (other) =>
+          other !== pkg &&
+          /^[-._]/.test(idOf(other).slice(idOf(pkg).length)) &&
+          idOf(other).startsWith(idOf(pkg)),
+      ),
+    ) ?? pool[0]
+  );
 }
 
 /**
@@ -376,19 +482,17 @@ function tier2Key(pkg: SourcedPackage): string | undefined {
  * now explicitly the *last* resort instead of always winning.
  */
 function buildAppId(members: SourcedPackage[]): string {
-  const snap = members.find((pkg) => pkg.source === "snap-snapcraft" && (pkg.appId ?? pkg.name));
-  if (snap) return (snap.appId ?? snap.name) as string;
+  for (const source of ["snap-snapcraft", "flatpak-flathub", "flatpak-appcenter"]) {
+    const naming = pickNaming(
+      members.filter((pkg) => pkg.source === source && (pkg.appId ?? pkg.name)),
+      standaloneAppId,
+    );
+    if (naming) return standaloneAppId(naming);
+  }
 
-  const flathub = members.find((pkg) => pkg.source === "flatpak-flathub" && pkg.appId);
-  if (flathub) return flathub.appId as string;
-
-  const appcenter = members.find((pkg) => pkg.source === "flatpak-appcenter" && pkg.appId);
-  if (appcenter) return appcenter.appId as string;
-
-  const [first] = members;
+  const first = members.find((pkg) => !isBuildVariant(pkg)) ?? members[0];
   if (!first) throw new Error("buildAppId: a group had no member packages");
-  const idPart = (first.appId ?? first.name).replaceAll("/", ":");
-  return `${first.source}:${idPart}`;
+  return standaloneAppId(first);
 }
 
 /**
@@ -437,6 +541,9 @@ export function groupPackages(
     }
   }
 
+  // Tier 0b: curated tracks (Firefox ESR, LibreOffice Still, ...).
+  unionCuratedTracks(uf, packages, overrides.tracks ?? []);
+
   // Tier 1: exact appId match.
   unionByExactKey(uf, packages, tier1Key, overrides.denyPairs);
 
@@ -448,6 +555,9 @@ export function groupPackages(
 
   // Tier 2c: AUR variants (`<project>-<difference>`) of a project whose description they share.
   unionDescribedVariants(uf, packages, overrides.denyPairs);
+
+  // Tier 2d: AUR/Arch drop-in builds (`provides`+`conflicts` on the project they're named after).
+  unionDropInBuilds(uf, packages, overrides.denyPairs);
 
   // Collect final groups — id is picked from every member at once (see
   // `buildAppId`), not just the first package seen for each root, since
@@ -461,8 +571,11 @@ export function groupPackages(
     membersByRoot.set(root, members);
   }
 
-  return [...membersByRoot.values()].map((members) => ({
-    id: buildAppId(members),
-    packages: members,
-  }));
+  // Each member's track/risk/flavors relative to the rest of its group —
+  // before picking the id, which prefers the default build.
+  const tracksByName = trackNames(overrides.tracks ?? []);
+  return [...membersByRoot.values()].map((members) => {
+    const annotated = annotateMembers(members, stripVariantSuffix, tracksByName);
+    return { id: buildAppId(annotated), packages: annotated };
+  });
 }

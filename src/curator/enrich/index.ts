@@ -1,7 +1,8 @@
 import { findMap, meanBy, sum, sumBy, unique } from "helpers4/array";
 import type { PackageSourceId, SourcedPackage, StoreCollectionTag } from "../../sources";
 import { looksLikeGamePackage, looksLikeGuiPackage } from "../filter/rules";
-import type { MatchedApp } from "../match/group";
+import { isBuildVariant, type MatchedApp } from "../match/group";
+import { standaloneAppId } from "../match/keys";
 import { loadMatchOverrides, type MatchOverrides } from "../match/overrides";
 import {
   isAppStoreFrontend,
@@ -687,6 +688,29 @@ function applyLlmClassification(
   };
 }
 
+/**
+ * The LLM verdict for a group: keyed by its own id, else by the id one of
+ * its default builds would have named it with alone (`standaloneAppId`) —
+ * a group that grew (product families folding builds and tracks into it)
+ * or picked a different naming package keeps the verdict its product
+ * already had, without re-running `classify-llm`. Build variants are
+ * skipped: `pulseaudio-dummy`'s own "other" verdict must not hide
+ * PulseAudio.
+ */
+function classificationFor(
+  app: MatchedApp,
+  llmByAppId: Map<string, LlmClassification>,
+): LlmClassification | undefined {
+  const own = llmByAppId.get(app.id);
+  if (own) return own;
+  for (const pkg of app.packages) {
+    if (isBuildVariant(pkg)) continue;
+    const entry = llmByAppId.get(standaloneAppId(pkg));
+    if (entry) return entry;
+  }
+  return undefined;
+}
+
 /** Turns grouped packages into the display-ready `CatalogApp` records the website reads — see `types.ts` for what's populated today vs. tracked as roadmap. */
 export function enrichApps(
   matched: MatchedApp[],
@@ -737,7 +761,7 @@ export function enrichApps(
       );
     const deterministicCategory = pickLabel(heuristicType);
     const { type, category, excluded } = applyLlmClassification(
-      llmByAppId.get(app.id),
+      classificationFor(app, llmByAppId),
       hasUpstreamCategory(app.packages),
       heuristicType,
       deterministicCategory,

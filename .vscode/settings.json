@@ -21,6 +21,10 @@
       "url": "./src/curator/match/match-deny.schema.json"
     },
     {
+      "fileMatch": ["/config/match-tracks.json"],
+      "url": "./src/curator/match/match-tracks.schema.json"
+    },
+    {
       "fileMatch": ["/config/enrich-compat-warnings.json"],
       "url": "./src/curator/enrich/enrich-compat-warnings.schema.json"
     },

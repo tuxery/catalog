@@ -386,7 +386,7 @@ describe("precomputed listing rows", () => {
           iconUrl: "low.png",
           popularity: 0.2,
           category: "Utilities",
-          packages: [{ source: "aur", name: "low", channel: "git", version: "1.0", deps: ["x"] }],
+          packages: [{ source: "aur", name: "low", risk: "git", flavors: ["bin"], version: "1.0", deps: ["x"] }],
         },
         {
           ...APP,
@@ -436,7 +436,7 @@ describe("precomputed listing rows", () => {
       ]),
     });
     expect(JSON.parse(rows[1]?.packages_json as string)).toEqual([
-      { source: "aur", channel: "git" },
+      { source: "aur", risk: "git", flavors: ["bin"] },
     ]);
     expect(rows[1]).toMatchObject({ kind: null, content_type: null, rating_average: null });
     // Every listing key gets its rows, same ids as the id list itself.

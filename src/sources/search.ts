@@ -1,3 +1,4 @@
+import { withDefaultProvenance } from "./_shared/provenance";
 import { searchAlpine } from "./apk-alpine";
 import { searchAppCenter } from "./flatpak-appcenter";
 import { searchAppImage } from "./appimage";
@@ -71,5 +72,5 @@ export async function searchAllSources(query: string): Promise<SourcedPackage[]>
     searchGithubReleases(query),
   ]);
 
-  return results.flat();
+  return results.flat().map(withDefaultProvenance);
 }

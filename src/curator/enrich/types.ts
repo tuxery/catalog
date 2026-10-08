@@ -21,7 +21,7 @@ export interface CatalogApp {
   /** From the representative package's `description` (every source has one). */
   shortDescription: string;
   homepage?: string;
-  /** Every `SourcedPackage` that was grouped into this app — has its own version/channel/arch per source. */
+  /** Every `SourcedPackage` that was grouped into this app — has its own version, track, risk, flavors and provenance per source. */
   packages: SourcedPackage[];
   /**
    * "gui" when at least one member package carries positive evidence of

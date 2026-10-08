@@ -23,7 +23,7 @@ describe("aur normalize", () => {
     ]);
   });
 
-  it("reads a VCS-suffix package's channel from its name", () => {
+  it("reads a VCS-suffix package's git risk from its name", () => {
     const entry: AurCacheEntry = {
       name: "0xtools-git",
       description: "0x.Tools: X-Ray vision for Linux systems",
@@ -31,10 +31,11 @@ describe("aur normalize", () => {
       homepage: "https://github.com/tanelpoder/0xtools",
     };
 
-    expect(normalize([entry])[0]?.channel).toBe("git");
+    expect(normalize([entry])[0]?.risk).toBe("git");
+    expect(normalize([entry])[0]?.provenance).toBeUndefined();
   });
 
-  it("reads a prebuilt-binary package's channel from its name", () => {
+  it("reads a prebuilt-binary package's bin flavor from its name, as a community repack", () => {
     const entry: AurCacheEntry = {
       name: "zen-browser-bin",
       description:
@@ -43,10 +44,13 @@ describe("aur normalize", () => {
       homepage: "https://zen-browser.app",
     };
 
-    expect(normalize([entry])[0]?.channel).toBe("bin");
+    expect(normalize([entry])[0]).toMatchObject({
+      flavors: ["bin"],
+      provenance: "community-repack",
+    });
   });
 
-  it("reads an AppImage-installing package's channel from its name", () => {
+  it("reads an AppImage-installing package's appimage flavor from its name", () => {
     const entry: AurCacheEntry = {
       name: "jan-appimage",
       description: "Jan - Run LLMs locally",
@@ -54,10 +58,10 @@ describe("aur normalize", () => {
       homepage: "https://jan.ai",
     };
 
-    expect(normalize([entry])[0]?.channel).toBe("appimage");
+    expect(normalize([entry])[0]?.flavors).toEqual(["appimage"]);
   });
 
-  it("reads a release-channel word from its name, even combined with a build-variant suffix", () => {
+  it("reads a risk word from its name, even combined with a build flavor", () => {
     // Real bug, found live: brave-origin-beta-bin/brave-origin-nightly-bin
     // never unioned with the stable brave-origin-bin build at all — the
     // channel word wasn't recognized, only the trailing -bin was, so
@@ -69,7 +73,7 @@ describe("aur normalize", () => {
       version: "1.94.112-1",
       homepage: "https://brave.com/origin/download-beta",
     };
-    expect(normalize([betaBin])[0]?.channel).toBe("beta");
+    expect(normalize([betaBin])[0]).toMatchObject({ risk: "beta", flavors: ["bin"] });
 
     const nightly: AurCacheEntry = {
       name: "ferdium-nightly",
@@ -77,10 +81,10 @@ describe("aur normalize", () => {
       version: "7.0.0-1",
       homepage: "https://ferdium.org",
     };
-    expect(normalize([nightly])[0]?.channel).toBe("nightly");
+    expect(normalize([nightly])[0]?.risk).toBe("nightly");
   });
 
-  it("does not treat a -dev suffix as a release channel — collides with the unrelated Debian-style headers-package meaning", () => {
+  it("does not treat a -dev suffix as a risk — collides with the unrelated Debian-style headers-package meaning", () => {
     const entry: AurCacheEntry = {
       name: "kodi-git-dev",
       description: "Development files for kodi-git",
@@ -88,6 +92,6 @@ describe("aur normalize", () => {
       homepage: "https://kodi.tv",
     };
 
-    expect(normalize([entry])[0]?.channel).toBeUndefined();
+    expect(normalize([entry])[0]?.risk).toBeUndefined();
   });
 });

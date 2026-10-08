@@ -1,0 +1,32 @@
+[
+  {
+    "product": "firefox",
+    "track": "esr",
+    "names": ["firefox-esr"],
+    "reason": "Mozilla's Extended Support Release: a parallel line with its own year-long lifecycle (Debian's default Firefox)."
+  },
+  {
+    "product": "firefox",
+    "track": "devedition",
+    "names": ["firefox-developer-edition", "firefox-devedition"],
+    "reason": "Mozilla's Firefox Developer Edition (Arch and nixpkgs names): its own branding, profile and release line built from the beta branch."
+  },
+  {
+    "product": "libreoffice",
+    "track": "fresh",
+    "names": ["libreoffice-fresh"],
+    "reason": "The Document Foundation's newest feature line, maintained in parallel with Still."
+  },
+  {
+    "product": "libreoffice",
+    "track": "still",
+    "names": ["libreoffice-still"],
+    "reason": "The Document Foundation's conservative line, maintained in parallel with Fresh."
+  },
+  {
+    "product": "thunderbird",
+    "track": "esr",
+    "names": ["thunderbird-esr"],
+    "reason": "Mozilla's Thunderbird Extended Support Release, maintained in parallel with the monthly release."
+  }
+]

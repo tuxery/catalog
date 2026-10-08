@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "product": {
+        "type": "string",
+        "description": "A package name already in the product's group, as the build-suffix-stripped name match/group.ts keys on (e.g. \"firefox\")."
+      },
+      "track": {
+        "type": "string",
+        "description": "The track these packages are, e.g. \"esr\" — see docs/product-families.md."
+      },
+      "names": {
+        "minItems": 1,
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Build-suffix-stripped package names that are this track of the product, on any source (e.g. \"firefox-esr\" also covers \"firefox-esr-bin\")."
+      },
+      "reason": {
+        "type": "string",
+        "description": "Why these packages are a parallel line of the product — auditable later."
+      }
+    },
+    "required": ["product", "track", "names", "reason"],
+    "additionalProperties": false
+  },
+  "title": "Match: product tracks",
+  "description": "Parallel lines of a product (Firefox ESR, LibreOffice Still, ...) — merges every listed package into the product's group and labels it with the track. See docs/product-families.md."
+}

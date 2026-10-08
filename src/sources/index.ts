@@ -1,4 +1,11 @@
-export type { SourcedPackage, PackageSourceId, StoreCollectionTag } from "./types";
+export type {
+  FormalSignals,
+  PackageSourceId,
+  Provenance,
+  Risk,
+  SourcedPackage,
+  StoreCollectionTag,
+} from "./types";
 export { searchAlpine } from "./apk-alpine";
 export { searchFlathub } from "./flatpak-flathub";
 export { searchAppCenter } from "./flatpak-appcenter";

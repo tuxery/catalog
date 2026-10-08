@@ -1,5 +1,12 @@
 import { describe, expect, it } from "vitest";
-import { axesFromRest, describesTarget, isVariantRest, restAfter } from "./variants";
+import {
+  axesFromRest,
+  describesTarget,
+  isVariantRest,
+  onlyTrackOrRisk,
+  restAfter,
+  storeIdRest,
+} from "./variants";
 
 describe("isVariantRest", () => {
   it("accepts build options and patch sets", () => {
@@ -60,5 +67,31 @@ describe("describesTarget", () => {
     expect(
       describesTarget("A C compiler for 8-bit CPUs", "ack", "A Perl-based grep replacement"),
     ).toBe(false);
+  });
+});
+
+describe("storeIdRest", () => {
+  it("reads what a Snap name or Flatpak id adds to another one", () => {
+    expect(storeIdRest("discord-canary", "discord")).toEqual(["canary"]);
+    expect(storeIdRest("com.discordapp.DiscordCanary", "com.discordapp.Discord")).toEqual([
+      "canary",
+    ]);
+    expect(storeIdRest("com.vscodium.codium-insiders", "com.vscodium.codium")).toEqual([
+      "insiders",
+    ]);
+  });
+
+  it("needs a separator or a CamelCase boundary", () => {
+    expect(storeIdRest("discordapp", "discord")).toBeUndefined();
+    expect(storeIdRest("discord", "discord")).toBeUndefined();
+  });
+});
+
+describe("onlyTrackOrRisk", () => {
+  it("accepts risk, track and version words only", () => {
+    expect(onlyTrackOrRisk(["canary"])).toBe(true);
+    expect(onlyTrackOrRisk(["lts", "22"])).toBe(true);
+    expect(onlyTrackOrRisk(["pro"])).toBe(false);
+    expect(onlyTrackOrRisk(["pinball"])).toBe(false);
   });
 });

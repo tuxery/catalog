@@ -35,6 +35,13 @@ const TRACK_TOKENS = new Set(["esr", "lts", "legacy"]);
 const VERSION_TOKEN = /^\d+(?:\.\d+)*$/;
 
 const RISK_TOKENS: Record<string, Risk | null> = {
+  beta: "beta",
+  alpha: "beta",
+  preview: "beta",
+  nightly: "nightly",
+  canary: "nightly",
+  unstable: "nightly",
+  edge: "nightly",
   rc: "candidate",
   pre: "candidate",
   snapshot: "nightly",
@@ -134,4 +141,35 @@ export function describesTarget(
   if (description.toLowerCase().includes(target.toLowerCase())) return true;
   const theirs = significantWords(targetDescription);
   return [...significantWords(description)].some((word) => theirs.has(word));
+}
+
+/** Whether every token names a track or a risk — nothing else (no flavor). Pure. */
+export function onlyTrackOrRisk(rest: readonly string[]): boolean {
+  return (
+    rest.length > 0 &&
+    rest.every(
+      (token) => TRACK_TOKENS.has(token) || VERSION_TOKEN.test(token) || token in RISK_TOKENS,
+    )
+  );
+}
+
+/**
+ * The tokens a Snap name or Flatpak id adds to another one of the same
+ * group — `discord-canary` over `discord`, `com.discordapp.DiscordCanary`
+ * over `com.discordapp.Discord` (a CamelCase boundary counts),
+ * `com.vscodium.codium-insiders` over `com.vscodium.codium` —
+ * lowercased. `undefined` when `id` doesn't extend `base`. Pure.
+ */
+export function storeIdRest(id: string, base: string): string[] | undefined {
+  if (id.length <= base.length || !id.startsWith(base)) return undefined;
+  const rest = id.slice(base.length);
+  const separated = /^[-_.]/.test(rest);
+  const camelCase = /[a-z\d]$/.test(base) && /^[A-Z]/.test(rest);
+  if (!separated && !camelCase) return undefined;
+  return rest
+    .replace(/^[-_.]/, "")
+    .replaceAll(/([a-z\d])([A-Z])/g, "$1-$2")
+    .toLowerCase()
+    .split(/[-_.]/)
+    .filter(Boolean);
 }

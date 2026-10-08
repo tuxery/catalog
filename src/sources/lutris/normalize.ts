@@ -81,7 +81,9 @@ export function normalize(entries: LutrisCacheEntry[]): SourcedPackage[] {
       version: "unknown",
       appId: entry.installerSlug,
       homepage: `https://lutris.net/games/${entry.gameSlug}/`,
-      channel: entry.version,
+      // The installer's storefront/method label ("GOG", "Humble", "CD +
+      // Windows 95") — which build of the game it installs.
+      flavors: entry.version ? [entry.version] : undefined,
       // Positive game evidence: IGDB genres, or a game record at all —
       // `gameDescription` comes from `/api/games/<slug>`, Lutris's catalog
       // of games. ~290 of 2,262 installers have no genre yet are almost all

@@ -22,7 +22,7 @@ describe("lutris normalize", () => {
         version: "unknown",
         appId: "rollercoaster-tycoon-2-cd",
         homepage: "https://lutris.net/games/rollercoaster-tycoon-2/",
-        channel: "CD",
+        flavors: ["CD"],
       },
     ]);
   });
@@ -135,7 +135,7 @@ describe("lutris normalize", () => {
     expect(normalize([entry])[0]?.homepage).toBe("https://lutris.net/games/harvest-moon-64/");
   });
 
-  it("leaves channel undefined when the installer has no version label", () => {
+  it("leaves flavors undefined when the installer has no version label", () => {
     const entry: LutrisCacheEntry = {
       gameId: 1,
       gameSlug: "a",
@@ -145,6 +145,6 @@ describe("lutris normalize", () => {
       genres: [],
     };
 
-    expect(normalize([entry])[0]?.channel).toBeUndefined();
+    expect(normalize([entry])[0]?.flavors).toBeUndefined();
   });
 });

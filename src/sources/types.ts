@@ -64,12 +64,17 @@ export interface SourcedPackage {
   /** Filename of the app icon, when known — used as a weak matching signal. */
   iconFilename?: string;
   /**
-   * Release channel/track, source-specific: Snapcraft channels
-   * (`stable`, `edge`, ...), Flathub branches (`stable`, `beta`), Debian
-   * suites (`stable`, `testing`, ...), etc. No unified channel vocabulary
-   * yet — see the "matching algorithm v1" card on the Tuxery GitHub Project.
+   * The parallel line this package belongs to (`esr`, `17`, a Snap track)
+   * — see docs/product-families.md. `undefined` is the product's default
+   * line.
    */
-  channel?: string;
+  track?: string;
+  /** How mature this build is — see `Risk`. `undefined` is `stable`. */
+  risk?: Risk;
+  /** Technical variants of the same release (`bin`, `appimage`, `unwrapped`, a patch set, a Lutris installer label) — see docs/product-families.md. `undefined` when none. */
+  flavors?: string[];
+  /** Who produced the binaries — see `Provenance`. `undefined` when unknown, never guessed. */
+  provenance?: Provenance;
   /**
    * CPU architecture, when the source is arch-specific (Debian/Fedora
    * fetch one `Packages`/`primary.xml` file per arch; Flathub's appstream
@@ -270,6 +275,24 @@ export interface SourcedPackage {
   /** See `FormalSignals`. Used by the curator only — the store doesn't publish it. */
   formal?: FormalSignals;
 }
+
+/**
+ * Maturity inside a track (docs/product-families.md): `candidate` is a
+ * release candidate, or a stable release the distro is still testing
+ * (Gentoo `~amd64`); `nightly` covers Snap's `edge`; `git` is built from
+ * the development branch head. `stable` is never stored — it's the
+ * default an absent `risk` means.
+ */
+export type Risk = "candidate" | "beta" | "nightly" | "git";
+
+/**
+ * Who produced a package's binaries (docs/product-families.md):
+ * `upstream` the project itself, `distro` a distribution rebuilding it
+ * from source, `community-repack` a community packager repackaging
+ * upstream's own binaries, `community-patched` a community build with
+ * extra patches.
+ */
+export type Provenance = "upstream" | "distro" | "community-repack" | "community-patched";
 
 /**
  * Relationships a source's own metadata formally declares for one

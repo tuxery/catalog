@@ -475,8 +475,8 @@ function computeListingIds(apps: AppRecord[]): Record<string, string[]> {
  * `meta` row read instead of one row per app (60 for a trending list).
  * Column names mirror `app`'s `SUMMARY_COLUMNS` (src/catalog.ts) by hand,
  * so `app` runs each row through its existing `toSummary()` unchanged —
- * the summary logic (ratings by source, channels, verified sources) stays
- * in `app` only. `packages_json` is cut down to the four package fields
+ * the summary logic (ratings by source, builds, verified sources) stays
+ * in `app` only. `packages_json` is cut down to the package fields
  * that logic reads: the popular apps these lists hold carry the largest
  * package lists in the dataset (~200 KB of `packages_json` for one
  * 60-app trending list, measured on the 2026-10-01 dataset), almost all
@@ -498,16 +498,20 @@ function toListingRow(app: AppRecord): Record<string, unknown> {
 }
 
 function toListingPackage(pkg: unknown): Record<string, unknown> {
-  const { source, channel, rating, storeCollections } = pkg as {
+  const { source, track, risk, flavors, rating, storeCollections } = pkg as {
     source?: unknown;
-    channel?: unknown;
+    track?: unknown;
+    risk?: unknown;
+    flavors?: unknown;
     rating?: unknown;
     storeCollections?: unknown;
   };
   const verified = Array.isArray(storeCollections) && storeCollections.includes("verified");
   return {
     source,
-    ...(channel === undefined ? {} : { channel }),
+    ...(track === undefined ? {} : { track }),
+    ...(risk === undefined ? {} : { risk }),
+    ...(flavors === undefined ? {} : { flavors }),
     ...(rating === undefined ? {} : { rating }),
     ...(verified ? { storeCollections: ["verified"] } : {}),
   };

@@ -26,15 +26,15 @@ describe("nixpkgs normalize", () => {
     ]);
   });
 
-  it("labels a -unwrapped derivation's channel, and only that", () => {
+  it("labels a -unwrapped derivation's flavor, and only that", () => {
     const base = { description: "d", version: "1", attrPath: "x" };
     const [unwrapped, plain] = normalize([
       { ...base, name: "firefoxpwa-unwrapped" },
       { ...base, name: "firefoxpwa" },
     ]);
 
-    expect(unwrapped?.channel).toBe("unwrapped");
-    expect(plain?.channel).toBeUndefined();
+    expect(unwrapped?.flavors).toEqual(["unwrapped"]);
+    expect(plain?.flavors).toBeUndefined();
   });
 
   it("leaves section undefined for a top-level attribute with no prefix", () => {

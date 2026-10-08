@@ -1,6 +1,6 @@
 import type { SourcedPackage } from "../../sources";
 import type { MatchTrackEntry } from "./types";
-import { axesFromRest, isVariantRest, restAfter } from "./variants";
+import { axesFromRest, isVariantRest, onlyTrackOrRisk, restAfter, storeIdRest } from "./variants";
 
 // Sources whose package names follow the `<project>-<difference>`
 // convention for builds of the same project (AUR's submission guidelines,
@@ -8,6 +8,33 @@ import { axesFromRest, isVariantRest, restAfter } from "./variants";
 // `firefox-langpacks` are other packages entirely, so their names are never
 // read this way.
 const VARIANT_NAMING_SOURCES = new Set(["pacman-aur", "pacman-arch"]);
+
+// Stores whose ids are unique and chosen by the publisher: a second listing
+// of the same product there is a separate release line, named after the
+// first one (`discord-canary`, `com.discordapp.DiscordCanary`).
+const STORE_ID_SOURCES = new Set(["snap-snapcraft", "flatpak-flathub", "flatpak-appcenter"]);
+
+/**
+ * A Snap/Flatpak listing that extends another listing's id on the same
+ * store, by words that only name a track or a risk (`-canary`,
+ * `-insiders`, `Beta`, `-lts`), takes that track/risk. Anything else
+ * (`picguard-pro`, `space-cadet-pinball`) is left as it is. Pure.
+ */
+function annotateStoreId(pkg: SourcedPackage, members: readonly SourcedPackage[]): SourcedPackage {
+  const id = pkg.appId ?? pkg.name;
+  for (const other of members) {
+    if (other === pkg || other.source !== pkg.source) continue;
+    const rest = storeIdRest(id, other.appId ?? other.name);
+    if (!rest || !onlyTrackOrRisk(rest)) continue;
+    const axes = axesFromRest(rest);
+    return {
+      ...pkg,
+      ...(!pkg.track && axes.track ? { track: axes.track } : {}),
+      ...(!pkg.risk && axes.risk ? { risk: axes.risk } : {}),
+    };
+  }
+  return pkg;
+}
 
 /** A curated track lookup: build-suffix-stripped package name -> track. */
 export function trackNames(tracks: readonly MatchTrackEntry[]): Map<string, string> {
@@ -41,6 +68,7 @@ export function annotateMembers(
     const own = strippedName(pkg).toLowerCase();
     const curatedTrack = tracks.get(own);
     if (curatedTrack) return pkg.track ? pkg : { ...pkg, track: curatedTrack };
+    if (STORE_ID_SOURCES.has(pkg.source)) return annotateStoreId(pkg, members);
     if (!VARIANT_NAMING_SOURCES.has(pkg.source)) return pkg;
 
     let best: { base: string; rest: string[] } | undefined;

@@ -48,15 +48,18 @@ tracks. An old release frozen on purpose and no longer maintained
 
 A parallel line with its own lifecycle, that does not merge back into
 another line: Firefox `esr` and `devedition`, JDK `17`/`21`, Python
-`3.12`, Node `22`, Snap tracks (`v11`, `latest`). Every package has one;
-`default` when nothing says otherwise.
+`3.12`, Node `22`, Snap tracks (`v11`). Every package has one; the
+default line is stored as no value at all (Snap's `latest` included).
 
 ### Risk
 
 Maturity inside a track: `stable` · `candidate` · `beta` · `nightly` ·
 `git` (built from the development branch head). Something that becomes
 the next stable release is a risk, not a track — Firefox Beta and
-Nightly are risks; ESR is a track.
+Nightly are risks; ESR is a track. `stable` is stored as no value at
+all. Mapped from each source's own words: Snap `edge` and AUR
+`-canary`/`-unstable` are `nightly`, AUR `-alpha`/`-preview` are `beta`,
+and a release Gentoo is still testing (`~amd64`) is `candidate`.
 
 ### Flavor
 
@@ -71,15 +74,15 @@ packaged, not what it is: `bin` (prebuilt upstream binary repackaged),
 
 Who produced the binaries:
 
-| Value               | Meaning                                                 | Default for                                       |
-| ------------------- | ------------------------------------------------------- | ------------------------------------------------- |
-| `upstream`          | The project or vendor itself                            | Flathub verified apps, `vendor-repos`             |
-| `distro`            | A distribution rebuilt it from source                   | Distro repos (Debian, Fedora, Arch, nixpkgs, ...) |
-| `community-repack`  | A community packager repackaged upstream's own binaries | AUR `-bin`                                        |
-| `community-patched` | A community packager built it with extra patches        | AUR drop-in builds carrying a patch flavor        |
+| Value               | Meaning                                                 | Default for                                                                                                                     |
+| ------------------- | ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| `upstream`          | The project or vendor itself                            | Flathub verified apps, `vendor-repos`, Gentoo `-bin`, the Mint/Pop!\_OS/Deepin/MX connectors (scoped to each distro's own apps) |
+| `distro`            | A distribution rebuilt it from source                   | Distro repos (Debian, Fedora, Arch, nixpkgs, ...)                                                                               |
+| `community-repack`  | A community packager repackaged upstream's own binaries | AUR `-bin` and `-appimage`                                                                                                      |
+| `community-patched` | A community packager built it with extra patches        | AUR drop-in builds carrying a patch flavor                                                                                      |
 
 Sources whose default is not obvious (AppImage, Snapcraft, unverified
-Flathub apps, GOG, Lutris) are left unset until a per-source signal is
+Flathub apps, GOG, Lutris, AUR packages built from source) are left unset until a per-source signal is
 checked against real data — unset means "unknown", never `upstream`.
 
 A flag, not a filter — same decision as the "Official vs

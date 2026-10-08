@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { channelFromKeywords, normalize } from "./normalize";
+import { normalize, riskFromKeywords } from "./normalize";
 import type { GentooCacheEntry } from "./types";
 
 describe("gentoo normalize", () => {
@@ -25,7 +25,7 @@ describe("gentoo normalize", () => {
     ]);
   });
 
-  it("derives the channel from the amd64 keyword", () => {
+  it("derives the risk from the amd64 keyword", () => {
     const entry: GentooCacheEntry = {
       category: "app-misc",
       name: "foo",
@@ -33,21 +33,32 @@ describe("gentoo normalize", () => {
       description: "",
       keywords: "~arm64 amd64",
     };
-    expect(normalize([entry])[0]?.channel).toBe("stable");
-    expect(normalize([{ ...entry, keywords: undefined }])[0]?.channel).toBeUndefined();
+    expect(normalize([entry])[0]?.risk).toBeUndefined();
+    expect(normalize([{ ...entry, keywords: "~amd64" }])[0]?.risk).toBe("candidate");
+    expect(normalize([{ ...entry, keywords: undefined }])[0]?.risk).toBeUndefined();
+  });
+
+  it("reads -bin as upstream binaries packaged by Gentoo", () => {
+    const entry: GentooCacheEntry = {
+      category: "www-client",
+      name: "firefox-bin",
+      version: "157.0",
+      description: "",
+    };
+    expect(normalize([entry])[0]).toMatchObject({ flavors: ["bin"], provenance: "upstream" });
   });
 });
 
-describe("channelFromKeywords", () => {
-  it("maps amd64 to stable and ~amd64 to testing", () => {
-    expect(channelFromKeywords("amd64 arm64")).toBe("stable");
-    expect(channelFromKeywords("~amd64 ~arm64")).toBe("testing");
+describe("riskFromKeywords", () => {
+  it("maps amd64 to the default risk and ~amd64 to candidate", () => {
+    expect(riskFromKeywords("amd64 arm64")).toBeUndefined();
+    expect(riskFromKeywords("~amd64 ~arm64")).toBe("candidate");
   });
 
   it("leaves other cases undefined", () => {
-    expect(channelFromKeywords("arm64 ~x86")).toBeUndefined();
-    expect(channelFromKeywords("-amd64")).toBeUndefined();
-    expect(channelFromKeywords("")).toBeUndefined();
-    expect(channelFromKeywords(undefined)).toBeUndefined();
+    expect(riskFromKeywords("arm64 ~x86")).toBeUndefined();
+    expect(riskFromKeywords("-amd64")).toBeUndefined();
+    expect(riskFromKeywords("")).toBeUndefined();
+    expect(riskFromKeywords(undefined)).toBeUndefined();
   });
 });

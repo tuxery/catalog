@@ -1,35 +1,14 @@
+import { nameAxes } from "../_shared/name-axes";
 import type { SourcedPackage } from "../types";
 import type { AurCacheEntry } from "./types";
 
-// AUR's own submission guidelines reserve these suffixes for an alternate
-// build of the exact same software as the unsuffixed package — not a
-// different project. Two conventions: `-git`/`-svn`/`-hg`/`-bzr`/`-cvs`
-// mark a rolling-release snapshot build (e.g. `0xtools-git` tracks
-// `0xtools`'s upstream repo directly); `-bin` marks a prebuilt-binary
-// build instead of building from source (e.g. `zen-browser-bin`). Also
-// used by the curator module's match tier to merge each variant into its
-// base package's app; see `match/group.ts`'s `VARIANT_SUFFIX`.
-// `-appimage` marks a package that installs the project's upstream AppImage
-// (match/group.ts folds it into the project's app too). It needs its own
-// channel: left unlabeled it reads "Stable" like the base package, and the
-// app's install drawer then names both tabs after their package names.
-const VARIANT_SUFFIX = /-(git|svn|hg|bzr|cvs|bin|appimage)$/;
-
-// A release-channel word, optionally followed by one of the build-variant
-// suffixes above (e.g. `-beta-bin`) — same "alternate build" shape as
-// `VARIANT_SUFFIX`, just a different axis (which release channel, not
-// which build method). Checked first below since it's the more specific/
-// meaningful label when both are present (`brave-origin-beta-bin`'s
-// channel is "beta", not "bin"). See `match/group.ts`'s
-// `CHANNEL_WORD_SUFFIX` for the live verification behind this list, and why
-// `-dev` is deliberately excluded.
-const CHANNEL_WORD =
-  /-(beta|nightly|alpha|canary|unstable|preview)(?:-(?:git|svn|hg|bzr|cvs|bin))?$/;
-
 export function normalize(entries: AurCacheEntry[]): SourcedPackage[] {
   return entries.map((entry) => {
-    const channelMatch = CHANNEL_WORD.exec(entry.name);
-    const variantMatch = VARIANT_SUFFIX.exec(entry.name);
+    // Build tokens AUR's submission guidelines reserve for an alternate
+    // build of the same software (`-git`, `-bin`, `-beta`, ...) — see
+    // docs/product-families.md. match/group.ts folds these into the
+    // unsuffixed project's app.
+    const { risk, flavors } = nameAxes(entry.name);
 
     return {
       source: "pacman-aur",
@@ -44,7 +23,12 @@ export function normalize(entries: AurCacheEntry[]): SourcedPackage[] {
       license: entry.license,
       popularity: entry.popularity,
       formal: entry.formal,
-      channel: channelMatch ? channelMatch[1] : variantMatch ? variantMatch[1] : undefined,
+      risk,
+      flavors,
+      // `-bin`/`-appimage` repackage upstream's own binaries; anything else
+      // is built from source on the user's machine from a community recipe,
+      // which none of the provenance values describes yet.
+      provenance: flavors ? "community-repack" : undefined,
     };
   });
 }

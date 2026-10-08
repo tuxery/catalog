@@ -2,7 +2,11 @@ import { writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { z } from "zod";
 import { FilterExcludeListSchema, FilterKeepListSchema } from "../src/curator/filter/types";
-import { MatchDenyListSchema, MatchForceListSchema } from "../src/curator/match/types";
+import {
+  MatchDenyListSchema,
+  MatchForceListSchema,
+  MatchTracksListSchema,
+} from "../src/curator/match/types";
 import { AppStoreTagsListSchema } from "../src/curator/enrich/app-store-frontend";
 import { CategoriesAppsSchema, CategoriesGamesSchema } from "../src/curator/enrich/category";
 import { CategoryRulesListSchema } from "../src/curator/enrich/category-rules";
@@ -34,6 +38,7 @@ const SCHEMAS: { schema: z.ZodType; outFile: string }[] = [
   },
   { schema: MatchForceListSchema, outFile: "../src/curator/match/match-force.schema.json" },
   { schema: MatchDenyListSchema, outFile: "../src/curator/match/match-deny.schema.json" },
+  { schema: MatchTracksListSchema, outFile: "../src/curator/match/match-tracks.schema.json" },
   {
     schema: AppStoreTagsListSchema,
     outFile: "../src/curator/enrich/enrich-app-store-tags.schema.json",

@@ -61,3 +61,32 @@ export const MatchForceListSchema = z.array(ForceMatchEntrySchema).meta({
   description:
     "Pairs (or groups) too ambiguous for match/group.ts's auto tiers — forces every listed source package to merge into the same CatalogApp as destination, regardless of score.",
 });
+
+const MatchTrackEntrySchema = z.object({
+  product: z
+    .string()
+    .describe(
+      'A package name already in the product\'s group, as the build-suffix-stripped name match/group.ts keys on (e.g. "firefox").',
+    ),
+  track: z
+    .string()
+    .describe('The track these packages are, e.g. "esr" — see docs/product-families.md.'),
+  names: z
+    .array(z.string())
+    .min(1)
+    .describe(
+      'Build-suffix-stripped package names that are this track of the product, on any source (e.g. "firefox-esr" also covers "firefox-esr-bin").',
+    ),
+  reason: z
+    .string()
+    .describe("Why these packages are a parallel line of the product — auditable later."),
+});
+
+/** One hand-curated track of a product (`config/match-tracks.json`). */
+export type MatchTrackEntry = z.infer<typeof MatchTrackEntrySchema>;
+
+export const MatchTracksListSchema = z.array(MatchTrackEntrySchema).meta({
+  title: "Match: product tracks",
+  description:
+    "Parallel lines of a product (Firefox ESR, LibreOffice Still, ...) — merges every listed package into the product's group and labels it with the track. See docs/product-families.md.",
+});

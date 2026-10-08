@@ -1,4 +1,5 @@
 import type { FetchMetadata } from "../_shared/metadata";
+import type { FormalSignals } from "../types";
 
 /**
  * One `<component>` entry from elementary AppCenter's appstream
@@ -38,6 +39,8 @@ export interface AppCenterCacheEntry {
   lastUpdated?: string;
   /** See `SourcedPackage.rating`. */
   rating?: { average: number; count: number };
+  /** Component type, `<extends>`, `<replaces>` — see `FormalSignals`. Add-on rows are cached but not yet normalized into packages (see `normalize.ts`). */
+  formal?: FormalSignals;
 }
 
 export interface AppCenterFetchMetadata extends FetchMetadata {

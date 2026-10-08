@@ -1,4 +1,5 @@
 import type { FetchMetadata } from "../_shared/metadata";
+import type { FormalSignals } from "../types";
 
 /**
  * One package stanza from MX Linux's `main` component (deb822 format,
@@ -14,6 +15,8 @@ export interface MxLinuxCacheEntry {
   version: string;
   homepage?: string;
   section?: string;
+  /** `Source`/`Provides`/`Conflicts`/`Replaces`/`Depends`/`Enhances` — see `FormalSignals`. */
+  formal?: FormalSignals;
 }
 
 export interface MxLinuxFetchMetadata extends FetchMetadata {

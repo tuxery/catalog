@@ -44,6 +44,7 @@ describe("parseAppstream", () => {
       screenshots: [],
       changelog: undefined,
       lastUpdated: "2021-08-15T00:00:00.000Z",
+      formal: { componentType: "desktop-application" },
       rating: undefined,
     });
   });

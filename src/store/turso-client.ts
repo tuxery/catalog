@@ -767,8 +767,20 @@ function toRow(app: AppRecord): unknown[] {
     toJsonColumn(app.suite),
     toJsonColumn(app.compatibilityWarnings),
     JSON.stringify(app.dataConfidence),
-    JSON.stringify(app.packages),
+    JSON.stringify(app.packages.map(toStoredPackage)),
   ];
+}
+
+/**
+ * A package as `app` reads it: everything but `formal` — the declared
+ * relations (dependency lists, provides, ...) only feed the curator's
+ * product-families stages (docs/product-families.md), and on a popular
+ * app's dozens of packages they would weigh more than the rest combined.
+ */
+function toStoredPackage(pkg: unknown): unknown {
+  if (typeof pkg !== "object" || pkg === null || !("formal" in pkg)) return pkg;
+  const { formal: _formal, ...rest } = pkg as Record<string, unknown>;
+  return rest;
 }
 
 // Free-text search index for `app`'s `/browse/?q=` (tuxery/catalog#24).

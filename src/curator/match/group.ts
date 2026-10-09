@@ -2,6 +2,7 @@ import { unorderedPairKey } from "helpers4/string";
 import { createUnionFind, type UnionFind } from "helpers4/structure";
 import type { SourcedPackage } from "../../sources";
 import { annotateMembers, dropInTargets, trackNames } from "./families";
+import { homepageKey } from "./homepage";
 import { packageKey, standaloneAppId } from "./keys";
 import { normalizeName } from "./normalize";
 import { loadMatchOverrides, type MatchOverrides } from "./overrides";
@@ -439,6 +440,68 @@ function unionLocaleBuilds(
   }
 }
 
+// A project homepage carried by more packages than this is a portal or an
+// umbrella page (a whole desktop's, a language's package index), where a
+// shared name proves nothing.
+const MAX_PACKAGES_PER_HOMEPAGE = 40;
+
+/** The names a package can be known by: its own (build suffix stripped) and, for a store id, the id's last segment (`com.openwall.John` -> `john`). */
+function nameStems(pkg: SourcedPackage): string[] {
+  const stems = [normalizeName(stripVariantSuffix(pkg))];
+  if (
+    (pkg.source === "flatpak-flathub" ||
+      pkg.source === "flatpak-appcenter" ||
+      pkg.source === "appimage") &&
+    pkg.appId
+  ) {
+    stems.push(normalizeName(pkg.appId.split(/[./]/).at(-1) ?? ""));
+  }
+  return [...new Set(stems)].filter(
+    (stem) => stem.length >= 3 && !GENERIC_NAME_BLOCKLIST.has(stem),
+  );
+}
+
+/**
+ * Tier 2f: packages pointing at the same project homepage
+ * (`homepageKey`: `openwall.com/john`, `github.com/owner/repo`) under the
+ * same normalized name — Flathub's reverse-DNS id or display name never
+ * meets the distributions' package names otherwise. Exact names only:
+ * stripping words like `-desktop` or `-client` also matched different
+ * products of one project (`atuin`, a CLI, and Atuin Desktop). Measured
+ * 2026-10-09: 472 matches joining 969 groups (RMG, John the Ripper,
+ * Surfshark, Galaxy Buds Client, Apache Directory Studio, ...).
+ */
+function unionSameProjectHomepage(
+  uf: UnionFind<string>,
+  packages: SourcedPackage[],
+  denyPairs: Set<string>,
+): void {
+  const keyOf = new Map<SourcedPackage, string>();
+  const packagesPerKey = new Map<string, number>();
+  for (const pkg of packages) {
+    const key = homepageKey(pkg.homepage);
+    if (!key) continue;
+    keyOf.set(pkg, key);
+    packagesPerKey.set(key, (packagesPerKey.get(key) ?? 0) + 1);
+  }
+
+  const firstByStem = new Map<string, SourcedPackage>();
+  for (const [pkg, key] of keyOf) {
+    if ((packagesPerKey.get(key) ?? 0) > MAX_PACKAGES_PER_HOMEPAGE) continue;
+    for (const stem of nameStems(pkg)) {
+      const bucket = `${key}|${stem}`;
+      const first = firstByStem.get(bucket);
+      if (!first) {
+        firstByStem.set(bucket, pkg);
+        continue;
+      }
+      const pkgKey = packageKey(pkg);
+      const firstKey = packageKey(first);
+      if (!denyPairs.has(unorderedPairKey(pkgKey, firstKey))) uf.union(firstKey, pkgKey);
+    }
+  }
+}
+
 /**
  * Tier 0b: curated tracks (`config/match-tracks.json`) — every package
  * whose build-suffix-stripped name is one of a track's names joins the
@@ -670,6 +733,10 @@ export function groupPackages(
 
   // Tier 2e: AUR builds that only differ by language (`betterbird-de-bin`).
   unionLocaleBuilds(uf, packages, overrides.denyPairs);
+
+  // Tier 2f: same project homepage, same name once normalized (Flathub's
+  // com.openwall.John and AUR's john-git, both at openwall.com/john).
+  unionSameProjectHomepage(uf, packages, overrides.denyPairs);
 
   // Tier 2d: AUR/Arch drop-in builds (`provides`+`conflicts` on the project they're named after).
   unionDropInBuilds(uf, packages, overrides.denyPairs);

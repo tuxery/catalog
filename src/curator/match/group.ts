@@ -399,6 +399,40 @@ function unionCuratedTracks(
   }
 }
 
+/**
+ * Tier 1b's key — the AppStream component id, without the legacy
+ * `.desktop` suffix some feeds still carry (`org.gnome.Boxes.desktop`).
+ * Reverse-DNS and chosen upstream, so unlike a display name it doesn't
+ * collide between unrelated apps: Flathub's `org.gnome.Calendar` ("Calendar")
+ * and Arch's `gnome-calendar` meet here, where tier 2 can't — "Calendar" is
+ * far too generic a name to merge on. Measured 2026-10-09: see the PR.
+ */
+function appstreamKey(pkg: SourcedPackage): string | undefined {
+  return pkg.appstreamId?.replace(/\.desktop$/, "");
+}
+
+/**
+ * Package keys described by more than one AppStream component: a
+ * distribution package can ship several apps (`hugin` and its two tools,
+ * `crispy-doom` with Doom, Heretic and Hexen — 15 to 107 such packages
+ * per distribution feed, measured 2026-10-09). All its components share
+ * the package's own union-find node, so keying them on their AppStream
+ * ids would merge every one of those apps' Flathub listings together;
+ * tier 1b leaves them out.
+ */
+function packagesWithSeveralAppstreamIds(packages: SourcedPackage[]): Set<string> {
+  const idsByKey = new Map<string, Set<string>>();
+  for (const pkg of packages) {
+    const id = appstreamKey(pkg);
+    if (!id) continue;
+    const key = packageKey(pkg);
+    const ids = idsByKey.get(key) ?? new Set<string>();
+    ids.add(id);
+    idsByKey.set(key, ids);
+  }
+  return new Set([...idsByKey].filter(([, ids]) => ids.size > 1).map(([key]) => key));
+}
+
 function tier2Key(pkg: SourcedPackage): string | undefined {
   const normalized = normalizeName(stripVariantSuffix(pkg));
   return GENERIC_NAME_BLOCKLIST.has(normalized) ? undefined : normalized;
@@ -546,6 +580,16 @@ export function groupPackages(
 
   // Tier 1: exact appId match.
   unionByExactKey(uf, packages, tier1Key, overrides.denyPairs);
+
+  // Tier 1b: same AppStream component id (Flathub's org.gnome.Calendar and
+  // the distributions' AppStream entry for their gnome-calendar package).
+  const ambiguous = packagesWithSeveralAppstreamIds(packages);
+  unionByExactKey(
+    uf,
+    packages,
+    (pkg) => (ambiguous.has(packageKey(pkg)) ? undefined : appstreamKey(pkg)),
+    overrides.denyPairs,
+  );
 
   // Tier 2: exact normalized-name match.
   unionByExactKey(uf, packages, tier2Key, overrides.denyPairs);

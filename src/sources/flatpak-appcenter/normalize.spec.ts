@@ -27,6 +27,7 @@ describe("appcenter normalize", () => {
         description: "The Linux Design Tool",
         version: "0.0.16",
         appId: "com.github.akiraux.akira",
+        appstreamId: "com.github.akiraux.akira",
         iconFilename: "com.github.akiraux.akira.png",
         iconUrl: "https://flatpak.elementary.io/repo/appstream/x86_64/icons/128x128/akira.png",
         homepage: "https://akiraux.org",

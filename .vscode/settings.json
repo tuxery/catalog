@@ -33,6 +33,10 @@
       "url": "./src/pipeline/audit-golden.schema.json"
     },
     {
+      "fileMatch": ["/config/audit-llm-suggestions.json"],
+      "url": "./src/pipeline/audit-llm-suggestions.schema.json"
+    },
+    {
       "fileMatch": ["/config/enrich-compat-warnings.json"],
       "url": "./src/curator/enrich/enrich-compat-warnings.schema.json"
     },

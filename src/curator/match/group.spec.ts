@@ -719,7 +719,13 @@ describe("groupPackages — product families", () => {
           appId: "com.openwall.John",
           homepage: "https://www.openwall.com/john/",
         }),
-        aur("john-git", "John the Ripper password cracker"),
+        pkg({
+          source: "pacman-aur",
+          name: "john-git",
+          appId: "john-git",
+          description: "John the Ripper password cracker",
+          homepage: "https://openwall.com/john",
+        }),
         pkg({ source: "pacman-aur", name: "atuin", appId: "atuin", homepage: "https://atuin.sh" }),
         pkg({
           source: "pacman-aur",
@@ -727,9 +733,7 @@ describe("groupPackages — product families", () => {
           appId: "atuin-desktop-bin",
           homepage: "https://atuin.sh",
         }),
-      ].map((entry) =>
-        entry.name === "john-git" ? { ...entry, homepage: "https://openwall.com/john" } : entry,
-      ),
+      ],
       NO_OVERRIDES,
     );
 

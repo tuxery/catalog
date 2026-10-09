@@ -3,6 +3,8 @@ import { fileURLToPath } from "node:url";
 import { loadLlmModels, type LlmModel } from "../src/curator/enrich/llm-models";
 import type { AuditSignal, AuditSuspect } from "../src/pipeline/audit";
 import {
+  GROUP_SIGNALS,
+  MAX_CARDS,
   buildTriageSystemPrompt,
   buildTriageUserPrompt,
   parseTriageResults,
@@ -70,8 +72,14 @@ function resolveModels(): LlmModel[] {
 // classify-llm, which sizes `batchSize`.
 const suspectsPerRequest = (model: LlmModel) => Math.max(3, Math.floor(model.batchSize / 10));
 
-function keyOf(entry: { signal: string; key: string }): string {
-  return `${entry.signal}|${entry.key}`;
+function keyOf(entry: { signal: string; key: string; appId?: string }): string {
+  return `${entry.signal}|${entry.key}${entry.appId ? `|${entry.appId}` : ""}`;
+}
+
+/** The suggestion keys a suspect needs: one per judged card in a group, else one. */
+function neededKeys(item: TriageItem): string[] {
+  if (!GROUP_SIGNALS.has(item.signal)) return [keyOf(item)];
+  return item.apps.slice(1, MAX_CARDS).map((app) => keyOf({ ...item, appId: app.id }));
 }
 
 function save(suggestions: Map<string, TriageSuggestion>): void {
@@ -88,7 +96,13 @@ async function main(): Promise<void> {
   const stored = existsSync(SUGGESTIONS_PATH)
     ? TriageSuggestionsListSchema.parse(JSON.parse(readFileSync(SUGGESTIONS_PATH, "utf8")))
     : [];
-  const suggestions = new Map(stored.map((entry) => [keyOf(entry), entry]));
+  // Group suspects are judged card by card: a suggestion about a whole
+  // group (from before) can't be accepted for any one card, so it goes.
+  const suggestions = new Map(
+    stored
+      .filter((entry) => !GROUP_SIGNALS.has(entry.signal as AuditSignal) || entry.appId)
+      .map((entry) => [keyOf(entry), entry]),
+  );
 
   const queue: TriageItem[] = signals
     .flatMap((signal) =>
@@ -100,7 +114,7 @@ async function main(): Promise<void> {
         reach: suspect.reach,
       })),
     )
-    .filter((item) => !suggestions.has(keyOf(item)));
+    .filter((item) => neededKeys(item).some((key) => !suggestions.has(key)));
   const todo = queue.slice(0, sample ?? limit ?? queue.length);
 
   const models = resolveModels();
@@ -127,19 +141,21 @@ async function main(): Promise<void> {
     for (const result of results) {
       const item = batch[result.n - 1];
       if (!item) continue;
-      suggestions.set(keyOf(item), {
+      const appId = GROUP_SIGNALS.has(item.signal) ? item.apps[result.card - 1]?.id : undefined;
+      const suggestion: TriageSuggestion = {
         signal: item.signal,
         key: item.key,
+        ...(appId ? { appId } : {}),
         verdict: result.verdict,
-        ...(result.kind ? { kind: result.kind } : {}),
         confidence: result.confidence,
         reason: result.reason,
         model: model.id,
-      });
+      };
+      suggestions.set(keyOf(suggestion), suggestion);
       added += 1;
       if (sample !== undefined) {
         console.log(
-          `  [${result.confidence}] ${item.signal} ${item.key} -> ${result.verdict}${result.kind ? `/${result.kind}` : ""} (${result.reason})`,
+          `  [${result.confidence}] ${item.signal} ${item.key}${appId ? ` · ${appId}` : ""} -> ${result.verdict} (${result.reason})`,
         );
       }
     }

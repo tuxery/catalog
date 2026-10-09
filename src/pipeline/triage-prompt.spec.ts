@@ -29,33 +29,45 @@ describe("buildTriageUserPrompt", () => {
   it("numbers items and lists their cards and quotes", () => {
     const prompt = buildTriageUserPrompt(items);
     expect(prompt).toContain('1. declared-relation — "fork of Wine" (forkOf)');
-    expect(prompt).toContain("   - vlc; VLC; pacman-aur; VLC description; ");
+    expect(prompt).toContain("   1) vlc; VLC; pacman-aur; VLC description; ");
   });
 });
 
 describe("parseTriageResults", () => {
-  it("keeps valid lines, with a kind only for related", () => {
+  it("reads one verdict per judged card of a group, one per item otherwise", () => {
     const text = JSON.stringify({
       results: [
-        "1|correct||high|Proton is Valve's fork of Wine",
-        "2|related|edition|medium|same player | different build",
+        "1|1|correct|high|Proton is Valve's fork of Wine",
+        "2|2|same|medium|the same player | another build",
       ],
     });
     expect(parseTriageResults(text, items)).toEqual([
-      { n: 1, verdict: "correct", confidence: "high", reason: "Proton is Valve's fork of Wine" },
+      {
+        n: 1,
+        card: 1,
+        verdict: "correct",
+        confidence: "high",
+        reason: "Proton is Valve's fork of Wine",
+      },
       {
         n: 2,
-        verdict: "related",
-        kind: "edition",
+        card: 2,
+        verdict: "same",
         confidence: "medium",
-        reason: "same player different build",
+        reason: "the same player another build",
       },
     ]);
   });
 
-  it("drops a verdict the item's signal can't take, an unknown confidence or a bad number", () => {
+  it("drops a verdict the signal can't take, a card out of range, an unknown confidence or item", () => {
     const text = JSON.stringify({
-      results: ["1|same||high|x", "2|same||sure|x", "9|same||high|x"],
+      results: [
+        "1|1|same|high|x",
+        "2|1|same|high|x",
+        "2|3|same|high|x",
+        "2|2|same|sure|x",
+        "9|2|same|high|x",
+      ],
     });
     expect(parseTriageResults(text, items)).toEqual([]);
   });

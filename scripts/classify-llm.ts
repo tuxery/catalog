@@ -11,11 +11,11 @@ import { loadLlmModels, type LlmModel } from "../src/curator/enrich/llm-models";
 import {
   buildSystemPrompt,
   buildUserPrompt,
+  parseResults,
   TAXONOMY,
   type BatchItem,
-  type BatchResult,
 } from "../src/curator/enrich/llm-prompt";
-import { callModel, ModelUnavailable, RetryLater } from "./_llm-providers";
+import { createRotation, StopRun } from "./_llm-rotation";
 
 const CONFIG_PATH = fileURLToPath(new URL("../config/llm-classifications.json", import.meta.url));
 
@@ -98,207 +98,21 @@ function resolveModels(): LlmModel[] {
 const MODELS = resolveModels();
 if (MODELS.length === 0) throw new Error("No enabled model in config/llm-models.json.");
 
-// --- Types ---
-/**
- * Thrown when this run should stop for now — every model's daily quota
- * spent, the `--max-requests` cap, or every model staying overloaded
- * through several rounds. The caller persists progress and exits cleanly:
- * re-running later resumes where this one left off.
- */
-class StopRun extends Error {}
-
 const SYSTEM_PROMPT = buildSystemPrompt();
-
-// --- Per-model pacing and stats ---
-interface ModelState {
-  nextSlotAt: number;
-  requests: number;
-  apps: number;
-  tokens: number;
-}
-const state = new Map<string, ModelState>(
-  MODELS.map((model) => [model.id, { nextSlotAt: 0, requests: 0, apps: 0, tokens: 0 }]),
-);
-let requestsMade = 0;
-
-/** Waits for this model's next slot under its `requestsPerMinute` budget, and counts the request. */
-async function paced(model: LlmModel): Promise<void> {
-  if (maxRequests !== undefined && requestsMade >= maxRequests) {
-    throw new StopRun(`--max-requests ${maxRequests} reached`);
-  }
-  requestsMade += 1;
-  const modelState = state.get(model.id) as ModelState;
-  modelState.requests += 1;
-  const now = Date.now();
-  const slot = Math.max(now, modelState.nextSlotAt);
-  modelState.nextSlotAt = slot + 60_000 / model.requestsPerMinute;
-  if (slot > now) await new Promise((resolve) => setTimeout(resolve, slot - now));
-}
-
-/** Token pacing: pushes the model's next slot back by the largest share of a minute's token budget (total, or output-only) this request used. */
-function recordTokens(
-  model: LlmModel,
-  tokens: number | undefined,
-  outputTokens: number | undefined,
-): void {
-  const modelState = state.get(model.id) as ModelState;
-  modelState.tokens += tokens ?? 0;
-  const minutes = Math.max(
-    tokens !== undefined && model.tokensPerMinute !== undefined
-      ? tokens / model.tokensPerMinute
-      : 0,
-    outputTokens !== undefined && model.outputTokensPerMinute !== undefined
-      ? outputTokens / model.outputTokensPerMinute
-      : 0,
-  );
-  modelState.nextSlotAt = Math.max(modelState.nextSlotAt, Date.now() + minutes * 60_000);
-}
-
-/**
- * One paced call on one model, retrying in place on a per-minute limit
- * (`RetryLater`, up to 5 times) and on overload up to the model's own
- * `overloadRetries`; anything else propagates to the rotation. Recursion
- * rather than a loop so the awaited calls don't trip `no-await-in-loop`.
- */
-async function callPaced(
-  model: LlmModel,
-  batch: BatchItem[],
-  attempt = 0,
-  overloadAttempt = 0,
-): Promise<BatchResult[]> {
-  await paced(model);
-  try {
-    const { results, tokens, outputTokens } = await callModel(model, {
-      system: SYSTEM_PROMPT,
-      user: buildUserPrompt(batch),
-      taxonomy: TAXONOMY,
-    });
-    recordTokens(model, tokens, outputTokens);
-    return results;
-  } catch (error) {
-    if (error instanceof RetryLater && attempt < 5) {
-      console.warn(
-        `${model.id}: ${error.message} — retrying in ${Math.round(error.waitMs / 1000)}s`,
-      );
-      await new Promise((resolve) => setTimeout(resolve, error.waitMs));
-      return callPaced(model, batch, attempt + 1, overloadAttempt);
-    }
-    if (
-      error instanceof ModelUnavailable &&
-      !error.daily &&
-      overloadAttempt < model.overloadRetries
-    ) {
-      console.warn(`${model.id}: ${error.message} — retrying in 10s`);
-      await new Promise((resolve) => setTimeout(resolve, 10_000));
-      return callPaced(model, batch, attempt, overloadAttempt + 1);
-    }
-    if (error instanceof RetryLater) throw new ModelUnavailable(error.message, false);
-    throw error;
-  }
-}
-
-// --- Model rotation ---
-// Per-model availability instead of a one-way "exhausted" set: a daily cap
-// rests the model until its provider's reset (Groq's rolling window is
-// often back within minutes), an overload rests it with a growing backoff.
-// Failed requests can count against a daily quota (observed on Gemini), so
-// an overloaded model is probed at most MAX_OVERLOAD_STREAK times in a row
-// before it's dropped for the run — bounding the quota a long outage burns.
-interface Availability {
-  availableAt: number;
-  overloadStreak: number;
-  dropped: boolean;
-}
-const availability = new Map<string, Availability>(
-  MODELS.map((model) => [model.id, { availableAt: 0, overloadStreak: 0, dropped: false }]),
-);
-const MAX_OVERLOAD_STREAK = 5;
-const OVERLOAD_BACKOFF_MS = 2 * 60_000;
-const OVERLOAD_BACKOFF_CAP_MS = 30 * 60_000;
-
-function availabilityOf(model: LlmModel): Availability {
-  return availability.get(model.id) as Availability;
-}
-
-function clock(ms: number): string {
-  return `${new Date(ms).toISOString().slice(0, 16).replace("T", " ")} UTC`;
-}
-
-/** Books the outcome of a failed attempt on this model's availability. */
-function rest(model: LlmModel, error: ModelUnavailable): void {
-  const slot = availabilityOf(model);
-  if (error.daily) {
-    // No reset time known: treat it as spent for the run.
-    if (error.retryAt === undefined) slot.dropped = true;
-    else slot.availableAt = error.retryAt;
-    console.warn(
-      `${model.id}: ${error.message} — ${slot.dropped ? "dropped for this run" : `resting until ${clock(slot.availableAt)}`}`,
-    );
-    return;
-  }
-  slot.overloadStreak += 1;
-  if (slot.overloadStreak >= MAX_OVERLOAD_STREAK) {
-    slot.dropped = true;
-    console.warn(
-      `${model.id}: ${error.message} — ${slot.overloadStreak} in a row, dropped for this run`,
-    );
-    return;
-  }
-  const backoff = Math.min(
-    OVERLOAD_BACKOFF_MS * 2 ** (slot.overloadStreak - 1),
-    OVERLOAD_BACKOFF_CAP_MS,
-  );
-  slot.availableAt = Date.now() + backoff;
-  console.warn(`${model.id}: ${error.message} — resting ${backoff / 60_000} min`);
-}
+const rotation = createRotation(MODELS, { maxRequests, maxIdleMinutes });
 
 interface Group {
   items: BatchItem[];
   cursor: number;
 }
 
-/**
- * Classifies the group's next batch on the highest-priority model that's
- * available right now (array order of config/llm-models.json, so a
- * recovered Gemini model takes over again from Groq). The batch is sliced
- * only once the model is picked, since batch size is per model. When none
- * is available, waits for the next one if it's back within --max-idle,
- * else stops the run cleanly, saying when to re-run. Recursion rather than
- * a loop so the awaited calls don't trip `no-await-in-loop`.
- */
-async function classifyNextBatch(
-  group: Group,
-): Promise<{ batch: BatchItem[]; results: BatchResult[]; model: LlmModel }> {
-  const candidates = MODELS.filter((model) => !availabilityOf(model).dropped);
-  if (candidates.length === 0) {
-    throw new StopRun("no model left to try this run");
-  }
-  const now = Date.now();
-  const model = candidates.find((candidate) => availabilityOf(candidate).availableAt <= now);
-  if (!model) {
-    const next = candidates.reduce((best, candidate) =>
-      availabilityOf(candidate).availableAt < availabilityOf(best).availableAt ? candidate : best,
-    );
-    const nextAt = availabilityOf(next).availableAt;
-    if (nextAt - now > maxIdleMinutes * 60_000) {
-      throw new StopRun(
-        `no model available before ${clock(nextAt)} (${next.id}) — re-run after that`,
-      );
-    }
-    console.warn(`No model available — waiting until ${clock(nextAt)} for ${next.id}`);
-    await new Promise((resolve) => setTimeout(resolve, nextAt - now));
-    return classifyNextBatch(group);
-  }
-  const batch = group.items.slice(group.cursor, group.cursor + model.batchSize);
-  try {
-    const results = await callPaced(model, batch);
-    availabilityOf(model).overloadStreak = 0;
-    return { batch, results, model };
-  } catch (error) {
-    if (!(error instanceof ModelUnavailable)) throw error;
-    rest(model, error);
-    return classifyNextBatch(group);
-  }
+/** Classifies the group's next batch — see `Rotation.next`. */
+function classifyNextBatch(group: Group) {
+  return rotation.next(group.items, group.cursor, (batch) => ({
+    system: SYSTEM_PROMPT,
+    user: buildUserPrompt(batch),
+    parse: (text) => parseResults(text, TAXONOMY),
+  }));
 }
 
 function toItems(list: { id: string; name: string; shortDescription: string }[]): BatchItem[] {
@@ -500,7 +314,7 @@ async function main(): Promise<void> {
         model: model.id,
       } as LlmClassificationEntry);
       newEntries += 1;
-      (state.get(model.id) as ModelState).apps += 1;
+      rotation.countItems(model, 1);
     }
     // Persist after every batch: a batch is a whole request's worth of
     // scarce free-tier quota, never worth losing to a crash or Ctrl-C.
@@ -513,13 +327,21 @@ async function main(): Promise<void> {
   } catch (error) {
     if (!(error instanceof StopRun)) throw error;
     console.warn(
-      `Stopped: ${error.message}. ${newEntries} new entries saved (${requestsMade} requests this run) — re-run later to continue where this left off.`,
+      `Stopped: ${error.message}. ${newEntries} new entries saved (${rotation.requestsMade()} requests this run) — re-run later to continue where this left off.`,
     );
   }
 
   // Per-model usage, to calibrate batchSize/tokensPerMinute against real numbers.
   for (const model of MODELS) {
-    const { requests, apps: appCount, tokens } = state.get(model.id) as ModelState;
+    const {
+      requests,
+      items: appCount,
+      tokens,
+    } = rotation.stats().get(model.id) ?? {
+      requests: 0,
+      items: 0,
+      tokens: 0,
+    };
     if (requests === 0) continue;
     console.log(
       `  ${model.id}: ${requests} requests, ${appCount} apps, ${tokens} tokens${appCount > 0 && tokens > 0 ? ` (${Math.round(tokens / appCount)}/app)` : ""}`,
@@ -533,7 +355,7 @@ async function main(): Promise<void> {
 
   if (sample !== undefined) {
     console.log(
-      `Sample complete (${requestsMade} requests) — real results (not written to config):`,
+      `Sample complete (${rotation.requestsMade()} requests) — real results (not written to config):`,
     );
     for (const item of todo) {
       const result = results.get(item.id);
@@ -549,7 +371,7 @@ async function main(): Promise<void> {
     return acc;
   }, {});
   console.log(
-    `Done. ${newEntries} new entries (${requestsMade} requests); ${results.size} total in config/llm-classifications.json — ${JSON.stringify(byConfidence)}.`,
+    `Done. ${newEntries} new entries (${rotation.requestsMade()} requests); ${results.size} total in config/llm-classifications.json — ${JSON.stringify(byConfidence)}.`,
   );
 }
 

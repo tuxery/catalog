@@ -1,10 +1,9 @@
 import type { LlmModel } from "../src/curator/enrich/llm-models";
-import { parseResults, type BatchResult, type Taxonomy } from "../src/curator/enrich/llm-prompt";
 
 /**
  * One API adapter per provider behind a single `callModel` — request
  * format, auth, and above all how each provider's quota errors map onto
- * the three outcomes the rotation in `classify-llm.ts` acts on:
+ * the three outcomes the rotation in `_llm-rotation.ts` acts on:
  *
  * - `RetryLater`: a short per-minute limit — wait and retry this model.
  * - `ModelUnavailable` (daily): this model's daily quota is spent — rest
@@ -18,18 +17,24 @@ import { parseResults, type BatchResult, type Taxonomy } from "../src/curator/en
  * fix, not something rotating models would solve.
  */
 
-export interface CallResult {
-  results: BatchResult[];
+export interface CallResult<T> {
+  results: T[];
   /** Total tokens billed for the request (input + output + reasoning), when the provider reports it — drives token pacing. */
   tokens?: number;
   /** Output tokens alone (answer + reasoning) — drives output-token pacing. */
   outputTokens?: number;
 }
 
-export interface Prompt {
+/**
+ * One request's prompt, and how to read the answer: every task asks for
+ * the same `{"results": [string, ...]}` shape (see `outputSchema`) and
+ * parses its own lines — `parse` returns the valid ones and throws when
+ * the text isn't parseable at all.
+ */
+export interface Prompt<T> {
   system: string;
   user: string;
-  taxonomy: Taxonomy;
+  parse: (text: string | undefined) => T[];
 }
 
 export class RetryLater extends Error {
@@ -104,7 +109,7 @@ function outputSchema(strict: boolean): Record<string, unknown> {
 }
 
 /**
- * `parseResults` for a successful response. Unparseable output (typically
+ * The prompt's `parse` for a successful response. Unparseable output (typically
  * truncated at maxOutputTokens), or output with no valid line at all (the
  * model ignored the format), counts as the model being unavailable, like
  * an overload: the batch moves to the next model, and a model that keeps
@@ -112,10 +117,10 @@ function outputSchema(strict: boolean): Record<string, unknown> {
  * silently burning quota on answers that yield nothing (11 Gemini requests
  * for 0 apps, 2026-09-29).
  */
-function parseOk(text: string | undefined, taxonomy: Taxonomy): BatchResult[] {
-  let results: BatchResult[];
+function parseOk<T>(text: string | undefined, parse: Prompt<T>["parse"]): T[] {
+  let results: T[];
   try {
-    results = parseResults(text, taxonomy);
+    results = parse(text);
   } catch {
     throw new ModelUnavailable("unparseable output (truncated? lower batchSize)", false);
   }
@@ -128,10 +133,10 @@ function parseOk(text: string | undefined, taxonomy: Taxonomy): BatchResult[] {
   return results;
 }
 
-/** `parseResults` on a schema-rejected answer: whatever valid lines it has are already paid for. */
-function salvageResults(text: string | undefined, taxonomy: Taxonomy): BatchResult[] {
+/** `parse` on a schema-rejected answer: whatever valid lines it has are already paid for. */
+function salvageResults<T>(text: string | undefined, parse: Prompt<T>["parse"]): T[] {
   try {
-    return parseResults(text, taxonomy);
+    return parse(text);
   } catch {
     return [];
   }
@@ -160,11 +165,11 @@ const GEMINI_THINKING: Record<LlmModel["reasoning"], string> = {
 };
 
 /** The system prompt folded into the user message, for `plainPrompt` models that take no system role. */
-function plainUserText(prompt: Prompt): string {
+function plainUserText<T>(prompt: Prompt<T>): string {
   return `${prompt.system}\n\n${prompt.user}`;
 }
 
-async function callGemini(model: LlmModel, prompt: Prompt): Promise<CallResult> {
+async function callGemini<T>(model: LlmModel, prompt: Prompt<T>): Promise<CallResult<T>> {
   const apiKey = requireEnv(
     model.apiKeyEnv ?? "GEMINI_API_KEY",
     "https://aistudio.google.com/apikey",
@@ -209,7 +214,7 @@ async function callGemini(model: LlmModel, prompt: Prompt): Promise<CallResult> 
     };
     const usage = body.usageMetadata;
     return {
-      results: parseOk(body.candidates?.[0]?.content?.parts?.[0]?.text, prompt.taxonomy),
+      results: parseOk(body.candidates?.[0]?.content?.parts?.[0]?.text, prompt.parse),
       tokens: usage?.totalTokenCount,
       outputTokens:
         usage?.candidatesTokenCount === undefined
@@ -252,7 +257,7 @@ function responseFormat(model: LlmModel): Record<string, unknown> {
   if (model.responseFormat === "json_object") return { type: "json_object" };
   return {
     type: "json_schema",
-    json_schema: { name: "classification_results", strict: true, schema: outputSchema(true) },
+    json_schema: { name: "results", strict: true, schema: outputSchema(true) },
   };
 }
 
@@ -264,7 +269,7 @@ function responseFormat(model: LlmModel): Record<string, unknown> {
  * never occur elsewhere, and a generic 429 is read the same way: "per day"
  * / "daily" in the message means the daily quota.
  */
-async function callOpenAiCompatible(model: LlmModel, prompt: Prompt): Promise<CallResult> {
+async function callOpenAiCompatible<T>(model: LlmModel, prompt: Prompt<T>): Promise<CallResult<T>> {
   const groq = model.provider === "groq";
   const label = groq ? "Groq" : (model.baseUrl ?? "openai");
   const apiKey = groq
@@ -296,7 +301,7 @@ async function callOpenAiCompatible(model: LlmModel, prompt: Prompt): Promise<Ca
       usage?: { total_tokens?: number; completion_tokens?: number };
     };
     return {
-      results: parseOk(body.choices?.[0]?.message?.content, prompt.taxonomy),
+      results: parseOk(body.choices?.[0]?.message?.content, prompt.parse),
       tokens: body.usage?.total_tokens,
       outputTokens: body.usage?.completion_tokens,
     };
@@ -346,7 +351,7 @@ async function callOpenAiCompatible(model: LlmModel, prompt: Prompt): Promise<Ca
     );
   }
   if (response.status === 400 && code === "json_validate_failed") {
-    const salvaged = salvageResults(failedGeneration, prompt.taxonomy);
+    const salvaged = salvageResults(failedGeneration, prompt.parse);
     if (salvaged.length > 0) {
       console.warn(
         `${model.id}: output failed schema validation — salvaged ${salvaged.length} valid results`,
@@ -371,7 +376,7 @@ async function callOpenAiCompatible(model: LlmModel, prompt: Prompt): Promise<Ca
   throw new Error(`${label} ${model.id} ${response.status}: ${message}`);
 }
 
-export function callModel(model: LlmModel, prompt: Prompt): Promise<CallResult> {
+export function callModel<T>(model: LlmModel, prompt: Prompt<T>): Promise<CallResult<T>> {
   return model.provider === "gemini"
     ? callGemini(model, prompt)
     : callOpenAiCompatible(model, prompt);

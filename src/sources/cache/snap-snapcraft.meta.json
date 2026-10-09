@@ -1,8 +1,8 @@
 {
   "source": "snap-snapcraft",
-  "fetchedAt": "2026-10-04T15:32:06.012Z",
+  "fetchedAt": "2026-10-09T13:45:47.468Z",
   "url": "https://api.snapcraft.io/v2/snaps/find",
-  "entryCount": 11176,
+  "entryCount": 11267,
   "deviceSeries": "16",
   "categoriesSwept": [
     "art-and-design",
@@ -63,6 +63,6 @@
     "8",
     "9"
   ],
-  "queryPrefixesTried": 37404,
-  "categoryPrefixesTried": 72936
+  "queryPrefixesTried": 37620,
+  "categoryPrefixesTried": 74268
 }

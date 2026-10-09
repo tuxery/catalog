@@ -643,4 +643,71 @@ describe("groupPackages — product families", () => {
 
     expect(groups[0]?.id).toBe("com.vscodium.codium");
   });
+
+  it("folds AUR builds that only differ by language, and Void's -32bit builds", () => {
+    const groups = groupPackages(
+      [
+        pkg({ name: "Betterbird", appId: "eu.betterbird.Betterbird" }),
+        aur("betterbird-de-bin", "Fine-tuned version of Mozilla Thunderbird, German"),
+        aur("betterbird-ja-bin", "Fine-tuned version of Mozilla Thunderbird, Japanese"),
+        pkg({ source: "xbps-void", name: "3proxy", appId: "3proxy" }),
+        pkg({
+          source: "xbps-void",
+          name: "3proxy-32bit",
+          appId: "3proxy-32bit",
+          flavors: ["32bit"],
+        }),
+      ],
+      NO_OVERRIDES,
+    );
+
+    expect(groups.map((group) => group.packages.length).toSorted()).toEqual([2, 3]);
+    expect(groups.find((group) => group.packages.length === 3)?.packages[1]?.flavors).toEqual([
+      "locale:de",
+    ]);
+    expect(groups.find((group) => group.packages.length === 2)?.id).toBe("xbps-void:3proxy");
+  });
+
+  it("merges a distribution's AppStream entry with the Flathub app of the same id, never through a package describing several apps", () => {
+    const groups = groupPackages(
+      [
+        pkg({ name: "Calendar", appId: "org.gnome.Calendar", appstreamId: "org.gnome.Calendar" }),
+        pkg({
+          source: "pacman-arch-appstream",
+          name: "Calendar",
+          appId: "gnome-calendar",
+          appstreamId: "org.gnome.Calendar",
+        }),
+        pkg({
+          name: "Doom",
+          appId: "io.github.fabiangreffrath.Doom",
+          appstreamId: "io.github.fabiangreffrath.Doom",
+        }),
+        pkg({
+          name: "Heretic",
+          appId: "io.github.fabiangreffrath.Heretic",
+          appstreamId: "io.github.fabiangreffrath.Heretic",
+        }),
+        pkg({
+          source: "rpm-opensuse-appstream",
+          name: "Crispy Doom",
+          appId: "crispy-doom",
+          appstreamId: "io.github.fabiangreffrath.Doom",
+        }),
+        pkg({
+          source: "rpm-opensuse-appstream",
+          name: "Crispy Heretic",
+          appId: "crispy-doom",
+          appstreamId: "io.github.fabiangreffrath.Heretic",
+        }),
+      ],
+      NO_OVERRIDES,
+    );
+
+    const calendar = groups.find((group) => group.id === "org.gnome.Calendar");
+    expect(calendar?.packages).toHaveLength(2);
+    expect(
+      groups.find((group) => group.id === "io.github.fabiangreffrath.Doom")?.packages,
+    ).toHaveLength(1);
+  });
 });

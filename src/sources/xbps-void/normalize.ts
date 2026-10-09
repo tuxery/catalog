@@ -14,6 +14,9 @@ export function normalize(entries: VoidCacheEntry[]): SourcedPackage[] {
   return entries.map((entry) => ({
     source: "xbps-void",
     name: entry.name,
+    // Void's multilib builds (`<name>-32bit`) are the same software built
+    // for i686: a flavor, folded into the 64-bit package by the matcher.
+    flavors: entry.name.endsWith("-32bit") ? ["32bit"] : undefined,
     description: entry.short_desc,
     version: extractVersion(entry.name, entry.pkgver),
     // Void/xbps package names are unique within a repo/arch, and across

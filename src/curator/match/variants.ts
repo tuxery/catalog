@@ -65,6 +65,11 @@ const LOCALE_TOKENS = new Set(
   ),
 );
 
+/** Whether every token is one of the language codes builds are named with (`de`, `zh-tw`). Pure. */
+export function isLocaleRest(rest: readonly string[]): boolean {
+  return rest.length > 0 && rest.every((token) => LOCALE_TOKENS.has(token));
+}
+
 /** Whether `rest` (the tokens after `<project>-`) describes a build of that project rather than another project or a companion. Pure. */
 export function isVariantRest(rest: readonly string[]): boolean {
   return rest.length > 0 && rest.every((token) => !NON_VARIANT_TOKENS.has(token));
@@ -126,6 +131,16 @@ function significantWords(text: string): Set<string> {
 }
 
 /**
+ * Whether two descriptions share a significant word — two builds of one
+ * project describe themselves alike. Words in `ignore` (the project's own
+ * name) don't count: every `linux-*` package mentions Linux. Pure.
+ */
+export function describedAlike(a: string, b: string, ignore: readonly string[] = []): boolean {
+  const theirs = significantWords(b);
+  return [...significantWords(a)].some((word) => theirs.has(word) && !ignore.includes(word));
+}
+
+/**
  * Whether a drop-in build's description is plausibly about `target`: it
  * names the target, or shares one significant word with the target's own
  * description. Measured 2026-10-08 on the AUR/Arch drop-ins: 3,048 of
@@ -139,8 +154,7 @@ export function describesTarget(
   targetDescription: string,
 ): boolean {
   if (description.toLowerCase().includes(target.toLowerCase())) return true;
-  const theirs = significantWords(targetDescription);
-  return [...significantWords(description)].some((word) => theirs.has(word));
+  return describedAlike(description, targetDescription);
 }
 
 /** Whether every token names a track or a risk — nothing else (no flavor). Pure. */

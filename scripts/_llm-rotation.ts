@@ -41,6 +41,8 @@ export interface Rotation {
     items: readonly I[],
     cursor: number,
     prompt: (batch: I[]) => Prompt<T>,
+    /** Items per request for this model — its `batchSize` by default (sized for one app per item). */
+    sizeOf?: (model: LlmModel) => number,
   ): Promise<{ batch: I[]; results: T[]; model: LlmModel }>;
   /** Books `count` items as answered by `model`, for `stats`. */
   countItems(model: LlmModel, count: number): void;
@@ -184,6 +186,7 @@ export function createRotation(
     items: readonly I[],
     cursor: number,
     prompt: (batch: I[]) => Prompt<T>,
+    sizeOf: (model: LlmModel) => number = (model) => model.batchSize,
   ): Promise<{ batch: I[]; results: T[]; model: LlmModel }> {
     const candidates = models.filter((model) => !availabilityOf(model).dropped);
     if (candidates.length === 0) throw new StopRun("no model left to try this run");
@@ -201,9 +204,9 @@ export function createRotation(
       }
       console.warn(`No model available — waiting until ${clock(nextAt)} for ${soonest.id}`);
       await new Promise((resolve) => setTimeout(resolve, nextAt - now));
-      return next(items, cursor, prompt);
+      return next(items, cursor, prompt, sizeOf);
     }
-    const batch = items.slice(cursor, cursor + model.batchSize);
+    const batch = items.slice(cursor, cursor + Math.max(1, sizeOf(model)));
     try {
       const results = await callPaced(model, prompt(batch));
       availabilityOf(model).overloadStreak = 0;
@@ -211,7 +214,7 @@ export function createRotation(
     } catch (error) {
       if (!(error instanceof ModelUnavailable)) throw error;
       rest(model, error);
-      return next(items, cursor, prompt);
+      return next(items, cursor, prompt, sizeOf);
     }
   }
 

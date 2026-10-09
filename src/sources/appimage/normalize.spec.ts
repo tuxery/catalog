@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { normalize } from "./normalize";
+import { appImageAxes, normalize } from "./normalize";
 import type { AppImageCacheEntry } from "./types";
 
 describe("appimage normalize", () => {
@@ -30,5 +30,15 @@ describe("appimage normalize", () => {
     const entry: AppImageCacheEntry = { name: "app", description: "An app", repo: "owner/app" };
 
     expect(normalize([entry])[0]?.version).toBe("unknown");
+  });
+});
+
+describe("appImageAxes", () => {
+  it("reads a trailing risk or track word from a display name", () => {
+    expect(appImageAxes("Thunderbird_Beta")).toEqual({ risk: "beta" });
+    expect(appImageAxes("OpenComic Nightly")).toEqual({ risk: "nightly" });
+    expect(appImageAxes("Firefox_ESR")).toEqual({ track: "esr" });
+    expect(appImageAxes("Firefox")).toEqual({});
+    expect(appImageAxes("ESR")).toEqual({});
   });
 });

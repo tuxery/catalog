@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import {
   axesFromRest,
   describesTarget,
+  isLocaleRest,
   isVariantRest,
   onlyTrackOrRisk,
   restAfter,
@@ -93,5 +94,14 @@ describe("onlyTrackOrRisk", () => {
     expect(onlyTrackOrRisk(["lts", "22"])).toBe(true);
     expect(onlyTrackOrRisk(["pro"])).toBe(false);
     expect(onlyTrackOrRisk(["pinball"])).toBe(false);
+  });
+});
+
+describe("isLocaleRest", () => {
+  it("accepts language codes only", () => {
+    expect(isLocaleRest(["de"])).toBe(true);
+    expect(isLocaleRest(["zh", "tw"])).toBe(true);
+    expect(isLocaleRest(["no", "notmuch"])).toBe(false);
+    expect(isLocaleRest([])).toBe(false);
   });
 });

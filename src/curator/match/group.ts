@@ -5,7 +5,7 @@ import { annotateMembers, dropInTargets, trackNames } from "./families";
 import { packageKey, standaloneAppId } from "./keys";
 import { normalizeName } from "./normalize";
 import { loadMatchOverrides, type MatchOverrides } from "./overrides";
-import { describesTarget, isVariantRest } from "./variants";
+import { describedAlike, describesTarget, isLocaleRest, isVariantRest } from "./variants";
 
 export interface MatchedApp {
   /** This group's canonical id — see `buildAppId`'s doc comment for how it's picked. */
@@ -214,6 +214,10 @@ const SOURCES_WITH_VARIANT_SUFFIXES = new Set(["pacman-aur", "ebuild-gentoo"]);
 // 57 with a twin, e.g. `firefoxpwa-unwrapped` / `firefoxpwa`).
 const AUR_APPIMAGE_SUFFIX = /-appimage$/;
 const NIX_UNWRAPPED_SUFFIX = /-unwrapped$/;
+// Void's multilib convention: `<name>-32bit` is `<name>` built for i686.
+// Measured 2026-10-09: 726 published apps were nothing but such a build,
+// e.g. `3proxy-32bit`, `AppStream-32bit`.
+const VOID_32BIT_SUFFIX = /-32bit$/;
 
 /**
  * Strips AUR/Gentoo's own build-variant/channel-word suffix convention
@@ -228,6 +232,7 @@ const NIX_UNWRAPPED_SUFFIX = /-unwrapped$/;
  */
 export function stripVariantSuffix(pkg: Pick<SourcedPackage, "source" | "name">): string {
   if (pkg.source === "nix-nixpkgs") return pkg.name.replace(NIX_UNWRAPPED_SUFFIX, "");
+  if (pkg.source === "xbps-void") return pkg.name.replace(VOID_32BIT_SUFFIX, "");
   if (!SOURCES_WITH_VARIANT_SUFFIXES.has(pkg.source)) return pkg.name;
   const name = pkg.source === "pacman-aur" ? pkg.name.replace(AUR_APPIMAGE_SUFFIX, "") : pkg.name;
   return name.replace(CHANNEL_WORD_SUFFIX, "").replace(VARIANT_SUFFIX, "");
@@ -366,6 +371,69 @@ function unionDropInBuilds(
         const candidateKey = packageKey(candidate);
         if (denyPairs.has(unorderedPairKey(pkgKey, candidateKey))) continue;
         uf.union(pkgKey, candidateKey);
+      }
+    }
+  }
+}
+
+/**
+ * Tier 2e: AUR packages named `<project>-<language code>...` (after their
+ * `-bin`/`-git`/... build suffix) are that project built for other
+ * languages — Betterbird ships `betterbird-de-bin`, `-fr-bin`, `-ja-bin`,
+ * ... (8 standalone cards, measured 2026-10-09). Only a series of at least
+ * two such packages for the same project counts: a lone two-letter
+ * suffix is far more often something else (`emulationstation-de`, the
+ * Desktop Edition fork; `hyperledger-fabric-ca`, its certificate
+ * authority), and a short project name pairs up by chance (`git-it`, a
+ * Git tutorial, and `git-sv`, a versioning tool) — so the series' members
+ * must also describe themselves alike. Unions with the project's own
+ * packages (any source) when one is named exactly `<project>`.
+ */
+const MIN_LOCALE_BASE_LENGTH = 4;
+
+function unionLocaleBuilds(
+  uf: UnionFind<string>,
+  packages: SourcedPackage[],
+  denyPairs: Set<string>,
+): void {
+  const byName = new Map<string, SourcedPackage>();
+  for (const pkg of packages) {
+    const name = normalizeName(stripVariantSuffix(pkg));
+    if (!GENERIC_NAME_BLOCKLIST.has(name) && !byName.has(name)) byName.set(name, pkg);
+  }
+
+  const seriesByBase = new Map<string, SourcedPackage[]>();
+  for (const pkg of packages) {
+    if (pkg.source !== "pacman-aur") continue;
+    const parts = stripVariantSuffix(pkg).toLowerCase().split("-");
+    for (let cut = parts.length - 1; cut >= 1; cut--) {
+      if (!isLocaleRest(parts.slice(cut))) break;
+      const base = normalizeName(parts.slice(0, cut).join("-"));
+      if (base.length < MIN_LOCALE_BASE_LENGTH || !byName.has(base)) continue;
+      seriesByBase.set(base, [...(seriesByBase.get(base) ?? []), pkg]);
+      break;
+    }
+  }
+
+  for (const [base, candidates] of seriesByBase) {
+    // Builds of one project describe themselves alike; `linux-id` (a FIDO
+    // token) and `linux-sk` (a kernel) only share a name shape.
+    const series = candidates.filter((pkg) =>
+      candidates.some(
+        (other) =>
+          other !== pkg && describedAlike(pkg.description, other.description, base.split("-")),
+      ),
+    );
+    // Languages, not packages: `trilium-cn` and `trilium-cn-bin` are one.
+    const languages = new Set(series.map((pkg) => stripVariantSuffix(pkg).toLowerCase()));
+    if (languages.size < 2) continue;
+    const target = byName.get(base);
+    if (!target) continue;
+    const targetKey = packageKey(target);
+    for (const pkg of series) {
+      const pkgKey = packageKey(pkg);
+      if (pkgKey !== targetKey && !denyPairs.has(unorderedPairKey(pkgKey, targetKey))) {
+        uf.union(pkgKey, targetKey);
       }
     }
   }
@@ -599,6 +667,9 @@ export function groupPackages(
 
   // Tier 2c: AUR variants (`<project>-<difference>`) of a project whose description they share.
   unionDescribedVariants(uf, packages, overrides.denyPairs);
+
+  // Tier 2e: AUR builds that only differ by language (`betterbird-de-bin`).
+  unionLocaleBuilds(uf, packages, overrides.denyPairs);
 
   // Tier 2d: AUR/Arch drop-in builds (`provides`+`conflicts` on the project they're named after).
   unionDropInBuilds(uf, packages, overrides.denyPairs);

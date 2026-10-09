@@ -33,13 +33,15 @@ const REPORT_PATH = fileURLToPath(new URL("../dist/audit.json", import.meta.url)
 const SUGGESTIONS_PATH = fileURLToPath(
   new URL("../config/audit-llm-suggestions.json", import.meta.url),
 );
-// Easiest first: a declared relation only needs confirming a quoted statement.
+// Easiest first: a declared relation only needs confirming a quoted
+// statement. Megagroups are left out: a suspect lists the group as one
+// card, not its member packages, so a model can't see the mix — on the
+// first run it called 12 of 13 "fine", `dotnet`'s 202 packages included.
 const DEFAULT_SIGNALS: AuditSignal[] = [
   "declared-relation",
   "same-name",
   "shared-homepage",
   "hidden-app",
-  "megagroup",
 ];
 
 function flag(name: string): string | undefined {

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "product": {
+        "type": "string",
+        "description": "The product's display name, for humans."
+      },
+      "anchors": {
+        "minItems": 1,
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "source": {
+              "type": "string"
+            },
+            "appId": {
+              "type": "string"
+            }
+          },
+          "required": ["source", "appId"],
+          "additionalProperties": false
+        },
+        "description": "Packages that must all end up in this product's group, and in no other golden product's."
+      },
+      "note": {
+        "description": "Why an anchor is (or isn't) here, when not obvious.",
+        "type": "string"
+      }
+    },
+    "required": ["product", "anchors"],
+    "additionalProperties": false
+  },
+  "title": "Audit: golden products",
+  "description": "The most-installed products and the packages each must group — `pnpm audit-matching` fails when one is split across cards or two share one. Generated once (`pnpm audit-matching --init-golden`), then reviewed by hand."
+}

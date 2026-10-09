@@ -1,0 +1,3970 @@
+[
+  {
+    "product": "Wine",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.winehq.Wine"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "wine"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "wine"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "wine"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "wine"
+      }
+    ]
+  },
+  {
+    "product": "Firefox",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.mozilla.firefox"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "firefox"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "firefox"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "firefox"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "firefox"
+      }
+    ]
+  },
+  {
+    "product": "Google Chrome",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.google.Chrome"
+      }
+    ]
+  },
+  {
+    "product": "Discord",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.discordapp.Discord"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "discord"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "discord"
+      }
+    ]
+  },
+  {
+    "product": "Brave",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.brave.Browser"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "brave"
+      }
+    ]
+  },
+  {
+    "product": "Spotify",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.spotify.Client"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "spotify"
+      }
+    ]
+  },
+  {
+    "product": "VLC",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.videolan.VLC"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "vlc"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "vlc"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "vlc"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "vlc"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "vlc-plugin-lua"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "vlc"
+      }
+    ]
+  },
+  {
+    "product": "Telegram",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.telegram.desktop"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "telegram-desktop"
+      }
+    ]
+  },
+  {
+    "product": "RetroArch",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.libretro.RetroArch"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "retroarch"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "retroarch"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "retroarch"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "retroarch"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "retroarch"
+      }
+    ]
+  },
+  {
+    "product": "Steam",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.valvesoftware.Steam"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "steam"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "steam-installer"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "steam-installer"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "steam"
+      }
+    ]
+  },
+  {
+    "product": "Dolphin Emulator",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.DolphinEmu.dolphin-emu"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "dolphin-emulator"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "dolphin-emu"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "dolphin-emu"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "dolphin-emu"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "dolphin-emu"
+      }
+    ]
+  },
+  {
+    "product": "Bottles",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.usebottles.bottles"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "bottles"
+      }
+    ]
+  },
+  {
+    "product": "PPSSPP",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.ppsspp.PPSSPP"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "ppsspp-emu"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "ppsspp"
+      }
+    ]
+  },
+  {
+    "product": "Visual Studio Code",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.visualstudio.code"
+      }
+    ]
+  },
+  {
+    "product": "xemu",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "app.xemu.xemu"
+      }
+    ]
+  },
+  {
+    "product": "ProtonUp-Qt",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "net.davidotek.pupgui2"
+      }
+    ]
+  },
+  {
+    "product": "Heroic",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.heroicgameslauncher.hgl"
+      }
+    ]
+  },
+  {
+    "product": "Flatseal",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.github.tchx84.Flatseal"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "flatseal"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "flatseal"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "flatseal"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "flatseal"
+      }
+    ]
+  },
+  {
+    "product": "PrimeHack",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "io.github.shiiion.primehack"
+      }
+    ]
+  },
+  {
+    "product": "OBS Studio",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.obsproject.Studio"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "obs-studio"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "obs-studio"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "obs-studio"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "obs-studio"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "obs-studio"
+      }
+    ]
+  },
+  {
+    "product": "GNU Image Manipulation Program",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.gimp.GIMP"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "gimp"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "gimp"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "gimp"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "gimp"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "gimp"
+      }
+    ]
+  },
+  {
+    "product": "Lutris",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "net.lutris.Lutris"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "lutris"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "lutris"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "lutris"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "lutris"
+      }
+    ]
+  },
+  {
+    "product": "melonDS",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "net.kuribo64.melonDS"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "melonds"
+      }
+    ]
+  },
+  {
+    "product": "ScummVM",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.scummvm.ScummVM"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "scummvm"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "scummvm"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "scummvm"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "scummvm"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "scummvm"
+      }
+    ]
+  },
+  {
+    "product": "Extension Manager",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.mattjakeman.ExtensionManager"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "gnome-shell-extension-manager"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "gnome-shell-extension-manager"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "extension-manager"
+      }
+    ]
+  },
+  {
+    "product": "Sober",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.vinegarhq.Sober"
+      }
+    ]
+  },
+  {
+    "product": "Microsoft Edge",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.microsoft.Edge"
+      }
+    ]
+  },
+  {
+    "product": "RPCS3",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "net.rpcs3.RPCS3"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "rpcs3-emu"
+      }
+    ]
+  },
+  {
+    "product": "ONLYOFFICE Desktop Editors",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.onlyoffice.desktopeditors"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "onlyoffice-desktopeditors"
+      }
+    ]
+  },
+  {
+    "product": "qBittorrent",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.qbittorrent.qBittorrent"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "qbittorrent-arnatious"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "qbittorrent"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "qbittorrent-nox"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "qbittorrent"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "qbittorrent-nox"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "qbittorrent"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "qbittorrent-nox"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "qbittorrent"
+      }
+    ]
+  },
+  {
+    "product": "LibreOffice",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.libreoffice.LibreOffice"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "libreoffice"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "libreoffice"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "libreoffice-base"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "libreoffice-calc"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "libreoffice-draw"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "libreoffice-impress"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "libreoffice-writer"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "libreoffice-calc"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "libreoffice-draw"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "libreoffice-impress"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "libreoffice-writer"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "libreoffice"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "libreoffice-base"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "libreoffice"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "libreoffice-base"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "libreoffice-calc"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "libreoffice-draw"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "libreoffice-impress"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "libreoffice-writer"
+      }
+    ]
+  },
+  {
+    "product": "Protontricks",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.github.Matoking.protontricks"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "protontricks"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "protontricks"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "protontricks"
+      }
+    ]
+  },
+  {
+    "product": "Zoom",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "us.zoom.Zoom"
+      }
+    ]
+  },
+  {
+    "product": "Obsidian",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "md.obsidian.Obsidian"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "obsidian"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "obsidian"
+      }
+    ]
+  },
+  {
+    "product": "Bitwarden",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.bitwarden.desktop"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "bitwarden"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "bitwarden"
+      }
+    ]
+  },
+  {
+    "product": "Prism Launcher",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.prismlauncher.PrismLauncher"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "prismlauncher"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "prismlauncher"
+      }
+    ]
+  },
+  {
+    "product": "Chromium Web Browser",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.chromium.Chromium"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "chromium"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "chromium"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "chromium"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "chromium"
+      }
+    ]
+  },
+  {
+    "product": "Thunderbird",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.mozilla.thunderbird"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "thunderbird"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "thunderbird"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "thunderbird"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "thunderbird"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "thunderbird"
+      }
+    ]
+  },
+  {
+    "product": "LibreWolf",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "io.gitlab.librewolf-community"
+      }
+    ]
+  },
+  {
+    "product": "Video Downloader",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.github.unrud.VideoDownloader"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "video-downloader"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "video-downloader"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "video-downloader"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "video-downloader"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "video-downloader"
+      }
+    ]
+  },
+  {
+    "product": "Tor Browser Launcher",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.torproject.torbrowser-launcher"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "torbrowser-launcher"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "torbrowser-launcher"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "torbrowser-launcher"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "torbrowser-launcher"
+      }
+    ]
+  },
+  {
+    "product": "Krita",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.kde.krita"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "krita"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "krita"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "krita"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "krita"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "krita"
+      }
+    ]
+  },
+  {
+    "product": "Signal Desktop",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.signal.Signal"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "signal-desktop"
+      }
+    ]
+  },
+  {
+    "product": "FreeTube",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "io.freetubeapp.FreeTube"
+      }
+    ]
+  },
+  {
+    "product": "Supermodel",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.supermodel3.Supermodel"
+      }
+    ]
+  },
+  {
+    "product": "Proton VPN",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.protonvpn.www"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "proton-vpn"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "proton-vpn-gtk-app"
+      }
+    ]
+  },
+  {
+    "product": "Inkscape",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.inkscape.Inkscape"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "inkscape"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "inkscape"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "inkscape"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "inkscape"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "inkscape"
+      }
+    ]
+  },
+  {
+    "product": "Zen",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "app.zen_browser.zen"
+      }
+    ]
+  },
+  {
+    "product": "Stremio",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.stremio.Stremio"
+      }
+    ]
+  },
+  {
+    "product": "Blender",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.blender.Blender"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "blender"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "blender"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "blender"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "blender"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "blender"
+      }
+    ]
+  },
+  {
+    "product": "Gear Lever",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "it.mijorus.gearlever"
+      }
+    ]
+  },
+  {
+    "product": "PeaZip",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "io.github.peazip.PeaZip"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "peazip"
+      }
+    ]
+  },
+  {
+    "product": "Minecraft Launcher",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.mojang.Minecraft"
+      }
+    ]
+  },
+  {
+    "product": "Audacity",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.audacityteam.Audacity"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "audacity"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "audacity"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "audacity"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "audacity"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "audacity"
+      }
+    ]
+  },
+  {
+    "product": "PCSX2",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "net.pcsx2.PCSX2"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "pcsx2"
+      }
+    ]
+  },
+  {
+    "product": "HandBrake",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "fr.handbrake.ghb"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "handbrake"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "handbrake-cli"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "handbrake"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "handbrake-cli"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "handbrake"
+      }
+    ]
+  },
+  {
+    "product": "Ungoogled Chromium",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "io.github.ungoogled_software.ungoogled_chromium"
+      }
+    ]
+  },
+  {
+    "product": "Mission Center",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "io.missioncenter.MissionCenter"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "mission-center"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "mission-center"
+      }
+    ]
+  },
+  {
+    "product": "Postman",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.getpostman.Postman"
+      }
+    ]
+  },
+  {
+    "product": "FreeCAD",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.freecad.FreeCAD"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "freecad"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "freecad"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "freecad"
+      }
+    ]
+  },
+  {
+    "product": "Camera",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.gnome.Snapshot"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "gnome-snapshot"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "gnome-snapshot"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "snapshot"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "snapshot"
+      }
+    ]
+  },
+  {
+    "product": "Opera",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.opera.Opera"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "opera"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "opera-developer"
+      }
+    ]
+  },
+  {
+    "product": "Remmina",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.remmina.Remmina"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "remmina"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "remmina"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "remmina"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "remmina"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "remmina"
+      }
+    ]
+  },
+  {
+    "product": "Minecraft Bedrock Launcher",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "io.mrarm.mcpelauncher"
+      }
+    ]
+  },
+  {
+    "product": "MAME",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.mamedev.MAME"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "mame"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "mame"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "mame-tools"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "mame"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "mame-tools"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "mame"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "mame-tools"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "mame"
+      }
+    ]
+  },
+  {
+    "product": "Portal for Teams",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.github.IsmaelMartinez.teams_for_linux"
+      }
+    ]
+  },
+  {
+    "product": "LocalSend",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.localsend.localsend_app"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "localsend"
+      }
+    ]
+  },
+  {
+    "product": "Shortwave",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "de.haeckerfelix.Shortwave"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "shortwave"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "shortwave"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "shortwave"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "shortwave"
+      }
+    ]
+  },
+  {
+    "product": "Slack",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.slack.Slack"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "slack"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "slack"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "slack"
+      }
+    ]
+  },
+  {
+    "product": "Kodi",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "tv.kodi.Kodi"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "kodi"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "kodi"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "kodi"
+      }
+    ]
+  },
+  {
+    "product": "Moonlight",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.moonlight_stream.Moonlight"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "moonlight"
+      }
+    ]
+  },
+  {
+    "product": "Whatsie",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.ktechpit.whatsie"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "whatsie"
+      }
+    ]
+  },
+  {
+    "product": "WPS Office",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.wps.Office"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "wps-office"
+      }
+    ]
+  },
+  {
+    "product": "ProtonPlus",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.vysp3r.ProtonPlus"
+      }
+    ]
+  },
+  {
+    "product": "ZapZap",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.rtosta.zapzap"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "zapzap"
+      }
+    ]
+  },
+  {
+    "product": "VSCodium - Insiders",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.vscodium.codium"
+      }
+    ]
+  },
+  {
+    "product": "Android Studio",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.google.AndroidStudio"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "android-studio"
+      }
+    ]
+  },
+  {
+    "product": "Disk Usage Analyzer",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.gnome.baobab"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "baobab"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "baobab"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "baobab"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "baobab"
+      }
+    ]
+  },
+  {
+    "product": "Warpinator",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.x.Warpinator"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "warpinator"
+      }
+    ]
+  },
+  {
+    "product": "calibre",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.calibre_ebook.calibre"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "calibre"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "calibre"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "calibre-bin"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "calibre"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "calibre-bin"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "calibre"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "calibre"
+      }
+    ]
+  },
+  {
+    "product": "Rosalie's Mupen GUI",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.github.Rosalie241.RMG"
+      }
+    ]
+  },
+  {
+    "product": "Vesktop",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "dev.vencord.Vesktop"
+      }
+    ]
+  },
+  {
+    "product": "Impression",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "io.gitlab.adhami3310.Impression"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "impression"
+      }
+    ]
+  },
+  {
+    "product": "DBeaver Community",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "io.dbeaver.DBeaverCommunity"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "dbeaver-ce"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "dbeaver"
+      }
+    ]
+  },
+  {
+    "product": "PDF Arranger",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.github.jeromerobert.pdfarranger"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "pdfarranger"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "pdfarranger"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "pdfarranger"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "pdfarranger"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "pdfarranger"
+      }
+    ]
+  },
+  {
+    "product": "Shotcut",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.shotcut.Shotcut"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "shotcut"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "shotcut"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "shotcut"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "shotcut"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "shotcut"
+      }
+    ]
+  },
+  {
+    "product": "Vivaldi",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.vivaldi.Vivaldi"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "vivaldi"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "vivaldi"
+      }
+    ]
+  },
+  {
+    "product": "FileZilla",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.filezillaproject.Filezilla"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "filezilla"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "filezilla"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "filezilla"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "filezilla"
+      }
+    ]
+  },
+  {
+    "product": "PortProton",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "ru.linux_gaming.PortProton"
+      }
+    ]
+  },
+  {
+    "product": "Foliate",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.github.johnfactotum.Foliate"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "foliate"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "foliate"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "foliate"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "foliate"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "foliate"
+      }
+    ]
+  },
+  {
+    "product": "JDownloader",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.jdownloader.JDownloader"
+      }
+    ]
+  },
+  {
+    "product": "Jellyfin Desktop",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.jellyfin.JellyfinDesktop"
+      }
+    ]
+  },
+  {
+    "product": "Calculator",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.gnome.Calculator"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "gnome-calculator"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "gnome-calculator"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "gnome-calculator"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "gnome-calculator"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "gnome-calculator"
+      }
+    ]
+  },
+  {
+    "product": "Haruna",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.kde.haruna"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "haruna"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "haruna"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "haruna"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "haruna"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "haruna"
+      }
+    ]
+  },
+  {
+    "product": "Flameshot",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.flameshot.Flameshot"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "flameshot"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "flameshot"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "flameshot"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "flameshot"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "flameshot"
+      }
+    ]
+  },
+  {
+    "product": "Master PDF Editor",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "net.code_industry.MasterPDFEditor"
+      }
+    ]
+  },
+  {
+    "product": "Vinegar",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.vinegarhq.Vinegar"
+      }
+    ]
+  },
+  {
+    "product": "Transmission",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.transmissionbt.Transmission"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "transmission"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "transmission-gtk"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "transmission-gtk"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "transmission"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "transmission"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "transmission-gtk"
+      }
+    ]
+  },
+  {
+    "product": "Document Viewer",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.gnome.Evince"
+      },
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.gnome.Papers"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "evince"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "evince"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "papers"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "papers"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "evince"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "evince"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "papers"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "xreader"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "evince"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "papers"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "xreader"
+      }
+    ]
+  },
+  {
+    "product": "ytDownloader",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "io.github.aandrew_me.ytdn"
+      },
+      {
+        "source": "flatpak-flathub",
+        "appId": "page.codeberg.impromptux.ytdl-gui"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "youtube-dl-pro"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "ytdownloader"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "youtube-downloader"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "yt-downloader-bp"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "yt-downloader"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "youtubedl-gui"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "youtubedl-gui"
+      }
+    ]
+  },
+  {
+    "product": "Joplin",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "net.cozic.joplin_desktop"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "joplin-desktop"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "joplin"
+      }
+    ]
+  },
+  {
+    "product": "chiaki-ng",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "io.github.streetpea.Chiaki4deck"
+      }
+    ]
+  },
+  {
+    "product": "darktable",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.darktable.Darktable"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "darktable"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "darktable"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "darktable"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "darktable"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "darktable"
+      }
+    ]
+  },
+  {
+    "product": "Pinta",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.github.PintaProject.Pinta"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "pinta"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "pinta"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "pinta"
+      }
+    ]
+  },
+  {
+    "product": "Text Editor",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.gnome.TextEditor"
+      },
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.gnome.gedit.desktop"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "gedit"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "twig"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "gnome-text-editor"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "gedit"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "gnome-text-editor"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "gnome-text-editor"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "gedit"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "gedit"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "gnome-text-editor"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "deepin-editor"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "gedit"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "gnome-text-editor"
+      }
+    ]
+  },
+  {
+    "product": "RustDesk",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.rustdesk.RustDesk"
+      }
+    ]
+  },
+  {
+    "product": "Weather",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.gnome.Weather"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "gnome-weather"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "gnome-weather"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "gnome-weather"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "gnome-weather"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "gnome-weather"
+      }
+    ]
+  },
+  {
+    "product": "Space Cadet Pinball",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.github.k4zmu2a.spacecadetpinball"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "space-cadet-pinball"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "space-cadet"
+      }
+    ]
+  },
+  {
+    "product": "Steam Link",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.valvesoftware.SteamLink"
+      }
+    ]
+  },
+  {
+    "product": "IntelliJ IDEA Open",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.jetbrains.IntelliJ-IDEA-Community"
+      }
+    ]
+  },
+  {
+    "product": "Plex",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "tv.plex.PlexDesktop"
+      }
+    ]
+  },
+  {
+    "product": "GitHub Desktop",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "io.github.shiftey.Desktop"
+      }
+    ]
+  },
+  {
+    "product": "Extensions",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.gnome.Extensions"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "gnome-shell"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "gnome-shell"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "gnome-extensions-app"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "gnome-shell"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "gnome-shell"
+      }
+    ]
+  },
+  {
+    "product": "Maps",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.gnome.Maps"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "gnome-maps"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "gnome-maps"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "gnome-maps"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "gnome-maps"
+      }
+    ]
+  },
+  {
+    "product": "Viber",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.viber.Viber"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "viber"
+      }
+    ]
+  },
+  {
+    "product": "RetroDECK",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "net.retrodeck.retrodeck"
+      }
+    ]
+  },
+  {
+    "product": "Resources",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "net.nokyan.Resources"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "resources"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "resources"
+      }
+    ]
+  },
+  {
+    "product": "Flycast",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.flycast.Flycast"
+      }
+    ]
+  },
+  {
+    "product": "OpenShot Video Editor",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.openshot.OpenShot"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "openshot-qt"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "openshot-qt"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "openshot-qt"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "openshot"
+      }
+    ]
+  },
+  {
+    "product": "Web",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.gnome.Epiphany"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "epiphany"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "epiphany"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "epiphany-browser"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "epiphany"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "epiphany-browser"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "epiphany"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "epiphany"
+      }
+    ]
+  },
+  {
+    "product": "Adobe Reader",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.adobe.Reader"
+      }
+    ]
+  },
+  {
+    "product": "Hidamari",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "io.github.jeffshee.Hidamari"
+      }
+    ]
+  },
+  {
+    "product": "Popsicle",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.system76.Popsicle"
+      }
+    ]
+  },
+  {
+    "product": "mpv",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "io.mpv.Mpv"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "mpv"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "mpv"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "mpv"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "mpv"
+      }
+    ]
+  },
+  {
+    "product": "Luanti",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.luanti.luanti"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "minetest"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "luanti"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "luanti"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "luanti-server"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "minetest"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "luanti"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "luanti-server"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "minetest"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "minetest"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "luanti"
+      }
+    ]
+  },
+  {
+    "product": "Calendar",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.gnome.Calendar"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "gnome-calendar"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "gnome-calendar"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "gnome-calendar"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "gnome-calendar"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "gnome-calendar"
+      }
+    ]
+  },
+  {
+    "product": "Nextcloud Desktop Client",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.nextcloud.desktopclient.nextcloud"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "nextcloud-desktop"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "nextcloud-desktop"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "nextcloud-client"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "nextcloud-client"
+      }
+    ]
+  },
+  {
+    "product": "Xournal++",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.github.xournalpp.xournalpp"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "xournalpp"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "xournal"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "xournalpp"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "xournal"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "xournalpp"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "xournal"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "xournalpp"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "xournalpp"
+      }
+    ]
+  },
+  {
+    "product": "Podman Desktop",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "io.podman_desktop.PodmanDesktop"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "podman-desktop"
+      }
+    ]
+  },
+  {
+    "product": "OpenRGB",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.openrgb.OpenRGB"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "openrgb"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "openrgb"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "openrgb"
+      }
+    ]
+  },
+  {
+    "product": "Contacts",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.gnome.Contacts"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "gnome-contacts"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "gnome-contacts"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "gnome-contacts"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "gnome-contacts"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "gnome-contacts"
+      }
+    ]
+  },
+  {
+    "product": "Snes9x",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.snes9x.Snes9x"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "snes9x-gtk"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "snes9x"
+      }
+    ]
+  },
+  {
+    "product": "Fonts",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.gnome.font-viewer"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "gnome-font-viewer"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "gnome-font-viewer"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "gnome-font-viewer"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "gnome-font-viewer"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "gnome-font-viewer"
+      }
+    ]
+  },
+  {
+    "product": "Image Viewer",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.gnome.Loupe"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "gpicview"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "loupe"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "sugar-imageviewer-activity"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "loupe"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "gpicview"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "sugar-imageviewer-activity"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "gpicview"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "loupe"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "gpicview"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "loupe"
+      }
+    ]
+  },
+  {
+    "product": "draw.io",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.jgraph.drawio.desktop"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "drawio"
+      }
+    ]
+  },
+  {
+    "product": "Arduino IDE v2",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "cc.arduino.IDE2"
+      }
+    ]
+  },
+  {
+    "product": "Floorp",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "one.ablaze.floorp"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "floorp"
+      }
+    ]
+  },
+  {
+    "product": "Element",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "im.riot.Riot"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "element-desktop"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "element"
+      }
+    ]
+  },
+  {
+    "product": "Clocks",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.gnome.clocks"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "gnome-clocks"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "gnome-clocks"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "gnome-clocks"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "gnome-clocks"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "gnome-clocks"
+      }
+    ]
+  },
+  {
+    "product": "Logs",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.gnome.Logs"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "logs"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "gnome-logs"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "gnome-logs"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "gnome-logs"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "gnome-logs"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "gnome-logs"
+      }
+    ]
+  },
+  {
+    "product": "Parabolic",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.nickvision.tubeconverter"
+      }
+    ]
+  },
+  {
+    "product": "Bazaar",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "io.github.kolunmi.Bazaar"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "bazaar"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "bazaar"
+      }
+    ]
+  },
+  {
+    "product": "Pika Backup",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.gnome.World.PikaBackup"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "pika-backup"
+      }
+    ]
+  },
+  {
+    "product": "Bambu Studio",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.bambulab.BambuStudio"
+      }
+    ]
+  },
+  {
+    "product": "Pulsar",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "dev.pulsar_edit.Pulsar"
+      },
+      {
+        "source": "flatpak-flathub",
+        "appId": "pl.fuzjajadrowa.pulsar"
+      }
+    ]
+  },
+  {
+    "product": "Celluloid",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "io.github.celluloid_player.Celluloid"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "celluloid"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "celluloid"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "celluloid"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "celluloid"
+      }
+    ]
+  },
+  {
+    "product": "Blanket",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.rafaelmardojai.Blanket"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "blanket"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "blanket"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "blanket"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "blanket"
+      }
+    ]
+  },
+  {
+    "product": "Betterbird",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "eu.betterbird.Betterbird"
+      }
+    ]
+  },
+  {
+    "product": "mGBA",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "io.mgba.mGBA"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "mgba"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "mgba-qt"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "mgba-qt"
+      }
+    ]
+  },
+  {
+    "product": "q4wine",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "ua.org.brezblock.q4wine"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "q4wine"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "q4wine"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "q4wine"
+      }
+    ]
+  },
+  {
+    "product": "Anki",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "net.ankiweb.Anki"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "anki"
+      }
+    ]
+  },
+  {
+    "product": "Planify",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "io.github.alainm23.planify"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "planify"
+      }
+    ]
+  },
+  {
+    "product": "GPU Screen Recorder",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.dec05eba.gpu_screen_recorder"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "gpu-screen-recorder"
+      }
+    ]
+  },
+  {
+    "product": "DistroShelf",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.ranfdev.DistroShelf"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "distroshelf"
+      }
+    ]
+  },
+  {
+    "product": "CPU-X",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "io.github.thetumultuousunicornofdarkness.cpu-x"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "cpu-x"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "cpu-x"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "cpu-x"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "cpu-x"
+      }
+    ]
+  },
+  {
+    "product": "Waterfox",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "net.waterfox.waterfox"
+      }
+    ]
+  },
+  {
+    "product": "Volume Control",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.pulseaudio.pavucontrol"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "pavucontrol"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "pavucontrol"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "pavucontrol"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "pavucontrol"
+      }
+    ]
+  },
+  {
+    "product": "PrusaSlicer",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.prusa3d.PrusaSlicer"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "prusa-slicer"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "prusa-slicer"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "prusa-slicer"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "prusa-slicer"
+      }
+    ]
+  },
+  {
+    "product": "Déjà Dup Backups",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.gnome.DejaDup"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "deja-dup"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "deja-dup"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "deja-dup"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "deja-dup"
+      }
+    ]
+  },
+  {
+    "product": "Media Downloader",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.markopejic.downloader"
+      },
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.warlordsoftwares.media-downloader"
+      },
+      {
+        "source": "flatpak-flathub",
+        "appId": "io.github.mhogomchungu.media-downloader"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "media-downloader"
+      }
+    ]
+  },
+  {
+    "product": "BleachBit",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.bleachbit.BleachBit"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "bleachbit"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "bleachbit"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "bleachbit"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "bleachbit"
+      }
+    ]
+  },
+  {
+    "product": "Sunshine",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "dev.lizardbyte.app.Sunshine"
+      }
+    ]
+  },
+  {
+    "product": "Avidemux",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.avidemux.Avidemux"
+      }
+    ]
+  },
+  {
+    "product": "MakeMKV",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.makemkv.MakeMKV"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "makemkv"
+      }
+    ]
+  },
+  {
+    "product": "WineZGUI",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "io.github.fastrizwaan.WineZGUI"
+      }
+    ]
+  },
+  {
+    "product": "Amberol",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "io.bassi.Amberol"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "amberol"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "amberol"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "amberol"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "amberol"
+      }
+    ]
+  },
+  {
+    "product": "Logseq",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.logseq.Logseq"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "logseq"
+      }
+    ]
+  },
+  {
+    "product": "Black Box",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.raggesilver.BlackBox"
+      },
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.d3cod3.Mosaic"
+      },
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.gnome.Mines"
+      },
+      {
+        "source": "flatpak-flathub",
+        "appId": "systems.tranquil.Map"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "dotnet"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "gnome-mines"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "mosaic"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "black-box"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "blackbox"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "blackbox-terminal"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "flip"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "gnome-mines"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "sgt-puzzles"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "black-box"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "blackbox"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "blackbox-terminal"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "flip"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "gnome-mines"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "sgt-puzzles"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "blackbox"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "blackbox-terminal"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "cube"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "gnome-mines"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "puzzles"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "blackbox"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "gnome-mines"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "puzzles"
+      }
+    ]
+  },
+  {
+    "product": "Raspberry Pi Imager",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.raspberrypi.rpi-imager"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "rpi-imager"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "rpi-imager"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "rpi-imager"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "rpi-imager"
+      }
+    ]
+  },
+  {
+    "product": "Shotwell",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.gnome.Shotwell"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "shotwell"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "shotwell"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "shotwell"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "shotwell"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "shotwell"
+      }
+    ]
+  },
+  {
+    "product": "4KTUBE",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.warlordsoftwares.youtube-downloader-4ktube"
+      }
+    ]
+  },
+  {
+    "product": "Eclipse IDE for Java Developers",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.eclipse.Java"
+      }
+    ]
+  },
+  {
+    "product": "Parsec",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.parsecgaming.parsec"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "parsec"
+      }
+    ]
+  },
+  {
+    "product": "XIVLauncherCN",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "cn.ottercorp.xivlaunchercn"
+      },
+      {
+        "source": "flatpak-flathub",
+        "appId": "dev.goats.xivlauncher"
+      }
+    ]
+  },
+  {
+    "product": "PowerISO",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.poweriso.PowerISO"
+      }
+    ]
+  },
+  {
+    "product": "Yandex Browser",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "ru.yandex.Browser"
+      }
+    ]
+  },
+  {
+    "product": "Alpaca",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.jeffser.Alpaca"
+      }
+    ]
+  },
+  {
+    "product": "Upscaler",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "io.gitlab.theevilskeleton.Upscaler"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "upscaler"
+      }
+    ]
+  },
+  {
+    "product": "File Roller",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.gnome.FileRoller"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "file-roller"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "file-roller"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "file-roller"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "file-roller"
+      }
+    ]
+  },
+  {
+    "product": "Mullvad Browser",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "net.mullvad.MullvadBrowser"
+      }
+    ]
+  },
+  {
+    "product": "Strawberry Music Player",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.strawberrymusicplayer.strawberry"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "strawberry"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "strawberry"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "strawberry"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "strawberry"
+      }
+    ]
+  },
+  {
+    "product": "CoreKeyboard",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.cubocore.CoreKeyboard"
+      }
+    ]
+  },
+  {
+    "product": "XnView MP",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.xnview.XnViewMP"
+      }
+    ]
+  },
+  {
+    "product": "LACT",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "io.github.ilya_zlobintsev.LACT"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "lact"
+      }
+    ]
+  },
+  {
+    "product": "0 A.D.",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.play0ad.zeroad"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "0ad"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "0ad"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "0ad"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "0ad"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "0ad"
+      }
+    ]
+  },
+  {
+    "product": "Document Scanner",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.gnome.SimpleScan"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "simple-scan"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "simple-scan"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "simple-scan"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "simple-scan"
+      }
+    ]
+  },
+  {
+    "product": "PlayOnLinux 4",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.playonlinux.PlayOnLinux4"
+      }
+    ]
+  },
+  {
+    "product": "SuperTuxKart",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "net.supertuxkart.SuperTuxKart"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "supertuxkart"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "supertuxkart"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "supertuxkart"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "supertuxkart"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "supertuxkart"
+      }
+    ]
+  },
+  {
+    "product": "osu!",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "sh.ppy.osu"
+      }
+    ]
+  },
+  {
+    "product": "KiCad",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.kicad.KiCad"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "kicad"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "kicad"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "kicad"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "kicad"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "kicad"
+      }
+    ]
+  },
+  {
+    "product": "Connections",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.gnome.Connections"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "gnome-connections"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "gnome-connections"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "gnome-connections"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "gnome-connections"
+      }
+    ]
+  },
+  {
+    "product": "Zotero",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.zotero.Zotero"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "zotero-snap"
+      }
+    ]
+  },
+  {
+    "product": "SMPlayer",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "info.smplayer.SMPlayer"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "smplayer"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "smplayer"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "smplayer"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "smplayer"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "smplayer"
+      }
+    ]
+  },
+  {
+    "product": "Eye of GNOME",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.gnome.eog"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "eog"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "eog"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "eog"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "eog"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "eog"
+      }
+    ]
+  },
+  {
+    "product": "GPU-Viewer",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "io.github.arunsivaramanneo.GPUViewer"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "gpu-viewer"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "gpu-viewer"
+      }
+    ]
+  },
+  {
+    "product": "Characters",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.gnome.Characters"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "gnome-characters"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "gnome-characters"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "gnome-characters"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "gnome-characters"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "gnome-characters"
+      }
+    ]
+  },
+  {
+    "product": "Fragments",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "de.haeckerfelix.Fragments"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "fragments"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "fragments"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "fragments"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "fragments"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "fragments"
+      }
+    ]
+  },
+  {
+    "product": "Syncthing GTK",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "me.kozec.syncthingtk"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "syncthing-gtk"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "syncthing-gtk"
+      }
+    ]
+  },
+  {
+    "product": "Clapper",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.github.rafostar.Clapper"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "clapper"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "clapper"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "clapper"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "clapper"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "clapper"
+      }
+    ]
+  },
+  {
+    "product": "Cemu",
+    "anchors": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "info.cemu.Cemu"
+      }
+    ]
+  }
+]

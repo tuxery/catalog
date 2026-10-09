@@ -1,5 +1,10 @@
 import { z } from "zod";
 import type { CatalogApp } from "../curator";
+import { stripVariantSuffix } from "../curator/match/group";
+import { homepageKey } from "../curator/match/homepage";
+import { normalizeName } from "../curator/match/normalize";
+
+export { homepageKey };
 
 // `pnpm audit-matching` (scripts/audit-matching.ts): suspected matching mistakes in a built
 // dataset, ranked by how many people they affect, plus the golden-set
@@ -54,56 +59,9 @@ export function reachOf(app: Pick<AuditApp, "installsTotal" | "popularity">): nu
   return (app.installsTotal ?? 0) + (app.popularity ?? 0) * 10_000;
 }
 
-// Hosts where the project lives in the first two path segments
-// (`github.com/<owner>/<repo>`, `sourceforge.net/projects/<name>`) rather
-// than in the host itself — measured 2026-10-09: github.com alone is the
-// homepage host of 48,994 apps.
-const PROJECT_IN_PATH_HOSTS = new Set([
-  "github.com",
-  "gitlab.com",
-  "codeberg.org",
-  "sourceforge.net",
-  "git.sr.ht",
-  "launchpad.net",
-  "gitlab.gnome.org",
-  "invent.kde.org",
-  "salsa.debian.org",
-  "gitlab.freedesktop.org",
-  "pypi.org",
-  "crates.io",
-  "apps.kde.org",
-  "wiki.gnome.org",
-  "gog.com",
-  "lutris.net",
-]);
-
 // A homepage key shared by more groups than this is a portal or an
 // umbrella project page (gcc.gnu.org, bioconductor.org), not one product.
 export const MAX_SHARED_HOMEPAGE_GROUP = 12;
-
-/**
- * What identifies a project in its homepage: the host without `www.`,
- * plus the first two path segments on a code host (`github.com/owner/repo`)
- * or the whole path elsewhere (`videolan.org/vlc`), lowercased, no query,
- * fragment or trailing slash. `undefined` for a bare code host or a
- * distribution's own package page, which say nothing about the project.
- */
-export function homepageKey(url: string | undefined): string | undefined {
-  if (!url) return undefined;
-  const match = url
-    .trim()
-    .toLowerCase()
-    .match(/^(?:[a-z+]+:\/\/)?(?:www\.)?([^/?#]+)([^?#]*)/);
-  if (!match?.[1]) return undefined;
-  const host = match[1];
-  if (/^(aur\.archlinux\.org|packages\.|archlinux\.org\/packages)/.test(host)) return undefined;
-  const segments = (match[2] ?? "").split("/").filter(Boolean);
-  if (PROJECT_IN_PATH_HOSTS.has(host)) {
-    if (segments.length < 2) return undefined;
-    return [host, ...segments.slice(0, 2)].join("/").replace(/\.git$/, "");
-  }
-  return [host, ...segments].join("/");
-}
 
 /** Groups listed together under one shared key, when there's more than one of them. */
 function groupBy(
@@ -125,16 +83,56 @@ function suspect(signal: AuditSignal, key: string, apps: readonly CatalogApp[]):
   return { signal, key, apps: listed, reach: Math.max(...listed.map(reachOf)) };
 }
 
+/** Every name an app goes by: its display name and each package's own, build suffixes stripped, plus store ids' last segment. */
+function appStems(app: CatalogApp): Set<string> {
+  const stems = new Set([nameKey(app.name)]);
+  for (const pkg of app.packages) {
+    stems.add(normalizeName(stripVariantSuffix(pkg)));
+    if (pkg.appId && /^(flatpak-|appimage)/.test(pkg.source)) {
+      stems.add(normalizeName(pkg.appId.split(/[./]/).at(-1) ?? ""));
+    }
+  }
+  return new Set([...stems].filter((stem) => stem.length >= 3));
+}
+
+/** Whether two apps' names are tied: one equal, or one extending the other (`firefox` / `firefoxpwa`). */
+function namesLinked(a: Set<string>, b: Set<string>): boolean {
+  for (const x of a) {
+    for (const y of b) {
+      if (x === y) return true;
+      if (Math.min(x.length, y.length) >= 3 && (x.startsWith(y) || y.startsWith(x))) return true;
+    }
+  }
+  return false;
+}
+
 /**
- * Several groups sharing one project homepage (any member package's) —
- * the strongest sign of a product split across cards: VLC and `vlc-bin`,
- * VS Code and `code-insiders`. At least one of them must be published.
+ * Groups sharing one project homepage (any member package's) whose names
+ * are tied — the strongest sign of a product split across cards: VLC and
+ * `vlc-bin`, VS Code and `code-insiders`. A publisher's unrelated products
+ * under one site (mozilla.org: Firefox, Thunderbird, ca-certificates) are
+ * left out: only the apps whose names tie to another's stay listed, and
+ * at least one of them must be published.
  */
 export function sharedHomepageSuspects(apps: readonly CatalogApp[]): AuditSuspect[] {
   const groups = groupBy(apps, (app) => app.packages.map((pkg) => homepageKey(pkg.homepage)));
+  const stems = new Map<CatalogApp, Set<string>>();
+  const stemsOf = (app: CatalogApp) => {
+    let known = stems.get(app);
+    if (!known) stems.set(app, (known = appStems(app)));
+    return known;
+  };
   return [...groups]
     .filter(([, group]) => group.length <= MAX_SHARED_HOMEPAGE_GROUP)
-    .filter(([, group]) => group.some((app) => !app.excluded && !app.companionOf))
+    .map(([key, group]): [string, CatalogApp[]] => [
+      key,
+      group.filter((app) =>
+        group.some((other) => other !== app && namesLinked(stemsOf(app), stemsOf(other))),
+      ),
+    ])
+    .filter(
+      ([, group]) => group.length > 1 && group.some((app) => !app.excluded && !app.companionOf),
+    )
     .map(([key, group]) => suspect("shared-homepage", key, group));
 }
 

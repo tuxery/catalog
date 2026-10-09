@@ -710,4 +710,29 @@ describe("groupPackages — product families", () => {
       groups.find((group) => group.id === "io.github.fabiangreffrath.Doom")?.packages,
     ).toHaveLength(1);
   });
+
+  it("merges packages sharing a project homepage under the same name, not different products of one project", () => {
+    const groups = groupPackages(
+      [
+        pkg({
+          name: "John the Ripper",
+          appId: "com.openwall.John",
+          homepage: "https://www.openwall.com/john/",
+        }),
+        aur("john-git", "John the Ripper password cracker"),
+        pkg({ source: "pacman-aur", name: "atuin", appId: "atuin", homepage: "https://atuin.sh" }),
+        pkg({
+          source: "pacman-aur",
+          name: "atuin-desktop-bin",
+          appId: "atuin-desktop-bin",
+          homepage: "https://atuin.sh",
+        }),
+      ].map((entry) =>
+        entry.name === "john-git" ? { ...entry, homepage: "https://openwall.com/john" } : entry,
+      ),
+      NO_OVERRIDES,
+    );
+
+    expect(groups.map((group) => group.packages.length).toSorted()).toEqual([1, 1, 2]);
+  });
 });

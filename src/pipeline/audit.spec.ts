@@ -1,0 +1,108 @@
+import { describe, expect, it } from "vitest";
+import type { CatalogApp } from "../curator";
+import type { SourcedPackage } from "../sources";
+import { checkGolden, generateGolden, homepageKey, nameKey, sharedHomepageSuspects } from "./audit";
+
+function pkg(overrides: Partial<SourcedPackage>): SourcedPackage {
+  return { source: "deb-debian", name: "x", description: "", version: "1", ...overrides };
+}
+
+function app(
+  id: string,
+  packages: SourcedPackage[],
+  overrides: Partial<CatalogApp> = {},
+): CatalogApp {
+  return {
+    id,
+    name: id,
+    shortDescription: "",
+    packages,
+    category: "To Classify",
+    dataConfidence: { score: 0, signals: [] },
+    ...overrides,
+  };
+}
+
+describe("homepageKey", () => {
+  it("keeps the project part of a homepage", () => {
+    expect(homepageKey("https://www.videolan.org/vlc/")).toBe("videolan.org/vlc");
+    expect(homepageKey("https://github.com/Owner/Repo/releases?x=1")).toBe("github.com/owner/repo");
+    expect(homepageKey("https://github.com/owner/repo.git")).toBe("github.com/owner/repo");
+  });
+
+  it("ignores bare code hosts and distribution package pages", () => {
+    expect(homepageKey("https://github.com/owner")).toBeUndefined();
+    expect(homepageKey("https://aur.archlinux.org/packages/foo")).toBeUndefined();
+    expect(homepageKey(undefined)).toBeUndefined();
+  });
+});
+
+describe("nameKey", () => {
+  it("ignores punctuation and a trailing build word", () => {
+    expect(nameKey("amneziavpn-bin")).toBe(nameKey("amnezia-vpn-bin"));
+    expect(nameKey("Ultimaker Cura")).toBe("ultimakercura");
+  });
+});
+
+describe("sharedHomepageSuspects", () => {
+  it("lists published groups sharing a project homepage", () => {
+    const suspects = sharedHomepageSuspects([
+      app("vlc", [pkg({ homepage: "https://www.videolan.org/vlc/" })], { installsTotal: 10 }),
+      app("deb-debian:vlc-bin", [pkg({ homepage: "https://videolan.org/vlc" })]),
+      app("other", [pkg({ homepage: "https://example.org" })]),
+    ]);
+
+    expect(suspects).toHaveLength(1);
+    expect(suspects[0]?.key).toBe("videolan.org/vlc");
+    expect(suspects[0]?.apps.map((entry) => entry.id)).toEqual(["vlc", "deb-debian:vlc-bin"]);
+  });
+});
+
+describe("golden set", () => {
+  const firefox = app(
+    "firefox",
+    [
+      pkg({ source: "flatpak-flathub", name: "Firefox", appId: "org.mozilla.firefox" }),
+      pkg({ source: "deb-ubuntu", name: "firefox", appId: "firefox" }),
+      pkg({ source: "pacman-aur", name: "firefox-bin", appId: "firefox-bin", flavors: ["bin"] }),
+    ],
+    { name: "Firefox", installsTotal: 100 },
+  );
+
+  it("anchors a generated entry on the major platforms' default builds", () => {
+    expect(generateGolden([firefox], 10)).toEqual([
+      {
+        product: "Firefox",
+        anchors: [
+          { source: "flatpak-flathub", appId: "org.mozilla.firefox" },
+          { source: "deb-ubuntu", appId: "firefox" },
+        ],
+      },
+    ]);
+  });
+
+  it("reports a split product, two products in one group, and a vanished anchor", () => {
+    const golden = [
+      {
+        product: "Firefox",
+        anchors: [
+          { source: "flatpak-flathub", appId: "org.mozilla.firefox" },
+          { source: "deb-ubuntu", appId: "firefox" },
+        ],
+      },
+      { product: "Ubuntu Firefox", anchors: [{ source: "deb-ubuntu", appId: "firefox" }] },
+      { product: "Gone", anchors: [{ source: "snap-snapcraft", appId: "gone" }] },
+    ];
+    const split = [
+      app("firefox", [firefox.packages[0] as SourcedPackage]),
+      app("deb-ubuntu:firefox", [firefox.packages[1] as SourcedPackage]),
+    ];
+
+    expect(checkGolden(split, golden).map((violation) => violation.kind)).toEqual([
+      "split",
+      "merged",
+      "missing",
+    ]);
+    expect(checkGolden([firefox], golden.slice(0, 1))).toEqual([]);
+  });
+});

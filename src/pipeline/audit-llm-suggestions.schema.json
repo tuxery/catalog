@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "signal": {
+        "type": "string"
+      },
+      "key": {
+        "type": "string",
+        "description": "The suspect's key, as the audit report lists it."
+      },
+      "verdict": {
+        "type": "string"
+      },
+      "kind": {
+        "type": "string",
+        "enum": ["edition", "fork", "companion", "component", "tool"]
+      },
+      "confidence": {
+        "type": "string",
+        "enum": ["high", "medium", "low"]
+      },
+      "reason": {
+        "type": "string"
+      },
+      "model": {
+        "type": "string",
+        "description": "The LLM that suggested it (config/llm-models.json id)."
+      }
+    },
+    "required": ["signal", "key", "verdict", "confidence", "reason", "model"],
+    "additionalProperties": false
+  },
+  "title": "Audit: LLM triage suggestions",
+  "description": "An LLM's first opinion on each audit suspect (`pnpm triage-llm`) — shown on the review page beside human verdicts, never applied as is. Generated, not hand-edited."
+}

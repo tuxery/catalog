@@ -10,6 +10,7 @@ export function normalize(entries: UbuntuAppstreamCacheEntry[]): SourcedPackage[
     description: entry.summary,
     version: "unknown",
     appId: entry.pkgname,
+    appstreamId: entry.id,
     iconUrl: entry.iconUrl,
     homepage: entry.homepage,
     hasGameCategory: entry.hasGameCategory,

@@ -10,6 +10,7 @@ export function normalize(entries: OpenSuseAppstreamCacheEntry[]): SourcedPackag
     description: entry.summary,
     version: entry.version ?? "unknown",
     appId: entry.pkgname,
+    appstreamId: entry.id,
     iconFilename: entry.iconFilename,
     iconUrl: entry.remoteIconUrl,
     homepage: entry.homepage,

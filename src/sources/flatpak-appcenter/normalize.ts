@@ -8,6 +8,7 @@ export function normalize(entries: AppCenterCacheEntry[]): SourcedPackage[] {
     description: entry.summary,
     version: entry.version ?? "unknown",
     appId: entry.id,
+    appstreamId: entry.id,
     iconFilename: entry.iconFilename,
     iconUrl: entry.iconUrl,
     homepage: entry.homepage,

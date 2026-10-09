@@ -45,16 +45,27 @@ describe("nameKey", () => {
 });
 
 describe("sharedHomepageSuspects", () => {
-  it("lists published groups sharing a project homepage", () => {
+  it("lists published groups sharing a project homepage under tied names", () => {
     const suspects = sharedHomepageSuspects([
-      app("vlc", [pkg({ homepage: "https://www.videolan.org/vlc/" })], { installsTotal: 10 }),
-      app("deb-debian:vlc-bin", [pkg({ homepage: "https://videolan.org/vlc" })]),
-      app("other", [pkg({ homepage: "https://example.org" })]),
+      app("vlc", [pkg({ name: "vlc", homepage: "https://www.videolan.org/vlc/" })], {
+        installsTotal: 10,
+      }),
+      app("deb-debian:vlc-bin", [pkg({ name: "vlc-bin", homepage: "https://videolan.org/vlc" })]),
+      app("other", [pkg({ name: "other", homepage: "https://example.org" })]),
     ]);
 
     expect(suspects).toHaveLength(1);
     expect(suspects[0]?.key).toBe("videolan.org/vlc");
     expect(suspects[0]?.apps.map((entry) => entry.id)).toEqual(["vlc", "deb-debian:vlc-bin"]);
+  });
+
+  it("leaves out a publisher's unrelated products under one site", () => {
+    expect(
+      sharedHomepageSuspects([
+        app("firefox", [pkg({ name: "firefox", homepage: "https://mozilla.org" })]),
+        app("thunderbird", [pkg({ name: "thunderbird", homepage: "https://mozilla.org" })]),
+      ]),
+    ).toEqual([]);
   });
 });
 

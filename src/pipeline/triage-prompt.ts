@@ -5,17 +5,33 @@ import type { AuditApp, AuditSignal, DeclaredRelationType } from "./audit";
 // audit suspect, so a human only confirms the ones that matter. Pure —
 // prompt building and answer parsing only.
 
+/**
+ * How a card relates to its group's main card (the most-reached one) —
+ * judged card by card, since one group can hold the same product, its
+ * companions and something unrelated at once (mozilla.org: Firefox,
+ * firefox-langpacks, ca-certificates-mozilla).
+ */
+export const CARD_RELATIONS = [
+  "same",
+  "edition",
+  "fork",
+  "companion",
+  "component",
+  "tool",
+  "unrelated",
+] as const;
+
+/** Signals whose suspect is a group of cards, each judged against the first. */
+export const GROUP_SIGNALS = new Set<AuditSignal>(["shared-homepage", "same-name"]);
+
 /** The verdicts a suspect of each signal can get — the review page's own buttons, so a suggestion can be accepted as is. */
 export const TRIAGE_VERDICTS = {
-  "shared-homepage": ["same", "related", "distinct"],
-  "same-name": ["same", "related", "distinct"],
+  "shared-homepage": CARD_RELATIONS,
+  "same-name": CARD_RELATIONS,
   megagroup: ["split", "fine"],
   "hidden-app": ["show", "hide"],
   "declared-relation": ["correct", "wrong-target", "none"],
 } as const satisfies Record<AuditSignal, readonly string[]>;
-
-/** What "related" means, when it's the verdict. */
-export const RELATED_KINDS = ["edition", "fork", "companion", "component", "tool"] as const;
 
 const CONFIDENCES = ["high", "medium", "low"] as const;
 
@@ -29,8 +45,9 @@ export interface TriageItem {
 export interface TriageResult {
   /** 1-based position in the batch. */
   n: number;
+  /** 1-based card the verdict is about: the judged card in a group (2 and up), 1 otherwise. */
+  card: number;
   verdict: string;
-  kind?: (typeof RELATED_KINDS)[number];
   confidence: (typeof CONFIDENCES)[number];
   reason: string;
 }
@@ -45,17 +62,16 @@ Tuxery's model: one PRODUCT per piece of software, on one card. Its card folds e
 - component: a separately packaged part of the same project (a -client, -server, -data or -gui package of it).
 - tool: a standalone app that works with or on the other (a GUI frontend, a launcher, a manager).
 
-Each item is one suspect of a kind, with the cards involved (id; name; sources; description; homepage):
-- shared-homepage or same-name: cards that share a project homepage or a name. Answer "same" when they are the same software (they should be one card, including a different build or an edition), "related" when they are different products tied by one of the links above (give its kind), "distinct" when they are unrelated.
-- declared-relation: a card's own description states a relation to another card (quoted). Answer "correct" when the statement is right about that exact target card, "wrong-target" when the relation is real but the target card is another product of that name, "none" when the words don't state a relation.
-- megagroup: one card holding packages of several products. Answer "split" when it mixes different software, "fine" when it is all one product.
-- hidden-app: a card hidden as not being an app (a library, data, ...), though a package declares an app. Answer "show" when it is software a person would install and launch, "hide" otherwise.
+Each item is one suspect of a kind, with the cards involved, numbered (id; name; sources; description; homepage):
+- shared-homepage or same-name: cards that share a project homepage or a name. Card 1 is the group's main card. Judge EACH OTHER card against card 1, one answer per card: "same" (the same software, should be on card 1's card, including a different build), "edition" (a parallel line or maturity of card 1), "fork", "companion", "component", "tool" (as defined above), or "unrelated".
+- declared-relation: card 1's own description states a relation to card 2 (quoted). Answer about card 1: "correct" when the statement is right about that exact card 2, "wrong-target" when the relation is real but card 2 is another product of that name, "none" when the words don't state a relation.
+- hidden-app: card 1 is hidden as not being an app (a library, data, ...), though a package declares an app. Answer about card 1: "show" when it is software a person would install and launch, "hide" otherwise.
 
 Running on, or being packaged with, a platform or runtime (Wine, Proton, Electron, Java, a web browser) is not a relation: a Windows program shipped with Wine is not a Wine client, and an app built on Electron is not tied to Electron.
 
 Judge from the names, descriptions and homepages given; when they don't settle it, say so with a low confidence rather than guessing.
 
-Answer with JSON {"results": [string, ...]}, one string per item: "n|verdict|kind|confidence|reason" — n the item number, kind one of edition, fork, companion, component, tool when the verdict is "related" and empty otherwise, confidence high, medium or low, reason under 15 words without "|".`;
+Answer with JSON {"results": [string, ...]}: "n|card|verdict|confidence|reason" — n the item number, card the card the verdict is about (2, 3, ... for each other card of a group; 1 for declared-relation and hidden-app), confidence high, medium or low, reason under 15 words without "|". A group of k cards gets k-1 strings.`;
 }
 
 function describeApp(app: AuditApp): string {
@@ -68,11 +84,16 @@ function describeApp(app: AuditApp): string {
   ].join("; ");
 }
 
+/** Cards shown per suspect — the review page lists 12. */
+export const MAX_CARDS = 12;
+
 export function buildTriageUserPrompt(items: readonly TriageItem[]): string {
   return items
     .map((item, index) => {
       const head = `${index + 1}. ${item.signal}${item.relation ? ` — "${item.relation.quote}" (${item.relation.type})` : ""}`;
-      const cards = item.apps.slice(0, 8).map((app) => `   - ${describeApp(app)}`);
+      const cards = item.apps
+        .slice(0, MAX_CARDS)
+        .map((app, card) => `   ${card + 1}) ${describeApp(app)}`);
       return [head, ...cards].join("\n");
     })
     .join("\n");
@@ -95,23 +116,24 @@ export function parseTriageResults(
   const results: TriageResult[] = [];
   for (const line of parsed.results) {
     if (typeof line !== "string") continue;
-    const [nText, verdict, kind, confidence, ...reason] = line
+    const [nText, cardText, verdict, confidence, ...reason] = line
       .split("|")
       .map((part) => part.trim());
     const n = Number(nText);
+    const card = Number(cardText);
     const item = items[n - 1];
     if (!item || !verdict || !confidence) continue;
+    const group = GROUP_SIGNALS.has(item.signal);
+    const cards = Math.min(item.apps.length, MAX_CARDS);
+    if (!Number.isInteger(card) || (group ? card < 2 || card > cards : card !== 1)) continue;
     const allowed: readonly string[] = TRIAGE_VERDICTS[item.signal];
     if (!allowed.includes(verdict) || !(CONFIDENCES as readonly string[]).includes(confidence)) {
       continue;
     }
-    const relatedKind = (RELATED_KINDS as readonly string[]).includes(kind ?? "")
-      ? (kind as TriageResult["kind"])
-      : undefined;
     results.push({
       n,
+      card,
       verdict,
-      ...(verdict === "related" && relatedKind ? { kind: relatedKind } : {}),
       confidence: confidence as TriageResult["confidence"],
       reason: reason.join(" ").slice(0, 200),
     });
@@ -122,8 +144,11 @@ export function parseTriageResults(
 const SuggestionSchema = z.object({
   signal: z.string(),
   key: z.string().describe("The suspect's key, as the audit report lists it."),
+  appId: z
+    .string()
+    .optional()
+    .describe("For a group suspect: the card judged against the group's main card."),
   verdict: z.string(),
-  kind: z.enum(RELATED_KINDS).optional(),
   confidence: z.enum(CONFIDENCES),
   reason: z.string(),
   model: z.string().describe("The LLM that suggested it (config/llm-models.json id)."),

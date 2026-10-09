@@ -1,7 +1,14 @@
 import { describe, expect, it } from "vitest";
 import type { CatalogApp } from "../curator";
 import type { SourcedPackage } from "../sources";
-import { checkGolden, generateGolden, homepageKey, nameKey, sharedHomepageSuspects } from "./audit";
+import {
+  checkGolden,
+  declaredRelationSuspects,
+  generateGolden,
+  homepageKey,
+  nameKey,
+  sharedHomepageSuspects,
+} from "./audit";
 
 function pkg(overrides: Partial<SourcedPackage>): SourcedPackage {
   return { source: "deb-debian", name: "x", description: "", version: "1", ...overrides };
@@ -115,5 +122,30 @@ describe("golden set", () => {
       "missing",
     ]);
     expect(checkGolden([firefox], golden.slice(0, 1))).toEqual([]);
+  });
+});
+
+describe("declaredRelationSuspects", () => {
+  it("reads a relation a description states and resolves its target", () => {
+    const wine = app("org.winehq.Wine", [pkg({ name: "wine" })], { name: "Wine" });
+    const proton = app("pacman-aur:wine-proton", [pkg({ name: "wine-proton" })], {
+      name: "wine-proton",
+      shortDescription: "Valve Software's fork of Wine",
+    });
+    const [found] = declaredRelationSuspects([wine, proton]);
+
+    expect(found?.relation).toEqual({ type: "forkOf", quote: "fork of Wine" });
+    expect(found?.apps.map((entry) => entry.id)).toEqual([
+      "pacman-aur:wine-proton",
+      "org.winehq.Wine",
+    ]);
+  });
+
+  it("ignores platforms and desktops as targets", () => {
+    const gnome = app("deb-debian:gnome", [pkg({ name: "gnome" })], { name: "gnome" });
+    const dialect = app("dialect", [pkg({ name: "dialect" })], {
+      shortDescription: "A translation app for GNOME",
+    });
+    expect(declaredRelationSuspects([gnome, dialect])).toEqual([]);
   });
 });

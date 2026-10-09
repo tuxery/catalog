@@ -27,6 +27,7 @@ describe("flathub normalize", () => {
         description: "Fast, private, and safe web browser",
         version: "128.0",
         appId: "org.mozilla.firefox",
+        appstreamId: "org.mozilla.firefox",
         iconFilename: "org.mozilla.firefox.png",
         iconUrl: "https://dl.flathub.org/media/org/mozilla/firefox/icons/128x128/icon.png",
         homepage: "https://www.mozilla.org/firefox/",

@@ -61,6 +61,15 @@ export interface SourcedPackage {
    * Not directly comparable across sources without normalization.
    */
   appId?: string;
+  /**
+   * The AppStream component id this package is described by
+   * (`org.gnome.Calendar`), when its source is AppStream — Flathub and
+   * AppCenter (where it's also `appId`) and the distributions' own
+   * AppStream feeds (where `appId` is the package name, `gnome-calendar`).
+   * Reverse-DNS and chosen upstream, so the same app carries the same id on
+   * every source: the match stage's strongest cross-source key.
+   */
+  appstreamId?: string;
   /** Filename of the app icon, when known — used as a weak matching signal. */
   iconFilename?: string;
   /**

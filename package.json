@@ -18,6 +18,7 @@
     "serve": "tsx scripts/serve.ts",
     "query-local": "tsx scripts/query-local.ts",
     "turso-stats": "tsx scripts/turso-stats.ts",
+    "audit-matching": "tsx scripts/audit-matching.ts",
     "classify-llm": "tsx scripts/classify-llm.ts",
     "reset-caches": "tsx scripts/reset-caches.ts"
   },

@@ -17,6 +17,7 @@ import { EnrichSuitesListSchema } from "../src/curator/enrich/suite";
 import { LlmClassificationsListSchema } from "../src/curator/enrich/llm-classifications";
 import { LlmModelsListSchema } from "../src/curator/enrich/llm-models";
 import { FamilyRelationsListSchema } from "../src/curator/family/types";
+import { GoldenListSchema } from "../src/pipeline/audit";
 
 /**
  * Regenerates every `config/*.json` file's checked-in `.schema.json`
@@ -44,6 +45,7 @@ const SCHEMAS: { schema: z.ZodType; outFile: string }[] = [
     schema: FamilyRelationsListSchema,
     outFile: "../src/curator/family/family-relations.schema.json",
   },
+  { schema: GoldenListSchema, outFile: "../src/pipeline/audit-golden.schema.json" },
   {
     schema: AppStoreTagsListSchema,
     outFile: "../src/curator/enrich/enrich-app-store-tags.schema.json",

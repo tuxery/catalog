@@ -27,7 +27,12 @@ export interface AuditApp {
   shortDescription: string;
 }
 
-export type AuditSignal = "shared-homepage" | "same-name" | "megagroup" | "hidden-app";
+export type AuditSignal =
+  | "shared-homepage"
+  | "same-name"
+  | "megagroup"
+  | "hidden-app"
+  | "declared-relation";
 
 /** A group of apps one signal says may be wrong — `key` is what they share (a homepage, a name). */
 export interface AuditSuspect {
@@ -36,6 +41,8 @@ export interface AuditSuspect {
   apps: AuditApp[];
   /** Ranking only: the highest install count / popularity among `apps`. */
   reach: number;
+  /** `declared-relation` only: the relation a description states, and the words stating it. */
+  relation?: { type: DeclaredRelationType; quote: string };
 }
 
 export function toAuditApp(app: CatalogApp): AuditApp {
@@ -198,6 +205,83 @@ export function hiddenAppSuspects(apps: readonly CatalogApp[]): AuditSuspect[] {
         ),
     )
     .map((app) => suspect("hidden-app", app.id, [app]));
+}
+
+export type DeclaredRelationType = "forkOf" | "toolFor" | "wrapperOf" | "companion";
+
+// How descriptions state a relation to another product, measured
+// 2026-10-09 over the published apps ("Valve Software's fork of Wine",
+// "GUI for BorgBackup", "desktop client for Discord", "themes for
+// Alacritty"). "based on X" is left out: it names frameworks (Electron,
+// Flutter, GStreamer) far more often than products.
+const DECLARED_RELATIONS: [DeclaredRelationType, RegExp][] = [
+  ["forkOf", /\bfork (?:of|from) (?:the )?([A-Za-z][\w.+-]*(?: [A-Z][\w.+-]*)?)/i],
+  ["forkOf", /\b([A-Z][\w.+-]*) fork\b/],
+  [
+    "toolFor",
+    /\b(?:gui|graphical (?:user )?interface|front-?end) (?:for|to|of) (?:the )?([A-Za-z][\w.+-]*)/i,
+  ],
+  [
+    "wrapperOf",
+    /\b(?:unofficial )?(?:desktop )?(?:client|wrapper) for ([A-Z][\w.+-]*(?: [A-Z][\w.+-]*)?)/,
+  ],
+  ["companion", /\b(?:plugin|extension|add-?on|theme|skin)s? for (?:the )?([A-Za-z][\w.+-]*)/i],
+];
+
+// Targets a description names that are platforms, desktops or toolkits,
+// not a product a relation could link to ("app for GNOME", "client for
+// Wayland", "fork from GNOME").
+const GENERIC_TARGETS = new Set(
+  "the a an gnome kde plasma xfce linux unix windows macos android web wayland x11 xorg electron flutter qt gtk gtk3 gtk4 python rust java node nodejs git".split(
+    " ",
+  ),
+);
+
+/**
+ * Relations a published app's own description states, resolved to
+ * another published product by name — a cheap, checkable hypothesis
+ * for the review page and for an LLM to confirm. Never applied as is:
+ * a phrase like "fork of the DOSBox project" can still resolve to the
+ * wrong DOSBox.
+ */
+export function declaredRelationSuspects(apps: readonly CatalogApp[]): AuditSuspect[] {
+  const published = apps.filter((app) => !app.excluded && !app.companionOf);
+  const byName = new Map<string, CatalogApp>();
+  for (const app of published) {
+    for (const name of [app.name, ...app.packages.map((pkg) => pkg.name)]) {
+      const key = normalizeName(name);
+      if (key.length >= 3 && !byName.has(key)) byName.set(key, app);
+    }
+  }
+
+  const suspects: AuditSuspect[] = [];
+  for (const app of published) {
+    const text = [app.shortDescription, ...app.packages.map((pkg) => pkg.description)].join(" • ");
+    for (const [type, pattern] of DECLARED_RELATIONS) {
+      const match = text.match(pattern);
+      if (!match?.[1]) continue;
+      const words = match[1].split(" ");
+      let target: CatalogApp | undefined;
+      for (let count = words.length; count >= 1 && !target; count--) {
+        const name = words.slice(0, count).join(" ");
+        if (!GENERIC_TARGETS.has(name.toLowerCase())) target = byName.get(normalizeName(name));
+      }
+      if (target && target !== app) {
+        const found = suspect("declared-relation", `${type}:${app.id}->${target.id}`, [
+          app,
+          target,
+        ]);
+        // The describing app first, then its target: the relation reads left to right.
+        suspects.push({
+          ...found,
+          apps: [toAuditApp(app), toAuditApp(target)],
+          relation: { type, quote: match[0] },
+        });
+        break;
+      }
+    }
+  }
+  return suspects;
 }
 
 const GoldenEntrySchema = z.object({

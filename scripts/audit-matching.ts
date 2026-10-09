@@ -4,6 +4,7 @@ import { fileURLToPath } from "node:url";
 import { buildDataset } from "../src/pipeline/build-dataset";
 import {
   checkGolden,
+  declaredRelationSuspects,
   generateGolden,
   GoldenListSchema,
   hiddenAppSuspects,
@@ -29,7 +30,7 @@ const GOLDEN_PATH = fileURLToPath(new URL("../config/audit-golden.json", import.
 const OUTPUT_PATH = fileURLToPath(new URL("../dist/audit.json", import.meta.url));
 const GOLDEN_SIZE = 200;
 // The review page lists this many suspects per signal, by reach.
-const SUSPECTS_PER_SIGNAL = 300;
+const SUSPECTS_PER_SIGNAL = 500;
 
 const args = new Set(process.argv.slice(2));
 const { apps, generatedAt } = await buildDataset({ includeExcluded: true });
@@ -50,6 +51,7 @@ const signals: Record<string, AuditSuspect[]> = {
   "same-name": sameNameSuspects(apps),
   megagroup: megagroupSuspects(apps),
   "hidden-app": hiddenAppSuspects(apps),
+  "declared-relation": declaredRelationSuspects(apps),
 };
 
 const published = apps.filter((app) => !app.excluded && !app.companionOf);

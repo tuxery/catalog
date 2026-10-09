@@ -191,6 +191,22 @@ The same markers also stop the older name-prefix + same-description
 rule: `goldendict-ng-appimage` reuses `goldendict`'s blurb, and used to
 merge GoldenDict and GoldenDict-ng into one card through it.
 
+### Other build conventions
+
+- **Same AppStream id** (`org.gnome.Calendar`): the distributions' own
+  AppStream feeds name the component their package ships, so Arch's
+  `gnome-calendar` meets Flathub's "Calendar" where a display name never
+  could. A package shipping several components (`hugin`, `crispy-doom`)
+  is left out — it would merge all their Flathub apps together.
+- **AppImage display names** end with a risk or track word
+  (`Thunderbird_Beta`, `Firefox_ESR`).
+- **Void's `-32bit`** builds are the same software for i686: a `32bit`
+  flavor.
+- **AUR language builds** (`betterbird-de-bin`, `-fr-bin`, ...) fold into
+  their project only as a series (two languages or more, described alike,
+  project name of 4+ characters): a lone two-letter suffix is usually
+  something else (`emulationstation-de`, `hyperledger-fabric-ca`).
+
 ### Naming a product
 
 A card's id comes from its default build: a package with a track or a

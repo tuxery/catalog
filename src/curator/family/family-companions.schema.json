@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "parent": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "string",
+            "description": "A PackageSourceId, e.g. \"flatpak-flathub\"."
+          },
+          "appId": {
+            "type": "string",
+            "description": "SourcedPackage.appId on that source."
+          }
+        },
+        "required": ["source", "appId"],
+        "additionalProperties": false,
+        "description": "A package of the product the companion belongs to."
+      },
+      "companion": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "string",
+            "description": "A PackageSourceId, e.g. \"flatpak-flathub\"."
+          },
+          "appId": {
+            "type": "string",
+            "description": "SourcedPackage.appId on that source."
+          }
+        },
+        "required": ["source", "appId"],
+        "additionalProperties": false,
+        "description": "A package of the companion's group; the whole group is listed on the parent."
+      },
+      "kind": {
+        "type": "string",
+        "enum": [
+          "extension",
+          "plugin",
+          "theme",
+          "localization",
+          "data",
+          "native-host",
+          "config",
+          "component"
+        ]
+      },
+      "reason": {
+        "type": "string",
+        "description": "The evidence — a review verdict, a description, ..."
+      }
+    },
+    "required": ["parent", "companion", "kind", "reason"],
+    "additionalProperties": false
+  },
+  "title": "Family: curated companions",
+  "description": "Groups listed on another product's page as its companion or component, when no name or metadata signal says so (audacious-plugins-exotic, syncthing-relay) — applied before the automatic signals. See docs/product-families.md."
+}

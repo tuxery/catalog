@@ -16,7 +16,7 @@ import { CompatWarningsListSchema } from "../src/curator/enrich/compat-warnings"
 import { EnrichSuitesListSchema } from "../src/curator/enrich/suite";
 import { LlmClassificationsListSchema } from "../src/curator/enrich/llm-classifications";
 import { LlmModelsListSchema } from "../src/curator/enrich/llm-models";
-import { FamilyRelationsListSchema } from "../src/curator/family/types";
+import { FamilyCompanionsListSchema, FamilyRelationsListSchema } from "../src/curator/family/types";
 import { GoldenListSchema } from "../src/pipeline/audit";
 import { TriageSuggestionsListSchema } from "../src/pipeline/triage-prompt";
 
@@ -45,6 +45,10 @@ const SCHEMAS: { schema: z.ZodType; outFile: string }[] = [
   {
     schema: FamilyRelationsListSchema,
     outFile: "../src/curator/family/family-relations.schema.json",
+  },
+  {
+    schema: FamilyCompanionsListSchema,
+    outFile: "../src/curator/family/family-companions.schema.json",
   },
   { schema: GoldenListSchema, outFile: "../src/pipeline/audit-golden.schema.json" },
   {

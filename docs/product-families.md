@@ -96,7 +96,9 @@ Something that is not usable on its own and extends one product. Kinds:
 `plugin`, `theme`, `localization` (language packs), `data`
 (dictionaries, databases, content packs), `native-host`
 (native-messaging hosts), `config` (policy files, hardening scripts,
-symlink shims). Companions are listed on their parent's page only — not
+symlink shims), `component` (a separately packaged part of the product
+itself — its `-data`, `-server` or `-relay` package — that nobody
+installs on its own). Companions are listed on their parent's page only — not
 cards, not in search results, not in browse grids. Dedicated browse
 sections (Extensions, Themes, ...) are a later project.
 
@@ -106,6 +108,9 @@ the catalog (SDK and runtime extensions) are dropped, never apps.
 
 How a parent is found (`src/curator/family/`), measured 2026-10-08:
 
+- first, `config/family-companions.json`: curated pairs (from the
+  matching audit's review, 2026-10-09) for what no signal settles —
+  they win over every rule below, AppStream apps included;
 - an AppStream add-on's `<extends>` (Flathub, AppCenter);
 - a companion token after a product's own package name, longest name
   first: `chromium-extension-*`, `asf-plugin-*`, `alacritty-themes`,
@@ -156,7 +161,8 @@ link without a verifiable signal. In order of strength:
    - nixpkgs attribute path (`vimPlugins.*`, `gnomeExtensions.*`), Gentoo category (`app-vim/*`, `x11-themes/*`).
 2. **Curated config** for the cases signals cannot settle: tracks of
    well-known products (`config/match-tracks.json`), relations
-   (`config/family-relations.json`).
+   (`config/family-relations.json`), companions
+   (`config/family-companions.json`).
 3. **Name conventions** (`-git`, `-bin`, `-beta`, `-esr`, version
    suffixes) — a fallback, and a corroboration for formal signals.
 4. **LLM classifications** — corroboration only (e.g. `type: other`
@@ -219,14 +225,14 @@ classification, the one a default build's own id carries applies.
 
 ## Determination per axis
 
-| Axis       | Signals                                                                                                              |
-| ---------- | -------------------------------------------------------------------------------------------------------------------- |
-| Risk       | Name words (`-beta`, `-nightly`, `-git`, ...), Snap risk, Flathub branch, Gentoo keywords                            |
-| Track      | `config/match-tracks.json`, track words and version numbers in a folded build's name (`asterisk-lts-22`), Snap track |
-| Flavor     | `-bin`/`-appimage`/`-unwrapped`, suffix of a folded drop-in build, locale suffix of a full build                     |
-| Provenance | Per-source default (table above), refined by flavor (`bin` → repack, patch flavor → patched)                         |
-| Companion  | AppStream `extends`, Debian `enhances`, `depends` on the parent + name, nixpkgs namespace, Gentoo category           |
-| Relation   | `config/family-relations.json`, AppStream `<replaces>` pointing at another product                                   |
+| Axis       | Signals                                                                                                                                     |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| Risk       | Name words (`-beta`, `-nightly`, `-git`, ...), Snap risk, Flathub branch, Gentoo keywords                                                   |
+| Track      | `config/match-tracks.json`, track words and version numbers in a folded build's name (`asterisk-lts-22`), Snap track                        |
+| Flavor     | `-bin`/`-appimage`/`-unwrapped`, suffix of a folded drop-in build, locale suffix of a full build                                            |
+| Provenance | Per-source default (table above), refined by flavor (`bin` → repack, patch flavor → patched)                                                |
+| Companion  | `config/family-companions.json`, AppStream `extends`, Debian `enhances`, `depends` on the parent + name, nixpkgs namespace, Gentoo category |
+| Relation   | `config/family-relations.json`, AppStream `<replaces>` pointing at another product                                                          |
 
 ## Storage
 

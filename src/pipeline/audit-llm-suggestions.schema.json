@@ -11,12 +11,12 @@
         "type": "string",
         "description": "The suspect's key, as the audit report lists it."
       },
-      "verdict": {
+      "appId": {
+        "description": "For a group suspect: the card judged against the group's main card.",
         "type": "string"
       },
-      "kind": {
-        "type": "string",
-        "enum": ["edition", "fork", "companion", "component", "tool"]
+      "verdict": {
+        "type": "string"
       },
       "confidence": {
         "type": "string",

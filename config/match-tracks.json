@@ -36,6 +36,156 @@
     "reason": "Audit review 2026-10-09 (shared-homepage chrome.google.com): review verdict — suggestion gemini-3.5-flash-lite : Google Chrome unstable/Dev is an edition"
   },
   {
+    "product": "ppsspp",
+    "track": "gold",
+    "names": ["ppssppgold", "ppssppgold-assets"],
+    "reason": "Audit review 2026-10-09 (shared-homepage ppsspp.org): LLM gemini-3.5-flash-lite: PPSSPP Gold is a paid edition"
+  },
+  {
+    "product": "visual studio code",
+    "track": "insiders",
+    "names": ["visual-studio-code-insiders"],
+    "reason": "Audit review 2026-10-09 (shared-homepage code.visualstudio.com): LLM gemini-3.5-flash-lite: Insiders is a release channel edition"
+  },
+  {
+    "product": "visual studio code",
+    "track": "insiders",
+    "names": ["code-insiders"],
+    "reason": "Audit review 2026-10-09 (shared-homepage code.visualstudio.com): LLM gemini-3.5-flash-lite: Code Insiders is a release channel edition"
+  },
+  {
+    "product": "zen",
+    "track": "twilight",
+    "names": ["zen-twilight"],
+    "reason": "Audit review 2026-10-09 (shared-homepage github.com/zen-browser/desktop): LLM gemini-3.5-flash-lite: Nightly release edition"
+  },
+  {
+    "product": "audacity",
+    "track": "4",
+    "names": ["audacity4", "audacity4-nocloud"],
+    "reason": "Audit review 2026-10-09 (shared-homepage github.com/audacity/audacity): LLM gemini-3.5-flash-lite: Alpha release edition"
+  },
+  {
+    "product": "postman",
+    "track": "9",
+    "names": ["postman9"],
+    "reason": "Audit review 2026-10-09 (shared-homepage getpostman.com): LLM gemini-3.5-flash-lite: Older version 9 release line"
+  },
+  {
+    "product": "dbeaver community",
+    "track": "ee",
+    "names": ["dbeaver-ee"],
+    "reason": "Audit review 2026-10-09 (shared-homepage dbeaver.com): LLM gemini-3.5-flash-lite: Enterprise edition of DBeaver."
+  },
+  {
+    "product": "dbeaver community",
+    "track": "le",
+    "names": ["dbeaver-le"],
+    "reason": "Audit review 2026-10-09 (shared-homepage dbeaver.com): LLM gemini-3.5-flash-lite: Lite edition of DBeaver."
+  },
+  {
+    "product": "master pdf editor",
+    "track": "free",
+    "names": ["masterpdfeditor-free"],
+    "reason": "Audit review 2026-10-09 (shared-homepage code-industry.net/free-pdf-editor): LLM gemini-3.5-flash-lite: Free version of Master PDF Editor."
+  },
+  {
+    "product": "plex",
+    "track": "htpc",
+    "names": ["plex htpc", "plex-htpc"],
+    "reason": "Audit review 2026-10-09 (shared-homepage plex.tv): LLM gemini-3.5-flash-lite: Plex HTPC is a parallel edition for the big screen."
+  },
+  {
+    "product": "intellij idea open",
+    "track": "ultimate",
+    "names": ["intellij-idea-ultimate-edition"],
+    "reason": "Audit review 2026-10-09 (shared-homepage jetbrains.com/idea): LLM gemini-3.5-flash-lite: IntelliJ IDEA Ultimate is a paid edition."
+  },
+  {
+    "product": "avidemux",
+    "track": "2.6",
+    "names": ["avidemux-2.6"],
+    "reason": "Audit review 2026-10-09 (shared-homepage fixounet.free.fr/avidemux): LLM gemini-3.5-flash-lite: Legacy version 2.6 of Avidemux"
+  },
+  {
+    "product": "osu!",
+    "track": "tachyon",
+    "names": ["osu-tachyon"],
+    "reason": "Audit review 2026-10-09 (shared-homepage osu.ppy.sh): LLM gemini-3.5-flash-lite: Unstable branch of osu!lazer"
+  },
+  {
+    "product": "osu!",
+    "track": "tachyon",
+    "names": ["osu-lazer-tachyon"],
+    "reason": "Audit review 2026-10-09 (shared-homepage osu.ppy.sh): LLM gemini-3.5-flash-lite: Tachyon pre-release channel of osu!lazer"
+  },
+  {
+    "product": "teamspeak",
+    "track": "3",
+    "names": ["teamspeak 3", "teamspeak3-wbundled", "teamspeak3"],
+    "reason": "Audit review 2026-10-09 (shared-homepage teamspeak.com): LLM gemini-3.8-flash: major release line 3 of teamspeak"
+  },
+  {
+    "product": "plexamp",
+    "track": "headless",
+    "names": ["plexamp-headless"],
+    "reason": "Audit review 2026-10-09 (shared-homepage plexamp.com): LLM gemini-3.8-flash: headless release line of plexamp"
+  },
+  {
+    "product": "barrier",
+    "track": "headless",
+    "names": ["barrier-headless"],
+    "reason": "Audit review 2026-10-09 (shared-homepage github.com/debauchee/barrier): LLM gemini-3.8-flash: cli headless build of barrier"
+  },
+  {
+    "product": "fluffychat matrix messenger",
+    "track": "web",
+    "names": ["fluffychat-web"],
+    "reason": "Audit review 2026-10-09 (shared-homepage fluffychat.im): LLM gemini-3.5-flash: Web edition of FluffyChat"
+  },
+  {
+    "product": "rss guard",
+    "track": "lite",
+    "names": ["rss guard lite"],
+    "reason": "Audit review 2026-10-09 (shared-homepage github.com/martinrotter/rssguard): LLM gemini-3.5-flash-lite: Lite edition of RSS Guard without web browser"
+  },
+  {
+    "product": "total chaos",
+    "track": "retro",
+    "names": ["total chaos retro edition"],
+    "reason": "Audit review 2026-10-09 (shared-homepage moddb.com/mods/total-chaos): LLM gemini-3.5-flash-lite: Retro edition variant of Total Chaos."
+  },
+  {
+    "product": "geeqie",
+    "track": "1.5",
+    "names": ["geeqie15"],
+    "reason": "Audit review 2026-10-09 (shared-homepage geeqie.org): LLM gemini-3.5-flash-lite: Geeqie version 1.5 is an older edition line"
+  },
+  {
+    "product": "bisq",
+    "track": "2",
+    "names": ["bisq2"],
+    "reason": "Audit review 2026-10-09 (shared-homepage bisq.network): LLM gemini-3.5-flash: Newer major version (Bisq 2) of the platform"
+  },
+  {
+    "product": "bisq",
+    "track": "1",
+    "names": ["bisq1"],
+    "reason": "Audit review 2026-10-09 (shared-homepage bisq.network): LLM gemini-3.5-flash: Older major version (Bisq 1) of the platform"
+  },
+  {
+    "product": "go2tv",
+    "track": "lite",
+    "names": ["go2tv-lite"],
+    "reason": "Audit review 2026-10-09 (shared-homepage github.com/alexballas/go2tv): LLM gemini-3.5-flash: Lite edition of the same software"
+  },
+  {
+    "product": "burp suite community",
+    "track": "pro",
+    "names": ["burpsuite-pro"],
+    "reason": "Audit review 2026-10-09 (shared-homepage portswigger.net/burp): LLM gemini-3.5-flash: Professional edition of the same software"
+  },
+  {
     "product": "ardour",
     "track": "9",
     "names": ["ardour9"],

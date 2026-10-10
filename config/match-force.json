@@ -248,6 +248,3724 @@
   {
     "destination": {
       "source": "flatpak-flathub",
+      "appId": "org.libretro.RetroArch"
+    },
+    "sources": [
+      {
+        "source": "nix-nixpkgs",
+        "appId": "retroarch-bare"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage libretro.com): LLM gemini-3.5-flash-lite: Multi-platform emulator frontend for libretro cores"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.ppsspp.PPSSPP"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "ppssppgold"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "ppssppgold-assets"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage ppsspp.org): LLM gemini-3.5-flash-lite: PPSSPP Gold is a paid edition"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.ppsspp.PPSSPP"
+    },
+    "sources": [
+      {
+        "source": "nix-nixpkgs",
+        "appId": "ppsspp-qt"
+      },
+      {
+        "source": "rpm-opensuse",
+        "appId": "ppsspp-qt"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage ppsspp.org): LLM gemini-3.5-flash-lite: PPSSPP Qt build is an alternate package"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.ppsspp.PPSSPP"
+    },
+    "sources": [
+      {
+        "source": "nix-nixpkgs",
+        "appId": "ppsspp-sdl-wayland"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage ppsspp.org): LLM gemini-3.5-flash-lite: PPSSPP SDL/Wayland build is an alternate package"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.visualstudio.code"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "visual-studio-code-insiders-bin"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage code.visualstudio.com): LLM gemini-3.5-flash-lite: Insiders is a release channel edition"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.visualstudio.code"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "visual-studio-code-electron-bin"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage code.visualstudio.com): LLM gemini-3.5-flash-lite: Electron binary build is the same app"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.visualstudio.code"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "visual-studio-code-live-bin"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage code.visualstudio.com): LLM gemini-3.5-flash-lite: Live binary version is the same app"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.visualstudio.code"
+    },
+    "sources": [
+      {
+        "source": "snap-snapcraft",
+        "appId": "code-insiders"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "code-insiders-bin"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage code.visualstudio.com): LLM gemini-3.5-flash-lite: Code Insiders is a release channel edition"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.obsproject.Studio"
+    },
+    "sources": [
+      {
+        "source": "xbps-void",
+        "appId": "obs"
+      },
+      {
+        "source": "xbps-void",
+        "appId": "obs-32bit"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage obsproject.com): LLM gemini-3.5-flash-lite: Open Broadcaster Software is the same product"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.gimp.GIMP"
+    },
+    "sources": [
+      {
+        "source": "nix-nixpkgs",
+        "appId": "gimp-with-plugins"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "gimp2-with-plugins"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage gimp.org): LLM gemini-3.5-flash-lite: GIMP with prepackaged plugins is the same app"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.onlyoffice.desktopeditors"
+    },
+    "sources": [
+      {
+        "source": "appimage",
+        "appId": "ONLYOFFICE/appimage-desktopeditors"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "onlyoffice"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "onlyoffice-bin"
+      },
+      {
+        "source": "ebuild-gentoo",
+        "appId": "app-office/onlyoffice-bin"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage onlyoffice.com): LLM gemini-3.5-flash-lite: AppImage build of ONLYOFFICE Desktop Editors"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "us.zoom.Zoom"
+    },
+    "sources": [
+      {
+        "source": "snap-snapcraft",
+        "appId": "zoom-client"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage zoom.us): LLM gemini-3.5-flash-lite: Same software packaged differently"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.bitwarden.desktop"
+    },
+    "sources": [
+      {
+        "source": "nix-nixpkgs",
+        "appId": "bitwarden-desktop"
+      },
+      {
+        "source": "eopkg-solus",
+        "appId": "bitwarden-desktop"
+      },
+      {
+        "source": "ebuild-gentoo",
+        "appId": "app-admin/bitwarden-desktop-bin"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage bitwarden.com): LLM gemini-3.5-flash-lite: Same software desktop edition"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "app.zen_browser.zen"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "zen-twilight-bin"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage github.com/zen-browser/desktop): LLM gemini-3.5-flash-lite: Nightly release edition"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.stremio.Stremio"
+    },
+    "sources": [
+      {
+        "source": "xbps-void",
+        "appId": "stremio-shell"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage stremio.com): LLM gemini-3.5-flash-lite: Same software shell component"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "io.github.peazip.PeaZip"
+    },
+    "sources": [
+      {
+        "source": "rpm-fedora",
+        "appId": "peazip-gtk2"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage peazip.github.io): LLM gemini-3.5-flash-lite: GTK2 build variant"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "io.github.peazip.PeaZip"
+    },
+    "sources": [
+      {
+        "source": "rpm-fedora",
+        "appId": "peazip-gtk3"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage peazip.github.io): LLM gemini-3.5-flash-lite: GTK3 build variant"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "io.github.peazip.PeaZip"
+    },
+    "sources": [
+      {
+        "source": "rpm-fedora",
+        "appId": "peazip-qt5"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage peazip.github.io): LLM gemini-3.5-flash-lite: Qt5 build variant"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "io.github.peazip.PeaZip"
+    },
+    "sources": [
+      {
+        "source": "rpm-fedora",
+        "appId": "peazip-qt6"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage peazip.github.io): LLM gemini-3.5-flash-lite: Qt6 build variant"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.audacityteam.Audacity"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "audacity-3.1-wxgtk2"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage audacityteam.org): LLM gemini-3.5-flash-lite: Older wxWidgets 2 build"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.audacityteam.Audacity"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "audacity3-git"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage audacityteam.org): LLM gemini-3.5-flash-lite: Git development branch build"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.audacityteam.Audacity"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "audacity3-nocloud-git"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage audacityteam.org): LLM gemini-3.5-flash-lite: Git branch without networking"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.audacityteam.Audacity"
+    },
+    "sources": [
+      {
+        "source": "rpm-rpmfusion",
+        "appId": "audacity-freeworld"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage audacityteam.org): LLM gemini-3.5-flash-lite: Audacity freeworld build variant"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.audacityteam.Audacity"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "audacity4-alpha"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "audacity4-bin"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "audacity4-nocloud-git"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage github.com/audacity/audacity): LLM gemini-3.5-flash-lite: Alpha release edition"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "fr.handbrake.ghb"
+    },
+    "sources": [
+      {
+        "source": "snap-snapcraft",
+        "appId": "handbrake-jz"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage handbrake.fr): LLM gemini-3.5-flash-lite: Same video transcoder package"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "fr.handbrake.ghb"
+    },
+    "sources": [
+      {
+        "source": "rpm-rpmfusion",
+        "appId": "HandBrake-gui"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage handbrake.fr): LLM gemini-3.5-flash-lite: Same GUI video transcoder"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "fr.handbrake.ghb"
+    },
+    "sources": [
+      {
+        "source": "apk-alpine",
+        "appId": "handbrake-gtk"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage handbrake.fr): LLM gemini-3.5-flash-lite: Same GTK video transcoder"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "io.github.ungoogled_software.ungoogled_chromium"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "ungoogled-chromium-ru-ca-bin"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage github.com/ungoogled-software/ungoogled-chromium): LLM gemini-3.5-flash-lite: Custom patched binary build"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.getpostman.Postman"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "postman9-bin"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage getpostman.com): LLM gemini-3.5-flash-lite: Older version 9 release line"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.freecad.FreeCAD"
+    },
+    "sources": [
+      {
+        "source": "deb-debian",
+        "appId": "freecad-python3"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage freecad.org): LLM gemini-3.5-flash-lite: It is just the Python 3 binary package for FreeCAD."
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.freecad.FreeCAD"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "freecad-linkstage3-bin"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage freecadweb.org): LLM gemini-3.5-flash-lite: It is a daily build of a development branch of FreeCAD."
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.opera.Opera"
+    },
+    "sources": [
+      {
+        "source": "eopkg-solus",
+        "appId": "opera-stable"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage opera.com): LLM gemini-3.5-flash-lite: It is the stable package of the Opera browser."
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.wps.Office"
+    },
+    "sources": [
+      {
+        "source": "snap-snapcraft",
+        "appId": "wps-office-multilang"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage wps-community.org): LLM gemini-3.5-flash-lite: Multi-language edition of WPS Office."
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "dev.vencord.Vesktop"
+    },
+    "sources": [
+      {
+        "source": "snap-snapcraft",
+        "appId": "vesktop-tsugu"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage vesktop.dev): LLM gemini-3.5-flash-lite: It is an unofficial build of Vesktop."
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "io.dbeaver.DBeaverCommunity"
+    },
+    "sources": [
+      {
+        "source": "nix-nixpkgs",
+        "appId": "dbeaver-bin"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage dbeaver.io): LLM gemini-3.5-flash-lite: It is the prebuilt binary package of DBeaver Community."
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "io.dbeaver.DBeaverCommunity"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "dbeaver-ee"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage dbeaver.com): LLM gemini-3.5-flash-lite: Enterprise edition of DBeaver."
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "io.dbeaver.DBeaverCommunity"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "dbeaver-le"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage dbeaver.com): LLM gemini-3.5-flash-lite: Lite edition of DBeaver."
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.vivaldi.Vivaldi"
+    },
+    "sources": [
+      {
+        "source": "eopkg-solus",
+        "appId": "vivaldi-stable"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage vivaldi.com): LLM gemini-3.5-flash-lite: It is the stable package of the Vivaldi browser."
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.jdownloader.JDownloader"
+    },
+    "sources": [
+      {
+        "source": "snap-snapcraft",
+        "appId": "jdownloader2"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "jdownloader2"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "jdownloader2-jre"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "jdownloader2-svn"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage jdownloader.org): LLM gemini-3.5-flash-lite: Same software packaged differently."
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "net.code_industry.MasterPDFEditor"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "masterpdfeditor-free"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage code-industry.net/free-pdf-editor): LLM gemini-3.5-flash-lite: Free version of Master PDF Editor."
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "io.github.aandrew_me.ytdn"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "ytdownloader-gui"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "ytdownloader-gui-bin"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage github.com/aandrew-me/ytdownloader): LLM gemini-3.5-flash-lite: Alternative packaging of the same ytDownloader app."
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "tv.plex.PlexDesktop"
+    },
+    "sources": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "tv.plex.PlexHTPC"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "plex-htpc"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "plex-htpc"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage plex.tv): LLM gemini-3.5-flash-lite: Plex HTPC is a parallel edition for the big screen."
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.jetbrains.IntelliJ-IDEA-Community"
+    },
+    "sources": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.jetbrains.IntelliJ-IDEA-Ultimate"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "intellij-idea"
+      },
+      {
+        "source": "ebuild-gentoo",
+        "appId": "dev-util/intellij-idea"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage jetbrains.com/idea): LLM gemini-3.5-flash-lite: IntelliJ IDEA Ultimate is a paid edition."
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.jetbrains.IntelliJ-IDEA-Community"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "intellij-idea-ultimate-edition"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage jetbrains.com/idea): LLM gemini-3.5-flash-lite: IntelliJ IDEA Ultimate is a paid edition."
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.jetbrains.IntelliJ-IDEA-Community"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "intellij-idea-open-eap"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage jetbrains.com/idea): LLM gemini-3.5-flash-lite: IntelliJ IDEA EAP is a nightly preview edition."
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.jetbrains.IntelliJ-IDEA-Community"
+    },
+    "sources": [
+      {
+        "source": "pacman-arch",
+        "appId": "intellij-idea-community-edition"
+      },
+      {
+        "source": "pacman-arch-appstream",
+        "appId": "intellij-idea-community-edition"
+      },
+      {
+        "source": "xbps-void",
+        "appId": "intellij-idea-community-edition"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage jetbrains.com/idea): LLM gemini-3.5-flash-lite: IntelliJ IDEA Community edition package."
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.gnome.Maps"
+    },
+    "sources": [
+      {
+        "source": "snap-snapcraft",
+        "appId": "steinbro-gnome-maps"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage apps.gnome.org/maps): LLM gemini-3.5-flash-lite: Alternative packaging source"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.openrgb.OpenRGB"
+    },
+    "sources": [
+      {
+        "source": "nix-nixpkgs",
+        "appId": "openrgb-with-all-plugins"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage openrgb.org): LLM gemini-3.5-flash-lite: Build with all plugins bundled"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.openrgb.OpenRGB"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "openrgb-next-git"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage gitlab.com/calcprogrammer1/openrgb): LLM gemini-3.5-flash-lite: Next branch git build"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.snes9x.Snes9x"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "snes9x-qt-git"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage snes9x.com): LLM gemini-3.5-flash-lite: Qt version build variant"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "im.riot.Riot"
+    },
+    "sources": [
+      {
+        "source": "xbps-void",
+        "appId": "riot-desktop"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage element.io): LLM gemini-3.5-flash-lite: Transitional dummy package"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "io.mgba.mGBA"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "mgba-sdl-git"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "mgba-sdl"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "mgba-sdl"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "mgba-sdl"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage mgba.io): LLM gemini-3.5-flash-lite: SDL frontend build variant"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "net.ankiweb.Anki"
+    },
+    "sources": [
+      {
+        "source": "snap-snapcraft",
+        "appId": "anki-desktop"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage apps.ankiweb.net): LLM gemini-3.5-flash-lite: Official desktop build of Anki"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "net.ankiweb.Anki"
+    },
+    "sources": [
+      {
+        "source": "nix-nixpkgs",
+        "appId": "anki-bin"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage apps.ankiweb.net): LLM gemini-3.5-flash-lite: Prebuilt binary package for Anki"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.makemkv.MakeMKV"
+    },
+    "sources": [
+      {
+        "source": "rpm-rpmfusion",
+        "appId": "makemkv-bin"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage makemkv.com): LLM gemini-3.5-flash-lite: Prebuilt binary distribution of MakeMKV"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.avidemux.Avidemux"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "avidemux-qt5-git"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage avidemux.org): LLM gemini-3.5-flash-lite: Qt5 GUI frontend git version"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.avidemux.Avidemux"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "avidemux-qt6-git"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage avidemux.org): LLM gemini-3.5-flash-lite: Qt6 GUI frontend git version"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.avidemux.Avidemux"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "avidemux-2.6"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage fixounet.free.fr/avidemux): LLM gemini-3.5-flash-lite: Legacy version 2.6 of Avidemux"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.logseq.Logseq"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "logseq-desktop"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "logseq-desktop-bin"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "logseq-desktop-electron-bin"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "logseq-desktop-git"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "logseq-desktop-nightly-bin"
+      },
+      {
+        "source": "ebuild-gentoo",
+        "appId": "app-editors/logseq-desktop-bin"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage logseq.com): LLM gemini-3.5-flash-lite: Desktop application build of Logseq"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.raspberrypi.rpi-imager"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "rpi-imager-latest"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage raspberrypi.com/software): LLM gemini-3.5-flash-lite: Latest release build of Raspberry Pi Imager"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.jeffser.Alpaca"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "alpaca-ai"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage github.com/jeffser/alpaca): LLM gemini-3.5-flash-lite: GitHub repository build of Alpaca"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.playonlinux.PlayOnLinux4"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "playonlinux"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "playonlinux"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "playonlinux"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "playonlinux"
+      },
+      {
+        "source": "rpm-opensuse",
+        "appId": "PlayOnLinux"
+      },
+      {
+        "source": "xbps-void",
+        "appId": "playonlinux"
+      },
+      {
+        "source": "eopkg-solus",
+        "appId": "playonlinux"
+      },
+      {
+        "source": "deb-debian-appstream",
+        "appId": "playonlinux"
+      },
+      {
+        "source": "lutris",
+        "appId": "playonlinux-434"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage playonlinux.com): LLM gemini-3.5-flash-lite: PlayOnLinux main package"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "sh.ppy.osu"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "osu-tachyon"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage osu.ppy.sh): LLM gemini-3.5-flash-lite: Unstable branch of osu!lazer"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "sh.ppy.osu"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "osu-lazer-tachyon-bin"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage osu.ppy.sh): LLM gemini-3.5-flash-lite: Tachyon pre-release channel of osu!lazer"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "rest.insomnia.Insomnia"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "insomnia-designer-bin"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage insomnia.rest): LLM gemini-3.5-flash-lite: Designer edition of Insomnia."
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.jellyfin.JellyfinServer"
+    },
+    "sources": [
+      {
+        "source": "snap-snapcraft",
+        "appId": "dilyn-jellyfin"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage jellyfin.org): LLM gemini-3.5-flash-lite: Alternative packaging for Jellyfin server."
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.musescore.MuseScore"
+    },
+    "sources": [
+      {
+        "source": "deb-debian",
+        "appId": "musescore3-common"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "musescore3-common"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage musescore.org/en): LLM gemini-3.5-flash-lite: MuseScore 3 parallel release version."
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "io.neovim.nvim"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "nvim-with-restricted-mode"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage neovim.io): LLM gemini-3.5-flash-lite: Neovim with restricted mode patch."
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "edu.mit.Scratch"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "scratch3"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "scratch3-bin"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage scratch.mit.edu): LLM gemini-3.5-flash-lite: Scratch 3.0 desktop application build."
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.surfshark.Surfshark"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "surfshark-client"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage surfshark.com): LLM gemini-3.5-flash-lite: Official Surfshark client build."
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.surfshark.Surfshark"
+    },
+    "sources": [
+      {
+        "source": "snap-snapcraft",
+        "appId": "surfshark"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage surfshark.com): LLM gemini-3.5-flash-lite: Alternative Snap package of Surfshark VPN."
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.tutanota.Tutanota"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "tutanota-desktop"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "tutanota-desktop-bin"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "tutanota-desktop"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage tuta.com): LLM gemini-3.8-flash: desktop client for Tuta/Tutanota service"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.teamspeak.TeamSpeak"
+    },
+    "sources": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.teamspeak.TeamSpeak3"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "teamspeak3-wbundled"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "teamspeak3"
+      },
+      {
+        "source": "pacman-arch-appstream",
+        "appId": "teamspeak3"
+      },
+      {
+        "source": "eopkg-solus",
+        "appId": "teamspeak3"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage teamspeak.com): LLM gemini-3.8-flash: major release line 3 of teamspeak"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.teamspeak.TeamSpeak"
+    },
+    "sources": [
+      {
+        "source": "ebuild-gentoo",
+        "appId": "media-sound/teamspeak-client"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage teamspeak.com): LLM gemini-3.8-flash: teamspeak client package for gentoo"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.desmume.DeSmuME"
+    },
+    "sources": [
+      {
+        "source": "snap-snapcraft",
+        "appId": "desmume-emulator"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage desmume.org): LLM gemini-3.8-flash: desmume nintendo ds emulator package"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.plexamp.Plexamp"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "plexamp-headless"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage plexamp.com): LLM gemini-3.8-flash: headless release line of plexamp"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.github.debauchee.barrier"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "barrier-headless"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "barrier-headless-git"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage github.com/debauchee/barrier): LLM gemini-3.8-flash: cli headless build of barrier"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.github.debauchee.barrier"
+    },
+    "sources": [
+      {
+        "source": "xbps-void",
+        "appId": "barrier-gui"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage github.com/input-leap/input-leap): LLM gemini-3.8-flash: transitional dummy package for barrier gui"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.jitsi.jitsi-meet"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "jitsi-meet-desktop"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "jitsi-meet-desktop-bin"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "jitsi-meet-desktop-git"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage github.com/jitsi/jitsi-meet-electron): LLM gemini-3.8-flash: official desktop electron client of jitsi meet"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.github.tenderowl.frog"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "frog-ocr"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "frog-ocr-no-telemetry"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage getfrog.app): LLM gemini-3.7-flash: same Frog OCR application package"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.yubico.yubioath"
+    },
+    "sources": [
+      {
+        "source": "nix-nixpkgs",
+        "appId": "yubioath-flutter"
+      },
+      {
+        "source": "ebuild-gentoo",
+        "appId": "app-crypt/yubioath-flutter-bin"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage github.com/yubico/yubioath-flutter): LLM gemini-3.7-flash: flutter rewrite/desktop build of Yubico Authenticator"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.mozilla.vpn"
+    },
+    "sources": [
+      {
+        "source": "eopkg-solus",
+        "appId": "mozilla-vpn-client"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage vpn.mozilla.org): LLM gemini-3.7-flash: same Mozilla VPN client package"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.mongodb.Compass"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "mongodb-compass-stable"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage mongodb.com/products/compass): LLM gemini-3.7-flash: same MongoDB Compass GUI package"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.jetbrains.PhpStorm"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "phpstorm-eap"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "phpstorm-eap-jre"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage jetbrains.com/phpstorm): LLM gemini-3.7-flash: Early Access Program build of PhpStorm"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.fightcade.Fightcade"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "fightcade2-bin"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage fightcade.com): LLM gemini-3.7-flash: same Fightcade desktop client application"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.fcitx.Fcitx5"
+    },
+    "sources": [
+      {
+        "source": "nix-nixpkgs",
+        "appId": "kdePackages.fcitx5-with-addons"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage github.com/fcitx/fcitx5): LLM gemini-3.7-flash: nixpkgs distribution build of Fcitx5 with addons"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "dev.aunetx.deezer"
+    },
+    "sources": [
+      {
+        "source": "snap-snapcraft",
+        "appId": "deezer-desktop"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage github.com/aunetx/deezer-linux): LLM gemini-3.7-flash: snap packaging of deezer linux client"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.github.geigi.cozy"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "cozy-audiobooks"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "cozy-audiobooks-git"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage cozy.geigi.de): LLM gemini-3.7-flash: aur build of cozy audiobooks"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.geany.Geany"
+    },
+    "sources": [
+      {
+        "source": "nix-nixpkgs",
+        "appId": "geany-with-vte"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage geany.org): LLM gemini-3.7-flash: geany built with vte support"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.tencent.WeChat"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "wechat-universal-bwrap"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage linux.weixin.qq.com): LLM gemini-3.7-flash: wechat wrapped with bwrap sandbox"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.gnu.emacs"
+    },
+    "sources": [
+      {
+        "source": "snap-snapcraft",
+        "appId": "emacs-tealeg"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage gnu.org/software/emacs): LLM gemini-3.7-flash: snap packaging of emacs"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.gnu.emacs"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "emacs29-git"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage gnu.org/software/emacs): LLM gemini-3.7-flash: git build of emacs branch 29"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.gnu.emacs"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "emacs29-lucid-native-comp-git"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage gnu.org/software/emacs): LLM gemini-3.7-flash: lucid build of emacs 29"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.gnu.emacs"
+    },
+    "sources": [
+      {
+        "source": "rpm-fedora",
+        "appId": "emacs-gtk+x11"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage gnu.org/software/emacs): LLM gemini-3.7-flash: emacs built with gtk for x11"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.gnu.emacs"
+    },
+    "sources": [
+      {
+        "source": "rpm-fedora",
+        "appId": "emacs-nw"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage gnu.org/software/emacs): LLM gemini-3.7-flash: emacs built without window system"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.gnu.emacs"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "emacs28"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "emacs28-nativecomp"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "emacs28-nox"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage gnu.org/software/emacs/emacs.html): LLM gemini-3.7-flash: emacs version 28 build"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.gnu.emacs"
+    },
+    "sources": [
+      {
+        "source": "apk-alpine",
+        "appId": "emacs-gtk3-nativecomp"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage gnu.org/software/emacs/emacs.html): LLM gemini-3.7-flash: emacs build with gtk3 and nativecomp"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.gnu.emacs"
+    },
+    "sources": [
+      {
+        "source": "apk-alpine",
+        "appId": "emacs-pgtk-nativecomp"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage gnu.org/software/emacs/emacs.html): LLM gemini-3.7-flash: emacs build with pgtk and nativecomp"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.gnu.emacs"
+    },
+    "sources": [
+      {
+        "source": "apk-alpine",
+        "appId": "emacs-x11-nativecomp"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage gnu.org/software/emacs/emacs.html): LLM gemini-3.7-flash: emacs build with x11 and nativecomp"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "dev.bsnes.bsnes"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "bsnes-qt5"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage github.com/bsnes-emu/bsnes): LLM gemini-3.7-flash: bsnes built with qt5 interface"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.github.Anuken.Mindustry"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "mindustry-sdl3"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage github.com/anuken/mindustry): LLM gemini-3.7-flash: sdl3 build of mindustry"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.openscad.OpenSCAD"
+    },
+    "sources": [
+      {
+        "source": "snap-snapcraft",
+        "appId": "openscad-nightly"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage openscad.org): LLM gemini-3.7-flash: nightly build edition of openscad"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.openscad.OpenSCAD"
+    },
+    "sources": [
+      {
+        "source": "nix-nixpkgs",
+        "appId": "openscad-unstable"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage openscad.org): LLM gemini-3.7-flash: unstable development edition of openscad"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "net.mediaarea.MediaInfo"
+    },
+    "sources": [
+      {
+        "source": "rpm-fedora",
+        "appId": "mediainfo-qt"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage mediaarea.net/mediainfo): LLM gemini-3.7-flash: qt gui build of mediainfo"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "io.github.hakuneko.HakuNeko"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "hakuneko-desktop-bin"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "hakuneko-desktop-nightly"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage github.com/manga-download/hakuneko): LLM gemini-3.7-flash: binary build of hakuneko desktop"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.jaspstats.JASP"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "jasp-desktop"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "jasp-desktop-bin"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "jasp-desktop"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage jasp-stats.org): LLM gemini-3.7-flash: desktop package build of jasp"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.tigervnc.vncviewer"
+    },
+    "sources": [
+      {
+        "source": "apk-alpine",
+        "appId": "tigervnc-client"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage tigervnc.org): LLM gemini-3.7-flash: client package of tigervnc"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.gnome.Genius"
+    },
+    "sources": [
+      {
+        "source": "deb-debian",
+        "appId": "gnome-genius"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "gnome-genius"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "gnome-genius"
+      },
+      {
+        "source": "rpm-opensuse",
+        "appId": "gnome-genius"
+      },
+      {
+        "source": "deb-debian-appstream",
+        "appId": "gnome-genius"
+      },
+      {
+        "source": "deb-ubuntu-appstream",
+        "appId": "gnome-genius"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage jirka.org/genius.html): LLM gemini-3.7-flash: gnome gui frontend package for genius"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "im.fluffychat.Fluffychat"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "fluffychat-localflutter"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage fluffychat.im): LLM gemini-3.5-flash: Alternative build of FluffyChat"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "im.fluffychat.Fluffychat"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "fluffychat-web"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "fluffychat-web-bin"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "fluffychat-web-git"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "fluffychat-web"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage fluffychat.im): LLM gemini-3.5-flash: Web edition of FluffyChat"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.freeplane.App"
+    },
+    "sources": [
+      {
+        "source": "snap-snapcraft",
+        "appId": "freeplane-mindmapping"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage freeplane.org): LLM gemini-3.5-flash: Same application packaged as Snap"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.turbowarp.TurboWarp"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "turbowarp-desktop-bin"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "turbowarp-desktop-git"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage desktop.turbowarp.org): LLM gemini-3.5-flash: Same application packaged for AUR"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.github.gabutakut.gabutdm"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "gabutdm-master"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage github.com/gabutakut/gabutdm): LLM gemini-3.5-flash: Same application built from master branch"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.github.utsushi.Utsushi"
+    },
+    "sources": [
+      {
+        "source": "snap-snapcraft",
+        "appId": "utsushi"
+      },
+      {
+        "source": "eopkg-solus",
+        "appId": "utsushi"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage gitlab.com/utsushi/imagescan): LLM gemini-3.5-flash: Same application packaged as Snap"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "chat.rocket.RocketChat"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "rocketchat-client-bin"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage rocket.chat): LLM gemini-3.5-flash: Same application packaged for AUR"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "net.displaycal.DisplayCAL"
+    },
+    "sources": [
+      {
+        "source": "ebuild-gentoo",
+        "appId": "media-gfx/displaycal-py3"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage github.com/eoyilmaz/displaycal-py3): LLM gemini-3.5-flash: Python 3 port of DisplayCAL"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "chat.simplex.simplex"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "simplex-desktop-bin"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage simplex.chat): LLM gemini-3.5-flash: Same application packaged for AUR"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "chat.simplex.simplex"
+    },
+    "sources": [
+      {
+        "source": "nix-nixpkgs",
+        "appId": "simplex-chat-desktop"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage simplex.chat): LLM gemini-3.5-flash: Same application packaged for Nix"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.mikrotik.WinBox"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "winbox3"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage mikrotik.com/download): LLM gemini-3.1-flash-lite: Different build of the same software."
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "net.sf.VICE"
+    },
+    "sources": [
+      {
+        "source": "snap-snapcraft",
+        "appId": "vice-jz"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage vice-emu.sourceforge.net): LLM gemini-3.1-flash-lite: Different build of the same software."
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "io.qt.QtCreator"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "qtcreator-prerelease"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage qt.io/ide): LLM gemini-3.1-flash-lite: Different build of the same software."
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "io.qt.QtCreator"
+    },
+    "sources": [
+      {
+        "source": "xbps-void",
+        "appId": "qtcreator-full"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage wiki.qt.io/category:tools::qtcreator): LLM gemini-3.1-flash-lite: Different build of the same software."
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "io.qt.QtCreator"
+    },
+    "sources": [
+      {
+        "source": "xbps-void",
+        "appId": "qtcreator-qt5"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage wiki.qt.io/category:tools::qtcreator): LLM gemini-3.1-flash-lite: Different build of the same software."
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "io.qt.QtCreator"
+    },
+    "sources": [
+      {
+        "source": "xbps-void",
+        "appId": "qtcreator-qt6"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage wiki.qt.io/category:tools::qtcreator): LLM gemini-3.1-flash-lite: Different build of the same software."
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "de.schmidhuberj.Flare"
+    },
+    "sources": [
+      {
+        "source": "rpm-fedora",
+        "appId": "flare-im"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage gitlab.com/schmiddi-on-mobile/flare): LLM gemini-3.1-flash-lite: Different build of the same software."
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "io.ente.auth"
+    },
+    "sources": [
+      {
+        "source": "snap-snapcraft",
+        "appId": "ente-auth-tsugu"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage ente.io/auth): LLM gemini-3.1-flash-lite: Different build of the same software."
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "io.github.Qalculate"
+    },
+    "sources": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "io.github.Qalculate.qalculate-qt"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "qalculate-qt"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "qalculate-qt-git"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "qalculate-qt"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "qalculate-qt"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "qalculate-qt"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "qalculate-qt"
+      },
+      {
+        "source": "pacman-arch-appstream",
+        "appId": "qalculate-qt"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "qalculate-qt"
+      },
+      {
+        "source": "rpm-opensuse",
+        "appId": "qalculate-qt"
+      },
+      {
+        "source": "rpm-opensuse-appstream",
+        "appId": "qalculate-qt"
+      },
+      {
+        "source": "rpm-fedora-appstream",
+        "appId": "qalculate-qt"
+      },
+      {
+        "source": "apk-alpine",
+        "appId": "qalculate-qt"
+      },
+      {
+        "source": "xbps-void",
+        "appId": "qalculate-qt"
+      },
+      {
+        "source": "slackware",
+        "appId": "qalculate-qt"
+      },
+      {
+        "source": "ebuild-gentoo",
+        "appId": "sci-calculators/qalculate-qt"
+      },
+      {
+        "source": "deb-debian-appstream",
+        "appId": "qalculate-qt"
+      },
+      {
+        "source": "deb-ubuntu-appstream",
+        "appId": "qalculate-qt"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage qalculate.github.io): LLM gemini-3.1-flash-lite: Different build of the same software."
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "io.github.Qalculate"
+    },
+    "sources": [
+      {
+        "source": "snap-snapcraft",
+        "appId": "qalculate"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "qalculate"
+      },
+      {
+        "source": "rpm-opensuse",
+        "appId": "qalculate"
+      },
+      {
+        "source": "xbps-void",
+        "appId": "qalculate"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage qalculate.github.io): LLM gemini-3.1-flash-lite: Different build of the same software."
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "io.github.Qalculate"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "qalculate-qt5"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage qalculate.github.io): LLM gemini-3.1-flash-lite: Different build of the same software."
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "io.github.wivrn.wivrn"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "wivrn-full-git"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage github.com/wivrn/wivrn): LLM gemini-3.1-flash-lite: Different build of the same software."
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "io.github.wivrn.wivrn"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "wivrn-multilib-git"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage github.com/wivrn/wivrn): LLM gemini-3.1-flash-lite: Different build of the same software."
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "io.github.wivrn.wivrn"
+    },
+    "sources": [
+      {
+        "source": "rpm-fedora",
+        "appId": "wivrn"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "wivrn"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage github.com/wivrn/wivrn): LLM gemini-3.1-flash-lite: Different build of the same software."
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.github.LongSoft.UEFITool"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "uefitool-ng"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "uefitool-ng-git"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage github.com/longsoft/uefitool): LLM gemini-3.5-flash-lite: Alternative build of UEFITool"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.triliumnotes.Trilium"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "trilium-next"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "trilium-next-git"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "triliumnext-bin"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage triliumnotes.org): LLM gemini-3.5-flash-lite: Alternative build of Trilium Notes"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.triliumnotes.Trilium"
+    },
+    "sources": [
+      {
+        "source": "nix-nixpkgs",
+        "appId": "trilium-desktop"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage triliumnotes.org): LLM gemini-3.5-flash-lite: Alternative build of Trilium Notes"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "io.webtorrent.WebTorrent"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "webtorrent-desktop"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "webtorrent-desktop-bin"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "webtorrent-desktop-git"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "webtorrent_desktop"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage webtorrent.io/desktop): LLM gemini-3.5-flash-lite: Alternative build of WebTorrent"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.super_productivity.SuperProductivity"
+    },
+    "sources": [
+      {
+        "source": "snap-snapcraft",
+        "appId": "superproductivity"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage super-productivity.com): LLM gemini-3.5-flash-lite: Alternative build of Super Productivity"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.pegasus_frontend.Pegasus"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "pegasus-frontend-git"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "pegasus-frontend"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage pegasus-frontend.org): LLM gemini-3.5-flash-lite: Git snapshot build of Pegasus"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.pegasus_frontend.Pegasus"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "pegasus-frontend-stable-git"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage pegasus-frontend.org): LLM gemini-3.5-flash-lite: Stable git build of Pegasus"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.contourterminal.Contour"
+    },
+    "sources": [
+      {
+        "source": "rpm-fedora",
+        "appId": "contour-terminal"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage github.com/contour-terminal/contour): LLM gemini-3.5-flash-lite: Alternative package of Contour terminal"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "io.anytype.anytype"
+    },
+    "sources": [
+      {
+        "source": "snap-snapcraft",
+        "appId": "adithya-anytype"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage anytype.io): LLM gemini-3.5-flash-lite: Unofficial package of Anytype"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.icons8.Lunacy"
+    },
+    "sources": [
+      {
+        "source": "snap-snapcraft",
+        "appId": "lunacy"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage icons8.com/lunacy): LLM gemini-3.5-flash-lite: Alternative package of Lunacy"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.diasurgical.DevilutionX"
+    },
+    "sources": [
+      {
+        "source": "rpm-opensuse",
+        "appId": "devilutionx-32bit"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage github.com/diasurgical/devilutionx): LLM gemini-3.5-flash-lite: 32-bit build of DevilutionX"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.sublimemerge.App"
+    },
+    "sources": [
+      {
+        "source": "xbps-void",
+        "appId": "sublime-merge-bin"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage sublimemerge.com): LLM gemini-3.5-flash-lite: Alternative prebuilt binary package of Sublime Merge"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.baidu.NetDisk"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "baidunetdisk-electron"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage pan.baidu.com): LLM gemini-3.5-flash-lite: Electron-based build of Baidu Netdisk"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "jp.nonbili.noutube"
+    },
+    "sources": [
+      {
+        "source": "github-releases",
+        "appId": "nonbili/NouTube-Desktop"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage github.com/nonbili/noutube-desktop): LLM gemini-3.5-flash-lite: Upstream repository release build of NouTube"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.guitarix.Guitarix"
+    },
+    "sources": [
+      {
+        "source": "xbps-void",
+        "appId": "guitarix2"
+      },
+      {
+        "source": "xbps-void",
+        "appId": "guitarix2-32bit"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage guitarix.org): LLM gemini-3.5-flash-lite: Alternative package name for Guitarix"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.tradingview.tradingview"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "tradingview-bin-latest"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage tradingview.com): LLM gemini-3.5-flash-lite: Prebuilt desktop client for TradingView"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "cn.xfangfang.wiliwili"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "wiliwili-wayland"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage github.com/xfangfang/wiliwili): LLM gemini-3.5-flash-lite: Alternative build for Wayland control"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.helix_editor.Helix"
+    },
+    "sources": [
+      {
+        "source": "apk-alpine",
+        "appId": "helix-tree-sitter-system"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage helix-editor.com): LLM gemini-3.5-flash-lite: Alternative tree-sitter vendor package for Helix"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.helix_editor.Helix"
+    },
+    "sources": [
+      {
+        "source": "apk-alpine",
+        "appId": "helix-tree-sitter-vendor"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage helix-editor.com): LLM gemini-3.5-flash-lite: Alternative tree-sitter system package for Helix"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.github.buddhi1980.mandelbulber2"
+    },
+    "sources": [
+      {
+        "source": "nix-nixpkgs",
+        "appId": "mandelbulber"
+      },
+      {
+        "source": "ebuild-gentoo",
+        "appId": "media-gfx/mandelbulber"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage mandelbulber.com): LLM gemini-3.5-flash-lite: Alternative package for Mandelbulber 3D fractal renderer"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.firestormviewer.FirestormViewer"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "firestorm"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "firestorm-beta-bin"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "firestorm-bin"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "firestorm-git"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage firestormviewer.org): LLM gemini-3.5-flash-lite: Third-party viewer for Second Life and OpenSim grids"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.purei.Play"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "play-emu"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "play-emu-git"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage purei.org): LLM gemini-3.5-flash-lite: Alternative package for Play! PS2 emulator"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "io.github.kotatogram"
+    },
+    "sources": [
+      {
+        "source": "appimage",
+        "appId": "kotatogram/kotatogram-desktop"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "kotatogram-desktop"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "kotatogram-desktop-bin"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "kotatogram-desktop-git"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "kotatogram-desktop"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage kotatogram.github.io): LLM gemini-3.5-flash-lite: Alternative package for Kotatogram desktop"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.develz.Crawl"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "stone-soup-ncurses"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage crawl.develz.org): LLM gemini-3.5-flash-lite: Ncurses-only version of Dungeon Crawl Stone Soup"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.develz.Crawl"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "stone-soup-tiles-git"
+      },
+      {
+        "source": "eopkg-solus",
+        "appId": "stone-soup-tiles"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage crawl.develz.org): LLM gemini-3.5-flash-lite: Community maintained git version of Dungeon Crawl"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.develz.Crawl"
+    },
+    "sources": [
+      {
+        "source": "deb-debian",
+        "appId": "crawl-tiles"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "crawl-tiles"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "crawl-tiles"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "crawl-tiles"
+      },
+      {
+        "source": "pacman-arch-appstream",
+        "appId": "crawl-tiles"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "crawlTiles"
+      },
+      {
+        "source": "xbps-void",
+        "appId": "crawl-tiles"
+      },
+      {
+        "source": "deb-ubuntu-appstream",
+        "appId": "crawl-tiles"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage crawl.develz.org): LLM gemini-3.5-flash-lite: Tiles version of Dungeon Crawl Stone Soup"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.develz.Crawl"
+    },
+    "sources": [
+      {
+        "source": "eopkg-solus",
+        "appId": "stone-soup-console"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage crawl.develz.org): LLM gemini-3.5-flash-lite: Console version of Dungeon Crawl Stone Soup"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.develz.Crawl"
+    },
+    "sources": [
+      {
+        "source": "ebuild-gentoo",
+        "appId": "games-roguelike/stone-soup"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage crawl.develz.org): LLM gemini-3.5-flash-lite: Alternative package for Dungeon Crawl Stone Soup"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "io.github.ferraridamiano.ConverterNOW"
+    },
+    "sources": [
+      {
+        "source": "snap-snapcraft",
+        "appId": "converternow"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage github.com/ferraridamiano/converternow): LLM gemini-3.5-flash-lite: Alternative snapshot of ConverterNOW unit converter"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "io.github.martinrotter.rssguard"
+    },
+    "sources": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "io.github.martinrotter.rssguardlite"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage github.com/martinrotter/rssguard): LLM gemini-3.5-flash-lite: Lite edition of RSS Guard without web browser"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "net.sourceforge.mcomix"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "mcomix3"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "mcomix3"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "mcomix3-base"
+      },
+      {
+        "source": "rpm-fedora-appstream",
+        "appId": "mcomix3-base"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage sourceforge.net/projects/mcomix): LLM gemini-3.5-flash-lite: Alternative package for MComix3"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "io.github.bytezz.IPLookup"
+    },
+    "sources": [
+      {
+        "source": "nix-nixpkgs",
+        "appId": "iplookup-gtk"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage github.com/bytezz/iplookup-gtk): LLM gemini-3.5-flash-lite: Alternative package name for IPLookup GTK"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "de.schmidhuberj.DieBahn"
+    },
+    "sources": [
+      {
+        "source": "nix-nixpkgs",
+        "appId": "diebahn"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage gitlab.com/schmiddi-on-mobile/railway): LLM gemini-3.5-flash-lite: Alternative name for the same Railway travel app"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.spyder_ide.spyder"
+    },
+    "sources": [
+      {
+        "source": "eopkg-solus",
+        "appId": "spyder3"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage spyder-ide.org): LLM gemini-3.5-flash-lite: Version 3 package of Spyder"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "ch.threema.threema-web-desktop"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "threema-desktop"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "threema-desktop-beta"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "threema-desktop-bin"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "threema-desktop"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage threema.ch): LLM gemini-3.5-flash-lite: Alternative package for Threema Desktop"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.simulide.simulide"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "simulide2-bin"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage simulide.com): LLM gemini-3.5-flash-lite: Unstable development release binary of SimulIDE."
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.armagetronad.ArmagetronAdvanced"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "armagetronad-experimental-bin"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage armagetronad.org): LLM gemini-3.5-flash-lite: Experimental build of Armagetron Advanced."
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.etlegacy.ETLegacy"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "etlegacy32"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "etlegacy32-bin"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "etlegacy32-git"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage etlegacy.com): LLM gemini-3.5-flash-lite: 32-bit build of ET: Legacy."
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.bitcoincore.bitcoin-qt"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "bitcoin-git"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "bitcoin"
+      },
+      {
+        "source": "apk-alpine",
+        "appId": "bitcoin"
+      },
+      {
+        "source": "xbps-void",
+        "appId": "bitcoin"
+      },
+      {
+        "source": "xbps-void",
+        "appId": "bitcoin-32bit"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage bitcoincore.org): LLM gemini-3.5-flash-lite: Git source build of Bitcoin Core."
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "app.bluebubbles.BlueBubbles"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "bluebubbles-desktop-app"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage bluebubbles.app): LLM gemini-3.5-flash-lite: Desktop app build of BlueBubbles."
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "io.github.zaps166.QMPlay2"
+    },
+    "sources": [
+      {
+        "source": "nix-nixpkgs",
+        "appId": "qmplay2-qt5"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage github.com/zaps166/qmplay2): LLM gemini-3.5-flash-lite: Qt5 build of QMPlay2."
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.moddb.TotalChaos"
+    },
+    "sources": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.moddb.TotalChaosRetro"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage moddb.com/mods/total-chaos): LLM gemini-3.5-flash-lite: Retro edition variant of Total Chaos."
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.dingtalk.DingTalk"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "dingtalk-electron"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage github.com/nashaofu/dingtalk): LLM gemini-3.5-flash-lite: Electron-based build of DingTalk."
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "net.sourceforge.fuse_emulator.Fuse"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "fuse-emulator"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "fuse-emulator-git"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "fuse-emulator"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "fuse-emulator"
+      },
+      {
+        "source": "xbps-void",
+        "appId": "fuse-emulator"
+      },
+      {
+        "source": "eopkg-solus",
+        "appId": "fuse-emulator"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage fuse-emulator.sourceforge.net): LLM gemini-3.5-flash-lite: Main Fuse ZX Spectrum emulator build."
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "net.sourceforge.fuse_emulator.Fuse"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "fuse-emulator-sdl"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "fuse-emulator-sdl-git"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "fuse-emulator-sdl"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "fuse-emulator-sdl"
+      },
+      {
+        "source": "deb-debian-appstream",
+        "appId": "fuse-emulator-sdl"
+      },
+      {
+        "source": "deb-ubuntu-appstream",
+        "appId": "fuse-emulator-sdl"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage fuse-emulator.sourceforge.net): LLM gemini-3.5-flash-lite: SDL frontend build of Fuse."
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "net.sourceforge.fuse_emulator.Fuse"
+    },
+    "sources": [
+      {
+        "source": "deb-debian",
+        "appId": "fuse-emulator-gtk"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "fuse-emulator-gtk"
+      },
+      {
+        "source": "deb-debian-appstream",
+        "appId": "fuse-emulator-gtk"
+      },
+      {
+        "source": "deb-ubuntu-appstream",
+        "appId": "fuse-emulator-gtk"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage fuse-emulator.sourceforge.net): LLM gemini-3.5-flash-lite: GTK frontend build of Fuse."
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "net.sourceforge.fuse_emulator.Fuse"
+    },
+    "sources": [
+      {
+        "source": "ebuild-gentoo",
+        "appId": "app-emulation/fuse"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage fuse-emulator.sourceforge.net): LLM gemini-3.5-flash-lite: Gentoo package build of Fuse emulator."
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.sayonara_player.Sayonara"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "sayonara-player"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "sayonara-player-beta"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "sayonara-player-git"
+      },
+      {
+        "source": "eopkg-solus",
+        "appId": "sayonara-player"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage sayonara-player.com): LLM gemini-3.5-flash-lite: AUR build of Sayonara audio player."
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.gnome.BreakTimer"
+    },
+    "sources": [
+      {
+        "source": "appimage",
+        "appId": "tom-james-watson/breaktimer-app"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage github.com/tom-james-watson/breaktimer-app): LLM gemini-3.5-flash-lite: AppImage build of Break Timer."
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "io.github.cudatext.CudaText-Qt"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "cudatext-qt6-bin"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage cudatext.github.io): LLM gemini-3.5-flash-lite: Qt6 edition build of CudaText."
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "io.github.cudatext.CudaText-Qt"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "cudatext-gtk3-bin"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage cudatext.github.io): LLM gemini-3.5-flash-lite: GTK3 edition build of CudaText."
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "io.github.cudatext.CudaText-Qt"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "cudatext-qt5-bin"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage cudatext.github.io): LLM gemini-3.5-flash-lite: Qt5 edition build of CudaText."
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "io.github.cudatext.CudaText-Qt"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "cudatext-gtk2-bin"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage cudatext.github.io): LLM gemini-3.5-flash-lite: GTK2 edition build of CudaText."
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.sublimehq.SublimeText"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "sublime-text-4"
+      },
+      {
+        "source": "xbps-void",
+        "appId": "sublime-text4"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage sublimetext.com): LLM gemini-3.5-flash-lite: Sublime Text 4 is a version-numbered build"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.geeqie.Geeqie"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "geeqie15"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage geeqie.org): LLM gemini-3.5-flash-lite: Geeqie version 1.5 is an older edition line"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "net.base_art.Glide"
+    },
+    "sources": [
+      {
+        "source": "nix-nixpkgs",
+        "appId": "glide-media-player"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage philn.github.io/glide): LLM gemini-3.5-flash-lite: Glide media player is the same product"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.qq.QQmusic"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "qqmusic-electron"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "qqmusic-electron-patched"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage y.qq.com): LLM gemini-3.5-flash-lite: QQ Music Electron is a prebuilt build variant"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.qq.QQmusic"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "qqmusic-wine"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage y.qq.com): LLM gemini-3.5-flash-lite: QQ Music Wine is a prebuilt build variant"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.openchemistry.Avogadro2"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "avogadro2-bin"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "avogadro2-git"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "avogadro2"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "avogadro2"
+      },
+      {
+        "source": "ebuild-gentoo",
+        "appId": "sci-chemistry/avogadro2"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage openchemistry.org/projects/avogadro2): LLM gemini-3.5-flash-lite: Avogadro2 binary build is the same product"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.openchemistry.Avogadro2"
+    },
+    "sources": [
+      {
+        "source": "appimage",
+        "appId": "OpenChemistry/avogadroapp"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "avogadroapp"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage two.avogadro.cc): LLM gemini-3.5-flash-lite: Alternative AppImage package of Avogadro 2."
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "io.github.xiaoyifang.goldendict_ng"
+    },
+    "sources": [
+      {
+        "source": "appimage",
+        "appId": "Abs62/goldendict"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "goldendict"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "goldendict-git"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "goldendict-webengine-pr-git"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "goldendict"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "goldendict"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "goldendict"
+      },
+      {
+        "source": "rpm-fedora-appstream",
+        "appId": "goldendict"
+      },
+      {
+        "source": "xbps-void",
+        "appId": "goldendict"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage github.com/xiaoyifang/goldendict-ng): LLM gemini-3.5-flash-lite: Alternative package of GoldenDict-ng."
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "io.github.nuttyartist.notes"
+    },
+    "sources": [
+      {
+        "source": "snap-snapcraft",
+        "appId": "notes"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage notes-foss.com): LLM gemini-3.5-flash-lite: Alternative snap package of Notes."
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "io.github.nuttyartist.notes"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "notes"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage notes-foss.com): LLM gemini-3.5-flash-lite: Alternative pacman package of Notes."
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "io.github.nuttyartist.notes"
+    },
+    "sources": [
+      {
+        "source": "eopkg-solus",
+        "appId": "notes"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage notes-foss.com): LLM gemini-3.5-flash-lite: Alternative eopkg package of Notes."
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "app.drey.Damask"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "damask-wallpaper"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage gitlab.gnome.org/subpop/damask): LLM gemini-3.5-flash-lite: Alternative AUR package of Damask wallpaper app."
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.nomachine.nxplayer"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "nomachine"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "nomachine-enterprise-client"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "nomachine-personal-edition"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage nomachine.com): LLM gemini-3.5-flash-lite: Alternative remote desktop application package for NoMachine."
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "fi.skyjake.Lagrange"
+    },
+    "sources": [
+      {
+        "source": "snap-snapcraft",
+        "appId": "lagrange-tsugu"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage gmi.skyjake.fi/lagrange): LLM gemini-3.5-flash-lite: Alternative unofficial snap package of Lagrange."
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.apache.directory.studio"
+    },
+    "sources": [
+      {
+        "source": "xbps-void",
+        "appId": "apache-directory-studio-bin"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage directory.apache.org/studio): LLM gemini-3.5-flash-lite: Alternative binary package of Apache Directory Studio."
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.fontforge.FontForge"
+    },
+    "sources": [
+      {
+        "source": "apk-alpine",
+        "appId": "fontforge-gui"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage fontforge.org): LLM gemini-3.5-flash-lite: Alternative GUI build package of FontForge"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "io.github.zyedidia.micro"
+    },
+    "sources": [
+      {
+        "source": "rpm-opensuse",
+        "appId": "micro-editor"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage github.com/zyedidia/micro): LLM gemini-3.5-flash-lite: Alternative packaging for the Micro text editor"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.github.ransome1.sleek"
+    },
+    "sources": [
+      {
+        "source": "nix-nixpkgs",
+        "appId": "sleek-todo"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage github.com/ransome1/sleek): LLM gemini-3.5-flash-lite: Alternative package name for sleek"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.bino3d.bino"
+    },
+    "sources": [
+      {
+        "source": "nix-nixpkgs",
+        "appId": "bino3d"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage bino3d.org): LLM gemini-3.5-flash-lite: Same software packaged differently"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "io.github.dweymouth.supersonic"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "supersonic-desktop"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "supersonic-desktop-bin"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "supersonic-desktop-git"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "supersonic-desktop-wayland-git"
+      },
+      {
+        "source": "xbps-void",
+        "appId": "supersonic-desktop"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage github.com/dweymouth/supersonic): LLM gemini-3.5-flash-lite: Alternative package or build of Supersonic"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "io.sourceforge.trigger_rally.TriggerRally"
+    },
+    "sources": [
+      {
+        "source": "snap-snapcraft",
+        "appId": "trigger-rally-ogra"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage trigger-rally.sourceforge.io): LLM gemini-3.5-flash-lite: Alternative community build of Trigger Rally"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.netsurf_browser.NetSurf"
+    },
+    "sources": [
+      {
+        "source": "deb-debian",
+        "appId": "netsurf-gtk"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "netsurf-gtk"
+      },
+      {
+        "source": "deb-debian-appstream",
+        "appId": "netsurf-gtk"
+      },
+      {
+        "source": "deb-ubuntu-appstream",
+        "appId": "netsurf-gtk"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage netsurf-browser.org): LLM gemini-3.5-flash-lite: GTK frontend build of NetSurf"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.netsurf_browser.NetSurf"
+    },
+    "sources": [
+      {
+        "source": "apk-alpine",
+        "appId": "netsurf-framebuffer"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage netsurf-browser.org): LLM gemini-3.5-flash-lite: Framebuffer build of NetSurf"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.icanblink.blink"
+    },
+    "sources": [
+      {
+        "source": "nix-nixpkgs",
+        "appId": "blink-qt"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage icanblink.com): LLM gemini-3.5-flash-lite: Blink SIP client QT build"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.cherry_ai.CherryStudio"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "cherry-studio-git-c"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage cherry-ai.com): LLM gemini-3.5-flash-lite: Same software packaged differently"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.sejda.Sejda"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "sejda-desktop"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage sejda.com/desktop): LLM gemini-3.5-flash-lite: Same software packaged differently"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.briarproject.Briar"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "briar-desktop"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "briar-desktop-bin"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "briar-desktop-git"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "briar-desktop-nightly-bin"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "briar-desktop"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage code.briarproject.org/briar/briar-desktop): LLM gemini-3.5-flash-lite: Desktop prototype build"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.github.iortcw.iortcw"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "rtcw"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "rtcw"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "rtcw"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage github.com/iortcw/iortcw): LLM gemini-3.5-flash-lite: Game powered by iortcw"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.github.iortcw.iortcw"
+    },
+    "sources": [
+      {
+        "source": "nix-nixpkgs",
+        "appId": "iortcw_sp"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage github.com/iortcw/iortcw): LLM gemini-3.5-flash-lite: Single player engine build"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "io.github.Cockatrice.cockatrice"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "cockatrice-client-beta"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "cockatrice-client-git"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage cockatrice.github.io): LLM gemini-3.5-flash-lite: Beta release line"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "io.github.Cockatrice.cockatrice"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "cockatrice-client-stable"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage cockatrice.github.io): LLM gemini-3.5-flash-lite: Stable release line"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.seafile.Client"
+    },
+    "sources": [
+      {
+        "source": "xbps-void",
+        "appId": "seafile-client-qt"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage seafile.com): LLM gemini-3.5-flash-lite: Qt graphical client build"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.openwall.John"
+    },
+    "sources": [
+      {
+        "source": "snap-snapcraft",
+        "appId": "john-the-ripper"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage openwall.com/john): LLM gemini-3.5-flash: Same software packaged as a snap"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.openwall.John"
+    },
+    "sources": [
+      {
+        "source": "ebuild-gentoo",
+        "appId": "app-crypt/johntheripper"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage openwall.com/john): LLM gemini-3.5-flash: Same software packaged in Gentoo"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.openwall.John"
+    },
+    "sources": [
+      {
+        "source": "ebuild-gentoo",
+        "appId": "app-crypt/johntheripper-jumbo"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage openwall.com/john): LLM gemini-3.5-flash: Community enhanced version (jumbo) of the same software"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.taisei_project.Taisei"
+    },
+    "sources": [
+      {
+        "source": "snap-snapcraft",
+        "appId": "taisei-project-d042"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage taisei-project.org): LLM gemini-3.5-flash: Same game packaged as a snap"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.twinery.Twine"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "twinejs-standalone"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage twinery.org): LLM gemini-3.5-flash: Same software packaged as a standalone AUR package"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "dev.mrquantumoff.mcmodpackmanager"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "quadrant-bin"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage usequadrant.dev): LLM gemini-3.5-flash: Same software packaged as a prebuilt AUR package"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "network.bisq.Bisq"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "bisq2"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "bisq2"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage bisq.network): LLM gemini-3.5-flash: Newer major version (Bisq 2) of the platform"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "network.bisq.Bisq"
+    },
+    "sources": [
+      {
+        "source": "nix-nixpkgs",
+        "appId": "bisq1"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage bisq.network): LLM gemini-3.5-flash: Older major version (Bisq 1) of the platform"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.yamagi.YamagiQ2"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "yamagi-quake2"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "yamagi-quake2-git"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "yamagi-quake2"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "yamagi-quake2"
+      },
+      {
+        "source": "rpm-opensuse",
+        "appId": "yamagi-quake2"
+      },
+      {
+        "source": "ebuild-gentoo",
+        "appId": "games-fps/yamagi-quake2"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage yamagi.org/quake2): LLM gemini-3.5-flash: Same software packaged in AUR"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.yamagi.YamagiQ2"
+    },
+    "sources": [
+      {
+        "source": "nix-nixpkgs",
+        "appId": "yquake2"
+      },
+      {
+        "source": "xbps-void",
+        "appId": "yquake2"
+      },
+      {
+        "source": "xbps-void",
+        "appId": "yquake2-32bit"
+      },
+      {
+        "source": "eopkg-solus",
+        "appId": "yquake2"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage yamagi.org/quake2): LLM gemini-3.5-flash: Same software packaged in Nixpkgs"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "app.go2tv.go2tv"
+    },
+    "sources": [
+      {
+        "source": "nix-nixpkgs",
+        "appId": "go2tv-lite"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage github.com/alexballas/go2tv): LLM gemini-3.5-flash: Lite edition of the same software"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "net.portswigger.BurpSuite-Community"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "burpsuite"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage portswigger.net/burp): LLM gemini-3.5-flash: Same software (free edition) packaged in AUR"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "net.portswigger.BurpSuite-Community"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "burpsuite-pro"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage portswigger.net/burp): LLM gemini-3.5-flash: Professional edition of the same software"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
       "appId": "org.gnome.Calendar"
     },
     "sources": [

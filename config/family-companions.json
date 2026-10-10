@@ -6725,18 +6725,6 @@
       "appId": "org.kde.calligra"
     },
     "companion": {
-      "source": "deb-debian",
-      "appId": "calligraplan"
-    },
-    "kind": "component",
-    "reason": "Audit review 2026-10-09 (shared-homepage calligra-suite.org): LLM gemini-3.5-flash-lite: Plan component of Calligra suite"
-  },
-  {
-    "parent": {
-      "source": "flatpak-flathub",
-      "appId": "org.kde.calligra"
-    },
-    "companion": {
       "source": "rpm-fedora",
       "appId": "calligraplan-data"
     },

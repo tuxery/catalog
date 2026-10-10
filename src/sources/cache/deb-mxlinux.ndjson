@@ -83,9 +83,9 @@
 {"name":"mx-matcha-themes","description":"mx-matcha themes for MX Linux","version":"25.10.02","section":"Xfce"}
 {"name":"mx-menu-editor","description":"editor for Xfce application menus","version":"26.09","section":"admin"}
 {"name":"mx-network-assistant","description":"MX program for network troubleshooting and configuration","version":"26.03","homepage":"https://github.com/MX-Linux/mx-network-assistant","section":"admin"}
-{"name":"mx-packageinstaller","description":"Package installation tool for MX Linux","version":"26.09","homepage":"https://github.com/MX-Linux/mx-packageinstaller","section":"admin"}
-{"name":"mx-packageinstaller-pkglist","description":"Part of MX program for installing additional packages.","version":"26.10.1mx25","section":"admin"}
-{"name":"mx-remaster","description":"Tools for live persistence and remastering.","version":"26.06.03mx25","homepage":"http://mxlinux.org","section":"system"}
+{"name":"mx-packageinstaller","description":"Package installation tool for MX Linux","version":"26.10","homepage":"https://github.com/MX-Linux/mx-packageinstaller","section":"admin"}
+{"name":"mx-packageinstaller-pkglist","description":"Part of MX program for installing additional packages.","version":"26.10.2mx25","section":"admin"}
+{"name":"mx-remaster","description":"Tools for live persistence and remastering.","version":"26.10.01mx25","homepage":"http://mxlinux.org","section":"system"}
 {"name":"mx-remastercc","description":"Remaster Control Center for MX Linux","version":"26.03","homepage":"https://github.com/MX-Linux/mx-remastercc","section":"admin"}
 {"name":"mx-repo-list","description":"Part of MX program for managing repos.","version":"26.06","section":"admin"}
 {"name":"mx-repo-manager","description":"Repository management tool for MX Linux","version":"26.09","homepage":"https://github.com/MX-Linux/mx-repo-manager","section":"admin"}
@@ -102,12 +102,12 @@
 {"name":"mx-theme-colors","description":"Edit the highlight colors of MX-Linux themes","version":"26.09.01","homepage":"<https:/mxlinux.org>","section":"miscellaneous"}
 {"name":"mx-tools","description":"MX Tools Launcher for MX Linux","version":"26.09.12","homepage":"https://github.com/MX-Linux/mx-tools","section":"admin"}
 {"name":"mx-tour","description":"Take a tour of MX Linux","version":"25.09.03mx25","section":"admin"}
-{"name":"mx-tweak","description":"Desktop configuration tool for MX Linux","version":"26.08.01mx25","homepage":"https://github.com/MX-Linux/mx-tweak","section":"admin"}
+{"name":"mx-tweak","description":"Desktop configuration tool for MX Linux","version":"26.10.01mx25","homepage":"https://github.com/MX-Linux/mx-tweak","section":"admin"}
 {"name":"mx-tweak-data","description":"Part of MX program for installing additional packages.","version":"25.05.04mx25","section":"admin"}
-{"name":"mx-updater","description":"tray applet to notify of system and application updates","version":"26.09.01mx25","homepage":"https://github.com/MX-Linux/mx-updater","section":"admin"}
+{"name":"mx-updater","description":"tray applet to notify of system and application updates","version":"26.10.01mx25","homepage":"https://github.com/MX-Linux/mx-updater","section":"admin"}
 {"name":"mx-usb-unmounter","description":"Tray application for unmounting removable media","version":"26.07.1","homepage":"https://mxlinux.org","section":"admin"}
 {"name":"mx-user","description":"MX User Manager","version":"26.07.1","homepage":"https://github.com/mx-linux/mx-user","section":"admin"}
-{"name":"mx-viewer","description":"Lightweight web browser for MX Linux","version":"26.10","section":"web"}
+{"name":"mx-viewer","description":"Lightweight web browser for MX Linux","version":"26.10.1","section":"web"}
 {"name":"mx-welcome","description":"Welcome screen for MX Linux","version":"26.09.6mx25","homepage":"https://github.com/AdrianTM/mx-welcome","section":"admin"}
 {"name":"mx-welcome-data","description":"configuration information for mx-welcome","version":"25.11.01mx25","section":"admin"}
 {"name":"mx14-artwork","description":"Default wallpaper backgrounds for MX14","version":"14.03.24","section":"xfce"}

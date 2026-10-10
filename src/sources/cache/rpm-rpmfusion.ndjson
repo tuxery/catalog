@@ -153,8 +153,8 @@
 {"name":"medialibrary-devel","summary":"Development files for medialibrary","version":"0.13.2","homepage":"https://code.videolan.org/videolan/medialibrary","group":"Unspecified","hasDesktopFile":false}
 {"name":"megamario","summary":"Well known platform game clone","version":"1.7","homepage":"http://mmario.sourceforge.net/","group":"Amusements/Games","hasDesktopFile":true}
 {"name":"mencoder","summary":"MPlayer movie encoder","version":"1.5.1","homepage":"https://www.mplayerhq.hu/","group":"Unspecified","hasDesktopFile":false}
-{"name":"mesa-va-drivers-freeworld","summary":"Mesa-based VA-API drivers","version":"26.2.3","homepage":"https://mesa3d.org","group":"Unspecified","hasDesktopFile":false}
-{"name":"mesa-vulkan-drivers-freeworld","summary":"Mesa Vulkan drivers","version":"26.2.3","homepage":"https://mesa3d.org","group":"Unspecified","hasDesktopFile":false}
+{"name":"mesa-va-drivers-freeworld","summary":"Mesa-based VA-API drivers","version":"26.2.4","homepage":"https://mesa3d.org","group":"Unspecified","hasDesktopFile":false}
+{"name":"mesa-vulkan-drivers-freeworld","summary":"Mesa Vulkan drivers","version":"26.2.4","homepage":"https://mesa3d.org","group":"Unspecified","hasDesktopFile":false}
 {"name":"mimms","summary":"MMS stream downloader","version":"3.2.1","homepage":"http://savannah.nongnu.org/projects/mimms/","group":"Applications/Multimedia","hasDesktopFile":false}
 {"name":"mingw32-libmad","summary":"MPEG audio decoder library","version":"0.15.1b","homepage":"http://www.underbit.com/products/mad/","group":"Unspecified","hasDesktopFile":false}
 {"name":"mingw64-libmad","summary":"MPEG audio decoder library","version":"0.15.1b","homepage":"http://www.underbit.com/products/mad/","group":"Unspecified","hasDesktopFile":false}
@@ -533,7 +533,7 @@
 {"name":"yapeSDL","summary":"A Commodore 264 family (C16, plus/4 etc.) emulator","version":"0.81.1","homepage":"https://github.com/calmopyrin/yapesdl","group":"Unspecified","hasDesktopFile":true}
 {"name":"zerotier-one","summary":"Smart Ethernet Switch for Earth","version":"1.16.2","homepage":"https://zerotier.com","group":"Unspecified","hasDesktopFile":false}
 {"name":"dvdstyler","summary":"Cross-platform DVD authoring application","version":"3.3","homepage":"http://www.dvdstyler.de/","group":"Unspecified","hasDesktopFile":true}
-{"name":"redumper","summary":"Low level CD dumper utility","version":"b753","homepage":"https://github.com/superg/redumper","group":"Unspecified","hasDesktopFile":false}
+{"name":"redumper","summary":"Low level CD dumper utility","version":"b756","homepage":"https://github.com/superg/redumper","group":"Unspecified","hasDesktopFile":false}
 {"name":"libdriveio","summary":"A drive interrogation library used by MakeMKV","version":"2.0.0","homepage":"https://www.makemkv.com/","group":"Unspecified","hasDesktopFile":false}
 {"name":"libdriveio-devel","summary":"Development files for libdriveio","version":"2.0.0","homepage":"https://www.makemkv.com/","group":"Unspecified","hasDesktopFile":false}
 {"name":"libmakemkv","summary":"A MKV multiplexer library used by MakeMKV","version":"2.0.0","homepage":"https://www.makemkv.com/","group":"Unspecified","hasDesktopFile":false}

@@ -58,7 +58,9 @@ export function attachFamilies(
   for (const entry of curatedCompanions) {
     const parent = byPackage.get(`${entry.parent.source}:${entry.parent.appId}`);
     const companion = byPackage.get(`${entry.companion.source}:${entry.companion.appId}`);
-    if (parent && companion && parent !== companion) {
+    // A suite's member (Calligra Plan) is an app of its own, linked to the
+    // suite with "Part of" — never folded away as a companion.
+    if (parent && companion && parent !== companion && !companion.suite) {
       groupMatches.set(companion.id, { parent, kind: entry.kind });
     }
   }

@@ -142,6 +142,39 @@ describe("attachFamilies", () => {
     expect(parent?.companionCounts).toEqual({ component: 1 });
   });
 
+  it("keeps a suite's member a card of its own, even when curated as a component", () => {
+    const calligra = app("org.kde.calligra", [pkg({ name: "calligra", appId: "calligra" })]);
+    const plan = app(
+      "deb-debian:calligraplan",
+      [pkg({ source: "deb-debian", name: "calligraplan", appId: "calligraplan" })],
+      {
+        suite: {
+          id: "calligra",
+          name: "Calligra",
+          role: "component",
+          mainApp: { id: "org.kde.calligra", name: "Calligra" },
+        },
+      },
+    );
+
+    const [parent, member] = attachFamilies(
+      [calligra, plan],
+      [],
+      [],
+      [
+        {
+          parent: { source: "pacman-aur", appId: "calligra" },
+          companion: { source: "deb-debian", appId: "calligraplan" },
+          kind: "component",
+          reason: "test",
+        },
+      ],
+    );
+
+    expect(member?.companionOf).toBeUndefined();
+    expect(parent?.companions).toBeUndefined();
+  });
+
   it("links curated relations both ways", () => {
     const librewolf = app("io.gitlab.librewolf-community", [
       pkg({ source: "flatpak-flathub", name: "LibreWolf", appId: "io.gitlab.librewolf-community" }),

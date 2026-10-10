@@ -218,5 +218,237 @@
       }
     ],
     "reason": "Same software (the FUSE filesystem interface / reference implementation) packaged under the same bare \"fuse\" name across Debian/Ubuntu/Fedora/Nixpkgs/openSUSE/Alpine/Void/Solus and Gentoo's sys-fs/fuse. The GENERIC_NAME_BLOCKLIST entry for \"fuse\" (added because the bare word also names the ZX Spectrum emulator -- see group.ts) also prevented these nine identical filesystem packages from merging with each other, leaving Fedora/Nixpkgs/Alpine/Void stranded as separate \"To Classify\" groups. The emulator is packaged as flatpak's net.sourceforge.fuse_emulator.Fuse and Gentoo's app-emulation/fuse -- neither is listed here, so it stays its own separate group. Found live reviewing the \"24 duplicate group names\" matching card (2026-09-04)."
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.google.Chrome"
+    },
+    "sources": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.google.ChromeDev"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage chrome.google.com): review verdict — suggestion gemini-3.5-flash-lite : Google Chrome unstable/Dev is an edition"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.discordapp.Discord"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "discord_arch_electron"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage discord.com): review verdict — suggestion gemini-3.5-flash-lite : Alternative build using system Electron"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.gnome.Calendar"
+    },
+    "sources": [
+      {
+        "source": "deb-ubuntu",
+        "appId": "calendar"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (same-name calendar): review verdict"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "tv.kodi.Kodi"
+    },
+    "sources": [
+      {
+        "source": "deb-debian",
+        "appId": "kodi-bin"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "kodi-bin"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (same-name kodi): review verdict"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.ardour.Ardour"
+    },
+    "sources": [
+      {
+        "source": "rpm-fedora",
+        "appId": "ardour9"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage ardour.org): review verdict"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.atheme.audacious"
+    },
+    "sources": [
+      {
+        "source": "xbps-void",
+        "appId": "audacious-base"
+      },
+      {
+        "source": "xbps-void",
+        "appId": "audacious-base-32bit"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage audacious-media-player.org): review verdict"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.jetbrains.PyCharm-Professional"
+    },
+    "sources": [
+      {
+        "source": "pacman-arch",
+        "appId": "pycharm-community-edition"
+      },
+      {
+        "source": "pacman-arch-appstream",
+        "appId": "pycharm-community-edition"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage jetbrains.com/pycharm): review verdict"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.jetbrains.PyCharm-Professional"
+    },
+    "sources": [
+      {
+        "source": "snap-snapcraft",
+        "appId": "pycharm"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "pycharm"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage jetbrains.com/pycharm): review verdict"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.jetbrains.PyCharm-Professional"
+    },
+    "sources": [
+      {
+        "source": "xbps-void",
+        "appId": "pycharm-community"
+      },
+      {
+        "source": "ebuild-gentoo",
+        "appId": "dev-util/pycharm-community"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage jetbrains.com/pycharm): review verdict"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "ch.tlaun.TL"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "legacy-launcher-bootstrap"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage llaun.ch): review verdict"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "ch.tlaun.TL"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "legacy-launcher-ely.by"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage llaun.ch): review verdict"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "com.modrinth.ModrinthApp"
+    },
+    "sources": [
+      {
+        "source": "snap-snapcraft",
+        "appId": "modrinth"
+      },
+      {
+        "source": "lutris",
+        "appId": "modrinth-085appimage"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage modrinth.com): review verdict"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.stellarium.Stellarium"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "stellarium-lite"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage stellarium.org): review verdict"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "me.kozec.syncthingtk"
+    },
+    "sources": [
+      {
+        "source": "nix-nixpkgs",
+        "appId": "syncthing-discovery"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage syncthing.net): review verdict"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "dev.zed.Zed"
+    },
+    "sources": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "dev.zed.Zed-Preview"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (shared-homepage zed.dev): review verdict"
+  },
+  {
+    "destination": {
+      "source": "nix-nixpkgs",
+      "appId": "weather"
+    },
+    "sources": [
+      {
+        "source": "xbps-void",
+        "appId": "weather"
+      }
+    ],
+    "reason": "Audit review 2026-10-09 (same-name weather): review note — nix and Void ship the same weather tool"
   }
 ]

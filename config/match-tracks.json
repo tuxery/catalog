@@ -28,5 +28,53 @@
     "track": "esr",
     "names": ["thunderbird-esr"],
     "reason": "Mozilla's Thunderbird Extended Support Release, maintained in parallel with the monthly release."
+  },
+  {
+    "product": "google chrome",
+    "track": "unstable",
+    "names": ["google chrome (unstable)"],
+    "reason": "Audit review 2026-10-09 (shared-homepage chrome.google.com): review verdict — suggestion gemini-3.5-flash-lite : Google Chrome unstable/Dev is an edition"
+  },
+  {
+    "product": "ardour",
+    "track": "9",
+    "names": ["ardour9"],
+    "reason": "Audit review 2026-10-09 (shared-homepage ardour.org): review verdict"
+  },
+  {
+    "product": "pycharm-professional",
+    "track": "community",
+    "names": ["pycharm-community-edition", "pycharm community edition"],
+    "reason": "Audit review 2026-10-09 (shared-homepage jetbrains.com/pycharm): review verdict"
+  },
+  {
+    "product": "pycharm-professional",
+    "track": "community",
+    "names": ["pycharm-community"],
+    "reason": "Audit review 2026-10-09 (shared-homepage jetbrains.com/pycharm): review verdict"
+  },
+  {
+    "product": "legacy launcher",
+    "track": "bootstrap",
+    "names": ["legacy-launcher-bootstrap"],
+    "reason": "Audit review 2026-10-09 (shared-homepage llaun.ch): review verdict"
+  },
+  {
+    "product": "legacy launcher",
+    "track": "elyby",
+    "names": ["legacy-launcher-ely.by"],
+    "reason": "Audit review 2026-10-09 (shared-homepage llaun.ch): review verdict"
+  },
+  {
+    "product": "stellarium",
+    "track": "lite",
+    "names": ["stellarium-lite"],
+    "reason": "Audit review 2026-10-09 (shared-homepage stellarium.org): review verdict"
+  },
+  {
+    "product": "zed",
+    "track": "preview",
+    "names": ["zed preview"],
+    "reason": "Audit review 2026-10-09 (shared-homepage zed.dev): review verdict"
   }
 ]

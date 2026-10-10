@@ -2,7 +2,9 @@ import { fileURLToPath } from "node:url";
 import { readJson } from "../_shared/json";
 import type { CatalogApp } from "../enrich/types";
 import {
+  FamilyCompanionsListSchema,
   FamilyRelationsListSchema,
+  type CompanionEntry,
   type Relation,
   type RelationEntry,
   type RelationType,
@@ -11,6 +13,15 @@ import {
 const RELATIONS_PATH = fileURLToPath(
   new URL("../../../config/family-relations.json", import.meta.url),
 );
+
+const COMPANIONS_PATH = fileURLToPath(
+  new URL("../../../config/family-companions.json", import.meta.url),
+);
+
+/** Loads `config/family-companions.json` (missing file reads as empty). */
+export function loadFamilyCompanions(): CompanionEntry[] {
+  return readJson(COMPANIONS_PATH, FamilyCompanionsListSchema);
+}
 
 /** Loads `config/family-relations.json` (missing file reads as empty). */
 export function loadFamilyRelations(): RelationEntry[] {

@@ -1,14 +1,24 @@
 import { z } from "zod";
 
 /** What a companion adds to its product — see docs/product-families.md. */
-export type CompanionKind =
-  | "extension"
-  | "plugin"
-  | "theme"
-  | "localization"
-  | "data"
-  | "native-host"
-  | "config";
+const COMPANION_KINDS = [
+  "extension",
+  "plugin",
+  "theme",
+  "localization",
+  "data",
+  "native-host",
+  "config",
+  "component",
+] as const;
+
+/**
+ * What a companion adds to its product — see docs/product-families.md.
+ * `component` is a separately packaged part of the product itself (its
+ * `-data`, `-server` or `-cli` package): listed with the companions, since
+ * nobody installs it on its own.
+ */
+export type CompanionKind = (typeof COMPANION_KINDS)[number];
 
 /** One companion listed on its product's page — never a card of its own. */
 export interface Companion {
@@ -57,4 +67,22 @@ export const FamilyRelationsListSchema = z.array(RelationEntrySchema).meta({
   title: "Family: relations between products",
   description:
     "Forks, successors, unofficial wrappers, suite components and companion tools between two products, each identified by one of its packages — see docs/product-families.md.",
+});
+
+const CompanionEntrySchema = z.object({
+  parent: PackageRefSchema.describe("A package of the product the companion belongs to."),
+  companion: PackageRefSchema.describe(
+    "A package of the companion's group; the whole group is listed on the parent.",
+  ),
+  kind: z.enum(COMPANION_KINDS),
+  reason: z.string().describe("The evidence — a review verdict, a description, ..."),
+});
+
+/** One hand-curated companion (`config/family-companions.json`). */
+export type CompanionEntry = z.infer<typeof CompanionEntrySchema>;
+
+export const FamilyCompanionsListSchema = z.array(CompanionEntrySchema).meta({
+  title: "Family: curated companions",
+  description:
+    "Groups listed on another product's page as its companion or component, when no name or metadata signal says so (audacious-plugins-exotic, syncthing-relay) — applied before the automatic signals. See docs/product-families.md.",
 });

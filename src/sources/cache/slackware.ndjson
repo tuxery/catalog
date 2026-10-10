@@ -7,14 +7,14 @@
 {"name":"MPlayer","version":"20260805-3","summary":"MPlayer (Linux movie player)","series":"xap"}
 {"name":"Mako","version":"1.3.5-3","summary":"Mako (template library written in Python)","homepage":"http://www.makotemplates.org","series":"l"}
 {"name":"ModemManager","version":"1.24.2-2","summary":"ModemManager (mobile broadband modem API)","homepage":"https://www.freedesktop.org/wiki/Software/ModemManager","series":"n"}
-{"name":"NetworkManager","version":"1.58.1-3","summary":"NetworkManager (Networking that Just Works)","homepage":"https://projects.gnome.org/NetworkManager/","series":"n"}
+{"name":"NetworkManager","version":"1.58.1-4","summary":"NetworkManager (Networking that Just Works)","homepage":"https://projects.gnome.org/NetworkManager/","series":"n"}
 {"name":"NetworkManager-openvpn","version":"1.12.5-2","summary":"NetworkManager-openvpn (OpenVPN Support for NetworkManager)","homepage":"https://github.com/GNOME/NetworkManager-openvpn","series":"xap"}
 {"name":"OpenCC","version":"1.4.2-2","summary":"OpenCC (Traditional and Simplified Chinese conversion)","homepage":"https://OpenCC.byvoid.com/","series":"x"}
-{"name":"PyQt-builder","version":"1.19.1-2","summary":"PyQt-builder (PEP 517 Compliant PyQt Builder)","homepage":"https://www.riverbankcomputing.com/software/pyqt-builder/","series":"l"}
+{"name":"PyQt-builder","version":"1.20.0-1","summary":"PyQt-builder (PEP 517 Compliant PyQt Builder)","homepage":"https://www.riverbankcomputing.com/software/pyqt-builder/","series":"l"}
 {"name":"PyQt5","version":"5.15.12.dev2608111417-2","summary":"PyQt5 (Python bindings for Qt5)","homepage":"http://www.riverbankcomputing.co.uk/software/pyqt/","series":"l"}
 {"name":"PyQt5_sip","version":"12.19.0-2","summary":"PyQt5_sip (PyQt5 sip Extension Module)","homepage":"https://pypi.org/project/PyQt5-sip/","series":"l"}
 {"name":"PyQt6","version":"6.11.0-4","summary":"PyQt6 (Python Bindings for Qt6)","homepage":"https://www.riverbankcomputing.com/software/pyqt/","series":"l"}
-{"name":"PyQt6_sip","version":"13.12.0-2","summary":"PyQt6_sip (sip module support for PyQt6)","homepage":"https://riverbankcomputing.com/","series":"l"}
+{"name":"PyQt6_sip","version":"13.13.0-1","summary":"PyQt6_sip (sip module support for PyQt6)","homepage":"https://riverbankcomputing.com/","series":"l"}
 {"name":"SDL2","version":"2.32.10-2","summary":"SDL2 (Simple DirectMedia Layer Version 2)","homepage":"http://www.libsdl.org","series":"l"}
 {"name":"SDL2_gfx","version":"1.0.4-4","summary":"SDL2_gfx (SDL2 graphics primitives and surface functions)","homepage":"http://www.ferzkopp.net/Software/SDL2_gfx/Docs/html/","series":"l"}
 {"name":"SDL2_image","version":"2.8.12-2","summary":"SDL2_image (SDL2 image loading library)","homepage":"https://github.com/libsdl-org/SDL_image","series":"l"}
@@ -31,7 +31,7 @@
 {"name":"aaa_terminfo","version":"6.6-2","summary":"aaa_terminfo (a basic collection of terminfo entries)","series":"a"}
 {"name":"aalib","version":"1.4rc5-9","summary":"aalib (ASCII Art library)               _1l1vlvlvlvlvlvlvlvlvvl=.","series":"l"}
 {"name":"abseil-cpp","version":"20260817.0-2","summary":"abseil-cpp (Abseil C++ library)","homepage":"https://abseil.io","series":"l"}
-{"name":"accessibility-inspector","version":"26.08.1-1","summary":"accessibility-inspector (KDE accessibility inspector)","series":"kde"}
+{"name":"accessibility-inspector","version":"26.08.2-1","summary":"accessibility-inspector (KDE accessibility inspector)","series":"kde"}
 {"name":"accountsservice","version":"26.27.3-2","summary":"accountsservice (D-Bus interface for user account query)","homepage":"https://www.freedesktop.org/wiki/Software/AccountsService/","series":"l"}
 {"name":"acct","version":"6.6.4-5","summary":"acct (process accounting utilities)","series":"ap"}
 {"name":"acl","version":"2.4.0-2","summary":"acl (tools for using POSIX Access Control Lists)","homepage":"https://savannah.nongnu.org/projects/acl","series":"a"}
@@ -41,17 +41,17 @@
 {"name":"adwaita-icon-theme","version":"51.0-1","summary":"adwaita-icon-theme (default icons used by GTK+)","series":"l"}
 {"name":"adwaita-icon-theme-legacy","version":"20240517_7642b10-2","summary":"adwaita-icon-theme-legacy (fallback icons from old Adwaita theme)","homepage":"https://gitlab.gnome.org/jimmac/adwaita-icon-theme-legacy","series":"l"}
 {"name":"aha","version":"0.5.1-2","summary":"aha (convert ANSI escape sequences to HTML)","homepage":"https://github.com/theZiz/aha","series":"ap"}
-{"name":"akonadi","version":"26.08.1-1","summary":"akonadi (PIM storage service)","homepage":"https://www.kdepim.org/akonadi/","series":"kde"}
-{"name":"akonadi-calendar","version":"26.08.1-2","summary":"akonadi-calendar (Akonadi calendar integration)","series":"kde"}
-{"name":"akonadi-calendar-tools","version":"26.08.1-1","summary":"akonadi-calendar-tools (CLI tools to manage Akonadi calendars)","series":"kde"}
-{"name":"akonadi-contacts","version":"26.08.1-1","summary":"akonadi-contacts (contact management for Akonadi)","series":"kde"}
-{"name":"akonadi-import-wizard","version":"26.08.1-1","summary":"akonadi-import-wizard (import data to KMail)","series":"kde"}
-{"name":"akonadi-mime","version":"26.08.1-1","summary":"akonadi-mime (akonadi MIME support library)","series":"kde"}
-{"name":"akonadi-search","version":"26.08.1-1","summary":"akonadi-search (search support for Akonadi)","series":"kde"}
-{"name":"akonadiconsole","version":"26.08.1-1","summary":"akonadiconsole (Akonadi management and debugging console)","series":"kde"}
-{"name":"akregator","version":"26.08.1-1","summary":"akregator (KDE feed reader)","series":"kde"}
+{"name":"akonadi","version":"26.08.2-1","summary":"akonadi (PIM storage service)","homepage":"https://www.kdepim.org/akonadi/","series":"kde"}
+{"name":"akonadi-calendar","version":"26.08.2-1","summary":"akonadi-calendar (Akonadi calendar integration)","series":"kde"}
+{"name":"akonadi-calendar-tools","version":"26.08.2-1","summary":"akonadi-calendar-tools (CLI tools to manage Akonadi calendars)","series":"kde"}
+{"name":"akonadi-contacts","version":"26.08.2-1","summary":"akonadi-contacts (contact management for Akonadi)","series":"kde"}
+{"name":"akonadi-import-wizard","version":"26.08.2-1","summary":"akonadi-import-wizard (import data to KMail)","series":"kde"}
+{"name":"akonadi-mime","version":"26.08.2-1","summary":"akonadi-mime (akonadi MIME support library)","series":"kde"}
+{"name":"akonadi-search","version":"26.08.2-1","summary":"akonadi-search (search support for Akonadi)","series":"kde"}
+{"name":"akonadiconsole","version":"26.08.2-1","summary":"akonadiconsole (Akonadi management and debugging console)","series":"kde"}
+{"name":"akregator","version":"26.08.2-1","summary":"akregator (KDE feed reader)","series":"kde"}
 {"name":"alkimia","version":"8.2.1-3","summary":"alkimia (KDE Finance library)","series":"kde"}
-{"name":"alligator","version":"26.08.1-1","summary":"alligator (RSS/Atom feed reader)","homepage":"https://apps.kde.org/alligator","series":"kde"}
+{"name":"alligator","version":"26.08.2-1","summary":"alligator (RSS/Atom feed reader)","homepage":"https://apps.kde.org/alligator","series":"kde"}
 {"name":"alpine","version":"2.29.9-2","summary":"alpine (Alternatively Licensed Program for Internet News and Email)","homepage":"https://alpineapp.email","series":"n"}
 {"name":"alsa-lib","version":"1.2.16.1-2","summary":"alsa-lib (Advanced Linux Sound Architecture library)","series":"l"}
 {"name":"alsa-oss","version":"1.1.8-4","summary":"alsa-oss (library/wrapper to use OSS programs with ALSA)","series":"l"}
@@ -59,7 +59,7 @@
 {"name":"alsa-utils","version":"1.2.16-2","summary":"alsa-utils (Advanced Linux Sound Architecture utilities)","series":"ap"}
 {"name":"amarok","version":"3.3.3-2","summary":"amarok (music player)","homepage":"https://amarok.kde.org","series":"kde"}
 {"name":"amp","version":"0.7.6-6","summary":"amp (An MP3 player)","series":"ap"}
-{"name":"analitza","version":"26.08.1-1","summary":"analitza (KDE mathematical library)","homepage":"https://projects.kde.org/projects/kde/kdeedu/analitza","series":"kde"}
+{"name":"analitza","version":"26.08.2-1","summary":"analitza (KDE mathematical library)","homepage":"https://projects.kde.org/projects/kde/kdeedu/analitza","series":"kde"}
 {"name":"anthy-unicode","version":"1.0.0.20260213-2","summary":"anthy-unicode (A library for Japanese text input)","homepage":"https://github.com/fujiwarat/anthy-unicode","series":"x"}
 {"name":"aom","version":"3.15.1-1","summary":"aom (AV1 video codec library)","homepage":"https://aomedia.org/av1/","series":"l"}
 {"name":"appres","version":"1.0.7-2","summary":"appres (X resource inspection utility)","series":"x"}
@@ -67,23 +67,23 @@
 {"name":"apr","version":"1.7.6-2","summary":"apr (Apache Portable Runtime)","series":"l"}
 {"name":"apr-util","version":"1.6.5-2","summary":"apr-util (Apache Portable Runtime utilities)","series":"l"}
 {"name":"argon2","version":"20190702-7","summary":"argon2 (Argon2 password-hashing function)","homepage":"https://github.com/P-H-C/phc-winner-argon2","series":"l"}
-{"name":"arianna","version":"26.08.1-1","summary":"arianna (EPub Reader for mobile devices)","series":"kde"}
-{"name":"ark","version":"26.08.1-1","summary":"ark (KDE archiver tool)","series":"kde"}
-{"name":"artikulate","version":"26.08.1-1","summary":"artikulate (pronunciation trainer)","series":"kde"}
+{"name":"arianna","version":"26.08.2-1","summary":"arianna (EPub Reader for mobile devices)","series":"kde"}
+{"name":"ark","version":"26.08.2-1","summary":"ark (KDE archiver tool)","series":"kde"}
+{"name":"artikulate","version":"26.08.2-1","summary":"artikulate (pronunciation trainer)","series":"kde"}
 {"name":"aspell","version":"0.60.8.2-2","summary":"aspell (spell checker)","series":"l"}
 {"name":"aspell-en","version":"2026.02.25_0-1","summary":"aspell-en","series":"l"}
 {"name":"at","version":"3.2.5-2","summary":"at (delayed command execution)","homepage":"http://blog.calhariz.com/tag/at","series":"ap"}
 {"name":"at-spi2-core","version":"2.62.0.1-2","summary":"at-spi2-core (Assistive Technology Service Provider Interface core)","series":"l"}
 {"name":"atkmm","version":"2.28.5-2","summary":"atkmm (C++ bindings for ATK)","homepage":"http://www.gtkmm.org/","series":"l"}
 {"name":"atkmm2","version":"2.36.4-2","summary":"atkmm2 (C++ bindings for ATK, ABI 2.36)","homepage":"http://www.gtkmm.org/","series":"l"}
-{"name":"attica","version":"6.30.0-1","summary":"attica (Open Collaboration Service library)","series":"kde"}
+{"name":"attica","version":"6.31.0-1","summary":"attica (Open Collaboration Service library)","series":"kde"}
 {"name":"attica5","version":"5.116.0-2","summary":"attica5 (Open Collaboration Service library)","series":"kde"}
 {"name":"attr","version":"2.6.0-2","summary":"attr (tools for using extended attributes on filesystems)","homepage":"https://savannah.nongnu.org/projects/attr","series":"a"}
 {"name":"aubio","version":"0.4.9-2","summary":"aubio (extract annotations from audio signals)","homepage":"https://aubio.org/","series":"kde"}
 {"name":"audacious","version":"4.6.1-2","summary":"audacious (A relatively powerful media player)","homepage":"https://www.audacious-media-player.org","series":"xap"}
 {"name":"audacious-plugins","version":"4.6.1-5","summary":"audacious-plugins (Plugins used by the Audacious media player)","homepage":"https://www.audacious-media-player.org","series":"xap"}
-{"name":"audex","version":"26.08.1-1","summary":"audex (KDE tool for ripping compact discs)","series":"kde"}
-{"name":"audiocd-kio","version":"26.08.1-1","summary":"audiocd-kio (audiocd KIO worker)","series":"kde"}
+{"name":"audex","version":"26.08.2-1","summary":"audex (KDE tool for ripping compact discs)","series":"kde"}
+{"name":"audiocd-kio","version":"26.08.2-1","summary":"audiocd-kio (audiocd KIO worker)","series":"kde"}
 {"name":"audiofile","version":"0.3.6-7","summary":"audiofile (audio support library)","series":"l"}
 {"name":"aurorae","version":"6.7.5-1","summary":"aurorae (theme engine for KWin window decorations)","series":"kde"}
 {"name":"autoconf","version":"2.73-2","summary":"autoconf (generate configuration scripts)","series":"d"}
@@ -92,8 +92,8 @@
 {"name":"automake","version":"1.18.1-2","summary":"automake (a Makefile generator)","series":"d"}
 {"name":"avahi","version":"20240306_709e60f-4","summary":"avahi (service discovery aka Zeroconf)","homepage":"https://avahi.org","series":"l"}
 {"name":"babl","version":"0.1.128-2","summary":"babl (pixel format translation library)","series":"l"}
-{"name":"baloo","version":"6.30.0-1","summary":"baloo (framework for searching and managing metadata)","series":"kde"}
-{"name":"baloo-widgets","version":"26.08.1-1","summary":"baloo-widgets (widgets for baloo)","series":"kde"}
+{"name":"baloo","version":"6.31.0-1","summary":"baloo (framework for searching and managing metadata)","series":"kde"}
+{"name":"baloo-widgets","version":"26.08.2-1","summary":"baloo-widgets (widgets for baloo)","series":"kde"}
 {"name":"bash","version":"5.3.020-1","summary":"bash (sh-compatible shell)","series":"a"}
 {"name":"bc","version":"1.08.2-2","summary":"bc (An arbitrary precision calculator language)","series":"ap"}
 {"name":"bcachefs-tools","version":"1.39.6-1","summary":"bcachefs-tools (tools for bcachefs filesystem)","homepage":"https://bcachefs.org","series":"a"}
@@ -107,21 +107,21 @@
 {"name":"bison","version":"3.8.2-2","summary":"bison (parser generator similar to yacc)","homepage":"https://www.gnu.org/software/bison/","series":"d"}
 {"name":"bitmap","version":"1.1.2-2","summary":"bitmap (X bitmap (XBM) editor and converter utilities)","series":"x"}
 {"name":"blackbox","version":"0.77-3","summary":"blackbox (Blackbox window manager)","homepage":"https://github.com/bbidulock/blackboxwm","series":"xap"}
-{"name":"blinken","version":"26.08.1-1","summary":"blinken (a memory enhancement game)","series":"kde"}
+{"name":"blinken","version":"26.08.2-1","summary":"blinken (a memory enhancement game)","series":"kde"}
 {"name":"bluedevil","version":"6.7.5-1","summary":"bluedevil (bluetooth stack for KDE)","homepage":"https://invent.kde.org/plasma/bluedevil","series":"kde"}
 {"name":"blueman","version":"2.4.6-2","summary":"Blueman (Graphical Bluetooth Manager)","homepage":"https://github.com/blueman-project/blueman","series":"xap"}
 {"name":"bluez","version":"5.87-2","summary":"bluez (Bluetooth libraries and utilities)","homepage":"http://www.bluez.org","series":"n"}
 {"name":"bluez-firmware","version":"1.2-5","summary":"bluez-firmware (Bluetooth(TM) firmware)","series":"n"}
-{"name":"bluez-qt","version":"6.30.0-1","summary":"bluez-qt (Qt wrapper for BlueZ 5 DBus API)","homepage":"https://projects.kde.org/projects/frameworks/bluez-qt","series":"kde"}
-{"name":"bomber","version":"26.08.1-1","summary":"bomber (arcade bombing game for KDE)","series":"kde"}
+{"name":"bluez-qt","version":"6.31.0-1","summary":"bluez-qt (Qt wrapper for BlueZ 5 DBus API)","homepage":"https://projects.kde.org/projects/frameworks/bluez-qt","series":"kde"}
+{"name":"bomber","version":"26.08.2-1","summary":"bomber (arcade bombing game for KDE)","series":"kde"}
 {"name":"boost","version":"1.92.0-2","summary":"boost (Boost C++ Libraries)","homepage":"https://www.boost.org/","series":"l"}
 {"name":"bootp","version":"2.4.3-6","summary":"bootp (BOOTP server)","series":"n"}
-{"name":"bovo","version":"26.08.1-1","summary":"bovo (five-in-a-row board game)","series":"kde"}
+{"name":"bovo","version":"26.08.2-1","summary":"bovo (five-in-a-row board game)","series":"kde"}
 {"name":"bpe","version":"2.01.00-8","summary":"bpe (Binary Patch Editor)","series":"ap"}
 {"name":"breeze","version":"6.7.5-1","summary":"breeze (artwork for Plasma)","series":"kde"}
-{"name":"breeze-grub","version":"6.7.5-1","summary":"breeze-grub (Breeze theme for GRUB)","series":"kde"}
+{"name":"breeze-grub","version":"6.7.5-2","summary":"breeze-grub (Breeze theme for GRUB)","series":"kde"}
 {"name":"breeze-gtk","version":"6.7.5-1","summary":"breeze-gtk (Breeze widget theme for GTK)","series":"kde"}
-{"name":"breeze-icons","version":"6.30.0-1","summary":"breeze-icons (Breeze icon themes for KDE Plasma)","homepage":"https://projects.kde.org/projects/kde/workspace/breeze","series":"kde"}
+{"name":"breeze-icons","version":"6.31.0-1","summary":"breeze-icons (Breeze icon themes for KDE Plasma)","homepage":"https://projects.kde.org/projects/kde/workspace/breeze","series":"kde"}
 {"name":"bridge-utils","version":"1.7.1-2","summary":"bridge-utils (network Ethernet bridging utilities)","series":"n"}
 {"name":"brotli","version":"1.2.0-2","summary":"brotli (Brotli compression format)","homepage":"https://github.com/google/brotli/","series":"l"}
 {"name":"bsd-finger","version":"0.17-6","summary":"bsd-finger (user information lookup program)","series":"n"}
@@ -131,13 +131,13 @@
 {"name":"bzip2","version":"1.0.8-4","summary":"bzip2 (a block-sorting file compressor)","series":"a"}
 {"name":"c-ares","version":"1.34.8-2","summary":"c-ares (C library for DNS requests)","homepage":"https://c-ares.haxx.se/","series":"n"}
 {"name":"ca-certificates","version":"20260910-1","summary":"ca-certificates (PEM Files of CA Certificates)","series":"n"}
-{"name":"cairo","version":"1.18.4-2","summary":"cairo (graphics library used by GTK+)","homepage":"https://cairographics.org","series":"l"}
+{"name":"cairo","version":"1.18.6-1","summary":"cairo (graphics library used by GTK+)","homepage":"https://cairographics.org","series":"l"}
 {"name":"cairomm","version":"1.14.6-2","summary":"cairomm (C++ wrapper for the cairo graphics library)","homepage":"https://cairographics.org/cairomm/","series":"l"}
 {"name":"cairomm1","version":"1.18.1-2","summary":"cairomm1 (C++ wrapper for cairo, ABI 1.16)","homepage":"https://cairographics.org/cairomm/","series":"l"}
-{"name":"calendarsupport","version":"26.08.1-1","summary":"calendarsupport (KDE PIM calendar support library)","series":"kde"}
-{"name":"calligra","version":"26.08.1-1","summary":"calligra (KDE office productivity suite)","homepage":"https://calligra-suite.org/","series":"kde"}
+{"name":"calendarsupport","version":"26.08.2-1","summary":"calendarsupport (KDE PIM calendar support library)","series":"kde"}
+{"name":"calligra","version":"26.08.2-1","summary":"calligra (KDE office productivity suite)","homepage":"https://calligra-suite.org/","series":"kde"}
 {"name":"calligraplan","version":"4.0.1-2","summary":"calligraplan (project planner)","homepage":"https://www.calligra-suite.org/","series":"kde"}
-{"name":"cantor","version":"26.08.1-1","summary":"cantor (front-end to mathematics software)","series":"kde"}
+{"name":"cantor","version":"26.08.2-1","summary":"cantor (front-end to mathematics software)","series":"kde"}
 {"name":"cargo-c","version":"0.10.25-2","summary":"cargo-c (cargo C-ABI helpers)","homepage":"https://github.com/lu-zero/cargo-c/","series":"d"}
 {"name":"cargo-vendor-filterer","version":"0.5.18-2","summary":"cargo-vendor-filterer (Vendor rust libraries based on filters)","homepage":"https://github.com/coreos/cargo-vendor-filterer","series":"d"}
 {"name":"cbindgen","version":"0.29.4-2","summary":"cbindgen (Generate C/C++ headers for Rust libraries)","homepage":"https://github.com/eqrion/cbindgen","series":"d"}
@@ -158,7 +158,7 @@
 {"name":"cmark","version":"0.31.2-2","summary":"cmark (CommonMark parsing/rendering library)","homepage":"https://commonmark.org/","series":"l"}
 {"name":"cmark-gfm","version":"0.29.0.gfm.13-4","summary":"cmark-gfm (extended CommonMark parsing/rendering library)","homepage":"https://github.com/github/cmark-gfm","series":"l"}
 {"name":"colord","version":"1.4.8-2","summary":"colord (color profile daemon)","homepage":"http://www.freedesktop.org/software/colord","series":"l"}
-{"name":"colord-kde","version":"26.08.1-1","summary":"colord-kde (Interfaces and session daemon to colord for KDE)","homepage":"https://userbase.kde.org/Color_Management","series":"kde"}
+{"name":"colord-kde","version":"26.08.2-1","summary":"colord-kde (Interfaces and session daemon to colord for KDE)","homepage":"https://userbase.kde.org/Color_Management","series":"kde"}
 {"name":"compiz","version":"0.8.18-6","summary":"compiz (OpenGL window and compositing manager)","homepage":"https://github.com/compiz-reloaded/compiz","series":"x"}
 {"name":"conntrack-tools","version":"1.4.9-2","summary":"conntrack-tools (userspace tools for conntrack)","homepage":"https://www.netfilter.org/projects/conntrack-tools","series":"n"}
 {"name":"coreutils","version":"9.12-2","summary":"coreutils (core GNU utilities)","series":"a"}
@@ -171,7 +171,7 @@
 {"name":"cryptsetup","version":"2.8.8-2","summary":"cryptsetup (utility for setting up encrypted filesystems)","homepage":"https://gitlab.com/cryptsetup/cryptsetup","series":"a"}
 {"name":"crystal-dock","version":"2.16-2","summary":"crystal-dock (a dock for the desktop)","homepage":"https://github.com/dangvd/crystal-dock","series":"kde"}
 {"name":"cscope","version":"15.9-5","summary":"cscope (source code browsing tool)","homepage":"http://cscope.sourceforge.net","series":"d"}
-{"name":"cups","version":"2.4.19-2","summary":"cups (Common UNIX Printing System)","series":"ap"}
+{"name":"cups","version":"2.4.20-1","summary":"cups (Common UNIX Printing System)","series":"ap"}
 {"name":"cups-browsed","version":"2.1.1-2","summary":"cups-browsed (CUPS printer queue browser)","homepage":"http://www.openprinting.org","series":"ap"}
 {"name":"cups-filters","version":"2.0.1-2","summary":"cups-filters (backends and filters for CUPS)","homepage":"http://www.openprinting.org","series":"ap"}
 {"name":"curl","version":"8.22.0-1","summary":"curl (command line URL data transfer tool)","series":"n"}
@@ -205,18 +205,18 @@
 {"name":"digikam","version":"9.1.0-7","summary":"digikam (KDE Photo Management Application)","homepage":"https://www.digikam.org/","series":"kde"}
 {"name":"distcc","version":"3.4-8","summary":"distcc (distributed C/C++ compiler/daemon)","series":"d"}
 {"name":"djvulibre","version":"3.5.30-2","summary":"djvulibre (web-centric document and image format)","homepage":"https://djvu.sourceforge.net","series":"l"}
-{"name":"dkms","version":"3.4.3-3","summary":"dkms (Dynamic Kernel Module Support)","homepage":"https://github.com/dell/dkms","series":"d"}
+{"name":"dkms","version":"3.4.4-1","summary":"dkms (Dynamic Kernel Module Support)","homepage":"https://github.com/dell/dkms","series":"d"}
 {"name":"dmapi","version":"2.2.12-6","summary":"dmapi (Data Management API library)","series":"ap"}
 {"name":"dmidecode","version":"3.7-2","summary":"dmidecode (DMI table decoder)","series":"ap"}
 {"name":"dnsmasq","version":"2.93-2","summary":"dnsmasq (small DNS and DHCP server)","homepage":"https://www.thekelleys.org.uk/dnsmasq/","series":"n"}
-{"name":"dolphin","version":"26.08.1-1","summary":"dolphin (KDE file manager)","homepage":"https://www.kde.org/applications/system/dolphin/","series":"kde"}
-{"name":"dolphin-plugins","version":"26.08.1-1","summary":"dolphin-plugins (dolphin VCS plugins)","series":"kde"}
+{"name":"dolphin","version":"26.08.2-1","summary":"dolphin (KDE file manager)","homepage":"https://www.kde.org/applications/system/dolphin/","series":"kde"}
+{"name":"dolphin-plugins","version":"26.08.2-1","summary":"dolphin-plugins (dolphin VCS plugins)","series":"kde"}
 {"name":"dosfstools","version":"4.2-3","summary":"dosfstools (tools for working with FAT filesystems)","homepage":"http://daniel-baumann.ch/software/dosfstools","series":"a"}
 {"name":"dotconf","version":"1.4.1-2","summary":"dotconf (configuration file parser)","homepage":"https://github.com/williamh/dotconf/","series":"l"}
 {"name":"dovecot","version":"2.4.5-2","summary":"dovecot (IMAP and POP3 server)","series":"n"}
 {"name":"doxygen","version":"1.18.0-2","summary":"doxygen (documentation generator)","homepage":"https://www.doxygen.org","series":"d"}
 {"name":"dracut","version":"112-2","summary":"dracut (creates an initrd for the kernel)","homepage":"https://github.com/dracut-ng/dracut-ng/wiki","series":"a"}
-{"name":"dragon","version":"26.08.1-1","summary":"dragon (KDE multimedia player)","series":"kde"}
+{"name":"dragon","version":"26.08.2-1","summary":"dragon (KDE multimedia player)","series":"kde"}
 {"name":"dtc","version":"1.8.1-3","summary":"dtc (Device Tree Compiler)","homepage":"https://git.kernel.org/cgit/utils/dtc/dtc.git","series":"l"}
 {"name":"duktape","version":"2.7.0-2","summary":"duktape (embeddable JavaScript engine)","homepage":"https://duktape.org","series":"l"}
 {"name":"dvd+rw-tools","version":"7.1-6","summary":"dvd+rw-tools (DVD+-RW tools)","series":"ap"}
@@ -230,14 +230,14 @@
 {"name":"editres","version":"1.1.1-2","summary":"editres (X11 resource editor)","series":"x"}
 {"name":"efibootmgr","version":"18-2","summary":"efibootmgr (tool to modify UEFI boot entries)","homepage":"https://github.com/rhboot/efibootmgr","series":"a"}
 {"name":"efivar","version":"20201015_cff88dd-2","summary":"efivar (library and utilities to handle UEFI variables)","homepage":"https://github.com/rhboot/efivar","series":"a"}
-{"name":"egl-wayland","version":"1.1.23-1","summary":"egl-wayland (Wayland EGL External Platform library)","series":"x"}
+{"name":"egl-wayland","version":"1.1.24-1","summary":"egl-wayland (Wayland EGL External Platform library)","series":"x"}
 {"name":"eglexternalplatform","version":"1.2.1-2","summary":"eglexternalplatform (EGL External Platform Interface headers)","series":"x"}
 {"name":"eigen","version":"5.0.1-2","summary":"eigen (C++ math library)","homepage":"https://eigen.tuxfamily.org","series":"l"}
 {"name":"electricsheep","version":"20090306-9","summary":"electricsheep (distributed screensaver)","series":"xap"}
 {"name":"elementary-xfce","version":"0.22-3","summary":"elementary-xfce (elementary-xfce icon theme)","homepage":"https://github.com/shimmerproject/elementary-xfce","series":"xfce"}
 {"name":"elfutils","version":"0.196-2","summary":"elfutils (ELF object file access library and utilities)","homepage":"https://sourceware.org/pub/elfutils/","series":"l"}
 {"name":"elilo","version":"3.16-19","summary":"elilo (Linux Loader for EFI-based platforms)","homepage":"http://elilo.sourceforge.net","series":"a"}
-{"name":"elisa","version":"26.08.1-1","summary":"elisa (music player)","homepage":"https://community.kde.org/Elisa","series":"kde"}
+{"name":"elisa","version":"26.08.2-1","summary":"elisa (music player)","homepage":"https://community.kde.org/Elisa","series":"kde"}
 {"name":"elm","version":"2.5.8-9","summary":"elm (Menu-driven user mail program)","series":"n"}
 {"name":"elogind","version":"257.16-6","summary":"elogind (logind extracted from systemd)","homepage":"https://github.com/elogind/elogind","series":"a"}
 {"name":"elvis","version":"2.2_0-10","summary":"elvis (ex/vi text editor)","series":"a"}
@@ -252,18 +252,18 @@
 {"name":"etc","version":"15.1-18","summary":"etc (system configuration files)","series":"a"}
 {"name":"ethtool","version":"7.1-2","summary":"ethtool (a tool for examining and tuning a network interface)","series":"n"}
 {"name":"eudev","version":"3.2.15-1","summary":"eudev (dynamic device directory system)","homepage":"https://github.com/eudev-project/eudev","series":"a"}
-{"name":"eventviews","version":"26.08.1-1","summary":"eventviews (library for creating events)","series":"kde"}
+{"name":"eventviews","version":"26.08.2-1","summary":"eventviews (library for creating events)","series":"kde"}
 {"name":"exfatprogs","version":"1.4.3-2","summary":"exfatprogs (exFAT filesystem utilities)","homepage":"https://github.com/exfatprogs/exfatprogs","series":"a"}
 {"name":"exiv2","version":"0.28.9-2","summary":"exiv2 (Exif and IPTC Metadata Library and Tools)","homepage":"https://www.exiv2.org/","series":"l"}
 {"name":"exo","version":"4.20.0-3","summary":"exo (libexo extension library)","series":"xfce"}
-{"name":"expat","version":"2.8.5-1","summary":"expat (C library for parsing XML)","homepage":"https://libexpat.github.io","series":"l"}
+{"name":"expat","version":"2.9.0-1","summary":"expat (C library for parsing XML)","homepage":"https://libexpat.github.io","series":"l"}
 {"name":"expect","version":"5.45.4-5","summary":"expect (program that talks to other interactive programs)","series":"tcl"}
-{"name":"extra-cmake-modules","version":"6.30.0-1","summary":"extra-cmake-modules (extra KDE CMake modules)","series":"kde"}
+{"name":"extra-cmake-modules","version":"6.31.0-1","summary":"extra-cmake-modules (extra KDE CMake modules)","series":"kde"}
 {"name":"f2fs-tools","version":"1.17.0-1","summary":"f2fs-tools (Flash-Friendly File System)","series":"a"}
 {"name":"f3","version":"10.0-1","summary":"f3 (Fight Fake Flash)","homepage":"https://github.com/AltraMayor/f3","series":"ap"}
-{"name":"falkon","version":"26.08.1-1","summary":"falkon (KDE web browser)","series":"kde"}
+{"name":"falkon","version":"26.08.2-1","summary":"falkon (KDE web browser)","series":"kde"}
 {"name":"farstream","version":"0.2.9-4","summary":"farstream (GStreamer videoconferencing support)","homepage":"https://www.freedesktop.org/wiki/Software/Farstream","series":"l"}
-{"name":"fast_float","version":"8.3.0-1","summary":"fast_float (fast_float number parsing library)","homepage":"https://github.com/fastfloat/fast_float","series":"l"}
+{"name":"fast_float","version":"8.3.1-1","summary":"fast_float (fast_float number parsing library)","homepage":"https://github.com/fastfloat/fast_float","series":"l"}
 {"name":"fcitx5","version":"5.1.23-1","summary":"fcitx5 (Input Method Framework)","homepage":"https://fcitx-im.org/wiki/Fcitx_5","series":"x"}
 {"name":"fcitx5-anthy","version":"5.1.11-1","summary":"fcitx5-anthy (Anthy wrapper for fcitx5)","homepage":"https://fcitx-im.org/wiki/Fcitx_5","series":"x"}
 {"name":"fcitx5-chinese-addons","version":"5.1.15-1","summary":"fcitx5-chinese-addons (Chinese related addon for fcitx5)","homepage":"https://fcitx-im.org/wiki/Fcitx_5","series":"x"}
@@ -281,11 +281,11 @@
 {"name":"fetchmail","version":"6.6.9-1","summary":"fetchmail (mail retrieval and forwarding utility)","series":"n"}
 {"name":"ffmpeg","version":"9.0.2-1","summary":"ffmpeg (software to record, convert and stream audio and video)","homepage":"https://ffmpeg.org/","series":"l"}
 {"name":"ffmpegthumbnailer","version":"2.3.1-2","summary":"ffmpegthumbnailer (Lightweight Video Thumbnailer)","homepage":"https://github.com/dirkvdb/ffmpegthumbnailer","series":"xap"}
-{"name":"ffmpegthumbs","version":"26.08.1-1","summary":"ffmpegthumbs (video thumbnail generator using ffmpeg)","series":"kde"}
+{"name":"ffmpegthumbs","version":"26.08.2-1","summary":"ffmpegthumbs (video thumbnail generator using ffmpeg)","series":"kde"}
 {"name":"fftw","version":"3.3.11-2","summary":"fftw (Fastest Fourier Transform in the West)","homepage":"https://www.fftw.org/","series":"l"}
 {"name":"fig2dev","version":"3.2.9a-2","summary":"fig2dev (transform .fig files)","homepage":"https://sourceforge.net/projects/mcj/files/","series":"t"}
 {"name":"file","version":"5.48-2","summary":"file (a utility to determine file type)","series":"a"}
-{"name":"filelight","version":"26.08.1-1","summary":"filelight (file system monitor)","homepage":"https://utils.kde.org/projects/filelight","series":"kde"}
+{"name":"filelight","version":"26.08.2-1","summary":"filelight (file system monitor)","homepage":"https://utils.kde.org/projects/filelight","series":"kde"}
 {"name":"findutils","version":"4.11.0-2","summary":"findutils (utilities to locate files)","series":"a"}
 {"name":"flac","version":"1.5.0-2","summary":"flac (Free Lossless Audio Codec)","series":"ap"}
 {"name":"flex","version":"2.6.4-6","summary":"flex (fast lexical analyzer generator)","homepage":"https://github.com/westes/flex","series":"d"}
@@ -335,9 +335,9 @@
 {"name":"fonts-uw-ttyp0","version":"2.1-2","summary":"fonts-uw-ttyp0 (monospaced bitmap screen fonts)","homepage":"https://people.mpi-inf.mpg.de/~uwe/misc/uw-ttyp0/","series":"ap"}
 {"name":"fonttosfnt","version":"1.2.5-2","summary":"fonttosfnt (utility to wrap a bitmap font in a sfnt wrapper)","series":"x"}
 {"name":"fprintd","version":"1.94.5-2","summary":"fprintd (fingerprint scanning daemon available over D-Bus)","homepage":"https://fprint.freedesktop.org/","series":"l"}
-{"name":"frameworkintegration","version":"6.30.0-1","summary":"frameworkintegration (applications integration with KDE)","homepage":"https://community.kde.org/Frameworks","series":"kde"}
+{"name":"frameworkintegration","version":"6.31.0-1","summary":"frameworkintegration (applications integration with KDE)","homepage":"https://community.kde.org/Frameworks","series":"kde"}
 {"name":"frameworkintegration5","version":"5.116.0-2","summary":"frameworkintegration5 (applications integration with KDE)","homepage":"https://community.kde.org/Frameworks","series":"kde"}
-{"name":"francis","version":"26.08.1-1","summary":"francis (KDE time tracker)","series":"kde"}
+{"name":"francis","version":"26.08.2-1","summary":"francis (KDE time tracker)","series":"kde"}
 {"name":"freecell-solver","version":"6.16.0-2","summary":"freecell-solver (solve layouts of freecell games)","homepage":"https://fc-solve.shlomifish.org/","series":"l"}
 {"name":"freeglut","version":"3.8.0-2","summary":"freeglut (alternative GLUT library)","homepage":"https://freeglut.sourceforge.net/","series":"x"}
 {"name":"freerdp","version":"3.32.1-1","summary":"freerdp (Free Remote Desktop Protocol)","homepage":"https://www.freerdp.com","series":"xap"}
@@ -374,7 +374,7 @@
 {"name":"gdbm","version":"1.26-2","summary":"gdbm (GNU database routines)","series":"l"}
 {"name":"gdk-pixbuf2","version":"2.44.8-2","summary":"gdk-pixbuf2 (image library used by GTK+ v2)","series":"l"}
 {"name":"gdk-pixbuf2-xlib","version":"2.40.2-5","summary":"gdk-pixbuf2-xlib (GdkPixbuf/Xlib API)","series":"l"}
-{"name":"geeqie","version":"2.9-3","summary":"geeqie (Geeqie image viewer)","homepage":"http://www.geeqie.org","series":"xap"}
+{"name":"geeqie","version":"3.3-1","summary":"geeqie (Geeqie image viewer)","homepage":"http://www.geeqie.org","series":"xap"}
 {"name":"gegl","version":"0.4.72-2","summary":"gegl (Generic Graphics Library)","series":"l"}
 {"name":"getmail","version":"6.20.01-2","summary":"getmail (POP3 mail retriever)","series":"n"}
 {"name":"gettext","version":"1.0-2","summary":"gettext (internationalization framework)","series":"a"}
@@ -383,7 +383,7 @@
 {"name":"gftp","version":"2.9.1b-4","summary":"gftp (FTP client for X)","series":"xap"}
 {"name":"ghostscript","version":"10.08.0-2","summary":"ghostscript (Postscript and PDF interpreter)","series":"ap"}
 {"name":"ghostscript-fonts-std","version":"8.11-6","summary":"ghostscript-fonts-std (fonts for the Ghostscript interpreter)","series":"ap"}
-{"name":"ghostwriter","version":"26.08.1-1","summary":"ghostwriter (Markdown editor)","homepage":"https://ghostwriter.kde.org","series":"kde"}
+{"name":"ghostwriter","version":"26.08.2-1","summary":"ghostwriter (Markdown editor)","homepage":"https://ghostwriter.kde.org","series":"kde"}
 {"name":"gi-docgen","version":"2026.1-2","summary":"gi-docgen (Document generator for GObject-based libraries)","homepage":"https://gnome.pages.gitlab.gnome.org/gi-docgen/","series":"l"}
 {"name":"giflib","version":"6.1.3-2","summary":"giflib (GIF image format library)","series":"l"}
 {"name":"gimp","version":"3.2.6-2","summary":"gimp (GNU Image Manipulation Program)","homepage":"https://www.gimp.org","series":"xap"}
@@ -395,7 +395,7 @@
 {"name":"glew","version":"2.3.1-2","summary":"glew (the OpenGL Extension Wrangler Library)","homepage":"http://glew.sourceforge.net/","series":"x"}
 {"name":"glib","version":"1.2.10-10","summary":"glib (library of C routines, version 1.x)","series":"l"}
 {"name":"glib-networking","version":"2.90.0-1","summary":"glib-networking (network-related giomodules for glib)","series":"l"}
-{"name":"glib2","version":"2.90.0-1","summary":"glib2 (library of C routines)","homepage":"https://www.gtk.org","series":"l"}
+{"name":"glib2","version":"2.90.1-1","summary":"glib2 (library of C routines)","homepage":"https://www.gtk.org","series":"l"}
 {"name":"glibc","version":"2.44-7","summary":"glibc (GNU C libraries)","homepage":"https://www.gnu.org/software/libc/","series":"l"}
 {"name":"glibc-i18n","version":"2.44-7","summary":"glibc-i18n (locale files from glibc)","series":"l"}
 {"name":"glibc-profile","version":"2.44-7","summary":"glibc-profile (GNU C libraries with profiling support)","series":"l"}
@@ -427,9 +427,9 @@
 {"name":"gphoto2","version":"2.5.32-2","summary":"gphoto2 (A command-line frontend to libgphoto2)","homepage":"http://www.gphoto.org","series":"ap"}
 {"name":"gpm","version":"1.20.7-11","summary":"gpm (general purpose mouse server)","series":"a"}
 {"name":"gptfdisk","version":"1.0.10-2","summary":"gptfdisk (GPT fdisk utilities)","homepage":"http://sourceforge.net/projects/gptfdisk/","series":"a"}
-{"name":"granatier","version":"26.08.1-1","summary":"granatier (bomberman clone for KDE)","series":"kde"}
-{"name":"grantlee-editor","version":"26.08.1-1","summary":"grantlee-editor (editor for Grantlee themes)","series":"kde"}
-{"name":"grantleetheme","version":"26.08.1-1","summary":"grantleetheme (Grantlee theming support)","series":"kde"}
+{"name":"granatier","version":"26.08.2-1","summary":"granatier (bomberman clone for KDE)","series":"kde"}
+{"name":"grantlee-editor","version":"26.08.2-1","summary":"grantlee-editor (editor for Grantlee themes)","series":"kde"}
+{"name":"grantleetheme","version":"26.08.2-1","summary":"grantleetheme (Grantlee theming support)","series":"kde"}
 {"name":"graphene","version":"1.10.8-2","summary":"graphene (a thin layer of types for graphic libraries)","homepage":"https://ebassi.github.io/graphene/","series":"l"}
 {"name":"graphite2","version":"1.3.15-3","summary":"graphite2 (rendering engine for graphite fonts)","homepage":"http://graphite.sil.org/","series":"l"}
 {"name":"graphviz","version":"16.1.0-1","summary":"graphviz (graph visualization tools)","homepage":"https://www.graphviz.org/","series":"l"}
@@ -439,11 +439,11 @@
 {"name":"gsettings-desktop-schemas","version":"51.0-1","summary":"gsettings-desktop-schemas (GSettings schemas)","series":"l"}
 {"name":"gsl","version":"2.8-2","summary":"gsl (a numerical library for C and C++ programmers)","homepage":"http://www.gnu.org/software/gsl/","series":"l"}
 {"name":"gspell","version":"1.14.5-1","summary":"gspell (GTK spell checking library)","series":"l"}
-{"name":"gst-plugins-bad-free","version":"1.28.7-3","summary":"gst-plugins-bad-free (bad set of GStreamer plugins)","series":"l"}
-{"name":"gst-plugins-base","version":"1.28.7-1","summary":"gst-plugins-base (base set of GStreamer plugins)","series":"l"}
-{"name":"gst-plugins-good","version":"1.28.7-1","summary":"gst-plugins-good (good set of GStreamer plugins)","series":"l"}
-{"name":"gst-plugins-libav","version":"1.28.7-1","summary":"gst-plugins-libav (GStreamer FFmpeg/Libav plugin)","series":"l"}
-{"name":"gstreamer","version":"1.28.7-1","summary":"gstreamer (streaming multimedia framework)","series":"l"}
+{"name":"gst-plugins-bad-free","version":"1.28.8-1","summary":"gst-plugins-bad-free (bad set of GStreamer plugins)","series":"l"}
+{"name":"gst-plugins-base","version":"1.28.8-1","summary":"gst-plugins-base (base set of GStreamer plugins)","series":"l"}
+{"name":"gst-plugins-good","version":"1.28.8-1","summary":"gst-plugins-good (good set of GStreamer plugins)","series":"l"}
+{"name":"gst-plugins-libav","version":"1.28.8-1","summary":"gst-plugins-libav (GStreamer FFmpeg/Libav plugin)","series":"l"}
+{"name":"gstreamer","version":"1.28.8-1","summary":"gstreamer (streaming multimedia framework)","series":"l"}
 {"name":"gtk+","version":"1.2.10-10","summary":"gtk+ (graphical user interface toolkit, version 1.x)","series":"l"}
 {"name":"gtk+2","version":"2.24.33-6","summary":"gtk+2 (multi-platform GUI toolkit v2)","series":"l"}
 {"name":"gtk+3","version":"3.24.52-2","summary":"gtk+3 (multi-platform GUI toolkit v3)","series":"l"}
@@ -459,11 +459,11 @@
 {"name":"gutenprint","version":"5.3.5-3","summary":"gutenprint (IJS printer driver for Ghostscript and CUPS)","homepage":"https://gutenprint.sourceforge.net/","series":"ap"}
 {"name":"gv","version":"3.7.4-6","summary":"gv (PS/PDF file viewer)","series":"xap"}
 {"name":"gvfs","version":"1.62.0-2","summary":"gvfs (glib virtual filesystems)","series":"l"}
-{"name":"gwenview","version":"26.08.1-1","summary":"gwenview (image viewer for KDE)","series":"kde"}
+{"name":"gwenview","version":"26.08.2-1","summary":"gwenview (image viewer for KDE)","series":"kde"}
 {"name":"gyp","version":"20210831_d6c5dd51-5","summary":"gyp (Generate Your Projects)","homepage":"https://gyp.gsrc.io/","series":"d"}
 {"name":"gzip","version":"1.15-1","summary":"gzip (file compression utility)","series":"a"}
 {"name":"hack-fonts-ttf","version":"3.003-5","summary":"hack-fonts-ttf (TrueType monospaced font)","homepage":"http://sourcefoundry.org/hack/","series":"x"}
-{"name":"harfbuzz","version":"14.5.1-1","summary":"harfbuzz (OpenType text shaping engine)","homepage":"http://harfbuzz.org","series":"l"}
+{"name":"harfbuzz","version":"14.6.0-1","summary":"harfbuzz (OpenType text shaping engine)","homepage":"http://harfbuzz.org","series":"l"}
 {"name":"haruna","version":"1.8.1-3","summary":"haruna (Qt based media player)","homepage":"https://haruna.kde.org","series":"kde"}
 {"name":"haveged","version":"1.9.26-2","summary":"haveged (A simple entropy daemon)","homepage":"http://www.issihosts.com/haveged/index.html","series":"a"}
 {"name":"hdparm","version":"9.65-2","summary":"hdparm (read/set hard drive parameters)","homepage":"https://sourceforge.net/projects/hdparm/","series":"a"}
@@ -477,14 +477,14 @@
 {"name":"htdig","version":"3.2.0b6-11","summary":"htdig (web indexing and searching system)","series":"n"}
 {"name":"htop","version":"3.5.3-2","summary":"htop (ncurses-based interactive process viewer)","homepage":"http://hisham.hm/htop/","series":"ap"}
 {"name":"httpd","version":"2.4.69-1","summary":"httpd (The Apache HTTP Server)","series":"n"}
-{"name":"hunspell","version":"1.7.4-1","summary":"hunspell (spell checker and morphological analyzer library)","homepage":"https://hunspell.sourceforge.net/","series":"l"}
+{"name":"hunspell","version":"1.7.5-1","summary":"hunspell (spell checker and morphological analyzer library)","homepage":"https://hunspell.sourceforge.net/","series":"l"}
 {"name":"hwdata","version":"0.412-1","summary":"hwdata (hardware identification and configuration data)","homepage":"https://github.com/vcrhonek/hwdata","series":"a"}
 {"name":"hyphen","version":"2.8.9-2","summary":"hyphen (hyphenation and justification library)","homepage":"https://github.com/hunspell/hyphen","series":"l"}
 {"name":"ibus","version":"1.5.35_beta2-1","summary":"ibus (Intelligent Input Bus)","homepage":"https://github.com/ibus/ibus/wiki","series":"x"}
 {"name":"ibus-anthy","version":"1.5.18-2","summary":"ibus-anthy (Japanese input engine for IBus)","homepage":"https://github.com/ibus/ibus-anthy","series":"x"}
 {"name":"ibus-hangul","version":"1.5.5-4","summary":"ibus-hangul (Korean input method engine for IBus)","homepage":"https://github.com/choehwanjin/ibus-hangul","series":"x"}
 {"name":"ibus-kkc","version":"1.5.22-4","summary":"ibus-kkc (Japanese Kana Kanji Input for IBus)","homepage":"https://github.com/ueno/ibus-kkc","series":"x"}
-{"name":"ibus-libpinyin","version":"1.16.5-5","summary":"ibus-libpinyin (Pinyin engine based on libpinyin for IBus)","homepage":"https://github.com/libpinyin/ibus-libpinyin","series":"x"}
+{"name":"ibus-libpinyin","version":"1.16.6-1","summary":"ibus-libpinyin (Pinyin engine based on libpinyin for IBus)","homepage":"https://github.com/libpinyin/ibus-libpinyin","series":"x"}
 {"name":"ibus-m17n","version":"1.4.40-2","summary":"ibus-m17n (M17N engine for IBus)","homepage":"https://github.com/ibus/ibus-m17n","series":"x"}
 {"name":"ibus-table","version":"1.18.0-1","summary":"ibus-table (table engines for IBus)","homepage":"https://github.com/kaio/ibus-table","series":"x"}
 {"name":"ibus-unikey","version":"0.6.1-4","summary":"ibus-unikey (Vietnamese input method engine for IBus)","homepage":"https://github.com/mrlequoctuan/ibus-unikey","series":"x"}
@@ -500,13 +500,13 @@
 {"name":"imagemagick","version":"7.1.2_32-1","summary":"imagemagick (a robust collection of image processing tools)","series":"l"}
 {"name":"imake","version":"1.0.11-2","summary":"imake (C preprocessor interface to the make utility)","series":"x"}
 {"name":"immer","version":"0.9.1-2","summary":"immer (persistent and immutable data structures for C++)","homepage":"https://github.com/arximboldi/immer","series":"l"}
-{"name":"incidenceeditor","version":"26.08.1-1","summary":"incidenceeditor (KDE PIM incidence editor)","series":"kde"}
+{"name":"incidenceeditor","version":"26.08.2-1","summary":"incidenceeditor (KDE PIM incidence editor)","series":"kde"}
 {"name":"indent","version":"2.2.13-2","summary":"indent (changes the appearance of a C program)","series":"d"}
 {"name":"inetd","version":"1.79s-15","summary":"inetd (Internet super-server)","series":"n"}
 {"name":"infozip","version":"6.0-9","summary":"infozip (Info-ZIP's zip and unzip utilities)","series":"a"}
 {"name":"inih","version":"62-2","summary":"inih (INI Not Invented Here)","homepage":"https://github.com/benhoyt/inih","series":"a"}
-{"name":"iniparser","version":"4.3.0-1","summary":"iniparser (ini file parsing library)","homepage":"https://github.com/ndevilla/iniparser","series":"a"}
-{"name":"inotify-tools","version":"4.26.262-1","summary":"inotify-tools (command line utilities for inotify)","homepage":"http://wiki.github.com/rvoicilas/inotify-tools/","series":"a"}
+{"name":"iniparser","version":"4.3.2-1","summary":"iniparser (ini file parsing library)","homepage":"https://github.com/ndevilla/iniparser","series":"a"}
+{"name":"inotify-tools","version":"4.26.270-1","summary":"inotify-tools (command line utilities for inotify)","homepage":"http://wiki.github.com/rvoicilas/inotify-tools/","series":"a"}
 {"name":"intel-gmmlib","version":"22.10.2-1","summary":"intel-gmmlib (Intel Graphics Memory Management Library)","homepage":"https://github.com/intel/gmmlib","series":"x"}
 {"name":"intel-media-driver","version":"26.3.5-1","summary":"intel-media-driver (Intel Media Driver for VAAPI)","homepage":"https://github.com/intel/media-driver","series":"x"}
 {"name":"intel-microcode","version":"20260925-1","summary":"intel-microcode (Intel Processor Microcode)","series":"a"}
@@ -523,9 +523,9 @@
 {"name":"irssi","version":"1.4.5-6","summary":"irssi (Internet Relay Chat client)","series":"n"}
 {"name":"isl","version":"0.28-2","summary":"isl (Integer Set Library)","homepage":"https://libisl.sourceforge.io","series":"l"}
 {"name":"iso-codes","version":"4.20.1-2","summary":"iso-codes (ISO-standard lists)","homepage":"https://salsa.debian.org/iso-codes-team/iso-codes","series":"l"}
-{"name":"isoimagewriter","version":"26.08.1-1","summary":"isoimagewriter (write hybrid ISO image to USB disk)","homepage":"https://community.kde.org/ISOImageWriter","series":"kde"}
+{"name":"isoimagewriter","version":"26.08.2-1","summary":"isoimagewriter (write hybrid ISO image to USB disk)","homepage":"https://community.kde.org/ISOImageWriter","series":"kde"}
 {"name":"ispell","version":"3.4.06-5","summary":"ispell (spelling checker)","series":"ap"}
-{"name":"itinerary","version":"26.08.1-1","summary":"itinerary (Itinerary and boarding pass management app)","homepage":"https://apps.kde.org/en/itinerary","series":"kde"}
+{"name":"itinerary","version":"26.08.2-1","summary":"itinerary (Itinerary and boarding pass management app)","homepage":"https://apps.kde.org/en/itinerary","series":"kde"}
 {"name":"itstool","version":"2.0.7-5","summary":"itstool (Translate XML documents with PO files)","homepage":"http://itstool.org/","series":"ap"}
 {"name":"iucode_tool","version":"2.3.1-2","summary":"iucode_tool (Intel IA-32/X86-64 microcode tool)","homepage":"https://gitlab.com/iucode-tool","series":"a"}
 {"name":"iw","version":"6.17-2","summary":"iw (tool for configuring Linux wireless devices)","homepage":"http://wireless.kernel.org/en/users/Documentation/iw","series":"n"}
@@ -541,324 +541,324 @@
 {"name":"json-c","version":"0.19-2","summary":"json-c (JSON library in C)","homepage":"https://github.com/json-c/json-c","series":"l"}
 {"name":"json-glib","version":"1.10.8-2","summary":"json-glib (GLib/GObject based JSON tools)","homepage":"https://gitlab.gnome.org/GNOME/json-glib/","series":"l"}
 {"name":"judy","version":"1.0.5-5","summary":"judy (sparse dynamic array library)","series":"l"}
-{"name":"juk","version":"26.08.1-1","summary":"juk (audio jukebox application)","series":"kde"}
-{"name":"k3b","version":"26.08.1-1","summary":"k3b (The CD Creator)","homepage":"https://www.k3b.org","series":"kde"}
+{"name":"juk","version":"26.08.2-1","summary":"juk (audio jukebox application)","series":"kde"}
+{"name":"k3b","version":"26.08.2-1","summary":"k3b (The CD Creator)","homepage":"https://www.k3b.org","series":"kde"}
 {"name":"kColorPicker","version":"0.3.1-2","summary":"kColorPicker (popup color selector library)","series":"kde"}
 {"name":"kImageAnnotator","version":"0.7.2-2","summary":"kImageAnnotator (library for annotating images)","series":"kde"}
 {"name":"kactivities-stats5","version":"5.116.0-2","summary":"kactivities-stats5 (component of KDE Activities)","series":"kde"}
 {"name":"kactivities5","version":"5.116.0-2","summary":"kactivities5 (API for using Activities)","series":"kde"}
 {"name":"kactivitymanagerd","version":"6.7.5-1","summary":"kactivitymanagerd (manage and track user activities)","series":"kde"}
-{"name":"kaddressbook","version":"26.08.1-1","summary":"kaddressbook (KDE contact manager)","series":"kde"}
-{"name":"kalarm","version":"26.08.1-1","summary":"kalarm (personal alarm scheduler)","series":"kde"}
-{"name":"kalgebra","version":"26.08.1-1","summary":"kalgebra (a graph calculator)","series":"kde"}
-{"name":"kalk","version":"26.08.1-1","summary":"kalk (calculator application)","homepage":"https://invent.kde.org/plasma-mobile/kalk","series":"kde"}
-{"name":"kalm","version":"26.08.1-1","summary":"kalm (KDE breathing technique tutor)","series":"kde"}
-{"name":"kalzium","version":"26.08.1-1","summary":"kalzium (periodic table of the elements)","series":"kde"}
-{"name":"kamera","version":"26.08.1-1","summary":"kamera (digital camera support for KDE)","series":"kde"}
-{"name":"kamoso","version":"26.08.1-1","summary":"kamoso (webcam recorder)","homepage":"https://userbase.kde.org/Kamoso","series":"kde"}
-{"name":"kanagram","version":"26.08.1-1","summary":"kanagram (letter game)","series":"kde"}
-{"name":"kapidox","version":"6.30.0-1","summary":"kapidox (KDE Doxygen Tools)","series":"kde"}
-{"name":"kapman","version":"26.08.1-1","summary":"kapman (KDE version of dot-eating arcade game)","series":"kde"}
-{"name":"kapptemplate","version":"26.08.1-1","summary":"kapptemplate (application template generator)","series":"kde"}
-{"name":"karchive","version":"6.30.0-1","summary":"karchive (Read, create, and manipulate archives)","series":"kde"}
+{"name":"kaddressbook","version":"26.08.2-1","summary":"kaddressbook (KDE contact manager)","series":"kde"}
+{"name":"kalarm","version":"26.08.2-1","summary":"kalarm (personal alarm scheduler)","series":"kde"}
+{"name":"kalgebra","version":"26.08.2-1","summary":"kalgebra (a graph calculator)","series":"kde"}
+{"name":"kalk","version":"26.08.2-1","summary":"kalk (calculator application)","homepage":"https://invent.kde.org/plasma-mobile/kalk","series":"kde"}
+{"name":"kalm","version":"26.08.2-1","summary":"kalm (KDE breathing technique tutor)","series":"kde"}
+{"name":"kalzium","version":"26.08.2-1","summary":"kalzium (periodic table of the elements)","series":"kde"}
+{"name":"kamera","version":"26.08.2-1","summary":"kamera (digital camera support for KDE)","series":"kde"}
+{"name":"kamoso","version":"26.08.2-1","summary":"kamoso (webcam recorder)","homepage":"https://userbase.kde.org/Kamoso","series":"kde"}
+{"name":"kanagram","version":"26.08.2-1","summary":"kanagram (letter game)","series":"kde"}
+{"name":"kapidox","version":"6.31.0-1","summary":"kapidox (KDE Doxygen Tools)","series":"kde"}
+{"name":"kapman","version":"26.08.2-1","summary":"kapman (KDE version of dot-eating arcade game)","series":"kde"}
+{"name":"kapptemplate","version":"26.08.2-1","summary":"kapptemplate (application template generator)","series":"kde"}
+{"name":"karchive","version":"6.31.0-1","summary":"karchive (Read, create, and manipulate archives)","series":"kde"}
 {"name":"karchive5","version":"5.116.0-2","summary":"karchive5 (Read, create, and manipulate archives)","series":"kde"}
-{"name":"kasts","version":"26.08.1-1","summary":"kasts (podcast player)","series":"kde"}
-{"name":"kate","version":"26.08.1-1","summary":"kate (an advanced text editor for KDE)","homepage":"https://kate-editor.org","series":"kde"}
-{"name":"katomic","version":"26.08.1-1","summary":"katomic (re-assemble molecules from compound atoms)","series":"kde"}
-{"name":"kauth","version":"6.30.0-1","summary":"kauth (Execute actions as privileged user)","series":"kde"}
+{"name":"kasts","version":"26.08.2-1","summary":"kasts (podcast player)","series":"kde"}
+{"name":"kate","version":"26.08.2-1","summary":"kate (an advanced text editor for KDE)","homepage":"https://kate-editor.org","series":"kde"}
+{"name":"katomic","version":"26.08.2-1","summary":"katomic (re-assemble molecules from compound atoms)","series":"kde"}
+{"name":"kauth","version":"6.31.0-1","summary":"kauth (Execute actions as privileged user)","series":"kde"}
 {"name":"kauth5","version":"5.116.0-2","summary":"kauth5 (Execute actions as privileged user)","series":"kde"}
-{"name":"kbackup","version":"26.08.1-1","summary":"kbackup (KDE backup program)","homepage":"https://www.kde.org/applications/utilities/kbackup/","series":"kde"}
+{"name":"kbackup","version":"26.08.2-1","summary":"kbackup (KDE backup program)","homepage":"https://www.kde.org/applications/utilities/kbackup/","series":"kde"}
 {"name":"kbd","version":"2.10.0-6","summary":"kbd (keyboard maps and console fonts)","series":"a"}
-{"name":"kblackbox","version":"26.08.1-1","summary":"kblackbox (a game of hide and seek)","series":"kde"}
-{"name":"kblocks","version":"26.08.1-1","summary":"kblocks (falling blocks game for KDE)","series":"kde"}
-{"name":"kbookmarks","version":"6.30.0-1","summary":"kbookmarks (Bookmarks management library)","series":"kde"}
+{"name":"kblackbox","version":"26.08.2-1","summary":"kblackbox (a game of hide and seek)","series":"kde"}
+{"name":"kblocks","version":"26.08.2-1","summary":"kblocks (falling blocks game for KDE)","series":"kde"}
+{"name":"kbookmarks","version":"6.31.0-1","summary":"kbookmarks (Bookmarks management library)","series":"kde"}
 {"name":"kbookmarks5","version":"5.116.0-2","summary":"kbookmarks5 (Bookmarks management library)","series":"kde"}
-{"name":"kbounce","version":"26.08.1-1","summary":"kbounce (KDE Bounce Ball Game)","series":"kde"}
-{"name":"kbreakout","version":"26.08.1-1","summary":"kbreakout (breakout-like game for KDE)","series":"kde"}
-{"name":"kbruch","version":"26.08.1-1","summary":"kbruch (calculate fractions)","series":"kde"}
-{"name":"kcachegrind","version":"26.08.1-1","summary":"kcachegrind (GUI to profilers such as Valgrind)","series":"kde"}
-{"name":"kcalc","version":"26.08.1-1","summary":"kcalc (KDE calculator)","homepage":"https://utils.kde.org/projects/kcalc","series":"kde"}
-{"name":"kcalendarcore","version":"6.30.0-1","summary":"kcalendarcore (KDE calendar access library)","series":"kde"}
+{"name":"kbounce","version":"26.08.2-1","summary":"kbounce (KDE Bounce Ball Game)","series":"kde"}
+{"name":"kbreakout","version":"26.08.2-1","summary":"kbreakout (breakout-like game for KDE)","series":"kde"}
+{"name":"kbruch","version":"26.08.2-1","summary":"kbruch (calculate fractions)","series":"kde"}
+{"name":"kcachegrind","version":"26.08.2-1","summary":"kcachegrind (GUI to profilers such as Valgrind)","series":"kde"}
+{"name":"kcalc","version":"26.08.2-1","summary":"kcalc (KDE calculator)","homepage":"https://utils.kde.org/projects/kcalc","series":"kde"}
+{"name":"kcalendarcore","version":"6.31.0-1","summary":"kcalendarcore (KDE calendar access library)","series":"kde"}
 {"name":"kcalendarcore5","version":"5.116.0-2","summary":"kcalendarcore5 (KDE calendar access library)","series":"kde"}
-{"name":"kcalutils","version":"26.08.1-1","summary":"kcalutils (calendar data utilities)","series":"kde"}
-{"name":"kcharselect","version":"26.08.1-1","summary":"kcharselect (character picker)","homepage":"https://utils.kde.org/projects/kcharselect","series":"kde"}
-{"name":"kcmutils","version":"6.30.0-1","summary":"kcmutils (KDE System Settings utilities)","series":"kde"}
+{"name":"kcalutils","version":"26.08.2-1","summary":"kcalutils (calendar data utilities)","series":"kde"}
+{"name":"kcharselect","version":"26.08.2-1","summary":"kcharselect (character picker)","homepage":"https://utils.kde.org/projects/kcharselect","series":"kde"}
+{"name":"kcmutils","version":"6.31.0-1","summary":"kcmutils (KDE System Settings utilities)","series":"kde"}
 {"name":"kcmutils5","version":"5.116.0-2","summary":"kcmutils5 (KDE System Settings utilities)","series":"kde"}
-{"name":"kcodecs","version":"6.30.0-1","summary":"kcodecs (String encoding library)","series":"kde"}
+{"name":"kcodecs","version":"6.31.0-1","summary":"kcodecs (String encoding library)","series":"kde"}
 {"name":"kcodecs5","version":"5.116.0-2","summary":"kcodecs5 (String encoding library)","series":"kde"}
-{"name":"kcolorchooser","version":"26.08.1-1","summary":"kcolorchooser (color chooser)","series":"kde"}
-{"name":"kcolorscheme","version":"6.30.0-1","summary":"kcolorscheme (classes to read and interact with KColorScheme)","homepage":"https://invent.kde.org/frameworks/kcolorscheme","series":"kde"}
-{"name":"kcompletion","version":"6.30.0-1","summary":"kcompletion (Powerful completion framework)","series":"kde"}
+{"name":"kcolorchooser","version":"26.08.2-1","summary":"kcolorchooser (color chooser)","series":"kde"}
+{"name":"kcolorscheme","version":"6.31.0-1","summary":"kcolorscheme (classes to read and interact with KColorScheme)","homepage":"https://invent.kde.org/frameworks/kcolorscheme","series":"kde"}
+{"name":"kcompletion","version":"6.31.0-1","summary":"kcompletion (Powerful completion framework)","series":"kde"}
 {"name":"kcompletion5","version":"5.116.0-2","summary":"kcompletion5 (Powerful completion framework)","series":"kde"}
-{"name":"kconfig","version":"6.30.0-1","summary":"kconfig (Persistent application settings)","series":"kde"}
+{"name":"kconfig","version":"6.31.0-1","summary":"kconfig (Persistent application settings)","series":"kde"}
 {"name":"kconfig5","version":"5.116.0-2","summary":"kconfig5 (Persistent application settings)","series":"kde"}
-{"name":"kconfigwidgets","version":"6.30.0-1","summary":"kconfigwidgets (Widgets for configuration dialogs)","series":"kde"}
+{"name":"kconfigwidgets","version":"6.31.0-1","summary":"kconfigwidgets (Widgets for configuration dialogs)","series":"kde"}
 {"name":"kconfigwidgets5","version":"5.116.0-2","summary":"kconfigwidgets5 (Widgets for configuration dialogs)","series":"kde"}
-{"name":"kcontacts","version":"6.30.0-1","summary":"kcontacts (address book API for KDE)","series":"kde"}
+{"name":"kcontacts","version":"6.31.0-1","summary":"kcontacts (address book API for KDE)","series":"kde"}
 {"name":"kcontacts5","version":"5.116.0-2","summary":"kcontacts5 (address book API for KDE)","series":"kde"}
-{"name":"kcoreaddons","version":"6.30.0-1","summary":"kcoreaddons (QtCore addon library)","series":"kde"}
+{"name":"kcoreaddons","version":"6.31.0-1","summary":"kcoreaddons (QtCore addon library)","series":"kde"}
 {"name":"kcoreaddons5","version":"5.116.0-2","summary":"kcoreaddons5 (QtCore addon library)","series":"kde"}
-{"name":"kcrash","version":"6.30.0-1","summary":"kcrash (Crash handler)","series":"kde"}
+{"name":"kcrash","version":"6.31.0-1","summary":"kcrash (Crash handler)","series":"kde"}
 {"name":"kcrash5","version":"5.116.0-2","summary":"kcrash5 (Crash handler)","series":"kde"}
-{"name":"kcron","version":"26.08.1-1","summary":"kcron (task scheduler)","series":"kde"}
-{"name":"kdav","version":"6.30.0-1","summary":"kdav (KDE DAV protocol implementation)","series":"kde"}
+{"name":"kcron","version":"26.08.2-1","summary":"kcron (task scheduler)","series":"kde"}
+{"name":"kdav","version":"6.31.0-1","summary":"kdav (KDE DAV protocol implementation)","series":"kde"}
 {"name":"kdav5","version":"5.116.0-2","summary":"kdav5 (KDE DAV protocol implementation)","series":"kde"}
-{"name":"kdbusaddons","version":"6.30.0-1","summary":"kdbusaddons (Convenience classes for D-Bus)","series":"kde"}
+{"name":"kdbusaddons","version":"6.31.0-1","summary":"kdbusaddons (Convenience classes for D-Bus)","series":"kde"}
 {"name":"kdbusaddons5","version":"5.116.0-2","summary":"kdbusaddons5 (Convenience classes for D-Bus)","series":"kde"}
 {"name":"kddockwidgets","version":"2.4.1-2","summary":"kddockwidgets (KDAB's Dock Widget Framework for Qt)","homepage":"https://github.com/KDAB/kddockwidgets","series":"kde"}
 {"name":"kde-cli-tools","version":"6.7.5-1","summary":"kde-cli-tools (KDE command-line tools)","series":"kde"}
-{"name":"kde-dev-scripts","version":"26.08.1-1","summary":"kde-dev-scripts (scripts for development of KDE software)","series":"kde"}
-{"name":"kde-dev-utils","version":"26.08.1-1","summary":"kde-dev-utils (KDE development utilities)","series":"kde"}
+{"name":"kde-dev-scripts","version":"26.08.2-1","summary":"kde-dev-scripts (scripts for development of KDE software)","series":"kde"}
+{"name":"kde-dev-utils","version":"26.08.2-1","summary":"kde-dev-utils (KDE development utilities)","series":"kde"}
 {"name":"kde-gtk-config","version":"6.7.5-1","summary":"kde-gtk-config (configure GTK appearance)","homepage":"https://projects.kde.org/kde-gtk-config","series":"kde"}
-{"name":"kde-inotify-survey","version":"26.08.1-1","summary":"kde-inotify-survey (check inotify resources)","homepage":"https://invent.kde.org/sitter/kde-inotify-survey","series":"kde"}
-{"name":"kdebugsettings","version":"26.08.1-1","summary":"kdebugsettings (An application to enable/disable qCDebug)","series":"kde"}
-{"name":"kdeclarative","version":"6.30.0-1","summary":"kdeclarative (Integration of QML and KDE workspaces)","series":"kde"}
+{"name":"kde-inotify-survey","version":"26.08.2-1","summary":"kde-inotify-survey (check inotify resources)","homepage":"https://invent.kde.org/sitter/kde-inotify-survey","series":"kde"}
+{"name":"kdebugsettings","version":"26.08.2-1","summary":"kdebugsettings (An application to enable/disable qCDebug)","series":"kde"}
+{"name":"kdeclarative","version":"6.31.0-1","summary":"kdeclarative (Integration of QML and KDE workspaces)","series":"kde"}
 {"name":"kdeclarative5","version":"5.116.0-2","summary":"kdeclarative5 (Integration of QML and KDE workspaces)","series":"kde"}
 {"name":"kdeconnect-kde","version":"26.08.1-1","summary":"kdeconnect-kde (Integrate Android with the Plasma Desktop)","series":"kde"}
 {"name":"kdecoration","version":"6.7.5-1","summary":"kdecoration (library to create themes for kwin)","series":"kde"}
-{"name":"kded","version":"6.30.0-1","summary":"kded (Central daemon of KDE workspaces)","series":"kde"}
+{"name":"kded","version":"6.31.0-1","summary":"kded (Central daemon of KDE workspaces)","series":"kde"}
 {"name":"kded5","version":"5.116.0-2","summary":"kded5 (Central daemon of KDE workspaces)","series":"kde"}
-{"name":"kdeedu-data","version":"26.08.1-1","summary":"kdeedu-data (icons, artwork and data files for KDE edu)","series":"kde"}
-{"name":"kdegraphics-mobipocket","version":"26.08.1-1","summary":"kdegraphics-mobipocket (Mobipocket support for Okular)","series":"kde"}
-{"name":"kdegraphics-thumbnailers","version":"26.08.1-1","summary":"kdegraphics-thumbnailers (image thumbnailers)","series":"kde"}
-{"name":"kdenetwork-filesharing","version":"26.08.1-1","summary":"kdenetwork-filesharing (share a directory with the local network)","series":"kde"}
-{"name":"kdenlive","version":"26.08.1-1","summary":"kdenlive (non-linear video editor)","homepage":"https://www.kdenlive.org","series":"kde"}
-{"name":"kdepim-addons","version":"26.08.1-1","summary":"kdepim-addons (addons for KDE PIM applications)","series":"kde"}
-{"name":"kdepim-runtime","version":"26.08.1-1","summary":"kdepim-runtime (KDE Personal Information Management runtime)","series":"kde"}
+{"name":"kdeedu-data","version":"26.08.2-1","summary":"kdeedu-data (icons, artwork and data files for KDE edu)","series":"kde"}
+{"name":"kdegraphics-mobipocket","version":"26.08.2-1","summary":"kdegraphics-mobipocket (Mobipocket support for Okular)","series":"kde"}
+{"name":"kdegraphics-thumbnailers","version":"26.08.2-1","summary":"kdegraphics-thumbnailers (image thumbnailers)","series":"kde"}
+{"name":"kdenetwork-filesharing","version":"26.08.2-1","summary":"kdenetwork-filesharing (share a directory with the local network)","series":"kde"}
+{"name":"kdenlive","version":"26.08.2-1","summary":"kdenlive (non-linear video editor)","homepage":"https://www.kdenlive.org","series":"kde"}
+{"name":"kdepim-addons","version":"26.08.2-1","summary":"kdepim-addons (addons for KDE PIM applications)","series":"kde"}
+{"name":"kdepim-runtime","version":"26.08.2-1","summary":"kdepim-runtime (KDE Personal Information Management runtime)","series":"kde"}
 {"name":"kdeplasma-addons","version":"6.7.5-1","summary":"kdeplasma-addons (Plasma addons for KDE)","series":"kde"}
-{"name":"kdesdk-kio","version":"26.08.1-1","summary":"kdesdk-kio (KIO workers useful for software development)","series":"kde"}
-{"name":"kdesdk-thumbnailers","version":"26.08.1-1","summary":"kdesdk-thumbnailers (thumbnailers for KDE)","series":"kde"}
+{"name":"kdesdk-kio","version":"26.08.2-1","summary":"kdesdk-kio (KIO workers useful for software development)","series":"kde"}
+{"name":"kdesdk-thumbnailers","version":"26.08.2-1","summary":"kdesdk-thumbnailers (thumbnailers for KDE)","series":"kde"}
 {"name":"kdesignerplugin5","version":"5.116.0-2","summary":"kdesignerplugin5 (Integrate custom widgets with Qt Designer)","series":"kde"}
-{"name":"kdesu","version":"6.30.0-1","summary":"kdesu (run shell commands as root)","series":"kde"}
+{"name":"kdesu","version":"6.31.0-1","summary":"kdesu (run shell commands as root)","series":"kde"}
 {"name":"kdesu5","version":"5.116.0-2","summary":"kdesu5 (run shell commands as root)","series":"kde"}
-{"name":"kdev-php","version":"26.08.1-1","summary":"kdev-php (PHP language plugin for KDevelop)","series":"kde"}
-{"name":"kdev-python","version":"26.08.1-1","summary":"kdev-python (Python language plugin for KDevelop)","series":"kde"}
-{"name":"kdevelop","version":"26.08.1-2","summary":"kdevelop (development environment for KDE)","series":"kde"}
+{"name":"kdev-php","version":"26.08.2-1","summary":"kdev-php (PHP language plugin for KDevelop)","series":"kde"}
+{"name":"kdev-python","version":"26.08.2-1","summary":"kdev-python (Python language plugin for KDevelop)","series":"kde"}
+{"name":"kdevelop","version":"26.08.2-1","summary":"kdevelop (development environment for KDE)","series":"kde"}
 {"name":"kdevelop-pg-qt","version":"2.4.0-2","summary":"kdevelop-pg-qt (KDevelop Parser Generator)","series":"kde"}
-{"name":"kdf","version":"26.08.1-1","summary":"kdf (show available disk space)","homepage":"https://utils.kde.org/projects/kdf","series":"kde"}
+{"name":"kdf","version":"26.08.2-1","summary":"kdf (show available disk space)","homepage":"https://utils.kde.org/projects/kdf","series":"kde"}
 {"name":"kdiagram","version":"3.0.1-2","summary":"kdiagram (libraries for creating business diagrams)","homepage":"https://github.com/KDE/kdiagram","series":"kde"}
 {"name":"kdiagram5","version":"2.8.0-2","summary":"kdiagram5 (libraries for creating business diagrams)","homepage":"https://github.com/KDE/kdiagram","series":"kde"}
-{"name":"kdialog","version":"26.08.1-1","summary":"kdialog (shell dialog box utility)","series":"kde"}
-{"name":"kdiamond","version":"26.08.1-1","summary":"kdiamond (three-in-a-row game for KDE)","series":"kde"}
-{"name":"kdnssd","version":"6.30.0-1","summary":"kdnssd (network monitor for zeroconf)","series":"kde"}
+{"name":"kdialog","version":"26.08.2-1","summary":"kdialog (shell dialog box utility)","series":"kde"}
+{"name":"kdiamond","version":"26.08.2-1","summary":"kdiamond (three-in-a-row game for KDE)","series":"kde"}
+{"name":"kdnssd","version":"6.31.0-1","summary":"kdnssd (network monitor for zeroconf)","series":"kde"}
 {"name":"kdnssd5","version":"5.116.0-2","summary":"kdnssd5 (network monitor for zeroconf)","series":"kde"}
-{"name":"kdoctools","version":"6.30.0-1","summary":"kdoctools (Create documentation from DocBook)","series":"kde"}
+{"name":"kdoctools","version":"6.31.0-1","summary":"kdoctools (Create documentation from DocBook)","series":"kde"}
 {"name":"kdoctools5","version":"5.116.0-2","summary":"kdoctools5 (Create documentation from DocBook)","series":"kde"}
-{"name":"kdominate","version":"26.08.1-1","summary":"kdominate (tactical tile game)","series":"kde"}
+{"name":"kdominate","version":"26.08.2-1","summary":"kdominate (tactical tile game)","series":"kde"}
 {"name":"kdsingleapplication","version":"1.2.1-2","summary":"kdsingleapplication (helper class for KDAB apps)","homepage":"https://github.com/KDAB/KDSingleApplication","series":"kde"}
 {"name":"kdsoap","version":"2.3.0-2","summary":"kdsoap (Qt-based client/server SOAP component)","series":"l"}
 {"name":"kdsoap-ws-discovery-client","version":"0.4.0-2","summary":"kdsoap-ws-discovery-client (library for finding WS-Discovery devices)","homepage":"https://invent.kde.org/libraries/kdsoap-ws-discovery-client","series":"kde"}
 {"name":"kea","version":"3.2.1-1","summary":"kea (DHCPv4 and DHCPv6 servers)","homepage":"https://gitlab.isc.org/isc-projects/kea/","series":"n"}
-{"name":"keditbookmarks","version":"26.08.1-1","summary":"keditbookmarks (Bookmark organizer and editor)","series":"kde"}
-{"name":"keepsecret","version":"26.08.1-1","summary":"keepsecret (password manager GUI)","series":"kde"}
+{"name":"keditbookmarks","version":"26.08.2-1","summary":"keditbookmarks (Bookmark organizer and editor)","series":"kde"}
+{"name":"keepsecret","version":"26.08.2-1","summary":"keepsecret (password manager GUI)","series":"kde"}
 {"name":"kemoticons5","version":"5.116.0-2","summary":"kemoticons5 (Convert text emoticons to graphical emoticons)","series":"kde"}
 {"name":"kernel-firmware","version":"20261002_d947e4e-1","summary":"kernel-firmware (Firmware for the kernel)","series":"a"}
 {"name":"kernel-generic","version":"7.2.9-1","summary":"kernel-generic (general purpose Linux kernel/modules)","series":"a"}
 {"name":"kernel-headers","version":"7.2.9-1","summary":"kernel-headers (Linux kernel include files)","series":"d"}
 {"name":"kernel-source","version":"7.2.9-1","summary":"kernel-source (Linux kernel source)","series":"k"}
 {"name":"keybinder3","version":"3.0_0.3.2-4","summary":"keybinder3 (keyboard shortcut library for GTK+ v3)","homepage":"https://github.com/engla/keybinder","series":"l"}
-{"name":"keysmith","version":"26.08.1-1","summary":"keysmith (2FA token generator)","homepage":"https://invent.kde.org/bshah/keysmith","series":"kde"}
+{"name":"keysmith","version":"26.08.2-1","summary":"keysmith (2FA token generator)","homepage":"https://invent.kde.org/bshah/keysmith","series":"kde"}
 {"name":"keyutils","version":"1.6.3-4","summary":"keyutils (Kernel key management utilities)","homepage":"http://people.redhat.com/~dhowells/keyutils/","series":"l"}
-{"name":"kfilemetadata","version":"6.30.0-1","summary":"kfilemetadata (a library for extracting file metadata)","series":"kde"}
-{"name":"kfilemetadata5","version":"5.116.0-5","summary":"kfilemetadata5 (a library for extracting file metadata)","series":"kde"}
-{"name":"kfind","version":"26.08.1-1","summary":"kfind (find files and directories in KDE)","series":"kde"}
-{"name":"kfourinline","version":"26.08.1-1","summary":"kfourinline (four-in-a-row board game)","series":"kde"}
+{"name":"kfilemetadata","version":"6.31.0-1","summary":"kfilemetadata (a library for extracting file metadata)","series":"kde"}
+{"name":"kfilemetadata5","version":"5.116.0-6","summary":"kfilemetadata5 (a library for extracting file metadata)","series":"kde"}
+{"name":"kfind","version":"26.08.2-1","summary":"kfind (find files and directories in KDE)","series":"kde"}
+{"name":"kfourinline","version":"26.08.2-1","summary":"kfourinline (four-in-a-row board game)","series":"kde"}
 {"name":"kgamma","version":"6.7.5-1","summary":"kgamma (display gamma configuration)","series":"kde"}
-{"name":"kgeography","version":"26.08.1-1","summary":"kgeography (a geography learning tool)","homepage":"https://kgeography.berlios.de/","series":"kde"}
-{"name":"kget","version":"26.08.1-1","summary":"kget (download manager for KDE)","series":"kde"}
-{"name":"kglobalaccel","version":"6.30.0-1","summary":"kglobalaccel (Global desktop keyboard shortcuts)","series":"kde"}
+{"name":"kgeography","version":"26.08.2-1","summary":"kgeography (a geography learning tool)","homepage":"https://kgeography.berlios.de/","series":"kde"}
+{"name":"kget","version":"26.08.2-1","summary":"kget (download manager for KDE)","series":"kde"}
+{"name":"kglobalaccel","version":"6.31.0-1","summary":"kglobalaccel (Global desktop keyboard shortcuts)","series":"kde"}
 {"name":"kglobalaccel5","version":"5.116.0-2","summary":"kglobalaccel5 (Global desktop keyboard shortcuts)","series":"kde"}
 {"name":"kglobalacceld","version":"6.7.5-1","summary":"kglobalacceld (global keyboard shortcut daemon)","homepage":"https://invent.kde.org/plasma/kglobalacceld","series":"kde"}
-{"name":"kgoldrunner","version":"26.08.1-1","summary":"kgoldrunner (Hunt gold, dodge enemies and solve puzzles)","series":"kde"}
-{"name":"kgpg","version":"26.08.1-1","summary":"kgpg (KDE GUI for GnuPG)","homepage":"https://utils.kde.org/projects/kgpg","series":"kde"}
-{"name":"kgraphviewer","version":"26.08.1-1","summary":"kgraphviewer (graphviz DOT file viewer)","series":"kde"}
-{"name":"kguiaddons","version":"6.30.0-1","summary":"kguiaddons (KDE GUI Addons)","series":"kde"}
+{"name":"kgoldrunner","version":"26.08.2-1","summary":"kgoldrunner (Hunt gold, dodge enemies and solve puzzles)","series":"kde"}
+{"name":"kgpg","version":"26.08.2-1","summary":"kgpg (KDE GUI for GnuPG)","homepage":"https://utils.kde.org/projects/kgpg","series":"kde"}
+{"name":"kgraphviewer","version":"26.08.2-1","summary":"kgraphviewer (graphviz DOT file viewer)","series":"kde"}
+{"name":"kguiaddons","version":"6.31.0-1","summary":"kguiaddons (KDE GUI Addons)","series":"kde"}
 {"name":"kguiaddons5","version":"5.116.0-2","summary":"kguiaddons5 (KDE GUI Addons)","series":"kde"}
-{"name":"khangman","version":"26.08.1-1","summary":"khangman (hangman game)","series":"kde"}
-{"name":"khealthcertificate","version":"26.08.1-1","summary":"khealthcertificate (handling of emdical digital certificates)","homepage":"https://invent.kde.org/pim/khealthcertificate","series":"kde"}
-{"name":"khelpcenter","version":"26.08.1-1","summary":"khelpcenter (KDE help center)","series":"kde"}
-{"name":"kholidays","version":"6.30.0-1","summary":"kholidays (KDE library for regional holiday information)","series":"kde"}
+{"name":"khangman","version":"26.08.2-1","summary":"khangman (hangman game)","series":"kde"}
+{"name":"khealthcertificate","version":"26.08.2-1","summary":"khealthcertificate (handling of emdical digital certificates)","homepage":"https://invent.kde.org/pim/khealthcertificate","series":"kde"}
+{"name":"khelpcenter","version":"26.08.2-1","summary":"khelpcenter (KDE help center)","series":"kde"}
+{"name":"kholidays","version":"6.31.0-1","summary":"kholidays (KDE library for regional holiday information)","series":"kde"}
 {"name":"kholidays5","version":"5.116.0-2","summary":"kholidays5 (KDE library for regional holiday information)","series":"kde"}
 {"name":"khtml5","version":"5.116.0-2","summary":"khtml5 (HTML rendering engine)","series":"kde"}
-{"name":"ki18n","version":"6.30.0-1","summary":"ki18n (UI text internationalization)","series":"kde"}
+{"name":"ki18n","version":"6.31.0-1","summary":"ki18n (UI text internationalization)","series":"kde"}
 {"name":"ki18n5","version":"5.116.0-2","summary":"ki18n5 (UI text internationalization)","series":"kde"}
-{"name":"kiconthemes","version":"6.30.0-1","summary":"kiconthemes (Icon GUI utilities)","series":"kde"}
+{"name":"kiconthemes","version":"6.31.0-1","summary":"kiconthemes (Icon GUI utilities)","series":"kde"}
 {"name":"kiconthemes5","version":"5.116.0-2","summary":"kiconthemes5 (Icon GUI utilities)","series":"kde"}
-{"name":"kid3","version":"3.10.1-2","summary":"kid3 (audio tagger)","homepage":"https://kid3.kde.org/","series":"kde"}
-{"name":"kidentitymanagement","version":"26.08.1-1","summary":"kidentitymanagement (Manage PIM identity)","series":"kde"}
-{"name":"kidletime","version":"6.30.0-1","summary":"kidletime (report system/user idle time)","series":"kde"}
+{"name":"kid3","version":"3.10.2-1","summary":"kid3 (audio tagger)","homepage":"https://kid3.kde.org/","series":"kde"}
+{"name":"kidentitymanagement","version":"26.08.2-1","summary":"kidentitymanagement (Manage PIM identity)","series":"kde"}
+{"name":"kidletime","version":"6.31.0-1","summary":"kidletime (report system/user idle time)","series":"kde"}
 {"name":"kidletime5","version":"5.116.0-2","summary":"kidletime5 (report system/user idle time)","series":"kde"}
-{"name":"kig","version":"26.08.1-1","summary":"kig (interactive geometry game)","homepage":"https://edu.kde.org/kig/","series":"kde"}
-{"name":"kigo","version":"26.08.1-1","summary":"kigo (Go board game for KDE)","series":"kde"}
-{"name":"kile","version":"20260815_f0862331-2","summary":"kile (TeX/LaTeX frontend for Plasma)","homepage":"https://kile.sourceforge.io","series":"kde"}
-{"name":"killbots","version":"26.08.1-1","summary":"killbots (Robots-like game for KDE)","series":"kde"}
-{"name":"kimageformats","version":"6.30.0-2","summary":"kimageformats (QImage format plugins)","series":"kde"}
+{"name":"kig","version":"26.08.2-1","summary":"kig (interactive geometry game)","homepage":"https://edu.kde.org/kig/","series":"kde"}
+{"name":"kigo","version":"26.08.2-1","summary":"kigo (Go board game for KDE)","series":"kde"}
+{"name":"kile","version":"20260815_f0862331-3","summary":"kile (TeX/LaTeX frontend for Plasma)","homepage":"https://kile.sourceforge.io","series":"kde"}
+{"name":"killbots","version":"26.08.2-1","summary":"killbots (Robots-like game for KDE)","series":"kde"}
+{"name":"kimageformats","version":"6.31.0-1","summary":"kimageformats (QImage format plugins)","series":"kde"}
 {"name":"kimageformats5","version":"5.116.0-3","summary":"kimageformats5 (QImage format plugins)","series":"kde"}
-{"name":"kimagemapeditor","version":"26.08.1-1","summary":"kimagemapeditor (HTML image map editor)","series":"kde"}
-{"name":"kimap","version":"26.08.1-1","summary":"kimap (API for the handling of IMAP data)","series":"kde"}
+{"name":"kimagemapeditor","version":"26.08.2-1","summary":"kimagemapeditor (HTML image map editor)","series":"kde"}
+{"name":"kimap","version":"26.08.2-1","summary":"kimap (API for the handling of IMAP data)","series":"kde"}
 {"name":"kinfocenter","version":"6.7.5-1","summary":"kinfocenter (info about your computer)","series":"kde"}
 {"name":"kinit5","version":"5.116.0-2","summary":"kinit5 (startup helper library)","series":"kde"}
-{"name":"kio","version":"6.30.0-1","summary":"kio (network transparent file library)","series":"kde"}
-{"name":"kio-admin","version":"26.08.1-1","summary":"kio-admin (administrative file access KIO)","series":"kde"}
-{"name":"kio-extras","version":"26.08.1-3","summary":"kio-extras (Additional components for KIO)","series":"kde"}
-{"name":"kio-gdrive","version":"26.08.1-1","summary":"kio-gdrive (Google Drive KIO helper)","homepage":"https://community.kde.org/KIO_GDrive","series":"kde"}
+{"name":"kio","version":"6.31.0-1","summary":"kio (network transparent file library)","series":"kde"}
+{"name":"kio-admin","version":"26.08.2-1","summary":"kio-admin (administrative file access KIO)","series":"kde"}
+{"name":"kio-extras","version":"26.08.2-1","summary":"kio-extras (Additional components for KIO)","series":"kde"}
+{"name":"kio-gdrive","version":"26.08.2-1","summary":"kio-gdrive (Google Drive KIO helper)","homepage":"https://community.kde.org/KIO_GDrive","series":"kde"}
 {"name":"kio-snapshot","version":"1.0.0-2","summary":"kio-snapshot (Btrfs filesystem snapshots for KDE)","series":"kde"}
-{"name":"kio-zeroconf","version":"26.08.1-1","summary":"kio-zeroconf (network monitor for zeroconf)","series":"kde"}
+{"name":"kio-zeroconf","version":"26.08.2-1","summary":"kio-zeroconf (network monitor for zeroconf)","series":"kde"}
 {"name":"kio5","version":"5.116.0-2","summary":"kio5 (network transparent file library)","series":"kde"}
-{"name":"kirigami","version":"6.30.0-1","summary":"kirigami (interface components for QtQuick)","series":"kde"}
-{"name":"kirigami-addons","version":"1.14.2-1","summary":"kirigami-addons (Kirigami framework addons)","homepage":"https://invent.kde.org/libraries/kirigami-addons","series":"kde"}
-{"name":"kirigami-app-components","version":"1.0.2-2","summary":"kirigami-app-components (Kirigami Application Components)","homepage":"https://invent.kde.org/libraries/kirigami-app-components","series":"kde"}
-{"name":"kirigami-gallery","version":"26.08.1-1","summary":"kirigami-gallery (Gallery application built using Kirigami)","homepage":"https://www.kde.org/products/kirigami/","series":"kde"}
+{"name":"kirigami","version":"6.31.0-1","summary":"kirigami (interface components for QtQuick)","series":"kde"}
+{"name":"kirigami-addons","version":"1.15.0-1","summary":"kirigami-addons (Kirigami framework addons)","homepage":"https://invent.kde.org/libraries/kirigami-addons","series":"kde"}
+{"name":"kirigami-app-components","version":"1.1.1-1","summary":"kirigami-app-components (Kirigami Application Components)","homepage":"https://invent.kde.org/libraries/kirigami-app-components","series":"kde"}
+{"name":"kirigami-gallery","version":"26.08.2-1","summary":"kirigami-gallery (Gallery application built using Kirigami)","homepage":"https://www.kde.org/products/kirigami/","series":"kde"}
 {"name":"kirigami5","version":"5.116.0-2","summary":"kirigami5 (interface components for QtQuick)","series":"kde"}
-{"name":"kiriki","version":"26.08.1-1","summary":"kiriki (yahtzee-like dice game for KDE)","series":"kde"}
-{"name":"kitemmodels","version":"6.30.0-1","summary":"kitemmodels (Qt model-view extensions)","series":"kde"}
+{"name":"kiriki","version":"26.08.2-1","summary":"kiriki (yahtzee-like dice game for KDE)","series":"kde"}
+{"name":"kitemmodels","version":"6.31.0-1","summary":"kitemmodels (Qt model-view extensions)","series":"kde"}
 {"name":"kitemmodels5","version":"5.116.0-2","summary":"kitemmodels5 (Qt model-view extensions)","series":"kde"}
-{"name":"kitemviews","version":"6.30.0-1","summary":"kitemviews (Qt item-view extensions)","series":"kde"}
+{"name":"kitemviews","version":"6.31.0-1","summary":"kitemviews (Qt item-view extensions)","series":"kde"}
 {"name":"kitemviews5","version":"5.116.0-2","summary":"kitemviews5 (Qt item-view extensions)","series":"kde"}
-{"name":"kiten","version":"26.08.1-1","summary":"kiten (Japanese reference tool)","homepage":"https://www.kde.org/applications/education/kiten","series":"kde"}
-{"name":"kitinerary","version":"26.08.1-1","summary":"kitinerary (library for itinerary data)","homepage":"https://api.kde.org/kdepim/kitinerary/html/index.html","series":"kde"}
-{"name":"kjobwidgets","version":"6.30.0-1","summary":"kjobwidgets (job progress widgets)","series":"kde"}
+{"name":"kiten","version":"26.08.2-1","summary":"kiten (Japanese reference tool)","homepage":"https://www.kde.org/applications/education/kiten","series":"kde"}
+{"name":"kitinerary","version":"26.08.2-1","summary":"kitinerary (library for itinerary data)","homepage":"https://api.kde.org/kdepim/kitinerary/html/index.html","series":"kde"}
+{"name":"kjobwidgets","version":"6.31.0-1","summary":"kjobwidgets (job progress widgets)","series":"kde"}
 {"name":"kjobwidgets5","version":"5.116.0-2","summary":"kjobwidgets5 (job progress widgets)","series":"kde"}
 {"name":"kjs5","version":"5.116.0-2","summary":"kjs5 (Javascript engine)","series":"kde"}
 {"name":"kjsembed5","version":"5.116.0-2","summary":"kjsembed5 (Binding Javascript to QObjects)","series":"kde"}
-{"name":"kjumpingcube","version":"26.08.1-1","summary":"kjumpingcube (territory capture game)","series":"kde"}
-{"name":"kldap","version":"26.08.1-1","summary":"kldap (LDAP access API for KDE)","series":"kde"}
-{"name":"kleopatra","version":"26.08.1-1","summary":"kleopatra (KDE Crypto Certificate manager)","series":"kde"}
-{"name":"klettres","version":"26.08.1-1","summary":"klettres (language learning program)","homepage":"https://edu.kde.org/klettres","series":"kde"}
+{"name":"kjumpingcube","version":"26.08.2-1","summary":"kjumpingcube (territory capture game)","series":"kde"}
+{"name":"kldap","version":"26.08.2-1","summary":"kldap (LDAP access API for KDE)","series":"kde"}
+{"name":"kleopatra","version":"26.08.2-1","summary":"kleopatra (KDE Crypto Certificate manager)","series":"kde"}
+{"name":"klettres","version":"26.08.2-1","summary":"klettres (language learning program)","homepage":"https://edu.kde.org/klettres","series":"kde"}
 {"name":"klevernotes","version":"1.3.1-2","summary":"klevernotes (convergent markdown note-taking application)","series":"kde"}
-{"name":"klickety","version":"26.08.1-1","summary":"klickety (strategy game)","series":"kde"}
-{"name":"klines","version":"26.08.1-1","summary":"klines (tactical game for KDE)","series":"kde"}
-{"name":"kmag","version":"26.08.1-1","summary":"kmag (Screen magnifier)","homepage":"https://kde.org/applications/utilities/org.kde.kmag","series":"kde"}
-{"name":"kmahjongg","version":"26.08.1-1","summary":"kmahjongg (KDE port of Mahjongg game)","series":"kde"}
-{"name":"kmail","version":"26.08.1-1","summary":"kmail (KDE mail client)","homepage":"https://kde.org/applications/en/internet/org.kde.kmail2","series":"kde"}
-{"name":"kmail-account-wizard","version":"26.08.1-1","summary":"kmail-account-wizard (KMail account wizard)","series":"kde"}
-{"name":"kmailtransport","version":"26.08.1-1","summary":"kmailtransport (mail transport service)","series":"kde"}
-{"name":"kmbox","version":"26.08.1-1","summary":"kmbox (access mail storage in mbox format)","series":"kde"}
+{"name":"klickety","version":"26.08.2-1","summary":"klickety (strategy game)","series":"kde"}
+{"name":"klines","version":"26.08.2-1","summary":"klines (tactical game for KDE)","series":"kde"}
+{"name":"kmag","version":"26.08.2-1","summary":"kmag (Screen magnifier)","homepage":"https://kde.org/applications/utilities/org.kde.kmag","series":"kde"}
+{"name":"kmahjongg","version":"26.08.2-1","summary":"kmahjongg (KDE port of Mahjongg game)","series":"kde"}
+{"name":"kmail","version":"26.08.2-1","summary":"kmail (KDE mail client)","homepage":"https://kde.org/applications/en/internet/org.kde.kmail2","series":"kde"}
+{"name":"kmail-account-wizard","version":"26.08.2-1","summary":"kmail-account-wizard (KMail account wizard)","series":"kde"}
+{"name":"kmailtransport","version":"26.08.2-1","summary":"kmailtransport (mail transport service)","series":"kde"}
+{"name":"kmbox","version":"26.08.2-1","summary":"kmbox (access mail storage in mbox format)","series":"kde"}
 {"name":"kmediaplayer5","version":"5.116.0-2","summary":"kmediaplayer5 (Interface for media player KParts)","series":"kde"}
 {"name":"kmenuedit","version":"6.7.5-1","summary":"kmenuedit (XDG menu editor)","series":"kde"}
-{"name":"kmime","version":"6.30.0-1","summary":"kmime (API for the handling of MIME data)","series":"kde"}
-{"name":"kmines","version":"26.08.1-1","summary":"kmines (minesweeper clone for KDE)","series":"kde"}
-{"name":"kmix","version":"26.08.1-1","summary":"kmix (sound mixer)","series":"kde"}
+{"name":"kmime","version":"6.31.0-1","summary":"kmime (API for the handling of MIME data)","series":"kde"}
+{"name":"kmines","version":"26.08.2-1","summary":"kmines (minesweeper clone for KDE)","series":"kde"}
+{"name":"kmix","version":"26.08.2-1","summary":"kmix (sound mixer)","series":"kde"}
 {"name":"kmod","version":"34.2-2","summary":"kmod (kernel module tools and library)","homepage":"https://www.kernel.org/pub/linux/utils/kernel/kmod/","series":"a"}
 {"name":"kmoretools","version":"20241216_a9863d18-2","summary":"kmoretools (support for downloading application assets)","homepage":"https://invent.kde.org/libraries/kmoretools","series":"kde"}
-{"name":"kmousetool","version":"26.08.1-1","summary":"kmousetool (Automatic mouse clicks)","series":"kde"}
-{"name":"kmouth","version":"26.08.1-1","summary":"kmouth (Speech synthesis frontend)","series":"kde"}
-{"name":"kmplot","version":"26.08.1-1","summary":"kmplot (a mathematical function plotter)","series":"kde"}
+{"name":"kmousetool","version":"26.08.2-1","summary":"kmousetool (Automatic mouse clicks)","series":"kde"}
+{"name":"kmouth","version":"26.08.2-1","summary":"kmouth (Speech synthesis frontend)","series":"kde"}
+{"name":"kmplot","version":"26.08.2-1","summary":"kmplot (a mathematical function plotter)","series":"kde"}
 {"name":"kmymoney","version":"5.2.2-3","summary":"kmymoney (personal finance manager)","homepage":"https://kmymoney.org/","series":"kde"}
-{"name":"knavalbattle","version":"26.08.1-1","summary":"knavalbattle (KDE version of battleship game)","series":"kde"}
-{"name":"knetwalk","version":"26.08.1-1","summary":"knetwalk (single player logic game)","series":"kde"}
-{"name":"knewstuff","version":"6.30.0-1","summary":"knewstuff (data sharing framework)","series":"kde"}
+{"name":"knavalbattle","version":"26.08.2-1","summary":"knavalbattle (KDE version of battleship game)","series":"kde"}
+{"name":"knetwalk","version":"26.08.2-1","summary":"knetwalk (single player logic game)","series":"kde"}
+{"name":"knewstuff","version":"6.31.0-1","summary":"knewstuff (data sharing framework)","series":"kde"}
 {"name":"knewstuff5","version":"5.116.0-2","summary":"knewstuff5 (data sharing framework)","series":"kde"}
-{"name":"knights","version":"26.08.1-1","summary":"knights (Chess board with XBoard protocol support)","homepage":"https://www.kde.org/applications/games/knights/","series":"kde"}
+{"name":"knights","version":"26.08.2-1","summary":"knights (Chess board with XBoard protocol support)","homepage":"https://www.kde.org/applications/games/knights/","series":"kde"}
 {"name":"knighttime","version":"6.7.5-1","summary":"knighttime (helpers for scheduling the dark-light cycle)","series":"kde"}
-{"name":"knotifications","version":"6.30.0-1","summary":"knotifications (Desktop notifications)","series":"kde"}
+{"name":"knotifications","version":"6.31.0-1","summary":"knotifications (Desktop notifications)","series":"kde"}
 {"name":"knotifications5","version":"5.116.0-2","summary":"knotifications5 (Desktop notifications)","series":"kde"}
-{"name":"knotifyconfig","version":"6.30.0-1","summary":"knotifyconfig (configure notifications)","series":"kde"}
+{"name":"knotifyconfig","version":"6.31.0-1","summary":"knotifyconfig (configure notifications)","series":"kde"}
 {"name":"knotifyconfig5","version":"5.116.0-2","summary":"knotifyconfig5 (configure notifications)","series":"kde"}
-{"name":"koko","version":"26.08.1-1","summary":"koko (image gallery application)","series":"kde"}
-{"name":"kolf","version":"26.08.1-1","summary":"kolf (miniature golf game for KDE)","series":"kde"}
-{"name":"kollision","version":"26.08.1-1","summary":"kollision (simple ball dodging game)","series":"kde"}
-{"name":"kolourpaint","version":"26.08.1-1","summary":"kolourpaint (easy to use paint program)","series":"kde"}
-{"name":"kompare","version":"26.08.1-1","summary":"kompare (graphical diff utility)","series":"kde"}
-{"name":"konqueror","version":"26.08.1-1","summary":"konqueror (web browser and file manager)","homepage":"https://kde.org/applications/internet/org.kde.konqueror","series":"kde"}
-{"name":"konquest","version":"26.08.1-1","summary":"konquest (KDE version of Gnu-Lactic Konquest)","series":"kde"}
-{"name":"konsole","version":"26.08.1-1","summary":"konsole (KDE's terminal emulator)","homepage":"https://konsole.kde.org","series":"kde"}
-{"name":"kontact","version":"26.08.1-1","summary":"kontact (KDE Personal Information Manager)","series":"kde"}
-{"name":"kontactinterface","version":"26.08.1-1","summary":"kontactinterface (kontact plugin interface library)","series":"kde"}
-{"name":"kontrast","version":"26.08.1-1","summary":"kontrast (color contrast checker)","homepage":"https://kde.org/applications/en/kontrast","series":"kde"}
-{"name":"konversation","version":"26.08.1-1","summary":"konversation (Internet Relay Chat client)","homepage":"https://konversation.kde.org","series":"kde"}
-{"name":"kopeninghours","version":"26.08.1-1","summary":"kopeninghours (OSM opening hours expressions library)","homepage":"https://github.com/KDE/kopeninghours","series":"kde"}
-{"name":"korganizer","version":"26.08.1-1","summary":"korganizer (calendar and scheduling program)","series":"kde"}
-{"name":"kosmindoormap","version":"26.08.1-1","summary":"kosmindoormap (library for rendering OSM indoor maps)","homepage":"https://commits.kde.org/kosmindoormap","series":"kde"}
-{"name":"kpackage","version":"6.30.0-1","summary":"kpackage (KDE application package manager)","series":"kde"}
+{"name":"koko","version":"26.08.2-1","summary":"koko (image gallery application)","series":"kde"}
+{"name":"kolf","version":"26.08.2-1","summary":"kolf (miniature golf game for KDE)","series":"kde"}
+{"name":"kollision","version":"26.08.2-1","summary":"kollision (simple ball dodging game)","series":"kde"}
+{"name":"kolourpaint","version":"26.08.2-1","summary":"kolourpaint (easy to use paint program)","series":"kde"}
+{"name":"kompare","version":"26.08.2-1","summary":"kompare (graphical diff utility)","series":"kde"}
+{"name":"konqueror","version":"26.08.2-1","summary":"konqueror (web browser and file manager)","homepage":"https://kde.org/applications/internet/org.kde.konqueror","series":"kde"}
+{"name":"konquest","version":"26.08.2-1","summary":"konquest (KDE version of Gnu-Lactic Konquest)","series":"kde"}
+{"name":"konsole","version":"26.08.2-1","summary":"konsole (KDE's terminal emulator)","homepage":"https://konsole.kde.org","series":"kde"}
+{"name":"kontact","version":"26.08.2-1","summary":"kontact (KDE Personal Information Manager)","series":"kde"}
+{"name":"kontactinterface","version":"26.08.2-1","summary":"kontactinterface (kontact plugin interface library)","series":"kde"}
+{"name":"kontrast","version":"26.08.2-1","summary":"kontrast (color contrast checker)","homepage":"https://kde.org/applications/en/kontrast","series":"kde"}
+{"name":"konversation","version":"26.08.2-1","summary":"konversation (Internet Relay Chat client)","homepage":"https://konversation.kde.org","series":"kde"}
+{"name":"kopeninghours","version":"26.08.2-1","summary":"kopeninghours (OSM opening hours expressions library)","homepage":"https://github.com/KDE/kopeninghours","series":"kde"}
+{"name":"korganizer","version":"26.08.2-1","summary":"korganizer (calendar and scheduling program)","series":"kde"}
+{"name":"kosmindoormap","version":"26.08.2-1","summary":"kosmindoormap (library for rendering OSM indoor maps)","homepage":"https://commits.kde.org/kosmindoormap","series":"kde"}
+{"name":"kpackage","version":"6.31.0-1","summary":"kpackage (KDE application package manager)","series":"kde"}
 {"name":"kpackage5","version":"5.116.0-2","summary":"kpackage5 (KDE application package manager)","series":"kde"}
-{"name":"kparts","version":"6.30.0-1","summary":"kparts (UI framework)","series":"kde"}
+{"name":"kparts","version":"6.31.0-1","summary":"kparts (UI framework)","series":"kde"}
 {"name":"kparts5","version":"5.116.0-2","summary":"kparts5 (UI framework)","series":"kde"}
-{"name":"kpat","version":"26.08.1-1","summary":"kpat (patience card game for KDE)","series":"kde"}
-{"name":"kpeople","version":"6.30.0-1","summary":"kpeople (library providing access to your contacts)","series":"kde"}
+{"name":"kpat","version":"26.08.2-1","summary":"kpat (patience card game for KDE)","series":"kde"}
+{"name":"kpeople","version":"6.31.0-1","summary":"kpeople (library providing access to your contacts)","series":"kde"}
 {"name":"kpeople5","version":"5.116.0-2","summary":"kpeople5 (library providing access to your contacts)","series":"kde"}
 {"name":"kpeoplevcard","version":"20241202_d4acaa3-2","summary":"kpeoplevcard (library to expose vcards to kpeople)","series":"kde"}
-{"name":"kpimtextedit","version":"26.08.1-1","summary":"kpimtextedit (textedit with PIM-specific features)","series":"kde"}
+{"name":"kpimtextedit","version":"26.08.2-1","summary":"kpimtextedit (textedit with PIM-specific features)","series":"kde"}
 {"name":"kpipewire","version":"6.7.5-1","summary":"kpipewire (Qt classes for PipeWire)","series":"kde"}
-{"name":"kpkpass","version":"26.08.1-1","summary":"kpkpass (Apple Wallet Pass reader)","series":"kde"}
-{"name":"kplotting","version":"6.30.0-1","summary":"kplotting (Data plotting)","series":"kde"}
+{"name":"kpkpass","version":"26.08.2-1","summary":"kpkpass (Apple Wallet Pass reader)","series":"kde"}
+{"name":"kplotting","version":"6.31.0-1","summary":"kplotting (Data plotting)","series":"kde"}
 {"name":"kplotting5","version":"5.116.0-2","summary":"kplotting5 (Data plotting)","series":"kde"}
-{"name":"kpmcore","version":"26.08.1-1","summary":"kpmcore (KDE partitionmanager libraries)","homepage":"https://www.kde.org/applications/system/kdepartitionmanager","series":"kde"}
-{"name":"kpty","version":"6.30.0-1","summary":"kpty (pseudo terminal library)","series":"kde"}
+{"name":"kpmcore","version":"26.08.2-1","summary":"kpmcore (KDE partitionmanager libraries)","homepage":"https://www.kde.org/applications/system/kdepartitionmanager","series":"kde"}
+{"name":"kpty","version":"6.31.0-1","summary":"kpty (pseudo terminal library)","series":"kde"}
 {"name":"kpty5","version":"5.116.0-2","summary":"kpty5 (pseudo terminal library)","series":"kde"}
-{"name":"kpublictransport","version":"26.08.1-1","summary":"kpublictransport (library for accessing public transport data)","series":"kde"}
-{"name":"kqtquickcharts","version":"26.08.1-1","summary":"kqtquickcharts (chart rendering plugin)","series":"kde"}
-{"name":"kquickcharts","version":"6.30.0-1","summary":"kquickcharts (QtQuick chart module)","homepage":"https://api.kde.org/frameworks/kquickcharts/html/index.html","series":"kde"}
+{"name":"kpublictransport","version":"26.08.2-1","summary":"kpublictransport (library for accessing public transport data)","series":"kde"}
+{"name":"kqtquickcharts","version":"26.08.2-1","summary":"kqtquickcharts (chart rendering plugin)","series":"kde"}
+{"name":"kquickcharts","version":"6.31.0-1","summary":"kquickcharts (QtQuick chart module)","homepage":"https://api.kde.org/frameworks/kquickcharts/html/index.html","series":"kde"}
 {"name":"kquickcharts5","version":"5.116.0-2","summary":"kquickcharts5 (QtQuick chart module)","homepage":"https://api.kde.org/frameworks/kquickcharts5/html/index.html","series":"kde"}
 {"name":"kquickimageeditor","version":"0.7.0.1-1","summary":"kquickimageeditor (QtQuick components for image editing)","series":"kde"}
 {"name":"krb5","version":"1.22.2-4","summary":"krb5 (Network authentication protocol)","homepage":"http://web.mit.edu/kerberos/","series":"n"}
-{"name":"krdc","version":"26.08.1-1","summary":"krdc (remote desktop client for KDE)","homepage":"https://www.kde.org/applications/internet/krdc/","series":"kde"}
+{"name":"krdc","version":"26.08.2-1","summary":"krdc (remote desktop client for KDE)","homepage":"https://www.kde.org/applications/internet/krdc/","series":"kde"}
 {"name":"krdp","version":"6.7.5-1","summary":"krdp (KDE's RDP server library)","series":"kde"}
 {"name":"krename","version":"20260505_d549b19-2","summary":"krename (batch file rename tool)","homepage":"https://www.krename.net/","series":"kde"}
-{"name":"kreversi","version":"26.08.1-1","summary":"kreversi (reversi board game for KDE)","series":"kde"}
-{"name":"krfb","version":"26.08.1-1","summary":"krfb (desktop sharing)","homepage":"https://www.kde.org/applications/system/krfb/","series":"kde"}
-{"name":"krita","version":"6.0.4-3","summary":"krita (painting program)","homepage":"https://www.krita.org/","series":"kde"}
+{"name":"kreversi","version":"26.08.2-1","summary":"kreversi (reversi board game for KDE)","series":"kde"}
+{"name":"krfb","version":"26.08.2-1","summary":"krfb (desktop sharing)","homepage":"https://www.kde.org/applications/system/krfb/","series":"kde"}
+{"name":"krita","version":"6.0.4.1-1","summary":"krita (painting program)","homepage":"https://www.krita.org/","series":"kde"}
 {"name":"kross5","version":"5.116.0-2","summary":"kross5 (script embedding)","series":"kde"}
-{"name":"kruler","version":"26.08.1-1","summary":"kruler (a screen ruler for KDE)","series":"kde"}
-{"name":"krunner","version":"6.30.0-1","summary":"krunner (KDE plasma launcher)","series":"kde"}
+{"name":"kruler","version":"26.08.2-1","summary":"kruler (a screen ruler for KDE)","series":"kde"}
+{"name":"krunner","version":"6.31.0-1","summary":"krunner (KDE plasma launcher)","series":"kde"}
 {"name":"krunner5","version":"5.116.0-2","summary":"krunner5 (KDE plasma launcher)","series":"kde"}
 {"name":"krusader","version":"2.9.0-2","summary":"krusader (twin panel file manager)","homepage":"https://krusader.org","series":"kde"}
-{"name":"ksanecore","version":"26.08.1-1","summary":"ksanecore (Qt scanner interface library)","series":"kde"}
+{"name":"ksanecore","version":"26.08.2-1","summary":"ksanecore (Qt scanner interface library)","series":"kde"}
 {"name":"kscreen","version":"6.7.5-1","summary":"kscreen (KDE screen management)","homepage":"https://community.kde.org/Solid/Projects/ScreenManagement","series":"kde"}
 {"name":"kscreenlocker","version":"6.7.5-1","summary":"kscreenlocker (secure lock screen architecture)","homepage":"https://projects.kde.org/kscreenlocker","series":"kde"}
 {"name":"kseexpr","version":"6.0.0.0-2","summary":"kseexpr (embeddable expression evaluation engine)","homepage":"https://www.kde.org/","series":"kde"}
-{"name":"kservice","version":"6.30.0-2","summary":"kservice (desktop services plugin framework)","series":"kde"}
+{"name":"kservice","version":"6.31.0-1","summary":"kservice (desktop services plugin framework)","series":"kde"}
 {"name":"kservice5","version":"5.116.0-2","summary":"kservice5 (desktop services plugin framework)","series":"kde"}
 {"name":"ksh93","version":"1.0.10-2","summary":"ksh93 (KornShell 93u+m)","series":"ap"}
-{"name":"kshisen","version":"26.08.1-1","summary":"kshisen (Shisen-Sho Mahjongg-like tile game)","series":"kde"}
-{"name":"ksirk","version":"26.08.1-1","summary":"ksirk (conquer the world board game)","series":"kde"}
-{"name":"ksmtp","version":"26.08.1-1","summary":"ksmtp (SMTP library)","series":"kde"}
-{"name":"ksnakeduel","version":"26.08.1-1","summary":"ksnakeduel (simple snake duel game)","series":"kde"}
-{"name":"kspaceduel","version":"26.08.1-1","summary":"kspaceduel (space arcade game)","series":"kde"}
-{"name":"ksquares","version":"26.08.1-1","summary":"ksquares (connect the dots to create squares)","series":"kde"}
+{"name":"kshisen","version":"26.08.2-1","summary":"kshisen (Shisen-Sho Mahjongg-like tile game)","series":"kde"}
+{"name":"ksirk","version":"26.08.2-1","summary":"ksirk (conquer the world board game)","series":"kde"}
+{"name":"ksmtp","version":"26.08.2-1","summary":"ksmtp (SMTP library)","series":"kde"}
+{"name":"ksnakeduel","version":"26.08.2-1","summary":"ksnakeduel (simple snake duel game)","series":"kde"}
+{"name":"kspaceduel","version":"26.08.2-1","summary":"kspaceduel (space arcade game)","series":"kde"}
+{"name":"ksquares","version":"26.08.2-1","summary":"ksquares (connect the dots to create squares)","series":"kde"}
 {"name":"ksshaskpass","version":"6.7.5-1","summary":"ksshaskpass (GUI for entering ssh key passwords)","series":"kde"}
 {"name":"kstars","version":"3.8.5-1","summary":"kstars (a desktop planetarium)","homepage":"https://edu.kde.org/kstars","series":"kde"}
-{"name":"kstatusnotifieritem","version":"6.30.0-1","summary":"kstatusnotifieritem (implementation of Status Notifier Items)","series":"kde"}
-{"name":"ksudoku","version":"26.08.1-1","summary":"ksudoku (sudoku game)","series":"kde"}
-{"name":"ksvg","version":"6.30.0-1","summary":"ksvg (components for handling SVGs)","series":"kde"}
-{"name":"ksystemlog","version":"26.08.1-1","summary":"ksystemlog (system log viewer)","homepage":"https://www.kde.org/applications/system/ksystemlog/","series":"kde"}
+{"name":"kstatusnotifieritem","version":"6.31.0-1","summary":"kstatusnotifieritem (implementation of Status Notifier Items)","series":"kde"}
+{"name":"ksudoku","version":"26.08.2-1","summary":"ksudoku (sudoku game)","series":"kde"}
+{"name":"ksvg","version":"6.31.0-1","summary":"ksvg (components for handling SVGs)","series":"kde"}
+{"name":"ksystemlog","version":"26.08.2-1","summary":"ksystemlog (system log viewer)","homepage":"https://www.kde.org/applications/system/ksystemlog/","series":"kde"}
 {"name":"ksystemstats","version":"6.7.5-1","summary":"ksystemstats (daemon to collect system statistics)","series":"kde"}
-{"name":"kteatime","version":"26.08.1-1","summary":"kteatime (tea cooker)","homepage":"https://www.kde.org/applications/games/kteatime/","series":"kde"}
-{"name":"ktextaddons","version":"2.1.2-2","summary":"ktextaddons (text handling addons)","series":"kde"}
-{"name":"ktexteditor","version":"6.30.0-1","summary":"ktexteditor (text editor component)","series":"kde"}
+{"name":"kteatime","version":"26.08.2-1","summary":"kteatime (tea cooker)","homepage":"https://www.kde.org/applications/games/kteatime/","series":"kde"}
+{"name":"ktextaddons","version":"2.2.0-1","summary":"ktextaddons (text handling addons)","series":"kde"}
+{"name":"ktexteditor","version":"6.31.0-1","summary":"ktexteditor (text editor component)","series":"kde"}
 {"name":"ktexteditor5","version":"5.116.0-2","summary":"ktexteditor5 (text editor component)","series":"kde"}
-{"name":"ktexttemplate","version":"6.30.0-1","summary":"ktexttemplate (separate document structure from data)","homepage":"https://invent.kde.org/frameworks/ktexttemplate","series":"kde"}
-{"name":"ktextwidgets","version":"6.30.0-1","summary":"ktextwidgets (text editing widgets)","series":"kde"}
+{"name":"ktexttemplate","version":"6.31.0-1","summary":"ktexttemplate (separate document structure from data)","homepage":"https://invent.kde.org/frameworks/ktexttemplate","series":"kde"}
+{"name":"ktextwidgets","version":"6.31.0-1","summary":"ktextwidgets (text editing widgets)","series":"kde"}
 {"name":"ktextwidgets5","version":"5.116.0-2","summary":"ktextwidgets5 (text editing widgets)","series":"kde"}
-{"name":"ktimer","version":"26.08.1-1","summary":"ktimer (program scheduler)","homepage":"https://utils.kde.org/projects/ktimer","series":"kde"}
+{"name":"ktimer","version":"26.08.2-1","summary":"ktimer (program scheduler)","homepage":"https://utils.kde.org/projects/ktimer","series":"kde"}
 {"name":"ktimetracker","version":"6.0.0-2","summary":"ktimetracker (personal time tracker)","series":"kde"}
-{"name":"ktnef","version":"26.08.1-1","summary":"ktnef (API for the handling of TNEF data)","series":"kde"}
-{"name":"ktorrent","version":"26.08.1-1","summary":"ktorrent (KDE BitTorrent program)","homepage":"https://kde.org/applications/en/internet/org.kde.ktorrent","series":"kde"}
-{"name":"ktouch","version":"26.08.1-1","summary":"ktouch (touch typing tutor)","homepage":"https://kde.org/applications/en/education/org.kde.ktouch","series":"kde"}
-{"name":"ktuberling","version":"26.08.1-1","summary":"ktuberling (picture game for children)","series":"kde"}
-{"name":"kturtle","version":"26.08.1-1","summary":"kturtle (Logo-like programming environment)","homepage":"https://kde.org/applications/en/education/org.kde.kturtle","series":"kde"}
-{"name":"kubrick","version":"26.08.1-1","summary":"kubrick (3-D game based on Rubik's Cube)","series":"kde"}
-{"name":"kunifiedpush","version":"26.08.1-1","summary":"kunifiedpush (UnifiedPush client components)","series":"kde"}
-{"name":"kunitconversion","version":"6.30.0-1","summary":"kunitconversion (convert physical units)","series":"kde"}
+{"name":"ktnef","version":"26.08.2-1","summary":"ktnef (API for the handling of TNEF data)","series":"kde"}
+{"name":"ktorrent","version":"26.08.2-1","summary":"ktorrent (KDE BitTorrent program)","homepage":"https://kde.org/applications/en/internet/org.kde.ktorrent","series":"kde"}
+{"name":"ktouch","version":"26.08.2-1","summary":"ktouch (touch typing tutor)","homepage":"https://kde.org/applications/en/education/org.kde.ktouch","series":"kde"}
+{"name":"ktuberling","version":"26.08.2-1","summary":"ktuberling (picture game for children)","series":"kde"}
+{"name":"kturtle","version":"26.08.2-1","summary":"kturtle (Logo-like programming environment)","homepage":"https://kde.org/applications/en/education/org.kde.kturtle","series":"kde"}
+{"name":"kubrick","version":"26.08.2-1","summary":"kubrick (3-D game based on Rubik's Cube)","series":"kde"}
+{"name":"kunifiedpush","version":"26.08.2-1","summary":"kunifiedpush (UnifiedPush client components)","series":"kde"}
+{"name":"kunitconversion","version":"6.31.0-1","summary":"kunitconversion (convert physical units)","series":"kde"}
 {"name":"kunitconversion5","version":"5.116.0-2","summary":"kunitconversion5 (convert physical units)","series":"kde"}
-{"name":"kwallet","version":"6.30.0-1","summary":"kwallet (KDE wallet manager)","homepage":"https://projects.kde.org/projects/kde/kdeutils","series":"kde"}
+{"name":"kwallet","version":"6.31.0-1","summary":"kwallet (KDE wallet manager)","homepage":"https://projects.kde.org/projects/kde/kdeutils","series":"kde"}
 {"name":"kwallet-pam","version":"6.7.5-2","summary":"kwallet-pam (KWallet PAM integration)","series":"kde"}
 {"name":"kwallet5","version":"5.116.0-2","summary":"kwallet5 (KDE wallet manager)","homepage":"https://projects.kde.org/projects/kde/kdeutils","series":"kde"}
-{"name":"kwalletmanager","version":"26.08.1-1","summary":"kwalletmanager (KDE wallet manager)","homepage":"https://projects.kde.org/projects/kde/kdeutils","series":"kde"}
-{"name":"kwave","version":"26.08.1-1","summary":"kwave (A sound editor for KDE)","homepage":"https://kwave.sourceforge.net","series":"kde"}
+{"name":"kwalletmanager","version":"26.08.2-1","summary":"kwalletmanager (KDE wallet manager)","homepage":"https://projects.kde.org/projects/kde/kdeutils","series":"kde"}
+{"name":"kwave","version":"26.08.2-1","summary":"kwave (A sound editor for KDE)","homepage":"https://kwave.sourceforge.net","series":"kde"}
 {"name":"kwayland","version":"6.7.5-1","summary":"kwayland (wayland wrapper library for KDE)","series":"kde"}
 {"name":"kwayland-integration","version":"6.7.5-1","summary":"kwayland-integration (wayland integration plugins for KDE Frameworks)","series":"kde"}
 {"name":"kwayland5","version":"5.116.0-2","summary":"kwayland5 (wayland wrapper library for KDE)","series":"kde"}
-{"name":"kweathercore","version":"26.08.1-1","summary":"kweathercore (library for retrieval of weather information)","series":"kde"}
-{"name":"kwidgetsaddons","version":"6.30.0-1","summary":"kwidgetsaddons (desktop widgets)","series":"kde"}
+{"name":"kweathercore","version":"26.08.2-1","summary":"kweathercore (library for retrieval of weather information)","series":"kde"}
+{"name":"kwidgetsaddons","version":"6.31.0-1","summary":"kwidgetsaddons (desktop widgets)","series":"kde"}
 {"name":"kwidgetsaddons5","version":"5.116.0-2","summary":"kwidgetsaddons5 (desktop widgets)","series":"kde"}
 {"name":"kwin","version":"6.7.5-1","summary":"kwin (KDE Plasma Wayland Compositor)","series":"kde"}
 {"name":"kwin-x11","version":"6.7.5-1","summary":"kwin-x11 (KDE Plasma window manager for X11)","series":"kde"}
-{"name":"kwindowsystem","version":"6.30.0-1","summary":"kwindowsystem (windowing system access)","series":"kde"}
+{"name":"kwindowsystem","version":"6.31.0-1","summary":"kwindowsystem (windowing system access)","series":"kde"}
 {"name":"kwindowsystem5","version":"5.116.0-2","summary":"kwindowsystem5 (windowing system access)","series":"kde"}
-{"name":"kwordquiz","version":"26.08.1-1","summary":"kwordquiz (flash card program)","series":"kde"}
+{"name":"kwordquiz","version":"26.08.2-1","summary":"kwordquiz (flash card program)","series":"kde"}
 {"name":"kwrited","version":"6.7.5-1","summary":"kwrited (write daemon)","series":"kde"}
-{"name":"kxmlgui","version":"6.30.0-1","summary":"kxmlgui (menu and toolbar framework)","series":"kde"}
+{"name":"kxmlgui","version":"6.31.0-1","summary":"kxmlgui (menu and toolbar framework)","series":"kde"}
 {"name":"kxmlgui5","version":"5.116.0-2","summary":"kxmlgui5 (menu and toolbar framework)","series":"kde"}
 {"name":"kxmlrpcclient5","version":"5.116.0-2","summary":"kxmlrpcclient5 (library providing API to access XML RPC)","series":"kde"}
 {"name":"labplot","version":"2.12.1-2","summary":"labplot (plot scientific data)","homepage":"https://labplot.kde.org/","series":"kde"}
@@ -935,7 +935,7 @@
 {"name":"libcdio-paranoia","version":"10.2+2.0.2-3","summary":"libcdio-paranoia (CD paranoia libraries from libcdio)","series":"l"}
 {"name":"libcec","version":"8.1.7-1","summary":"libcec (library for the Pulse-Eight USB-HDMI CEC adapter)","homepage":"http://libcec.pulse-eight.com/","series":"l"}
 {"name":"libcgroup","version":"3.2.0-4","summary":"libcgroup (library and utilities for kernel control groups)","homepage":"https://github.com/libcgroup/libcgroup","series":"a"}
-{"name":"libclc","version":"23.1.2-1","summary":"libclc (OpenCL 1.1 libraries)","homepage":"https://libclc.llvm.org/","series":"l"}
+{"name":"libclc","version":"23.1.3-1","summary":"libclc (OpenCL 1.1 libraries)","homepage":"https://libclc.llvm.org/","series":"l"}
 {"name":"libcue","version":"2.3.0-2","summary":"libcue (CUE sheet parser library)","homepage":"https://github.com/lipnitsk/libcue","series":"l"}
 {"name":"libcupsfilters","version":"2.1.1-4","summary":"libcupsfilters (printer filter library)","homepage":"https://www.openprinting.org","series":"l"}
 {"name":"libdaemon","version":"0.14-2","summary":"libdaemon (UNIX daemon library)","homepage":"http://0pointer.de/lennart/projects/libdaemon/","series":"l"}
@@ -955,7 +955,7 @@
 {"name":"libepoxy","version":"1.5.10-2","summary":"libepoxy (OpenGL function pointer management library)","homepage":"https://github.com/anholt/libepoxy","series":"x"}
 {"name":"liberation-fonts-ttf","version":"2.1.5-3","summary":"liberation-fonts-ttf (Liberation TTF Fonts)","series":"x"}
 {"name":"libev","version":"4.33-2","summary":"libev (a high-performance event loop/model)","homepage":"http://software.schmorp.de/pkg/libev.html","series":"l"}
-{"name":"libevdev","version":"1.13.7-2","summary":"libevdev (wrapper library for evdev devices)","homepage":"https://www.freedesktop.org/wiki/Software/libevdev/","series":"x"}
+{"name":"libevdev","version":"1.14.0-1","summary":"libevdev (wrapper library for evdev devices)","homepage":"https://www.freedesktop.org/wiki/Software/libevdev/","series":"x"}
 {"name":"libevent","version":"2.1.13-2","summary":"libevent (event loop library)","homepage":"https://libevent.org","series":"l"}
 {"name":"libexif","version":"0.6.26-2","summary":"libexif (Exchangeable Image File Format library)","homepage":"https://libexif.github.io","series":"l"}
 {"name":"libfakekey","version":"0.3-5","summary":"libfakekey (X Virtual Keyboard Library)","homepage":"http://git.yoctoproject.org/cgit.cgi/libfakekey/","series":"l"}
@@ -974,7 +974,7 @@
 {"name":"libgpg-error","version":"1.61-2","summary":"libgpg-error (GnuPG Error Definitions Library)","series":"n"}
 {"name":"libgphoto2","version":"2.5.34-2","summary":"libgphoto2 (Digital Camera Library)","homepage":"http://www.gphoto.org/","series":"l"}
 {"name":"libgpod","version":"0.8.3-17","summary":"libgpod (A library for connecting to some sort of media device ;-)","series":"l"}
-{"name":"libgravatar","version":"26.08.1-1","summary":"libgravatar (Gravatar support library)","series":"kde"}
+{"name":"libgravatar","version":"26.08.2-1","summary":"libgravatar (Gravatar support library)","series":"kde"}
 {"name":"libgsf","version":"1.14.60-1","summary":"libgsf (structured file I/O library)","series":"l"}
 {"name":"libgtop","version":"2.41.3-4","summary":"libgtop (a top-like library)","series":"l"}
 {"name":"libgudev","version":"238-2","summary":"libgudev (udev GObject bindings library)","homepage":"http://wiki.gnome.org/Projects/libgudev","series":"a"}
@@ -989,7 +989,7 @@
 {"name":"libieee1284","version":"0.2.11-9","summary":"libieee1284 (parallel port library)","series":"l"}
 {"name":"libime","version":"1.1.17-1","summary":"libime (Generic input method library)","homepage":"https://fcitx-im.org/wiki/Fcitx_5","series":"x"}
 {"name":"libimobiledevice","version":"1.4.0-1","summary":"libimobiledevice (iOS device communication library)","homepage":"https://www.libimobiledevice.org/","series":"l"}
-{"name":"libimobiledevice-glue","version":"1.3.2-1","summary":"libimobiledevice-glue (glue library for libimobiledevice)","series":"l"}
+{"name":"libimobiledevice-glue","version":"1.3.3-1","summary":"libimobiledevice-glue (glue library for libimobiledevice)","series":"l"}
 {"name":"libindi","version":"2.2.5-1","summary":"libindi (Instrument Neutral Distributed Interface)","homepage":"https://www.indilib.org","series":"kde"}
 {"name":"libindicator","version":"12.10.1-4","summary":"libindicator (support functions for indicators)","homepage":"https://launchpad.net/libindicator","series":"l"}
 {"name":"libinput","version":"1.32.0-1","summary":"libinput (GUI input library)","homepage":"https://www.freedesktop.org/wiki/Software/libinput/","series":"x"}
@@ -997,24 +997,24 @@
 {"name":"libjpeg-turbo","version":"3.2.0-2","summary":"libjpeg-turbo (high-speed version of libjpeg)","homepage":"https://libjpeg-turbo.org","series":"l"}
 {"name":"libjxl","version":"0.12.0-4","summary":"libjxl (JPEG XL library)","homepage":"https://github.com/libjxl/libjxl","series":"l"}
 {"name":"libkarma","version":"0.1.2-5","summary":"libkarma (library for accessing the Rio Karma music player)","homepage":"http://linux-karma.sourceforge.net","series":"l"}
-{"name":"libkcddb","version":"26.08.1-1","summary":"libkcddb (KDE CDDB retrieval library)","series":"kde"}
-{"name":"libkdcraw","version":"26.08.1-1","summary":"libkdcraw (library wrapper around dcraw)","series":"kde"}
-{"name":"libkdegames","version":"26.08.1-1","summary":"libkdegames (KDE game library)","series":"kde"}
-{"name":"libkdepim","version":"26.08.1-1","summary":"libkdepim (KDE PIM libraries)","series":"kde"}
-{"name":"libkeduvocdocument","version":"26.08.1-1","summary":"libkeduvocdocument (KVTML library)","series":"kde"}
-{"name":"libkexiv2","version":"26.08.1-1","summary":"libkexiv2 (wrapper library for exiv2)","series":"kde"}
-{"name":"libkgapi","version":"26.08.1-1","summary":"libkgapi (Google service API library)","series":"kde"}
+{"name":"libkcddb","version":"26.08.2-1","summary":"libkcddb (KDE CDDB retrieval library)","series":"kde"}
+{"name":"libkdcraw","version":"26.08.2-1","summary":"libkdcraw (library wrapper around dcraw)","series":"kde"}
+{"name":"libkdegames","version":"26.08.2-1","summary":"libkdegames (KDE game library)","series":"kde"}
+{"name":"libkdepim","version":"26.08.2-1","summary":"libkdepim (KDE PIM libraries)","series":"kde"}
+{"name":"libkeduvocdocument","version":"26.08.2-1","summary":"libkeduvocdocument (KVTML library)","series":"kde"}
+{"name":"libkexiv2","version":"26.08.2-1","summary":"libkexiv2 (wrapper library for exiv2)","series":"kde"}
+{"name":"libkgapi","version":"26.08.2-1","summary":"libkgapi (Google service API library)","series":"kde"}
 {"name":"libkkc","version":"0.3.5-8","summary":"libkkc (Japanese Kana Kanji input method library)","homepage":"https://github.com/ueno/libkkc","series":"x"}
 {"name":"libkkc-data","version":"0.2.7-6","summary":"libkkc-data (language model data for libkkc)","homepage":"https://github.com/ueno/libkkc","series":"x"}
-{"name":"libkleo","version":"26.08.1-1","summary":"libkleo (KDE key manager library)","series":"kde"}
-{"name":"libkmahjongg","version":"26.08.1-1","summary":"libkmahjongg (Mahjongg tilesets library)","series":"kde"}
-{"name":"libkomparediff2","version":"26.08.1-1","summary":"libkomparediff2 (file comparison library)","series":"kde"}
-{"name":"libksane","version":"26.08.1-1","summary":"libksane (KDE scanner library)","series":"kde"}
+{"name":"libkleo","version":"26.08.2-1","summary":"libkleo (KDE key manager library)","series":"kde"}
+{"name":"libkmahjongg","version":"26.08.2-1","summary":"libkmahjongg (Mahjongg tilesets library)","series":"kde"}
+{"name":"libkomparediff2","version":"26.08.2-1","summary":"libkomparediff2 (file comparison library)","series":"kde"}
+{"name":"libksane","version":"26.08.2-1","summary":"libksane (KDE scanner library)","series":"kde"}
 {"name":"libksba","version":"1.8.1-2","summary":"libksba (X.509 & CMS library for S/MIME and TLS)","series":"n"}
 {"name":"libkscreen","version":"6.7.5-1","summary":"libkscreen (screen management library)","series":"kde"}
-{"name":"libksieve","version":"26.08.1-1","summary":"libksieve (sieve mailfilter library)","series":"kde"}
+{"name":"libksieve","version":"26.08.2-1","summary":"libksieve (sieve mailfilter library)","series":"kde"}
 {"name":"libksysguard","version":"6.7.5-1","summary":"libksysguard (system information library)","series":"kde"}
-{"name":"libktorrent","version":"26.08.1-1","summary":"libktorrent (KDE BitTorrent library)","homepage":"https://kde.org/applications/en/internet/org.kde.ktorrent","series":"kde"}
+{"name":"libktorrent","version":"26.08.2-1","summary":"libktorrent (KDE BitTorrent library)","homepage":"https://kde.org/applications/en/internet/org.kde.ktorrent","series":"kde"}
 {"name":"libmad","version":"0.15.1b-7","summary":"libmad (high-quality MPEG audio library)","series":"l"}
 {"name":"libmaxminddb","version":"1.14.1-1","summary":"libmaxminddb (library for the MaxMind DB file format)","homepage":"https://github.com/maxmind/libmaxminddb","series":"l"}
 {"name":"libmbim","version":"1.34.0-2","summary":"libmbim (MBIM library and utils)","homepage":"http://www.freedesktop.org/software/libmbim/","series":"n"}
@@ -1065,7 +1065,7 @@
 {"name":"libptytty","version":"2.0-2","summary":"libptytty (pty/tty and utmp/wtmp/lastlog library)","series":"l"}
 {"name":"libpwquality","version":"1.4.5-4","summary":"libpwquality (password quality checking library)","homepage":"https://github.com/libpwquality/libpwquality","series":"a"}
 {"name":"libqaccessibilityclient","version":"0.6.0-2","summary":"libqaccessibilityclient (accessibility helper)","homepage":"https://invent.kde.org/libraries/libqaccessibilityclient","series":"kde"}
-{"name":"libqalculate","version":"5.12.0-2","summary":"libqalculate (multi-purpose calculator library)","homepage":"http://qalculate.github.io/","series":"l"}
+{"name":"libqalculate","version":"5.13.1-1","summary":"libqalculate (multi-purpose calculator library)","homepage":"http://qalculate.github.io/","series":"l"}
 {"name":"libqmi","version":"1.38.0-2","summary":"libqmi (QMI library and utils)","homepage":"http://www.freedesktop.org/software/libqmi/","series":"n"}
 {"name":"libqrtr-glib","version":"1.4.0-2","summary":"libqrtr-glib (Qualcomm router protocol library)","homepage":"https://gitlab.freedesktop.org/mobile-broadband/libqrtr-glib","series":"n"}
 {"name":"libraw1394","version":"2.1.2-5","summary":"libraw1394 (user space IEEE 1394 driver)","homepage":"http://www.kernel.org/pub/linux/libs/ieee1394/","series":"l"}
@@ -1133,23 +1133,23 @@
 {"name":"libxshmfence","version":"1.3.3-2","summary":"libxshmfence (The X Shared Memory Fence Library)","series":"x"}
 {"name":"libxslt","version":"1.1.45-2","summary":"libxslt (XML transformation library)","series":"l"}
 {"name":"libyaml","version":"0.2.5-4","summary":"libyaml (YAML parser, written in C)","homepage":"http://pyyaml.org/wiki/LibYAML","series":"l"}
-{"name":"libzip","version":"1.11.4-2","summary":"libzip (A library to read, create, and modify Zip archives)","homepage":"https://libzip.org","series":"l"}
+{"name":"libzip","version":"1.12-1","summary":"libzip (A library to read, create, and modify Zip archives)","homepage":"https://libzip.org","series":"l"}
 {"name":"lilo","version":"24.2-17","summary":"lilo (Linux Loader)","series":"a"}
 {"name":"links","version":"2.30-2","summary":"links (WWW browser for the console)","series":"n"}
 {"name":"linux-faqs","version":"20060228-1","summary":"linux-faqs (Linux FAQ collection from ibiblio.org)","series":"f"}
 {"name":"linux-howtos","version":"20160401-1","summary":"linux-howtos (HOWTOs from the Linux Documentation Project)","series":"f"}
 {"name":"linuxdoc-tools","version":"0.9.86-4","summary":"linuxdoc-tools (utilities for working with DocBook and SGML)","series":"ap"}
 {"name":"listres","version":"1.0.7-2","summary":"listres (X11 resource lister)","series":"x"}
-{"name":"llvm","version":"23.1.2-1","summary":"llvm (LLVM compiler toolkit)","homepage":"https://llvm.org/","series":"d"}
+{"name":"llvm","version":"23.1.3-1","summary":"llvm (LLVM compiler toolkit)","homepage":"https://llvm.org/","series":"d"}
 {"name":"lm_sensors","version":"3.6.2-2","summary":"lm_sensors (hardware monitoring package)","homepage":"https://github.com/hramrach/lm-sensors","series":"ap"}
 {"name":"lmdb","version":"1.0.2-1","summary":"lmdb (Lightning Memory-mapped key-value database)","homepage":"http://symas.com/lmdb/","series":"l"}
 {"name":"lndir","version":"1.0.6-2","summary":"lndir (create shadow directory of symbolic links to another directory)","series":"x"}
-{"name":"log4cplus","version":"2.2.0.1-2","summary":"log4cplus (C++ logging API)","homepage":"https://github.com/log4cplus/log4cplus","series":"l"}
+{"name":"log4cplus","version":"2.2.1-1","summary":"log4cplus (C++ logging API)","homepage":"https://github.com/log4cplus/log4cplus","series":"l"}
 {"name":"logrotate","version":"3.22.0-2","summary":"logrotate (system log rotation tool)","homepage":"https://github.com/logrotate/logrotate","series":"a"}
-{"name":"lokalize","version":"26.08.1-1","summary":"lokalize (computer-aided translation system)","homepage":"https://www.kde.org/applications/development/lokalize/","series":"kde"}
+{"name":"lokalize","version":"26.08.2-1","summary":"lokalize (computer-aided translation system)","homepage":"https://www.kde.org/applications/development/lokalize/","series":"kde"}
 {"name":"loudmouth","version":"1.5.4-4","summary":"loudmouth (XMPP C programming library)","series":"l"}
 {"name":"lrzip","version":"0.7.3-1","summary":"lrzip (Long Range ZIP)","homepage":"https://github.com/ckolivas/lrzip","series":"a"}
-{"name":"lskat","version":"26.08.1-1","summary":"lskat (Lieutenant Skat card game)","series":"kde"}
+{"name":"lskat","version":"26.08.2-1","summary":"lskat (Lieutenant Skat card game)","series":"kde"}
 {"name":"lsof","version":"4.99.7-2","summary":"lsof (list open files)","series":"ap"}
 {"name":"lsscsi","version":"0.32-2","summary":"lsscsi (list SCSI devices or hosts, and their attributes)","series":"ap"}
 {"name":"lua","version":"5.4.9-2","summary":"lua (fast, light-weight, embeddable scripting language)","homepage":"http://www.lua.org","series":"d"}
@@ -1166,46 +1166,46 @@
 {"name":"m17n-lib","version":"1.8.6-2","summary":"m17n-lib (application multilingualization library)","homepage":"https://m17n.nongnu.org","series":"x"}
 {"name":"m4","version":"1.4.21-2","summary":"m4 (an implementation of the UNIX macro processor)","series":"d"}
 {"name":"madplay","version":"0.15.2b-8","summary":"madplay (MPEG audio decoder and player)","series":"ap"}
-{"name":"mailcommon","version":"26.08.1-1","summary":"mailcommon (mail application library)","series":"kde"}
-{"name":"mailimporter","version":"26.08.1-1","summary":"mailimporter (mail importer library)","series":"kde"}
+{"name":"mailcommon","version":"26.08.2-1","summary":"mailcommon (mail application library)","series":"kde"}
+{"name":"mailimporter","version":"26.08.2-1","summary":"mailimporter (mail importer library)","series":"kde"}
 {"name":"make","version":"4.4.1-2","summary":"make (GNU make utility to maintain groups of programs)","series":"d"}
 {"name":"makedepend","version":"1.0.10-2","summary":"makedepend (create dependencies in makefiles)","series":"x"}
 {"name":"man-db","version":"2.13.1-4","summary":"man-db (database-driven manual pager suite)","homepage":"https://www.nongnu.org/man-db/","series":"ap"}
 {"name":"man-pages","version":"6.19-2","summary":"man-pages (system documentation)","series":"ap"}
-{"name":"marble","version":"26.08.1-2","summary":"marble (virtual globe)","series":"kde"}
+{"name":"marble","version":"26.08.2-1","summary":"marble (virtual globe)","series":"kde"}
 {"name":"mariadb","version":"12.3.3-1","summary":"mariadb (Drop-in replacement for the MySQL Database Server)","homepage":"http://mariadb.org/","series":"ap"}
 {"name":"marisa","version":"0.3.1-3","summary":"marisa (trie data structure library)","homepage":"https://code.google.com/p/marisa-trie/","series":"x"}
-{"name":"markdownpart","version":"26.08.1-1","summary":"markdownpart (markdown viewer KPart)","series":"kde"}
+{"name":"markdownpart","version":"26.08.2-1","summary":"markdownpart (markdown viewer KPart)","series":"kde"}
 {"name":"marknote","version":"1.6.0-3","summary":"marknote (a note taking application)","homepage":"https://invent.kde.org/mbruchert/marknote","series":"kde"}
-{"name":"massif-visualizer","version":"26.08.1-1","summary":"massif-visualizer (visualizer for Valgrind Massif data files)","series":"kde"}
-{"name":"mbox-importer","version":"26.08.1-1","summary":"mbox-importer (import mbox files to KMail)","series":"kde"}
+{"name":"massif-visualizer","version":"26.08.2-1","summary":"massif-visualizer (visualizer for Valgrind Massif data files)","series":"kde"}
+{"name":"mbox-importer","version":"26.08.2-1","summary":"mbox-importer (import mbox files to KMail)","series":"kde"}
 {"name":"mc","version":"4.8.33-2","summary":"mc (Midnight Commander file manager)","homepage":"https://midnight-commander.org","series":"ap"}
 {"name":"mcabber","version":"1.1.2-6","summary":"mcabber (Jabber console client)","homepage":"http://www.lilotux.net/~mikael/mcabber/","series":"n"}
 {"name":"mcelog","version":"212-2","summary":"mcelog (Machine Check Event logger)","homepage":"https://git.kernel.org/pub/scm/utils/cpu/mce/mcelog.git/","series":"a"}
 {"name":"mdadm","version":"4.6-2","summary":"mdadm (manage RAID arrays)","series":"a"}
 {"name":"media-player-info","version":"26-2","summary":"media-player-info (media player capability data)","series":"l"}
 {"name":"mercurial","version":"7.2.4-2","summary":"mercurial (a distributed source management system)","series":"d"}
-{"name":"merkuro","version":"26.08.1-1","summary":"merkuro (calendar and task management application)","series":"kde"}
+{"name":"merkuro","version":"26.08.2-1","summary":"merkuro (calendar and task management application)","series":"kde"}
 {"name":"mesa","version":"26.2.4-1","summary":"mesa (a 3-D graphics library)","homepage":"https://www.mesa3d.org","series":"x"}
 {"name":"meson","version":"1.12.1-1","summary":"meson (A high performance build system)","homepage":"https://mesonbuild.com/","series":"d"}
 {"name":"meson-python","version":"0.22.1-1","summary":"meson-python (Meson Python build backend, PEP517)","homepage":"https://github.com/mesonbuild/meson-python","series":"l"}
-{"name":"messagelib","version":"26.08.1-1","summary":"messagelib (KDE PIM messaging library)","series":"kde"}
+{"name":"messagelib","version":"26.08.2-1","summary":"messagelib (KDE PIM messaging library)","series":"kde"}
 {"name":"metamail","version":"2.7-12","summary":"metamail (MIME extensions for mail)","series":"n"}
 {"name":"mhash","version":"0.9.9.9-7","summary":"mhash (Thread-safe hash library)","series":"l"}
 {"name":"milou","version":"6.7.5-1","summary":"milou (Plasma search applet)","series":"kde"}
-{"name":"mimetreeparser","version":"26.08.1-1","summary":"mimetreeparser (parser for MIME trees)","homepage":"https://invent.kde.org/pim/mimetreeparser","series":"kde"}
+{"name":"mimetreeparser","version":"26.08.2-1","summary":"mimetreeparser (parser for MIME trees)","homepage":"https://invent.kde.org/pim/mimetreeparser","series":"kde"}
 {"name":"minicom","version":"2.11.1-2","summary":"minicom (communications package)","homepage":"https://salsa.debian.org/minicom-team/minicom","series":"a"}
-{"name":"minuet","version":"26.08.1-1","summary":"minuet (software for music education)","series":"kde"}
+{"name":"minuet","version":"26.08.2-1","summary":"minuet (software for music education)","series":"kde"}
 {"name":"mkcomposecache","version":"1.2.3-2","summary":"mkcomposecache (creates global (system-wide) Compose cache files)","series":"x"}
 {"name":"mkfontscale","version":"1.2.4-2","summary":"mkfontscale (X11 font utility)","series":"x"}
 {"name":"mkinitrd","version":"1.4.11-81","summary":"mkinitrd (make an initial ramdisk)","series":"a"}
 {"name":"mlocate","version":"0.26-5","summary":"mlocate (locate/updatedb implementation)","series":"a"}
-{"name":"mlt","version":"7.40.0-6","summary":"mlt (open source multimedia framework)","homepage":"https://www.mltframework.org/","series":"l"}
+{"name":"mlt","version":"7.42.0-1","summary":"mlt (open source multimedia framework)","homepage":"https://www.mltframework.org/","series":"l"}
 {"name":"mm","version":"1.4.2-6","summary":"mm (Shared Memory Allocation library)","series":"l"}
 {"name":"mobile-broadband-provider-info","version":"20251111-2","summary":"mobile-broadband-provider-info (service provider settings)","series":"n"}
 {"name":"moc","version":"2.6_alpha3-6","summary":"moc (console audio player)","homepage":"http://moc.daper.net","series":"ap"}
-{"name":"modemmanager-qt","version":"6.30.0-1","summary":"modemmanager-qt (ModemManager Qt bindings)","series":"kde"}
-{"name":"mold","version":"2.42.1-1","summary":"mold (a modern linker)","homepage":"https://github.com/rui314/mold","series":"d"}
+{"name":"modemmanager-qt","version":"6.31.0-1","summary":"modemmanager-qt (ModemManager Qt bindings)","series":"kde"}
+{"name":"mold","version":"3.0.0-1","summary":"mold (a modern linker)","homepage":"https://github.com/rui314/mold","series":"d"}
 {"name":"moreutils","version":"0.70-2","summary":"moreutils (more UNIX-style utilities)","homepage":"https://joeyh.name/code/moreutils/","series":"a"}
 {"name":"mosh","version":"1.4.0-27","summary":"mosh (the MObile SHell)","homepage":"https://mosh.org","series":"n"}
 {"name":"most","version":"5.2.0-2","summary":"most (another pager, like 'more' and 'less')","series":"ap"}
@@ -1213,7 +1213,7 @@
 {"name":"mousepad","version":"0.7.0-2","summary":"mousepad (simple text editor)","homepage":"https://gitlab.xfce.org/apps/mousepad/","series":"xfce"}
 {"name":"movit","version":"1.7.2-2","summary":"movit (Modern Video Toolkit)","homepage":"https://movit.sesse.net","series":"l"}
 {"name":"mozilla-firefox","version":"153.4.0esr-1","summary":"mozilla-firefox (Mozilla Firefox web browser)","homepage":"https://www.mozilla.org/firefox","series":"xap"}
-{"name":"mozilla-nss","version":"3.130-1","summary":"mozilla-nss (Network Security Services)","series":"l"}
+{"name":"mozilla-nss","version":"3.131-1","summary":"mozilla-nss (Network Security Services)","series":"l"}
 {"name":"mozilla-thunderbird","version":"153.4.0esr-1","summary":"mozilla-thunderbird (Mozilla Thunderbird mail application)","homepage":"https://www.mozilla.org/projects/thunderbird/","series":"xap"}
 {"name":"mozjs140","version":"140.17.0esr-1","summary":"mozjs140 (Mozilla's JavaScript Engine)","series":"l"}
 {"name":"mpfr","version":"4.2.2-2","summary":"mpfr (Multiple-Precision Floating-Point Reliable Library)","series":"l"}
@@ -1225,7 +1225,7 @@
 {"name":"mtr","version":"0.96-2","summary":"mtr (a network diagnostic tool)","homepage":"https://www.bitwizard.nl/mtr/","series":"n"}
 {"name":"mtx","version":"1.3.12-5","summary":"mtx (Controls tape autochangers)","series":"a"}
 {"name":"mujs","version":"1.3.10-2","summary":"mujs (lightweight Javascript interpreter)","homepage":"https://mujs.com","series":"l"}
-{"name":"mutt","version":"2.4.2-2","summary":"mutt (the Mutt mail user agent)","series":"n"}
+{"name":"mutt","version":"2.4.3-1","summary":"mutt (the Mutt mail user agent)","series":"n"}
 {"name":"mypaint-brushes","version":"2.0.2-2","summary":"mypaint-brushes (brushes for libmypaint)","homepage":"https://github.com/mypaint/mypaint-brushes","series":"x"}
 {"name":"nano","version":"9.2-2","summary":"nano (Nano's ANOther editor, an enhanced free Pico clone)","homepage":"http://www.nano-editor.org","series":"ap"}
 {"name":"nasm","version":"3.02-2","summary":"nasm (NASM assembler)","homepage":"https://www.nasm.us","series":"d"}
@@ -1234,7 +1234,7 @@
 {"name":"ncompress","version":"5.0-3","summary":"ncompress (the classic *nix compression utility)","series":"a"}
 {"name":"ncurses","version":"6.6-2","summary":"ncurses (CRT screen handling and optimization package)","homepage":"https://invisible-island.net/ncurses/","series":"l"}
 {"name":"ndctl","version":"85-2","summary":"ndctl (non-volatile memory device library)","homepage":"https://github.com/pmem/ndctl","series":"a"}
-{"name":"neochat","version":"26.08.1-1","summary":"neochat (matrix chat client)","series":"kde"}
+{"name":"neochat","version":"26.08.2-1","summary":"neochat (matrix chat client)","series":"kde"}
 {"name":"neofetch","version":"20211210_ccd5d9f5-2","summary":"neofetch (system information tool)","homepage":"https://github.com/dylanaraps/neofetch/wiki","series":"ap"}
 {"name":"neon","version":"0.37.1-2","summary":"neon (HTTP and WebDAV client library)","series":"l"}
 {"name":"net-snmp","version":"5.9.5.2-3","summary":"net-snmp (Simple Network Management Protocol tools)","series":"n"}
@@ -1256,13 +1256,13 @@
 {"name":"nettle","version":"3.10.2-2","summary":"nettle (small cryptographic library)","homepage":"http://www.lysator.liu.se/~nisse/nettle/","series":"n"}
 {"name":"netwatch","version":"1.3.1_2-7","summary":"netwatch (a network monitor)","series":"n"}
 {"name":"network-manager-applet","version":"1.36.0-2","summary":"network-manager-applet (NetworkManager Applet)","series":"xap"}
-{"name":"network-scripts","version":"16.0-2","summary":"network-scripts (Scripts to configure a network)","series":"n"}
-{"name":"networkmanager-qt","version":"6.30.0-1","summary":"networkmanager-qt (NetworkManager Qt bindings)","series":"kde"}
+{"name":"network-scripts","version":"16.0-6","summary":"network-scripts (Scripts to configure a network)","series":"n"}
+{"name":"networkmanager-qt","version":"6.31.0-1","summary":"networkmanager-qt (NetworkManager Qt bindings)","series":"kde"}
 {"name":"netwrite","version":"0.17-5","summary":"netwrite (in.writed daemon for accepting network \"write\")","series":"n"}
 {"name":"newspost","version":"2.1.1-5","summary":"newspost (binary posting utility)","series":"n"}
 {"name":"newt","version":"0.52.25-2","summary":"newt (Not Erik's Windowing Toolkit)","homepage":"https://fedorahosted.org/newt/","series":"l"}
 {"name":"nfacct","version":"1.0.2-5","summary":"nfacct (tool to create/retrieve/delete accounting objects)","series":"n"}
-{"name":"nfs-utils","version":"3.1.1-2","summary":"nfs-utils (Network File System daemons and utilities)","homepage":"https://linux-nfs.org","series":"n"}
+{"name":"nfs-utils","version":"3.1.1-3","summary":"nfs-utils (Network File System daemons and utilities)","homepage":"https://linux-nfs.org","series":"n"}
 {"name":"nftables","version":"1.1.7-1","summary":"nftables (packet filtering and classification)","homepage":"http://www.netfilter.org/projects/nftables/","series":"n"}
 {"name":"nghttp2","version":"1.70.0-2","summary":"nghttp2 (HTTP/2 library)","homepage":"https://nghttp2.org/","series":"n"}
 {"name":"nghttp3","version":"1.18.0-2","summary":"nghttp3 (thin HTTP/3 layer over a QUIC stack)","homepage":"https://github.com/ngtcp2/nghttp3","series":"n"}
@@ -1290,7 +1290,7 @@
 {"name":"ocl-icd","version":"2.3.5-2","summary":"ocl-icd (OpenCL ICD bindings)","homepage":"https://github.com/OCL-dev/ocl-icd","series":"l"}
 {"name":"oclock","version":"1.0.6-2","summary":"oclock (X11 on-screen clock)","series":"x"}
 {"name":"okteta","version":"0.26.28-1","summary":"okteta (hex editor for KDE)","series":"kde"}
-{"name":"okular","version":"26.08.1-1","summary":"okular (a document viewer)","homepage":"https://okular.kde.org","series":"kde"}
+{"name":"okular","version":"26.08.2-1","summary":"okular (a document viewer)","homepage":"https://okular.kde.org","series":"kde"}
 {"name":"olm","version":"3.2.16-2","summary":"olm (Implementation of the olm and megolm cryptographic ratchets)","homepage":"https://gitlab.matrix.org/matrix-org/olm","series":"l"}
 {"name":"oniguruma","version":"6.9.10-2","summary":"oniguruma (regular expressions library)","homepage":"https://github.com/kkos/oniguruma","series":"l"}
 {"name":"openal-soft","version":"1.25.2-2","summary":"openal-soft (OpenAL 3D audio API)","homepage":"https://openal-soft.org","series":"l"}
@@ -1305,11 +1305,11 @@
 {"name":"openresolv","version":"3.16.5-2","summary":"openresolv (management framework for resolv.conf)","homepage":"https://roy.marples.name/projects/openresolv","series":"n"}
 {"name":"openrsync","version":"20250126_a257c0f-2","summary":"openrsync (BSD licensed rsync implementation)","homepage":"https://github.com/kristapsdz/openrsync","series":"n"}
 {"name":"opensc","version":"0.27.1-2","summary":"opensc (PKCS#11/15 smart card support)","homepage":"https://github.com/OpenSC/OpenSC/wiki/","series":"l"}
-{"name":"openssh","version":"10.5p1-2","summary":"openssh (Secure Shell daemon and clients)","series":"n"}
+{"name":"openssh","version":"10.6p1-1","summary":"openssh (Secure Shell daemon and clients)","series":"n"}
 {"name":"openssl","version":"3.5.9-1","summary":"openssl (Secure Sockets Layer toolkit)","series":"n"}
 {"name":"openssl-solibs","version":"3.5.9-1","summary":"openssl-solibs (OpenSSL shared libraries)","series":"a"}
 {"name":"opentimelineio","version":"0.18.1-2","summary":"opentimelineio (interchange format and API for editorial cuts)","homepage":"https://opentimeline.io/","series":"l"}
-{"name":"openvpn","version":"2.7.7-1","summary":"openvpn (secure IP tunnel daemon)","series":"n"}
+{"name":"openvpn","version":"2.7.8-1","summary":"openvpn (secure IP tunnel daemon)","series":"n"}
 {"name":"oprofile","version":"1.4.0-22","summary":"oprofile (system profiling tool)","homepage":"https://oprofile.sourceforge.net","series":"d"}
 {"name":"opus","version":"1.6.1-2","summary":"opus (efficient, low-latency audio codec)","homepage":"https://opus-codec.org/","series":"l"}
 {"name":"opus-tools","version":"0.2-6","summary":"opus-tools (Opus audio codec tools)","homepage":"https://opus-codec.org/","series":"ap"}
@@ -1318,13 +1318,13 @@
 {"name":"os-prober","version":"1.85-2","summary":"os-prober (an OS detector)","homepage":"https://packages.debian.org/unstable/utils/os-prober","series":"a"}
 {"name":"oxygen","version":"6.7.5-1","summary":"oxygen (KDE window manager theme)","series":"kde"}
 {"name":"oxygen-fonts","version":"20180407_2e3c79fd-2","summary":"oxygen-fonts (KDE desktop fonts)","series":"kde"}
-{"name":"oxygen-icons","version":"6.30.0-1","summary":"oxygen-icons (Oxygen theme for KDE)","series":"kde"}
+{"name":"oxygen-icons","version":"6.31.0-1","summary":"oxygen-icons (Oxygen theme for KDE)","series":"kde"}
 {"name":"oxygen-sounds","version":"6.7.5-1","summary":"oxygen-sounds (KDE Oxygen sound pack)","series":"kde"}
 {"name":"p11-kit","version":"0.26.5-2","summary":"p11-kit (PKCS#11 toolkit)","homepage":"https://p11-glue.freedesktop.org/p11-kit.html","series":"n"}
 {"name":"p2c","version":"2.02-2","summary":"p2c (Pascal to C translator)","series":"d"}
 {"name":"p8-platform","version":"2.2.0-2","summary":"p8-platform (Platform support library used by libCEC)","homepage":"https://github.com/Pulse-Eight/platform","series":"l"}
 {"name":"pahole","version":"1.32-1","summary":"pahole (debugging format utilities)","series":"d"}
-{"name":"palapeli","version":"26.08.1-1","summary":"palapeli (jigsaw puzzle game)","series":"kde"}
+{"name":"palapeli","version":"26.08.2-1","summary":"palapeli (jigsaw puzzle game)","series":"kde"}
 {"name":"pam","version":"1.7.3-1","summary":"pam (Pluggable Authentication Modules)","homepage":"http://www.linux-pam.org/","series":"a"}
 {"name":"pam-krb5","version":"4.11-2","summary":"pam-krb5 (PAM module for Kerberos v5)","homepage":"https://archives.eyrie.org/software/kerberos","series":"n"}
 {"name":"pamixer","version":"1.6-3","summary":"pamixer (pulseaudio command line mixer)","homepage":"https://github.com/cdemoulins/pamixer","series":"ap"}
@@ -1333,9 +1333,9 @@
 {"name":"pangomm","version":"2.46.4-2","summary":"pangomm (C++ API for Pango)","homepage":"http://gtkmm.org","series":"l"}
 {"name":"pangomm2","version":"2.58.0-1","summary":"pangomm2 (C++ API for Pango, ABI 2.48)","homepage":"https://gtkmm.org","series":"l"}
 {"name":"parallel","version":"20260922-1","summary":"parallel (tool for executing jobs in parallel)","homepage":"https://www.gnu.org/software/parallel/","series":"d"}
-{"name":"parley","version":"26.08.1-1","summary":"parley (vocabulary trainer)","series":"kde"}
+{"name":"parley","version":"26.08.2-1","summary":"parley (vocabulary trainer)","series":"kde"}
 {"name":"parted","version":"3.8-1","summary":"parted (GNU disk partitioning tool)","series":"l"}
-{"name":"partitionmanager","version":"26.08.1-1","summary":"partitionmanager (Graphical partition manager)","series":"kde"}
+{"name":"partitionmanager","version":"26.08.2-1","summary":"partitionmanager (Graphical partition manager)","series":"kde"}
 {"name":"patch","version":"2.8-2","summary":"patch (apply a diff file to an original file or files)","series":"a"}
 {"name":"patchelf","version":"0.19.2-1","summary":"patchelf (tool to modify ELF binaries/libraries)","homepage":"https://nixos.org/patchelf.html","series":"d"}
 {"name":"pavucontrol","version":"6.2-2","summary":"pavucontrol (PulseAudio Volume Controller)","homepage":"https://freedesktop.org/software/pulseaudio/pavucontrol","series":"xap"}
@@ -1351,18 +1351,18 @@
 {"name":"phonon-backend-gstreamer","version":"20221120_2bfadef4-2","summary":"phonon-backend-gstreamer (gstreamer backend for phonon)","homepage":"https://invent.kde.org/libraries/phonon-gstreamer","series":"l"}
 {"name":"phonon-backend-mpv","version":"20240401_069aca4-2","summary":"phonon-backend-mpv (mpv backend for phonon)","homepage":"https://github.com/OpenProgger/phonon-mpv","series":"l"}
 {"name":"php","version":"8.5.11-1","summary":"php (HTML-embedded scripting language)","homepage":"https://www.php.net/","series":"n"}
-{"name":"picmi","version":"26.08.1-1","summary":"picmi (logic puzzle game)","series":"kde"}
+{"name":"picmi","version":"26.08.2-1","summary":"picmi (logic puzzle game)","series":"kde"}
 {"name":"pidentd","version":"3.0.19-8","summary":"pidentd (TCP/IP IDENT protocol server)","series":"n"}
 {"name":"pidgin","version":"2.14.14-5","summary":"pidgin (GTK+ instant messaging program)","homepage":"https://www.pidgin.im","series":"xap"}
 {"name":"pilot-link","version":"0.12.5-19","summary":"pilot-link (library for communicating with PalmOS devices)","series":"l"}
-{"name":"pim-data-exporter","version":"26.08.1-1","summary":"pim-data-exporter (export KDE PIM settings)","series":"kde"}
-{"name":"pim-sieve-editor","version":"26.08.1-1","summary":"pim-sieve-editor (Sieve script editor)","series":"kde"}
-{"name":"pimcommon","version":"26.08.1-1","summary":"pimcommon (common libraries for KDE PIM)","series":"kde"}
+{"name":"pim-data-exporter","version":"26.08.2-1","summary":"pim-data-exporter (export KDE PIM settings)","series":"kde"}
+{"name":"pim-sieve-editor","version":"26.08.2-1","summary":"pim-sieve-editor (Sieve script editor)","series":"kde"}
+{"name":"pimcommon","version":"26.08.2-1","summary":"pimcommon (common libraries for KDE PIM)","series":"kde"}
 {"name":"pinentry","version":"1.3.3-2","summary":"pinentry (PIN Entry dialogs)","homepage":"https://www.gnupg.org/aegypten/","series":"n"}
-{"name":"pipewire","version":"1.6.9-2","summary":"pipewire (multimedia processing)","homepage":"https://pipewire.org/","series":"l"}
+{"name":"pipewire","version":"1.6.9-3","summary":"pipewire (multimedia processing)","homepage":"https://pipewire.org/","series":"l"}
 {"name":"pixman","version":"0.46.4-2","summary":"pixman (pixel manipulation library)","series":"x"}
-{"name":"pkgconf","version":"3.0.7-1","summary":"pkgconf (system for managing library compile/link flags)","homepage":"http://pkgconf.org","series":"d"}
-{"name":"pkgtools","version":"16.0-1","summary":"pkgtools (The Slackware package maintenance system)","series":"a"}
+{"name":"pkgconf","version":"3.0.8-1","summary":"pkgconf (system for managing library compile/link flags)","homepage":"http://pkgconf.org","series":"d"}
+{"name":"pkgtools","version":"16.0-2","summary":"pkgtools (The Slackware package maintenance system)","series":"a"}
 {"name":"plasma-activities","version":"6.7.5-1","summary":"plasma-activities (API for using Activities)","series":"kde"}
 {"name":"plasma-activities-stats","version":"6.7.5-1","summary":"plasma-activities-stats (component of KDE Activities)","series":"kde"}
 {"name":"plasma-bigscreen","version":"6.7.5-1","summary":"plasma-bigscreen (Plasma for the big screen)","series":"kde"}
@@ -1390,17 +1390,17 @@
 {"name":"polkit-kde-agent-1","version":"6.7.5-1","summary":"polkit-kde-agent-1 (KDE polkit authenticator)","series":"kde"}
 {"name":"polkit-qt-1","version":"0.201.1-2","summary":"polkit-qt-1 (Qt polkit API wrapper)","homepage":"https://projects.kde.org/projects/kdesupport/polkit-qt-1/","series":"l"}
 {"name":"popa3d","version":"1.0.3-9","summary":"popa3d (a POP3 daemon)","series":"n"}
-{"name":"poppler","version":"26.09.0-1","summary":"poppler (a library for rendering PDF documents)","homepage":"https://poppler.freedesktop.org","series":"l"}
+{"name":"poppler","version":"26.10.0-1","summary":"poppler (a library for rendering PDF documents)","homepage":"https://poppler.freedesktop.org","series":"l"}
 {"name":"poppler-data","version":"0.4.12-2","summary":"poppler-data (data files used by poppler)","homepage":"http://poppler.freedesktop.org","series":"l"}
 {"name":"popt","version":"1.19-2","summary":"popt (command line parsing library)","series":"l"}
 {"name":"postfix","version":"3.11.7-1","summary":"postfix (mail transport and submission agent)","homepage":"http://www.postfix.org","series":"n"}
 {"name":"potrace","version":"1.16-2","summary":"potrace (convert bitmaps into vector graphics)","homepage":"https://potrace.sourceforge.net/","series":"l"}
 {"name":"powerdevil","version":"6.7.5-2","summary":"powerdevil (power management tool)","series":"kde"}
-{"name":"powertop","version":"2.16-2","summary":"powertop (tool for analyzing system power usage)","homepage":"https://github.com/fenrus75/powertop","series":"ap"}
-{"name":"poxml","version":"26.08.1-1","summary":"poxml (translate DocBook XML files)","series":"kde"}
+{"name":"powertop","version":"2.16.1-1","summary":"powertop (tool for analyzing system power usage)","homepage":"https://github.com/fenrus75/powertop","series":"ap"}
+{"name":"poxml","version":"26.08.2-1","summary":"poxml (translate DocBook XML files)","series":"kde"}
 {"name":"ppp","version":"2.5.4-1","summary":"ppp (Point-to-Point Protocol)","homepage":"https://github.com/paulusmack/ppp","series":"n"}
 {"name":"print-manager","version":"6.7.5-1","summary":"print-manager (manage print jobs and printers)","homepage":"https://projects.kde.org/projects/kde/kdeutils/print-manager","series":"kde"}
-{"name":"prison","version":"6.30.0-1","summary":"prison (Qt based Barcode API)","homepage":"https://anongit.kde.org/prison","series":"kde"}
+{"name":"prison","version":"6.31.0-1","summary":"prison (Qt based Barcode API)","homepage":"https://anongit.kde.org/prison","series":"kde"}
 {"name":"prison5","version":"5.116.0-2","summary":"prison5 (Qt based Barcode API)","homepage":"https://anongit.kde.org/prison5","series":"kde"}
 {"name":"procmail","version":"3.24-5","summary":"procmail (mail processing and local delivery program)","series":"n"}
 {"name":"procps-ng","version":"4.0.7-2","summary":"procps-ng (utilities for displaying process information)","homepage":"https://gitlab.com/procps-ng/procps","series":"a"}
@@ -1409,12 +1409,12 @@
 {"name":"pssh","version":"2.3.6-2","summary":"pssh (tools for collective remote system management)","homepage":"https://github.com/lilydjwg/pssh/releases","series":"n"}
 {"name":"pulseaudio","version":"17.0-7","summary":"pulseaudio (PulseAudio sound server)","homepage":"http://www.pulseaudio.org","series":"l"}
 {"name":"pulseaudio-qt","version":"1.9.0-1","summary":"pulseaudio-qt (PulseAudio Qt bindings)","homepage":"https://cgit.kde.org/pulseaudio-qt.git/","series":"kde"}
-{"name":"purpose","version":"6.30.0-1","summary":"purpose (offers actions for a specific purpose)","series":"kde"}
+{"name":"purpose","version":"6.31.0-1","summary":"purpose (offers actions for a specific purpose)","series":"kde"}
 {"name":"purpose5","version":"5.116.0-2","summary":"purpose5 (offers actions for a specific purpose5)","series":"kde"}
-{"name":"pycairo","version":"1.29.1-2","summary":"pycairo (a set of Python bindings for the cairo graphics library)","series":"l"}
+{"name":"pycairo","version":"1.29.2-1","summary":"pycairo (a set of Python bindings for the cairo graphics library)","series":"l"}
 {"name":"pycups","version":"2.0.4-3","summary":"pycups (Python bindings for the CUPS API)","homepage":"http://cyberelk.net/tim/software/pycups/","series":"l"}
 {"name":"pycurl","version":"7.48.0-1","summary":"pycurl (Python interface to cURL library)","homepage":"http://pycurl.sourceforge.net","series":"l"}
-{"name":"pygobject3","version":"3.58.0-2","summary":"pygobject3 (GObject bindings for Python, v3)","homepage":"https://pygobject.readthedocs.io","series":"l"}
+{"name":"pygobject3","version":"3.58.1-1","summary":"pygobject3 (GObject bindings for Python, v3)","homepage":"https://pygobject.readthedocs.io","series":"l"}
 {"name":"pyparsing","version":"3.3.3-1","summary":"pyparsing (parsing module for python)","homepage":"http://pypi.python.org/pypi/pyparsing/","series":"l"}
 {"name":"python-Jinja2","version":"3.1.6-2","summary":"python-Jinja2 (A very fast and expressive template engine)","homepage":"https://palletsprojects.com/p/jinja/","series":"l"}
 {"name":"python-MarkupSafe","version":"3.0.4-1","summary":"python-MarkupSafe (Safely add untrusted strings to HTML/XML markup)","homepage":"https://palletsprojects.com/p/markupsafe/","series":"l"}
@@ -1461,7 +1461,7 @@
 {"name":"python-poetry-core","version":"2.5.0-1","summary":"python-poetry-core (PEP 517 backend for Poetry)","homepage":"https://pypi.org/project/poetry_core","series":"l"}
 {"name":"python-psutil","version":"7.2.2-2","summary":"python-psutil (Process monitoring for Python)","homepage":"https://github.com/giampaolo/psutil","series":"l"}
 {"name":"python-pybind11","version":"3.1.0-2","summary":"python-pybind11 (interoperability between C++ and Python)","homepage":"https://github.com/pybind/pybind11","series":"l"}
-{"name":"python-pycparser","version":"3.0-2","summary":"python-pycparser (C parser written in Python)","homepage":"https://github.com/eliben/pycparser","series":"l"}
+{"name":"python-pycparser","version":"3.11-1","summary":"python-pycparser (C parser written in Python)","homepage":"https://github.com/eliben/pycparser","series":"l"}
 {"name":"python-pygments","version":"2.21.0-2","summary":"python-pygments (Python syntax highlighter)","homepage":"https://pypi.org/project/pygments","series":"l"}
 {"name":"python-pyproject-hooks","version":"1.3.3-1","summary":"python-pyproject-hooks (Call pyproject.toml-based build backend hooks)","series":"l"}
 {"name":"python-pyproject_metadata","version":"0.12.1-2","summary":"python-pyproject_metadata (PEP 621 metadata parsing)","homepage":"https://github.com/pypa/pyproject-metadata","series":"l"}
@@ -1484,7 +1484,7 @@
 {"name":"python-trove-classifiers","version":"2026.9.21.13-1","summary":"python-trove-classifiers (Canonical source for classifiers on PyPI)","homepage":"https://pypi.org/project/trove-classifiers","series":"l"}
 {"name":"python-typogrify","version":"2.1.0-2","summary":"python-typogrify (Python library to enhance web typography)","series":"l"}
 {"name":"python-urllib3","version":"2.8.0-1","summary":"python-urllib3 (Powerful, sanity-friendly HTTP client for Python)","homepage":"https://urllib3.readthedocs.io/","series":"l"}
-{"name":"python-vcs_versioning","version":"2.5.0-1","summary":"python-vcs_versioning (manage your versions by vcs metadata)","homepage":"https://github.com/pypa/vcs_versioning/","series":"l"}
+{"name":"python-vcs_versioning","version":"2.6.0-1","summary":"python-vcs_versioning (manage your versions by vcs metadata)","homepage":"https://github.com/pypa/vcs_versioning/","series":"l"}
 {"name":"python-versioneer","version":"0.29-2","summary":"python-versioneer (manage project version number)","homepage":"https://pypi.org/project/versioneer","series":"l"}
 {"name":"python-webencodings","version":"0.6.1-2","summary":"python-webencodings (Character encoding aliases)","homepage":"https://pypi.org/project/webencodings/","series":"l"}
 {"name":"python-wheel","version":"0.48.0-2","summary":"python-wheel (Python wheel packaging standard reference library)","series":"l"}
@@ -1492,8 +1492,8 @@
 {"name":"python2","version":"2.7.18-9","summary":"python2 (object-oriented interpreted programming language, v2)","homepage":"http://www.python.org","series":"d"}
 {"name":"python3","version":"3.12.14-2","summary":"python3 (object-oriented interpreted programming language, v3)","series":"d"}
 {"name":"pyxdg","version":"0.28-4","summary":"pyxdg (XDG Python implementation)","homepage":"http://freedesktop.org/wiki/Software/pyxdg","series":"x"}
-{"name":"qalculate-gtk","version":"5.12.0-2","summary":"qalculate-gtk (GTK calculator frontend)","homepage":"http://qalculate.github.io/","series":"xap"}
-{"name":"qalculate-qt","version":"5.12.0-2","summary":"qalculate-qt (Qt calculator frontend)","homepage":"http://qalculate.github.io/","series":"xap"}
+{"name":"qalculate-gtk","version":"5.13.0-1","summary":"qalculate-gtk (GTK calculator frontend)","homepage":"http://qalculate.github.io/","series":"xap"}
+{"name":"qalculate-qt","version":"5.13.0-1","summary":"qalculate-qt (Qt calculator frontend)","homepage":"http://qalculate.github.io/","series":"xap"}
 {"name":"qca","version":"2.3.12-2","summary":"qca (Qt Cryptographic Architecture)","homepage":"https://github.com/KDE/qca","series":"kde"}
 {"name":"qcoro","version":"0.13.0-3","summary":"qcoro (Coroutines for Qt)","homepage":"https://github.com/danvratil/qcoro","series":"kde"}
 {"name":"qemu","version":"11.1.2-1","summary":"qemu (the Quick Emulator)","homepage":"https://qemu.org","series":"ap"}
@@ -1502,9 +1502,9 @@
 {"name":"qml-box2d","version":"20250930_e3674e0-2","summary":"qml-box2d (QML Box2D plugin)","series":"kde"}
 {"name":"qpdf","version":"12.4.2-1","summary":"qpdf (Command-line tools and library for transforming PDF files)","homepage":"http://qpdf.sourceforge.net/","series":"ap"}
 {"name":"qqc2-breeze-style","version":"6.7.5-1","summary":"qqc2-breeze-style (QQC2 Breeze Style)","series":"kde"}
-{"name":"qqc2-desktop-style","version":"6.30.0-1","summary":"qqc2-desktop-style (desktop integration for Qt Quick Controls 2)","homepage":"https://api.kde.org/frameworks/qqc2-desktop-style/html/","series":"kde"}
+{"name":"qqc2-desktop-style","version":"6.31.0-1","summary":"qqc2-desktop-style (desktop integration for Qt Quick Controls 2)","homepage":"https://api.kde.org/frameworks/qqc2-desktop-style/html/","series":"kde"}
 {"name":"qqc2-desktop-style5","version":"5.116.1-2","summary":"qqc2-desktop-style5 (desktop integration for Qt Quick Controls 2)","homepage":"https://api.kde.org/frameworks/qqc2-desktop-style5/html/","series":"kde"}
-{"name":"qrca","version":"26.08.1-1","summary":"qrca (Wifi Barcode Scanner for KDE)","series":"kde"}
+{"name":"qrca","version":"26.08.2-1","summary":"qrca (Wifi Barcode Scanner for KDE)","series":"kde"}
 {"name":"qrencode","version":"4.1.1-4","summary":"qrencode (QR Code encoding library)","homepage":"http://fukuchi.org/works/qrencode","series":"l"}
 {"name":"qt5","version":"5.15.19_20260520_aa749695-7","summary":"qt5 (Qt GUI toolkit, version 5)","homepage":"http://www.qt.io/","series":"l"}
 {"name":"qt6","version":"6.11.2_20260807_713a3653-7","summary":"qt6 (Qt GUI toolkit, version 6)","homepage":"http://www.qt.io/","series":"l"}
@@ -1525,7 +1525,7 @@
 {"name":"rinutils","version":"0.10.3-2","summary":"rinutils (set of C headers)","homepage":"https://github.com/shlomif/rinutils","series":"d"}
 {"name":"ristretto","version":"0.14.0-2","summary":"ristretto (Xfce image viewer)","homepage":"https://gitlab.xfce.org/apps/ristretto","series":"xfce"}
 {"name":"rnnoise","version":"0.2-2","summary":"rnnoise (noise suppression library)","homepage":"https://gitlab.xiph.org/xiph/rnnoise","series":"l"}
-{"name":"rocs","version":"26.08.1-1","summary":"rocs (graph theory IDE)","homepage":"https://www.kde.org/applications/education/rocs","series":"kde"}
+{"name":"rocs","version":"26.08.2-1","summary":"rocs (graph theory IDE)","homepage":"https://www.kde.org/applications/education/rocs","series":"kde"}
 {"name":"rp-pppoe","version":"4.0-5","summary":"rp-pppoe (Roaring Penguin PPPoE client)","homepage":"https://dianne.skoll.ca/projects/rp-pppoe/","series":"n"}
 {"name":"rpcbind","version":"1.3.1-3","summary":"rpcbind (a daemon to manage RPC connections)","homepage":"https://sourceforge.net/projects/rpcbind/","series":"n"}
 {"name":"rpcsvc-proto","version":"1.4.4-2","summary":"rpcsvc-proto (rpcsvc proto.x files)","homepage":"https://github.com/thkukuk/rpcsvc-proto","series":"l"}
@@ -1535,7 +1535,7 @@
 {"name":"rttr","version":"0.9.6-5","summary":"rttr (C++ Reflection library)","homepage":"http://www.rttr.org/","series":"l"}
 {"name":"ruby","version":"4.0.7-1","summary":"ruby (Interpreted object-oriented scripting language)","homepage":"https://www.ruby-lang.org/","series":"d"}
 {"name":"rubygem-asciidoctor","version":"2.0.26-3","summary":"rubygem-asciidoctor (text processor and publishing toolchain)","homepage":"https://asciidoctor.org","series":"l"}
-{"name":"rust","version":"1.99.0-1","summary":"rust (a safe, concurrent, practical language)","homepage":"https://rust-lang.org","series":"d"}
+{"name":"rust","version":"1.99.0-2","summary":"rust (a safe, concurrent, practical language)","homepage":"https://rust-lang.org","series":"d"}
 {"name":"rust-bindgen","version":"0.73.2-1","summary":"rust-bindgen (Generate Rust FFI bindings to C and C++ libraries)","homepage":"https://github.com/rust-lang/rust-bindgen","series":"d"}
 {"name":"rxvt-unicode","version":"9.31-6","summary":"rxvt-unicode (terminal emulator)","homepage":"http://software.schmorp.de/pkg/rxvt-unicode.html","series":"xap"}
 {"name":"rzip","version":"2.1-5","summary":"rzip (a large-file compression program)","series":"ap"}
@@ -1550,7 +1550,7 @@
 {"name":"scdoc","version":"1.11.5-2","summary":"scdoc (simple man page generator)","homepage":"https://git.sr.ht/~sircmpwn/scdoc","series":"ap"}
 {"name":"scons","version":"4.11.1-2","summary":"scons (A software construction tool)","homepage":"http://www.scons.org/","series":"d"}
 {"name":"screen","version":"5.0.2-2","summary":"screen (screen manager with VT100/ANSI terminal emulation)","series":"ap"}
-{"name":"sddm","version":"0.21.0-9","summary":"sddm (QML based X11 display manager)","homepage":"https://github.com/sddm/sddm","series":"x"}
+{"name":"sddm","version":"0.21.0-10","summary":"sddm (QML based X11 display manager)","homepage":"https://github.com/sddm/sddm","series":"x"}
 {"name":"sddm-kcm","version":"6.7.5-1","summary":"sddm-kcm (configure SDDM in kde)","homepage":"https://github.com/sddm/sddm-kcm","series":"kde"}
 {"name":"sdl","version":"1.2.15-17","summary":"sdl (Simple DirectMedia Layer library)","series":"l"}
 {"name":"sdparm","version":"1.12-5","summary":"sdparm (fetch and change SCSI attributes)","series":"a"}
@@ -1569,11 +1569,11 @@
 {"name":"showfont","version":"1.0.7-2","summary":"showfont (displays data about a font from an X font server)","series":"x"}
 {"name":"simdutf","version":"9.2.1-1","summary":"simdutf (SIMD Unicode routines)","homepage":"https://github.com/simdutf/simdutf","series":"l"}
 {"name":"sinhala_lklug-font-ttf","version":"20060929-6","summary":"sinhala_lklug-font-ttf (Sinhala Unicode TrueType font)","homepage":"http://sinhala.sourceforge.net/","series":"x"}
-{"name":"sip","version":"6.16.1-2","summary":"sip (a tool for generating Python bindings)","homepage":"http://www.riverbankcomputing.co.uk/software/sip/","series":"l"}
-{"name":"skanlite","version":"26.08.1-1","summary":"skanlite (scanning program)","series":"kde"}
-{"name":"skanpage","version":"26.08.1-1","summary":"skanpage (scanning program)","homepage":"https://invent.kde.org/utilities/skanpage/","series":"kde"}
+{"name":"sip","version":"6.17.0-1","summary":"sip (a tool for generating Python bindings)","homepage":"http://www.riverbankcomputing.co.uk/software/sip/","series":"l"}
+{"name":"skanlite","version":"26.08.2-1","summary":"skanlite (scanning program)","series":"kde"}
+{"name":"skanpage","version":"26.08.2-1","summary":"skanpage (scanning program)","homepage":"https://invent.kde.org/utilities/skanpage/","series":"kde"}
 {"name":"skkdic","version":"20210919-2","summary":"skkdic (dictionaries for SKK)","homepage":"http://openlab.ring.gr.jp/skk/","series":"x"}
-{"name":"skladnik","version":"26.08.1-1","summary":"skladnik (KDE sokoban game)","series":"kde"}
+{"name":"skladnik","version":"26.08.2-1","summary":"skladnik (KDE sokoban game)","series":"kde"}
 {"name":"slackpkg","version":"16.0.1-2","summary":"slackpkg (Slackware package upgrade manager)","series":"ap"}
 {"name":"slacktrack","version":"2.24-2","summary":"slacktrack (Slackware package building utilities)","series":"d"}
 {"name":"slang","version":"2.3.3-2","summary":"slang (S-Lang interpreter version 2)","homepage":"http://www.jedsoft.org/slang/","series":"l"}
@@ -1583,11 +1583,11 @@
 {"name":"smproxy","version":"1.0.8-2","summary":"smproxy (X11 session management proxy)","series":"x"}
 {"name":"snownews","version":"1.11-3","summary":"snownews (a console RSS newsreader)","homepage":"https://sourceforge.net/projects/snownews","series":"n"}
 {"name":"socat","version":"1.8.1.3-2","summary":"socat (Multipurpose relay - SOcket CAT)","homepage":"http://www.dest-unreach.org/socat","series":"n"}
-{"name":"sof-firmware","version":"2026.09.1-1","summary":"sof-firmware (SOF firmware and topology binaries)","homepage":"https://www.sofproject.org","series":"l"}
-{"name":"solid","version":"6.30.0-2","summary":"solid (Desktop hardware abstraction)","homepage":"https://api.kde.org/frameworks/solid/html/","series":"kde"}
+{"name":"sof-firmware","version":"2026.09.2-1","summary":"sof-firmware (SOF firmware and topology binaries)","homepage":"https://www.sofproject.org","series":"l"}
+{"name":"solid","version":"6.31.0-1","summary":"solid (Desktop hardware abstraction)","homepage":"https://api.kde.org/frameworks/solid/html/","series":"kde"}
 {"name":"solid5","version":"5.116.0-3","summary":"solid5 (Desktop hardware abstraction)","homepage":"https://api.kde.org/frameworks/solid5/html/","series":"kde"}
 {"name":"soma","version":"3.3.7-4","summary":"soma (a dialog/MPlayer internet radio player and recorder)","homepage":"http://tty1.uk/slackbuilds/noversion/soma","series":"ap"}
-{"name":"sonnet","version":"6.30.0-1","summary":"sonnet (Multi-language spell checker)","series":"kde"}
+{"name":"sonnet","version":"6.31.0-1","summary":"sonnet (Multi-language spell checker)","series":"kde"}
 {"name":"sonnet5","version":"5.116.0-2","summary":"sonnet5 (Multi-language spell checker)","series":"kde"}
 {"name":"sound-theme-freedesktop","version":"0.8-5","summary":"sound-theme-freedesktop (freedesktop.org sound theme)","homepage":"http://freedesktop.org/wiki/Specifications/sound-theme-spec","series":"l"}
 {"name":"sox","version":"14.8.1-2","summary":"sox (universal sound sample translator)","homepage":"https://codeberg.org/sox_ng/sox_ng","series":"ap"}
@@ -1601,28 +1601,28 @@
 {"name":"spirv-llvm-translator","version":"23.1.2-1","summary":"spirv-llvm-translator (LLVM/SPIR-V Bi-Directional Translator)","homepage":"https://github.com/KhronosGroup/SPIRV-LLVM-Translator","series":"l"}
 {"name":"spleen","version":"2.2.0-1","summary":"spleen (monospaced bitmap fonts)","homepage":"https://www.cambus.net/spleen-monospaced-bitmap-fonts/","series":"ap"}
 {"name":"splitvt","version":"1.6.6-6","summary":"splitvt (run multiple shells in a single window)","homepage":"https://slouken.libsdl.org/projects/splitvt/","series":"a"}
-{"name":"sqlite","version":"3.53.4-2","summary":"sqlite (simple, self contained database engine)","homepage":"https://www.sqlite.org/","series":"ap"}
+{"name":"sqlite","version":"3.54.0-1","summary":"sqlite (simple, self contained database engine)","homepage":"https://www.sqlite.org/","series":"ap"}
 {"name":"squashfs-tools","version":"4.7.5-2","summary":"squashfs-tools (squashed read-only filesystem for Linux)","homepage":"https://github.com/plougher/squashfs-tools/","series":"ap"}
 {"name":"sshfs","version":"3.7.6-2","summary":"sshfs (SSH filesystem client)","homepage":"https://github.com/libfuse/sshfs","series":"n"}
 {"name":"ssr","version":"20260523_ad99c7e-2","summary":"ssr (Simple Screen Recorder)","homepage":"https://github.com/MaartenBaert/ssr","series":"xap"}
 {"name":"startup-notification","version":"0.12-6","summary":"startup-notification (\"busy\" cursors support)","series":"l"}
 {"name":"stb","version":"20260415_31c1ad3-2","summary":"stb (single-file libraries for C/C++)","homepage":"https://github.com/nothings/stb","series":"d"}
 {"name":"stellarsolver","version":"2.8-2","summary":"stellarsolver (internal astrometric solver)","homepage":"https://github.com/rlancaste/stellarsolver","series":"kde"}
-{"name":"step","version":"26.08.1-1","summary":"step (interactive physics simulator)","series":"kde"}
+{"name":"step","version":"26.08.2-1","summary":"step (interactive physics simulator)","series":"kde"}
 {"name":"stow","version":"2.4.1-2","summary":"stow (symlink farm manager)","homepage":"https://www.gnu.org/software/stow/","series":"ap"}
 {"name":"strace","version":"7.2-2","summary":"strace (trace system calls and signals)","series":"d"}
 {"name":"stunnel","version":"5.82-1","summary":"stunnel (Universal SSL tunnel)","series":"n"}
 {"name":"subtitlecomposer","version":"0.8.2-3","summary":"subtitlecomposer (subtitle editor)","homepage":"https://subtitlecomposer.kde.org/","series":"kde"}
-{"name":"subversion","version":"1.14.5-6","summary":"subversion (a version control system)","homepage":"https://subversion.apache.org","series":"d"}
+{"name":"subversion","version":"1.15.0-1","summary":"subversion (a version control system)","homepage":"https://subversion.apache.org","series":"d"}
 {"name":"sudo","version":"1.9.17p2-2","summary":"sudo (give limited root privileges to certain users)","homepage":"https://www.sudo.ws","series":"ap"}
 {"name":"suitesparse","version":"7.14.1-1","summary":"suitesparse (sparse matrix libraries)","homepage":"https://suitesparse.com","series":"l"}
 {"name":"svgalib","version":"1.9.25-8","summary":"svgalib (A low level graphics library for Linux)","series":"l"}
-{"name":"svgpart","version":"26.08.1-1","summary":"svgpart (SVG plugin for KDE)","series":"kde"}
-{"name":"sweeper","version":"26.08.1-1","summary":"sweeper (remove traces of your activities)","homepage":"https://projects.kde.org/projects/kde/kdeutils/sweeper","series":"kde"}
+{"name":"svgpart","version":"26.08.2-1","summary":"svgpart (SVG plugin for KDE)","series":"kde"}
+{"name":"sweeper","version":"26.08.2-1","summary":"sweeper (remove traces of your activities)","homepage":"https://projects.kde.org/projects/kde/kdeutils/sweeper","series":"kde"}
 {"name":"swig","version":"4.5.1-1","summary":"swig (Simplified Wrapper and Interface Generator)","series":"d"}
-{"name":"syndication","version":"6.30.0-1","summary":"syndication (RSS/Atom parser library)","series":"kde"}
+{"name":"syndication","version":"6.31.0-1","summary":"syndication (RSS/Atom parser library)","series":"kde"}
 {"name":"syndication5","version":"5.116.0-2","summary":"syndication5 (RSS/Atom parser library)","series":"kde"}
-{"name":"syntax-highlighting","version":"6.30.0-1","summary":"syntax-highlighting (syntax highlighting for Kate)","series":"kde"}
+{"name":"syntax-highlighting","version":"6.31.0-1","summary":"syntax-highlighting (syntax highlighting for Kate)","series":"kde"}
 {"name":"syntax-highlighting5","version":"5.116.0-2","summary":"syntax-highlighting5 (syntax highlighting for Kate)","series":"kde"}
 {"name":"sysfsutils","version":"2.1.1-2","summary":"sysfsutils (Utilities for the sysfs filesystem)","series":"a"}
 {"name":"sysklogd","version":"2.7.2-2","summary":"sysklogd (Linux system logging utilities)","homepage":"https://github.com/troglobit/sysklogd","series":"a"}
@@ -1653,9 +1653,9 @@
 {"name":"texlive","version":"2024.240409-6","summary":"texlive (TeX binaries, support files, and formats)","series":"t"}
 {"name":"tftp-hpa","version":"7.2-1","summary":"tftp-hpa (Trivial File Transfer Protocol)","series":"n"}
 {"name":"thin-provisioning-tools","version":"1.3.4-1","summary":"thin-provisioning-tools (Thin provisioning tools for device mapper)","homepage":"https://github.com/jthornber/thin-provisioning-tools","series":"a"}
-{"name":"threadweaver","version":"6.30.0-1","summary":"threadweaver (threaded programming helper)","series":"kde"}
+{"name":"threadweaver","version":"6.31.0-1","summary":"threadweaver (threaded programming helper)","series":"kde"}
 {"name":"threadweaver5","version":"5.116.0-2","summary":"threadweaver5 (threaded programming helper)","series":"kde"}
-{"name":"thunar","version":"4.20.10-1","summary":"thunar (file manager)","homepage":"http://thunar.xfce.org","series":"xfce"}
+{"name":"thunar","version":"4.20.10-2","summary":"thunar (file manager)","homepage":"http://thunar.xfce.org","series":"xfce"}
 {"name":"thunar-volman","version":"4.20.0-2","summary":"thunar-volman (Thunar Volume Manager Plugin)","series":"xfce"}
 {"name":"tibmachuni-font-ttf","version":"1.901b-6","summary":"tibmachuni-font-ttf (Tibetan Machine Unicode font)","homepage":"http://thdl.org/","series":"x"}
 {"name":"tidy-html5","version":"5.8.0-3","summary":"tidy-html5 (tidy up HTML and XML documents)","homepage":"https://www.html-tidy.org","series":"l"}
@@ -1664,8 +1664,8 @@
 {"name":"tin","version":"2.6.6-2","summary":"tin (the Tin newsreader)","series":"n"}
 {"name":"tix","version":"8.4.3-7","summary":"tix (an extension to the Tk toolkit)","series":"tcl"}
 {"name":"tk","version":"8.6.18-2","summary":"tk (Tk toolkit for Tcl)","homepage":"https://www.tcl.tk","series":"tcl"}
-{"name":"tmux","version":"3.7c-2","summary":"tmux (terminal multiplexer)","homepage":"https://github.com/tmux/tmux/wiki","series":"ap"}
-{"name":"tokodon","version":"26.08.1-1","summary":"tokodon (Mastodon client)","homepage":"https://invent.kde.org/network/tokodon","series":"kde"}
+{"name":"tmux","version":"3.8-1","summary":"tmux (terminal multiplexer)","homepage":"https://github.com/tmux/tmux/wiki","series":"ap"}
+{"name":"tokodon","version":"26.08.2-1","summary":"tokodon (Mastodon client)","homepage":"https://invent.kde.org/network/tokodon","series":"kde"}
 {"name":"traceroute","version":"2.1.6-2","summary":"traceroute (IP packet route tracing utility)","homepage":"http://traceroute.sourceforge.net","series":"n"}
 {"name":"transset","version":"1.0.4-2","summary":"transset (utility for setting opacity property)","series":"x"}
 {"name":"tree","version":"2.3.2-2","summary":"tree (a program to display a directory tree)","series":"a"}
@@ -1676,13 +1676,13 @@
 {"name":"twm","version":"1.0.13.1-2","summary":"twm (Tab Window Manager for the X Window System)","series":"x"}
 {"name":"udisks2","version":"2.11.2-2","summary":"udisks2 (storage device daemon v2)","homepage":"http://www.freedesktop.org/wiki/Software/udisks","series":"a"}
 {"name":"ulogd","version":"2.0.9-2","summary":"ulogd (Userspace Logging Daemon)","homepage":"https://www.netfilter.org/projects/ulogd/index.html","series":"n"}
-{"name":"umbrello","version":"26.08.1-1","summary":"umbrello (UML diagramming GUI)","series":"kde"}
+{"name":"umbrello","version":"26.08.2-1","summary":"umbrello (UML diagramming GUI)","series":"kde"}
 {"name":"unarj","version":"265-5","summary":"unarj (a command-line utility for decompressing .arj archives)","series":"a"}
 {"name":"undervolt","version":"0.4.0-3","summary":"undervolt (undervolt Intel CPUs)","homepage":"https://github.com/georgewhewell/undervolt","series":"ap"}
 {"name":"unicode-ucd","version":"18.0.0-1","summary":"unicode-ucd (Unicode Character Database)","homepage":"https://www.unicode.org","series":"l"}
 {"name":"union","version":"6.7.5-1","summary":"union (A Qt style supporting QtQuick and QtWidgets)","series":"kde"}
 {"name":"universal-ctags","version":"6.2.1-2","summary":"universal-ctags (Universal Ctags)","homepage":"https://ctags.io","series":"d"}
-{"name":"upower","version":"1.91.4-2","summary":"UPower (power management abstraction daemon)","homepage":"http://upower.freedesktop.org/","series":"a"}
+{"name":"upower","version":"1.91.5-1","summary":"UPower (power management abstraction daemon)","homepage":"http://upower.freedesktop.org/","series":"a"}
 {"name":"urw-core35-fonts-otf","version":"20170801_91edd6e_git-5","summary":"urw-core35-fonts-otf (URW++ core35 fonts in OpenType Format)","series":"x"}
 {"name":"usb_modeswitch","version":"2.6.2-2","summary":"usb_modeswitch (mode switching tool for multiple mode USB devices)","homepage":"http://www.draisberghof.de/usb_modeswitch","series":"a"}
 {"name":"usbmuxd","version":"20240916_0b1b233-3","summary":"usbmuxd (iOS USB connection daemon)","series":"ap"}
@@ -1701,15 +1701,15 @@
 {"name":"vde2","version":"2.3.3-2","summary":"vde2 (virtual distributed ethernet)","homepage":"https://github.com/virtualsquare/vde-2","series":"l"}
 {"name":"vid.stab","version":"1.1.2-2","summary":"vid.stab (video stabilization library)","homepage":"http://public.hronopik.de/vid.stab/","series":"l"}
 {"name":"viewres","version":"1.0.8-2","summary":"viewres (view widget class hierarchy of the Athena Widget Set)","series":"x"}
-{"name":"vim","version":"9.2.1125-1","summary":"vim (Vi IMproved)","series":"ap"}
-{"name":"vim-gvim","version":"9.2.1125-1","summary":"vim-gvim (gvim, the X/GTK3 enabled version of vim)","series":"xap"}
+{"name":"vim","version":"9.2.1172-1","summary":"vim (Vi IMproved)","series":"ap"}
+{"name":"vim-gvim","version":"9.2.1172-1","summary":"vim-gvim (gvim, the X/GTK3 enabled version of vim)","series":"xap"}
 {"name":"virglrenderer","version":"1.3.0-2","summary":"virglrenderer (GL renderer library based on virtio)","homepage":"https://docs.mesa3d.org/drivers/virgl/","series":"x"}
 {"name":"vlan","version":"1.9-6","summary":"vlan (VLAN (802.1q) configuration program)","series":"n"}
 {"name":"volume_key","version":"0.3.12-12","summary":"volume_key (manipulate storage keys)","homepage":"https://pagure.io/volume_key/","series":"a"}
 {"name":"vorbis-tools","version":"1.4.3-2","summary":"vorbis-tools (Ogg Vorbis Tools)","series":"ap"}
 {"name":"vsftpd","version":"3.0.5-5","summary":"vsftpd (Very Secure FTP Daemon)","homepage":"https://security.appspot.com/vsftpd.html","series":"n"}
 {"name":"vte","version":"0.84.1-4","summary":"vte (terminal emulator widget)","series":"l"}
-{"name":"vulkan-sdk","version":"1.4.357.1-2","summary":"vulkan-sdk (Vulkan ICD Loader and Validation Layers)","homepage":"https://www.khronos.org/vulkan/","series":"x"}
+{"name":"vulkan-sdk","version":"1.4.363.0-1","summary":"vulkan-sdk (Vulkan ICD Loader and Validation Layers)","homepage":"https://www.khronos.org/vulkan/","series":"x"}
 {"name":"wacomtablet","version":"6.7.5-1","summary":"wacomtablet (kcm for Wacom tablets)","homepage":"https://github.com/KDE/wacomtablet","series":"kde"}
 {"name":"wavpack","version":"5.9.0-2","summary":"wavpack (WAV audio file compressor)","homepage":"http://www.wavpack.com","series":"l"}
 {"name":"wayland","version":"1.26.0-2","summary":"wayland (Wayland display server)","homepage":"https://wayland.freedesktop.org/","series":"x"}
@@ -1852,13 +1852,13 @@
 {"name":"xmore","version":"1.0.4-2","summary":"xmore (plain text display program for the X Window System)","series":"x"}
 {"name":"xorg-cf-files","version":"1.0.9-2","summary":"xorg-cf-files (X11 config files for imake)","series":"x"}
 {"name":"xorg-docs","version":"1.7.3-2","summary":"xorg-docs (documentation for X11)","series":"x"}
-{"name":"xorg-server","version":"21.1.24-2","summary":"xorg-server (The Xorg server, the core of the X Window System)","homepage":"https://www.x.org","series":"x"}
-{"name":"xorg-server-xephyr","version":"21.1.24-2","summary":"xorg-server-xephyr (Improved nested X server/client)","series":"x"}
-{"name":"xorg-server-xnest","version":"21.1.24-2","summary":"xorg-server-xnest (a nested X server)","series":"x"}
-{"name":"xorg-server-xvfb","version":"21.1.24-2","summary":"xorg-server-xvfb (virtual framebuffer X server)","series":"x"}
-{"name":"xorg-server-xwayland","version":"24.1.13-2","summary":"xorg-server-xwayland (X Clients under Wayland)","series":"x"}
+{"name":"xorg-server","version":"21.1.25-2","summary":"xorg-server (The Xorg server, the core of the X Window System)","homepage":"https://www.x.org","series":"x"}
+{"name":"xorg-server-xephyr","version":"21.1.25-2","summary":"xorg-server-xephyr (Improved nested X server/client)","series":"x"}
+{"name":"xorg-server-xnest","version":"21.1.25-2","summary":"xorg-server-xnest (a nested X server)","series":"x"}
+{"name":"xorg-server-xvfb","version":"21.1.25-2","summary":"xorg-server-xvfb (virtual framebuffer X server)","series":"x"}
+{"name":"xorg-server-xwayland","version":"24.1.14-1","summary":"xorg-server-xwayland (X Clients under Wayland)","series":"x"}
 {"name":"xorg-sgml-doctools","version":"1.12.1-2","summary":"xorg-sgml-doctools (X.org documentation tools)","series":"x"}
-{"name":"xorgproto","version":"2025.1-2","summary":"xorgproto (X11 protocol headers)","series":"x"}
+{"name":"xorgproto","version":"2026.1-1","summary":"xorgproto (X11 protocol headers)","series":"x"}
 {"name":"xorriso","version":"1.5.8.pl02-2","summary":"xorriso (ISO-9660 and Rock Ridge manipulation tool)","homepage":"https://www.gnu.org/software/xorriso","series":"ap"}
 {"name":"xpaint","version":"3.1.4-4","summary":"xpaint (simple X paint program)","series":"xap"}
 {"name":"xpdf","version":"4.06-2","summary":"xpdf (PDF viewer for X)","series":"xap"}
@@ -1874,7 +1874,7 @@
 {"name":"xsetroot","version":"1.1.4-2","summary":"xsetroot (root window parameter setting utility for X)","series":"x"}
 {"name":"xsimd","version":"14.3.0-2","summary":"xsimd (C++ wrappers for SIMD intrinsics)","homepage":"https://github.com/xtensor-stack/xsimd","series":"kde"}
 {"name":"xsm","version":"1.0.6-2","summary":"xsm (X11 Session Manager)","series":"x"}
-{"name":"xsnow","version":"3.9.4-2","summary":"xsnow (let it snow on your desktop)","homepage":"http://ratrabbit.nl/ratrabbit/xsnow/","series":"xap"}
+{"name":"xsnow","version":"3.9.7-1","summary":"xsnow (let it snow on your desktop)","homepage":"http://ratrabbit.nl/ratrabbit/xsnow/","series":"xap"}
 {"name":"xstdcmap","version":"1.0.6-2","summary":"xstdcmap (X11 color utility)","series":"x"}
 {"name":"xterm","version":"411-2","summary":"xterm (terminal emulator for X)","series":"x"}
 {"name":"xtrans","version":"1.6.0-2","summary":"xtrans (X network transport library)","series":"x"}
@@ -1885,11 +1885,11 @@
 {"name":"xwud","version":"1.0.8-2","summary":"xwud (X screen dump viewer)","series":"x"}
 {"name":"xxHash","version":"0.8.4-1","summary":"xxHash (Extremely fast Hash algorithm)","homepage":"https://github.com/Cyan4973/xxHash","series":"l"}
 {"name":"xz","version":"5.8.4-1","summary":"xz (compression utility based on the LZMA algorithm)","series":"a"}
-{"name":"yakuake","version":"26.08.1-1","summary":"yakuake (drop-down terminal)","series":"kde"}
+{"name":"yakuake","version":"26.08.2-1","summary":"yakuake (drop-down terminal)","series":"kde"}
 {"name":"yasm","version":"1.3.0-5","summary":"yasm (complete rewrite of the NASM assembler)","series":"d"}
 {"name":"yptools","version":"4.2.3-8","summary":"yptools (NIS servers and clients)","series":"n"}
 {"name":"ytalk","version":"3.3.0-8","summary":"ytalk (multi-user chat program)","series":"n"}
-{"name":"zanshin","version":"26.08.1-1","summary":"zanshin (A Getting Things Done application)","homepage":"https://zanshin.kde.org","series":"kde"}
+{"name":"zanshin","version":"26.08.2-1","summary":"zanshin (A Getting Things Done application)","homepage":"https://zanshin.kde.org","series":"kde"}
 {"name":"zd1211-firmware","version":"1.5-5","summary":"zd1211-firmware (Firmware for zd1211 USB wireless)","series":"n"}
 {"name":"zenity","version":"4.2.2-1","summary":"zenity (GTK dialog utility)","series":"xap"}
 {"name":"zerofree","version":"1.1.1-4","summary":"zerofree (zero free blocks from ext* filesystems)","homepage":"https://frippery.org/uml/","series":"a"}

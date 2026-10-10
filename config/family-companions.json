@@ -1,1 +1,482 @@
-[]
+[
+  {
+    "parent": {
+      "source": "flatpak-flathub",
+      "appId": "org.mozilla.firefox"
+    },
+    "companion": {
+      "source": "rpm-fedora",
+      "appId": "firefox-langpacks"
+    },
+    "kind": "localization",
+    "reason": "Audit review 2026-10-09 (shared-homepage mozilla.org/firefox): review verdict — suggestion gemini-3.5-flash-lite : Language packs are companion translations"
+  },
+  {
+    "parent": {
+      "source": "flatpak-flathub",
+      "appId": "org.mozilla.firefox"
+    },
+    "companion": {
+      "source": "xbps-void",
+      "appId": "firefox-esr-i18n"
+    },
+    "kind": "localization",
+    "reason": "Audit review 2026-10-09 (shared-homepage mozilla.org/firefox): review verdict — suggestion gemini-3.5-flash-lite : Language packs are companion translations"
+  },
+  {
+    "parent": {
+      "source": "flatpak-flathub",
+      "appId": "org.mozilla.firefox"
+    },
+    "companion": {
+      "source": "xbps-void",
+      "appId": "firefox-i18n"
+    },
+    "kind": "localization",
+    "reason": "Audit review 2026-10-09 (shared-homepage mozilla.org/firefox): review verdict — suggestion gemini-3.5-flash-lite : Language packs are companion translations"
+  },
+  {
+    "parent": {
+      "source": "flatpak-flathub",
+      "appId": "org.mozilla.firefox"
+    },
+    "companion": {
+      "source": "apk-alpine",
+      "appId": "firefox-esr-intl"
+    },
+    "kind": "localization",
+    "reason": "Audit review 2026-10-09 (shared-homepage mozilla.org/en-us/firefox/organizations): review verdict — suggestion gemini-3.5-flash-lite : Internationalization ICU data is a companion package"
+  },
+  {
+    "parent": {
+      "source": "flatpak-flathub",
+      "appId": "org.mozilla.firefox"
+    },
+    "companion": {
+      "source": "apk-alpine",
+      "appId": "firefox-intl"
+    },
+    "kind": "localization",
+    "reason": "Audit review 2026-10-09 (shared-homepage firefox.com): review verdict — suggestion gemini-3.5-flash-lite : Internationalization ICU data is a companion package"
+  },
+  {
+    "parent": {
+      "source": "flatpak-flathub",
+      "appId": "org.mozilla.firefox"
+    },
+    "companion": {
+      "source": "ebuild-gentoo",
+      "appId": "www-client/firefox-l10n"
+    },
+    "kind": "localization",
+    "reason": "Audit review 2026-10-09 (shared-homepage firefox.com): review verdict — suggestion gemini-3.5-flash-lite : Translation files are companion translation packs"
+  },
+  {
+    "parent": {
+      "source": "pacman-arch",
+      "appId": "fs-uae-launcher"
+    },
+    "companion": {
+      "source": "flatpak-flathub",
+      "appId": "net.fsuae.FS-UAE"
+    },
+    "kind": "component",
+    "reason": "Audit review 2026-10-09 (declared-relation toolFor:pacman-arch:fs-uae-launcher->fsuae): review verdict — FS-UAE est un composant de FS-UAE Launcher qui est le principal"
+  },
+  {
+    "parent": {
+      "source": "flatpak-flathub",
+      "appId": "org.ardour.Ardour"
+    },
+    "companion": {
+      "source": "deb-debian",
+      "appId": "ardour-data"
+    },
+    "kind": "component",
+    "reason": "Audit review 2026-10-09 (shared-homepage ardour.org): review verdict"
+  },
+  {
+    "parent": {
+      "source": "flatpak-flathub",
+      "appId": "org.ardour.Ardour"
+    },
+    "companion": {
+      "source": "deb-debian",
+      "appId": "ardour-lv2-plugins"
+    },
+    "kind": "component",
+    "reason": "Audit review 2026-10-09 (shared-homepage ardour.org): review verdict"
+  },
+  {
+    "parent": {
+      "source": "flatpak-flathub",
+      "appId": "org.ardour.Ardour"
+    },
+    "companion": {
+      "source": "deb-debian",
+      "appId": "ardour-video-timeline"
+    },
+    "kind": "component",
+    "reason": "Audit review 2026-10-09 (shared-homepage ardour.org): review verdict"
+  },
+  {
+    "parent": {
+      "source": "flatpak-flathub",
+      "appId": "org.atheme.audacious"
+    },
+    "companion": {
+      "source": "deb-debian",
+      "appId": "audacious-plugins-data"
+    },
+    "kind": "data",
+    "reason": "Audit review 2026-10-09 (shared-homepage audacious-media-player.org): review verdict"
+  },
+  {
+    "parent": {
+      "source": "flatpak-flathub",
+      "appId": "org.atheme.audacious"
+    },
+    "companion": {
+      "source": "deb-debian",
+      "appId": "audacious-plugins"
+    },
+    "kind": "plugin",
+    "reason": "Audit review 2026-10-09 (shared-homepage audacious-media-player.org): review verdict"
+  },
+  {
+    "parent": {
+      "source": "flatpak-flathub",
+      "appId": "org.atheme.audacious"
+    },
+    "companion": {
+      "source": "rpm-fedora",
+      "appId": "audacious-plugins-exotic"
+    },
+    "kind": "plugin",
+    "reason": "Audit review 2026-10-09 (shared-homepage audacious-media-player.org): review verdict"
+  },
+  {
+    "parent": {
+      "source": "flatpak-flathub",
+      "appId": "org.atheme.audacious"
+    },
+    "companion": {
+      "source": "rpm-opensuse",
+      "appId": "audacious-plugins-extra"
+    },
+    "kind": "plugin",
+    "reason": "Audit review 2026-10-09 (shared-homepage audacious-media-player.org): review verdict"
+  },
+  {
+    "parent": {
+      "source": "flatpak-flathub",
+      "appId": "com.dosbox.DOSBox"
+    },
+    "companion": {
+      "source": "pacman-aur",
+      "appId": "dosbox-x-debugger-additions-git"
+    },
+    "kind": "component",
+    "reason": "Audit review 2026-10-09 (shared-homepage dosbox.sourceforge.net): review verdict"
+  },
+  {
+    "parent": {
+      "source": "flatpak-flathub",
+      "appId": "org.geogebra.GeoGebra"
+    },
+    "companion": {
+      "source": "deb-debian",
+      "appId": "geogebra-gnome"
+    },
+    "kind": "plugin",
+    "reason": "Audit review 2026-10-09 (shared-homepage geogebra.org): review verdict"
+  },
+  {
+    "parent": {
+      "source": "flatpak-flathub",
+      "appId": "io.github.seadve.Kooha"
+    },
+    "companion": {
+      "source": "apk-alpine",
+      "appId": "kooha-mp4"
+    },
+    "kind": "component",
+    "reason": "Audit review 2026-10-09 (shared-homepage github.com/seadve/kooha): review verdict"
+  },
+  {
+    "parent": {
+      "source": "flatpak-flathub",
+      "appId": "org.mozilla.firefox"
+    },
+    "companion": {
+      "source": "rpm-opensuse",
+      "appId": "firefox-esr-branding-upstream"
+    },
+    "kind": "component",
+    "reason": "Audit review 2026-10-09 (shared-homepage mozilla.org): review verdict — suggestion gemini-3.5-flash-lite : Firefox ESR branding is an edition companion line"
+  },
+  {
+    "parent": {
+      "source": "flatpak-flathub",
+      "appId": "org.mozilla.firefox"
+    },
+    "companion": {
+      "source": "rpm-opensuse",
+      "appId": "MozillaFirefox-branding-upstream"
+    },
+    "kind": "component",
+    "reason": "Audit review 2026-10-09 (shared-homepage mozilla.org): review verdict — suggestion gemini-3.5-flash-lite : Upstream branding package for Firefox"
+  },
+  {
+    "parent": {
+      "source": "flatpak-flathub",
+      "appId": "com.github.flxzt.rnote"
+    },
+    "companion": {
+      "source": "apk-alpine",
+      "appId": "rnote-cli"
+    },
+    "kind": "plugin",
+    "reason": "Audit review 2026-10-09 (shared-homepage rnote.flxzt.net): review verdict"
+  },
+  {
+    "parent": {
+      "source": "flatpak-flathub",
+      "appId": "net.scribus.Scribus"
+    },
+    "companion": {
+      "source": "deb-debian",
+      "appId": "scribus-data"
+    },
+    "kind": "component",
+    "reason": "Audit review 2026-10-09 (shared-homepage scribus.net): review verdict"
+  },
+  {
+    "parent": {
+      "source": "flatpak-flathub",
+      "appId": "net.scribus.Scribus"
+    },
+    "companion": {
+      "source": "deb-debian",
+      "appId": "scribus-template"
+    },
+    "kind": "component",
+    "reason": "Audit review 2026-10-09 (shared-homepage scribus.net): review verdict"
+  },
+  {
+    "parent": {
+      "source": "flatpak-flathub",
+      "appId": "org.srb2.SRB2"
+    },
+    "companion": {
+      "source": "pacman-aur",
+      "appId": "srb2-data"
+    },
+    "kind": "component",
+    "reason": "Audit review 2026-10-09 (shared-homepage srb2.org): review verdict"
+  },
+  {
+    "parent": {
+      "source": "flatpak-flathub",
+      "appId": "org.srb2.SRB2"
+    },
+    "companion": {
+      "source": "pacman-aur",
+      "appId": "srb2-legacy-data"
+    },
+    "kind": "component",
+    "reason": "Audit review 2026-10-09 (shared-homepage srb2.org): review verdict"
+  },
+  {
+    "parent": {
+      "source": "flatpak-flathub",
+      "appId": "org.srb2.SRB2"
+    },
+    "companion": {
+      "source": "pacman-aur",
+      "appId": "srb2-retro-data"
+    },
+    "kind": "component",
+    "reason": "Audit review 2026-10-09 (shared-homepage srb2.org): review verdict"
+  },
+  {
+    "parent": {
+      "source": "flatpak-flathub",
+      "appId": "org.stellarium.Stellarium"
+    },
+    "companion": {
+      "source": "deb-debian",
+      "appId": "stellarium-data"
+    },
+    "kind": "component",
+    "reason": "Audit review 2026-10-09 (shared-homepage stellarium.org): review verdict"
+  },
+  {
+    "parent": {
+      "source": "flatpak-flathub",
+      "appId": "me.kozec.syncthingtk"
+    },
+    "companion": {
+      "source": "apk-alpine",
+      "appId": "syncthing-nftrules"
+    },
+    "kind": "component",
+    "reason": "Audit review 2026-10-09 (shared-homepage syncthing.net): review verdict"
+  },
+  {
+    "parent": {
+      "source": "flatpak-flathub",
+      "appId": "me.kozec.syncthingtk"
+    },
+    "companion": {
+      "source": "apk-alpine",
+      "appId": "syncthing-systemd"
+    },
+    "kind": "component",
+    "reason": "Audit review 2026-10-09 (shared-homepage syncthing.net): review verdict"
+  },
+  {
+    "parent": {
+      "source": "flatpak-flathub",
+      "appId": "me.kozec.syncthingtk"
+    },
+    "companion": {
+      "source": "apk-alpine",
+      "appId": "syncthing-utils"
+    },
+    "kind": "component",
+    "reason": "Audit review 2026-10-09 (shared-homepage syncthing.net): review verdict"
+  },
+  {
+    "parent": {
+      "source": "flatpak-flathub",
+      "appId": "me.kozec.syncthingtk"
+    },
+    "companion": {
+      "source": "nix-nixpkgs",
+      "appId": "syncthing-relay"
+    },
+    "kind": "component",
+    "reason": "Audit review 2026-10-09 (shared-homepage syncthing.net): review verdict"
+  },
+  {
+    "parent": {
+      "source": "flatpak-flathub",
+      "appId": "me.kozec.syncthingtk"
+    },
+    "companion": {
+      "source": "deb-debian",
+      "appId": "syncthing"
+    },
+    "kind": "component",
+    "reason": "Audit review 2026-10-09 (shared-homepage syncthing.net): review verdict"
+  },
+  {
+    "parent": {
+      "source": "flatpak-flathub",
+      "appId": "me.kozec.syncthingtk"
+    },
+    "companion": {
+      "source": "deb-debian",
+      "appId": "syncthing-discosrv"
+    },
+    "kind": "component",
+    "reason": "Audit review 2026-10-09 (shared-homepage syncthing.net): review verdict"
+  },
+  {
+    "parent": {
+      "source": "flatpak-flathub",
+      "appId": "me.kozec.syncthingtk"
+    },
+    "companion": {
+      "source": "deb-debian",
+      "appId": "syncthing-relaysrv"
+    },
+    "kind": "component",
+    "reason": "Audit review 2026-10-09 (shared-homepage syncthing.net): review verdict"
+  },
+  {
+    "parent": {
+      "source": "flatpak-flathub",
+      "appId": "me.kozec.syncthingtk"
+    },
+    "companion": {
+      "source": "xbps-void",
+      "appId": "syncthing-inotify"
+    },
+    "kind": "component",
+    "reason": "Audit review 2026-10-09 (shared-homepage syncthing.net): review verdict"
+  },
+  {
+    "parent": {
+      "source": "flatpak-flathub",
+      "appId": "org.gnome.Aisleriot"
+    },
+    "companion": {
+      "source": "rpm-opensuse",
+      "appId": "aisleriot-themes"
+    },
+    "kind": "component",
+    "reason": "Audit review 2026-10-09 (shared-homepage wiki.gnome.org/apps/aisleriot): review verdict"
+  },
+  {
+    "parent": {
+      "source": "flatpak-flathub",
+      "appId": "org.wireshark.Wireshark"
+    },
+    "companion": {
+      "source": "pacman-aur",
+      "appId": "wireshark-libsmi-cli"
+    },
+    "kind": "component",
+    "reason": "Audit review 2026-10-09 (shared-homepage wireshark.org): review verdict"
+  },
+  {
+    "parent": {
+      "source": "flatpak-flathub",
+      "appId": "org.wireshark.Wireshark"
+    },
+    "companion": {
+      "source": "pacman-aur",
+      "appId": "wireshark-libsmi-qt"
+    },
+    "kind": "component",
+    "reason": "Audit review 2026-10-09 (shared-homepage wireshark.org): review verdict"
+  },
+  {
+    "parent": {
+      "source": "flatpak-flathub",
+      "appId": "org.wireshark.Wireshark"
+    },
+    "companion": {
+      "source": "pacman-aur",
+      "appId": "wireshark-oqs-cli"
+    },
+    "kind": "component",
+    "reason": "Audit review 2026-10-09 (shared-homepage wireshark.org): review verdict"
+  },
+  {
+    "parent": {
+      "source": "flatpak-flathub",
+      "appId": "org.wireshark.Wireshark"
+    },
+    "companion": {
+      "source": "pacman-aur",
+      "appId": "wireshark-oqs-qt"
+    },
+    "kind": "component",
+    "reason": "Audit review 2026-10-09 (shared-homepage wireshark.org): review verdict"
+  },
+  {
+    "parent": {
+      "source": "flatpak-flathub",
+      "appId": "dev.zed.Zed"
+    },
+    "companion": {
+      "source": "nix-nixpkgs",
+      "appId": "zed-editor"
+    },
+    "kind": "component",
+    "reason": "Audit review 2026-10-09 (shared-homepage zed.dev): review verdict"
+  }
+]

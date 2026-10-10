@@ -132,6 +132,5202 @@
     "reason": "Betterbird is a fine-tuned fork of Thunderbird (betterbird.eu)."
   },
   {
+    "type": "toolFor",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "com.playonlinux.PlayOnLinux4"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.winehq.Wine"
+    },
+    "reason": "Audit review 2026-10-09: \"front-end for Wine\" — LLM gemini-3.1-flash-lite: PlayOnLinux is a well-known GUI frontend for Wine."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "io.github.aggalex.Wineglass"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.winehq.Wine"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for Wine\" — LLM gemini-3.1-flash-lite: Wineglass is a GUI frontend for Wine."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "ua.org.brezblock.q4wine"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.winehq.Wine"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for W.I.N.E.\" — LLM gemini-3.1-flash-lite: q4wine is a utility for managing Wine applications."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "snap-snapcraft",
+      "appId": "winscp"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.winehq.Wine"
+    },
+    "reason": "Audit review 2026-10-09: \"client for Wine\" — LLM gemini-3.1-flash-lite: WinSCP is a Windows application running via Wine."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "seneka-ebdys-maltepe"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.winehq.Wine"
+    },
+    "reason": "Audit review 2026-10-09: \"client for Wine\" — LLM gemini-3.1-flash-lite: This is a specific Windows application running via Wine."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "ebuild-gentoo",
+      "appId": "app-emulation/wine-proton"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.winehq.Wine"
+    },
+    "reason": "Audit review 2026-10-09: \"fork of Wine\" — LLM gemini-3.1-flash-lite: Wine-Proton is a recognized fork of Wine."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "camofox-browser-bin"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.mozilla.firefox"
+    },
+    "reason": "Audit review 2026-10-09: \"Firefox fork\" — LLM gemini-3.1-flash-lite: Camoufox is a browser based on Firefox."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "flamewolf-bin"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.mozilla.firefox"
+    },
+    "reason": "Audit review 2026-10-09: \"fork of Firefox\" — LLM gemini-3.1-flash-lite: Flamewolf is a fork of Firefox."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "flowfox"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.mozilla.firefox"
+    },
+    "reason": "Audit review 2026-10-09: \"Fork of Firefox with\" — LLM gemini-3.1-flash-lite: Flowfox is a fork of Firefox."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "konform-browser"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.mozilla.firefox"
+    },
+    "reason": "Audit review 2026-10-09: \"fork of Firefox\" — LLM gemini-3.1-flash-lite: Konform is a fork of Firefox."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "mercury-browser-avx2-bin"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.mozilla.firefox"
+    },
+    "reason": "Audit review 2026-10-09: \"Firefox fork\" — LLM gemini-3.1-flash-lite: Mercury is a fork of Firefox."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "phantom-browser-bin"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.mozilla.firefox"
+    },
+    "reason": "Audit review 2026-10-09: \"Firefox fork\" — LLM gemini-3.1-flash-lite: Phantom is a fork of Firefox."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "rozelynx-bin"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.mozilla.firefox"
+    },
+    "reason": "Audit review 2026-10-09: \"Firefox fork\" — LLM gemini-3.1-flash-lite: RozeLynx is a fork of Firefox."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "app.legcord.Legcord"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "com.discordapp.Discord"
+    },
+    "reason": "Audit review 2026-10-09: \"desktop client for Discord\" — LLM gemini-3.1-flash-lite: Legcord is a third-party client for Discord."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "concord"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "com.discordapp.Discord"
+    },
+    "reason": "Audit review 2026-10-09: \"client for Discord\" — LLM gemini-3.1-flash-lite: Concord is a TUI client for Discord."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "jfcord-appimage"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "com.discordapp.Discord"
+    },
+    "reason": "Audit review 2026-10-09: \"client for Discord\" — LLM gemini-3.1-flash-lite: JFCord is a rich presence tool for Discord."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "mbcord-appimage"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "com.discordapp.Discord"
+    },
+    "reason": "Audit review 2026-10-09: \"client for Discord\" — LLM gemini-3.1-flash-lite: MBCord is a rich presence tool for Discord."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "molly-bin"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "com.discordapp.Discord"
+    },
+    "reason": "Audit review 2026-10-09: \"client for Discord\" — LLM gemini-3.1-flash-lite: Molly is a terminal client for Discord."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "nix-nixpkgs",
+      "appId": "concord-tui"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "com.discordapp.Discord"
+    },
+    "reason": "Audit review 2026-10-09: \"client for Discord\" — LLM gemini-3.1-flash-lite: Concord is a TUI client for Discord."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "snap-snapcraft",
+      "appId": "audiovisual"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.videolan.VLC"
+    },
+    "reason": "Audit review 2026-10-09: \"fork of VLC\" — LLM gemini-3.1-flash-lite: Audiovisual is explicitly a fork of VLC."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "io.github.forkgram.tdesktop"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.telegram.desktop"
+    },
+    "reason": "Audit review 2026-10-09: \"Fork of the Telegram Desktop\" — LLM gemini-3.1-flash-lite: Forkgram is a fork of Telegram Desktop."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "it.belloworld.mercurygram"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.telegram.desktop"
+    },
+    "reason": "Audit review 2026-10-09: \"Telegram fork\" — LLM gemini-3.1-flash-lite: Mercurygram is a fork of Telegram Desktop."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "snap-snapcraft",
+      "appId": "telega"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.telegram.desktop"
+    },
+    "reason": "Audit review 2026-10-09: \"unofficial client for Telegram\" — LLM gemini-3.1-flash-lite: Telega is an unofficial client for Telegram."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "appimage",
+      "appId": "kotatogram/kotatogram-desktop"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.telegram.desktop"
+    },
+    "reason": "Audit review 2026-10-09: \"fork of Telegram Desktop\" — LLM gemini-3.1-flash-lite: Kotatogram is a fork of Telegram Desktop."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "claugram-desktop-git"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.telegram.desktop"
+    },
+    "reason": "Audit review 2026-10-09: \"fork of Telegram Desktop\" — LLM gemini-3.1-flash-lite: Claugram is a fork of Telegram Desktop."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "tgcli"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.telegram.desktop"
+    },
+    "reason": "Audit review 2026-10-09: \"client for Telegram.\" — LLM gemini-3.1-flash-lite: Tgcli is a terminal client for Telegram."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "appimage",
+      "appId": "guilhermefeitosa66/OpenEmux"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.libretro.RetroArch"
+    },
+    "reason": "Audit review 2026-10-09: \"frontend for RetroArch\" — LLM gemini-3.1-flash-lite: OpenEmux is a frontend for RetroArch."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-arch",
+      "appId": "sc-controller"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "com.valvesoftware.Steam"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for Steam\" — LLM gemini-3.1-flash-lite: SC-Controller is a tool for Steam controllers."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "heroic-absolking-git"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "com.heroicgameslauncher.hgl"
+    },
+    "reason": "Audit review 2026-10-09: \"fork of Heroic Games\" — LLM gemini-3.1-flash-lite: Heroic-absolking is a fork of Heroic Games Launcher."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "appimage",
+      "appId": "andrew-ld/lutris-gamepad-ui"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "net.lutris.Lutris"
+    },
+    "reason": "Audit review 2026-10-09: \"frontend for the Lutris\" — LLM gemini-3.1-flash-lite: Lutris-gamepad-ui is a frontend for Lutris."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "kh-melonmix-bin"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "net.kuribo64.melonDS"
+    },
+    "reason": "Audit review 2026-10-09: \"fork of MelonDS\" — LLM gemini-3.1-flash-lite: KHMelonMix is a fork of MelonDS."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "lucem-git"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.vinegarhq.Sober"
+    },
+    "reason": "Audit review 2026-10-09: \"wrapper for Sober\" — LLM gemini-3.1-flash-lite: Lucem is a wrapper for Sober."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "obsidian-headless-go-bin"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "md.obsidian.Obsidian"
+    },
+    "reason": "Audit review 2026-10-09: \"client for Obsidian Sync\" — LLM gemini-3.1-flash-lite: Headless client is a companion to the main Obsidian software."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "pacman-arch",
+      "appId": "bitwarden-cli"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "com.bitwarden.desktop"
+    },
+    "reason": "Audit review 2026-10-09: \"client for Bitwarden\" — LLM gemini-3.1-flash-lite: CLI client is a companion to the main Bitwarden software."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "nix-nixpkgs",
+      "appId": "bitwarden-menu"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "com.bitwarden.desktop"
+    },
+    "reason": "Audit review 2026-10-09: \"frontend for Bitwarden\" — LLM gemini-3.1-flash-lite: Rofi frontend is a tool for the Bitwarden software."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "deb-ubuntu",
+      "appId": "rbw"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "com.bitwarden.desktop"
+    },
+    "reason": "Audit review 2026-10-09: \"client for Bitwarden\" — LLM gemini-3.1-flash-lite: CLI client is a companion to the main Bitwarden software."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "rofi-brbw-git"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "com.bitwarden.desktop"
+    },
+    "reason": "Audit review 2026-10-09: \"frontend for Bitwarden\" — LLM gemini-3.1-flash-lite: Rofi frontend is a tool for the Bitwarden software."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-arch",
+      "appId": "rofi-rbw"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "com.bitwarden.desktop"
+    },
+    "reason": "Audit review 2026-10-09: \"frontend for Bitwarden\" — LLM gemini-3.1-flash-lite: Rofi frontend is a tool for the Bitwarden software."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "thorium-browser-avx-bin"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.chromium.Chromium"
+    },
+    "reason": "Audit review 2026-10-09: \"Chromium fork\" — LLM gemini-3.1-flash-lite: Thorium is a known fork of the Chromium project."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "thorium-browser-avx2-bin"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.chromium.Chromium"
+    },
+    "reason": "Audit review 2026-10-09: \"Chromium fork\" — LLM gemini-3.1-flash-lite: Thorium is a known fork of the Chromium project."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "thorium-browser-bin"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.chromium.Chromium"
+    },
+    "reason": "Audit review 2026-10-09: \"Chromium fork\" — LLM gemini-3.1-flash-lite: Thorium is a known fork of the Chromium project."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "thorium-browser-sse4-bin"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.chromium.Chromium"
+    },
+    "reason": "Audit review 2026-10-09: \"Chromium fork\" — LLM gemini-3.1-flash-lite: Thorium is a known fork of the Chromium project."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "tronbrowser-bin"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.chromium.Chromium"
+    },
+    "reason": "Audit review 2026-10-09: \"Chromium fork\" — LLM gemini-3.1-flash-lite: Tron is a known fork of the Chromium project."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "pacman-arch",
+      "appId": "gurk"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.signal.Signal"
+    },
+    "reason": "Audit review 2026-10-09: \"client for Signal\" — LLM gemini-3.1-flash-lite: CLI client is a companion to the main Signal software."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "proton-vpn-qt-app"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "com.protonvpn.www"
+    },
+    "reason": "Audit review 2026-10-09: \"frontend for the ProtonVPN\" — LLM gemini-3.1-flash-lite: Qt GUI is a tool for the ProtonVPN CLI."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "org.upbge.UPBGE"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.blender.Blender"
+    },
+    "reason": "Audit review 2026-10-09: \"fork of Blender Game\" — LLM gemini-3.1-flash-lite: UPBGE is a known fork of the Blender project."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "lsq-bin"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.localsend.localsend_app"
+    },
+    "reason": "Audit review 2026-10-09: \"client for LocalSend\" — LLM gemini-3.1-flash-lite: CLI client is a companion to the main LocalSend software."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "a7800"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.mamedev.MAME"
+    },
+    "reason": "Audit review 2026-10-09: \"fork of the MAME Atari\" — LLM gemini-3.1-flash-lite: A7800 is a known fork of the MAME project."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "kmame-git"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.mamedev.MAME"
+    },
+    "reason": "Audit review 2026-10-09: \"Frontend for MAME\" — LLM gemini-3.1-flash-lite: Frontend is a tool for the MAME software."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "fm.cancel.Ripcord"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "com.slack.Slack"
+    },
+    "reason": "Audit review 2026-10-09: \"client for Slack\" — LLM gemini-3.1-flash-lite: Alternative client is a companion to the main Slack software."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "slacka"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "com.slack.Slack"
+    },
+    "reason": "Audit review 2026-10-09: \"client for Slack\" — LLM gemini-3.1-flash-lite: CLI client is a companion to the main Slack software."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "slacko-bin"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "com.slack.Slack"
+    },
+    "reason": "Audit review 2026-10-09: \"client for Slack\" — LLM gemini-3.1-flash-lite: Slacko is a TUI client for the Slack service."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "rpm-rpmfusion",
+      "appId": "kodi-pvr-vbox"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "tv.kodi.Kodi"
+    },
+    "reason": "Audit review 2026-10-09: \"client for Kodi\" — LLM gemini-3.1-flash-lite: PVR clients are components extending Kodi functionality."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "artemis-qt-git"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "com.moonlight_stream.Moonlight"
+    },
+    "reason": "Audit review 2026-10-09: \"Moonlight fork\" — LLM gemini-3.1-flash-lite: Artemis is explicitly a fork of Moonlight."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "shuvscode-bin"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "com.vscodium.codium-insiders"
+    },
+    "reason": "Audit review 2026-10-09: \"VSCodium fork\" — LLM gemini-3.1-flash-lite: Shuvscode is a fork of VSCodium."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "org.equeim.Tremotesf"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "com.transmissionbt.Transmission"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for Transmission\" — LLM gemini-3.1-flash-lite: Tremotesf is a remote GUI tool for Transmission."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "org.openscopeproject.TrguiNG"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "com.transmissionbt.Transmission"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for Transmission\" — LLM gemini-3.1-flash-lite: TrguiNG is a remote GUI tool for Transmission."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "appimage",
+      "appId": "adameat/transmission-electron-gui"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "com.transmissionbt.Transmission"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for Transmission\" — LLM gemini-3.1-flash-lite: Transmission Electron GUI is a tool for Transmission."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "transmission-client-gtk"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "com.transmissionbt.Transmission"
+    },
+    "reason": "Audit review 2026-10-09: \"fork of transmission-gtk\" — LLM gemini-3.1-flash-lite: Transmission-client-gtk is a fork of transmission-gtk."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "tremc"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "com.transmissionbt.Transmission"
+    },
+    "reason": "Audit review 2026-10-09: \"client for Transmission\" — LLM gemini-3.1-flash-lite: Tremc is a curses interface tool for Transmission."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "io.github.aandrew_me.ytdn"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "youtube-dl"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for youtube-dl\" — LLM gemini-3.1-flash-lite: ytDownloader is a GUI tool for youtube-dl."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "nix-nixpkgs",
+      "appId": "joplin-cli"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "net.cozic.joplin_desktop"
+    },
+    "reason": "Audit review 2026-10-09: \"client for Joplin\" — LLM gemini-3.1-flash-lite: Joplin-cli is a component of the Joplin project."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "snap-snapcraft",
+      "appId": "ansel"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.darktable.Darktable"
+    },
+    "reason": "Audit review 2026-10-09: \"Darktable fork\" — LLM gemini-3.1-flash-lite: Ansel is a fork of Darktable."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "com.plexamp.Plexamp"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "tv.plex.PlexDesktop"
+    },
+    "reason": "Audit review 2026-10-09: \"client for Plex\" — LLM gemini-3.1-flash-lite: Plexamp is a companion music player for Plex."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "hex-music-player"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "tv.plex.PlexDesktop"
+    },
+    "reason": "Audit review 2026-10-09: \"client for Plex Media\" — LLM gemini-3.1-flash-lite: Hex is a companion music player for Plex."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "plexamp-headless"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "tv.plex.PlexDesktop"
+    },
+    "reason": "Audit review 2026-10-09: \"client for Plex\" — LLM gemini-3.1-flash-lite: Plexamp-headless is a companion music player for Plex."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "pacman-arch",
+      "appId": "plezy"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "tv.plex.PlexDesktop"
+    },
+    "reason": "Audit review 2026-10-09: \"client for Plex\" — LLM gemini-3.1-flash-lite: Plezy is a companion client for Plex."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "pmcli-git"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "tv.plex.PlexDesktop"
+    },
+    "reason": "Audit review 2026-10-09: \"client for Plex Media\" — LLM gemini-3.1-flash-lite: Pmcli is a companion CLI client for Plex."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "reel"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "tv.plex.PlexDesktop"
+    },
+    "reason": "Audit review 2026-10-09: \"frontend for Plex\" — LLM gemini-3.1-flash-lite: Reel is a tool frontend for Plex."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "io.github.celluloid_player.Celluloid"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "io.mpv.Mpv"
+    },
+    "reason": "Audit review 2026-10-09: \"frontend for mpv\" — LLM gemini-3.6-flash: Celluloid is a GTK frontend for mpv"
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "io.mpv.Mpv"
+    },
+    "to": {
+      "source": "deb-debian",
+      "appId": "mplayer"
+    },
+    "reason": "Audit review 2026-10-09: \"fork of MPlayer and\" — LLM gemini-3.6-flash: mpv is a fork of MPlayer"
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "jellyfin-mpv-shim-web"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "io.mpv.Mpv"
+    },
+    "reason": "Audit review 2026-10-09: \"client for MPV Shim\" — LLM gemini-3.6-flash: Jellyfin web client extends MPV Shim"
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "rmpv-git"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "io.mpv.Mpv"
+    },
+    "reason": "Audit review 2026-10-09: \"frontend for mpv\" — LLM gemini-3.6-flash: rmpv is a CLI frontend for mpv"
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "rpm-rpmfusion",
+      "appId": "xt7-player-mpv"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "io.mpv.Mpv"
+    },
+    "reason": "Audit review 2026-10-09: \"gui to mpv\" — LLM gemini-3.6-flash: xt7-player-mpv is a GUI frontend for mpv"
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "xbps-void",
+      "appId": "gnome-mpv"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "io.mpv.Mpv"
+    },
+    "reason": "Audit review 2026-10-09: \"frontend for mpv\" — LLM gemini-3.6-flash: gnome-mpv is a frontend for mpv"
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "voxelands"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.luanti.luanti"
+    },
+    "reason": "Audit review 2026-10-09: \"fork of Minetest\" — LLM gemini-3.6-flash: Voxelands is a fork of Minetest"
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "com.nextcloud.desktopclient.nextcloud"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "nextcloud"
+    },
+    "reason": "Audit review 2026-10-09: \"client for Nextcloud\" — LLM gemini-3.6-flash: Nextcloud Desktop Client is a client for Nextcloud server"
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "midori-bin"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "one.ablaze.floorp"
+    },
+    "reason": "Audit review 2026-10-09: \"fork of Floorp fork\" — LLM gemini-3.6-flash: Midori is a fork of Floorp"
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "org.nickvision.tubeconverter"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "yt-dlp"
+    },
+    "reason": "Audit review 2026-10-09: \"frontend for yt-dlp\" — LLM gemini-3.6-flash: Parabolic is a GUI frontend for yt-dlp"
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "org.gnome.World.PikaBackup"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "borg-backup"
+    },
+    "reason": "Audit review 2026-10-09: \"Frontend for BorgBackup\" — LLM gemini-3.6-flash: Pika Backup is a GUI frontend for BorgBackup"
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "gpu-screen-recorder-gtk"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "com.dec05eba.gpu_screen_recorder"
+    },
+    "reason": "Audit review 2026-10-09: \"frontend to gpu-screen-recorder\" — LLM gemini-3.6-flash: gpu-screen-recorder-gtk is a GTK frontend for gpu-screen-recorder"
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "pulsecontrol-git"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.pulseaudio.pavucontrol"
+    },
+    "reason": "Audit review 2026-10-09: \"fork of pavucontrol aiming\" — LLM gemini-3.6-flash: pulsecontrol is a fork of pavucontrol"
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "com.prusa3d.PrusaSlicer"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "slic3r"
+    },
+    "reason": "Audit review 2026-10-09: \"fork of Slic3r\" — LLM gemini-3.6-flash: PrusaSlicer is a fork of Slic3r"
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "anycubic-slicer"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "com.prusa3d.PrusaSlicer"
+    },
+    "reason": "Audit review 2026-10-09: \"fork of Prusa Slicer\" — LLM gemini-3.6-flash: Anycubic Slicer is a fork of PrusaSlicer"
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "superslicer"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "com.prusa3d.PrusaSlicer"
+    },
+    "reason": "Audit review 2026-10-09: \"PrusaSlicer fork\" — LLM gemini-3.6-flash: SuperSlicer is a fork of PrusaSlicer"
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "com.markopejic.downloader"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "yt-dlp"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI to yt-dlp\" — LLM gemini-3.6-flash: Media Downloader is a GUI frontend for yt-dlp"
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "org.gnome.DejaDup"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "duplicity"
+    },
+    "reason": "Audit review 2026-10-09: \"frontend for duplicity\" — LLM gemini-3.6-flash: Deja Dup is a graphical frontend for duplicity"
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "avidemux-qt5-git"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.avidemux.Avidemux"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for Avidemux.\" — LLM gemini-3.6-flash: avidemux-qt5-git is a component/tool for Avidemux"
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "avidemux-qt6-git"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.avidemux.Avidemux"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for Avidemux.\" — LLM gemini-3.6-flash: avidemux-qt6-git is a component/tool for Avidemux"
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-arch",
+      "appId": "avidemux-cli"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.avidemux.Avidemux"
+    },
+    "reason": "Audit review 2026-10-09: \"frontend for Avidemux.\" — LLM gemini-3.6-flash: avidemux-cli-git is a component/tool for Avidemux"
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "ez2lazer"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "sh.ppy.osu"
+    },
+    "reason": "Audit review 2026-10-09: \"fork of osu\" — LLM gemini-3.6-flash: ez2lazer is a fork of osu!"
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "net.supertuxkart.SuperTuxKart"
+    },
+    "to": {
+      "source": "ebuild-gentoo",
+      "appId": "games-action/tuxkart"
+    },
+    "reason": "Audit review 2026-10-09: \"TuxKart fork\" — LLM gemini-3.6-flash: SuperTuxKart is a fork of TuxKart"
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "info.smplayer.SMPlayer"
+    },
+    "to": {
+      "source": "deb-debian",
+      "appId": "mplayer"
+    },
+    "reason": "Audit review 2026-10-09: \"frontend for MPlayer\" — LLM gemini-3.6-flash: SMPlayer is a GUI frontend for MPlayer"
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "io.github.arunsivaramanneo.GPUViewer"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.freedesktop.Platform.GlxInfo"
+    },
+    "reason": "Audit review 2026-10-09: \"front-end to glxinfo\" — LLM gemini-3.6-flash: GPU-Viewer is a frontend tool for glxinfo"
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "me.kozec.syncthingtk"
+    },
+    "to": {
+      "source": "deb-debian",
+      "appId": "syncthing"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for Syncthing\" — LLM gemini-3.6-flash: Syncthing GTK is a GUI tool for Syncthing"
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "org.polymc.PolyMC"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "multimc-bin"
+    },
+    "reason": "Audit review 2026-10-09: \"Fork of MultiMC\" — LLM gemini-3.6-flash: PolyMC is a fork of MultiMC"
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "com.dosbox_x.DOSBox-X"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "com.dosbox.DOSBox"
+    },
+    "reason": "Audit review 2026-10-09: \"fork of the DOSBox project\" — LLM gemini-3.6-flash: DOSBox-X is a fork of DOSBox"
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "dbgl"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "com.dosbox.DOSBox"
+    },
+    "reason": "Audit review 2026-10-09: \"frontend for DOSBox\" — LLM gemini-3.6-flash: DosBox Game Launcher is a tool for DOSBox"
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "gr-lida-git"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "com.dosbox.DOSBox"
+    },
+    "reason": "Audit review 2026-10-09: \"Frontend for DosBox\" — LLM gemini-3.6-flash: GR-Lida is a frontend tool for DOSBox"
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "appimage",
+      "appId": "protonmail-desktop/application"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "me.proton.Mail"
+    },
+    "reason": "Audit review 2026-10-09: \"wrapper for ProtonMail\" — LLM gemini-3.6-flash: protonmail-desktop is a wrapper for Proton Mail"
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "azaharplus-appimage"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.azahar_emu.Azahar"
+    },
+    "reason": "Audit review 2026-10-09: \"fork of the Azahar\" — LLM gemini-3.6-flash: AzaharPlus is a fork of Azahar"
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "zedless-git"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "dev.zed.Zed"
+    },
+    "reason": "Audit review 2026-10-09: \"Zed fork\" — LLM gemini-3.6-flash: zedless-git is a privacy fork of Zed"
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "deb-debian",
+      "appId": "audtty"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.atheme.audacious"
+    },
+    "reason": "Audit review 2026-10-09: \"frontend to audacious\" — LLM gemini-3.6-flash: audtty is an ncurses frontend tool for Audacious"
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "org.freedesktop.Piper"
+    },
+    "to": {
+      "source": "deb-debian",
+      "appId": "ratbagd"
+    },
+    "reason": "Audit review 2026-10-09: \"frontend for ratbagd\" — LLM gemini-3.7-flash: Piper is a GTK frontend for the ratbagd daemon"
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "io.github.dvlv.boxbuddyrs"
+    },
+    "to": {
+      "source": "deb-debian",
+      "appId": "distrobox"
+    },
+    "reason": "Audit review 2026-10-09: \"Graphical user interface for Distrobox\" — LLM gemini-3.7-flash: BoxBuddy is a GUI manager for Distrobox"
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "xbps-void",
+      "appId": "uberwriter"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.gnome.gitlab.somas.Apostrophe"
+    },
+    "reason": "Audit review 2026-10-09: \"fork of apostrophe\" — LLM gemini-3.7-flash: UberWriter was renamed to Apostrophe and represents its origin"
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "todoist-rs"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "com.todoist.Todoist"
+    },
+    "reason": "Audit review 2026-10-09: \"client for Todoist\" — LLM gemini-3.7-flash: todoist-rs is a terminal client for Todoist"
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "todoist-wrapper-bin"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "com.todoist.Todoist"
+    },
+    "reason": "Audit review 2026-10-09: \"wrapper for Todoist\" — LLM gemini-3.7-flash: todoist-wrapper is an Electron wrapper for Todoist"
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "deb-debian",
+      "appId": "python3-todoist-api-python"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "com.todoist.Todoist"
+    },
+    "reason": "Audit review 2026-10-09: \"client for Todoist REST\" — LLM gemini-3.7-flash: python-todoist-api-python is a client library for Todoist"
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "novapad"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "com.notepadqq.Notepadqq"
+    },
+    "reason": "Audit review 2026-10-09: \"fork of Notepadqq\" — LLM gemini-3.7-flash: novapad is an explicit fork of Notepadqq"
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "dev.neovide.neovide"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "io.neovim.nvim"
+    },
+    "reason": "Audit review 2026-10-09: \"graphical interface for Neovim\" — LLM gemini-3.7-flash: Neovide is a dedicated GUI frontend for Neovim"
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "snap-snapcraft",
+      "appId": "nvim-gtk"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "io.neovim.nvim"
+    },
+    "reason": "Audit review 2026-10-09: \"client for NeoVIM\" — LLM gemini-3.7-flash: nvim-gtk is a GTK GUI frontend client for Neovim"
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "eovim"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "io.neovim.nvim"
+    },
+    "reason": "Audit review 2026-10-09: \"client for Neovim.\" — LLM gemini-3.7-flash: eovim is an EFL GUI client for Neovim"
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "neoray-git"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "io.neovim.nvim"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for neovim\" — LLM gemini-3.7-flash: neoray is a Go GUI frontend for Neovim"
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "deb-debian",
+      "appId": "neovim-qt"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "io.neovim.nvim"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for Neovim\" — LLM gemini-3.7-flash: neovim-qt is a Qt GUI client for Neovim"
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "neovim-qt6-git"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "io.neovim.nvim"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for Neovim\" — LLM gemini-3.7-flash: neovim-qt6 is a Qt GUI frontend for Neovim"
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "nvim-pygtk3-git"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "io.neovim.nvim"
+    },
+    "reason": "Audit review 2026-10-09: \"frontend to Neovim\" — LLM gemini-3.7-flash: nvim-pygtk3 is a PyGTK3 frontend client for Neovim"
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "nvui"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "io.neovim.nvim"
+    },
+    "reason": "Audit review 2026-10-09: \"frontend for Neovim\" — LLM gemini-3.7-flash: nvui is a frontend GUI for Neovim"
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "uivonim"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "io.neovim.nvim"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for neovim\" — LLM gemini-3.7-flash: GUI for Neovim text editor"
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "yanvim-git"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "io.neovim.nvim"
+    },
+    "reason": "Audit review 2026-10-09: \"Neovim fork\" — LLM gemini-3.7-flash: Fork of Neovim with Helix editing model"
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "nix-nixpkgs",
+      "appId": "gnvim"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "io.neovim.nvim"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for neovim\" — LLM gemini-3.7-flash: GUI frontend for Neovim"
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "eopkg-solus",
+      "appId": "python-neovim"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "io.neovim.nvim"
+    },
+    "reason": "Audit review 2026-10-09: \"client for Neovim\" — LLM gemini-3.7-flash: Python client library and provider for Neovim"
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "org.nmap.Zenmap"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "nmap"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for the Nmap\" — LLM gemini-3.7-flash: Official GUI frontend for Nmap security scanner"
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "krokiet"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "com.github.qarmin.czkawka"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI of Czkawka\" — LLM gemini-3.7-flash: Slint GUI frontend for Czkawka"
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "dosbox-x-debugger-additions-git"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "com.dosbox_x.DOSBox-X"
+    },
+    "reason": "Audit review 2026-10-09: \"fork of dosbox-x-git with\" — LLM gemini-3.7-flash: Fork of dosbox-x emulator"
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "react-deluge-git"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.deluge_torrent.deluge"
+    },
+    "reason": "Audit review 2026-10-09: \"Front-end for the Deluge\" — LLM gemini-3.7-flash: React frontend for Deluge BitTorrent client"
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "org.zdoom.UZDoom"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "gzdoom"
+    },
+    "reason": "Audit review 2026-10-09: \"fork of GZDoom\" — LLM gemini-3.7-flash: Fork of GZDoom source port"
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "art-rawconverter"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "com.rawtherapee.RawTherapee"
+    },
+    "reason": "Audit review 2026-10-09: \"RawTherapee fork\" — LLM gemini-3.7-flash: ART raw converter is a fork of RawTherapee"
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "app.comaps.comaps"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "app.organicmaps.desktop"
+    },
+    "reason": "Audit review 2026-10-09: \"fork of Organic Maps\" — LLM gemini-3.7-flash: CoMaps is an open-source fork of Organic Maps"
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "dev.deedles.Trayscale"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "tailscale"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for Tailscale\" — LLM gemini-3.7-flash: Unofficial GUI client for Tailscale"
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "io.github.linx_systems.ClamUI"
+    },
+    "to": {
+      "source": "deb-debian",
+      "appId": "clamav"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for ClamAV\" — LLM gemini-3.7-flash: GUI frontend for ClamAV antivirus"
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "snap-snapcraft",
+      "appId": "matterhorn"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "com.mattermost.Desktop"
+    },
+    "reason": "Audit review 2026-10-09: \"client for MatterMost\" — LLM gemini-3.7-flash: Terminal client for Mattermost chat system"
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "mozwire"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.mozilla.vpn"
+    },
+    "reason": "Audit review 2026-10-09: \"client for MozillaVPN\" — LLM gemini-3.1-flash-lite: MozWire is a third-party client for the Mozilla VPN service."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "org.xonotic.Xonotic"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "com.alientrap.nexuiz-classic"
+    },
+    "reason": "Audit review 2026-10-09: \"Fork of Nexuiz\" — LLM gemini-3.1-flash-lite: Xonotic is a well-known fork of Nexuiz."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "fcitx5-array"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.fcitx.Fcitx5"
+    },
+    "reason": "Audit review 2026-10-09: \"wrapper for Fcitx5\" — LLM gemini-3.1-flash-lite: Fcitx5-array is an input method engine plugin for Fcitx5."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "ebuild-gentoo",
+      "appId": "games-emulation/nestopia-jg"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "ca._0ldsk00l.Nestopia"
+    },
+    "reason": "Audit review 2026-10-09: \"Fork of Nestopia\" — LLM gemini-3.1-flash-lite: Nestopia-jg is a fork of the Nestopia emulator."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "emacs-jabber"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.gnu.emacs"
+    },
+    "reason": "Audit review 2026-10-09: \"client for Emacs\" — LLM gemini-3.1-flash-lite: Emacs-jabber is an Emacs Lisp package extending Emacs functionality."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "emacs-riece"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.gnu.emacs"
+    },
+    "reason": "Audit review 2026-10-09: \"client for Emacs\" — LLM gemini-3.1-flash-lite: Emacs-riece is an Emacs Lisp package extending Emacs functionality."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "emacs-swiper"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.gnu.emacs"
+    },
+    "reason": "Audit review 2026-10-09: \"frontend for Emacs\" — LLM gemini-3.1-flash-lite: Swiper is an Emacs package providing a completion frontend."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "deb-debian",
+      "appId": "liece"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.gnu.emacs"
+    },
+    "reason": "Audit review 2026-10-09: \"client for Emacs\" — LLM gemini-3.1-flash-lite: Liece is an Emacs Lisp package extending Emacs functionality."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "deb-debian",
+      "appId": "mu4e"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.gnu.emacs"
+    },
+    "reason": "Audit review 2026-10-09: \"client for Emacs\" — LLM gemini-3.1-flash-lite: Mu4e is an Emacs Lisp package extending Emacs functionality."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "deb-debian",
+      "appId": "riece"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.gnu.emacs"
+    },
+    "reason": "Audit review 2026-10-09: \"client for Emacs\" — LLM gemini-3.1-flash-lite: Riece is an Emacs Lisp package extending Emacs functionality."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "qq-wayland-clipboard-git"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "com.qq.QQ"
+    },
+    "reason": "Audit review 2026-10-09: \"wrapper for Linux QQ\" — LLM gemini-3.1-flash-lite: This is a compatibility tool for the Linux QQ application."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "bsnes-hd"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "dev.bsnes.bsnes"
+    },
+    "reason": "Audit review 2026-10-09: \"fork of bsnes\" — LLM gemini-3.1-flash-lite: Bsnes-hd is a fork of the bsnes emulator."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "bsnes-plus-git"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "dev.bsnes.bsnes"
+    },
+    "reason": "Audit review 2026-10-09: \"fork of bsnes v073\" — LLM gemini-3.1-flash-lite: Bsnes-plus is a fork of the bsnes emulator."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "ebuild-gentoo",
+      "appId": "games-emulation/bsnes-jg"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "dev.bsnes.bsnes"
+    },
+    "reason": "Audit review 2026-10-09: \"Fork of bsnes\" — LLM gemini-3.1-flash-lite: Bsnes-jg is a fork of the bsnes emulator."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "pythonscad-git"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.openscad.OpenSCAD"
+    },
+    "reason": "Audit review 2026-10-09: \"Fork of OpenSCAD allowing\" — LLM gemini-3.1-flash-lite: PythonSCAD is a fork/variant of OpenSCAD using Python."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "com.borgbase.Vorta"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "borg-backup"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for BorgBackup\" — LLM gemini-3.1-flash-lite: Vorta is a GUI for BorgBackup."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "ptyxis-wrapper"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "app.devsuite.Ptyxis"
+    },
+    "reason": "Audit review 2026-10-09: \"wrapper for Ptyxis\" — LLM gemini-3.1-flash-lite: Ptyxis-wrapper is a tool for Ptyxis."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "org.tigervnc.vncviewer"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "tightvnc"
+    },
+    "reason": "Audit review 2026-10-09: \"Fork of tightVNC\" — LLM gemini-3.1-flash-lite: TigerVNC is a fork of TightVNC."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "intellectual-git"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.gnome.Genius"
+    },
+    "reason": "Audit review 2026-10-09: \"frontend for Genius\" — LLM gemini-3.1-flash-lite: Intellectual is a frontend for Genius."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "com.github.Murmele.Gittyup"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "gitahead"
+    },
+    "reason": "Audit review 2026-10-09: \"GitAhead fork\" — LLM gemini-3.1-flash-lite: Gittyup is a fork of GitAhead."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "org.kde.ruqola"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "chat.rocket.RocketChat"
+    },
+    "reason": "Audit review 2026-10-09: \"client for Rocket Chat\" — LLM gemini-3.1-flash-lite: Ruqola is a client for Rocket.Chat."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "finite-galaxy-git"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "io.github.endless_sky.endless_sky"
+    },
+    "reason": "Audit review 2026-10-09: \"fork of Endless Sky\" — LLM gemini-3.1-flash-lite: Finite Galaxy is a fork of Endless Sky."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "net.displaycal.DisplayCAL"
+    },
+    "to": {
+      "source": "deb-debian",
+      "appId": "argyll"
+    },
+    "reason": "Audit review 2026-10-09: \"Graphical user interface for the Argyll\" — LLM gemini-3.1-flash-lite: DisplayCAL is a GUI for Argyll."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "qthash-git"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.gtkhash.gtkhash"
+    },
+    "reason": "Audit review 2026-10-09: \"fork of GtkHash\" — LLM gemini-3.1-flash-lite: QtHash is a fork of GtkHash."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "snap-snapcraft",
+      "appId": "lmctl"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "ai.lmstudio.lm-studio"
+    },
+    "reason": "Audit review 2026-10-09: \"client for LM Studio\" — LLM gemini-3.1-flash-lite: LMCtl is a client for LM Studio."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "com.redis.RedisInsight"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "redis"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for Redis\" — LLM gemini-3.1-flash-lite: Redis Insight is a GUI for Redis."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "ctotp-git"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "io.ente.auth"
+    },
+    "reason": "Audit review 2026-10-09: \"wrapper for Ente Auth\" — LLM gemini-3.1-flash-lite: ctotp is a wrapper for Ente Auth."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "org.xiphos.Xiphos"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "sword"
+    },
+    "reason": "Audit review 2026-10-09: \"frontend for SWORD\" — LLM gemini-3.1-flash-lite: Xiphos is a well-known Bible study software frontend for the SWORD project."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "io.github.manisandro.gImageReader"
+    },
+    "to": {
+      "source": "deb-debian",
+      "appId": "tesseract-ocr"
+    },
+    "reason": "Audit review 2026-10-09: \"frontend to tesseract-ocr\" — LLM gemini-3.1-flash-lite: gImageReader is a recognized graphical frontend for the Tesseract OCR engine."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "io.github.dummerle.rare"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "legendary"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for legendary.\" — LLM gemini-3.1-flash-lite: Rare is a GUI launcher specifically designed to manage the Legendary CLI tool."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "enpasscli"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "io.enpass.Enpass"
+    },
+    "reason": "Audit review 2026-10-09: \"client for Enpass\" — LLM gemini-3.1-flash-lite: enpass-cli is a command-line interface wrapper for the Enpass password manager."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "wsjtcb"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "io.sourceforge.wsjt.wsjtx"
+    },
+    "reason": "Audit review 2026-10-09: \"fork of WSJT-X for\" — LLM gemini-3.1-flash-lite: WSJT-CB is explicitly a fork of WSJT-X for CB radio usage."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "wsjtz"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "io.sourceforge.wsjt.wsjtx"
+    },
+    "reason": "Audit review 2026-10-09: \"Fork of WSJT-X with\" — LLM gemini-3.1-flash-lite: WSJT-Z is a well-known fork of WSJT-X adding automation features."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "iipython-feishin-bin"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.jeffvli.feishin"
+    },
+    "reason": "Audit review 2026-10-09: \"Fork of Feishin with\" — LLM gemini-3.1-flash-lite: This is a documented fork of the Feishin music player."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "re.rizin.cutter"
+    },
+    "to": {
+      "source": "rpm-fedora",
+      "appId": "rizin"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for rizin\" — LLM gemini-3.1-flash-lite: Cutter is the official GUI platform for the Rizin reverse engineering framework."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "r2-iaito-git"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "re.rizin.cutter"
+    },
+    "reason": "Audit review 2026-10-09: \"fork of Cutter\" — LLM gemini-3.1-flash-lite: Iaito is the official successor and fork of the Cutter project."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "nix-nixpkgs",
+      "appId": "zulip-term"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.zulip.Zulip"
+    },
+    "reason": "Audit review 2026-10-09: \"client for Zulip\" — LLM gemini-3.1-flash-lite: zulip-term is the official terminal-based client for the Zulip service."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "appimage",
+      "appId": "ItsWendell/palot"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "ai.opencode.opencode"
+    },
+    "reason": "Audit review 2026-10-09: \"desktop client for OpenCode\" — LLM gemini-3.1-flash-lite: Palot is a desktop client specifically built for the OpenCode platform."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "lumina-code-bin"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "ai.opencode.opencode"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for OpenCode\" — LLM gemini-3.1-flash-lite: Lumina Code is a GUI frontend designed to interface with OpenCode."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "lumina-code-cef-bin"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "ai.opencode.opencode"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for OpenCode\" — LLM gemini-3.1-flash-lite: Lumina Code CEF is a variant GUI frontend for OpenCode."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "anotherim-desktop-git"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "im.dino.Dino"
+    },
+    "reason": "Audit review 2026-10-09: \"fork of Dino+\" — LLM gemini-3.1-flash-lite: AnotherIM is a documented fork of the Dino XMPP client."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "dino-plus-git"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "im.dino.Dino"
+    },
+    "reason": "Audit review 2026-10-09: \"fork of Dino\" — LLM gemini-3.1-flash-lite: Dino+ is a documented fork of the Dino XMPP client."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "io.github.dweymouth.supersonic"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "subsonic"
+    },
+    "reason": "Audit review 2026-10-09: \"desktop client for Subsonic\" — LLM gemini-3.1-flash-lite: Supersonic is a desktop client designed to connect to Subsonic servers."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "neosurf-git"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.netsurf_browser.NetSurf"
+    },
+    "reason": "Audit review 2026-10-09: \"NetSurf fork\" — LLM gemini-3.1-flash-lite: neosurf is a fork of netsurf"
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "visurf-git"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.netsurf_browser.NetSurf"
+    },
+    "reason": "Audit review 2026-10-09: \"frontend for Netsurf\" — LLM gemini-3.1-flash-lite: visurf is a frontend for netsurf"
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "io.github.DenysMb.Kontainer"
+    },
+    "to": {
+      "source": "deb-debian",
+      "appId": "distrobox"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for Distrobox\" — LLM gemini-3.1-flash-lite: kontainer is a gui for distrobox"
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "pocketcli"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "tech.feliciano.pocket-casts"
+    },
+    "reason": "Audit review 2026-10-09: \"client for Pocket Casts\" — LLM gemini-3.1-flash-lite: pocketcli is a client for pocket casts"
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "org.desktop_plus.desktop-plus"
+    },
+    "to": {
+      "source": "appimage",
+      "appId": "open-webui/desktop"
+    },
+    "reason": "Audit review 2026-10-09: \"Desktop fork\" — LLM gemini-3.1-flash-lite: desktop plus is a fork of open webui desktop"
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "craftos-pc-accelerated-ccemux"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "cc.craftos_pc.CraftOS-PC-Accelerated"
+    },
+    "reason": "Audit review 2026-10-09: \"wrapper for CraftOS-PC Accelerated\" — LLM gemini-3.1-flash-lite: wrapper provides compatibility for craftos-pc"
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "craftos-pc-ccemux"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "cc.craftos_pc.CraftOS-PC-Accelerated"
+    },
+    "reason": "Audit review 2026-10-09: \"wrapper for CraftOS-PC\" — LLM gemini-3.1-flash-lite: wrapper provides compatibility for craftos-pc"
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "net.unvanquished.Unvanquished"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "io.github.grangerhub.Tremulous"
+    },
+    "reason": "Audit review 2026-10-09: \"fork of Tremulous\" — LLM gemini-3.1-flash-lite: unvanquished is a fork of tremulous"
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "io.github.rfrench3.scopebuddy-gui"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "scopebuddy"
+    },
+    "reason": "Audit review 2026-10-09: \"Frontend for Scopebuddy\" — LLM gemini-3.1-flash-lite: scopebuddy gui is a frontend for scopebuddy"
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "com.github.keriew.augustus"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "com.github.bvschaik.julius"
+    },
+    "reason": "Audit review 2026-10-09: \"Fork of Julius incorporating\" — LLM gemini-3.1-flash-lite: augustus is a fork of julius"
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "net.sourceforge.m64py.M64Py"
+    },
+    "to": {
+      "source": "rpm-fedora",
+      "appId": "mupen64plus"
+    },
+    "reason": "Audit review 2026-10-09: \"frontend for Mupen64Plus\" — LLM gemini-3.1-flash-lite: m64py is a frontend for mupen64plus"
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "org.rncbc.qsynth"
+    },
+    "to": {
+      "source": "deb-debian",
+      "appId": "fluidsynth"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for FluidSynth\" — LLM gemini-3.1-flash-lite: qsynth is a gui for fluidsynth"
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "nix-nixpkgs",
+      "appId": "ente-desktop"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "io.ente.photos"
+    },
+    "reason": "Audit review 2026-10-09: \"client for Ente Photos\" — LLM gemini-3.1-flash-lite: ente-desktop-bin is a client for ente photos"
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "deb-ubuntu",
+      "appId": "seadrive-gui"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "com.seafile.Client"
+    },
+    "reason": "Audit review 2026-10-09: \"client for Seafile\" — LLM gemini-3.1-flash-lite: seadrive is a client for seafile"
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "nix-nixpkgs",
+      "appId": "johnny"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "com.openwall.John"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for john\" — LLM gemini-3.1-flash-lite: johnny is a gui for john the ripper"
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "io.github.narunlifescience.AlphaPlot"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "net.sourceforge.scidavis"
+    },
+    "reason": "Audit review 2026-10-09: \"fork of SciDavis\" — LLM gemini-3.1-flash-lite: alphaplot is a fork of scidavis"
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "io.github.pieterdd.RcloneShuttle"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "rclone"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for Rclone\" — LLM gemini-3.1-flash-lite: rclone shuttle is a gui for rclone"
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "io.github.whelanh.scidCommunity"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "io.github.benini.scid"
+    },
+    "reason": "Audit review 2026-10-09: \"fork of Scid chess\" — LLM gemini-3.1-flash-lite: scidcommunity is a fork of scid"
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "siggo"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.asamk.SignalCli"
+    },
+    "reason": "Audit review 2026-10-09: \"gui for signal-cli\" — LLM gemini-3.1-flash-lite: siggo is a gui for signal-cli"
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "hotshots-updated-git"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "io.github.obiwankennedy.HotShots"
+    },
+    "reason": "Audit review 2026-10-09: \"HotShots fork\" — LLM gemini-3.1-flash-lite: HotShots-updated is a fork of HotShots."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "io.github.wxmaxima_developers.wxMaxima"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "maxima"
+    },
+    "reason": "Audit review 2026-10-09: \"graphical user interface for Maxima\" — LLM gemini-3.1-flash-lite: wxMaxima is a GUI tool for the Maxima algebra system."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "openmsx-catapult"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.openmsx.openMSX"
+    },
+    "reason": "Audit review 2026-10-09: \"Graphical interface for openMSX\" — LLM gemini-3.1-flash-lite: Catapult is a GUI frontend for the openMSX emulator."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "org.radare.iaito"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "radare2"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for radare2\" — LLM gemini-3.1-flash-lite: Iaito is the official GUI for the radare2 framework."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "slimevr-gui"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "dev.slimevr.SlimeVR"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for SlimeVR\" — LLM gemini-3.1-flash-lite: SlimeVR-GUI is a web interface for the SlimeVR server."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "io.github.screwys.Rufin"
+    },
+    "to": {
+      "source": "nix-nixpkgs",
+      "appId": "jellyfin"
+    },
+    "reason": "Audit review 2026-10-09: \"client for Jellyfin\" — LLM gemini-3.1-flash-lite: Rufin is a third-party client for the Jellyfin media server."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "invoiceninja-desktop"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "com.invoiceninja.InvoiceNinja"
+    },
+    "reason": "Audit review 2026-10-09: \"client for Invoice Ninja\" — LLM gemini-3.1-flash-lite: Invoiceninja-desktop is a client for the Invoice Ninja service."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "com.krioltech.fnmap"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "nmap"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for nmap\" — LLM gemini-3.1-flash-lite: Fnmap is a GUI frontend for the nmap network scanner."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "io.github.mfat.tvhplayer"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "tvheadend"
+    },
+    "reason": "Audit review 2026-10-09: \"desktop client for Tvheadend\" — LLM gemini-3.1-flash-lite: TVHplayer is a desktop client for the Tvheadend server."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "io.unobserved.espansoGUI"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "espanso"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for espanso\" — LLM gemini-3.1-flash-lite: espansoGUI is a graphical interface for the espanso text expander."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "io.github.victoralvesf.aonsoku"
+    },
+    "to": {
+      "source": "pacman-arch",
+      "appId": "navidrome"
+    },
+    "reason": "Audit review 2026-10-09: \"desktop client for Navidrome\" — LLM gemini-3.1-flash-lite: Aonsoku is a desktop client for the Navidrome music server."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "gtk-meshtastic-client"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.meshtastic.meshtasticd"
+    },
+    "reason": "Audit review 2026-10-09: \"unofficial client for Meshtastic\" — LLM gemini-3.1-flash-lite: GTK-Meshtastic-client is a GUI for Meshtastic devices."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "mesh-client"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.meshtastic.meshtasticd"
+    },
+    "reason": "Audit review 2026-10-09: \"desktop client for Meshtastic\" — LLM gemini-3.1-flash-lite: Mesh-client is a desktop client for Meshtastic."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "io.github.mhogomchungu.sirikali"
+    },
+    "to": {
+      "source": "deb-debian",
+      "appId": "gocryptfs"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI to Gocryptfs\" — LLM gemini-3.1-flash-lite: SiriKali is a GUI frontend for gocryptfs and others."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "dev.mooday.GstPipelineStudio"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "gstreamer"
+    },
+    "reason": "Audit review 2026-10-09: \"graphical user interface to the GStreamer\" — LLM gemini-3.1-flash-lite: GstPipelineStudio is a GUI tool for GStreamer pipelines."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "uk.org.zint.zint-qt"
+    },
+    "to": {
+      "source": "deb-debian",
+      "appId": "zint"
+    },
+    "reason": "Audit review 2026-10-09: \"frontend to zint\" — LLM gemini-3.1-flash-lite: "
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "com.sleepfiles.OSCAR"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "sleepyhead"
+    },
+    "reason": "Audit review 2026-10-09: \"Fork of the sleepyhead project.\" — LLM gemini-3.1-flash-lite: "
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "org.gnunet.Messenger"
+    },
+    "to": {
+      "source": "nix-nixpkgs",
+      "appId": "gnunet"
+    },
+    "reason": "Audit review 2026-10-09: \"graphical user interface for GNUnet\" — LLM gemini-3.1-flash-lite: "
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "io.github.Archeb.opentrace"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "nexttrace"
+    },
+    "reason": "Audit review 2026-10-09: \"wrapper for NextTrace. Bringing\" — LLM gemini-3.1-flash-lite: "
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "python-mitmproxy-wireguard"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.mitmproxy.mitmproxy"
+    },
+    "reason": "Audit review 2026-10-09: \"frontend for mitmproxy\" — LLM gemini-3.1-flash-lite: "
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "appimage",
+      "appId": "MarcGyongyosi/ClaudeCodeX"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "claude-code"
+    },
+    "reason": "Audit review 2026-10-09: \"wrapper for Claude Code\" — LLM gemini-3.1-flash-lite: "
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "cc-pocket-bin"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "claude-code"
+    },
+    "reason": "Audit review 2026-10-09: \"client for Claude Code\" — LLM gemini-3.1-flash-lite: "
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "happy-cli"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "claude-code"
+    },
+    "reason": "Audit review 2026-10-09: \"client for Claude Code\" — LLM gemini-3.1-flash-lite: "
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "tailscode"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "claude-code"
+    },
+    "reason": "Audit review 2026-10-09: \"client for Claude Code\" — LLM gemini-3.1-flash-lite: "
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "tokenicode-bin"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "claude-code"
+    },
+    "reason": "Audit review 2026-10-09: \"desktop client for Claude Code\" — LLM gemini-3.1-flash-lite: "
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "nix-nixpkgs",
+      "appId": "happy-coder"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "claude-code"
+    },
+    "reason": "Audit review 2026-10-09: \"wrapper for Claude Code\" — LLM gemini-3.1-flash-lite: "
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "qwarp"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "cloudflare-warp-bin"
+    },
+    "reason": "Audit review 2026-10-09: \"desktop client for Cloudflare WARP\" — LLM gemini-3.1-flash-lite: "
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "snap-snapcraft",
+      "appId": "ocrthypdf"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "ocrmypdf"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for OCRmyPDF\" — LLM gemini-3.1-flash-lite: "
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "deb-debian",
+      "appId": "qjackctl"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "jack"
+    },
+    "reason": "Audit review 2026-10-09: \"front-end for the JACK\" — LLM gemini-3.1-flash-lite: QjackCtl is a GUI for the JACK audio server."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "pacman-arch",
+      "appId": "overwitch"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "jack"
+    },
+    "reason": "Audit review 2026-10-09: \"client for JACK\" — LLM gemini-3.1-flash-lite: Overwitch is a client for JACK."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "rclone-browser"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "rclone"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for rclone\" — LLM gemini-3.1-flash-lite: Rclone Browser is a GUI for rclone."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "jellium-desktop-bin"
+    },
+    "to": {
+      "source": "nix-nixpkgs",
+      "appId": "jellyfin"
+    },
+    "reason": "Audit review 2026-10-09: \"desktop client for Jellyfin\" — LLM gemini-3.1-flash-lite: Jellium is a desktop client for Jellyfin."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "noctalia-qs"
+    },
+    "to": {
+      "source": "rpm-fedora",
+      "appId": "quickshell"
+    },
+    "reason": "Audit review 2026-10-09: \"fork of Quickshell powering\" — LLM gemini-3.1-flash-lite: Noctalia-qs is a fork of Quickshell."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "snap-snapcraft",
+      "appId": "j-nordvpn-manager"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "nordvpn"
+    },
+    "reason": "Audit review 2026-10-09: \"Frontend for NordVPN\" — LLM gemini-3.1-flash-lite: JNordVPN Manager is a GUI for NordVPN."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "nordvpn-gui"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "nordvpn"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for NordVPN\" — LLM gemini-3.1-flash-lite: nordvpn-gui is a GUI for NordVPN."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "snap-snapcraft",
+      "appId": "easymp3gain"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "mp3gain"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for MP3Gain\" — LLM gemini-3.1-flash-lite: easymp3gain is a GUI for MP3Gain."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "qtgain"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "mp3gain"
+    },
+    "reason": "Audit review 2026-10-09: \"frontend for mp3gain\" — LLM gemini-3.1-flash-lite: QtGain is a frontend for mp3gain."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "rpm-opensuse",
+      "appId": "wxmp3gain"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "mp3gain"
+    },
+    "reason": "Audit review 2026-10-09: \"Front-end for mp3gain\" — LLM gemini-3.1-flash-lite: wxmp3gain is a frontend for mp3gain."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "snap-snapcraft",
+      "appId": "zoitechat"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "hexchat"
+    },
+    "reason": "Audit review 2026-10-09: \"fork of HexChat\" — LLM gemini-3.1-flash-lite: ZoiteChat is a fork of HexChat."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "nix-nixpkgs",
+      "appId": "euro-office-desktopeditors"
+    },
+    "to": {
+      "source": "appimage",
+      "appId": "ONLYOFFICE/appimage-desktopeditors"
+    },
+    "reason": "Audit review 2026-10-09: \"Fork of OnlyOffice\" — LLM gemini-3.1-flash-lite: Euro-Office is a fork of OnlyOffice."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "herdr-gui-bin"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "herdr"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for Herdr\" — LLM gemini-3.1-flash-lite: herdr-gui is a GUI for Herdr."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "roamgate-bin"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "herdr"
+    },
+    "reason": "Audit review 2026-10-09: \"client for Herdr\" — LLM gemini-3.1-flash-lite: roamgate is a client for Herdr."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "snap-snapcraft",
+      "appId": "mp3splt-gtk"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "mp3splt"
+    },
+    "reason": "Audit review 2026-10-09: \"frontend for mp3splt\" — LLM gemini-3.1-flash-lite: mp3splt-gtk is a frontend for mp3splt."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "audiowrapper-bin"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "mp3splt"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for mp3splt\" — LLM gemini-3.1-flash-lite: audiowrapper is a GUI for mp3splt."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "clamav-gui"
+    },
+    "to": {
+      "source": "deb-debian",
+      "appId": "clamav"
+    },
+    "reason": "Audit review 2026-10-09: \"Graphical user interface for clamav\" — LLM gemini-3.1-flash-lite: clamav-gui is a GUI for ClamAV."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "wondershaper-gui"
+    },
+    "to": {
+      "source": "rpm-fedora",
+      "appId": "wondershaper"
+    },
+    "reason": "Audit review 2026-10-09: \"graphical user interface for wondershaper\" — LLM gemini-3.1-flash-lite: wondershaper-gui is a GUI for wondershaper."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "parui"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "paru"
+    },
+    "reason": "Audit review 2026-10-09: \"frontend for paru\" — LLM gemini-3.1-flash-lite: Parui is a TUI frontend for the Paru AUR helper."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "paruz"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "paru"
+    },
+    "reason": "Audit review 2026-10-09: \"frontend for paru\" — LLM gemini-3.1-flash-lite: Paruz is a TUI frontend for the Paru AUR helper."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "qp-ng-git"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "paru"
+    },
+    "reason": "Audit review 2026-10-09: \"fork of paru\" — LLM gemini-3.1-flash-lite: qp-ng is explicitly stated as a fork of Paru."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "ryzenadj-control"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "ryzenadj"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for ryzenadj\" — LLM gemini-3.1-flash-lite: Ryzenadj-control is a GUI frontend for the RyzenAdj tool."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "wlctl-bin"
+    },
+    "to": {
+      "source": "pacman-arch",
+      "appId": "impala"
+    },
+    "reason": "Audit review 2026-10-09: \"fork of impala\" — LLM gemini-3.1-flash-lite: Wlctl is a fork of the Impala project."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "jellyfin-tui"
+    },
+    "to": {
+      "source": "nix-nixpkgs",
+      "appId": "jellyfin"
+    },
+    "reason": "Audit review 2026-10-09: \"client for Jellyfin\" — LLM gemini-3.1-flash-lite: Jellyfin-tui is a client for the Jellyfin media server."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "rpm-opensuse",
+      "appId": "droidcam-cli"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "droidcam"
+    },
+    "reason": "Audit review 2026-10-09: \"client for DroidCam\" — LLM gemini-3.1-flash-lite: Droidcam-cli is a command-line client for DroidCam."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "okular-session-git"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.kde.okular.desktop"
+    },
+    "reason": "Audit review 2026-10-09: \"wrapper for Okular\" — LLM gemini-3.1-flash-lite: Okular-session is a wrapper for the Okular document viewer."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "wleave"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "wlogout"
+    },
+    "reason": "Audit review 2026-10-09: \"fork of Wlogout\" — LLM gemini-3.1-flash-lite: Wleave is a fork of the Wlogout project."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "appimage",
+      "appId": "zpaolo11x/mangabox"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "komga"
+    },
+    "reason": "Audit review 2026-10-09: \"client for Komga\" — LLM gemini-3.1-flash-lite: MangaBox is a desktop client for the Komga server."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "vim-classic"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.vim.Vim.desktop"
+    },
+    "reason": "Audit review 2026-10-09: \"fork of Vim\" — LLM gemini-3.1-flash-lite: Vim-classic is a fork of the Vim text editor."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "gvim-classic"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.vim.Vim.desktop"
+    },
+    "reason": "Audit review 2026-10-09: \"fork of Vim\" — LLM gemini-3.1-flash-lite: Gvim-classic is a fork of the Vim text editor."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "markitdown-gui-appimage"
+    },
+    "to": {
+      "source": "nix-nixpkgs",
+      "appId": "markitdown"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for MarkItDown\" — LLM gemini-3.1-flash-lite: Markitdown-gui is a GUI frontend for the MarkItDown utility."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "io.conduktor.Conduktor"
+    },
+    "to": {
+      "source": "nix-nixpkgs",
+      "appId": "apacheKafka"
+    },
+    "reason": "Audit review 2026-10-09: \"desktop client for Apache Kafka\" — LLM gemini-3.1-flash-lite: Conduktor is a desktop client for Apache Kafka."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "voxtype-tray"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "voxtype"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for VoxType\" — LLM gemini-3.1-flash-lite: Voxtype-tray is a GUI tool for the VoxType application."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "nix-nixpkgs",
+      "appId": "netbird-ui"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "netbird"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for the Netbird\" — LLM gemini-3.1-flash-lite: Netbird-ui is a GUI tool for the Netbird client."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "cherry-doom"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "nugget-doom"
+    },
+    "reason": "Audit review 2026-10-09: \"Fork of Nugget Doom\" — LLM gemini-3.1-flash-lite: Cherry-Doom is a fork of Nugget-Doom."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "nugget-doom"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "woof"
+    },
+    "reason": "Audit review 2026-10-09: \"Fork of Woof\" — LLM gemini-3.1-flash-lite: Nugget-Doom is a fork of Woof!."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "deb-debian",
+      "appId": "ddcui"
+    },
+    "to": {
+      "source": "deb-debian",
+      "appId": "ddcutil"
+    },
+    "reason": "Audit review 2026-10-09: \"Graphical user interface for ddcutil\" — LLM gemini-3.1-flash-lite: Ddcui is a GUI for the ddcutil library."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "monitor-control-qt"
+    },
+    "to": {
+      "source": "deb-debian",
+      "appId": "ddcutil"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for ddcutil\" — LLM gemini-3.1-flash-lite: Monitor-control-qt is a GUI for ddcutil."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "monitor-control-tk"
+    },
+    "to": {
+      "source": "deb-debian",
+      "appId": "ddcutil"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for ddcutil\" — LLM gemini-3.1-flash-lite: Monitor-control-tk is a GUI for ddcutil."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "llama-prism-cuda"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "llama-cpp"
+    },
+    "reason": "Audit review 2026-10-09: \"fork of llama.cpp with\" — LLM gemini-3.1-flash-lite: Llama-prism-cuda is a fork of llama.cpp."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "beellama.cpp-cuda"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "llama-cpp"
+    },
+    "reason": "Audit review 2026-10-09: \"fork of llama.cpp\" — LLM gemini-3.1-flash-lite: Beellama.cpp-cuda is a fork of llama.cpp."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "yay-gui-manager-git"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "yay"
+    },
+    "reason": "Audit review 2026-10-09: \"Graphical interface for the yay\" — LLM gemini-3.1-flash-lite: Yay-gui-manager is a GUI tool for the yay helper."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "yzf"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "yay"
+    },
+    "reason": "Audit review 2026-10-09: \"front-end for yay\" — LLM gemini-3.1-flash-lite: Yzf is a fzf-based frontend tool for yay."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "dsda-doom"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "prboom"
+    },
+    "reason": "Audit review 2026-10-09: \"Fork of PrBoom+ with\" — LLM gemini-3.1-flash-lite: DSDA-Doom is a fork of PrBoom+."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "nix-nixpkgs",
+      "appId": "dsda-launcher"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "dsda-doom"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for the dsda-doom\" — LLM gemini-3.1-flash-lite: Dsda-launcher is a GUI tool for dsda-doom."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "rpm-opensuse",
+      "appId": "xhfsutil"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "hfsutils"
+    },
+    "reason": "Audit review 2026-10-09: \"Front-End for hfsutils\" — LLM gemini-3.1-flash-lite: Xhfsutil is a GUI frontend tool for hfsutils."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "gespeaker"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "espeak"
+    },
+    "reason": "Audit review 2026-10-09: \"frontend for espeak\" — LLM gemini-3.1-flash-lite: Gespeaker is a GUI frontend tool for espeak."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "dockit-bin"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "elasticsearch"
+    },
+    "reason": "Audit review 2026-10-09: \"client for Elasticsearch\" — LLM gemini-3.1-flash-lite: Dockit is a GUI client tool for Elasticsearch."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "elasticvue-bin"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "elasticsearch"
+    },
+    "reason": "Audit review 2026-10-09: \"gui for elasticsearch\" — LLM gemini-3.1-flash-lite: Elasticvue is a GUI tool for Elasticsearch."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "mongo_fdw"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "mongodb-server-replicaset"
+    },
+    "reason": "Audit review 2026-10-09: \"wrapper for MongoDB\" — LLM gemini-3.1-flash-lite: Mongo_fdw is a wrapper tool for MongoDB."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "nix-nixpkgs",
+      "appId": "robo3t"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "mongodb-server-replicaset"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for mongodb.\" — LLM gemini-3.1-flash-lite: Robo3T is a GUI for MongoDB."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "studio-3t"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "mongodb-server-replicaset"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for MongoDB\" — LLM gemini-3.1-flash-lite: Studio 3T is a GUI for MongoDB."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "tauritavern-bin"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "sillytavern"
+    },
+    "reason": "Audit review 2026-10-09: \"frontend for SillyTavern\" — LLM gemini-3.1-flash-lite: TauriTavern is a frontend for SillyTavern."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "niri-shorin-fork-git"
+    },
+    "to": {
+      "source": "rpm-fedora",
+      "appId": "niri"
+    },
+    "reason": "Audit review 2026-10-09: \"Niri fork\" — LLM gemini-3.1-flash-lite: Niri-shorin is a fork of Niri."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "deb-debian",
+      "appId": "ansifilter-gui"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "ansifilter"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for ansifilter\" — LLM gemini-3.1-flash-lite: Ansifilter-gui is a GUI frontend for Ansifilter."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "dbxcli"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "com.dropbox.Client.desktop"
+    },
+    "reason": "Audit review 2026-10-09: \"client for Dropbox\" — LLM gemini-3.1-flash-lite: dbxcli is a command line client for Dropbox."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "radarr"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "sonarr"
+    },
+    "reason": "Audit review 2026-10-09: \"fork of Sonarr to\" — LLM gemini-3.1-flash-lite: Radarr is a fork of Sonarr."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "gv"
+    },
+    "to": {
+      "source": "deb-debian",
+      "appId": "ghostscript"
+    },
+    "reason": "Audit review 2026-10-09: \"front-end for the Ghostscript\" — LLM gemini-3.1-flash-lite: gv is a known frontend for Ghostscript."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "seerrng-deb"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "seerr"
+    },
+    "reason": "Audit review 2026-10-09: \"Seerr fork\" — LLM gemini-3.1-flash-lite: Seerrng is explicitly a fork of Seerr."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "midnight-shell-git"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "caelestia-shell"
+    },
+    "reason": "Audit review 2026-10-09: \"fork of Caelestia-Shell\" — LLM gemini-3.1-flash-lite: Midnight-shell is a fork of Caelestia-Shell."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "windfetch"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "neofetch"
+    },
+    "reason": "Audit review 2026-10-09: \"Fork of Neofetch\" — LLM gemini-3.1-flash-lite: Windfetch is a fork of Neofetch."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "online.hatsune_miku.tachidesk-vaadinui"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "tachidesk"
+    },
+    "reason": "Audit review 2026-10-09: \"client for Tachidesk\" — LLM gemini-3.1-flash-lite: VaadinUI is a desktop client for Tachidesk-Server."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "garlic-decompiler-gui"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "garlic"
+    },
+    "reason": "Audit review 2026-10-09: \"Gui for the Garlic\" — LLM gemini-3.1-flash-lite: Garlic-gui is a GUI for the Garlic decompiler."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "opengrep"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "semgrep"
+    },
+    "reason": "Audit review 2026-10-09: \"Fork of semgrep\" — LLM gemini-3.1-flash-lite: Opengrep is a fork of Semgrep."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "nix-nixpkgs",
+      "appId": "fosrl-olm"
+    },
+    "to": {
+      "source": "nix-nixpkgs",
+      "appId": "fosrl-pangolin"
+    },
+    "reason": "Audit review 2026-10-09: \"client for Pangolin\" — LLM gemini-3.1-flash-lite: Olm is a tunneling client for Pangolin."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "bsdiff-gui"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "bsdiff"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for bsdiff\" — LLM gemini-3.1-flash-lite: PatchGUI is a GUI for bsdiff."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "brother-hll2360dw-cups-bin"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "brother-hll2360d"
+    },
+    "reason": "Audit review 2026-10-09: \"wrapper for Brother HL-L2360D\" — LLM gemini-3.1-flash-lite: CUPS wrapper for the specified printer driver."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "kde-cdemu-manager"
+    },
+    "to": {
+      "source": "ebuild-gentoo",
+      "appId": "app-cdr/cdemu"
+    },
+    "reason": "Audit review 2026-10-09: \"frontend for CDEmu.\" — LLM gemini-3.1-flash-lite: KDE CDEmu Manager is a frontend for CDEmu."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "glava-ridged"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "glava"
+    },
+    "reason": "Audit review 2026-10-09: \"Fork of GLava\" — LLM gemini-3.1-flash-lite: Glava-ridged is a fork of Glava."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-arch",
+      "appId": "chipass"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.keepassxc.KeePassXC.desktop"
+    },
+    "reason": "Audit review 2026-10-09: \"fork of KeePassXC\" — LLM gemini-3.1-flash-lite: Chipass is a fork of KeePassXC."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "bongo-cat-todo"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "bongo-cat"
+    },
+    "reason": "Audit review 2026-10-09: \"fork of BongoCat\" — LLM gemini-3.1-flash-lite: Explicitly stated as a fork of the target project."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "passpicker-bin"
+    },
+    "to": {
+      "source": "deb-debian",
+      "appId": "pass"
+    },
+    "reason": "Audit review 2026-10-09: \"frontend for password-store\" — LLM gemini-3.1-flash-lite: Explicitly stated as a frontend for the target project."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "xbps-void",
+      "appId": "zeroc-mcpp"
+    },
+    "to": {
+      "source": "deb-debian",
+      "appId": "mcpp"
+    },
+    "reason": "Audit review 2026-10-09: \"fork of mcpp from\" — LLM gemini-3.1-flash-lite: Explicitly stated as a fork of the target project."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "gaze-gui-bin"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "gaze"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for Gaze\" — LLM gemini-3.1-flash-lite: Explicitly stated as a GUI for the target project."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "multi-account-containers-lite"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "konform-browser"
+    },
+    "reason": "Audit review 2026-10-09: \"fork from Konform Browser\" — LLM gemini-3.1-flash-lite: Explicitly stated as a fork of the target project."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "firedragon-multi-account-containers-lite"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "konform-browser"
+    },
+    "reason": "Audit review 2026-10-09: \"fork from Konform Browser\" — LLM gemini-3.1-flash-lite: Explicitly stated as a fork of the target project."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "firefox-multi-account-containers-lite"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "konform-browser"
+    },
+    "reason": "Audit review 2026-10-09: \"fork from Konform Browser\" — LLM gemini-3.1-flash-lite: Explicitly stated as a fork of the target project."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "floorp-multi-account-containers-lite"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "konform-browser"
+    },
+    "reason": "Audit review 2026-10-09: \"fork from Konform Browser\" — LLM gemini-3.1-flash-lite: Explicitly stated as a fork of the target project."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "icecat-multi-account-containers-lite"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "konform-browser"
+    },
+    "reason": "Audit review 2026-10-09: \"fork from Konform Browser\" — LLM gemini-3.1-flash-lite: Explicitly stated as a fork of the target project."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "midori-multi-account-containers-lite"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "konform-browser"
+    },
+    "reason": "Audit review 2026-10-09: \"fork from Konform Browser\" — LLM gemini-3.1-flash-lite: Explicitly stated as a fork of the target project."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "carboxyl-servo-git"
+    },
+    "to": {
+      "source": "appimage",
+      "appId": "niutech/Carbonyl.AppImage"
+    },
+    "reason": "Audit review 2026-10-09: \"fork of Carbonyl\" — LLM gemini-3.1-flash-lite: Explicitly stated as a fork of the target project."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "xenia-edge-bin"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "xenia-canary-bin"
+    },
+    "reason": "Audit review 2026-10-09: \"Fork of the Xenia emulator\" — LLM gemini-3.1-flash-lite: Explicitly stated as a fork of the target project."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "snap-snapcraft",
+      "appId": "rmpc"
+    },
+    "to": {
+      "source": "deb-debian",
+      "appId": "mpd"
+    },
+    "reason": "Audit review 2026-10-09: \"client for MPD\" — LLM gemini-3.1-flash-lite: Explicitly stated as a client for the target project."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "vm-curator-gtk"
+    },
+    "to": {
+      "source": "appimage",
+      "appId": "mroboff/vm-curator"
+    },
+    "reason": "Audit review 2026-10-09: \"frontend for the vm-curator\" — LLM gemini-3.1-flash-lite: Explicitly stated as a frontend for the target project."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "slskdn"
+    },
+    "to": {
+      "source": "nix-nixpkgs",
+      "appId": "slskd"
+    },
+    "reason": "Audit review 2026-10-09: \"fork of slskd with\" — LLM gemini-3.1-flash-lite: Explicitly stated as a fork of the target project."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "snap-snapcraft",
+      "appId": "terragrunt"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "opentofu"
+    },
+    "reason": "Audit review 2026-10-09: \"wrapper for OpenTofu\" — LLM gemini-3.1-flash-lite: Terragrunt is a wrapper tool for OpenTofu."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "midnight-cli-git"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "caelestia-cli"
+    },
+    "reason": "Audit review 2026-10-09: \"fork of Caelestia-CLI\" — LLM gemini-3.1-flash-lite: Explicitly stated as a fork of the target project."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "sway-scroll"
+    },
+    "to": {
+      "source": "deb-debian",
+      "appId": "sway"
+    },
+    "reason": "Audit review 2026-10-09: \"Fork of the sway Wayland\" — LLM gemini-3.1-flash-lite: Sway-scroll is a known fork of the sway compositor."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "vopono-gui"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "vopono"
+    },
+    "reason": "Audit review 2026-10-09: \"frontend for vopono\" — LLM gemini-3.1-flash-lite: Vopono-gui is a graphical frontend for the vopono CLI tool."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "jellyfin-rpc-iced-git"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "jellyfin-rpc"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI For Jellyfin-RPC\" — LLM gemini-3.1-flash-lite: Jellyfin-rpc-iced is a GUI implementation for the Jellyfin-rpc tool."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "envision-xr-git"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "monado"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for Monado\" — LLM gemini-3.1-flash-lite: Envision is a known GUI frontend for the Monado OpenXR runtime."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "openarena-omega-engine-bin"
+    },
+    "to": {
+      "source": "nix-nixpkgs",
+      "appId": "quake3e"
+    },
+    "reason": "Audit review 2026-10-09: \"fork of the Quake3e engine\" — LLM gemini-3.1-flash-lite: OmegA-engine is a fork of the Quake3e engine."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "alacritty-wrapper"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "alacritty"
+    },
+    "reason": "Audit review 2026-10-09: \"wrapper for Alacritty\" — LLM gemini-3.1-flash-lite: Alacritty-wrapper is a wrapper script for the Alacritty terminal."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "gui.for.singbox"
+    },
+    "to": {
+      "source": "pacman-arch",
+      "appId": "sing-box"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for SingBox\" — LLM gemini-3.1-flash-lite: Gui-for-singbox is a GUI frontend for the sing-box proxy platform."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "snap-snapcraft",
+      "appId": "yt-dlp"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "youtube-dl"
+    },
+    "reason": "Audit review 2026-10-09: \"fork of youtube-dl with\" — LLM gemini-3.1-flash-lite: Yt-dlp is a well-known fork of youtube-dl."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "snap-snapcraft",
+      "appId": "freedom-loader"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "yt-dlp"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for yt-dlp\" — LLM gemini-3.1-flash-lite: Freedom-loader is a GUI client for the yt-dlp tool."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "gabutytb"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "yt-dlp"
+    },
+    "reason": "Audit review 2026-10-09: \"Frontend of YT-DLP\" — LLM gemini-3.1-flash-lite: Gabutytb is a GTK4 frontend for the yt-dlp tool."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "youtuibe"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "yt-dlp"
+    },
+    "reason": "Audit review 2026-10-09: \"frontend for yt-dlp\" — LLM gemini-3.1-flash-lite: YouTUIbe is a terminal-based frontend for the yt-dlp tool."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "yt-dlp-gui"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "yt-dlp"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for yt-dlp\" — LLM gemini-3.1-flash-lite: Yt-dlp-gui is a Qt6 GUI frontend for the yt-dlp tool."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "yt-dlp-linux-gui"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "yt-dlp"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for yt-dlp\" — LLM gemini-3.1-flash-lite: Yt-dlp-linux-gui is a Python GUI frontend for the yt-dlp tool."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "github-releases",
+      "appId": "y0uq/Arke"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "yt-dlp"
+    },
+    "reason": "Audit review 2026-10-09: \"frontend for yt-dlp\" — LLM gemini-3.1-flash-lite: Arke is a GTK4 GUI frontend for the yt-dlp tool."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "upscayl-ncnn"
+    },
+    "to": {
+      "source": "rpm-fedora",
+      "appId": "ncnn"
+    },
+    "reason": "Audit review 2026-10-09: \"Fork of the NCNN implementation\" — LLM gemini-3.1-flash-lite: The description explicitly states it is a fork of the target."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "vykar-gui-bin"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "vykar"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for Vykar\" — LLM gemini-3.1-flash-lite: The description explicitly states it is a GUI for the target."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "eh-vial-appimage"
+    },
+    "to": {
+      "source": "deb-debian",
+      "appId": "qmk"
+    },
+    "reason": "Audit review 2026-10-09: \"QMK fork\" — LLM gemini-3.1-flash-lite: The description explicitly states it is a QMK fork."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "nix-nixpkgs",
+      "appId": "vial"
+    },
+    "to": {
+      "source": "deb-debian",
+      "appId": "qmk"
+    },
+    "reason": "Audit review 2026-10-09: \"QMK fork\" — LLM gemini-3.1-flash-lite: The description explicitly states it is a QMK fork."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "amulegui-upnp"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "amule"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for the aMule\" — LLM gemini-3.1-flash-lite: The description explicitly states it is a GUI for the target."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "kamule"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "amule"
+    },
+    "reason": "Audit review 2026-10-09: \"frontend for aMule\" — LLM gemini-3.1-flash-lite: The description explicitly states it is a frontend for the target."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "zomp-git"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "oh-my-pi"
+    },
+    "reason": "Audit review 2026-10-09: \"Fork of oh-my-pi\" — LLM gemini-3.1-flash-lite: The description explicitly states it is a fork of the target."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "dargui"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "dar"
+    },
+    "reason": "Audit review 2026-10-09: \"frontend for dar\" — LLM gemini-3.1-flash-lite: The description explicitly states it is a frontend for the target."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "zapret-gtk"
+    },
+    "to": {
+      "source": "nix-nixpkgs",
+      "appId": "zapret"
+    },
+    "reason": "Audit review 2026-10-09: \"client for Zapret DPI\" — LLM gemini-3.1-flash-lite: The description explicitly states it is a GUI client for the target."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "zapret-gui"
+    },
+    "to": {
+      "source": "nix-nixpkgs",
+      "appId": "zapret"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for zapret\" — LLM gemini-3.1-flash-lite: The description explicitly states it is a GUI for the target."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "arduino-ctags"
+    },
+    "to": {
+      "source": "deb-debian",
+      "appId": "exuberant-ctags"
+    },
+    "reason": "Audit review 2026-10-09: \"fork of exuberant ctags\" — LLM gemini-3.1-flash-lite: The description explicitly states it is a fork of the target."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "lbry-viewer-git"
+    },
+    "to": {
+      "source": "nix-nixpkgs",
+      "appId": "gtk-pipe-viewer"
+    },
+    "reason": "Audit review 2026-10-09: \"fork of pipe-viewer\" — LLM gemini-3.1-flash-lite: The description explicitly states it is a fork of the target."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "ferroxide"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "hydroxide"
+    },
+    "reason": "Audit review 2026-10-09: \"fork of Hydroxide\" — LLM gemini-3.1-flash-lite: The description explicitly states it is a fork of the target."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "appimage",
+      "appId": "EverythingSuckz/Mirroid"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "scrcpy"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for scrcpy\" — LLM gemini-3.1-flash-lite: The description explicitly states it is a GUI for the target."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "appimage",
+      "appId": "SimonAKing/scrcpy-gui"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "scrcpy"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for scrcpy\" — LLM gemini-3.1-flash-lite: The description explicitly states it is a GUI for the target."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "phone-mirror"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "scrcpy"
+    },
+    "reason": "Audit review 2026-10-09: \"front-end for scrcpy\" — LLM gemini-3.1-flash-lite: The description explicitly states it is a frontend for the target."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "snap-snapcraft",
+      "appId": "frr"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "quagga"
+    },
+    "reason": "Audit review 2026-10-09: \"fork of Quagga\" — LLM gemini-3.1-flash-lite: FRRouting is a well-known fork of Quagga."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "deb-debian",
+      "appId": "frr-pythontools"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "quagga"
+    },
+    "reason": "Audit review 2026-10-09: \"fork of Quagga\" — LLM gemini-3.1-flash-lite: FRRouting tools are components of the FRRouting suite."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "rpm-fedora",
+      "appId": "frr-rpki"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "quagga"
+    },
+    "reason": "Audit review 2026-10-09: \"fork of Quagga\" — LLM gemini-3.1-flash-lite: RPKI support is a component of the FRRouting suite."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "arena-chess-gui"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "chess.app"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for chess\" — LLM gemini-3.1-flash-lite: Arena is a GUI for chess engines like GNUstep Chess."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "github-releases",
+      "appId": "Regu-Miabyss/ReTube"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "youtube-music"
+    },
+    "reason": "Audit review 2026-10-09: \"desktop client for YouTube Music\" — LLM gemini-3.1-flash-lite: ReTube is a desktop client for YouTube Music."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "appimage",
+      "appId": "jakeledwards/ClawControl"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "openclaw"
+    },
+    "reason": "Audit review 2026-10-09: \"client for OpenClaw AI\" — LLM gemini-3.1-flash-lite: ClawControl is a client for the OpenClaw AI assistant."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "clawx"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "openclaw"
+    },
+    "reason": "Audit review 2026-10-09: \"graphical interface for OpenClaw\" — LLM gemini-3.1-flash-lite: ClawX is a GUI tool for OpenClaw."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "freeclaw"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "openclaw"
+    },
+    "reason": "Audit review 2026-10-09: \"fork of OpenClaw with\" — LLM gemini-3.1-flash-lite: Freeclaw is explicitly a community fork of OpenClaw."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "linux-wallpaper-engine-ux"
+    },
+    "to": {
+      "source": "nix-nixpkgs",
+      "appId": "linux-wallpaperengine"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for linux-wallpaperengine\" — LLM gemini-3.1-flash-lite: UX is a GUI tool for the wallpaper engine."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "linux-wallpaperengine-gui-git"
+    },
+    "to": {
+      "source": "nix-nixpkgs",
+      "appId": "linux-wallpaperengine"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for linux-wallpaperengine\" — LLM gemini-3.1-flash-lite: GUI is a tool for the wallpaper engine."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "simple-linux-wallpaperengine-gui-git"
+    },
+    "to": {
+      "source": "nix-nixpkgs",
+      "appId": "linux-wallpaperengine"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for linux-wallpaperengine\" — LLM gemini-3.1-flash-lite: Simple GUI is a tool for the wallpaper engine."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "wallpaperengine-gui"
+    },
+    "to": {
+      "source": "nix-nixpkgs",
+      "appId": "linux-wallpaperengine"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for linux-wallpaperengine\" — LLM gemini-3.1-flash-lite: Wallpaperengine-gui is a tool for the wallpaper engine."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "iwgtk"
+    },
+    "to": {
+      "source": "deb-debian",
+      "appId": "iwd"
+    },
+    "reason": "Audit review 2026-10-09: \"front-end for iwd\" — LLM gemini-3.1-flash-lite: iwgtk is a GUI front-end for the iwd daemon."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "xwinwrap-baitinq-git"
+    },
+    "to": {
+      "source": "nix-nixpkgs",
+      "appId": "xwinwrap"
+    },
+    "reason": "Audit review 2026-10-09: \"Fork of XwinWrap with\" — LLM gemini-3.1-flash-lite: This is a fork of the XwinWrap project."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "tartube"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "youtube-dl"
+    },
+    "reason": "Audit review 2026-10-09: \"front-end for youtube-dl\" — LLM gemini-3.1-flash-lite: Tartube is a GUI front-end for youtube-dl."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "clang19"
+    },
+    "to": {
+      "source": "deb-debian",
+      "appId": "llvm"
+    },
+    "reason": "Audit review 2026-10-09: \"frontend for LLVM\" — LLM gemini-3.1-flash-lite: Clang is the C language frontend for LLVM."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "ffmpeg-converter-gtk"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "ffmpeg"
+    },
+    "reason": "Audit review 2026-10-09: \"frontend for FFmpeg\" — LLM gemini-3.1-flash-lite: FFmpeg-Converter-GTK is a GUI frontend for FFmpeg."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "nm-tray"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "network-manager"
+    },
+    "reason": "Audit review 2026-10-09: \"frontend for NetworkManager\" — LLM gemini-3.1-flash-lite: nm-tray is a known GUI frontend for NetworkManager."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "mineradio-vision-git"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "mineradio"
+    },
+    "reason": "Audit review 2026-10-09: \"fork of Mineradio with\" — LLM gemini-3.1-flash-lite: The description explicitly states it is a fork of Mineradio."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "deepseek-reasonix-tui"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "deepseek-linux"
+    },
+    "reason": "Audit review 2026-10-09: \"client for DeepSeek\" — LLM gemini-3.1-flash-lite: Both are clients for the DeepSeek AI service."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "chatterino2-7tv-native-git"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "chatterino2"
+    },
+    "reason": "Audit review 2026-10-09: \"Chatterino2 fork\" — LLM gemini-3.1-flash-lite: Chatterino7 is a well-known fork of Chatterino2."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "wgtunnel-bin"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "wireguard-ammp"
+    },
+    "reason": "Audit review 2026-10-09: \"client for WireGuard\" — LLM gemini-3.1-flash-lite: wgtunnel is a client for WireGuard VPN protocols."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "deb-debian",
+      "appId": "rmlint-gui"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "rmlint"
+    },
+    "reason": "Audit review 2026-10-09: \"frontend to rmlint\" — LLM gemini-3.1-flash-lite: Shredder is a GUI frontend for the rmlint command-line tool."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "yagf"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "cuneiform"
+    },
+    "reason": "Audit review 2026-10-09: \"frontend for Cuneiform\" — LLM gemini-3.1-flash-lite: YAGF is a recognized GUI frontend for Cuneiform."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "qmpdclient"
+    },
+    "to": {
+      "source": "deb-debian",
+      "appId": "mpd"
+    },
+    "reason": "Audit review 2026-10-09: \"client for MPD\" — LLM gemini-3.1-flash-lite: qmpdclient is a GUI client for the MPD music server."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "byedpi-gtk"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "byedpi"
+    },
+    "reason": "Audit review 2026-10-09: \"frontend for byedpi\" — LLM gemini-3.1-flash-lite: byedpi-gtk is a GUI frontend for the byedpi tool."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "video2x-qt6"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "video2x"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for Video2X\" — LLM gemini-3.1-flash-lite: video2x-qt6 is the GUI frontend for the video2x framework."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "gcc13-fortran"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "gcc-13"
+    },
+    "reason": "Audit review 2026-10-09: \"front-end for GCC\" — LLM gemini-3.1-flash-lite: Fortran is a language front-end for the GCC compiler collection."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "xr-video-player-git"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "vr-video-player"
+    },
+    "reason": "Audit review 2026-10-09: \"Fork of vr-video-player by\" — LLM gemini-3.1-flash-lite: The description explicitly states it is a fork of vr-video-player."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "nix-nixpkgs",
+      "appId": "pawn-appetit"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "en-croissant"
+    },
+    "reason": "Audit review 2026-10-09: \"fork of en-croissant\" — LLM gemini-3.1-flash-lite: Pawn Appetit is a known fork of the en-croissant chess GUI."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "frank-go"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "sabaki"
+    },
+    "reason": "Audit review 2026-10-09: \"Sabaki fork\" — LLM gemini-3.1-flash-lite: Frank Go is a known fork of the Sabaki Go editor."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "deb-debian",
+      "appId": "mgba-sdl"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "io.mgba.mGBA"
+    },
+    "reason": "Audit review 2026-10-09: \"frontend for mGBA\" — LLM gemini-3.1-flash-lite: mGBA-SDL is a frontend for the mGBA emulator."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "nix-nixpkgs",
+      "appId": "ryubing"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "io.github.ryubing.Ryujinx"
+    },
+    "reason": "Audit review 2026-10-09: \"fork of Ryujinx\" — LLM gemini-3.1-flash-lite: Ryubing is a community fork of Ryujinx."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "deb-debian",
+      "appId": "gnome-genius"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.gnome.Genius"
+    },
+    "reason": "Audit review 2026-10-09: \"frontend for Genius\" — LLM gemini-3.1-flash-lite: GNOME Genius is a GUI frontend for the Genius calculator."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "gpt4all-chat"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "io.gpt4all.gpt4all"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for GPT4All\" — LLM gemini-3.1-flash-lite: gpt4all-chat is a GUI frontend for the GPT4All engine."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "ro.go.hmlendea.DL-Desktop"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "duolingo-desktop"
+    },
+    "reason": "Audit review 2026-10-09: \"client for Duolingo\" — LLM gemini-3.1-flash-lite: DL-Desktop is a desktop wrapper for the Duolingo web service."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "org.speed_dreams.SpeedDreams"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "net.sourceforge.torcs"
+    },
+    "reason": "Audit review 2026-10-09: \"fork of TORCS which\" — LLM gemini-3.1-flash-lite: Speed Dreams is a fork of the TORCS racing simulator."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "com.github.AmatCoder.mednaffe"
+    },
+    "to": {
+      "source": "deb-debian",
+      "appId": "mednafen"
+    },
+    "reason": "Audit review 2026-10-09: \"front-end for the Mednafen\" — LLM gemini-3.1-flash-lite: Mednaffe is a GUI frontend for the Mednafen emulator."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "gajimbo-git"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.gajim.Gajim"
+    },
+    "reason": "Audit review 2026-10-09: \"fork of Gajim with\" — LLM gemini-3.1-flash-lite: Gajimbo is a fork of the Gajim XMPP client."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "apk-alpine",
+      "appId": "electrum-gui"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.electrum.electrum"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for electrum\" — LLM gemini-3.1-flash-lite: electrum-gui is a GUI frontend for the Electrum wallet."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "nix-nixpkgs",
+      "appId": "evil-helix"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "com.helix_editor.Helix"
+    },
+    "reason": "Audit review 2026-10-09: \"Helix fork\" — LLM gemini-3.1-flash-lite: Evil Helix is a fork of the Helix text editor."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "helix-gj1118-lua-git"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "com.helix_editor.Helix"
+    },
+    "reason": "Audit review 2026-10-09: \"Helix fork\" — LLM gemini-3.1-flash-lite: Helix-gj1118 is a fork of the Helix text editor."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "jdtls-wrapper-bin"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "com.helix_editor.Helix"
+    },
+    "reason": "Audit review 2026-10-09: \"wrapper for Helix\" — LLM gemini-3.1-flash-lite: jdtls-wrapper is a tool to integrate Java language server with Helix."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "io.github.dimtpap.coppwr"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "pipewire"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for the PipeWire\" — LLM gemini-3.1-flash-lite: coppwr is a GUI control tool for PipeWire."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "org.megaglest.MegaGlest"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "glest-game"
+    },
+    "reason": "Audit review 2026-10-09: \"Fork of Glest\" — LLM gemini-3.1-flash-lite: MegaGlest is a fork of the Glest game engine."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "app.grayjay.Grayjay"
+    },
+    "to": {
+      "source": "pacman-aur",
+      "appId": "youtube"
+    },
+    "reason": "Audit review 2026-10-09: \"client for YouTube\" — LLM gemini-3.1-flash-lite: Grayjay is a media aggregator tool for YouTube."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "com.rcloneui.RcloneUI"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "rclone"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for rclone.\" — LLM gemini-3.1-flash-lite: RcloneUI is a GUI frontend for rclone."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "threema-desktop"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "ch.threema.threema-web-desktop"
+    },
+    "reason": "Audit review 2026-10-09: \"client for Threema\" — LLM gemini-3.1-flash-lite: Threema Desktop is a wrapper for Threema Web."
+  },
+  {
+    "type": "wrapperOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "threema-for-desktop-bin"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "ch.threema.threema-web-desktop"
+    },
+    "reason": "Audit review 2026-10-09: \"desktop client for Threema.\" — LLM gemini-3.1-flash-lite: Threema for desktop is a wrapper for Threema Web."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "io.github.dyegoaurelio.simple-wireplumber-gui"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "pipewire"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for PipeWire\" — LLM gemini-3.1-flash-lite: Simple Wireplumber GUI is a GUI tool for PipeWire."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "io.github.zarestia_dev.rclone-manager"
+    },
+    "to": {
+      "source": "snap-snapcraft",
+      "appId": "rclone"
+    },
+    "reason": "Audit review 2026-10-09: \"GUI for Rclone\" — LLM gemini-3.8-flash: RClone Manager is a GUI tool for rclone"
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "io.github.hvdwofl.jExifToolGUI"
+    },
+    "to": {
+      "source": "nix-nixpkgs",
+      "appId": "exiftool"
+    },
+    "reason": "Audit review 2026-10-09: \"frontend for the ExifTool\" — LLM gemini-3.8-flash: jExifToolGUI is a GUI frontend for ExifTool"
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "rpm-fedora",
+      "appId": "dolphin-emu-tool"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.DolphinEmu.dolphin-emu"
+    },
+    "reason": "Audit review 2026-10-09 (shared-homepage dolphin-emu.org): LLM gemini-3.5-flash-lite: CLI-based utility is a separate tool"
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "appimage",
+      "appId": "c0re100/qBittorrent-Enhanced-Edition"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.qbittorrent.qBittorrent"
+    },
+    "reason": "Audit review 2026-10-09 (shared-homepage github.com/c0re100/qbittorrent-enhanced-edition): LLM gemini-3.5-flash-lite: qBittorrent Enhanced Edition is a well-known fork"
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "rpm-opensuse",
+      "appId": "prismlauncher-cracked"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.prismlauncher.PrismLauncher"
+    },
+    "reason": "Audit review 2026-10-09 (shared-homepage github.com/diegiwg/prismlauncher-cracked): LLM gemini-3.5-flash-lite: Cracked fork of Prism Launcher"
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "signal-in-tray"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.signal.Signal"
+    },
+    "reason": "Audit review 2026-10-09 (shared-homepage github.com/signalapp/signal-desktop): LLM gemini-3.5-flash-lite: Tray tool for Signal"
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "postman-agent"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "com.getpostman.Postman"
+    },
+    "reason": "Audit review 2026-10-09 (shared-homepage postman.com): LLM gemini-3.5-flash-lite: Postman companion agent tool"
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "mcpelauncher-ui"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "io.mrarm.mcpelauncher"
+    },
+    "reason": "Audit review 2026-10-09 (shared-homepage minecraft-linux.github.io): LLM gemini-3.5-flash-lite: UI frontend for the Minecraft Bedrock launcher."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "kodi-rpi-tools-texturepacker"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "tv.kodi.Kodi"
+    },
+    "reason": "Audit review 2026-10-09 (shared-homepage github.com/graysky2/xbmc): LLM gemini-3.5-flash-lite: Texturepacker build tool for Kodi."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "moonlight-ptb-bin"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "com.moonlight_stream.Moonlight"
+    },
+    "reason": "Audit review 2026-10-09 (shared-homepage github.com/meguminsama/moonlight-launcher): LLM gemini-3.5-flash-lite: A launcher for a Discord mod, unrelated to game streaming."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "moonlight-stable-bin"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "com.moonlight_stream.Moonlight"
+    },
+    "reason": "Audit review 2026-10-09 (shared-homepage github.com/meguminsama/moonlight-launcher): LLM gemini-3.5-flash-lite: A launcher for a Discord mod, unrelated to game streaming."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "snap-snapcraft",
+      "appId": "yt-dlg"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "io.github.aandrew_me.ytdn"
+    },
+    "reason": "Audit review 2026-10-09 (shared-homepage github.com/oleksis/youtube-dl-gui): LLM gemini-3.5-flash-lite: yt-dlg is a frontend tool for youtube-dl."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "neovim-zig-git"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "io.neovim.nvim"
+    },
+    "reason": "Audit review 2026-10-09 (shared-homepage neovim.io): LLM gemini-3.5-flash-lite: Fork of Neovim built with Zig."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "snap-snapcraft",
+      "appId": "neovim-kalikiana"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "io.neovim.nvim"
+    },
+    "reason": "Audit review 2026-10-09 (shared-homepage github.com/neovim/neovim): LLM gemini-3.5-flash-lite: Fork of Neovim."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "deb-debian",
+      "appId": "sweethome3d-furniture-editor"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "com.sweethome3d.Sweethome3d"
+    },
+    "reason": "Audit review 2026-10-09 (shared-homepage sweethome3d.com): LLM gemini-3.5-flash-lite: Furniture library editor for Sweet Home 3D."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "deb-debian",
+      "appId": "sweethome3d-textures-editor"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "com.sweethome3d.Sweethome3d"
+    },
+    "reason": "Audit review 2026-10-09 (shared-homepage sweethome3d.com): LLM gemini-3.5-flash-lite: Textures library editor for Sweet Home 3D."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "io.github.input_leap.input-leap"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "com.github.debauchee.barrier"
+    },
+    "reason": "Audit review 2026-10-09 (shared-homepage github.com/input-leap/input-leap): LLM gemini-3.8-flash: input-leap is a fork of barrier"
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "input-leap-headless-git"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "com.github.debauchee.barrier"
+    },
+    "reason": "Audit review 2026-10-09 (shared-homepage github.com/input-leap/input-leap): LLM gemini-3.8-flash: input-leap headless binary component of fork"
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "xbps-void",
+      "appId": "input-leap-gui"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "com.github.debauchee.barrier"
+    },
+    "reason": "Audit review 2026-10-09 (shared-homepage github.com/input-leap/input-leap): LLM gemini-3.8-flash: input-leap gui component of fork"
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "rpm-fedora",
+      "appId": "openmw-tools"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.openmw.OpenMW"
+    },
+    "reason": "Audit review 2026-10-09 (shared-homepage openmw.org): LLM gemini-3.8-flash: utility programs for openmw"
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "itch-setup-bin"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "io.itch.itch"
+    },
+    "reason": "Audit review 2026-10-09 (shared-homepage itch.io): LLM gemini-3.8-flash: installer/setup tool for itch client"
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "deb-debian",
+      "appId": "pokemmo-installer"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "com.pokemmo.PokeMMO"
+    },
+    "reason": "Audit review 2026-10-09 (shared-homepage pokemmo.eu): LLM gemini-3.7-flash: installer and launcher tool for PokeMMO"
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "fcitx-configtool"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.fcitx.Fcitx5"
+    },
+    "reason": "Audit review 2026-10-09 (shared-homepage fcitx-im.org): LLM gemini-3.7-flash: standalone configuration tool for Fcitx"
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "albion-online-launcher-bin"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "com.albiononline.AlbionOnline"
+    },
+    "reason": "Audit review 2026-10-09 (shared-homepage albiononline.com): LLM gemini-3.7-flash: official game launcher for albion online"
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "ptyxis-wrapper"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "app.devsuite.Ptyxis"
+    },
+    "reason": "Audit review 2026-10-09 (shared-homepage gitlab.gnome.org/chergert/ptyxis): LLM gemini-3.7-flash: compatibility wrapper script for ptyxis"
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "deb-debian",
+      "appId": "tigervnc-tools"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.tigervnc.vncviewer"
+    },
+    "reason": "Audit review 2026-10-09 (shared-homepage tigervnc.org): LLM gemini-3.7-flash: tools package for tigervnc"
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "rpm-opensuse",
+      "appId": "tigervnc-x11vnc"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.tigervnc.vncviewer"
+    },
+    "reason": "Audit review 2026-10-09 (shared-homepage tigervnc.org): LLM gemini-3.7-flash: wrapper script for x0vncserver"
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "nym-wallet"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "net.nymtech.NymVPN"
+    },
+    "reason": "Audit review 2026-10-09 (shared-homepage nymtech.net): LLM gemini-3.5-flash: Wallet application for Nym"
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "openttd-btpro"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.openttd.OpenTTD"
+    },
+    "reason": "Audit review 2026-10-09 (shared-homepage openttd.org): LLM gemini-3.5-flash: Fork of OpenTTD client"
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "nix-nixpkgs",
+      "appId": "openttd-grfcodec"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.openttd.OpenTTD"
+    },
+    "reason": "Audit review 2026-10-09 (shared-homepage openttd.org): LLM gemini-3.5-flash: Development tool for OpenTTD GRF files"
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "i2pd-qt-git"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "website.i2pd.i2pd"
+    },
+    "reason": "Audit review 2026-10-09 (shared-homepage i2pd.website): LLM gemini-3.5-flash-lite: Qt GUI frontend tool for i2pd"
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "helix-ext"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "com.helix_editor.Helix"
+    },
+    "reason": "Audit review 2026-10-09 (shared-homepage helix-editor.com): LLM gemini-3.5-flash-lite: Helix editor variant with rejected patches"
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "deb-debian",
+      "appId": "fs-uae-arcade"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "net.fsuae.FS-UAE"
+    },
+    "reason": "Audit review 2026-10-09 (shared-homepage fs-uae.net): LLM gemini-3.5-flash-lite: Full-screen game browser companion for FS-UAE"
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-arch",
+      "appId": "fs-uae-launcher"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "net.fsuae.FS-UAE"
+    },
+    "reason": "Audit review 2026-10-09 (shared-homepage fs-uae.net): LLM gemini-3.5-flash-lite: Launcher tool for FS-UAE"
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "revolt-desktop-adblock-git"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "chat.revolt.RevoltDesktop"
+    },
+    "reason": "Audit review 2026-10-09 (shared-homepage revolt.chat): LLM gemini-3.5-flash-lite: Fork of Revolt Desktop with adblocker"
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "railwayapp-cli"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "de.schmidhuberj.DieBahn"
+    },
+    "reason": "Audit review 2026-10-09 (shared-homepage github.com/railwayapp/cli): LLM gemini-3.5-flash-lite: CLI tool for Railway.app"
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "apk-alpine",
+      "appId": "bitcoin-bench"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.bitcoincore.bitcoin-qt"
+    },
+    "reason": "Audit review 2026-10-09 (shared-homepage bitcoincore.org): LLM gemini-3.5-flash-lite: Benchmarking tools for Bitcoin Core."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "flatpak-flathub",
+      "appId": "org.getoutline.OutlineManager"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.getoutline.OutlineClient"
+    },
+    "reason": "Audit review 2026-10-09 (shared-homepage getoutline.org): LLM gemini-3.5-flash-lite: Outline Manager is a standalone tool"
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "qtox-toktok"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "io.github.qtox.qTox"
+    },
+    "reason": "Audit review 2026-10-09 (shared-homepage github.com/toktok/qtox): LLM gemini-3.5-flash-lite: TokTok fork of qTox chat client."
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "rpm-opensuse",
+      "appId": "neverball-mapc"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.neverball.Neverball"
+    },
+    "reason": "Audit review 2026-10-09 (shared-homepage neverball.org): LLM gemini-3.5-flash-lite: Map compilation tool"
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "deb-ubuntu",
+      "appId": "seadrive-gui"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "com.seafile.Client"
+    },
+    "reason": "Audit review 2026-10-09 (shared-homepage seafile.com): LLM gemini-3.5-flash-lite: Alternative drive client"
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "pacman-aur",
+      "appId": "seadrive-cli"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "com.seafile.Client"
+    },
+    "reason": "Audit review 2026-10-09 (shared-homepage seafile.com): LLM gemini-3.5-flash-lite: Drive CLI client"
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "deb-debian",
+      "appId": "seafile-cli"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "com.seafile.Client"
+    },
+    "reason": "Audit review 2026-10-09 (shared-homepage seafile.com): LLM gemini-3.5-flash-lite: CLI client"
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "xbps-void",
+      "appId": "pioneer-modelcompiler"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "net.pioneerspacesim.Pioneer"
+    },
+    "reason": "Audit review 2026-10-09 (shared-homepage pioneerspacesim.net): LLM gemini-3.5-flash: Model compiler tool for Pioneer"
+  },
+  {
     "type": "forkOf",
     "from": {
       "source": "github-releases",

@@ -111,6 +111,37 @@ describe("attachFamilies", () => {
     expect(result.every((entry) => !entry.companionOf)).toBe(true);
   });
 
+  it("lists a curated companion on its parent, AppStream app or not", () => {
+    const syncthing = app("syncthing", [pkg({ name: "syncthing", appId: "syncthing" })]);
+    const relay = app("syncthing-relay", [
+      pkg({
+        source: "flatpak-flathub",
+        name: "Syncthing Relay",
+        appId: "net.syncthing.Relay",
+        description: "Relay server for Syncthing",
+        formal: { componentType: "desktop-application" },
+      }),
+    ]);
+
+    const [parent, companion] = attachFamilies(
+      [syncthing, relay],
+      [],
+      [],
+      [
+        {
+          parent: { source: "pacman-aur", appId: "syncthing" },
+          companion: { source: "flatpak-flathub", appId: "net.syncthing.Relay" },
+          kind: "component",
+          reason: "test",
+        },
+      ],
+    );
+
+    expect(companion?.companionOf).toBe("syncthing");
+    expect(parent?.companions?.map((entry) => entry.kind)).toEqual(["component"]);
+    expect(parent?.companionCounts).toEqual({ component: 1 });
+  });
+
   it("links curated relations both ways", () => {
     const librewolf = app("io.gitlab.librewolf-community", [
       pkg({ source: "flatpak-flathub", name: "LibreWolf", appId: "io.gitlab.librewolf-community" }),

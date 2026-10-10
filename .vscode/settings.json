@@ -29,6 +29,10 @@
       "url": "./src/curator/family/family-relations.schema.json"
     },
     {
+      "fileMatch": ["/config/family-companions.json"],
+      "url": "./src/curator/family/family-companions.schema.json"
+    },
+    {
       "fileMatch": ["/config/audit-golden.json"],
       "url": "./src/pipeline/audit-golden.schema.json"
     },

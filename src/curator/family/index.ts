@@ -8,8 +8,13 @@ import {
   toCompanion,
   type CompanionMatch,
 } from "./companions";
-import { collectEdges, loadFamilyRelations, relationsByApp } from "./relations";
-import type { Companion, RelationEntry } from "./types";
+import {
+  collectEdges,
+  loadFamilyCompanions,
+  loadFamilyRelations,
+  relationsByApp,
+} from "./relations";
+import type { Companion, CompanionEntry, RelationEntry } from "./types";
 
 export type { Companion, CompanionKind, Relation, RelationType } from "./types";
 export { loadFamilyRelations } from "./relations";
@@ -39,12 +44,27 @@ export function attachFamilies(
   apps: readonly CatalogApp[],
   loose: readonly SourcedPackage[],
   curatedRelations: readonly RelationEntry[] = loadFamilyRelations(),
+  curatedCompanions: readonly CompanionEntry[] = loadFamilyCompanions(),
 ): CatalogApp[] {
   const index = buildProductIndex(apps);
 
+  // Curated companions first (config/family-companions.json): they win
+  // over every automatic signal, AppStream apps included.
   const groupMatches = new Map<string, CompanionMatch>();
+  const byPackage = new Map<string, CatalogApp>();
   for (const app of apps) {
-    if (app.packages.some(isAppstreamApp)) continue;
+    for (const pkg of app.packages) byPackage.set(`${pkg.source}:${pkg.appId ?? pkg.name}`, app);
+  }
+  for (const entry of curatedCompanions) {
+    const parent = byPackage.get(`${entry.parent.source}:${entry.parent.appId}`);
+    const companion = byPackage.get(`${entry.companion.source}:${entry.companion.appId}`);
+    if (parent && companion && parent !== companion) {
+      groupMatches.set(companion.id, { parent, kind: entry.kind });
+    }
+  }
+
+  for (const app of apps) {
+    if (groupMatches.has(app.id) || app.packages.some(isAppstreamApp)) continue;
     for (const pkg of app.packages) {
       const match = companionOf(pkg, index, { standalone: true });
       if (match && match.parent !== app) {

@@ -130,5 +130,77 @@
       "appId": "org.mozilla.thunderbird"
     },
     "reason": "Betterbird is a fine-tuned fork of Thunderbird (betterbird.eu)."
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "github-releases",
+      "appId": "erroreutopia/Blender-Appimage"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.blender.Blender"
+    },
+    "reason": "Audit review 2026-10-09 (same-name blender): review verdict"
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "github-releases",
+      "appId": "cmatomic/Handbrake-AppImage"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "fr.handbrake.ghb"
+    },
+    "reason": "Audit review 2026-10-09 (same-name handbrake): review verdict"
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "snap-snapcraft",
+      "appId": "dosbox-jz"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "com.dosbox.DOSBox"
+    },
+    "reason": "Audit review 2026-10-09 (shared-homepage dosbox.com): review verdict"
+  },
+  {
+    "type": "toolFor",
+    "from": {
+      "source": "xbps-void",
+      "appId": "clapper-libs-32bit"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "com.github.rafostar.Clapper"
+    },
+    "reason": "Audit review 2026-10-09 (shared-homepage github.com/rafostar/clapper): review verdict"
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "flatpak-appcenter",
+      "appId": "io.elementary.photos"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.gnome.Shotwell"
+    },
+    "reason": "elementary Photos started as a fork of Shotwell (audit review 2026-10-09)"
+  },
+  {
+    "type": "forkOf",
+    "from": {
+      "source": "flatpak-appcenter",
+      "appId": "io.elementary.mail"
+    },
+    "to": {
+      "source": "flatpak-flathub",
+      "appId": "org.gnome.Geary.desktop"
+    },
+    "reason": "elementary Mail started as a fork of Geary (audit review 2026-10-09)"
   }
 ]

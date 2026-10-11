@@ -902,6 +902,35 @@ describe("enrichApps", () => {
     expect(enrichApps(matched)[0]?.rating).toEqual({ average: 500 / 150, count: 150 });
   });
 
+  it("counts a store listing's rating and installs once, however many branches it has (real case: org.winehq.Wine)", () => {
+    const branch = (version: string) =>
+      pkg({
+        source: "flatpak-flathub",
+        appId: "org.winehq.Wine",
+        version,
+        rating: { average: 2.7, count: 864 },
+        installsTotal: 1_433_333,
+        installsLast7Days: 5_643,
+      });
+    const matched: MatchedApp[] = [
+      {
+        id: "org.winehq.Wine",
+        packages: [
+          branch("11.0"),
+          branch("8.0.2"),
+          branch("7.0"),
+          pkg({ source: "snap-snapcraft", appId: "wine", rating: { average: 4, count: 136 } }),
+        ],
+      },
+    ];
+
+    const app = enrichApps(matched)[0];
+    expect(app?.rating?.count).toBe(1000);
+    expect(app?.rating?.average).toBeCloseTo((2.7 * 864 + 4 * 136) / 1000);
+    expect(app?.installsTotal).toBe(1_433_333);
+    expect(app?.installsLast7Days).toBe(5_643);
+  });
+
   it("leaves rating undefined when no member package has one, never a synthetic 0", () => {
     const matched: MatchedApp[] = [
       { id: "aur:example", packages: [pkg({ source: "pacman-aur", name: "example" })] },

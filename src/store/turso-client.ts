@@ -264,6 +264,14 @@ const APPS_INDEXES_SQL = [
   // covered every other WHERE/ORDER BY combination but missed this one
   // since `category` and `popularity` never appeared together before.
   `CREATE INDEX idx_apps_category_popularity ON apps(category, popularity)`,
+  // `browseApps`'s category listing (`WHERE [content_type IS NULL / = 'game'
+  // AND] category = ? ORDER BY name ASC|DESC LIMIT 30 OFFSET ?`): the count
+  // is precomputed, but the page itself is still a live query, and with no
+  // `name` in a category index it sorted the whole category in a temp
+  // B-tree (Developer Tools: ~26k rows) for every page. Top read cost in
+  // `turso db inspect prod --queries` on 2026-10-11 (~380k rows read).
+  `CREATE INDEX idx_apps_category_name ON apps(category, name)`,
+  `CREATE INDEX idx_apps_content_type_category_name ON apps(content_type, category, name)`,
 ];
 
 interface CategoryCount {

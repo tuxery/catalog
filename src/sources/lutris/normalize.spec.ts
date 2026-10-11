@@ -107,6 +107,27 @@ describe("lutris normalize", () => {
     expect(normalize([entry])[0]?.categories).toBeUndefined();
   });
 
+  it("sets hasGameCategory for a build from a games-only storefront, by label or slug (real cases: Septerra Core, Post Hello)", () => {
+    const entry = (installerSlug: string, version?: string): LutrisCacheEntry => ({
+      gameId: 1,
+      gameSlug: "x",
+      installerSlug,
+      name: "X",
+      description: "",
+      genres: [],
+      version,
+    });
+
+    expect(normalize([entry("septerra-core-gog", "GOG")])[0]?.hasGameCategory).toBe(true);
+    expect(normalize([entry("ar-k-humble-64bit", "Humble (64-bit)")])[0]?.hasGameCategory).toBe(
+      true,
+    );
+    expect(normalize([entry("post-hello-gamejolt")])[0]?.hasGameCategory).toBe(true);
+    expect(
+      normalize([entry("discord-flatpak-latest", "Flatpak latest")])[0]?.hasGameCategory,
+    ).toBeUndefined();
+  });
+
   it("sets hasGameCategory from a game record alone, without inventing categories", () => {
     const entry: LutrisCacheEntry = {
       gameId: 2,

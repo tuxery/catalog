@@ -1,6 +1,7 @@
 import { unorderedPairKey } from "helpers4/string";
 import { createUnionFind, type UnionFind } from "helpers4/structure";
 import type { SourcedPackage } from "../../sources";
+import { isGameStoreBuild } from "../../sources/lutris/normalize";
 import { annotateMembers, dropInTargets, trackNames } from "./families";
 import { homepageKey } from "./homepage";
 import { packageKey, standaloneAppId } from "./keys";
@@ -594,8 +595,9 @@ function packagesWithSeveralAppstreamIds(packages: SourcedPackage[]): Set<string
  * those two sides contradicting each other is the tell. Kept narrow on
  * purpose, since tools around games carry game sections too:
  *
- * - game: a GOG.com listing; a Lutris record with an IGDB genre (Lutris'
- *   Discord or TeamSpeak installers have none); a Gentoo `games-*` category
+ * - game: a GOG.com listing; a Lutris record with an IGDB genre or bought
+ *   on a games-only storefront (Lutris' Discord or TeamSpeak installers are
+ *   neither); a Gentoo `games-*` category
  *   other than emulators, utilities, servers, engines and toys; an AppStream
  *   or Flathub component in a game genre (`ArcadeGame`, `RolePlaying`, ...)
  *   or in `Game` alone. `Game` next to `Utility` is a tool around games
@@ -636,7 +638,10 @@ function appstreamSide(pkg: SourcedPackage): TypeSide | undefined {
 
 function typeSide(pkg: SourcedPackage): TypeSide | undefined {
   if (pkg.source === "gog") return "game";
-  if (pkg.source === "lutris") return (pkg.categories ?? []).length > 0 ? "game" : undefined;
+  if (pkg.source === "lutris") {
+    const genre = (pkg.categories ?? []).length > 0;
+    return genre || isGameStoreBuild(pkg.flavors?.[0], pkg.appId ?? "") ? "game" : undefined;
+  }
   if (pkg.source === "ebuild-gentoo") {
     const section = pkg.section ?? "";
     return section.startsWith("games-") && !GENTOO_NOT_A_GAME.has(section) ? "game" : undefined;

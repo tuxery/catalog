@@ -45,6 +45,8 @@ export interface AppRecord {
   screenshots?: string[];
   /** See `CatalogApp.links`. */
   links?: Record<string, string>;
+  /** See `CatalogApp.releases`. */
+  releases?: Array<{ version: string; date?: string }>;
   videos?: string[];
   reviews?: Array<{ author: string; text: string; rating: number }>;
   features?: string[];
@@ -131,6 +133,7 @@ const INSERT_COLUMNS = [
   "languages_json",
   "screenshots_json",
   "links_json",
+  "releases_json",
   "videos_json",
   "reviews_json",
   "features_json",
@@ -181,6 +184,7 @@ function appsTableSql(tableName: string): string {
       languages_json TEXT,
       screenshots_json TEXT,
       links_json TEXT,
+      releases_json TEXT,
       videos_json TEXT,
       reviews_json TEXT,
       features_json TEXT,
@@ -812,6 +816,7 @@ function toRow(app: AppRecord): unknown[] {
     toJsonColumn(app.languages),
     toJsonColumn(app.screenshots),
     toJsonColumn(app.links),
+    toJsonColumn(app.releases),
     toJsonColumn(app.videos),
     toJsonColumn(app.reviews),
     toJsonColumn(app.features),

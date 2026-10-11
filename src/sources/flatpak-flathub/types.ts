@@ -1,5 +1,5 @@
 import type { FetchMetadata } from "../_shared/metadata";
-import type { FormalSignals, ProjectLinks, StoreCollectionTag } from "../types";
+import type { FormalSignals, ProjectLinks, ReleaseEntry, StoreCollectionTag } from "../types";
 
 /**
  * One `<component>` entry from Flathub's appstream repodata
@@ -19,6 +19,8 @@ export interface FlathubCacheEntry {
   homepage?: string;
   /** See `SourcedPackage.links`. */
   links?: ProjectLinks;
+  /** See `SourcedPackage.releases`. */
+  releases?: ReleaseEntry[];
   /** Whether AppStream's `<categories>` includes "Game" — see `SourcedPackage.hasGameCategory`. */
   hasGameCategory: boolean;
   /** Every raw `<category>` value — see `SourcedPackage.categories`. */

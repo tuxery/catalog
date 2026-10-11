@@ -816,6 +816,10 @@ export function enrichApps(
       shortDescription,
       homepage: representative.homepage,
       links: pickLinks(app.packages),
+      releases: pickField(
+        app.packages.filter((pkg) => !isBuildVariant(pkg)),
+        (pkg) => pkg.releases,
+      ),
       packages: app.packages,
       kind: app.packages.some(hasGuiEvidence) ? "gui" : undefined,
       contentType: type === "game" ? "game" : undefined,

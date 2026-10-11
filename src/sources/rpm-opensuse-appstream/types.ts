@@ -1,4 +1,4 @@
-import type { ProjectLinks } from "../types";
+import type { ProjectLinks, ReleaseEntry } from "../types";
 import type { FetchMetadata } from "../_shared/metadata";
 
 /**
@@ -26,6 +26,8 @@ export interface OpenSuseAppstreamCacheEntry {
   homepage?: string;
   /** See `SourcedPackage.links`. */
   links?: ProjectLinks;
+  /** See `SourcedPackage.releases`. */
+  releases?: ReleaseEntry[];
   hasGameCategory: boolean;
   categories: string[];
   license?: string;

@@ -39,16 +39,14 @@ function optionalNumberFlag(name: string, defaultValue: number): number | undefi
   return Number.isNaN(parsed) ? defaultValue : parsed;
 }
 
-// Free tiers only: Gemini with no billing on the key's Google project, Groq
-// on its free plan — exceeding a quota returns a 429, never a bill. Neither
-// quota is generous (observed 2026-09-26: Gemini 20 requests/day per model,
-// Groq 200k tokens/day per model), and they bottleneck on different things,
-// so per-model batch size, pacing, and retries live in
-// config/llm-models.json rather than here. The run is built to be cut short
-// and resumed: progress is persisted after every batch, a model that hits
-// its daily cap is dropped for the rest of the run, and when no model can
-// serve the run saves and exits cleanly (Gemini resets at midnight Pacific
-// time; Groq's per-day window is rolling).
+// Free tier only: Gemini with no billing on the key's Google project —
+// exceeding a quota returns a 429, never a bill. The quota is small
+// (observed 2026-09-26: 20 requests/day per model), so per-model batch
+// size, pacing, and retries live in config/llm-models.json rather than
+// here. The run is built to be cut short and resumed: progress is
+// persisted after every batch, a model that hits its daily cap is dropped
+// for the rest of the run, and when no model can serve the run saves and
+// exits cleanly (Gemini resets at midnight Pacific time).
 const limit = flag("--limit") ? Number(flag("--limit")) : undefined;
 // Hard cap on real API calls for this run, across all models.
 const maxRequests = flag("--max-requests") ? Number(flag("--max-requests")) : undefined;
@@ -116,7 +114,11 @@ function classifyNextBatch(group: Group) {
 }
 
 function toItems(list: { id: string; name: string; shortDescription: string }[]): BatchItem[] {
-  return list.map((app) => ({ id: app.id, name: app.name, description: app.shortDescription }));
+  return list.map((app) => ({
+    id: app.id,
+    name: app.name,
+    description: app.shortDescription,
+  }));
 }
 
 function writeConfig(entries: Map<string, LlmClassificationEntry>): void {
@@ -144,7 +146,11 @@ function writeConfig(entries: Map<string, LlmClassificationEntry>): void {
 function queueGroups(
   apps: CatalogApp[],
   isPending: (app: CatalogApp) => boolean,
-): { toClassify: CatalogApp[]; heuristicOnly: CatalogApp[]; upstream: CatalogApp[] } {
+): {
+  toClassify: CatalogApp[];
+  heuristicOnly: CatalogApp[];
+  upstream: CatalogApp[];
+} {
   const groups = {
     toClassify: [] as CatalogApp[],
     heuristicOnly: [] as CatalogApp[],
@@ -235,8 +241,7 @@ function report(apps: CatalogApp[], entries: LlmClassificationEntry[]): void {
  * rebuild (upstream store categories > LLM > heuristics; library/other
  * hide the app at high confidence).
  *
- * Needs the API key of every provider the enabled models use (see each
- * model's `apiKeyEnv` in config/llm-models.json). Each entry records the
+ * Needs GEMINI_API_KEY. Each entry records the
  * model that produced it and the LLM's own `confidence`; `low` ones are
  * stored but not applied (see `llmClassificationMap`). When no model can
  * serve (all daily-capped, or all overloaded) the run saves and exits
@@ -250,7 +255,10 @@ function report(apps: CatalogApp[], entries: LlmClassificationEntry[]): void {
 async function main(): Promise<void> {
   // Deterministic view (no LLM entry applied): queue groups and the report
   // compare against what the rules alone decide.
-  const dataset = await buildDataset({ llmClassifications: [], includeExcluded: true });
+  const dataset = await buildDataset({
+    llmClassifications: [],
+    includeExcluded: true,
+  });
   const stored = loadLlmClassifications();
   if (reportOnly) {
     report(dataset.apps, stored);
@@ -331,7 +339,7 @@ async function main(): Promise<void> {
     );
   }
 
-  // Per-model usage, to calibrate batchSize/tokensPerMinute against real numbers.
+  // Per-model usage, to calibrate batchSize against real numbers.
   for (const model of MODELS) {
     const {
       requests,

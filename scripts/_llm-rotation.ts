@@ -3,11 +3,10 @@ import { callModel, ModelUnavailable, RetryLater, type Prompt } from "./_llm-pro
 
 /**
  * Model rotation over config/llm-models.json's free tiers, shared by every
- * LLM script (`classify-llm`, `triage-llm`): per-model pacing (requests and
- * tokens per minute), in-place retries on per-minute limits and overloads,
- * and per-model availability — a daily cap rests the model until its
- * provider's reset (Groq's rolling window is often back within minutes),
- * an overload rests it with a growing backoff. Failed requests can count
+ * LLM script (`classify-llm`, `triage-llm`): per-model request pacing,
+ * in-place retries on per-minute limits and overloads, and per-model
+ * availability — a daily cap rests the model until Gemini's reset (midnight
+ * Pacific), an overload rests it with a growing backoff. Failed requests can count
  * against a daily quota (observed on Gemini), so an overloaded model is
  * probed at most MAX_OVERLOAD_STREAK times in a row before it's dropped for
  * the run — bounding the quota a long outage burns.
@@ -32,7 +31,7 @@ export interface Rotation {
   /**
    * Runs the next batch of `items` from `cursor` on the highest-priority
    * model available right now (config/llm-models.json order, so a
-   * recovered Gemini model takes over again from Groq). The batch is sliced
+   * recovered model takes over again from the later ones). The batch is sliced
    * only once the model is picked, since batch size is per model. When none
    * is available, waits for the next one if it's back within
    * `maxIdleMinutes`, else throws `StopRun`, saying when to re-run.
@@ -94,27 +93,6 @@ export function createRotation(
     if (slot > now) await new Promise((resolve) => setTimeout(resolve, slot - now));
   }
 
-  /** Token pacing: pushes the model's next slot back by the largest share of a minute's token budget (total, or output-only) this request used. */
-  function recordTokens(
-    model: LlmModel,
-    tokens: number | undefined,
-    outputTokens: number | undefined,
-  ): void {
-    statsOf(model).tokens += tokens ?? 0;
-    const minutes = Math.max(
-      tokens !== undefined && model.tokensPerMinute !== undefined
-        ? tokens / model.tokensPerMinute
-        : 0,
-      outputTokens !== undefined && model.outputTokensPerMinute !== undefined
-        ? outputTokens / model.outputTokensPerMinute
-        : 0,
-    );
-    pacingOf(model).nextSlotAt = Math.max(
-      pacingOf(model).nextSlotAt,
-      Date.now() + minutes * 60_000,
-    );
-  }
-
   /**
    * One paced call on one model, retrying in place on a per-minute limit
    * (`RetryLater`, up to 5 times) and on overload up to the model's own
@@ -129,8 +107,8 @@ export function createRotation(
   ): Promise<T[]> {
     await paced(model);
     try {
-      const { results, tokens, outputTokens } = await callModel(model, prompt);
-      recordTokens(model, tokens, outputTokens);
+      const { results, tokens } = await callModel(model, prompt);
+      statsOf(model).tokens += tokens ?? 0;
       return results;
     } catch (error) {
       if (error instanceof RetryLater && attempt < 5) {

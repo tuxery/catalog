@@ -1,17 +1,15 @@
 [
   {
     "id": "gemini-3.1-flash-lite",
-    "provider": "gemini",
     "enabled": true,
     "batchSize": 200,
     "requestsPerMinute": 5,
     "reasoning": "minimal",
     "overloadRetries": 0,
-    "reason": "First in the chain: it produced 53,648 of the 55,565 entries of the 2026-10-04 run anyway, while the Flash models (20 requests/day each) were mostly 503. On a 118-app hand-labelled sample (2026-10-04, 60-app batches) it scored 95% right type and 91% right type + category, with zero real app called library/other at high confidence, on par with qwen3.8-27b (97% / 92%). Own free daily quota, separate from the Flash models'. Same request-capped settings; reasoning 'minimal' keeps output lean. Check its requests/day in AI Studio before raising batchSize."
+    "reason": "First in the chain: it produced 53,648 of the 55,565 entries of the 2026-10-04 run anyway, while the Flash models (20 requests/day each) were mostly 503. On a 118-app hand-labelled sample (2026-10-04, 60-app batches) it scored 95% right type and 91% right type + category, with zero real app called library/other at high confidence. Own free daily quota, separate from the Flash models'. Same request-capped settings; reasoning 'minimal' keeps output lean. Check its requests/day in AI Studio before raising batchSize."
   },
   {
     "id": "gemini-3.8-flash",
-    "provider": "gemini",
     "enabled": true,
     "batchSize": 200,
     "requestsPerMinute": 5,
@@ -21,7 +19,6 @@
   },
   {
     "id": "gemini-3.6-flash",
-    "provider": "gemini",
     "enabled": true,
     "batchSize": 200,
     "requestsPerMinute": 5,
@@ -30,69 +27,12 @@
     "reason": "Close to 3.8 Flash on a 20-app sample and often less overloaded. Same request-capped settings as 3.8 Flash."
   },
   {
-    "id": "gemini-3.7-flash",
-    "provider": "gemini",
-    "enabled": true,
-    "batchSize": 200,
-    "requestsPerMinute": 5,
-    "reasoning": "low",
-    "overloadRetries": 0,
-    "reason": "Extra 20 requests/day of Flash quota. Quality not sampled yet: it was overloaded on every attempt so far."
-  },
-  {
-    "id": "gemini-3.5-flash",
-    "provider": "gemini",
-    "enabled": true,
-    "batchSize": 200,
-    "requestsPerMinute": 5,
-    "reasoning": "low",
-    "overloadRetries": 0,
-    "reason": "Extra 20 requests/day of Flash quota; the original default model. Last of the Gemini chain: the most overloaded one in 2026-09 runs."
-  },
-  {
-    "id": "qwen/qwen3.8-27b",
-    "provider": "groq",
-    "enabled": true,
-    "batchSize": 32,
-    "requestsPerMinute": 25,
-    "tokensPerMinute": 7000,
-    "outputTokensPerMinute": 900,
-    "maxOutputTokens": 950,
-    "reasoning": "none",
-    "overloadRetries": 1,
-    "reason": "Groq fallback once the Gemini chain is spent or overloaded. On the same 29 apps it agreed with Gemini 72% of the time (13/15 on Gemini-high ones), with defensible disagreements and well-calibrated confidence ('low' on description-less apps) — far ahead of gpt-oss-20b (45%) and gpt-oss-120b (52%). Groq's free tier caps it on tokens: 8,000/min, 200,000/day, and above all 1,000 *output* tokens/min, checked against the request's requested output before it runs. With the pipe-string output format (~12 output tokens/app, measured 2026-09-27; 78% agreement with Gemini on 64 apps), batches are capped at 32 apps: on Groq's strict json_schema, qwen3.8-27b never returns more than 32 array items (finish_reason 'stop' at 32, ~470 output tokens, even when told the exact count — measured 2026-09-30), so larger batches paid input tokens for apps that never got an answer. 32 apps also fit well under a 950-token output cap. Pacing on both total and output tokens (with margins) avoids per-minute 429s. Reasoning 'none' (supported by Qwen, not gpt-oss) keeps output lean."
-  },
-  {
     "id": "gemini-3.5-flash-lite",
-    "provider": "gemini",
     "enabled": true,
     "batchSize": 200,
     "requestsPerMinute": 5,
     "reasoning": "minimal",
     "overloadRetries": 0,
-    "reason": "Last enabled fallback: one more separate free daily quota. On the same 118-app sample (2026-10-04), it scored 91% right type but only 83% right type + category, and it caught fewer libraries (20/30) than gemini-3.1-flash-lite (26/30). Hence after Groq."
-  },
-  {
-    "id": "gemma-4-26b-a4b-it",
-    "provider": "gemini",
-    "enabled": false,
-    "batchSize": 100,
-    "requestsPerMinute": 25,
-    "tokensPerMinute": 13000,
-    "maxOutputTokens": 3000,
-    "reasoning": "minimal",
-    "overloadRetries": 1,
-    "reason": "Disabled until its free-tier quota is checked in AI Studio (Gemma 3 was announced at 14,400 requests/day but 15,000 tokens/min). Gemma 3 is no longer served on the Gemini API (2026-10-04). Gemma 4 takes system instructions and JSON mode like the Flash models, but needs reasoning 'minimal': otherwise it thinks until maxOutputTokens runs out. On a 118-app hand-labelled sample (2026-10-04): 92% right type, 81% right type + category, zero real app called library/other at high confidence, but only 22/30 libraries caught — below Gemini 3.1 Flash-Lite and Qwen 3.8 27B (91-92%). Worth it only as a high-volume fallback. Token-capped: 100-app batches stay well under the per-minute cap (~53 tokens/app). Gemma 4 31B scored nothing: overloaded on every try."
-  },
-  {
-    "id": "openai/gpt-oss-20b",
-    "provider": "groq",
-    "enabled": false,
-    "batchSize": 50,
-    "requestsPerMinute": 25,
-    "tokensPerMinute": 7000,
-    "reasoning": "low",
-    "overloadRetries": 1,
-    "reason": "Disabled 2026-09-26: on 29 apps Gemini had already classified, it agreed only 45% of the time (6/15 on Gemini-high ones), mostly dumping into System Tools, and rated 'high' apps with no description at all — its confidence can't gate what gets applied. Kept on file for its Groq token-capped settings: 50 apps per request stays well under the 8,000 tokens/min cap, and 'low' is gpt-oss's minimum reasoning effort."
+    "reason": "Last fallback: one more separate free daily quota. On the 118-app hand-labelled sample (2026-10-04) it scored 91% right type but only 83% right type + category, and caught fewer libraries (20/30) than gemini-3.1-flash-lite (26/30). Hence last."
   }
 ]

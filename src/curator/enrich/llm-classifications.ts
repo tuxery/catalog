@@ -20,7 +20,7 @@ const entryBase = z.object({
   model: z
     .string()
     .describe(
-      "The model that produced this entry, e.g. 'gemini-3.8-flash' or 'openai/gpt-oss-20b' — classify-llm rotates across config/llm-models.json's models to spread their free tiers' per-model quotas, so quality can be audited per model.",
+      "The model that produced this entry, e.g. 'gemini-3.8-flash' or 'gemini-3.1-flash-lite' — classify-llm rotates across config/llm-models.json's models to spread their free tiers' per-model quotas, so quality can be audited per model.",
     ),
 });
 

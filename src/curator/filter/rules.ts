@@ -881,6 +881,25 @@ const DEBIAN_FAMILY_SOURCES = new Set<PackageSourceId>([
 // source-agnostic pattern would have excluded a real tool.
 const GADGET_SUFFIX = /-gadget$/;
 
+// Snapcraft's throwaway test snaps: anyone can publish a snap, and
+// hundreds of `snapcraft init` templates and "hello world" tutorials sit
+// in the store with the template's own description left in place (a
+// leading "6-" or similar is a typo'd copy). Exact descriptions only: the
+// name patterns that find them (hello-*, test-*) also match real apps
+// (testssl, Testflinger, testmace), which this rule must not touch.
+// Verified live 2026-10-11 on the 10,043 Snap packages in the catalog.
+const SNAP_TEMPLATE_DESCRIPTIONS = new Set([
+  "single-line elevator pitch for your amazing snap",
+  'gnu hello, the "hello world" snap',
+  "the most important snap of the snap universe",
+  "summary of the most simple snap",
+  "amazing useless snap for testing",
+  "minimal hello world snap",
+]);
+
+// Canonical's own snapd fixtures (`test-snapd-tools`, `test-snapd-sh`, ...).
+const SNAPD_FIXTURE_NAME = /^test-snapd-/;
+
 // Debian's own "tasksel" metapackage convention: `task-<language>`
 // (task-arabic, task-french, ...) and its `-desktop`/`-kde-desktop`/
 // `-gnome-desktop` variants select a whole language environment or
@@ -915,10 +934,19 @@ const ANDROID_CROSS_COMPILE_LIB = /^android-(aarch64|armv7a|riscv64|x86-64|x86)-
  * plugins; Snapcraft's `-gadget` vs. Nixpkgs' real `kubectl-gadget` tool).
  * See each pattern's own comment above for the verification behind it.
  */
-export function looksLikeSourceSpecificNoise(source: PackageSourceId, name: string): boolean {
+export function looksLikeSourceSpecificNoise(
+  source: PackageSourceId,
+  name: string,
+  description?: string,
+): boolean {
   if (DEBIAN_FAMILY_SOURCES.has(source) && name.endsWith("-source")) return true;
   if (DEBIAN_FAMILY_SOURCES.has(source) && TASKSEL_PREFIX.test(name)) return true;
   if (source === "snap-snapcraft" && GADGET_SUFFIX.test(name)) return true;
+  if (source === "snap-snapcraft" && SNAPD_FIXTURE_NAME.test(name)) return true;
+  if (source === "snap-snapcraft" && description !== undefined) {
+    const normalized = description.trim().toLowerCase().replace(/^\d+-/, "");
+    if (SNAP_TEMPLATE_DESCRIPTIONS.has(normalized)) return true;
+  }
   if (source === "pacman-aur" && ANDROID_CROSS_COMPILE_LIB.test(name)) return true;
   return false;
 }

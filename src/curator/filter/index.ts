@@ -35,7 +35,7 @@ export function filterPackages(
     if (overrides.keep.has(key)) return true;
     if (overrides.exclude.has(key)) return false;
     if (looksLikeSupportSection(pkg.section)) return false;
-    if (looksLikeSourceSpecificNoise(pkg.source, pkg.name)) return false;
+    if (looksLikeSourceSpecificNoise(pkg.source, pkg.name, pkg.description)) return false;
     if (looksLikeSupportPackage(pkg.name)) return false;
     return !looksLikeSupportDescription(pkg.description);
   });

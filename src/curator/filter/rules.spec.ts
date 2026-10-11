@@ -437,6 +437,22 @@ describe("looksLikeSourceSpecificNoise", () => {
     expect(looksLikeSourceSpecificNoise("nix-nixpkgs", "kubectl-gadget")).toBe(false);
   });
 
+  it("flags Snapcraft's template-description test snaps and snapd fixtures, not real apps named test-*", () => {
+    const template = "Single-line elevator pitch for your amazing snap";
+    expect(looksLikeSourceSpecificNoise("snap-snapcraft", "kivytest", template)).toBe(true);
+    expect(looksLikeSourceSpecificNoise("snap-snapcraft", "x", `6-${template}`)).toBe(true);
+    expect(
+      looksLikeSourceSpecificNoise("snap-snapcraft", "hello", 'GNU Hello, the "hello world" snap'),
+    ).toBe(true);
+    expect(looksLikeSourceSpecificNoise("snap-snapcraft", "test-snapd-sh", "A shell")).toBe(true);
+    // Real apps whose names start with test/hello, and the same text on another source.
+    expect(
+      looksLikeSourceSpecificNoise("snap-snapcraft", "testssl", "Testing TLS/SSL encryption"),
+    ).toBe(false);
+    expect(looksLikeSourceSpecificNoise("snap-snapcraft", "testmace")).toBe(false);
+    expect(looksLikeSourceSpecificNoise("pacman-aur", "kivytest", template)).toBe(false);
+  });
+
   it("flags AUR's android-<arch>- cross-compiled libraries, not the broader android- prefix", () => {
     expect(looksLikeSourceSpecificNoise("pacman-aur", "android-x86-64-libvdpau")).toBe(true);
     expect(looksLikeSourceSpecificNoise("pacman-aur", "android-aarch64-ffmpeg")).toBe(true);

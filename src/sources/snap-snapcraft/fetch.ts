@@ -1,4 +1,5 @@
-import { parallel } from "helpers4/promise";
+import { sumBy } from "helpers4/array";
+import { delay, parallel } from "helpers4/promise";
 import { dedupeByKey } from "../_shared/dedupe";
 import { fetchOrThrow } from "../_shared/http";
 import { writeMetadata } from "../_shared/metadata";
@@ -260,7 +261,7 @@ async function find(params: string, label: string, attempt = 0): Promise<RawResu
     return body.results ?? [];
   } catch (error) {
     if (attempt + 1 >= FIND_RETRIES) throw error;
-    await new Promise((resolve) => setTimeout(resolve, RETRY_BASE_DELAY_MS * 2 ** attempt));
+    await delay(RETRY_BASE_DELAY_MS * 2 ** attempt);
     return find(params, label, attempt + 1);
   }
 }
@@ -323,7 +324,7 @@ export async function fetchSnapcraft(cachePath: string): Promise<number> {
     categoriesSwept: REAL_CATEGORIES,
     queryCharsSwept: QUERY_CHARS,
     queryPrefixesTried: queryResults.prefixesTried,
-    categoryPrefixesTried: categorySweeps.reduce((sum, sweep) => sum + sweep.prefixesTried, 0),
+    categoryPrefixesTried: sumBy(categorySweeps, (sweep) => sweep.prefixesTried),
   });
 
   return entries.length;

@@ -1,3 +1,5 @@
+import { minBy } from "helpers4/array";
+import { delay } from "helpers4/promise";
 import type { LlmModel } from "../src/curator/enrich/llm-models";
 import { callModel, ModelUnavailable, RetryLater, type Prompt } from "./_llm-providers";
 
@@ -90,7 +92,7 @@ export function createRotation(
     const now = Date.now();
     const slot = Math.max(now, pacingOf(model).nextSlotAt);
     pacingOf(model).nextSlotAt = slot + 60_000 / model.requestsPerMinute;
-    if (slot > now) await new Promise((resolve) => setTimeout(resolve, slot - now));
+    if (slot > now) await delay(slot - now);
   }
 
   /**
@@ -115,7 +117,7 @@ export function createRotation(
         console.warn(
           `${model.id}: ${error.message} — retrying in ${Math.round(error.waitMs / 1000)}s`,
         );
-        await new Promise((resolve) => setTimeout(resolve, error.waitMs));
+        await delay(error.waitMs);
         return callPaced(model, prompt, attempt + 1, overloadAttempt);
       }
       if (
@@ -124,7 +126,7 @@ export function createRotation(
         overloadAttempt < model.overloadRetries
       ) {
         console.warn(`${model.id}: ${error.message} — retrying in 10s`);
-        await new Promise((resolve) => setTimeout(resolve, 10_000));
+        await delay(10_000);
         return callPaced(model, prompt, attempt, overloadAttempt + 1);
       }
       if (error instanceof RetryLater) throw new ModelUnavailable(error.message, false);
@@ -171,9 +173,7 @@ export function createRotation(
     const now = Date.now();
     const model = candidates.find((candidate) => availabilityOf(candidate).availableAt <= now);
     if (!model) {
-      const soonest = candidates.reduce((best, candidate) =>
-        availabilityOf(candidate).availableAt < availabilityOf(best).availableAt ? candidate : best,
-      );
+      const soonest = minBy(candidates, (candidate) => availabilityOf(candidate).availableAt)!;
       const nextAt = availabilityOf(soonest).availableAt;
       if (nextAt - now > maxIdleMinutes * 60_000) {
         throw new StopRun(
@@ -181,7 +181,7 @@ export function createRotation(
         );
       }
       console.warn(`No model available — waiting until ${clock(nextAt)} for ${soonest.id}`);
-      await new Promise((resolve) => setTimeout(resolve, nextAt - now));
+      await delay(nextAt - now);
       return next(items, cursor, prompt, sizeOf);
     }
     const batch = items.slice(cursor, cursor + Math.max(1, sizeOf(model)));

@@ -1,3 +1,4 @@
+import { sumBy } from "helpers4/array";
 import { parallel } from "helpers4/promise";
 import { isAddonComponent, parseAppstreamXml, resolveIconUrl } from "../_shared/appstream";
 import { fetchOrThrow, fetchGunzippedText } from "../_shared/http";
@@ -182,7 +183,7 @@ export function sumLast7Days(installsPerDay: Record<string, number>): number | u
   days.sort();
   if (days.length < 7) return undefined;
 
-  return days.slice(-7).reduce((total, day) => total + (installsPerDay[day] ?? 0), 0);
+  return sumBy(days.slice(-7), (day) => installsPerDay[day] ?? 0);
 }
 
 /** Maps one app's raw stats + summary responses into the combined shape — either can independently be `undefined` (a fetch failure, or an id one endpoint doesn't recognize while the other does). Pure — no I/O. */

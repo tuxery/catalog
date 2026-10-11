@@ -1,3 +1,4 @@
+import { unique } from "helpers4/array";
 import { unorderedPairKey } from "helpers4/string";
 import { createUnionFind, type UnionFind } from "helpers4/structure";
 import type { SourcedPackage } from "../../sources";
@@ -478,9 +479,7 @@ function nameStems(pkg: SourcedPackage): string[] {
   ) {
     stems.push(normalizeName(pkg.appId.split(/[./]/).at(-1) ?? ""));
   }
-  return [...new Set(stems)].filter(
-    (stem) => stem.length >= 3 && !GENERIC_NAME_BLOCKLIST.has(stem),
-  );
+  return unique(stems).filter((stem) => stem.length >= 3 && !GENERIC_NAME_BLOCKLIST.has(stem));
 }
 
 /**

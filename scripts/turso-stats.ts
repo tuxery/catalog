@@ -1,3 +1,4 @@
+import { sumBy } from "helpers4/array";
 import { SQLD_ADMIN_PORT, readSqldStats } from "./_sqld";
 import { PREVIEW_ENV_PATH, PROD_ENV_PATH, SHARED_ENV_PATH, readSharedEnv } from "./_shared-env";
 
@@ -198,7 +199,7 @@ async function main(): Promise<void> {
     { metric: "storage_bytes", limit: quotasOfPlan.storage, projects: false },
   ] as const;
   const quotas = metrics.map(({ metric, limit, projects }) => {
-    const used = databases.reduce((sum, db) => sum + (db.total[metric] ?? 0), 0);
+    const used = sumBy(databases, (db) => db.total[metric] ?? 0);
     const percent = (100 * used) / limit;
     const projected = elapsed > 0 ? percent / elapsed : 0;
     const overThreshold = threshold !== undefined && percent >= threshold;

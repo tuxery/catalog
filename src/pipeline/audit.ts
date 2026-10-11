@@ -1,3 +1,4 @@
+import { max, unique } from "helpers4/array";
 import { z } from "zod";
 import type { CatalogApp } from "../curator";
 import { stripVariantSuffix } from "../curator/match/group";
@@ -53,7 +54,7 @@ export function toAuditApp(app: CatalogApp): AuditApp {
     excluded: app.excluded,
     companionOf: app.companionOf,
     homepage: app.homepage,
-    sources: [...new Set(app.packages.map((pkg) => pkg.source))],
+    sources: unique(app.packages.map((pkg) => pkg.source)),
     packageCount: app.packages.length,
     installsTotal: app.installsTotal,
     popularity: app.popularity,
@@ -87,7 +88,7 @@ function groupBy(
 
 function suspect(signal: AuditSignal, key: string, apps: readonly CatalogApp[]): AuditSuspect {
   const listed = apps.map(toAuditApp).toSorted((a, b) => reachOf(b) - reachOf(a));
-  return { signal, key, apps: listed, reach: Math.max(...listed.map(reachOf)) };
+  return { signal, key, apps: listed, reach: max(listed.map(reachOf)) ?? 0 };
 }
 
 /** Every name an app goes by: its display name and each package's own, build suffixes stripped, plus store ids' last segment. */

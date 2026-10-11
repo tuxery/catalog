@@ -1,3 +1,4 @@
+import { withTempDir } from "helpers4/node";
 import { readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { zstdDecompressSync } from "node:zlib";
@@ -6,7 +7,6 @@ import * as tar from "tar";
 import { fetchOrThrow } from "../_shared/http";
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
-import { withTempDir } from "../_shared/tempdir";
 import type { VoidCacheEntry, VoidFetchMetadata } from "./types";
 
 // Void publishes repodata as a Zstandard-compressed tar (despite no file

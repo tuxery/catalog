@@ -1,3 +1,4 @@
+import { unique } from "helpers4/array";
 import type { SourcedPackage } from "../types";
 import type { GogCacheEntry } from "./types";
 
@@ -45,7 +46,7 @@ function mapGogGenres(slugs: string[]): string[] {
   const mapped = slugs
     .map((slug) => GOG_GENRE_SLUG_TO_GENRE_CATEGORY[slug])
     .filter((category): category is string => category !== undefined);
-  return [...new Set(mapped)];
+  return unique(mapped);
 }
 
 export function normalize(entries: GogCacheEntry[]): SourcedPackage[] {

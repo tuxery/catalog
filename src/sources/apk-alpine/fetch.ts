@@ -1,10 +1,10 @@
+import { withTempDir } from "helpers4/node";
 import { readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import * as tar from "tar";
 import { fetchOrThrow } from "../_shared/http";
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
-import { withTempDir } from "../_shared/tempdir";
 import type { AlpineCacheEntry, AlpineFetchMetadata } from "./types";
 
 // Alpine publishes one APKINDEX.tar.gz per repo/arch under "latest-stable"

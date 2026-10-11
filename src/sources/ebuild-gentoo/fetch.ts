@@ -1,3 +1,4 @@
+import { withTempDir } from "helpers4/node";
 import { createWriteStream } from "node:fs";
 import { readdir, readFile } from "node:fs/promises";
 import { join } from "node:path";
@@ -14,7 +15,6 @@ import xzDecompress from "xz-decompress";
 import { fetchOrThrow } from "../_shared/http";
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
-import { withTempDir } from "../_shared/tempdir";
 import type { GentooCacheEntry, GentooFetchMetadata } from "./types";
 
 // Gentoo is source-based (ebuilds compiled locally via `emerge`,

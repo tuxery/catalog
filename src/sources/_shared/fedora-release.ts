@@ -1,3 +1,4 @@
+import { max } from "helpers4/array";
 import { fetchOrThrow } from "./http";
 
 interface BodhiRelease {
@@ -27,7 +28,7 @@ export function resolveCurrentFedoraRelease(releases: BodhiRelease[]): string {
     throw new Error("Bodhi reported no current Fedora release");
   }
 
-  return String(Math.max(...current));
+  return String(max(current));
 }
 
 export async function fetchCurrentFedoraRelease(): Promise<string> {

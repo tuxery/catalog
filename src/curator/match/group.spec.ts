@@ -754,6 +754,64 @@ describe("groupPackages — product families", () => {
     expect(groups).toHaveLength(2);
   });
 
+  it("never merges an app and a game that only share a name (real cases: Fractal, Digger)", () => {
+    const groups = groupPackages(
+      [
+        pkg({ name: "Fractal", appId: "org.gnome.Fractal", categories: ["Network", "Chat"] }),
+        pkg({ source: "pacman-aur", name: "fractal", appId: "fractal" }),
+        pkg({ source: "lutris", name: "Fractal", appId: "fractal-humble", categories: ["Puzzle"] }),
+        pkg({ name: "Digger", appId: "io.github.tobagin.digger", categories: ["Network"] }),
+        pkg({ source: "rpm-fedora", name: "digger", appId: "digger" }),
+        pkg({
+          source: "ebuild-gentoo",
+          name: "digger",
+          appId: "games-arcade/digger",
+          section: "games-arcade",
+        }),
+        pkg({ source: "pacman-aur", name: "digger", appId: "digger" }),
+      ],
+      NO_OVERRIDES,
+    );
+
+    const groupOf = (appId: string) =>
+      groups.find((group) => group.packages.some((p) => p.appId === appId));
+    expect(groupOf("fractal-humble")).not.toBe(groupOf("org.gnome.Fractal"));
+    expect(groupOf("fractal")).toBe(groupOf("org.gnome.Fractal"));
+    expect(groupOf("games-arcade/digger")).not.toBe(groupOf("io.github.tobagin.digger"));
+  });
+
+  it("still merges a game tool or an educational game across its sources (real cases: AntiMicroX, Speed Dreams)", () => {
+    const groups = groupPackages(
+      [
+        pkg({
+          name: "AntiMicroX",
+          appId: "io.github.antimicrox.antimicrox",
+          categories: ["Utility"],
+        }),
+        pkg({
+          source: "rpm-fedora-appstream",
+          name: "AntiMicroX",
+          appId: "antimicrox",
+          categories: ["Game", "Qt", "Utility"],
+        }),
+        pkg({
+          name: "Speed Dreams",
+          appId: "org.speed_dreams.SpeedDreams",
+          categories: ["Simulation"],
+        }),
+        pkg({
+          source: "ebuild-gentoo",
+          name: "speed-dreams",
+          appId: "games-sports/speed-dreams",
+          section: "games-sports",
+        }),
+      ],
+      NO_OVERRIDES,
+    );
+
+    expect(groups).toHaveLength(2);
+  });
+
   it("merges packages sharing a project homepage under the same name, not different products of one project", () => {
     const groups = groupPackages(
       [

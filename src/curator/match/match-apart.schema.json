@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "a": {
+        "minItems": 1,
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "source": {
+              "type": "string",
+              "description": "A PackageSourceId, e.g. \"flatpak-flathub\"."
+            },
+            "appId": {
+              "type": "string",
+              "description": "SourcedPackage.appId on that source."
+            }
+          },
+          "required": ["source", "appId"],
+          "additionalProperties": false
+        },
+        "description": "The packages of one product."
+      },
+      "b": {
+        "minItems": 1,
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "source": {
+              "type": "string",
+              "description": "A PackageSourceId, e.g. \"flatpak-flathub\"."
+            },
+            "appId": {
+              "type": "string",
+              "description": "SourcedPackage.appId on that source."
+            }
+          },
+          "required": ["source", "appId"],
+          "additionalProperties": false
+        },
+        "description": "The packages of the other product, sharing a name or appId with the first."
+      },
+      "reason": {
+        "type": "string",
+        "description": "Which two products these are — required so the exception is auditable later."
+      }
+    },
+    "required": ["a", "b", "reason"],
+    "additionalProperties": false
+  },
+  "title": "Match: products kept apart",
+  "description": "Homonyms (KDE's Dolphin and the Dolphin emulator, the Tesseract OCR engine and the Tesseract shooter) that match/group.ts's tiers would merge on a shared name or appId: no group may hold a package of both sides."
+}

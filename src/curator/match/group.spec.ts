@@ -812,6 +812,78 @@ describe("groupPackages — product families", () => {
     expect(groups).toHaveLength(2);
   });
 
+  it("keeps curated homonyms apart through any chain of packages (real case: Dolphin)", () => {
+    const groups = groupPackages(
+      [
+        pkg({ source: "pacman-arch", name: "dolphin", appId: "dolphin" }),
+        pkg({
+          source: "ebuild-gentoo",
+          name: "dolphin",
+          appId: "games-emulation/dolphin",
+          section: "games-emulation",
+        }),
+        pkg({ source: "deb-debian", name: "dolphin", appId: "dolphin" }),
+        pkg({ name: "Dolphin", appId: "org.kde.dolphin.desktop" }),
+      ],
+      {
+        ...NO_OVERRIDES,
+        apart: [
+          {
+            a: [{ source: "ebuild-gentoo", appId: "games-emulation/dolphin" }],
+            b: [
+              { source: "pacman-arch", appId: "dolphin" },
+              { source: "deb-debian", appId: "dolphin" },
+              { source: "flatpak-flathub", appId: "org.kde.dolphin.desktop" },
+            ],
+            reason: "test",
+          },
+        ],
+      },
+    );
+
+    const emulator = groups.find((group) =>
+      group.packages.some((p) => p.appId === "games-emulation/dolphin"),
+    );
+    expect(emulator?.packages).toHaveLength(1);
+    expect(groups.find((group) => group !== emulator)?.packages).toHaveLength(3);
+  });
+
+  it("lets a group a force-merge built across the app/game divide take in more of its packages (real case: INSTEAD)", () => {
+    const groups = groupPackages(
+      [
+        pkg({
+          source: "snap-snapcraft",
+          name: "instead-linux",
+          appId: "instead-linux",
+          categories: ["Development"],
+        }),
+        pkg({
+          source: "deb-debian-appstream",
+          name: "INSTEAD",
+          appId: "instead",
+          categories: ["Game", "AdventureGame"],
+        }),
+        pkg({ source: "deb-debian", name: "instead", appId: "instead" }),
+        pkg({ source: "xbps-void", name: "instead", appId: "instead" }),
+      ],
+      {
+        ...NO_OVERRIDES,
+        force: [
+          {
+            destination: { source: "deb-debian", appId: "instead" },
+            sources: [
+              { source: "snap-snapcraft", appId: "instead-linux" },
+              { source: "deb-debian-appstream", appId: "instead" },
+            ],
+            reason: "test",
+          },
+        ],
+      },
+    );
+
+    expect(groups).toHaveLength(1);
+  });
+
   it("merges packages sharing a project homepage under the same name, not different products of one project", () => {
     const groups = groupPackages(
       [

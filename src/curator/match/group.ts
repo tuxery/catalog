@@ -5,9 +5,10 @@ import type { SourcedPackage } from "../../sources";
 import { isGameStoreBuild } from "../../sources/lutris/normalize";
 import { annotateMembers, dropInTargets, trackNames } from "./families";
 import { homepageKey } from "./homepage";
-import { packageKey, standaloneAppId } from "./keys";
+import { packageKey, refKey, standaloneAppId } from "./keys";
 import { normalizeName } from "./normalize";
 import { loadMatchOverrides, type MatchOverrides } from "./overrides";
+import type { MatchApartEntry } from "./types";
 import { describedAlike, describesTarget, isLocaleRest, isVariantRest } from "./variants";
 
 export interface MatchedApp {
@@ -50,14 +51,18 @@ function unionByExactKey(
       continue;
     }
 
+    // A denied pair is treated like an incompatible one: try the value's
+    // next group, else start one — never leave the package unjoined while
+    // a compatible group shares its key.
     const representative = representatives.find(
-      (candidate) => !("compatible" in uf) || (uf as TypedUnionFind).compatible(pkgKey, candidate),
+      (candidate) =>
+        !denyPairs.has(unorderedPairKey(pkgKey, candidate)) &&
+        (!("compatible" in uf) || (uf as TypedUnionFind).compatible(pkgKey, candidate)),
     );
     if (!representative) {
       representatives.push(pkgKey);
       continue;
     }
-    if (denyPairs.has(unorderedPairKey(pkgKey, representative))) continue;
     uf.union(pkgKey, representative);
   }
 }
@@ -653,30 +658,67 @@ function typeSide(pkg: SourcedPackage): TypeSide | undefined {
   return APPSTREAM_TYPED_SOURCES.test(pkg.source) ? appstreamSide(pkg) : undefined;
 }
 
-/** A union-find whose `union` refuses to join app and game groups (see `typeSide`). */
+/** The label a contradicting one would clash with ("type:app" ↔ "type:game", "apart:3:a" ↔ "apart:3:b"). */
+function opposite(label: string): string {
+  if (label === "type:app") return "type:game";
+  if (label === "type:game") return "type:app";
+  return `${label.slice(0, -1)}${label.endsWith(":a") ? "b" : "a"}`;
+}
+
+/** A union-find whose `union` refuses to join groups `guardUnions` keeps apart. */
 interface TypedUnionFind extends UnionFind<string> {
   /** Whether `a` and `b`'s groups may merge. */
   compatible(a: string, b: string): boolean;
 }
 
 /**
- * Wraps `uf` so that every later union keeps the app/game divide: the
- * matching tiers key on bare names and package names, and two groups
- * whose members' upstream metadata disagree on app vs game must be
- * homonyms, whatever tier found them. Curated overrides (tier 0) run
+ * Wraps `uf` so that every later union keeps apart what must not meet:
+ * the app/game divide (`typeSide`), and the curated homonyms of
+ * `config/match-apart.json`. The matching tiers key on bare names and
+ * package names, and two groups carrying contradicting labels must be
+ * homonyms, whatever tier found them. Curated force-merges (tier 0) run
  * before this and stay free to join anything.
  */
-function guardAppGameUnions(uf: UnionFind<string>, packages: SourcedPackage[]): TypedUnionFind {
-  const sides = new Map<string, Set<TypeSide>>();
-  const sidesOf = (key: string): Set<TypeSide> => sides.get(uf.find(key)) ?? new Set();
+function guardUnions(
+  uf: UnionFind<string>,
+  packages: SourcedPackage[],
+  apart: readonly MatchApartEntry[],
+): TypedUnionFind {
+  // Labels per package key: "type:app", "type:game", "apart:<entry>:a|b".
+  const curated = new Map<string, string[]>();
+  apart.forEach((entry, index) => {
+    for (const [side, refs] of [
+      ["a", entry.a],
+      ["b", entry.b],
+    ] as const) {
+      for (const ref of refs) {
+        const key = refKey(ref);
+        curated.set(key, [...(curated.get(key) ?? []), `apart:${index}:${side}`]);
+      }
+    }
+  });
+  const labels = new Map<string, Set<string>>();
+  const labelsOf = (key: string): Set<string> => labels.get(uf.find(key)) ?? new Set();
   for (const pkg of packages) {
+    const key = packageKey(pkg);
     const side = typeSide(pkg);
-    if (side) sides.set(uf.find(packageKey(pkg)), new Set([...sidesOf(packageKey(pkg)), side]));
+    const own = [...(side ? [`type:${side}`] : []), ...(curated.get(key) ?? [])];
+    if (own.length > 0) labels.set(uf.find(key), new Set([...labelsOf(key), ...own]));
   }
-  const merged = (a: string, b: string) => new Set([...sidesOf(a), ...sidesOf(b)]);
+  const merged = (a: string, b: string) => new Set([...labelsOf(a), ...labelsOf(b)]);
+  // Only a clash *between* the two groups counts: a group a curated
+  // force-merge built across the divide (INSTEAD's Snap says app, its
+  // AppStream entry says game) can still take in more of its packages.
   const compatible = (a: string, b: string): boolean => {
-    const both = merged(a, b);
-    return !(both.has("app") && both.has("game"));
+    const ours = labelsOf(a);
+    const theirs = labelsOf(b);
+    for (const label of ours) {
+      const other = opposite(label);
+      // Already on both sides of that divide: nothing new to protect.
+      if (ours.has(other) || theirs.has(label)) continue;
+      if (theirs.has(other)) return false;
+    }
+    return true;
   };
   return {
     ...uf,
@@ -685,7 +727,7 @@ function guardAppGameUnions(uf: UnionFind<string>, packages: SourcedPackage[]): 
       if (!compatible(a, b)) return;
       const both = merged(a, b);
       uf.union(a, b);
-      sides.set(uf.find(a), both);
+      labels.set(uf.find(a), both);
     },
   };
 }
@@ -835,8 +877,9 @@ export function groupPackages(
   // Tier 0b: curated tracks (Firefox ESR, LibreOffice Still, ...).
   unionCuratedTracks(uf, packages, overrides.tracks ?? []);
 
-  // From here on, no union crosses the app/game divide (see `typeSide`).
-  const typed = guardAppGameUnions(uf, packages);
+  // From here on, no union crosses the app/game divide (see `typeSide`) or
+  // joins curated homonyms (config/match-apart.json).
+  const typed = guardUnions(uf, packages, overrides.apart ?? []);
 
   // Tier 1: exact appId match.
   unionByExactKey(typed, packages, tier1Key, overrides.denyPairs);

@@ -1,0 +1,336 @@
+[
+  {
+    "a": [
+      {
+        "source": "ebuild-gentoo",
+        "appId": "games-emulation/dolphin"
+      }
+    ],
+    "b": [
+      {
+        "source": "apk-alpine",
+        "appId": "dolphin"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "dolphin"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "dolphin"
+      },
+      {
+        "source": "eopkg-solus",
+        "appId": "dolphin"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "dolphin"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "dolphin"
+      },
+      {
+        "source": "rpm-opensuse",
+        "appId": "dolphin"
+      },
+      {
+        "source": "slackware",
+        "appId": "dolphin"
+      },
+      {
+        "source": "xbps-void",
+        "appId": "dolphin"
+      },
+      {
+        "source": "ebuild-gentoo",
+        "appId": "kde-apps/dolphin"
+      },
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.kde.dolphin.desktop"
+      }
+    ],
+    "reason": "Gentoo's games-emulation/dolphin is the Dolphin GameCube/Wii emulator (its own product: org.DolphinEmu.dolphin-emu, see match-force.json); every other package named dolphin is KDE's file manager. Found by the 2026-10-11 app/game audit."
+  },
+  {
+    "a": [
+      {
+        "source": "deb-debian",
+        "appId": "epiphany"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "epiphany"
+      }
+    ],
+    "b": [
+      {
+        "source": "apk-alpine",
+        "appId": "epiphany"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "epiphany"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "epiphany"
+      },
+      {
+        "source": "pacman-arch-appstream",
+        "appId": "epiphany"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "epiphany"
+      },
+      {
+        "source": "rpm-fedora-appstream",
+        "appId": "epiphany"
+      },
+      {
+        "source": "rpm-opensuse",
+        "appId": "epiphany"
+      },
+      {
+        "source": "rpm-opensuse-appstream",
+        "appId": "epiphany"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "epiphany"
+      },
+      {
+        "source": "xbps-void",
+        "appId": "epiphany"
+      },
+      {
+        "source": "flatpak-appcenter",
+        "appId": "org.gnome.Epiphany"
+      },
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.gnome.Epiphany"
+      },
+      {
+        "source": "ebuild-gentoo",
+        "appId": "www-client/epiphany"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "epiphany-git"
+      },
+      {
+        "source": "xbps-void",
+        "appId": "epiphany-32bit"
+      }
+    ],
+    "reason": "Debian/Ubuntu's epiphany is a Boulder Dash clone (section games; they package GNOME Web as epiphany-browser); everywhere else epiphany is GNOME Web."
+  },
+  {
+    "a": [
+      {
+        "source": "ebuild-gentoo",
+        "appId": "games-engines/zoom"
+      }
+    ],
+    "b": [
+      {
+        "source": "ebuild-gentoo",
+        "appId": "net-im/zoom"
+      },
+      {
+        "source": "appimage",
+        "appId": "probonopd/Zoom.AppImage"
+      },
+      {
+        "source": "flatpak-flathub",
+        "appId": "us.zoom.Zoom"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "zoom"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "zoom-koenrin"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "zoom-client"
+      }
+    ],
+    "reason": "Gentoo's games-engines/zoom is a Z-code (interactive fiction) interpreter; the others are the Zoom video-conferencing client."
+  },
+  {
+    "a": [
+      {
+        "source": "snap-snapcraft",
+        "appId": "marble-race"
+      }
+    ],
+    "b": [
+      {
+        "source": "apk-alpine",
+        "appId": "marble"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "marble"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "marble"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "marble"
+      },
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.kde.marble.desktop"
+      }
+    ],
+    "reason": "The marble-race snap (display name \"Marble\") is a marble race minigame; KDE Marble is a virtual globe, classified as a game because of it."
+  },
+  {
+    "a": [
+      {
+        "source": "eopkg-solus",
+        "appId": "tesseract"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "tesseract"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "tesseract3"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "tesseract4"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "tesseract5"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "tesseract"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "tesseract"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "tesseract"
+      },
+      {
+        "source": "ebuild-gentoo",
+        "appId": "app-text/tesseract"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "tesseract-git"
+      },
+      {
+        "source": "appimage",
+        "appId": "AlexanderP/tesseract-appimage"
+      }
+    ],
+    "b": [
+      {
+        "source": "rpm-opensuse",
+        "appId": "tesseract"
+      },
+      {
+        "source": "xbps-void",
+        "appId": "tesseract"
+      },
+      {
+        "source": "flatpak-flathub",
+        "appId": "gg.tesseract.Tesseract"
+      },
+      {
+        "source": "lutris",
+        "appId": "tesseract-first-edition"
+      }
+    ],
+    "reason": "Two products named tesseract: the Tesseract OCR engine (a) and the Tesseract first-person shooter (b, openSUSE's and Void's tesseract packages included)."
+  },
+  {
+    "a": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "uk.co.cappsy.Tesseract"
+      }
+    ],
+    "b": [
+      {
+        "source": "eopkg-solus",
+        "appId": "tesseract"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "tesseract"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "tesseract3"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "tesseract4"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "tesseract5"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "tesseract"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "tesseract"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "tesseract"
+      },
+      {
+        "source": "ebuild-gentoo",
+        "appId": "app-text/tesseract"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "tesseract-git"
+      },
+      {
+        "source": "appimage",
+        "appId": "AlexanderP/tesseract-appimage"
+      },
+      {
+        "source": "rpm-opensuse",
+        "appId": "tesseract"
+      },
+      {
+        "source": "xbps-void",
+        "appId": "tesseract"
+      },
+      {
+        "source": "flatpak-flathub",
+        "appId": "gg.tesseract.Tesseract"
+      },
+      {
+        "source": "lutris",
+        "appId": "tesseract-first-edition"
+      }
+    ],
+    "reason": "Flathub's uk.co.cappsy.Tesseract is a 4D puzzle (\"Cubing in the fourth dimension\"), neither the OCR engine nor the shooter."
+  }
+]

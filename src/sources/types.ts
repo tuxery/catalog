@@ -98,6 +98,8 @@ export interface SourcedPackage {
   homepage?: string;
   /** Upstream project links beyond the homepage — bug tracker, source code, donations... From AppStream's `<url type="...">` (DEP11's `Url:` map). See `ProjectLinks`. */
   links?: ProjectLinks;
+  /** The project's own releases, newest first (at most `MAX_RELEASES`), from AppStream's `<releases>` — version and date only: the newest one's notes are `changelog`. Distro rebuild dates never land here. */
+  releases?: ReleaseEntry[];
   /**
    * Upstream last-modified/last-released date, when the source exposes
    * one. Not populated by any connector yet — none of the current
@@ -354,3 +356,13 @@ export const PROJECT_LINK_TYPES = [
 export type ProjectLinkType = (typeof PROJECT_LINK_TYPES)[number];
 
 export type ProjectLinks = Partial<Record<ProjectLinkType, string>>;
+
+/** One upstream release, as AppStream's `<release version="..." timestamp="...">` lists it. */
+export interface ReleaseEntry {
+  version: string;
+  /** ISO date, when the release carries a timestamp. */
+  date?: string;
+}
+
+/** Releases kept per package: enough for a history and an activity signal, small enough for the committed caches. */
+export const MAX_RELEASES = 10;

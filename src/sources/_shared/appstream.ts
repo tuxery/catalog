@@ -1,7 +1,9 @@
 import { XMLParser } from "fast-xml-parser";
 import {
+  MAX_RELEASES,
   PROJECT_LINK_TYPES,
   type FormalSignals,
+  type ReleaseEntry,
   type ProjectLinks,
   type ProjectLinkType,
 } from "../types";
@@ -123,6 +125,8 @@ export interface AppstreamComponent {
   homepage?: string;
   /** See `SourcedPackage.links`. */
   links?: ProjectLinks;
+  /** See `SourcedPackage.releases`. */
+  releases?: ReleaseEntry[];
   /** Whether `<categories>` includes the freedesktop.org menu spec's "Game" category — see `SourcedPackage.hasGameCategory`. */
   hasGameCategory: boolean;
   /** Every raw `<category>` value, freedesktop.org menu spec identifiers (e.g. "AudioVideo", "Game", "ArcadeGame") — see `SourcedPackage.categories`. */
@@ -290,13 +294,30 @@ function pickChangelog(releases: { release?: RawRelease[] } | undefined): string
   return pickLongDescription(releases?.release?.[0]?.description);
 }
 
-/** The newest release's own `@_timestamp`, converted from Unix epoch seconds to an ISO date string. `undefined` when missing or not a real positive number — `parseAttributeValue: false` (see `parseAppstreamXml`) means this always arrives as a string, never pre-parsed. */
-function pickLastUpdated(releases: { release?: RawRelease[] } | undefined): string | undefined {
-  const raw = releases?.release?.[0]?.["@_timestamp"];
+/** Every `<release>` with a version, newest first as listed, capped at `MAX_RELEASES` — `undefined` when there's none. */
+function pickReleases(
+  releases: { release?: RawRelease[] } | undefined,
+): ReleaseEntry[] | undefined {
+  const entries = (releases?.release ?? [])
+    .filter((release) => release["@_version"])
+    .slice(0, MAX_RELEASES)
+    .map((release) => ({
+      version: release["@_version"] as string,
+      date: timestampToIso(release["@_timestamp"]),
+    }));
+  return entries.length > 0 ? entries : undefined;
+}
+
+function timestampToIso(raw: string | undefined): string | undefined {
   if (!raw) return undefined;
   const seconds = Number(raw);
   if (!Number.isFinite(seconds) || seconds <= 0) return undefined;
   return new Date(seconds * 1000).toISOString();
+}
+
+/** The newest release's own `@_timestamp`, converted from Unix epoch seconds to an ISO date string. `undefined` when missing or not a real positive number — `parseAttributeValue: false` (see `parseAppstreamXml`) means this always arrives as a string, never pre-parsed. */
+function pickLastUpdated(releases: { release?: RawRelease[] } | undefined): string | undefined {
+  return timestampToIso(releases?.release?.[0]?.["@_timestamp"]);
 }
 
 function pickScreenshots(screenshots: { screenshot?: RawScreenshot[] } | undefined): string[] {
@@ -374,6 +395,7 @@ export function parseAppstreamXml(
       remoteIconUrl: pickRemoteIconUrl(component.icon),
       homepage: pickHomepage(component.url),
       links: pickLinks(component.url),
+      releases: pickReleases(component.releases),
       hasGameCategory: (component.categories?.category ?? []).includes("Game"),
       categories: component.categories?.category ?? [],
       license: component.project_license,

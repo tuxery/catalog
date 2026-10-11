@@ -51,6 +51,7 @@ export function toCacheEntries(components: AppstreamComponent[]): PacmanArchApps
       remoteIconUrl: component.remoteIconUrl,
       homepage: component.homepage,
       links: component.links,
+      releases: component.releases,
       hasGameCategory: component.hasGameCategory,
       categories: component.categories,
       license: component.license,

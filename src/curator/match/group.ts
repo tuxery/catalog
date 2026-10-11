@@ -31,20 +31,30 @@ function unionByExactKey(
   keyFn: (pkg: SourcedPackage) => string | undefined,
   denyPairs: Set<string>,
 ): void {
-  const representativeForValue = new Map<string, string>();
+  // One representative per value, more only when a package's group can't
+  // join the first one's (`TypedUnionFind`): Gentoo's Dolphin emulator
+  // can't join KDE's Dolphin, but still meets the other Dolphin emulators.
+  const representativesForValue = new Map<string, string[]>();
 
   for (const pkg of packages) {
     const value = keyFn(pkg);
     if (!value) continue;
 
     const pkgKey = packageKey(pkg);
-    const representative = representativeForValue.get(value);
+    const representatives = representativesForValue.get(value);
 
-    if (!representative) {
-      representativeForValue.set(value, pkgKey);
+    if (!representatives) {
+      representativesForValue.set(value, [pkgKey]);
       continue;
     }
 
+    const representative = representatives.find(
+      (candidate) => !("compatible" in uf) || (uf as TypedUnionFind).compatible(pkgKey, candidate),
+    );
+    if (!representative) {
+      representatives.push(pkgKey);
+      continue;
+    }
     if (denyPairs.has(unorderedPairKey(pkgKey, representative))) continue;
     uf.union(pkgKey, representative);
   }
@@ -575,6 +585,107 @@ function packagesWithSeveralAppstreamIds(packages: SourcedPackage[]): Set<string
   return new Set([...idsByKey].filter(([, ids]) => ids.size > 1).map(([key]) => key));
 }
 
+/**
+ * Which side of the app/game divide a package's own upstream metadata puts
+ * it on, when it says so unambiguously — `undefined` for most packages.
+ * Exact-name matching joins homonyms across that divide (KDE's Dolphin and
+ * Gentoo's Dolphin emulator, GNOME Web's `epiphany` and Debian's Boulder
+ * Dash clone, the Tesseract OCR engine and the Tesseract shooter), and
+ * those two sides contradicting each other is the tell. Kept narrow on
+ * purpose, since tools around games carry game sections too:
+ *
+ * - game: a GOG.com listing; a Lutris record with an IGDB genre (Lutris'
+ *   Discord or TeamSpeak installers have none); a Gentoo `games-*` category
+ *   other than emulators, utilities, servers, engines and toys; an AppStream
+ *   or Flathub component in a game genre (`ArcadeGame`, `RolePlaying`, ...)
+ *   or in `Game` alone. `Game` next to `Utility` is a tool around games
+ *   (AntiMicroX): neither side. Debian's `games` section is left out: it
+ *   also holds toys and launchers, and counting it split real products
+ *   (wxLauncher, Granule, Flare) more than it fixed (measured 2026-10-11).
+ * - app: an AppStream or Flathub component not flagged as a game, whose
+ *   categories carry nothing game-, emulator-, education- or
+ *   simulation-like (educational games often only say `Education`, Speed
+ *   Dreams only `Simulation`).
+ */
+type TypeSide = "app" | "game";
+
+const APPSTREAM_TYPED_SOURCES = /^(flatpak-flathub|flatpak-appcenter|.+-appstream)$/;
+const GENTOO_NOT_A_GAME = new Set([
+  "games-emulation",
+  "games-util",
+  "games-server",
+  "games-engines",
+  "games-misc",
+]);
+// AppStream's game genres (freedesktop menu spec), `Game` itself excluded.
+const GAME_GENRE = /^(?!Game$).+Game$|^RolePlaying$|^Shooter$/;
+// Toolkit and desktop tags say nothing about what the app is.
+const TOOLKIT_CATEGORY = /^(Qt|GTK|KDE|GNOME|COSMIC|Java|Motif|X-.+)$/;
+// Categories a game can carry without `Game` (educational games, Speed
+// Dreams' lone "Simulation"), and emulators: never evidence of an app.
+const NEUTRAL_CATEGORY = /game|^(Emulator|Education|Amusement|Simulation|Sports)$/i;
+
+function appstreamSide(pkg: SourcedPackage): TypeSide | undefined {
+  const categories = (pkg.categories ?? []).filter((category) => !TOOLKIT_CATEGORY.test(category));
+  if (categories.length === 0 || categories.includes("Emulator")) return undefined;
+  if (categories.some((category) => GAME_GENRE.test(category))) return "game";
+  if (categories.every((category) => category === "Game")) return "game";
+  if (pkg.hasGameCategory) return undefined;
+  return categories.some((category) => NEUTRAL_CATEGORY.test(category)) ? undefined : "app";
+}
+
+function typeSide(pkg: SourcedPackage): TypeSide | undefined {
+  if (pkg.source === "gog") return "game";
+  if (pkg.source === "lutris") return (pkg.categories ?? []).length > 0 ? "game" : undefined;
+  if (pkg.source === "ebuild-gentoo") {
+    const section = pkg.section ?? "";
+    return section.startsWith("games-") && !GENTOO_NOT_A_GAME.has(section) ? "game" : undefined;
+  }
+  if (pkg.source === "snap-snapcraft") {
+    // Snapcraft has no game genres (games only carry `hasGameCategory`), so
+    // its categories only ever say "app".
+    return appstreamSide(pkg) === "app" ? "app" : undefined;
+  }
+  return APPSTREAM_TYPED_SOURCES.test(pkg.source) ? appstreamSide(pkg) : undefined;
+}
+
+/** A union-find whose `union` refuses to join app and game groups (see `typeSide`). */
+interface TypedUnionFind extends UnionFind<string> {
+  /** Whether `a` and `b`'s groups may merge. */
+  compatible(a: string, b: string): boolean;
+}
+
+/**
+ * Wraps `uf` so that every later union keeps the app/game divide: the
+ * matching tiers key on bare names and package names, and two groups
+ * whose members' upstream metadata disagree on app vs game must be
+ * homonyms, whatever tier found them. Curated overrides (tier 0) run
+ * before this and stay free to join anything.
+ */
+function guardAppGameUnions(uf: UnionFind<string>, packages: SourcedPackage[]): TypedUnionFind {
+  const sides = new Map<string, Set<TypeSide>>();
+  const sidesOf = (key: string): Set<TypeSide> => sides.get(uf.find(key)) ?? new Set();
+  for (const pkg of packages) {
+    const side = typeSide(pkg);
+    if (side) sides.set(uf.find(packageKey(pkg)), new Set([...sidesOf(packageKey(pkg)), side]));
+  }
+  const merged = (a: string, b: string) => new Set([...sidesOf(a), ...sidesOf(b)]);
+  const compatible = (a: string, b: string): boolean => {
+    const both = merged(a, b);
+    return !(both.has("app") && both.has("game"));
+  };
+  return {
+    ...uf,
+    compatible,
+    union: (a, b) => {
+      if (!compatible(a, b)) return;
+      const both = merged(a, b);
+      uf.union(a, b);
+      sides.set(uf.find(a), both);
+    },
+  };
+}
+
 function tier2Key(pkg: SourcedPackage): string | undefined {
   const normalized = normalizeName(stripVariantSuffix(pkg));
   return GENERIC_NAME_BLOCKLIST.has(normalized) ? undefined : normalized;
@@ -720,14 +831,17 @@ export function groupPackages(
   // Tier 0b: curated tracks (Firefox ESR, LibreOffice Still, ...).
   unionCuratedTracks(uf, packages, overrides.tracks ?? []);
 
+  // From here on, no union crosses the app/game divide (see `typeSide`).
+  const typed = guardAppGameUnions(uf, packages);
+
   // Tier 1: exact appId match.
-  unionByExactKey(uf, packages, tier1Key, overrides.denyPairs);
+  unionByExactKey(typed, packages, tier1Key, overrides.denyPairs);
 
   // Tier 1b: same AppStream component id (Flathub's org.gnome.Calendar and
   // the distributions' AppStream entry for their gnome-calendar package).
   const ambiguous = packagesWithSeveralAppstreamIds(packages);
   unionByExactKey(
-    uf,
+    typed,
     packages,
     (pkg) => (ambiguous.has(packageKey(pkg)) ? undefined : appstreamKey(pkg)),
     overrides.denyPairs,
@@ -738,27 +852,27 @@ export function groupPackages(
   // share the package's node, so one generic-name hit would pull in the
   // package's every other app (sgt-puzzles' 40 puzzles into GNOME Mines).
   unionByExactKey(
-    uf,
+    typed,
     packages,
     (pkg) => (ambiguous.has(packageKey(pkg)) ? undefined : tier2Key(pkg)),
     overrides.denyPairs,
   );
 
   // Tier 2b: AUR's gog-* wrappers onto the matching GOG.com listing.
-  unionByExactKey(uf, packages, gogWrapperKey, overrides.denyPairs);
+  unionByExactKey(typed, packages, gogWrapperKey, overrides.denyPairs);
 
   // Tier 2c: AUR variants (`<project>-<difference>`) of a project whose description they share.
-  unionDescribedVariants(uf, packages, overrides.denyPairs);
+  unionDescribedVariants(typed, packages, overrides.denyPairs);
 
   // Tier 2e: AUR builds that only differ by language (`betterbird-de-bin`).
-  unionLocaleBuilds(uf, packages, overrides.denyPairs);
+  unionLocaleBuilds(typed, packages, overrides.denyPairs);
 
   // Tier 2f: same project homepage, same name once normalized (Flathub's
   // com.openwall.John and AUR's john-git, both at openwall.com/john).
-  unionSameProjectHomepage(uf, packages, overrides.denyPairs);
+  unionSameProjectHomepage(typed, packages, overrides.denyPairs);
 
   // Tier 2d: AUR/Arch drop-in builds (`provides`+`conflicts` on the project they're named after).
-  unionDropInBuilds(uf, packages, overrides.denyPairs);
+  unionDropInBuilds(typed, packages, overrides.denyPairs);
 
   // Collect final groups — id is picked from every member at once (see
   // `buildAppId`), not just the first package seen for each root, since

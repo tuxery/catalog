@@ -35,6 +35,7 @@ export function toCacheEntries(
     summary: entry.summary ?? "",
     iconUrl: entry.iconUrl,
     homepage: entry.homepage,
+    links: entry.links,
     hasGameCategory: entry.categories.includes("Game"),
     categories: entry.categories,
     license: entry.license,

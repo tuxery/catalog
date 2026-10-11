@@ -1,3 +1,4 @@
+import type { ProjectLinks } from "../types";
 import type { FetchMetadata } from "../_shared/metadata";
 
 /**
@@ -21,6 +22,8 @@ export interface FedoraAppstreamCacheEntry {
   iconFilename?: string;
   remoteIconUrl?: string;
   homepage?: string;
+  /** See `SourcedPackage.links`. */
+  links?: ProjectLinks;
   hasGameCategory: boolean;
   categories: string[];
   license?: string;

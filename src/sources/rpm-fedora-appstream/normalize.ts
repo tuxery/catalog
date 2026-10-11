@@ -14,6 +14,7 @@ export function normalize(entries: FedoraAppstreamCacheEntry[]): SourcedPackage[
     iconFilename: entry.iconFilename,
     iconUrl: entry.remoteIconUrl,
     homepage: entry.homepage,
+    links: entry.links,
     hasGameCategory: entry.hasGameCategory,
     categories: entry.categories,
     license: entry.license,

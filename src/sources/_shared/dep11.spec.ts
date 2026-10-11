@@ -42,6 +42,8 @@ Categories:
 Url:
   homepage: https://wiki.gnome.org/Apps/Gitg
   bugtracker: https://gitlab.gnome.org/GNOME/gitg/issues
+  vcs-browser: https://gitlab.gnome.org/GNOME/gitg
+  bugtracker: https://gitlab.gnome.org/GNOME/gitg/issues
 Icon:
   cached:
   - name: gitg_org.gnome.gitg.png
@@ -141,6 +143,10 @@ describe("parseDep11Yaml", () => {
     expect(gitg?.license).toBe("GPL-2.0+");
     expect(gitg?.developer).toBe("The gitg team");
     expect(gitg?.homepage).toBe("https://wiki.gnome.org/Apps/Gitg");
+    expect(gitg?.links).toEqual({
+      bugtracker: "https://gitlab.gnome.org/GNOME/gitg/issues",
+      "vcs-browser": "https://gitlab.gnome.org/GNOME/gitg",
+    });
   });
 
   it("flattens the C description block scalar to plain text, skipping translations", () => {

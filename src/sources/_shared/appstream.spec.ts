@@ -13,6 +13,10 @@ const FIXTURE = `<?xml version="1.0" encoding="UTF-8"?>
     <icon height="128" type="cached" width="128">org.mozilla.firefox-128.png</icon>
     <url type="bugtracker">https://bugzilla.mozilla.org/</url>
     <url type="homepage">https://www.mozilla.org/firefox/</url>
+    <url type="bugtracker">https://bugzilla.mozilla.org/</url>
+    <url type="donation">https://donate.mozilla.org/</url>
+    <url type="bugtracker">https://second.example/</url>
+    <url type="unknown-kind">https://ignored.example/</url>
     <releases>
       <release timestamp="1786320000" version="153.0.4">
         <description>
@@ -159,6 +163,15 @@ describe("parseAppstreamXml", () => {
     const firefox = entries.find((entry) => entry.id === "org.mozilla.firefox");
 
     expect(firefox?.homepage).toBe("https://www.mozilla.org/firefox/");
+  });
+
+  it("keeps the project's other links, the first of each known type", () => {
+    const firefox = entries.find((entry) => entry.id === "org.mozilla.firefox");
+
+    expect(firefox?.links).toEqual({
+      bugtracker: "https://bugzilla.mozilla.org/",
+      donation: "https://donate.mozilla.org/",
+    });
   });
 
   it("takes the first (newest) release's version", () => {

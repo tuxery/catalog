@@ -1,11 +1,14 @@
 export type {
   FormalSignals,
   PackageSourceId,
+  ProjectLinks,
+  ProjectLinkType,
   Provenance,
   Risk,
   SourcedPackage,
   StoreCollectionTag,
 } from "./types";
+export { PROJECT_LINK_TYPES } from "./types";
 export { searchAlpine } from "./apk-alpine";
 export { searchFlathub } from "./flatpak-flathub";
 export { searchAppCenter } from "./flatpak-appcenter";

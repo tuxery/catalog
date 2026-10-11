@@ -1,5 +1,10 @@
 import { XMLParser } from "fast-xml-parser";
-import type { FormalSignals } from "../types";
+import {
+  PROJECT_LINK_TYPES,
+  type FormalSignals,
+  type ProjectLinks,
+  type ProjectLinkType,
+} from "../types";
 import { compactFormal } from "./formal";
 
 // AppStream also lists "addon"/"runtime"/"localization"/"generic" components
@@ -116,6 +121,8 @@ export interface AppstreamComponent {
   /** A `type="remote"` icon's full URL, when present — ready to use directly, no base-URL resolution needed. Not every source's repo publishes this (Flathub reliably does, AppCenter rarely); callers needing an icon URL for a source without it must resolve `iconFilename` against that source's own repo layout instead. */
   remoteIconUrl?: string;
   homepage?: string;
+  /** See `SourcedPackage.links`. */
+  links?: ProjectLinks;
   /** Whether `<categories>` includes the freedesktop.org menu spec's "Game" category — see `SourcedPackage.hasGameCategory`. */
   hasGameCategory: boolean;
   /** Every raw `<category>` value, freedesktop.org menu spec identifiers (e.g. "AudioVideo", "Game", "ArcadeGame") — see `SourcedPackage.categories`. */
@@ -175,6 +182,17 @@ function pickRemoteIconUrl(icons: RawIcon[] | undefined): string | undefined {
 
 function pickHomepage(urls: RawUrl[] | undefined): string | undefined {
   return urls?.find((url) => url["@_type"] === "homepage")?.["#text"];
+}
+
+/** Every `<url>` of a `PROJECT_LINK_TYPES` type, the first of each — `undefined` when there's none. */
+function pickLinks(urls: RawUrl[] | undefined): ProjectLinks | undefined {
+  const links: ProjectLinks = {};
+  for (const url of urls ?? []) {
+    const type = url["@_type"] as ProjectLinkType | undefined;
+    const href = url["#text"]?.trim();
+    if (type && href && PROJECT_LINK_TYPES.includes(type)) links[type] ??= href;
+  }
+  return Object.keys(links).length > 0 ? links : undefined;
 }
 
 /**
@@ -355,6 +373,7 @@ export function parseAppstreamXml(
       iconFilename: pickIcon(component.icon),
       remoteIconUrl: pickRemoteIconUrl(component.icon),
       homepage: pickHomepage(component.url),
+      links: pickLinks(component.url),
       hasGameCategory: (component.categories?.category ?? []).includes("Game"),
       categories: component.categories?.category ?? [],
       license: component.project_license,

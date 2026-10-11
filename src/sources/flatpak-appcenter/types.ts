@@ -1,5 +1,5 @@
 import type { FetchMetadata } from "../_shared/metadata";
-import type { FormalSignals } from "../types";
+import type { FormalSignals, ProjectLinks } from "../types";
 
 /**
  * One `<component>` entry from elementary AppCenter's appstream
@@ -19,6 +19,8 @@ export interface AppCenterCacheEntry {
   /** Resolved, ready-to-use icon URL — see `SourcedPackage.iconUrl`. */
   iconUrl?: string;
   homepage?: string;
+  /** See `SourcedPackage.links`. */
+  links?: ProjectLinks;
   /** Whether AppStream's `<categories>` includes "Game" — see `SourcedPackage.hasGameCategory`. */
   hasGameCategory: boolean;
   /** Every raw `<category>` value — see `SourcedPackage.categories`. */

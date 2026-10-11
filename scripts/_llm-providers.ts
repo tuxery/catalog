@@ -125,10 +125,12 @@ interface GeminiErrorDetail {
 async function callGemini<T>(model: LlmModel, prompt: Prompt<T>): Promise<CallResult<T>> {
   const apiKey = requireEnv("GEMINI_API_KEY", "https://aistudio.google.com/apikey");
   const response = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/${model.id}:generateContent?key=${apiKey}`,
+    `https://generativelanguage.googleapis.com/v1beta/models/${model.id}:generateContent`,
     {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      // In a header rather than `?key=`: a URL ends up in error messages and
+      // proxy logs, the header doesn't.
+      headers: { "Content-Type": "application/json", "x-goog-api-key": apiKey },
       body: JSON.stringify({
         systemInstruction: { parts: [{ text: prompt.system }] },
         contents: [{ role: "user", parts: [{ text: prompt.user }] }],

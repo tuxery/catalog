@@ -5,3 +5,4 @@ export {
   type TursoConfig,
   type TursoDataset,
 } from "./turso-client";
+export { parseTursoDataset } from "./dataset-schema";

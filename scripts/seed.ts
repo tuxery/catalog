@@ -3,7 +3,7 @@ import { spawnSync } from "node:child_process";
 import { tmpdir } from "node:os";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { createTursoClient, type TursoDataset } from "../src/store";
+import { createTursoClient, parseTursoDataset } from "../src/store";
 import { refreshSources } from "./_refresh-sources";
 import { readSqldStats, startSqld, waitForSqld } from "./_sqld";
 import { PREVIEW_ENV_PATH, PROD_ENV_PATH, readSharedEnv } from "./_shared-env";
@@ -56,7 +56,14 @@ if (force || !existsSync(DATASET_PATH)) {
   console.log(`Reusing ${DATASET_PATH} (pass --force to re-fetch sources and rebuild).`);
 }
 
-const dataset = JSON.parse(readFileSync(DATASET_PATH, "utf8")) as TursoDataset;
+// A remote publish must carry a full catalog (~100k apps in 2026-10): far
+// below that, the file is truncated or a dev sample, and publishing it would
+// replace preview/prod with it.
+const MIN_REMOTE_APPS = 50_000;
+
+const dataset = parseTursoDataset(JSON.parse(readFileSync(DATASET_PATH, "utf8")), {
+  minApps: remote ? MIN_REMOTE_APPS : 0,
+});
 
 if (measure) {
   // What one publish costs in Turso's billed counters, without spending any

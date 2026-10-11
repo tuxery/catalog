@@ -2,7 +2,7 @@ import { findMap, meanBy, sum, sumBy, unique } from "helpers4/array";
 import type { PackageSourceId, SourcedPackage, StoreCollectionTag } from "../../sources";
 import { looksLikeGamePackage, looksLikeGuiPackage } from "../filter/rules";
 import { isBuildVariant, type MatchedApp } from "../match/group";
-import { standaloneAppId } from "../match/keys";
+import { packageKey, standaloneAppId } from "../match/keys";
 import { loadMatchOverrides, type MatchOverrides } from "../match/overrides";
 import {
   isAppStoreFrontend,
@@ -549,6 +549,17 @@ function pickCategoryLabel(
 }
 
 /**
+ * One package per store listing (`source:appId`). Store-level figures —
+ * Flathub's rating and install counts — belong to the listing, and a
+ * listing can hold several packages (one per branch or version:
+ * `org.winehq.Wine` has nine), each carrying the same figures. Adding
+ * them up counts the same votes and installs once per package.
+ */
+function distinctListings(packages: SourcedPackage[]): SourcedPackage[] {
+  return [...new Map(packages.map((pkg) => [packageKey(pkg), pkg])).values()];
+}
+
+/**
  * Combines every member package's own rating into one count-weighted
  * average — unlike `pickField`, which picks a single source's value,
  * ratings from independent sources (e.g. a game sold on both GOG and
@@ -561,7 +572,7 @@ function pickCategoryLabel(
 function aggregateRating(
   packages: SourcedPackage[],
 ): { average: number; count: number } | undefined {
-  const rated = packages.filter(
+  const rated = distinctListings(packages).filter(
     (pkg): pkg is SourcedPackage & { rating: { average: number; count: number } } =>
       Boolean(pkg.rating && pkg.rating.count > 0),
   );
@@ -617,14 +628,16 @@ function aggregateLastUpdated(packages: SourcedPackage[]): string | undefined {
  * Sums a numeric field across every member package that has one — unlike
  * `aggregatePopularity`'s mean (a 0-1 percentile score, not additive
  * across sources), install counts from independent sources genuinely add
- * up. `undefined` when no member package reports the field at all, never
- * a synthetic 0.
+ * up — once per store listing, see `distinctListings`. `undefined` when no
+ * member package reports the field at all, never a synthetic 0.
  */
 function sumField(
   packages: SourcedPackage[],
   getField: (pkg: SourcedPackage) => number | undefined,
 ): number | undefined {
-  const values = packages.map(getField).filter((value): value is number => value !== undefined);
+  const values = distinctListings(packages)
+    .map(getField)
+    .filter((value): value is number => value !== undefined);
   return values.length > 0 ? sum(values) : undefined;
 }
 

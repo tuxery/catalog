@@ -428,5 +428,40 @@
     "sources": ["appimage"],
     "name": "MooerLooperManager",
     "reason": "Real Mooer GL100/GL200 looper-pedal manager app despite its own long-form description including udev-rules setup instructions — see filter/rules.ts's \"udev rules\" noise pattern"
+  },
+  {
+    "sources": ["pacman-aur"],
+    "name": "r-air",
+    "reason": "Real standalone app despite AUR's r-* R-package rule (filter/rules.ts) — an R language server and formatter (Posit's air), a standalone binary"
+  },
+  {
+    "sources": ["pacman-aur"],
+    "name": "r-air-bin",
+    "reason": "Real standalone app despite AUR's r-* R-package rule (filter/rules.ts) — prebuilt r-air: an R language server and formatter, a standalone binary"
+  },
+  {
+    "sources": ["pacman-aur"],
+    "name": "r-ark",
+    "reason": "Real standalone app despite AUR's r-* R-package rule (filter/rules.ts) — an R kernel (Jupyter/Positron), a standalone binary"
+  },
+  {
+    "sources": ["pacman-aur"],
+    "name": "r-ark-bin",
+    "reason": "Real standalone app despite AUR's r-* R-package rule (filter/rules.ts) — prebuilt r-ark: an R kernel, a standalone binary"
+  },
+  {
+    "sources": ["pacman-aur"],
+    "name": "r-rig-bin",
+    "reason": "Real standalone app despite AUR's r-* R-package rule (filter/rules.ts) — rig, the R installation manager: a command-line tool"
+  },
+  {
+    "sources": ["pacman-aur"],
+    "name": "r-go-tools-led-git",
+    "reason": "Real standalone app despite AUR's r-* R-package rule (filter/rules.ts) — not an R package: a tool to control the LED on R-Go Tools keyboards"
+  },
+  {
+    "sources": ["pacman-aur"],
+    "name": "r-nacos-git",
+    "reason": "Real standalone app despite AUR's r-* R-package rule (filter/rules.ts) — not an R package: a Nacos server re-implemented in Rust"
   }
 ]

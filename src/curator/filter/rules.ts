@@ -927,6 +927,17 @@ const TASKSEL_PREFIX = /^task-/;
 // other source.
 const ANDROID_CROSS_COMPILE_LIB = /^android-(aarch64|armv7a|riscv64|x86-64|x86)-/;
 
+// AUR's R packages: the CRAN/Bioconductor mirror under a bare `r-<package>`
+// name (Debian's r-cran-*/r-bioc-*, excluded through its gnu-r section and
+// the prefix rule above). They install into R's own library and are loaded
+// from R, Shiny "apps" included — not launchable from the desktop. 4,841
+// in the AUR cache on 2026-10-11, 1,423 of them still published (the LLM
+// read "a tool to analyse ..." descriptions as apps). AUR-only: Nixpkgs'
+// and Arch's few r-* are unrelated. The handful of real standalone tools
+// (r-air, r-ark, r-rig-bin, and two non-R packages that merely start with
+// "r-") are kept by name in config/filter-keep.json.
+const AUR_R_PACKAGE = /^r-/;
+
 /**
  * Source-specific noise conventions `looksLikeSupportPackage` can't catch
  * on name alone, since the same shape means something different on other
@@ -948,6 +959,7 @@ export function looksLikeSourceSpecificNoise(
     if (SNAP_TEMPLATE_DESCRIPTIONS.has(normalized)) return true;
   }
   if (source === "pacman-aur" && ANDROID_CROSS_COMPILE_LIB.test(name)) return true;
+  if (source === "pacman-aur" && AUR_R_PACKAGE.test(name)) return true;
   return false;
 }
 

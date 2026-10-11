@@ -86895,7 +86895,7 @@
 {"id":"pacman-aur:r-archive","confidence":"high","reason":"R package for data analysis","model":"gemini-3.1-flash-lite","type":"library"},
 {"id":"pacman-aur:r-argparse","confidence":"high","reason":"R package for data analysis","model":"gemini-3.1-flash-lite","type":"library"},
 {"id":"pacman-aur:r-aricode","confidence":"high","reason":"R package for data analysis","model":"gemini-3.1-flash-lite","type":"library"},
-{"id":"pacman-aur:r-ark","confidence":"high","reason":"R package for data analysis","model":"gemini-3.1-flash-lite","type":"library"},
+{"id":"pacman-aur:r-ark","type":"app","category":"Developer Tools","confidence":"high","reason":"Standalone R kernel binary (Jupyter/Positron), not an R package","model":"claude-opus-5-5"},
 {"id":"pacman-aur:r-arm","confidence":"high","reason":"R package for data analysis","model":"gemini-3.1-flash-lite","type":"library"},
 {"id":"pacman-aur:r-aroma.affymetrix","confidence":"high","reason":"R package for data analysis","model":"gemini-3.1-flash-lite","type":"library"},
 {"id":"pacman-aur:r-aroma.apd","confidence":"high","reason":"R package for data analysis","model":"gemini-3.1-flash-lite","type":"library"},

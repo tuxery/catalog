@@ -453,6 +453,12 @@ describe("looksLikeSourceSpecificNoise", () => {
     expect(looksLikeSourceSpecificNoise("pacman-aur", "kivytest", template)).toBe(false);
   });
 
+  it("flags AUR's r-* R packages, not the same prefix on other sources", () => {
+    expect(looksLikeSourceSpecificNoise("pacman-aur", "r-tweedeseq")).toBe(true);
+    expect(looksLikeSourceSpecificNoise("pacman-aur", "r-bulkanalyser")).toBe(true);
+    expect(looksLikeSourceSpecificNoise("nix-nixpkgs", "r-ryacas")).toBe(false);
+  });
+
   it("flags AUR's android-<arch>- cross-compiled libraries, not the broader android- prefix", () => {
     expect(looksLikeSourceSpecificNoise("pacman-aur", "android-x86-64-libvdpau")).toBe(true);
     expect(looksLikeSourceSpecificNoise("pacman-aur", "android-aarch64-ffmpeg")).toBe(true);

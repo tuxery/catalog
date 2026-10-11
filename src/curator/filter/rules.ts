@@ -832,6 +832,13 @@ const SUPPORT_DESCRIPTION_PATTERNS: RegExp[] = [
   // than leaving a library "To Classify".
   /\bheader-?only\b/i,
   /\b(?:tls|ssl|crypto) library\b/i,
+  // Empty packages left behind by a rename, there only to pull in the new
+  // name ("pev ... (transitional package)", "Transitional package — X has
+  // been renamed to Y"), and store names held by nobody ("Placeholder
+  // package, name reserved"). The real package is listed under its own
+  // name. 101 published apps matched on 2026-10-11, all transitional or
+  // dummy (Ubuntu's linux-tools-*-hwe, apt-transport-https, kafkacat...).
+  /\btransitional (?:dummy )?package\b|\bdummy transitional\b|\bplaceholder package\b|\bname reserved\b/i,
 ];
 
 /**

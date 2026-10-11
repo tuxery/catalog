@@ -56,6 +56,19 @@ function mapGenres(genres: string[]): string[] {
   ];
 }
 
+// Storefronts that only sell games, read from the installer's own label
+// ("GOG", "Humble (64-bit)", "itch.io") or its slug's suffix
+// (`post-hello-gamejolt`). 12 such installers had neither genre nor game
+// record (2026-10-11), all games (Septerra Core, The Chaos Engine...).
+const GAME_STORE_LABEL = /^(gog|humble|itch|indiegamestand|desura|game ?jolt|nutaku|mangagamer)/i;
+const GAME_STORE_SLUG =
+  /-(gog|gogcom|humble|humblebundle|itchio|itch-io|indiegamestand|gamejolt)(-[a-z0-9]+)*$/;
+
+/** Whether a Lutris installer installs a build bought on a games-only storefront. */
+export function isGameStoreBuild(label: string | undefined, slug: string): boolean {
+  return GAME_STORE_LABEL.test(label ?? "") || GAME_STORE_SLUG.test(slug);
+}
+
 export function normalize(entries: LutrisCacheEntry[]): SourcedPackage[] {
   return entries.map((entry) => {
     const categories = mapGenres(entry.genres);
@@ -92,7 +105,11 @@ export function normalize(entries: LutrisCacheEntry[]): SourcedPackage[] {
       // non-games Lutris also models as "games" (Steam, Modrinth, Technic
       // Launcher, Xbox Cloud Gaming) are left to enrich's game-adjacent-tool
       // checks, which strip the flag from launchers and clients.
-      hasGameCategory: entry.genres.length > 0 || !!gameDescription || undefined,
+      hasGameCategory:
+        entry.genres.length > 0 ||
+        !!gameDescription ||
+        isGameStoreBuild(entry.version, entry.installerSlug) ||
+        undefined,
       categories: categories.length > 0 ? categories : undefined,
     };
   });

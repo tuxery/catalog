@@ -61,6 +61,7 @@ describe("parseAppstream", () => {
       screenshots: [],
       changelog: undefined,
       lastUpdated: "2026-08-10T00:00:00.000Z",
+      releases: [{ version: "153.0.4", date: "2026-08-10T00:00:00.000Z" }],
       formal: { componentType: "desktop-application" },
       rating: { average: 3.9, count: 778 },
       popularity: 0.9,

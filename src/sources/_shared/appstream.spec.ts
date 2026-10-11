@@ -174,6 +174,15 @@ describe("parseAppstreamXml", () => {
     });
   });
 
+  it("lists the releases with a version, newest first, with ISO dates", () => {
+    const firefox = entries.find((entry) => entry.id === "org.mozilla.firefox");
+
+    expect(firefox?.releases).toEqual([
+      { version: "153.0.4", date: new Date(1786320000 * 1000).toISOString() },
+      { version: "152.0", date: new Date(1783728000 * 1000).toISOString() },
+    ]);
+  });
+
   it("takes the first (newest) release's version", () => {
     const firefox = entries.find((entry) => entry.id === "org.mozilla.firefox");
 

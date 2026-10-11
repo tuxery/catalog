@@ -1,4 +1,4 @@
-import type { ProjectLinks, SourcedPackage, StoreCollectionTag } from "../../sources";
+import type { ProjectLinks, ReleaseEntry, SourcedPackage, StoreCollectionTag } from "../../sources";
 import type { HiddenType } from "./category";
 import type { Companion, CompanionKind, Relation } from "../family/types";
 import type { DataConfidence } from "./data-confidence";
@@ -24,6 +24,8 @@ export interface CatalogApp {
   homepage?: string;
   /** The project's own links beyond `homepage` (bug tracker, source code, donations, translation...), each type taken from the highest-priority source that has one — see `SourcedPackage.links`. */
   links?: ProjectLinks;
+  /** The project's releases (version and date), newest first, from the highest-priority source listing them — the product's default build only, so Firefox ESR's releases never stand for Firefox's. See `SourcedPackage.releases`. */
+  releases?: ReleaseEntry[];
   /** Every `SourcedPackage` that was grouped into this app — has its own version, track, risk, flavors and provenance per source. */
   packages: SourcedPackage[];
   /**

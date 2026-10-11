@@ -57,6 +57,7 @@ export function toCacheEntries(
       remoteIconUrl: component.remoteIconUrl,
       homepage: component.homepage,
       links: component.links,
+      releases: component.releases,
       hasGameCategory: component.hasGameCategory,
       categories: component.categories,
       license: component.license,

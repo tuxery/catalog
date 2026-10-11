@@ -4,6 +4,7 @@ export type {
   ProjectLinks,
   ProjectLinkType,
   Provenance,
+  ReleaseEntry,
   Risk,
   SourcedPackage,
   StoreCollectionTag,

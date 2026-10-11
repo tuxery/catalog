@@ -711,6 +711,49 @@ describe("groupPackages — product families", () => {
     ).toHaveLength(1);
   });
 
+  it("keeps a package describing several apps out of name matching, so one generic name doesn't chain unrelated products (real case: sgt-puzzles' Mines, 'dotnet' group of 202)", () => {
+    const groups = groupPackages(
+      [
+        pkg({ source: "deb-debian", name: "gnome-mines", appId: "gnome-mines" }),
+        pkg({
+          source: "deb-debian-appstream",
+          name: "Mines",
+          appId: "gnome-mines",
+          appstreamId: "org.gnome.Mines",
+        }),
+        pkg({ source: "deb-debian", name: "sgt-puzzles", appId: "sgt-puzzles" }),
+        pkg({
+          source: "deb-debian-appstream",
+          name: "Mines",
+          appId: "sgt-puzzles",
+          appstreamId: "uk.org.greenend.chiark.sgtatham.mines",
+        }),
+        pkg({
+          source: "deb-debian-appstream",
+          name: "Map",
+          appId: "sgt-puzzles",
+          appstreamId: "uk.org.greenend.chiark.sgtatham.map",
+        }),
+      ],
+      NO_OVERRIDES,
+    );
+
+    const mines = groups.find((group) => group.packages.some((p) => p.name === "gnome-mines"));
+    expect(mines?.packages.map((p) => p.appId)).toEqual(["gnome-mines", "gnome-mines"]);
+  });
+
+  it("does not merge two terminals through their shared generic AppStream name (real case: Ptyxis and GNOME Terminal)", () => {
+    const groups = groupPackages(
+      [
+        pkg({ source: "deb-ubuntu-appstream", name: "Terminal", appId: "ptyxis" }),
+        pkg({ source: "deb-ubuntu-appstream", name: "Terminal", appId: "gnome-terminal" }),
+      ],
+      NO_OVERRIDES,
+    );
+
+    expect(groups).toHaveLength(2);
+  });
+
   it("merges packages sharing a project homepage under the same name, not different products of one project", () => {
     const groups = groupPackages(
       [

@@ -131,6 +131,10 @@ export interface CatalogApp {
   publisher?: string;
   /** SPDX-ish license expression (e.g. "GPL-3.0+ AND LGPL-3.0+") — populated by Flathub/AppCenter's AppStream `<project_license>`. */
   license?: string;
+  /** `license` as an SPDX expression, only when every license in it maps to one SPDX id without guessing ("GPL3" doesn't say -only or -or-later): see `toSpdxExpression`. */
+  licenseSpdx?: string;
+  /** Whether `license` makes the app free software (`free`) or says it's proprietary — absent when it can't tell. See `classifyLicense`. */
+  licenseKind?: "free" | "proprietary";
   /** Language codes the app is translated into — populated by Flathub/AppCenter's AppStream `<languages><lang>`. */
   languages?: string[];
   /** Download size in bytes — populated by Flathub's own `/api/v2/summary/<appId>` (the `stable` branch's `download_size`). No other current source exposes an equivalent figure. */

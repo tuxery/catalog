@@ -17,6 +17,7 @@ import {
   type HiddenType,
 } from "./category";
 import { computeDataConfidence, forceMatchedKeys } from "./data-confidence";
+import { classifyLicense, toSpdxExpression } from "./license";
 import { loadCategoryRules, matchCategoryRule, type CategoryRuleEntry } from "./category-rules";
 import {
   loadGameCategoryRules,
@@ -548,6 +549,18 @@ function pickCategoryLabel(
   return matchDescriptionCategoryRule(shortDescription, descriptionCategoryRules) ?? TO_CLASSIFY;
 }
 
+/** The picked license with its SPDX form and free/proprietary verdict — each only when known. */
+function licenseFields(
+  license: string | undefined,
+): Pick<CatalogApp, "license" | "licenseSpdx" | "licenseKind"> {
+  const kind = classifyLicense(license);
+  return {
+    license,
+    licenseSpdx: toSpdxExpression(license),
+    licenseKind: kind === "unknown" ? undefined : kind,
+  };
+}
+
 /**
  * One package per store listing (`source:appId`). Store-level figures —
  * Flathub's rating and install counts — belong to the listing, and a
@@ -794,7 +807,7 @@ export function enrichApps(
       category,
       iconUrl: pickField(app.packages, (pkg) => pkg.iconUrl),
       approxSizeBytes: pickField(app.packages, (pkg) => pkg.approxSizeBytes),
-      license: pickField(app.packages, (pkg) => pkg.license),
+      ...licenseFields(pickField(app.packages, (pkg) => pkg.license)),
       developer: pickField(app.packages, (pkg) => pkg.developer),
       longDescription: pickField(app.packages, (pkg) => pkg.longDescription),
       screenshots: pickField(app.packages, (pkg) =>

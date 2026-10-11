@@ -17,6 +17,7 @@ const AppRecordSchema = z.looseObject({
   kind: z.literal("gui").optional(),
   contentType: z.literal("game").optional(),
   category: z.string().optional(),
+  licenseKind: z.enum(["free", "proprietary"]).optional(),
   lastUpdated: z.string().optional(),
   rating: z.object({ average: z.number(), count: z.number().nonnegative() }).optional(),
   popularity: z.number().min(0).max(1).optional(),

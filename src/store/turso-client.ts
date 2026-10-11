@@ -24,6 +24,10 @@ export interface AppRecord {
   developer?: string;
   publisher?: string;
   license?: string;
+  /** See `CatalogApp.licenseSpdx`. */
+  licenseSpdx?: string;
+  /** See `CatalogApp.licenseKind`. */
+  licenseKind?: "free" | "proprietary";
   iconUrl?: string;
   approxSizeBytes?: number;
   changelog?: string;
@@ -107,6 +111,8 @@ const INSERT_COLUMNS = [
   "developer",
   "publisher",
   "license",
+  "license_spdx",
+  "license_kind",
   "icon_url",
   "approx_size_bytes",
   "changelog",
@@ -154,6 +160,8 @@ function appsTableSql(tableName: string): string {
       developer TEXT,
       publisher TEXT,
       license TEXT,
+      license_spdx TEXT,
+      license_kind TEXT,
       icon_url TEXT,
       approx_size_bytes INTEGER,
       changelog TEXT,
@@ -272,6 +280,11 @@ const APPS_INDEXES_SQL = [
   // `turso db inspect prod --queries` on 2026-10-11 (~380k rows read).
   `CREATE INDEX idx_apps_category_name ON apps(category, name)`,
   `CREATE INDEX idx_apps_content_type_category_name ON apps(content_type, category, name)`,
+  // No index for `/browse`'s "free software only" filter (`license_kind =
+  // 'free'`): over half the apps are free, so walking the name indexes above
+  // and skipping the others reads about twice a page's rows, while each
+  // index costs ~100k rows written per publish (`pnpm seed --measure`,
+  // 2026-10-11).
 ];
 
 interface CategoryCount {
@@ -592,6 +605,23 @@ function countKey(
   return `count:${generation}:${interfaceFilter}:${typeFilter}:${source}:${category}`;
 }
 
+/**
+ * Same combination as `countKey`, counting only free-software apps
+ * (`licenseKind: "free"`) — `/browse`'s "free software only" filter. A
+ * separate prefix rather than a new segment, so `count:` keys and the app
+ * code reading them stay as they are; `browseKeys.freeCounts` tells `app`
+ * these exist. Mirrored by hand in `app`'s `browse-keys.ts`.
+ */
+function freeCountKey(
+  generation: string,
+  interfaceFilter: InterfaceFilterValue,
+  typeFilter: ListingTypeFilter,
+  source: string,
+  category: string,
+): string {
+  return `countFree:${generation}:${interfaceFilter}:${typeFilter}:${source}:${category}`;
+}
+
 function sourcesOf(app: AppRecord): string[] {
   const sources = new Set<string>();
   for (const pkg of app.packages) {
@@ -618,12 +648,15 @@ function computeBrowseCounts(apps: AppRecord[], generation: string): Map<string,
     const types: ListingTypeFilter[] = ["all", app.contentType === "game" ? "game" : "app"];
     const sources = ["*", ...sourcesOf(app)];
     const categories = app.category === undefined ? ["*"] : ["*", app.category];
+    const keyFns = app.licenseKind === "free" ? [countKey, freeCountKey] : [countKey];
     for (const interfaceFilter of interfaces) {
       for (const typeFilter of types) {
         for (const source of sources) {
           for (const category of categories) {
-            const key = countKey(generation, interfaceFilter, typeFilter, source, category);
-            counts.set(key, (counts.get(key) ?? 0) + 1);
+            for (const keyFn of keyFns) {
+              const key = keyFn(generation, interfaceFilter, typeFilter, source, category);
+              counts.set(key, (counts.get(key) ?? 0) + 1);
+            }
           }
         }
       }
@@ -764,6 +797,8 @@ function toRow(app: AppRecord): unknown[] {
     app.developer ?? null,
     app.publisher ?? null,
     app.license ?? null,
+    app.licenseSpdx ?? null,
+    app.licenseKind ?? null,
     app.iconUrl ?? null,
     app.approxSizeBytes ?? null,
     app.changelog ?? null,
@@ -945,7 +980,11 @@ export function createTursoClient(config: TursoConfig, client?: Client): TursoCl
         ["categoryCounts:app", JSON.stringify(categoryCountsApp)],
         [
           BROWSE_KEYS_META_KEY,
-          JSON.stringify({ generation, sourceIdsChunkSize: SOURCE_IDS_CHUNK_SIZE }),
+          JSON.stringify({
+            generation,
+            sourceIdsChunkSize: SOURCE_IDS_CHUNK_SIZE,
+            freeCounts: true,
+          }),
         ],
         ...Object.entries(listingIds).map(([key, ids]): [string, string] => [
           key,
@@ -979,8 +1018,9 @@ export function createTursoClient(config: TursoConfig, client?: Client): TursoCl
       await db.execute({
         sql: `DELETE FROM meta
               WHERE (key LIKE 'count:%' AND key NOT LIKE ?)
+                 OR (key LIKE 'countFree:%' AND key NOT LIKE ?)
                  OR (key LIKE 'sourceIds:%' AND key NOT LIKE ?)`,
-        args: [`count:${generation}:%`, `sourceIds:${generation}:%`],
+        args: [`count:${generation}:%`, `countFree:${generation}:%`, `sourceIds:${generation}:%`],
       });
 
       // Built once over the finished `apps` table, after the swap above

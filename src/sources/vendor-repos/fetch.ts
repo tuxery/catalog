@@ -1,6 +1,6 @@
 import { unique } from "helpers4/array";
 import { join } from "node:path";
-import { compareDebVersions } from "../_shared/deb-version";
+import { compare } from "helpers4/version";
 import { parseDeb822 } from "../_shared/deb822";
 import { fetchText } from "../_shared/http";
 import { writeMetadata } from "../_shared/metadata";
@@ -34,10 +34,14 @@ export function pickLatest(
   text: string,
   packageName: string,
 ): { description: string; version: string } | undefined {
-  const versions = parseDeb822(text).filter((fields) => fields.Package === packageName);
+  // A stanza without a version can't be ranked (helpers4's Debian compare
+  // throws on it): it's never the one to pick.
+  const versions = parseDeb822(text).filter(
+    (fields) => fields.Package === packageName && fields.Version,
+  );
   const latest = versions.reduce<Record<string, string> | undefined>(
     (best, fields) =>
-      !best || compareDebVersions(fields.Version ?? "", best.Version ?? "") > 0 ? fields : best,
+      !best || compare(fields.Version ?? "", best.Version ?? "", "debian") > 0 ? fields : best,
     undefined,
   );
   if (!latest?.Version) return undefined;

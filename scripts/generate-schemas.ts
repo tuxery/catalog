@@ -3,6 +3,7 @@ import { fileURLToPath } from "node:url";
 import { z } from "zod";
 import { FilterExcludeListSchema, FilterKeepListSchema } from "../src/curator/filter/types";
 import {
+  MatchApartListSchema,
   MatchDenyListSchema,
   MatchForceListSchema,
   MatchTracksListSchema,
@@ -41,6 +42,7 @@ const SCHEMAS: { schema: z.ZodType; outFile: string }[] = [
   },
   { schema: MatchForceListSchema, outFile: "../src/curator/match/match-force.schema.json" },
   { schema: MatchDenyListSchema, outFile: "../src/curator/match/match-deny.schema.json" },
+  { schema: MatchApartListSchema, outFile: "../src/curator/match/match-apart.schema.json" },
   { schema: MatchTracksListSchema, outFile: "../src/curator/match/match-tracks.schema.json" },
   {
     schema: FamilyRelationsListSchema,

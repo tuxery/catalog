@@ -56,6 +56,32 @@ const ForceMatchEntrySchema = z.object({
  */
 export type ForceMatchEntry = z.infer<typeof ForceMatchEntrySchema>;
 
+const MatchApartEntrySchema = z.object({
+  a: z.array(MatchPackageRefSchema).min(1).describe("The packages of one product."),
+  b: z
+    .array(MatchPackageRefSchema)
+    .min(1)
+    .describe("The packages of the other product, sharing a name or appId with the first."),
+  reason: z
+    .string()
+    .describe("Which two products these are — required so the exception is auditable later."),
+});
+
+/**
+ * Two products that share a name or a bare appId and must stay apart
+ * (`config/match-apart.json`): no auto tier may put a package of `a` and a
+ * package of `b` in one group, through whatever chain of other packages.
+ * Unlike `match-deny.json`'s pairs, one entry covers every edge — list the
+ * packages whose name or appId collides, on both sides.
+ */
+export type MatchApartEntry = z.infer<typeof MatchApartEntrySchema>;
+
+export const MatchApartListSchema = z.array(MatchApartEntrySchema).meta({
+  title: "Match: products kept apart",
+  description:
+    "Homonyms (KDE's Dolphin and the Dolphin emulator, the Tesseract OCR engine and the Tesseract shooter) that match/group.ts's tiers would merge on a shared name or appId: no group may hold a package of both sides.",
+});
+
 export const MatchForceListSchema = z.array(ForceMatchEntrySchema).meta({
   title: "Match: force-merge list",
   description:

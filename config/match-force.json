@@ -4168,5 +4168,47 @@
       }
     ],
     "reason": "Audit review 2026-10-09 (same-name weather): review note — nix and Void ship the same weather tool"
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.DolphinEmu.dolphin-emu"
+    },
+    "sources": [
+      {
+        "source": "ebuild-gentoo",
+        "appId": "games-emulation/dolphin"
+      }
+    ],
+    "reason": "Gentoo packages the Dolphin GameCube/Wii emulator as games-emulation/dolphin, a bare name shared with KDE's file manager (kept apart in match-apart.json)."
+  },
+  {
+    "destination": {
+      "source": "deb-debian",
+      "appId": "instead"
+    },
+    "sources": [
+      {
+        "source": "snap-snapcraft",
+        "appId": "instead-linux"
+      },
+      {
+        "source": "appimage",
+        "appId": "instead-hub/instead"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "instead-git"
+      },
+      {
+        "source": "deb-debian-appstream",
+        "appId": "instead"
+      },
+      {
+        "source": "deb-ubuntu-appstream",
+        "appId": "instead"
+      }
+    ],
+    "reason": "The INSTEAD text-adventure engine: its Snap says Development, its AppStream entry Game, so the app/game guard keeps them apart on its own."
   }
 ]

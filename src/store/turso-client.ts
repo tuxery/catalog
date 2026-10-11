@@ -43,6 +43,8 @@ export interface AppRecord {
   ageRating?: { system: string; value: string };
   languages?: string[];
   screenshots?: string[];
+  /** See `CatalogApp.links`. */
+  links?: Record<string, string>;
   videos?: string[];
   reviews?: Array<{ author: string; text: string; rating: number }>;
   features?: string[];
@@ -128,6 +130,7 @@ const INSERT_COLUMNS = [
   "age_rating_value",
   "languages_json",
   "screenshots_json",
+  "links_json",
   "videos_json",
   "reviews_json",
   "features_json",
@@ -177,6 +180,7 @@ function appsTableSql(tableName: string): string {
       age_rating_value TEXT,
       languages_json TEXT,
       screenshots_json TEXT,
+      links_json TEXT,
       videos_json TEXT,
       reviews_json TEXT,
       features_json TEXT,
@@ -814,6 +818,7 @@ function toRow(app: AppRecord): unknown[] {
     app.ageRating?.value ?? null,
     toJsonColumn(app.languages),
     toJsonColumn(app.screenshots),
+    toJsonColumn(app.links),
     toJsonColumn(app.videos),
     toJsonColumn(app.reviews),
     toJsonColumn(app.features),

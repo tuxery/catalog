@@ -128,6 +128,7 @@ export function toCacheEntries(components: AppstreamComponent[]): FedoraAppstrea
       iconFilename: component.iconFilename,
       remoteIconUrl: component.remoteIconUrl,
       homepage: component.homepage,
+      links: component.links,
       hasGameCategory: component.hasGameCategory,
       categories: component.categories,
       license: component.license,

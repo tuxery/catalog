@@ -1,3 +1,4 @@
+import type { ProjectLinks } from "../types";
 import type { FetchMetadata } from "../_shared/metadata";
 
 /**
@@ -22,6 +23,8 @@ export interface UbuntuAppstreamCacheEntry {
   /** `Icon: remote:` url resolved against the document's MediaBaseUrl. */
   iconUrl?: string;
   homepage?: string;
+  /** See `SourcedPackage.links`. */
+  links?: ProjectLinks;
   /** Whether `Categories:` includes "Game" — see `SourcedPackage.hasGameCategory`. */
   hasGameCategory: boolean;
   /** Every raw `Categories:` value — see `SourcedPackage.categories`. */

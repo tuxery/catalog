@@ -14,6 +14,7 @@ export function normalize(entries: DebianAppstreamCacheEntry[]): SourcedPackage[
     appstreamId: entry.id,
     iconUrl: entry.iconUrl,
     homepage: entry.homepage,
+    links: entry.links,
     hasGameCategory: entry.hasGameCategory,
     categories: entry.categories,
     license: entry.license,

@@ -1,3 +1,4 @@
+import { PROJECT_LINK_TYPES, type ProjectLinks, type ProjectLinkType } from "../types";
 /**
  * Minimal hand-rolled parser for DEP-11 YAML — Debian's AppStream metadata
  * variant, the `dep11/Components-<arch>.yml.gz` file published per
@@ -46,6 +47,8 @@ export interface Dep11Component {
   /** `Screenshots: source-image:` urls resolved against `MediaBaseUrl` (thumbnails ignored), in document order. */
   screenshots: string[];
   homepage?: string;
+  /** `Url:` entries other than `homepage` — see `SourcedPackage.links`. */
+  links?: ProjectLinks;
   /** `Languages:` locale codes, in document order. */
   languages?: string[];
 }
@@ -340,10 +343,16 @@ export function parseDep11Yaml(yaml: string): Dep11Document {
       case "Url": {
         const end = nextTopLevelKeyIndex(lines, index + 1);
         for (let cursor = index + 1; cursor < end; cursor += 1) {
-          const homepageMatch = /^ {2}homepage: (.*)$/.exec(lines[cursor] ?? "");
-          if (homepageMatch) {
-            current.homepage = stripQuotes(homepageMatch[1] ?? "") || undefined;
-            break;
+          const urlMatch = /^ {2}([a-z-]+): (.*)$/.exec(lines[cursor] ?? "");
+          const type = urlMatch?.[1];
+          const href = stripQuotes(urlMatch?.[2] ?? "") || undefined;
+          if (!type || !href) continue;
+          if (type === "homepage") current.homepage ??= href;
+          else if ((PROJECT_LINK_TYPES as readonly string[]).includes(type)) {
+            current.links = {
+              ...current.links,
+              [type]: current.links?.[type as ProjectLinkType] ?? href,
+            };
           }
         }
         index = end;

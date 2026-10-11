@@ -12,6 +12,7 @@ export function normalize(entries: FlathubCacheEntry[]): SourcedPackage[] {
     iconFilename: entry.iconFilename,
     iconUrl: entry.iconUrl,
     homepage: entry.homepage,
+    links: entry.links,
     hasGameCategory: entry.hasGameCategory,
     categories: entry.categories,
     license: entry.license,

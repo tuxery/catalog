@@ -1,4 +1,4 @@
-import type { SourcedPackage, StoreCollectionTag } from "../../sources";
+import type { ProjectLinks, SourcedPackage, StoreCollectionTag } from "../../sources";
 import type { HiddenType } from "./category";
 import type { Companion, CompanionKind, Relation } from "../family/types";
 import type { DataConfidence } from "./data-confidence";
@@ -22,6 +22,8 @@ export interface CatalogApp {
   /** From the representative package's `description` (every source has one). */
   shortDescription: string;
   homepage?: string;
+  /** The project's own links beyond `homepage` (bug tracker, source code, donations, translation...), each type taken from the highest-priority source that has one — see `SourcedPackage.links`. */
+  links?: ProjectLinks;
   /** Every `SourcedPackage` that was grouped into this app — has its own version, track, risk, flavors and provenance per source. */
   packages: SourcedPackage[];
   /**

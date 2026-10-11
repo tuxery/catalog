@@ -66,6 +66,7 @@ export function toCacheEntries(
     summary: entry.summary ?? "",
     iconUrl: entry.iconUrl,
     homepage: entry.homepage,
+    links: entry.links,
     hasGameCategory: entry.categories.includes("Game"),
     categories: entry.categories,
     license: entry.license,
@@ -80,7 +81,10 @@ async function fetchComponent(
   suite: string,
   component: UbuntuComponent,
 ): Promise<UbuntuAppstreamCacheEntry[]> {
-  const yaml = await fetchGunzippedText(dep11Url(suite, component), `Ubuntu component "${component}" DEP-11`);
+  const yaml = await fetchGunzippedText(
+    dep11Url(suite, component),
+    `Ubuntu component "${component}" DEP-11`,
+  );
   return toCacheEntries(parseDep11Yaml(yaml), component);
 }
 

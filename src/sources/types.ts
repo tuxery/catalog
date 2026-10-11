@@ -96,6 +96,8 @@ export interface SourcedPackage {
    */
   arch?: string;
   homepage?: string;
+  /** Upstream project links beyond the homepage — bug tracker, source code, donations... From AppStream's `<url type="...">` (DEP11's `Url:` map). See `ProjectLinks`. */
+  links?: ProjectLinks;
   /**
    * Upstream last-modified/last-released date, when the source exposes
    * one. Not populated by any connector yet — none of the current
@@ -332,3 +334,23 @@ export interface FormalSignals {
 }
 
 export type StoreCollectionTag = "verified" | "recently-added" | "recently-updated" | "featured";
+
+/**
+ * AppStream's `<url>` types other than `homepage`
+ * (https://www.freedesktop.org/software/appstream/docs/chap-Metadata.html#tag-url),
+ * each the upstream project's own link.
+ */
+export const PROJECT_LINK_TYPES = [
+  "bugtracker",
+  "vcs-browser",
+  "donation",
+  "translate",
+  "contribute",
+  "help",
+  "faq",
+  "contact",
+] as const;
+
+export type ProjectLinkType = (typeof PROJECT_LINK_TYPES)[number];
+
+export type ProjectLinks = Partial<Record<ProjectLinkType, string>>;

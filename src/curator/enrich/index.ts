@@ -1,5 +1,11 @@
 import { findMap, meanBy, sum, sumBy, unique } from "helpers4/array";
-import type { PackageSourceId, SourcedPackage, StoreCollectionTag } from "../../sources";
+import {
+  PROJECT_LINK_TYPES,
+  type PackageSourceId,
+  type ProjectLinks,
+  type SourcedPackage,
+  type StoreCollectionTag,
+} from "../../sources";
 import { looksLikeGamePackage, looksLikeGuiPackage } from "../filter/rules";
 import { isBuildVariant, type MatchedApp } from "../match/group";
 import { packageKey, standaloneAppId } from "../match/keys";
@@ -549,6 +555,16 @@ function pickCategoryLabel(
   return matchDescriptionCategoryRule(shortDescription, descriptionCategoryRules) ?? TO_CLASSIFY;
 }
 
+/** Each link type from the highest-priority source that has it (`pickField`'s order) — `undefined` when no package has any. */
+function pickLinks(packages: SourcedPackage[]): ProjectLinks | undefined {
+  const links: ProjectLinks = {};
+  for (const type of PROJECT_LINK_TYPES) {
+    const href = pickField(packages, (pkg) => pkg.links?.[type]);
+    if (href) links[type] = href;
+  }
+  return Object.keys(links).length > 0 ? links : undefined;
+}
+
 /** The picked license with its SPDX form and free/proprietary verdict — each only when known. */
 function licenseFields(
   license: string | undefined,
@@ -799,6 +815,7 @@ export function enrichApps(
       name: representative.name,
       shortDescription,
       homepage: representative.homepage,
+      links: pickLinks(app.packages),
       packages: app.packages,
       kind: app.packages.some(hasGuiEvidence) ? "gui" : undefined,
       contentType: type === "game" ? "game" : undefined,

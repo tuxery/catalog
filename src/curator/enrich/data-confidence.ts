@@ -1,3 +1,4 @@
+import { sumBy } from "helpers4/array";
 import { agree as licensesAgree } from "helpers4/license";
 import type { SourcedPackage } from "../../sources";
 import { stripVariantSuffix } from "../match/group";
@@ -132,6 +133,6 @@ export function computeDataConfidence(
     }
   }
 
-  const score = signals.reduce((total, signal) => total + signal.delta, 0);
+  const score = sumBy(signals, (signal) => signal.delta);
   return { score, signals };
 }

@@ -1,3 +1,4 @@
+import { unique } from "helpers4/array";
 import { parallel } from "helpers4/promise";
 import { dedupeByKey } from "../_shared/dedupe";
 import { fetchOrThrow } from "../_shared/http";
@@ -102,7 +103,7 @@ async function fetchGameEnrichment(
  * fetch, same degrade-gracefully discipline as appimage's per-repo lookups.
  */
 async function enrichWithGames(entries: LutrisCacheEntry[]): Promise<LutrisCacheEntry[]> {
-  const slugs = [...new Set(entries.map((entry) => entry.gameSlug))];
+  const slugs = unique(entries.map((entry) => entry.gameSlug));
   const enrichments = await parallel(
     slugs.map((slug) => async () => ({
       slug,

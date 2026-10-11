@@ -1,3 +1,4 @@
+import { unique } from "helpers4/array";
 import { join } from "node:path";
 import { compareDebVersions } from "../_shared/deb-version";
 import { parseDeb822 } from "../_shared/deb822";
@@ -57,7 +58,7 @@ export async function fetchVendorRepos(cachePath: string): Promise<number> {
   const seeds = loadSeed();
   // Each distinct index once, in parallel; a failure is kept as the value so
   // it only affects the entries that read from that index.
-  const urls = [...new Set(seeds.map((seed) => seed.indexUrl))];
+  const urls = unique(seeds.map((seed) => seed.indexUrl));
   const indexes = new Map(
     await Promise.all(
       urls.map(

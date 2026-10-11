@@ -1,3 +1,4 @@
+import { withTempDir } from "helpers4/node";
 import { mkdir, readdir, readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import * as tar from "tar";
@@ -5,7 +6,6 @@ import { compactFormal, relationNames } from "../_shared/formal";
 import { fetchOrThrow } from "../_shared/http";
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
-import { withTempDir } from "../_shared/tempdir";
 import type { ArchCacheEntry, ArchFetchMetadata } from "./types";
 
 // Arch's official, pre-built package set is "core" + "extra" + "multilib"

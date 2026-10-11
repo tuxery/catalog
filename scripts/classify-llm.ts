@@ -1,3 +1,4 @@
+import { sumBy, unique } from "helpers4/array";
 import { writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { hasUpstreamCategory, type CatalogApp } from "../src/curator";
@@ -171,7 +172,7 @@ function deterministicType(app: CatalogApp): "app" | "game" {
 
 /** Prints the `top` most frequent keys of a count map, most frequent first. */
 function printTop(title: string, counts: Map<string, string[]>, top = 15): void {
-  const total = [...counts.values()].reduce((sum, list) => sum + list.length, 0);
+  const total = sumBy([...counts.values()], (list) => list.length);
   console.log(`\n${title}: ${total}`);
   // A fresh array from the spread, safe to sort in place — toSorted() needs
   // ES2023, beyond this tsconfig's lib (same as src/store/turso-client.ts).
@@ -210,7 +211,7 @@ function report(apps: CatalogApp[], entries: LlmClassificationEntry[]): void {
     const app = byId.get(entry.id);
     if (!app) continue;
     applied += 1;
-    const sources = [...new Set(app.packages.map((pkg) => pkg.source))].join("+");
+    const sources = unique(app.packages.map((pkg) => pkg.source)).join("+");
     const type = deterministicType(app);
     if (entry.type === "library" || entry.type === "other") {
       if (entry.confidence === "high") bump(hidden, `${entry.type} (${sources})`, app.name);

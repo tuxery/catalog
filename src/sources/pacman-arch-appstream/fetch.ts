@@ -1,3 +1,4 @@
+import { withTempDir } from "helpers4/node";
 import { gunzipSync, zstdDecompressSync } from "node:zlib";
 import { readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
@@ -6,7 +7,6 @@ import { parseAppstreamXml, type AppstreamComponent } from "../_shared/appstream
 import { fetchOrThrow } from "../_shared/http";
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
-import { withTempDir } from "../_shared/tempdir";
 import type { PacmanArchAppstreamCacheEntry, PacmanArchAppstreamFetchMetadata } from "./types";
 
 // Same mirror + arch as pacman-arch — the AppStream component's `pkgname` is

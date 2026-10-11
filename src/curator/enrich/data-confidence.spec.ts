@@ -2,7 +2,9 @@ import { describe, expect, it } from "vitest";
 import type { SourcedPackage } from "../../sources";
 import { computeDataConfidence, forceMatchedKeys } from "./data-confidence";
 
-function pkg(overrides: Partial<SourcedPackage> & Pick<SourcedPackage, "source" | "name">): SourcedPackage {
+function pkg(
+  overrides: Partial<SourcedPackage> & Pick<SourcedPackage, "source" | "name">,
+): SourcedPackage {
   return { description: "", version: "1.0", ...overrides };
 }
 
@@ -48,6 +50,28 @@ describe("computeDataConfidence", () => {
     expect(result.score).toBeLessThan(0);
   });
 
+  it("does not compare a product's own tracks, risks and flavors with its default build (real case: Firefox)", () => {
+    const packages = [
+      pkg({ source: "flatpak-flathub", name: "Firefox" }),
+      pkg({ source: "pacman-aur", name: "Firefox" }),
+      pkg({ source: "pacman-aur", name: "firefoxesr", track: "esr" }),
+      pkg({ source: "pacman-aur", name: "firefoxnightly", risk: "nightly" }),
+      pkg({ source: "pacman-aur", name: "firefoxvaapi", flavors: ["vaapi"] }),
+    ];
+    const result = computeDataConfidence(packages, new Set());
+    expect(result.signals.some((s) => s.signal === "name-disagreement")).toBe(false);
+  });
+
+  it("still flags two sources naming the default build differently when other builds exist", () => {
+    const packages = [
+      pkg({ source: "flatpak-flathub", name: "Jan" }),
+      pkg({ source: "pacman-aur", name: "Janlive" }),
+      pkg({ source: "pacman-aur", name: "jan-nightly", risk: "nightly" }),
+    ];
+    const result = computeDataConfidence(packages, new Set());
+    expect(result.signals.some((s) => s.signal === "name-disagreement")).toBe(true);
+  });
+
   it("penalizes a real license family conflict, distinct from notation drift", () => {
     const packages = [
       pkg({ source: "flatpak-flathub", name: "Yubico Authenticator", license: "BSD-2-Clause" }),
@@ -68,7 +92,9 @@ describe("computeDataConfidence", () => {
   });
 
   it("rewards a force-matched app regardless of other signals", () => {
-    const packages = [pkg({ source: "flatpak-flathub", name: "Firefox", appId: "org.mozilla.firefox" })];
+    const packages = [
+      pkg({ source: "flatpak-flathub", name: "Firefox", appId: "org.mozilla.firefox" }),
+    ];
     const forceKeys = new Set(["flatpak-flathub:org.mozilla.firefox"]);
     const result = computeDataConfidence(packages, forceKeys);
     expect(result.signals).toEqual([

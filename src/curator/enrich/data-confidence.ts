@@ -50,6 +50,11 @@ export function forceMatchedKeys(overrides: MatchOverrides): Set<string> {
   return keys;
 }
 
+/** The product's default line, at stable maturity, with no technical variant (docs/product-families.md). */
+function isDefaultBuild(pkg: SourcedPackage): boolean {
+  return pkg.track === undefined && pkg.risk === undefined && !pkg.flavors?.length;
+}
+
 function hasLicense(pkg: SourcedPackage): pkg is SourcedPackage & { license: string } {
   return Boolean(pkg.license);
 }
@@ -79,8 +84,18 @@ export function computeDataConfidence(
     // Same name equivalence the matcher itself used to justify grouping
     // these packages together (build-variant/channel-word suffixes
     // stripped first) — otherwise a correctly-merged AUR trio like
-    // `jan`/`jan-bin`/`jan-git` would read as a name conflict.
-    const names = new Set(packages.map((pkg) => normalizeName(stripVariantSuffix(pkg))));
+    // `jan`/`jan-bin`/`jan-git` would read as a name conflict. Only the
+    // product's default build is compared: its other tracks, risks and
+    // flavors (`firefox-esr`, `firefox-nightly`, `firefox-vaapi`) are named
+    // after themselves on purpose, and a disagreement means two sources
+    // naming the same build differently. A product with no default build
+    // among its members compares them all.
+    const defaultBuilds = packages.filter(isDefaultBuild);
+    const names = new Set(
+      (defaultBuilds.length > 0 ? defaultBuilds : packages).map((pkg) =>
+        normalizeName(stripVariantSuffix(pkg)),
+      ),
+    );
     if (names.size > 1) {
       signals.push({
         signal: "name-disagreement",

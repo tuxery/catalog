@@ -492,6 +492,7 @@ describe("precomputed browse keys", () => {
           id: "a",
           kind: "gui",
           category: "Utilities",
+          licenseKind: "free",
           packages: [
             { source: "flathub", name: "a" },
             { source: "snap", name: "a" },
@@ -527,6 +528,12 @@ describe("precomputed browse keys", () => {
     expect(count("gui:game:*:*")).toBeUndefined();
     // An app with no category counts toward category-less keys only.
     expect(count("all:all:aur:*")).toBe(1);
+    // Free-software counts, under their own prefix: only "a" is free.
+    const freeCount = (key: string): number | undefined =>
+      meta.has(`countFree:${GEN}:${key}`) ? Number(meta.get(`countFree:${GEN}:${key}`)) : undefined;
+    expect(freeCount("all:all:*:*")).toBe(1);
+    expect(freeCount("gui:app:snap:Utilities")).toBe(1);
+    expect(freeCount("all:game:*:*")).toBeUndefined();
     expect(
       [...meta.keys()].some((key) => key.startsWith(`count:${GEN}:`) && key.endsWith(":")),
     ).toBe(false);
@@ -537,6 +544,7 @@ describe("precomputed browse keys", () => {
     expect(JSON.parse(metaValue(swapMeta?.args as unknown[], "browseKeys") ?? "")).toEqual({
       generation: GEN,
       sourceIdsChunkSize: 500,
+      freeCounts: true,
     });
     expect(meta.has("browseKeys")).toBe(false);
   });
@@ -550,7 +558,7 @@ describe("precomputed browse keys", () => {
     const cleanup = execute.mock.calls
       .map(([statement]) => statement as { sql?: string; args?: unknown[] })
       .find((statement) => statement.sql?.includes("DELETE FROM meta"));
-    expect(cleanup?.args).toEqual([`count:${GEN}:%`, `sourceIds:${GEN}:%`]);
+    expect(cleanup?.args).toEqual([`count:${GEN}:%`, `countFree:${GEN}:%`, `sourceIds:${GEN}:%`]);
     expect(cleanup?.sql).toContain("NOT LIKE");
   });
 
@@ -632,6 +640,6 @@ describe("precomputed browse keys", () => {
           (await db.execute(`SELECT value FROM meta WHERE key = 'browseKeys'`)).rows[0]?.value,
         ),
       ),
-    ).toEqual({ generation: "20260201000000000", sourceIdsChunkSize: 500 });
+    ).toEqual({ generation: "20260201000000000", sourceIdsChunkSize: 500, freeCounts: true });
   });
 });

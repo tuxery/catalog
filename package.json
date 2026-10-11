@@ -28,12 +28,15 @@
     "fast-xml-parser": "^5.10.1",
     "helpers4": "^3.1.2",
     "plist": "^5.0.0",
+    "spdx-expression-parse": "^4.0.0",
+    "spdx-license-ids": "^3.0.22",
     "tar": "^7.5.22",
     "xz-decompress": "^0.2.3",
     "zod": "^4.4.3"
   },
   "devDependencies": {
     "@types/node": "26.6.4",
+    "@types/spdx-expression-parse": "^4.0.0",
     "oxfmt": "^0.63.0",
     "oxlint": "^1.76.0",
     "tsx": "^4.20.6",

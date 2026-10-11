@@ -1,5 +1,5 @@
 import { chunk } from "helpers4/array";
-import { delay } from "helpers4/promise";
+import { retry } from "helpers4/promise";
 import { createClient, type Client } from "@libsql/client";
 
 /**
@@ -761,18 +761,11 @@ const INDEX_RETRY_BASE_DELAY_MS = 500;
  * the same "already exists" error.
  */
 async function createIndexWithRetry(db: Client, indexSql: string): Promise<void> {
-  for (let attempt = 1; attempt <= INDEX_RETRY_ATTEMPTS; attempt += 1) {
-    try {
-      // eslint-disable-next-line no-await-in-loop
-      await db.execute(indexSql);
-      return;
-    } catch (error) {
-      const alreadyExists = error instanceof Error && /already exists/i.test(error.message);
-      if (!alreadyExists || attempt === INDEX_RETRY_ATTEMPTS) throw error;
-      // eslint-disable-next-line no-await-in-loop
-      await delay(attempt * INDEX_RETRY_BASE_DELAY_MS);
-    }
-  }
+  await retry(() => db.execute(indexSql), {
+    attempts: INDEX_RETRY_ATTEMPTS,
+    delayMs: (attempt) => attempt * INDEX_RETRY_BASE_DELAY_MS,
+    shouldRetry: (error) => error instanceof Error && /already exists/i.test(error.message),
+  });
 }
 
 function toBoolColumn(value: boolean | undefined): number | null {

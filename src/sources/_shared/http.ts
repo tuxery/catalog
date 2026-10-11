@@ -1,4 +1,5 @@
 import { gunzipSync, zstdDecompressSync } from "node:zlib";
+import { fetchOrThrow as fetchOrThrowHttp, HttpError } from "helpers4/promise";
 
 /**
  * Fetches `url` and throws a consistent, source-labeled error on any
@@ -13,11 +14,15 @@ export async function fetchOrThrow(
   label: string,
   init?: RequestInit,
 ): Promise<Response> {
-  const response = await fetch(url, init);
-  if (!response.ok) {
-    throw new Error(`Failed to fetch ${label}: ${response.status} ${response.statusText}`);
+  try {
+    return await fetchOrThrowHttp(url, init);
+  } catch (error) {
+    // helpers4's HttpError names the URL; the logs read better by source.
+    if (!(error instanceof HttpError)) throw error;
+    throw new Error(`Failed to fetch ${label}: ${error.status} ${error.statusText}`, {
+      cause: error,
+    });
   }
-  return response;
 }
 
 /**

@@ -1,5 +1,5 @@
 import { sumBy } from "helpers4/array";
-import { delay, parallel } from "helpers4/promise";
+import { parallel, retry } from "helpers4/promise";
 import { dedupeByKey } from "../_shared/dedupe";
 import { fetchOrThrow } from "../_shared/http";
 import { writeMetadata } from "../_shared/metadata";
@@ -251,19 +251,18 @@ export function applyCategories(
   });
 }
 
-async function find(params: string, label: string, attempt = 0): Promise<RawResult[]> {
+async function find(params: string, label: string): Promise<RawResult[]> {
   const url = `${FIND_URL}?${params}&fields=${FIELDS}`;
-  try {
-    const response = await fetchOrThrow(url, `Snapcraft "${label}"`, {
-      headers: { "Snap-Device-Series": DEVICE_SERIES },
-    });
-    const body = (await response.json()) as { results?: RawResult[] };
-    return body.results ?? [];
-  } catch (error) {
-    if (attempt + 1 >= FIND_RETRIES) throw error;
-    await delay(RETRY_BASE_DELAY_MS * 2 ** attempt);
-    return find(params, label, attempt + 1);
-  }
+  return retry(
+    async () => {
+      const response = await fetchOrThrow(url, `Snapcraft "${label}"`, {
+        headers: { "Snap-Device-Series": DEVICE_SERIES },
+      });
+      const body = (await response.json()) as { results?: RawResult[] };
+      return body.results ?? [];
+    },
+    { attempts: FIND_RETRIES, delayMs: (attempt) => RETRY_BASE_DELAY_MS * 2 ** (attempt - 1) },
+  );
 }
 
 /**

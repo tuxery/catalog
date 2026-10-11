@@ -6,31 +6,7 @@
     "properties": {
       "id": {
         "type": "string",
-        "description": "The provider's model id, exactly as its API expects it, e.g. 'gemini-3.8-flash' or 'openai/gpt-oss-20b'."
-      },
-      "provider": {
-        "type": "string",
-        "enum": ["gemini", "groq", "openai"],
-        "description": "Which API adapter serves this model — decides the request format, auth, and how quota errors are read. 'openai' is any OpenAI-compatible chat-completions API (Mistral, NVIDIA NIM, GitHub Models, OpenRouter, ...): it needs baseUrl and apiKeyEnv."
-      },
-      "baseUrl": {
-        "description": "OpenAI-compatible API root, without '/chat/completions' — e.g. 'https://api.mistral.ai/v1'. Required for provider 'openai', ignored otherwise.",
-        "type": "string",
-        "format": "uri"
-      },
-      "apiKeyEnv": {
-        "description": "Environment variable holding the API key, e.g. 'MISTRAL_API_KEY'. Required for provider 'openai'; defaults to GEMINI_API_KEY / GROQ_API_KEY for the other two.",
-        "type": "string",
-        "pattern": "^[A-Z][A-Z0-9_]*$"
-      },
-      "plainPrompt": {
-        "description": "true for models that accept neither a system instruction nor a JSON mode/schema (Gemma on the Gemini API): the system prompt is sent at the top of the user message, the JSON shape is only asked for in the prompt text, and parseResults copes with stray text around it.",
-        "type": "boolean"
-      },
-      "responseFormat": {
-        "description": "Provider 'openai' only: how to request JSON — a strict json_schema (default) or plain json_object, for APIs that don't support json_schema. Ignored when plainPrompt is true.",
-        "type": "string",
-        "enum": ["json_schema", "json_object"]
+        "description": "The Gemini API model id, exactly as the API expects it, e.g. 'gemini-3.8-flash'."
       },
       "enabled": {
         "type": "boolean",
@@ -40,35 +16,17 @@
         "type": "integer",
         "exclusiveMinimum": 0,
         "maximum": 9007199254740991,
-        "description": "Apps per request. Large for request-capped providers (Gemini); for token-capped ones (Groq), small enough that one request's input + output + reasoning tokens stay under tokensPerMinute."
+        "description": "Apps per request."
       },
       "requestsPerMinute": {
         "type": "number",
         "exclusiveMinimum": 0,
         "description": "Request pacing for this model — at or below its per-minute request quota."
       },
-      "tokensPerMinute": {
-        "description": "Token pacing for token-capped providers: after each request, the model's next slot is pushed back by (tokens used / tokensPerMinute) minutes. Omit for request-capped providers.",
-        "type": "integer",
-        "exclusiveMinimum": 0,
-        "maximum": 9007199254740991
-      },
-      "outputTokensPerMinute": {
-        "description": "Output-only token pacing, for providers that also cap output tokens per minute (Groq's qwen3.8-27b: 1,000). Same mechanism as tokensPerMinute, counting only output tokens.",
-        "type": "integer",
-        "exclusiveMinimum": 0,
-        "maximum": 9007199254740991
-      },
-      "maxOutputTokens": {
-        "description": "Explicit per-request output cap. Needed where the provider checks a request's *requested* output against a per-minute output cap before running it (Groq rejects the request outright otherwise). Keep batchSize small enough that its answers fit — a truncated answer is unparseable and the batch moves to the next model.",
-        "type": "integer",
-        "exclusiveMinimum": 0,
-        "maximum": 9007199254740991
-      },
       "reasoning": {
         "type": "string",
-        "enum": ["none", "minimal", "low", "medium", "high"],
-        "description": "Reasoning effort, mapped to the provider's own parameter (Gemini thinkingLevel, Groq reasoning_effort; not sent for provider 'openai' or plainPrompt models, whose APIs vary) — reasoning tokens count against quota, and classifying from a name + one line rarely needs more than 'low'. Not every model accepts every level (e.g. Groq's gpt-oss has no 'none')."
+        "enum": ["minimal", "low", "medium", "high"],
+        "description": "Gemini thinkingLevel ('minimal' is its floor) — reasoning tokens count against quota, and classifying from a name + one line rarely needs more than 'low'."
       },
       "overloadRetries": {
         "type": "integer",
@@ -83,7 +41,6 @@
     },
     "required": [
       "id",
-      "provider",
       "enabled",
       "batchSize",
       "requestsPerMinute",
@@ -94,5 +51,5 @@
     "additionalProperties": false
   },
   "title": "Enrich: LLM models",
-  "description": "The models `pnpm classify-llm` rotates through, in priority order, with per-model batch size, pacing, reasoning effort, and overload-retry settings tuned to each provider's free-tier quota shape."
+  "description": "The Gemini models `pnpm classify-llm` rotates through, in priority order, with per-model batch size, pacing, reasoning effort, and overload-retry settings tuned to the free-tier quota."
 }

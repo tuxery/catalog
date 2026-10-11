@@ -25,7 +25,7 @@ import { createRotation, StopRun } from "./_llm-rotation";
  *   pnpm triage-llm --signals declared-relation,same-name
  *   pnpm triage-llm --limit 100           # at most 100 suspects this run
  *   pnpm triage-llm --sample 10           # real calls, printed, not saved
- *   pnpm triage-llm --models qwen/qwen3.8-27b --max-requests 5
+ *   pnpm triage-llm --models gemini-3.1-flash-lite --max-requests 5
  *
  * Suggestions are shown on the review page next to human verdicts and are
  * never applied to config on their own.

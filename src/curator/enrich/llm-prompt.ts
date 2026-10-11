@@ -72,11 +72,9 @@ function glossed<T extends string>(labels: readonly T[], gloss: Record<T, string
 }
 
 /**
- * Identical for every request and placed first, so providers that discount
- * cached prefixes (Groq doesn't count them against rate limits) can reuse
- * it. The lists are spelled out, not only enforced downstream: Groq
- * validates schemas after generation rather than while decoding, and models
- * invented off-list categories when the list wasn't in the prompt. `n`
+ * Identical for every request and placed first, so implicit prompt caching
+ * can reuse it. The lists are spelled out, not only enforced downstream:
+ * models invented off-list categories when the list wasn't in the prompt. `n`
  * echoes the item's 1-based position rather than its name: two apps in one
  * batch can share a display name. Output format: see outputSchema in
  * `scripts/_llm-providers.ts` for why it's one pipe-separated string per app.

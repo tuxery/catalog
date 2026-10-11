@@ -370,6 +370,20 @@ describe("looksLikeSupportPackage", () => {
 });
 
 describe("looksLikeSupportDescription", () => {
+  it("flags transitional and placeholder packages, not apps mentioning a transition", () => {
+    expect(
+      looksLikeSupportDescription("text-based tool to analyze PE files (transitional package)"),
+    ).toBe(true);
+    expect(looksLikeSupportDescription("Simple video player (transitional dummy package)")).toBe(
+      true,
+    );
+    expect(
+      looksLikeSupportDescription("Extra drivers for nvidia-590 (dummy transitional package)"),
+    ).toBe(true);
+    expect(looksLikeSupportDescription("Placeholder package, name reserved")).toBe(true);
+    expect(looksLikeSupportDescription("Smooth transitional effects for your desktop")).toBe(false);
+  });
+
   it("flags a package that describes itself as a library, regardless of its name", () => {
     expect(looksLikeSupportDescription("A Python library for creating PEG parsers")).toBe(true);
     expect(looksLikeSupportDescription("Library for text rendering with SDL")).toBe(true);

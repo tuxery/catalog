@@ -90,10 +90,15 @@ function unionByExactKey(
 // literally use the package name as appId), so the same collision is
 // reachable there too, not just through normalized names.
 //
-// `terminal` was checked and NOT excluded: its only multi-source cluster
-// (void + gentoo, both "Terminal"/"terminal") is the exact same GNUstep
-// terminal-emulator project referenced from two sources — a correct
-// merge, not a bug.
+// - `terminal` / `text editor` / `image viewer` / `video player` /
+//   `document viewer` / `screenshot` — GNOME-style role names that distro
+//   AppStream feeds and Snap display for unrelated apps (measured
+//   2026-10-11: Ptyxis, GNOME Terminal and Pantheon Terminal; Loupe,
+//   GPicView and Sugar's image viewer; Evince and Xreader; Showtime and
+//   Kylin Video). They chained those into groups of 28 to 51 packages.
+//   `terminal` was once left out because void + gentoo's "terminal" is
+//   the same GNUstep project; that pair now needs a `match-force.json`
+//   entry if it matters.
 //
 // - `zen` — Flathub's Zen Browser (`app.zen_browser.zen`) vs. an
 //   unrelated AUR "zen" ("Reduce your stress with the C language...") —
@@ -149,6 +154,12 @@ const GENERIC_NAME_BLOCKLIST = new Set([
   "singularity",
   "ace",
   "bass",
+  "terminal",
+  "text editor",
+  "image viewer",
+  "video player",
+  "document viewer",
+  "screenshot",
 ]);
 
 /**
@@ -722,8 +733,16 @@ export function groupPackages(
     overrides.denyPairs,
   );
 
-  // Tier 2: exact normalized-name match.
-  unionByExactKey(uf, packages, tier2Key, overrides.denyPairs);
+  // Tier 2: exact normalized-name match. Components of a multi-app package
+  // stay out: they're named after the app they are ("Mines", "Map"), but
+  // share the package's node, so one generic-name hit would pull in the
+  // package's every other app (sgt-puzzles' 40 puzzles into GNOME Mines).
+  unionByExactKey(
+    uf,
+    packages,
+    (pkg) => (ambiguous.has(packageKey(pkg)) ? undefined : tier2Key(pkg)),
+    overrides.denyPairs,
+  );
 
   // Tier 2b: AUR's gog-* wrappers onto the matching GOG.com listing.
   unionByExactKey(uf, packages, gogWrapperKey, overrides.denyPairs);

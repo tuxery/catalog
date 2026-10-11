@@ -2,6 +2,16 @@ import { describe, expect, it } from "vitest";
 import { normalize } from "./normalize";
 import type { LutrisCacheEntry } from "./types";
 
+const storeEntry = (installerSlug: string, version?: string): LutrisCacheEntry => ({
+  gameId: 1,
+  gameSlug: "x",
+  installerSlug,
+  name: "X",
+  description: "",
+  genres: [],
+  version,
+});
+
 describe("lutris normalize", () => {
   it("maps a cache entry to a SourcedPackage", () => {
     const entry: LutrisCacheEntry = {
@@ -108,23 +118,13 @@ describe("lutris normalize", () => {
   });
 
   it("sets hasGameCategory for a build from a games-only storefront, by label or slug (real cases: Septerra Core, Post Hello)", () => {
-    const entry = (installerSlug: string, version?: string): LutrisCacheEntry => ({
-      gameId: 1,
-      gameSlug: "x",
-      installerSlug,
-      name: "X",
-      description: "",
-      genres: [],
-      version,
-    });
-
-    expect(normalize([entry("septerra-core-gog", "GOG")])[0]?.hasGameCategory).toBe(true);
-    expect(normalize([entry("ar-k-humble-64bit", "Humble (64-bit)")])[0]?.hasGameCategory).toBe(
-      true,
-    );
-    expect(normalize([entry("post-hello-gamejolt")])[0]?.hasGameCategory).toBe(true);
+    expect(normalize([storeEntry("septerra-core-gog", "GOG")])[0]?.hasGameCategory).toBe(true);
     expect(
-      normalize([entry("discord-flatpak-latest", "Flatpak latest")])[0]?.hasGameCategory,
+      normalize([storeEntry("ar-k-humble-64bit", "Humble (64-bit)")])[0]?.hasGameCategory,
+    ).toBe(true);
+    expect(normalize([storeEntry("post-hello-gamejolt")])[0]?.hasGameCategory).toBe(true);
+    expect(
+      normalize([storeEntry("discord-flatpak-latest", "Flatpak latest")])[0]?.hasGameCategory,
     ).toBeUndefined();
   });
 

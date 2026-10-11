@@ -93,6 +93,43 @@ jobs:
             echo "::warning::Sources that failed to refresh:$failed"
           fi
 
+      # New and changed apps get their LLM verdict (app/game/library/other)
+      # in the same PR as the caches, instead of waiting for a manual
+      # multi-day run. The queue is incremental (only apps without an
+      # entry), so a weekly refresh means a few requests: capped at 20
+      # (Gemini's free tier allows ~20/day per model) and never waiting
+      # for a resting model. Skipped, not failed, without GEMINI_API_KEY;
+      # a failed run leaves the caches PR untouched.
+      - name: Classify new apps with the LLM
+        continue-on-error: true
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          set -o pipefail
+          if [ -z "$GEMINI_API_KEY" ]; then
+            echo "::notice::GEMINI_API_KEY not set, skipping classify-llm"
+            exit 0
+          fi
+          pnpm exec tsx scripts/classify-llm.ts --max-requests 20 --max-idle 0 2>&1 | tee classify.log
+          {
+            echo "### LLM classification"
+            echo '```'
+            grep -E "^(Queue|To classify|Done|Stopped|  [a-z0-9.-]+: [0-9]+ requests)" classify.log || true
+            echo '```'
+          } > classify-summary.md
+
+      - name: Write the PR body
+        run: |
+          {
+            echo 'Automated weekly refresh of `src/sources/cache/*.ndjson`, plus LLM'
+            echo 'verdicts for the apps it adds (`config/llm-classifications.json`).'
+            echo 'See the "Refresh source caches" workflow run for any sources'
+            echo 'that failed to refresh (left at their last successful state,'
+            echo 'not blocking the others).'
+            echo
+            cat classify-summary.md 2>/dev/null || echo "LLM classification skipped or failed, see the run log."
+          } > pr-body.md
+
       # main is branch-protected (PR + rebase only, org-wide since the
       # PoC exit) -- a scheduled bot can't push straight to it, so this
       # opens a PR the same way a human would, rather than assuming a
@@ -104,11 +141,9 @@ jobs:
           token: ${{ steps.pushinator.outputs.token }}
           commit-message: "chore(sources): 🔧 scheduled source cache refresh"
           title: "chore(sources): scheduled source cache refresh"
-          body: |
-            Automated weekly refresh of `src/sources/cache/*.ndjson`.
-            See the "Refresh source caches" workflow run for any sources
-            that failed to refresh (left at their last successful state,
-            not blocking the others).
+          body-path: pr-body.md
           branch: chore/scheduled-source-refresh
           delete-branch: true
-          add-paths: src/sources/cache/
+          add-paths: |
+            src/sources/cache/
+            config/llm-classifications.json

@@ -2,7 +2,6 @@ allowBuilds:
   esbuild: true
 minimumReleaseAgeExclude:
   - helpers4
-  - '@helpers4/*'
 
 # plist's own @xmldom/xmldom dependency sits below several patched
 # XML-injection advisories (GHSA-6mj3-qw4j-hgrw and others, all fixed in

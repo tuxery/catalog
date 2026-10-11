@@ -1,0 +1,52 @@
+name: Suggest a fix
+description: Something on an app or game's page could be better or more precise — say what, and how to fix it
+title: "[fix] "
+labels: ["help wanted"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping! No need to be sure: a hint is already useful, and someone from the community can pick it up from there.
+  - type: input
+    id: link
+    attributes:
+      label: Link
+      description: The app or game page on Tuxery.
+    validations:
+      required: false
+  - type: dropdown
+    id: field
+    attributes:
+      label: What could be better?
+      options:
+        - License
+        - Name
+        - Description
+        - Category
+        - Icon or screenshots
+        - Homepage or other links
+        - Install instructions
+        - Something else
+    validations:
+      required: true
+  - type: input
+    id: current
+    attributes:
+      label: What Tuxery shows today
+      description: Copied from the page, if it helps.
+    validations:
+      required: false
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Your suggestion
+      description: The correct or more precise value, as far as you know it (for a license, its SPDX id if you can, e.g. GPL-3.0-or-later).
+    validations:
+      required: true
+  - type: input
+    id: evidence
+    attributes:
+      label: Where it comes from
+      description: A link backing it up (the project's own site, repository, LICENSE file, ...), if you have one.
+    validations:
+      required: false

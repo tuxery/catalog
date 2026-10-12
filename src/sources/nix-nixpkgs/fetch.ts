@@ -13,6 +13,9 @@ const PACKAGES_URL = "https://channels.nixos.org/nixos-unstable/packages.json.br
 // number of i686-linux (32-bit) entries, excluded.
 const SYSTEM = "x86_64-linux";
 
+/** One `meta.license`: an attrset (`spdxId` when nixpkgs knows it), or a bare lowercase id as text. */
+type RawLicense = string | { spdxId?: string; fullName?: string; shortName?: string };
+
 interface RawPackage {
   pname?: string;
   version?: string;
@@ -20,6 +23,8 @@ interface RawPackage {
   meta?: {
     description?: string;
     homepage?: string | string[];
+    longDescription?: string;
+    license?: RawLicense | RawLicense[];
     broken?: boolean;
     available?: boolean;
   };
@@ -37,6 +42,21 @@ interface RawDump {
 export function extractPrefix(attrPath: string): string | undefined {
   const dotIndex = attrPath.indexOf(".");
   return dotIndex === -1 ? undefined : attrPath.slice(0, dotIndex);
+}
+
+/**
+ * `meta.license` as one expression: each license is its `spdxId`, else
+ * its `fullName`/`shortName`; a list means every one applies (AND).
+ * `undefined` when there is none. Pure — no I/O.
+ */
+export function nixLicense(license: RawLicense | RawLicense[] | undefined): string | undefined {
+  const terms = (Array.isArray(license) ? license : [license])
+    .map((entry) =>
+      typeof entry === "string" ? entry : (entry?.spdxId ?? entry?.fullName ?? entry?.shortName),
+    )
+    .map((term) => term?.trim())
+    .filter((term): term is string => Boolean(term));
+  return terms.length > 0 ? [...new Set(terms)].join(" AND ") : undefined;
 }
 
 /**
@@ -60,6 +80,8 @@ export function mapPackages(packages: Record<string, RawPackage>): NixpkgsCacheE
       description: pkg.meta?.description ?? "",
       version: pkg.version ?? "unknown",
       homepage: Array.isArray(homepage) ? homepage[0] : homepage,
+      longDescription: pkg.meta?.longDescription?.trim() || undefined,
+      license: nixLicense(pkg.meta?.license),
       prefix: extractPrefix(attrPath),
     });
   }

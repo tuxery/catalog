@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { extractPrefix, mapPackages } from "./fetch";
+import { extractPrefix, mapPackages, nixLicense } from "./fetch";
 
 describe("extractPrefix", () => {
   it("returns the part before the first dot", () => {
@@ -15,7 +15,53 @@ describe("extractPrefix", () => {
   });
 });
 
+describe("nixLicense", () => {
+  it("takes the spdxId of an attrset (vlc, 2026-10-12)", () => {
+    expect(
+      nixLicense({
+        fullName: "GNU Lesser General Public License v2.1 or later",
+        shortName: "lgpl21Plus",
+        spdxId: "LGPL-2.1-or-later",
+      }),
+    ).toBe("LGPL-2.1-or-later");
+  });
+
+  it("falls back to the full name when nixpkgs has no SPDX id, and ANDs a list", () => {
+    expect(
+      nixLicense([
+        { fullName: "zlib License", shortName: "zlib", spdxId: "Zlib" },
+        { fullName: "Public Domain", shortName: "publicDomain" },
+      ]),
+    ).toBe("Zlib AND Public Domain");
+  });
+
+  it("keeps a bare id as text and ignores nothing-at-all", () => {
+    expect(nixLicense("agpl-3.0-only")).toBe("agpl-3.0-only");
+    expect(nixLicense(undefined)).toBeUndefined();
+    expect(nixLicense([])).toBeUndefined();
+  });
+});
+
 describe("mapPackages", () => {
+  it("keeps the long description and license", () => {
+    const [entry] = mapPackages({
+      hello: {
+        pname: "hello",
+        version: "2.12.2",
+        system: "x86_64-linux",
+        meta: {
+          longDescription: 'GNU Hello is a program that prints "Hello, world!".\n',
+          license: { spdxId: "GPL-3.0-or-later", fullName: "GNU GPL v3.0 or later" },
+        },
+      },
+    });
+
+    expect(entry).toMatchObject({
+      longDescription: 'GNU Hello is a program that prints "Hello, world!".',
+      license: "GPL-3.0-or-later",
+    });
+  });
+
   it("maps a package to a cache entry, deriving the prefix from the attr path", () => {
     const packages = {
       "kdePackages.akregator": {

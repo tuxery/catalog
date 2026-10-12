@@ -3,6 +3,7 @@ import { parsePackages } from "./fetch";
 
 const FIXTURE = `Package: 0ad
 Version: 0.27.0-2+b1ubuntu1
+Installed-Size: 54427
 Architecture: amd64
 Description: Real-time strategy game of ancient warfare
  Longer description on a continuation line.
@@ -25,6 +26,11 @@ describe("parsePackages", () => {
   it("extracts version and homepage", () => {
     expect(entries[0]?.version).toBe("0.27.0-2+b1ubuntu1");
     expect(entries[0]?.homepage).toBe("https://play0ad.com/");
+  });
+
+  it("converts Installed-Size from KiB to bytes", () => {
+    expect(entries[0]?.installedSizeBytes).toBe(54427 * 1024);
+    expect(entries[1]?.installedSizeBytes).toBeUndefined();
   });
 
   it("leaves homepage undefined when the field is absent", () => {

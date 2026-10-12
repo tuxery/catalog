@@ -298,7 +298,8 @@ export interface SourcedPackage {
    * Installed size in bytes, as the package manager reports it (RPM's
    * `size installed`, Arch's `%ISIZE%`, Debian's `Installed-Size`). Not
    * comparable to `approxSizeBytes` (a Flatpak download without its
-   * runtime), so it stays per package. Not populated by any connector yet.
+   * runtime), so it stays per package. Filled by the RPM, Arch, Alpine, Void,
+   * Solus and Debian/Ubuntu connectors.
    */
   installedSizeBytes?: number;
   /** See `FormalSignals`. Used by the curator only — the store doesn't publish it. */

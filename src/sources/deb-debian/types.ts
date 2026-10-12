@@ -20,6 +20,8 @@ export interface DebianCacheEntry {
   component: string;
   /** Debian's `Section` field, e.g. "libs", "games", "doc" — see SourcedPackage.section. */
   section?: string;
+  /** `Installed-Size` (KiB upstream) in bytes — see `SourcedPackage.installedSizeBytes`. */
+  installedSizeBytes?: number;
   /** `Source`/`Provides`/`Conflicts`/`Replaces`/`Depends`/`Enhances` — see `FormalSignals`. */
   formal?: FormalSignals;
   /**

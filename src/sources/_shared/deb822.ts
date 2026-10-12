@@ -1,4 +1,5 @@
 import type { FormalSignals } from "../types";
+import { positiveInt } from "./epoch";
 import { compactFormal, debRelationNames, relationName } from "./formal";
 
 /**
@@ -80,6 +81,12 @@ export function parseDebtags(raw: string): string[] {
     .split(",")
     .map((tag) => tag.trim())
     .filter((tag) => tag.length > 0);
+}
+
+/** A Packages stanza's `Installed-Size` (KiB) in bytes, `undefined` when absent or not a positive whole number. */
+export function debInstalledSizeBytes(fields: Record<string, string>): number | undefined {
+  const kib = positiveInt(fields["Installed-Size"]);
+  return kib === undefined ? undefined : kib * 1024;
 }
 
 /**

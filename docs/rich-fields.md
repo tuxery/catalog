@@ -85,7 +85,9 @@ Snap's is often `Other`.
 When it doesn't ("GPL3" says neither -only nor -or-later), it comes from
 the best-ranked other source whose license agrees with it
 (`helpers4/license`'s `agree`): Fedora's "GPL-3.0-or-later" gives the
-SPDX form of Flathub's "GPL3". A disagreeing source never does.
+SPDX form of Flathub's "GPL3". A disagreeing source never does. Neither does one whose expression holds a distro's own
+identifiers (`LicenseRef-Callaway-BSD`, `LicenseRef-Fedora-...`,
+`LicenseRef-SUSE-...`), which mean nothing outside that distro.
 
 `custom` and `LicenseRef-...` are real licenses (proprietary or
 source-available, with a URL): they win like any other. Only

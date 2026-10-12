@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import type { SourcedPackage } from "../../sources";
 import {
   FIELD_PRIORITY,
+  pickAgeRating,
   pickLanguages,
   pickLastUpdated,
   pickLicense,
@@ -158,6 +159,37 @@ describe("pickLicense", () => {
 
   it("is empty when no package has a usable license", () => {
     expect(pickLicense([pkg({ license: "unknown" })])).toEqual({});
+  });
+});
+
+describe("pickAgeRating", () => {
+  it("takes the strictest minimum age among the sources", () => {
+    const packages = [
+      pkg({ source: "flatpak-flathub", ageRating: { system: "OARS", value: "mild", minAge: 3 } }),
+      pkg({ source: "gog", ageRating: { system: "PEGI", value: "16", minAge: 16 } }),
+      pkg({
+        source: "deb-debian-appstream",
+        ageRating: { system: "OARS", value: "mild", minAge: 9 },
+      }),
+    ];
+    expect(pickAgeRating(packages)).toEqual({ system: "min-age", value: "16" });
+  });
+
+  it("keeps age 0 (all ages) and is undefined without any rating", () => {
+    expect(
+      pickAgeRating([
+        pkg({ source: "flatpak-flathub", ageRating: { system: "OARS", value: "none", minAge: 0 } }),
+      ]),
+    ).toEqual({ system: "min-age", value: "0" });
+    expect(pickAgeRating([pkg({})])).toBeUndefined();
+  });
+
+  it("ignores a source the field doesn't list", () => {
+    expect(
+      pickAgeRating([
+        pkg({ source: "snap-snapcraft", ageRating: { system: "OARS", value: "x", minAge: 18 } }),
+      ]),
+    ).toBeUndefined();
   });
 });
 

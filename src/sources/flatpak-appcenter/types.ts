@@ -1,5 +1,5 @@
 import type { FetchMetadata } from "../_shared/metadata";
-import type { FormalSignals, ProjectLinks, ReleaseEntry } from "../types";
+import type { FormalSignals, ProjectLinks, ReleaseEntry, AgeRating } from "../types";
 
 /**
  * One `<component>` entry from elementary AppCenter's appstream
@@ -38,7 +38,7 @@ export interface AppCenterCacheEntry {
   /** See `SourcedPackage.videos`. */
   videos?: string[];
   /** See `SourcedPackage.ageRating`. */
-  ageRating?: { system: string; value: string };
+  ageRating?: AgeRating;
   /** See `SourcedPackage.requirements`. */
   requirements?: string;
   /** See `SourcedPackage.languages`. */

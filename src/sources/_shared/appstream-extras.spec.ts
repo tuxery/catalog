@@ -2,19 +2,29 @@ import { describe, expect, it } from "vitest";
 import { pickPlayableVideo, summarizeContentRating, summarizeRelations } from "./appstream-extras";
 
 describe("summarizeContentRating", () => {
-  it("is the strongest intensity", () => {
-    expect(summarizeContentRating(["none", "mild", "intense", "moderate"])).toEqual({
-      system: "OARS",
-      value: "intense",
-    });
+  it("takes the highest age among the attributes and the strongest intensity", () => {
+    expect(
+      summarizeContentRating([
+        { id: "violence-cartoon", value: "mild" },
+        { id: "social-chat", value: "moderate" },
+        { id: "money-gambling", value: "intense" },
+        { id: "language-humor", value: "none" },
+      ]),
+    ).toEqual({ system: "OARS", value: "intense", minAge: 18 });
   });
 
-  it("is none without any attribute", () => {
-    expect(summarizeContentRating([])).toEqual({ system: "OARS", value: "none" });
+  it("is age 0, none, without any attribute", () => {
+    expect(summarizeContentRating([])).toEqual({ system: "OARS", value: "none", minAge: 0 });
   });
 
-  it("is undefined for an intensity it doesn't know", () => {
-    expect(summarizeContentRating(["mild", "extreme"])).toBeUndefined();
+  it("ignores an intensity or an attribute it doesn't know", () => {
+    expect(
+      summarizeContentRating([
+        { id: "violence-cartoon", value: "mild" },
+        { id: "violence-cartoon", value: "extreme" },
+        { id: "made-up", value: "intense" },
+      ]),
+    ).toEqual({ system: "OARS", value: "intense", minAge: 3 });
   });
 });
 

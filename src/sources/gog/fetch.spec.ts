@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { mapProductDetails, mapProducts, resolveScreenshotUrl } from "./fetch";
+import { mapProductDetails, pickAgeRating, mapProducts, resolveScreenshotUrl } from "./fetch";
 
 describe("resolveScreenshotUrl", () => {
   it("substitutes the {formatter} placeholder for a verified-working size", () => {
@@ -140,5 +140,29 @@ describe("mapProducts publisher", () => {
       },
     ]);
     expect(entry?.publisher).toBe("Campo Santo, Panic");
+  });
+});
+
+describe("pickAgeRating", () => {
+  // Firewatch's ratings in catalog.gog.com, 2026-10-12.
+  const firewatch = [
+    { name: "pegiRating", ageRating: "16" },
+    { name: "esrbRating", ageRating: "17" },
+  ];
+
+  it("takes PEGI first, then ESRB, then USK", () => {
+    expect(pickAgeRating(firewatch)).toEqual({ system: "PEGI", value: "16", minAge: 16 });
+    expect(pickAgeRating(firewatch.slice(1))).toEqual({ system: "ESRB", value: "17", minAge: 17 });
+    expect(pickAgeRating([{ name: "uskRating", ageRating: "0" }])).toEqual({
+      system: "USK",
+      value: "0",
+      minAge: 0,
+    });
+  });
+
+  it("ignores systems it doesn't map and unreadable ages", () => {
+    expect(pickAgeRating([{ name: "gogRating", ageRating: "18" }])).toBeUndefined();
+    expect(pickAgeRating([{ name: "pegiRating", ageRating: "n/a" }])).toBeUndefined();
+    expect(pickAgeRating(undefined)).toBeUndefined();
   });
 });

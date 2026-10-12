@@ -448,11 +448,19 @@ describe("parseAppstreamXml: content rating, requirements and videos", () => {
   const byId = (id: string) => entries.find((entry) => entry.id === id);
 
   it("summarizes the OARS 1.1 rating as its strongest intensity", () => {
-    expect(byId("org.example.Rated")?.ageRating).toEqual({ system: "OARS", value: "moderate" });
+    expect(byId("org.example.Rated")?.ageRating).toEqual({
+      system: "OARS",
+      value: "moderate",
+      minAge: 10,
+    });
   });
 
   it("reads an empty content_rating as none, and no content_rating as nothing", () => {
-    expect(byId("org.example.Checked")?.ageRating).toEqual({ system: "OARS", value: "none" });
+    expect(byId("org.example.Checked")?.ageRating).toEqual({
+      system: "OARS",
+      value: "none",
+      minAge: 0,
+    });
     expect(byId("org.example.Unrated")?.ageRating).toBeUndefined();
   });
 

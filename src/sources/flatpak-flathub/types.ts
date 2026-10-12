@@ -1,5 +1,5 @@
 import type { FetchMetadata } from "../_shared/metadata";
-import type { FormalSignals, ProjectLinks, ReleaseEntry, StoreCollectionTag } from "../types";
+import type { FormalSignals, ProjectLinks, ReleaseEntry, StoreCollectionTag, AgeRating } from "../types";
 
 /**
  * One `<component>` entry from Flathub's appstream repodata
@@ -36,7 +36,7 @@ export interface FlathubCacheEntry {
   /** See `SourcedPackage.videos`. */
   videos?: string[];
   /** See `SourcedPackage.ageRating`. */
-  ageRating?: { system: string; value: string };
+  ageRating?: AgeRating;
   /** See `SourcedPackage.requirements`. */
   requirements?: string;
   /** See `SourcedPackage.languages`. */

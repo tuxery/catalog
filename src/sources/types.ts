@@ -225,8 +225,8 @@ export interface SourcedPackage {
   pushedAt?: string;
   /** Video files (MP4/WebM, never a streaming page), one per screenshot that has one — AppStream's `<screenshot><video>`. */
   videos?: string[];
-  /** The app's content rating as `{ system, value }`: AppStream's `<content_rating>` (OARS) reduced to its strongest intensity (`none`, `mild`, `moderate`, `intense`). */
-  ageRating?: { system: string; value: string };
+  /** This source's content rating, with the minimum age it implies — see `AgeRating`. */
+  ageRating?: AgeRating;
   /** What the app needs and supports (controls, display size, internet) as one readable line, from AppStream's `<requires>`/`<recommends>`/`<supports>`. */
   requirements?: string;
   /** The sandbox permissions the package asks for, one readable line each — Flatpak's `finish-args`. */
@@ -362,6 +362,19 @@ export interface FormalSignals {
   extends?: string[];
   /** AppStream component type when the source is AppStream (`desktop-application`, `console-application`, `addon`, `localization`, ...). */
   componentType?: string;
+}
+
+/**
+ * A content rating as one source states it, with the minimum age it
+ * implies so that ratings from different systems share one scale.
+ */
+export interface AgeRating {
+  /** The rating system: `OARS` (AppStream), `PEGI` or `ESRB` (GOG). */
+  system: string;
+  /** The source's own wording, for the per-source detail: OARS's strongest intensity (`none`, `mild`, `moderate`, `intense`), or the PEGI/ESRB age. */
+  value: string;
+  /** Minimum age in years on the unified scale; 0 for all ages. OARS goes through Common Sense Media's table, see `_shared/oars.ts`. */
+  minAge: number;
 }
 
 export type StoreCollectionTag = "verified" | "recently-added" | "recently-updated" | "featured";

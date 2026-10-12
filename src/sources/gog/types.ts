@@ -1,4 +1,5 @@
 import type { FetchMetadata } from "../_shared/metadata";
+import type { AgeRating } from "../types";
 
 /**
  * One product from GOG's catalog API (catalog.gog.com/v1/catalog), the
@@ -26,6 +27,8 @@ export interface GogCacheEntry {
   rating?: { average: number; count: number };
   /** GOG's own genre tag slugs (e.g. "rpg", "strategy", "pointandclick") — see `normalize.ts`'s GOG_GENRE_SLUG_TO_GENRE_CATEGORY for how these map to a `categories-games.json` genre. */
   genres: string[];
+  /** See `SourcedPackage.ageRating`: PEGI, else ESRB, else USK. */
+  ageRating?: AgeRating;
 }
 
 export interface GogFetchMetadata extends FetchMetadata {

@@ -103,7 +103,8 @@ export const FIELD_PRIORITY: Record<RichField, readonly PackageSourceId[]> = {
   // Flathub's download size. Distros' installed sizes measure something
   // else and stay on each package (`SourcedPackage.installedSizeBytes`).
   approxSizeBytes: ["flatpak-flathub"],
-  ageRating: [...UPSTREAM_STORES, ...DISTRO_APPSTREAM],
+  // See `pickAgeRating`: the strictest of these, not the first.
+  ageRating: [...UPSTREAM_STORES, ...DISTRO_APPSTREAM, "gog"],
   requirements: [...UPSTREAM_STORES, ...DISTRO_APPSTREAM],
   // The Flatpak's own sandbox: other formats' confinement is per package.
   permissions: ["flatpak-flathub"],
@@ -187,6 +188,19 @@ export function pickLicense(
     licenseSpdx,
     licenseKind: kind === "unknown" ? undefined : kind,
   };
+}
+
+/**
+ * One age on the unified scale (minimum age in years) from every member
+ * package's own rating: the strictest wins, since a source that rated
+ * higher saw something the others may have missed. Each package keeps
+ * its own rating for the per-source detail. `undefined` when none has one.
+ */
+export function pickAgeRating(packages: SourcedPackage[]): CatalogApp["ageRating"] {
+  const ages = rankedCandidates("ageRating", packages, (pkg) => pkg.ageRating).map(
+    (pkg) => pkg.ageRating?.minAge ?? 0,
+  );
+  return ages.length > 0 ? { system: "min-age", value: String(Math.max(...ages)) } : undefined;
 }
 
 /**

@@ -1,4 +1,4 @@
-import type { ProjectLinks } from "../types";
+import type { ProjectLinks, AgeRating } from "../types";
 import type { FetchMetadata } from "../_shared/metadata";
 
 /**
@@ -36,7 +36,7 @@ export interface DebianAppstreamCacheEntry {
   /** See `SourcedPackage.screenshots`. */
   screenshots: string[];
   /** See `SourcedPackage.ageRating`. */
-  ageRating?: { system: string; value: string };
+  ageRating?: AgeRating;
   /** See `SourcedPackage.requirements`. */
   requirements?: string;
   /** See `SourcedPackage.languages`. */

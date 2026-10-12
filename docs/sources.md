@@ -109,7 +109,7 @@ because a paragraph per cell made the table unreadable.
    intermittently resets a connection under that load) a few times with
    exponential backoff rather than failing the whole multi-minute fetch.
    `find` returns one channel per snap, so each discovered snap then gets
-   one `/v2/snaps/info/<name>?fields=channel-map` call (8 at a time): its
+   one `/v2/snaps/info/<name>?fields=version,channel-map` call (8 at a time): its
    amd64 channels (branches dropped) become the cache row's `channels`,
    and `normalize` emits one package per channel, split into track × risk
    (docs/product-families.md). A snap whose call fails keeps its single

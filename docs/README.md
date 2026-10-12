@@ -10,6 +10,9 @@ rather than as a comment scattered across packages.
 - [`product-families.md`](product-families.md) — product, track, risk,
   flavor, provenance, companion and relation: what each means and how
   the curator decides it.
+- [`rich-fields.md`](rich-fields.md) — which sources fill each rich
+  field (icon, license, screenshots, ...), which one wins when they
+  disagree, and how to add a source to a field.
 
 Roadmap and task tracking stay on the
 [Tuxery GitHub Project](https://github.com/orgs/tuxery/projects/1), not

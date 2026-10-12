@@ -101,12 +101,18 @@ export interface SourcedPackage {
   /** The project's own releases, newest first (at most `MAX_RELEASES`), from AppStream's `<releases>` — version and date only: the newest one's notes are `changelog`. Distro rebuild dates never land here. */
   releases?: ReleaseEntry[];
   /**
-   * Upstream last-modified/last-released date, when the source exposes
-   * one. Not populated by any connector yet — none of the current
-   * fetch.ts implementations capture it, tracked alongside the rest of
-   * `CatalogApp`'s unpopulated fields on the Tuxery GitHub Project.
+   * The upstream project's newest release date (ISO), when the source
+   * knows it — AppStream's newest `<release>` today. Never a distro
+   * rebuild or a store upload date: those go in `builtAt`.
    */
   lastUpdated?: string;
+  /**
+   * When this package itself was built or uploaded (ISO): an RPM's build
+   * time, Arch's `%BUILDDATE%`, a snap revision's release date, AUR's
+   * `LastModified`. Says how fresh this listing is, not when the project
+   * last released — see `lastUpdated`. Not populated by any connector yet.
+   */
+  builtAt?: string;
   /**
    * Upstream package-category classification, when the source exposes
    * one. Debian/Ubuntu's `Section` field (e.g. `libs`, `games`, `doc`),
@@ -194,25 +200,25 @@ export interface SourcedPackage {
   keywords?: string[];
   /**
    * A directly usable icon URL — distinct from `iconFilename` (a bare
-   * filename, not fetchable on its own). Only Snapcraft (a full URL from
-   * its own API, previously discarded down to just a filename — see the
-   * "Populate CatalogApp rich fields per source" card) and Flathub/
-   * AppCenter (AppStream's `type="remote"` icon when present, else
-   * resolved against that source's own repo layout — see each
-   * connector's `fetch.ts`) populate this today.
+   * filename, not fetchable on its own). AppStream's `type="remote"` icon,
+   * else resolved against the source's own icon layout (see
+   * `_shared/appstream.ts`'s `resolveIconUrl`), and Snapcraft's own full
+   * URL.
    */
   iconUrl?: string;
-  /** SPDX-ish license expression (e.g. "GPL-3.0+ AND LGPL-3.0+") — only Flathub/AppCenter populate this today, from AppStream's `<project_license>`. */
+  /** The license as the source states it (e.g. "GPL-3.0+ AND LGPL-3.0+") — AppStream's `<project_license>`, or the packager's license field (AUR). See docs/rich-fields.md for which source wins. */
   license?: string;
-  /** The app's actual developer/team name — only Flathub/AppCenter populate this today, from AppStream's `<developer_name>`/`<developer>`. Distro "Maintainer"/"Packager" fields exist elsewhere but denote the packager, not a reliable proxy for this. */
+  /** The app's actual developer/team name — AppStream's `<developer_name>`/`<developer>`, GOG's developer. Distro "Maintainer"/"Packager" fields denote the packager and never land here, nor a store account (`publisher`). */
   developer?: string;
-  /** Long-form, multi-paragraph description — distinct from `description` (every source's short one-liner). Only Flathub/AppCenter populate this today, from AppStream's `<description>`, flattened from its `<p>`/`<ul>`/`<ol>` structure to plain text (see `_shared/appstream.ts`'s `pickLongDescription`). */
+  /** The store account publishing this listing (a snap's publisher, a GOG publisher), which may not be the developer. Not populated by any connector yet. */
+  publisher?: string;
+  /** Long-form, multi-paragraph description — distinct from `description` (every source's short one-liner). AppStream's `<description>` (Flathub, AppCenter and the distro AppStream feeds), flattened from its `<p>`/`<ul>`/`<ol>` structure to plain text (see `_shared/appstream.ts`'s `pickLongDescription`). */
   longDescription?: string;
-  /** Screenshot image URLs, always full URLs already. Only Flathub/AppCenter populate this today, from AppStream's `<screenshots>`. */
+  /** Screenshot image URLs, always full URLs already — AppStream's `<screenshots>`, GOG's. */
   screenshots?: string[];
-  /** Language codes the app is translated into (e.g. ["en_US", "de", "fr"]) — only Flathub/AppCenter populate this today, from AppStream's `<languages><lang>`. */
+  /** Language codes the app is translated into (e.g. ["en_US", "de", "fr"]) — AppStream's `<languages><lang>`. */
   languages?: string[];
-  /** The newest release's own changelog text, flattened the same way as `longDescription` — only Flathub/AppCenter populate this today, from AppStream's `<releases><release><description>`. `undefined` when the newest release has no description (common — most releases are just a bare version tag, no notes). */
+  /** The newest release's own changelog text, flattened the same way as `longDescription` — AppStream's `<releases><release><description>`. `undefined` when the newest release has no description (common — most releases are just a bare version tag, no notes). */
   changelog?: string;
   /**
    * A crowd rating, when this source exposes one — `average` on a 1-5
@@ -285,6 +291,13 @@ export interface SourcedPackage {
    * figure.
    */
   approxSizeBytes?: number;
+  /**
+   * Installed size in bytes, as the package manager reports it (RPM's
+   * `size installed`, Arch's `%ISIZE%`, Debian's `Installed-Size`). Not
+   * comparable to `approxSizeBytes` (a Flatpak download without its
+   * runtime), so it stays per package. Not populated by any connector yet.
+   */
+  installedSizeBytes?: number;
   /** See `FormalSignals`. Used by the curator only — the store doesn't publish it. */
   formal?: FormalSignals;
 }

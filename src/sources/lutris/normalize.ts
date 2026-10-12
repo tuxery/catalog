@@ -91,6 +91,7 @@ export function normalize(entries: LutrisCacheEntry[]): SourcedPackage[] {
       // below for the full text.
       description: excerpt(entry.description.trim() || gameDescription || "", 200),
       longDescription: gameDescription || undefined,
+      iconUrl: entry.iconUrl,
       version: "unknown",
       appId: entry.installerSlug,
       homepage: `https://lutris.net/games/${entry.gameSlug}/`,

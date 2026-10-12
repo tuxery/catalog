@@ -513,5 +513,558 @@
       }
     ],
     "reason": "Debian's black-box is a puzzle game (linux-games.com); Void's blackbox, Gentoo's dev-vcs/blackbox and AUR's blackbox-vcs are StackExchange's tool for encrypting secrets in a VCS."
+  },
+  {
+    "a": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "de.schmidhuberj.Flare"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "flare"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "flare-im"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "flare-signal"
+      },
+      {
+        "source": "apk-alpine",
+        "appId": "flare"
+      }
+    ],
+    "b": [
+      {
+        "source": "pacman-aur",
+        "appId": "flare-game"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "flare-game-appimage"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "flare-game-git"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "flare-game"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "flare-game"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "flare"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "flare"
+      },
+      {
+        "source": "rpm-opensuse",
+        "appId": "flare"
+      },
+      {
+        "source": "rpm-opensuse",
+        "appId": "flare-game"
+      },
+      {
+        "source": "xbps-void",
+        "appId": "flare-game"
+      },
+      {
+        "source": "eopkg-solus",
+        "appId": "flare-game"
+      }
+    ],
+    "reason": "Two products named flare: Flare, the unofficial Signal client (a, schmiddi-on-mobile/flare), and the FLARE action RPG and its engine (b, flarerpg.org; Fedora's, Nixpkgs' and openSUSE's plain flare included). Found by the app/game homonym scan of 2026-10-12."
+  },
+  {
+    "a": [
+      {
+        "source": "pacman-aur",
+        "appId": "hannah"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "hannah"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "hannah"
+      }
+    ],
+    "b": [
+      {
+        "source": "deb-debian",
+        "appId": "hannah-foo2zjs"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "hannah-foo2zjs"
+      },
+      {
+        "source": "deb-debian-appstream",
+        "appId": "hannah-foo2zjs"
+      },
+      {
+        "source": "deb-ubuntu-appstream",
+        "appId": "hannah-foo2zjs"
+      }
+    ],
+    "reason": "Hannah's Horse, a child-oriented Pac-Man-like game (a), is unrelated to hannah-foo2zjs, a firmware downloader for foo2zjs printers (b). Found by the app/game homonym scan of 2026-10-12."
+  },
+  {
+    "a": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.oyajun.ColorCode.desktop"
+      }
+    ],
+    "b": [
+      {
+        "source": "pacman-aur",
+        "appId": "color-code"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "colorcode"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "colorcode"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "colorcode"
+      }
+    ],
+    "reason": "Three products named color code: oyajun's resistor color code calculator (a) versus AUR's color-code, an ANSI color codec (coNQP/ansi-color-codec), and ColorCode, a MasterMind game (b). Found by the app/game homonym scan of 2026-10-12."
+  },
+  {
+    "a": [
+      {
+        "source": "pacman-aur",
+        "appId": "color-code"
+      }
+    ],
+    "b": [
+      {
+        "source": "pacman-aur",
+        "appId": "colorcode"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "colorcode"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "colorcode"
+      }
+    ],
+    "reason": "AUR's color-code is an ANSI color codec (a); colorcode is a MasterMind game (b, colorcode.laebisch.com). Found by the app/game homonym scan of 2026-10-12."
+  },
+  {
+    "a": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.parsecgaming.parsec"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "parsec-bin"
+      }
+    ],
+    "b": [
+      {
+        "source": "snap-snapcraft",
+        "appId": "parsec"
+      },
+      {
+        "source": "ebuild-gentoo",
+        "appId": "dev-haskell/parsec"
+      }
+    ],
+    "reason": "Three products named parsec: Parsec, the low-latency game streaming client (a, parsec.app), versus Snap's parsec, Parsec Cloud's secure file sharing, and Gentoo's Haskell parser combinator library (b). Found by the app/game homonym scan of 2026-10-12."
+  },
+  {
+    "a": [
+      {
+        "source": "snap-snapcraft",
+        "appId": "parsec"
+      }
+    ],
+    "b": [
+      {
+        "source": "ebuild-gentoo",
+        "appId": "dev-haskell/parsec"
+      }
+    ],
+    "reason": "Snap's parsec is Parsec Cloud's file sharing app (a); Gentoo's dev-haskell/parsec is a Haskell library (b). Found by the app/game homonym scan of 2026-10-12."
+  },
+  {
+    "a": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "io.github.DraqueT.PolyGlot"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "polyglot"
+      }
+    ],
+    "b": [
+      {
+        "source": "deb-debian",
+        "appId": "polyglot"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "polyglot"
+      },
+      {
+        "source": "apk-alpine",
+        "appId": "polyglot"
+      },
+      {
+        "source": "xbps-void",
+        "appId": "polyglot"
+      },
+      {
+        "source": "ebuild-gentoo",
+        "appId": "games-board/polyglot"
+      },
+      {
+        "source": "ebuild-gentoo",
+        "appId": "dev-ruby/polyglot"
+      }
+    ],
+    "reason": "Three products named polyglot: DraqueT's PolyGlot conlang toolkit (a, Nixpkgs' polyglot included) versus the UCI-to-XBoard chess engine adapter and Gentoo's Ruby DSL gem (b). Found by the app/game homonym scan of 2026-10-12."
+  },
+  {
+    "a": [
+      {
+        "source": "deb-debian",
+        "appId": "polyglot"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "polyglot"
+      },
+      {
+        "source": "apk-alpine",
+        "appId": "polyglot"
+      },
+      {
+        "source": "xbps-void",
+        "appId": "polyglot"
+      },
+      {
+        "source": "ebuild-gentoo",
+        "appId": "games-board/polyglot"
+      }
+    ],
+    "b": [
+      {
+        "source": "ebuild-gentoo",
+        "appId": "dev-ruby/polyglot"
+      }
+    ],
+    "reason": "The PolyGlot chess engine protocol adapter (a) versus Gentoo's dev-ruby/polyglot, a Ruby gem (b). Found by the app/game homonym scan of 2026-10-12."
+  },
+  {
+    "a": [
+      {
+        "source": "pacman-aur",
+        "appId": "dex-git"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "dex"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "dex"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "dex"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "dex"
+      },
+      {
+        "source": "rpm-opensuse",
+        "appId": "dex"
+      },
+      {
+        "source": "apk-alpine",
+        "appId": "dex"
+      },
+      {
+        "source": "xbps-void",
+        "appId": "dex"
+      },
+      {
+        "source": "ebuild-gentoo",
+        "appId": "x11-misc/dex"
+      }
+    ],
+    "b": [
+      {
+        "source": "nix-nixpkgs",
+        "appId": "dex-oidc"
+      },
+      {
+        "source": "rpm-opensuse",
+        "appId": "dex-oidc"
+      },
+      {
+        "source": "gog",
+        "appId": "dex"
+      },
+      {
+        "source": "lutris",
+        "appId": "dex-humble"
+      }
+    ],
+    "reason": "Three products named dex: jceb/dex, which runs .desktop files and autostart entries (a), versus Dex, the OpenID Connect provider (dexidp/dex), and Dex, the cyberpunk RPG (b). Found by the app/game homonym scan of 2026-10-12."
+  },
+  {
+    "a": [
+      {
+        "source": "nix-nixpkgs",
+        "appId": "dex-oidc"
+      },
+      {
+        "source": "rpm-opensuse",
+        "appId": "dex-oidc"
+      }
+    ],
+    "b": [
+      {
+        "source": "gog",
+        "appId": "dex"
+      },
+      {
+        "source": "lutris",
+        "appId": "dex-humble"
+      }
+    ],
+    "reason": "Dex, the OpenID Connect provider (a), versus Dex, the cyberpunk RPG on GOG and Lutris (b). Found by the app/game homonym scan of 2026-10-12."
+  },
+  {
+    "a": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.sugarlabs.Words"
+      }
+    ],
+    "b": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "page.codeberg.petsoi.words"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "words-nl"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "words-pt"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "words-ru"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "words"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "words"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "nltk-data.words"
+      },
+      {
+        "source": "rpm-opensuse",
+        "appId": "words"
+      },
+      {
+        "source": "apk-alpine",
+        "appId": "words"
+      },
+      {
+        "source": "xbps-void",
+        "appId": "words-ru"
+      }
+    ],
+    "reason": "Sugar Labs' Words is an offline multilingual dictionary (a); petsoi's Words is a word guessing game, and the distros' words packages are /usr/share/dict word lists (b). Found by the app/game homonym scan of 2026-10-12."
+  },
+  {
+    "a": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "page.codeberg.petsoi.words"
+      }
+    ],
+    "b": [
+      {
+        "source": "pacman-aur",
+        "appId": "words-nl"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "words-pt"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "words-ru"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "words"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "words"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "nltk-data.words"
+      },
+      {
+        "source": "rpm-opensuse",
+        "appId": "words"
+      },
+      {
+        "source": "apk-alpine",
+        "appId": "words"
+      },
+      {
+        "source": "xbps-void",
+        "appId": "words-ru"
+      }
+    ],
+    "reason": "petsoi's Words is a word guessing game (a); the distros' words packages are /usr/share/dict word lists (b). Found by the app/game homonym scan of 2026-10-12."
+  },
+  {
+    "a": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.nongnu.enigma"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "enigma-game"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "enigma"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "enigma"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "enigma"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "enigma"
+      },
+      {
+        "source": "rpm-opensuse",
+        "appId": "enigma"
+      },
+      {
+        "source": "rpm-opensuse-appstream",
+        "appId": "enigma"
+      },
+      {
+        "source": "rpm-fedora-appstream",
+        "appId": "enigma"
+      },
+      {
+        "source": "apk-alpine",
+        "appId": "enigma"
+      },
+      {
+        "source": "xbps-void",
+        "appId": "enigma"
+      },
+      {
+        "source": "ebuild-gentoo",
+        "appId": "games-puzzle/enigma"
+      },
+      {
+        "source": "deb-debian-appstream",
+        "appId": "enigma"
+      },
+      {
+        "source": "deb-ubuntu-appstream",
+        "appId": "enigma"
+      }
+    ],
+    "b": [
+      {
+        "source": "flatpak-appcenter",
+        "appId": "com.github.subhadeepjasu.enigma"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "enigma-bin"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "enigma"
+      }
+    ],
+    "reason": "Four products named enigma: Enigma, the Oxyd-like marble puzzle game (a, nongnu.org), versus an Enigma machine emulator, FabricMC's Java deobfuscation tool and Arch's enigma, Simon Tatham's falling-blocks puzzle (b). Found by the app/game homonym scan of 2026-10-12."
+  },
+  {
+    "a": [
+      {
+        "source": "flatpak-appcenter",
+        "appId": "com.github.subhadeepjasu.enigma"
+      }
+    ],
+    "b": [
+      {
+        "source": "pacman-aur",
+        "appId": "enigma-bin"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "enigma"
+      }
+    ],
+    "reason": "SubhadeepJasu's Enigma machine emulator (a) versus FabricMC's Enigma deobfuscator and Simon Tatham's enigma puzzle (b). Found by the app/game homonym scan of 2026-10-12."
+  },
+  {
+    "a": [
+      {
+        "source": "pacman-aur",
+        "appId": "enigma-bin"
+      }
+    ],
+    "b": [
+      {
+        "source": "pacman-arch",
+        "appId": "enigma"
+      }
+    ],
+    "reason": "FabricMC's Enigma, a Java deobfuscation tool (a), versus Simon Tatham's enigma, a falling-blocks puzzle game (b). Found by the app/game homonym scan of 2026-10-12."
   }
 ]

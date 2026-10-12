@@ -3349,10 +3349,6 @@
       {
         "source": "flatpak-flathub",
         "appId": "com.parsecgaming.parsec"
-      },
-      {
-        "source": "snap-snapcraft",
-        "appId": "parsec"
       }
     ]
   },

@@ -21,6 +21,8 @@ export interface ArchCacheEntry {
    * know, and this is cheap to keep.
    */
   repo: "core" | "extra" | "multilib";
+  /** See `SourcedPackage.popularity`. */
+  popularity?: number;
   /** `%LICENSE%`, one value per line AND-joined (`GPL-2.0-or-later AND MIT`) like the AUR's — see `SourcedPackage.license`. */
   license?: string;
   /** `%BUILDDATE%` as an ISO date — see `SourcedPackage.builtAt`. */

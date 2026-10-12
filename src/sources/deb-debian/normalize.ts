@@ -11,6 +11,7 @@ export function normalize(entries: DebianCacheEntry[]): SourcedPackage[] {
     appId: entry.name,
     homepage: entry.homepage,
     installedSizeBytes: entry.installedSizeBytes,
+    popularity: entry.popularity,
     formal: entry.formal,
     section: entry.section,
     // entry.component isn't threaded through yet — SourcedPackage has no

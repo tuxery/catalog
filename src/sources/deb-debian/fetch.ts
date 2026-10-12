@@ -4,6 +4,7 @@ import {
   parseDeb822Stanzas,
   parseDebtags,
 } from "../_shared/deb822";
+import { fetchPopconScores } from "./popcon";
 import { fetchGunzippedText } from "../_shared/http";
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
@@ -79,7 +80,10 @@ async function fetchComponent(component: DebianComponent): Promise<DebianCacheEn
  */
 export async function fetchDebian(cachePath: string): Promise<number> {
   const entriesByComponent = await Promise.all(COMPONENTS.map(fetchComponent));
-  const entries = entriesByComponent.flat();
+  const popularity = await fetchPopconScores();
+  const entries = entriesByComponent
+    .flat()
+    .map((entry) => Object.assign(entry, { popularity: popularity.get(entry.name) }));
 
   writeNdjson(cachePath, entries);
   writeMetadata<DebianFetchMetadata>(cachePath, {

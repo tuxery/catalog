@@ -11,6 +11,10 @@ const INDEX_FIXTURE = `<?xml version="1.0"?>
         <Summary xml:lang="en">0 A.D. is a real-time strategy game</Summary>
         <Summary xml:lang="fr">0 A.D. est un jeu de stratégie</Summary>
         <PartOf>games.strategy</PartOf>
+        <License>BSD-2-Clause</License>
+        <License>GPL-2.0-or-later</License>
+        <License>MIT</License>
+        <InstalledSize>1034035746</InstalledSize>
         <History>
             <Update release="60">
                 <Date>2025-10-08</Date>
@@ -59,6 +63,14 @@ describe("parseIndexXml", () => {
     expect(entries[0]?.homepage).toBe("https://play0ad.com/");
   });
 
+  it("AND-joins the licenses and reads the update date and installed size", () => {
+    expect(entries[0]).toMatchObject({
+      license: "BSD-2-Clause AND GPL-2.0-or-later AND MIT",
+      builtAt: "2025-10-08T00:00:00.000Z",
+      installedSizeBytes: 1034035746,
+    });
+  });
+
   it("falls back gracefully when optional fields are missing", () => {
     expect(entries[1]).toEqual({
       name: "bare-pkg",
@@ -66,6 +78,9 @@ describe("parseIndexXml", () => {
       version: "1.0",
       homepage: undefined,
       partOf: undefined,
+      license: undefined,
+      builtAt: "2024-01-01T00:00:00.000Z",
+      installedSizeBytes: undefined,
     });
   });
 });

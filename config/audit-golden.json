@@ -768,10 +768,6 @@
         "appId": "thunderbird"
       },
       {
-        "source": "deb-ubuntu",
-        "appId": "thunderbird"
-      },
-      {
         "source": "rpm-fedora",
         "appId": "thunderbird"
       },
@@ -2331,15 +2327,7 @@
       },
       {
         "source": "deb-debian",
-        "appId": "epiphany"
-      },
-      {
-        "source": "deb-debian",
         "appId": "epiphany-browser"
-      },
-      {
-        "source": "deb-ubuntu",
-        "appId": "epiphany"
       },
       {
         "source": "deb-ubuntu",
@@ -2431,20 +2419,12 @@
         "appId": "luanti-server"
       },
       {
-        "source": "deb-debian",
-        "appId": "minetest"
-      },
-      {
         "source": "deb-ubuntu",
         "appId": "luanti"
       },
       {
         "source": "deb-ubuntu",
         "appId": "luanti-server"
-      },
-      {
-        "source": "deb-ubuntu",
-        "appId": "minetest"
       },
       {
         "source": "rpm-fedora",
@@ -3278,108 +3258,16 @@
         "appId": "com.raggesilver.BlackBox"
       },
       {
-        "source": "flatpak-flathub",
-        "appId": "org.d3cod3.Mosaic"
-      },
-      {
-        "source": "flatpak-flathub",
-        "appId": "org.gnome.Mines"
-      },
-      {
-        "source": "flatpak-flathub",
-        "appId": "systems.tranquil.Map"
-      },
-      {
-        "source": "snap-snapcraft",
-        "appId": "dotnet"
-      },
-      {
-        "source": "snap-snapcraft",
-        "appId": "gnome-mines"
-      },
-      {
-        "source": "snap-snapcraft",
-        "appId": "mosaic"
-      },
-      {
-        "source": "deb-debian",
-        "appId": "black-box"
-      },
-      {
-        "source": "deb-debian",
-        "appId": "blackbox"
-      },
-      {
         "source": "deb-debian",
         "appId": "blackbox-terminal"
-      },
-      {
-        "source": "deb-debian",
-        "appId": "flip"
-      },
-      {
-        "source": "deb-debian",
-        "appId": "gnome-mines"
-      },
-      {
-        "source": "deb-debian",
-        "appId": "sgt-puzzles"
-      },
-      {
-        "source": "deb-ubuntu",
-        "appId": "black-box"
-      },
-      {
-        "source": "deb-ubuntu",
-        "appId": "blackbox"
       },
       {
         "source": "deb-ubuntu",
         "appId": "blackbox-terminal"
       },
       {
-        "source": "deb-ubuntu",
-        "appId": "flip"
-      },
-      {
-        "source": "deb-ubuntu",
-        "appId": "gnome-mines"
-      },
-      {
-        "source": "deb-ubuntu",
-        "appId": "sgt-puzzles"
-      },
-      {
-        "source": "rpm-fedora",
-        "appId": "blackbox"
-      },
-      {
         "source": "rpm-fedora",
         "appId": "blackbox-terminal"
-      },
-      {
-        "source": "rpm-fedora",
-        "appId": "cube"
-      },
-      {
-        "source": "rpm-fedora",
-        "appId": "gnome-mines"
-      },
-      {
-        "source": "rpm-fedora",
-        "appId": "puzzles"
-      },
-      {
-        "source": "pacman-arch",
-        "appId": "blackbox"
-      },
-      {
-        "source": "pacman-arch",
-        "appId": "gnome-mines"
-      },
-      {
-        "source": "pacman-arch",
-        "appId": "puzzles"
       }
     ]
   },

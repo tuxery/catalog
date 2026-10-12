@@ -332,5 +332,186 @@
       }
     ],
     "reason": "Flathub's uk.co.cappsy.Tesseract is a 4D puzzle (\"Cubing in the fourth dimension\"), neither the OCR engine nor the shooter."
+  },
+  {
+    "a": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.raggesilver.BlackBox"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "blackbox-terminal"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "blackbox-terminal-git"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "blackbox-terminal"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "blackbox-terminal"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "blackbox-terminal"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "blackbox-terminal"
+      },
+      {
+        "source": "rpm-fedora-appstream",
+        "appId": "blackbox-terminal"
+      },
+      {
+        "source": "apk-alpine",
+        "appId": "blackbox-terminal"
+      },
+      {
+        "source": "deb-debian-appstream",
+        "appId": "blackbox-terminal"
+      },
+      {
+        "source": "deb-ubuntu-appstream",
+        "appId": "blackbox-terminal"
+      }
+    ],
+    "b": [
+      {
+        "source": "pacman-aur",
+        "appId": "blackbox-git"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "blackbox"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "blackbox"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "blackbox"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "blackbox"
+      },
+      {
+        "source": "slackware",
+        "appId": "blackbox"
+      },
+      {
+        "source": "ebuild-gentoo",
+        "appId": "x11-wm/blackbox"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "black-box"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "black-box"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "blackbox-vcs"
+      },
+      {
+        "source": "xbps-void",
+        "appId": "blackbox"
+      },
+      {
+        "source": "ebuild-gentoo",
+        "appId": "dev-vcs/blackbox"
+      }
+    ],
+    "reason": "Four products named black box: Black Box the GNOME terminal (a, raggesilver/blackbox) versus the Blackbox window manager, the black-box puzzle game and StackExchange's blackbox secrets tool (b). Found by the golden check after #95."
+  },
+  {
+    "a": [
+      {
+        "source": "pacman-aur",
+        "appId": "blackbox-git"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "blackbox"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "blackbox"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "blackbox"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "blackbox"
+      },
+      {
+        "source": "slackware",
+        "appId": "blackbox"
+      },
+      {
+        "source": "ebuild-gentoo",
+        "appId": "x11-wm/blackbox"
+      }
+    ],
+    "b": [
+      {
+        "source": "deb-debian",
+        "appId": "black-box"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "black-box"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "blackbox-vcs"
+      },
+      {
+        "source": "xbps-void",
+        "appId": "blackbox"
+      },
+      {
+        "source": "ebuild-gentoo",
+        "appId": "dev-vcs/blackbox"
+      }
+    ],
+    "reason": "The Blackbox window manager (a, blackboxwm: every distro's plain blackbox package except Void's) versus the black-box puzzle game and StackExchange's blackbox secrets tool (b)."
+  },
+  {
+    "a": [
+      {
+        "source": "deb-debian",
+        "appId": "black-box"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "black-box"
+      }
+    ],
+    "b": [
+      {
+        "source": "pacman-aur",
+        "appId": "blackbox-vcs"
+      },
+      {
+        "source": "xbps-void",
+        "appId": "blackbox"
+      },
+      {
+        "source": "ebuild-gentoo",
+        "appId": "dev-vcs/blackbox"
+      }
+    ],
+    "reason": "Debian's black-box is a puzzle game (linux-games.com); Void's blackbox, Gentoo's dev-vcs/blackbox and AUR's blackbox-vcs are StackExchange's tool for encrypting secrets in a VCS."
   }
 ]

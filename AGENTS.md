@@ -49,10 +49,9 @@ rules.ts`'s heuristics carry research context a bare JSON list can't
   fuzzy/scored tier on top), with git-committed `config/match-force.json`/
   `match-deny.json` for the cases the auto tiers get wrong; `enrich/`
   turns each group into the display-ready
-  `CatalogApp` the website reads — most of its fields are typed but not
-  yet populated by any connector, see `enrich/types.ts`'s doc comments and
-  the "Populate CatalogApp's rich fields per source" card on the Tuxery
-  GitHub Project.
+  `CatalogApp` the website reads — which source fills each rich field
+  and which wins when they disagree is
+  [`docs/rich-fields.md`](docs/rich-fields.md) (`enrich/field-priority.ts`).
 - `src/pipeline` — orchestration scripts that run sources + curator end to
   end and produce a fresh dataset. Only apps and games make it into the
   dataset: apps a high-confidence LLM verdict calls `library` or `other`

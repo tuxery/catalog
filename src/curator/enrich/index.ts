@@ -23,7 +23,13 @@ import {
   type HiddenType,
 } from "./category";
 import { computeDataConfidence, forceMatchedKeys } from "./data-confidence";
-import { classifyLicense, toSpdxExpression } from "./license";
+import {
+  pickLanguages,
+  pickLastUpdated,
+  pickLicense,
+  pickReleases,
+  pickRichField,
+} from "./field-priority";
 import { loadCategoryRules, matchCategoryRule, type CategoryRuleEntry } from "./category-rules";
 import {
   loadGameCategoryRules,
@@ -555,26 +561,14 @@ function pickCategoryLabel(
   return matchDescriptionCategoryRule(shortDescription, descriptionCategoryRules) ?? TO_CLASSIFY;
 }
 
-/** Each link type from the highest-priority source that has it (`pickField`'s order) — `undefined` when no package has any. */
+/** Each link type from the best-ranked source that has it (`FIELD_PRIORITY.links`) — `undefined` when no package has any. */
 function pickLinks(packages: SourcedPackage[]): ProjectLinks | undefined {
   const links: ProjectLinks = {};
   for (const type of PROJECT_LINK_TYPES) {
-    const href = pickField(packages, (pkg) => pkg.links?.[type]);
+    const href = pickRichField("links", packages, (pkg) => pkg.links?.[type]);
     if (href) links[type] = href;
   }
   return Object.keys(links).length > 0 ? links : undefined;
-}
-
-/** The picked license with its SPDX form and free/proprietary verdict — each only when known. */
-function licenseFields(
-  license: string | undefined,
-): Pick<CatalogApp, "license" | "licenseSpdx" | "licenseKind"> {
-  const kind = classifyLicense(license);
-  return {
-    license,
-    licenseSpdx: toSpdxExpression(license),
-    licenseKind: kind === "unknown" ? undefined : kind,
-  };
 }
 
 /**
@@ -635,22 +629,6 @@ function aggregatePopularity(packages: SourcedPackage[]): number | undefined {
 function aggregateStoreCollections(packages: SourcedPackage[]): StoreCollectionTag[] | undefined {
   const tags = unique(packages.flatMap((pkg) => pkg.storeCollections ?? []));
   return tags.length > 0 ? tags : undefined;
-}
-
-/**
- * The most recent `lastUpdated` across every member package — a max, not
- * `pickField`'s source-priority pick, since an older release from a
- * higher-priority source shouldn't shadow a genuinely newer one from
- * elsewhere. ISO date strings sort correctly as plain strings.
- * `undefined` when no member package has one at all.
- */
-function aggregateLastUpdated(packages: SourcedPackage[]): string | undefined {
-  const dated = packages
-    .map((pkg) => pkg.lastUpdated)
-    .filter((date): date is string => date !== undefined);
-  if (dated.length === 0) return undefined;
-
-  return dated.reduce((latest, date) => (date > latest ? date : latest));
 }
 
 /**
@@ -816,29 +794,22 @@ export function enrichApps(
       shortDescription,
       homepage: representative.homepage,
       links: pickLinks(app.packages),
-      releases: pickField(
-        app.packages.filter((pkg) => !isBuildVariant(pkg)),
-        (pkg) => pkg.releases,
-      ),
+      ...pickReleases(app.packages),
       packages: app.packages,
       kind: app.packages.some(hasGuiEvidence) ? "gui" : undefined,
       contentType: type === "game" ? "game" : undefined,
       excluded,
       appStoreFrontend: isAppStoreFrontend(app.packages, appStoreFrontends) ? true : undefined,
       category,
-      iconUrl: pickField(app.packages, (pkg) => pkg.iconUrl),
-      approxSizeBytes: pickField(app.packages, (pkg) => pkg.approxSizeBytes),
-      ...licenseFields(pickField(app.packages, (pkg) => pkg.license)),
-      developer: pickField(app.packages, (pkg) => pkg.developer),
-      longDescription: pickField(app.packages, (pkg) => pkg.longDescription),
-      screenshots: pickField(app.packages, (pkg) =>
-        pkg.screenshots && pkg.screenshots.length > 0 ? pkg.screenshots : undefined,
-      ),
-      languages: pickField(app.packages, (pkg) =>
-        pkg.languages && pkg.languages.length > 0 ? pkg.languages : undefined,
-      ),
-      changelog: pickField(app.packages, (pkg) => pkg.changelog),
-      lastUpdated: aggregateLastUpdated(app.packages),
+      iconUrl: pickRichField("iconUrl", app.packages, (pkg) => pkg.iconUrl),
+      approxSizeBytes: pickRichField("approxSizeBytes", app.packages, (pkg) => pkg.approxSizeBytes),
+      ...pickLicense(app.packages),
+      developer: pickRichField("developer", app.packages, (pkg) => pkg.developer),
+      publisher: pickRichField("publisher", app.packages, (pkg) => pkg.publisher),
+      longDescription: pickRichField("longDescription", app.packages, (pkg) => pkg.longDescription),
+      screenshots: pickRichField("screenshots", app.packages, (pkg) => pkg.screenshots),
+      languages: pickLanguages(app.packages),
+      lastUpdated: pickLastUpdated(app.packages),
       installsTotal: sumField(app.packages, (pkg) => pkg.installsTotal),
       installsLast7Days: sumField(app.packages, (pkg) => pkg.installsLast7Days),
       compatibilityWarnings: warnings.length > 0 ? warnings : undefined,

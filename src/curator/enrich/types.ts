@@ -8,12 +8,11 @@ import type { DataConfidence } from "./data-confidence";
  * group, with display-ready fields picked from its member packages
  * instead of making callers dig through `packages` themselves.
  *
- * Most fields below are typed now but `undefined` today: no connector in
- * the sources module fetches this data yet (see each field's comment for
- * why/what's missing). Tracked as a single GitHub Project card
- * ("Populate CatalogApp's rich fields per source") rather than shipped
- * silently unpopulated — same "typed now, sourced later" convention as
- * `SourcedPackage.arch?`.
+ * Which sources may fill each rich field, and which wins when they
+ * disagree, is `field-priority.ts`'s `FIELD_PRIORITY` — docs/rich-fields.md
+ * has the reasoning and how to add a source. Fields still `undefined`
+ * everywhere say so ("Not sourced yet"): typed now, sourced later, same
+ * convention as `SourcedPackage.arch?`.
  */
 export interface CatalogApp {
   /** Stable id, derived from the representative package — see `enrich/index.ts`'s `SOURCE_PRIORITY`. */
@@ -95,20 +94,15 @@ export interface CatalogApp {
   appStoreFrontend?: boolean;
 
   /**
-   * A directly usable icon URL, picked from whichever member package has
-   * one (`SourcedPackage.iconUrl` — see `enrich/index.ts`'s `pickField`).
-   * Populated by Flathub/AppCenter (AppStream's `type="remote"` icon, or
-   * resolved against that source's own repo layout when absent — see
-   * `_shared/appstream.ts`'s `resolveIconUrl`) and Snapcraft (a full URL
-   * from its own API, previously discarded down to just a filename — a
-   * regression fixed alongside this).
+   * A directly usable icon URL — see `SourcedPackage.iconUrl` for where
+   * it comes from and `FIELD_PRIORITY.iconUrl` for which source wins.
    */
   iconUrl?: string;
   /**
    * Long-form, multi-paragraph description — distinct from
-   * `shortDescription`. Populated by Flathub/AppCenter's AppStream
-   * `<description>`, flattened from its `<p>`/`<ul>`/`<ol>` structure to
-   * plain text (see `_shared/appstream.ts`'s `pickLongDescription`).
+   * `shortDescription`. AppStream's `<description>` flattened to plain
+   * text (see `_shared/appstream.ts`'s `pickLongDescription`), else a
+   * store's own (Lutris).
    */
   longDescription?: string;
   /**
@@ -119,29 +113,26 @@ export interface CatalogApp {
    * at all (no member package has category data, or none of it maps to a
    * recognized category) gets `TO_CLASSIFY` ("To Classify") rather than
    * being left uncategorized — explicit product decision: every app must
-   * be classified, at worst as "needs help." Sourced from Flathub/
-   * AppCenter's AppStream `<categories>` only today
-   * (`SourcedPackage.categories`, freedesktop.org menu spec Main +
-   * Additional Categories) — every other source is silent on category
-   * entirely, so most of the catalog resolves to `TO_CLASSIFY` for now.
-   * Snapcraft's own store categories (swept at fetch time to discover
-   * the catalog) aren't threaded through per-package yet — a possible
-   * second signal, not done here.
+   * be classified, at worst as "needs help." Upstream
+   * categories first (AppStream `<categories>`, Snapcraft's, Lutris',
+   * GOG's), then each distro's own section/group/keywords, then the LLM
+   * classifications and description rules — see `enrich/index.ts`'s
+   * `pickCategoryLabel`.
    */
   category: string;
-  /** The app's actual developer/team name — populated by Flathub/AppCenter's AppStream `<developer_name>`/`<developer>`. Distro "Maintainer"/"Packager" fields exist elsewhere but denote the packager, not a reliable proxy for this. */
+  /** Who makes the app — never a distro packager nor a store account (that's `publisher`). See `SourcedPackage.developer`. */
   developer?: string;
-  /** Not sourced yet — same caveat as `developer`; no current source distinguishes a publisher from a developer at all. */
+  /** The store account publishing the listing (a snap's publisher, a GOG publisher) when it isn't the developer's own. Not sourced yet. */
   publisher?: string;
-  /** SPDX-ish license expression (e.g. "GPL-3.0+ AND LGPL-3.0+") — populated by Flathub/AppCenter's AppStream `<project_license>`. */
+  /** The license as its best-ranked source states it (e.g. "GPL-3.0+ AND LGPL-3.0+"): upstream's AppStream `<project_license>` first, then the packagers' — see `field-priority.ts`'s `pickLicense`. */
   license?: string;
-  /** `license` as an SPDX expression, only when every license in it maps to one SPDX id without guessing ("GPL3" doesn't say -only or -or-later): see `toSpdxExpression`. */
+  /** `license` as an SPDX expression, only when every license in it maps to one SPDX id without guessing ("GPL3" doesn't say -only or -or-later): see `toSpdxExpression`. Taken from a lower-ranked source that agrees with `license` when `license` itself isn't SPDX. */
   licenseSpdx?: string;
   /** Whether `license` makes the app free software (`free`) or says it's proprietary — absent when it can't tell. See `classifyLicense`. */
   licenseKind?: "free" | "proprietary";
   /** Language codes the app is translated into — populated by Flathub/AppCenter's AppStream `<languages><lang>`. */
   languages?: string[];
-  /** Download size in bytes — populated by Flathub's own `/api/v2/summary/<appId>` (the `stable` branch's `download_size`). No other current source exposes an equivalent figure. */
+  /** Flathub's download size in bytes (`/api/v2/summary/<appId>`, the `stable` branch's `download_size`). Distros' installed sizes stay per package (`SourcedPackage.installedSizeBytes`): they measure something else. */
   approxSizeBytes?: number;
   /** Screenshot image URLs — populated by Flathub/AppCenter's AppStream `<screenshots>`. */
   screenshots?: string[];
@@ -197,22 +188,20 @@ export interface CatalogApp {
   reviews?: Array<{ author: string; text: string; rating: number }>;
   /** Not sourced yet. */
   features?: string[];
-  /** The newest release's own changelog text — populated by Flathub/AppCenter's AppStream `<releases><release><description>`. `undefined` when the newest release has no description (common — most releases are just a bare version tag). */
+  /** The newest release's own changelog text (AppStream `<releases><release><description>`), from the package `releases` came from, or another one describing that same version — see `pickReleases`. `undefined` when the newest release has no description (common — most releases are just a bare version tag). */
   changelog?: string;
   /**
-   * The most recent `SourcedPackage.lastUpdated` across every member
-   * package — see `enrich/index.ts`'s `aggregateLastUpdated`. Populated
-   * by Flathub/AppCenter's AppStream `<releases><release>` timestamp
-   * today (each source's *own* newest release date, not "when Tuxery
-   * last refreshed its cache" — no connector else exposes an equivalent
-   * field). `undefined` when no member package has one.
+   * The newest `SourcedPackage.lastUpdated` (an upstream release date)
+   * among the product's default builds at stable risk — a nightly or a
+   * snap's edge channel says nothing about its last release. See
+   * `pickLastUpdated`. `undefined` when no member package has one.
    */
   lastUpdated?: string;
-  /** Not sourced yet. */
+  /** Not sourced yet — AppStream's `<requires>`/`<recommends>`/`<supports>` (controls, display size, internet), as one readable summary. */
   requirements?: string;
-  /** Not sourced yet — e.g. Flatpak permissions are declared per-app upstream, not fetched today. */
+  /** Not sourced yet — the Flathub package's own sandbox permissions (`finish-args`). Other formats' confinement belongs to each package. */
   permissions?: string[];
-  /** Not sourced yet — Flathub exposes OARS content ratings for part of its catalog; not fetched today. */
+  /** Not sourced yet — AppStream's `<content_rating>` (OARS). */
   ageRating?: { system: string; value: string };
   /** No upstream signal in any current source — likely editorial/manual, not auto-extractable. */
   aiFeatures?: boolean;

@@ -189,6 +189,7 @@ describe("toAppExtras", () => {
       installsTotal: 500,
       installsLast7Days: 70,
       approxSizeBytes: 125_546_324,
+      permissions: undefined,
     });
   });
 
@@ -197,6 +198,7 @@ describe("toAppExtras", () => {
       installsTotal: undefined,
       installsLast7Days: undefined,
       approxSizeBytes: 42,
+      permissions: undefined,
     });
   });
 
@@ -205,6 +207,7 @@ describe("toAppExtras", () => {
       installsTotal: undefined,
       installsLast7Days: undefined,
       approxSizeBytes: undefined,
+      permissions: undefined,
     });
   });
 

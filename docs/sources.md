@@ -108,7 +108,13 @@ because a paragraph per cell made the table unreadable.
    `find` retries transient socket drops (`UND_ERR_SOCKET`, the API
    intermittently resets a connection under that load) a few times with
    exponential backoff rather than failing the whole multi-minute fetch.
-   `src/sources/snap-snapcraft/fetch.ts`.
+   `find` returns one channel per snap, so each discovered snap then gets
+   one `/v2/snaps/info/<name>?fields=channel-map` call (8 at a time): its
+   amd64 channels (branches dropped) become the cache row's `channels`,
+   and `normalize` emits one package per channel, split into track × risk
+   (docs/product-families.md). A snap whose call fails keeps its single
+   `find` channel. `src/sources/snap-snapcraft/fetch.ts`.
+
 4. **AppImage** — [`appimage.github.io/feed.json`](https://appimage.github.io/feed.json)
    (community-curated — not to be confused with the separate
    AppImageHub.com, first investigated as a second source and found not
@@ -181,7 +187,7 @@ because a paragraph per cell made the table unreadable.
    its 68,755 packages (~37%). Real bug found in the process: `Tag:`
    commonly wraps across a continuation line (e.g.
    `Tag: game::strategy, ..., role::program,\n uitoolkit::sdl, ...,
-   use::gameplaying`), which `_shared/deb822.ts`'s field map silently
+use::gameplaying`), which `_shared/deb822.ts`'s field map silently
    truncated to whatever fit on the first line — correct behavior for
    `Description` (exactly the short summary wanted there) but wrong for
    `Tag`. Fixed via `parseDeb822Stanzas`, a new export alongside the
@@ -191,7 +197,7 @@ because a paragraph per cell made the table unreadable.
    `deb-debian/fetch.ts` then flags the `game::*` facet and the
    cross-cutting `use::gameplaying` tag. Verified against the refreshed
    live cache: 790 of 69,843 Debian packages now carry `hasGameCategory:
-   true`.
+true`.
 9. **Ubuntu** (main + universe + restricted + multiverse) — same deb822
    mechanism as Debian (it's a derivative), amd64 only, current stable
    suite only (resolute/26.04 as of writing — resolved live via
@@ -592,7 +598,7 @@ as a second AppImage source` card was investigated and rejected for
 
 30. **Fedora AppStream** — the RPM-native equivalent of [28], but with a
     twist: Fedora does not publish its AppStream data as a `repomd.xml`
-    data type the way openSUSE does. Instead it ships the XML *inside* the
+    data type the way openSUSE does. Instead it ships the XML _inside_ the
     `appstream-data` package, so this connector resolves the current
     release via Bodhi, finds the `appstream-data` RPM's location in
     `primary.xml`, downloads the RPM, and extracts `fedora.xml.gz` through

@@ -1,4 +1,5 @@
 import type { Risk, SourcedPackage } from "../types";
+import type { SnapcraftCacheEntry, SnapcraftChannel } from "./types";
 
 // Snap's risk levels, in Tuxery's vocabulary (docs/product-families.md):
 // `edge` is built from the latest commits, Tuxery's `nightly`.
@@ -14,7 +15,10 @@ const SNAP_RISKS: Record<string, Risk | undefined> = {
  * `22/stable/hotfix`) into its track and risk. `latest` is Snap's own
  * name for the default track. Pure — no I/O.
  */
-export function splitSnapChannel(channel: string): { track?: string; risk?: Risk } {
+export function splitSnapChannel(channel: string): {
+  track?: string;
+  risk?: Risk;
+} {
   const parts = channel.split("/");
   const riskIndex = parts.findIndex((part) => part in SNAP_RISKS);
   const track = riskIndex > 0 ? parts[0] : undefined;
@@ -25,16 +29,25 @@ export function splitSnapChannel(channel: string): { track?: string; risk?: Risk
       : {}),
   };
 }
-import type { SnapcraftCacheEntry } from "./types";
 
+/** One package per channel of the snap's channel-map — a track × risk each — or the single search-result channel when the map wasn't fetched. */
 export function normalize(entries: SnapcraftCacheEntry[]): SourcedPackage[] {
-  return entries.map((entry) => ({
+  return entries.flatMap((entry) =>
+    (entry.channels?.length
+      ? entry.channels
+      : [{ channel: entry.channel, version: entry.version }]
+    ).map((channel) => toPackage(entry, channel)),
+  );
+}
+
+function toPackage(entry: SnapcraftCacheEntry, channel: SnapcraftChannel): SourcedPackage {
+  return {
     source: "snap-snapcraft",
     name: entry.title,
     description: entry.summary,
-    version: entry.version,
+    version: channel.version,
     appId: entry.name,
-    ...splitSnapChannel(entry.channel),
+    ...splitSnapChannel(channel.channel),
     // iconUrl is a full URL, unlike Flathub's bare filename — take just the
     // last path segment for iconFilename so the matcher compares like with
     // like, while still keeping the full URL for iconUrl.
@@ -44,5 +57,5 @@ export function normalize(entries: SnapcraftCacheEntry[]): SourcedPackage[] {
     storeCollections: entry.storeCollections,
     categories: entry.categories,
     hasGameCategory: entry.hasGameCategory,
-  }));
+  };
 }

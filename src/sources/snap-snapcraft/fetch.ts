@@ -289,7 +289,7 @@ async function fetchChannels(name: string): Promise<SnapcraftChannel[] | undefin
     const response = await retry(
       () =>
         fetchOrThrow(
-          `${INFO_URL}/${encodeURIComponent(name)}?fields=channel-map`,
+          `${INFO_URL}/${encodeURIComponent(name)}?fields=version,channel-map`,
           `Snapcraft info "${name}"`,
           { headers: { "Snap-Device-Series": DEVICE_SERIES } },
         ),
@@ -375,10 +375,18 @@ export async function fetchSnapcraft(cachePath: string): Promise<number> {
 
   // The bulk `find` response carries a single channel per snap; the full
   // channel-map (track × risk) only exists on the per-snap `info` endpoint.
+  let done = 0;
   const channelMaps = await parallel(
-    entries.map((entry) => () => fetchChannels(entry.name)),
+    entries.map((entry) => async () => {
+      const channels = await fetchChannels(entry.name);
+      if (++done % 500 === 0)
+        console.error(`snap-snapcraft: channel-maps ${done}/${entries.length}`);
+      return channels;
+    }),
     INFO_CONCURRENCY,
   );
+  const missing = channelMaps.filter((channels) => !channels).length;
+  if (missing > 0) console.error(`snap-snapcraft: ${missing} snaps without a channel-map`);
   entries.forEach((entry, i) => {
     entry.channels = channelMaps[i];
   });

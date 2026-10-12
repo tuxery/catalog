@@ -71,6 +71,9 @@ export function normalize(entries: GogCacheEntry[]): SourcedPackage[] {
       // Every entry here already passed fetch.ts's productType === "game" filter.
       hasGameCategory: true,
       developer: entry.developers[0],
+      publisher: entry.publisher,
+      iconUrl: entry.iconUrl,
+      longDescription: entry.longDescription,
       screenshots: entry.screenshots.length > 0 ? entry.screenshots : undefined,
       rating: entry.rating,
       categories: categories.length > 0 ? categories : undefined,

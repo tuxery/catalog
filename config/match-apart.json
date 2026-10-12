@@ -1066,5 +1066,91 @@
       }
     ],
     "reason": "FabricMC's Enigma, a Java deobfuscation tool (a), versus Simon Tatham's enigma, a falling-blocks puzzle game (b). Found by the app/game homonym scan of 2026-10-12."
+  },
+  {
+    "a": [
+      {
+        "source": "flatpak-appcenter",
+        "appId": "com.github.hezral.clips"
+      }
+    ],
+    "b": [
+      {
+        "source": "snap-snapcraft",
+        "appId": "infiniti-clips"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "clips"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "clips-lib"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "clips"
+      },
+      {
+        "source": "deb-ubuntu-appstream",
+        "appId": "clips"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "clips"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "clips"
+      },
+      {
+        "source": "ebuild-gentoo",
+        "appId": "dev-lang/clips"
+      }
+    ],
+    "reason": "The CLIPS expert-system language and shell (b) versus Clips, elementary's clipboard manager (a). Found by catalog#103's before/after diff."
+  },
+  {
+    "a": [
+      {
+        "source": "flatpak-appcenter",
+        "appId": "com.github.oowoosh0.pomodoro"
+      }
+    ],
+    "b": [
+      {
+        "source": "rpm-fedora",
+        "appId": "gnome-pomodoro"
+      },
+      {
+        "source": "rpm-fedora-appstream",
+        "appId": "gnome-pomodoro"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "gnome-pomodoro"
+      },
+      {
+        "source": "eopkg-solus",
+        "appId": "gnome-pomodoro"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "gnome-shell-pomodoro"
+      },
+      {
+        "source": "deb-debian-appstream",
+        "appId": "gnome-shell-pomodoro"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "gnome-pomodoro-git"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "gnome-shell-pomodoro"
+      }
+    ],
+    "reason": "elementary's Pomodoro by oowoosh0 (a) versus GNOME Pomodoro (b), two unrelated timers. Found by catalog#103's before/after diff."
   }
 ]

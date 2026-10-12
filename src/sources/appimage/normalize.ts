@@ -25,6 +25,11 @@ export function normalize(entries: AppImageCacheEntry[]): SourcedPackage[] {
     appId: entry.repo,
     ...appImageAxes(entry.name),
     iconFilename: entry.iconFilename,
+    iconUrl: entry.iconUrl,
+    screenshots: entry.screenshots,
+    license: entry.license,
+    developer: entry.developer,
+    links: entry.links,
     homepage: entry.homepage,
   }));
 }

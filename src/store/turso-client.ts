@@ -1,6 +1,17 @@
 import { chunk } from "helpers4/array";
 import { retry } from "helpers4/promise";
 import { createClient, type Client } from "@libsql/client";
+import {
+  beginPublish,
+  deleteStaleMeta,
+  endPublish,
+  inspectLiveStore,
+  publishIncremental,
+  upsertMetaInBatches,
+  type PublishReport,
+} from "./incremental";
+
+export type { PublishReport } from "./incremental";
 
 /**
  * A published app record — structurally compatible with the curator module's
@@ -96,8 +107,17 @@ export interface TursoConfig {
   authToken?: string;
 }
 
+export interface PublishOptions {
+  /** Rebuild every table and index even when an incremental publish could run (`pnpm seed --full`). */
+  full?: boolean;
+}
+
 export interface TursoClient {
-  publish(dataset: TursoDataset): Promise<void>;
+  /**
+   * Incremental when the live store's schema matches this code's (see
+   * incremental.ts), full otherwise or with `options.full`.
+   */
+  publish(dataset: TursoDataset, options?: PublishOptions): Promise<PublishReport>;
 }
 
 const BATCH_SIZE = 500;
@@ -715,38 +735,6 @@ function computeSourceIdChunks(apps: AppRecord[], generation: string): Map<strin
   return chunks;
 }
 
-// Bulk meta rows go out as multi-row upserts capped by entry count and
-// payload size: the 572 id chunks alone are ~6 MB, well past the ~1 MB
-// request the 500-row `apps` batches already send, and Turso's request
-// limit isn't documented.
-const META_UPSERT_MAX_ENTRIES = 200;
-const META_UPSERT_MAX_BYTES = 750_000;
-
-async function upsertMetaInBatches(db: Client, entries: Array<[string, string]>): Promise<void> {
-  let pending: Array<[string, string]> = [];
-  let bytes = 0;
-  const flush = async (): Promise<void> => {
-    if (pending.length === 0) return;
-    await db.execute({
-      sql: `INSERT INTO meta (key, value) VALUES ${pending.map(() => "(?, ?)").join(", ")}
-            ON CONFLICT(key) DO UPDATE SET value = excluded.value`,
-      args: pending.flat(),
-    });
-    pending = [];
-    bytes = 0;
-  };
-  for (const entry of entries) {
-    const size = entry[0].length + entry[1].length;
-    if (pending.length >= META_UPSERT_MAX_ENTRIES || bytes + size > META_UPSERT_MAX_BYTES) {
-      // eslint-disable-next-line no-await-in-loop
-      await flush();
-    }
-    pending.push(entry);
-    bytes += size;
-  }
-  await flush();
-}
-
 const INDEX_RETRY_ATTEMPTS = 3;
 const INDEX_RETRY_BASE_DELAY_MS = 500;
 
@@ -894,152 +882,211 @@ export function createTursoClient(config: TursoConfig, client?: Client): TursoCl
   const db = client ?? createClient({ url: config.url, authToken: config.authToken });
 
   return {
-    async publish(dataset) {
-      // Defends against a straggler `apps_old` from some earlier run that
-      // never made it to this function's own `DROP TABLE IF EXISTS
-      // apps_old` below (e.g. a crash/timeout between the rename and the
-      // drop) — its indexes would otherwise squat the exact names
-      // APPS_INDEXES_SQL tries to create later, permanently, on every
-      // subsequent publish regardless of the read-your-writes retry above
-      // (that retry only covers a transient lag, not a genuinely
-      // still-existing table). Dropped up front rather than only right
-      // before the swap so a straggler can't survive even if this run
-      // itself fails before reaching that point.
-      await db.execute(`DROP TABLE IF EXISTS apps_old`);
-      await db.execute(`DROP TABLE IF EXISTS apps_next`);
-      await db.execute(`DROP TABLE IF EXISTS apps_fts_old`);
-      await db.execute(`DROP TABLE IF EXISTS apps_fts_next`);
-      await db.execute(appsTableSql("apps_next"));
-
-      // Sequential on purpose: each batch already groups BATCH_SIZE rows
-      // into one round trip; firing all batches concurrently would just
-      // open many parallel connections against the same DB for no real
-      // throughput gain.
-      for (const batch of chunk(dataset.apps, BATCH_SIZE)) {
-        // eslint-disable-next-line no-await-in-loop
-        await db.batch(
-          batch.map((app) => ({
-            sql: `INSERT INTO apps_next (${INSERT_COLUMNS.join(", ")}) VALUES (${INSERT_COLUMNS.map(() => "?").join(", ")})`,
-            args: toRow(app) as never[],
-          })),
-          "write",
-        );
+    async publish(dataset, options = {}) {
+      const rows = new Map(dataset.apps.map((app) => [app.id, toRow(app)] as const));
+      let fullReason = "asked for (--full)";
+      if (!options.full) {
+        const live = await inspectLiveStore(db, INSERT_COLUMNS, APPS_INDEXES_SQL);
+        if (live.ok) {
+          // The live generation, so every browse key keeps its name and only
+          // the values that changed are rewritten.
+          const meta = computeMeta(dataset, live.generation ?? generationOf(dataset));
+          return publishIncremental(
+            db,
+            { columns: INSERT_COLUMNS, rows, meta: [...meta.bulk, ...meta.swap] },
+            live,
+          );
+        }
+        fullReason = live.reason;
       }
-
-      // See APPS_FTS_SQL. `optimize` merges the bulk insert's segments
-      // into one, which every later search would otherwise pay for.
-      await db.execute(APPS_FTS_SQL("apps_fts_next"));
-      await db.execute(
-        `INSERT INTO apps_fts_next (id, name, short_description) SELECT id, name, short_description FROM apps_next`,
-      );
-      await db.execute(`INSERT INTO apps_fts_next (apps_fts_next) VALUES ('optimize')`);
-
-      await db.execute(
-        `CREATE TABLE IF NOT EXISTS meta (key TEXT PRIMARY KEY, value TEXT NOT NULL)`,
-      );
-      const existing = await db.execute(
-        `SELECT name FROM sqlite_master WHERE type='table' AND name='apps'`,
-      );
-      const existingFts = await db.execute(
-        `SELECT name FROM sqlite_master WHERE type='table' AND name='apps_fts'`,
-      );
-
-      const categoryCountsAll = countByCategory(dataset.apps);
-      const categoryCountsGame = countByCategory(
-        dataset.apps.filter((app) => app.contentType === "game"),
-      );
-      const categoryCountsApp = countByCategory(
-        dataset.apps.filter((app) => app.contentType !== "game"),
-      );
-      const listingIds = computeListingIds(dataset.apps);
-
-      // Digits only, so it's safe inside a LIKE pattern below.
-      const generation = dataset.generatedAt.replaceAll(/\D/g, "");
-      const browseCounts = computeBrowseCounts(dataset.apps, generation);
-      const sourceIdChunks = computeSourceIdChunks(dataset.apps, generation);
-      // Browse rows are written before the swap, invisible until `browseKeys`
-      // flips in the swap transaction below — see the comment above
-      // BROWSE_KEYS_META_KEY. Listing rows aren't generation-scoped: each is
-      // self-contained (never joined against `apps`), so going live a few
-      // seconds before the swap is harmless, and keeping them (up to ~30 KB
-      // per list) out of the swap transaction's single request matters more.
-      await upsertMetaInBatches(db, [
-        ...computeListingRows(dataset.apps, listingIds),
-        ...[...browseCounts].map(([key, count]): [string, string] => [key, String(count)]),
-        ...[...sourceIdChunks].map(([key, ids]): [string, string] => [key, JSON.stringify(ids)]),
-      ]);
-
-      // A dynamic key/value list rather than a hand-written VALUES(?, ?, ...)
-      // literal — ~60 precomputed listing keys (3 typeFilter variants x 3
-      // metrics, plus one per category and one per source) makes hand-sizing
-      // the positional args error-prone, and this scales to however many
-      // categories/sources actually exist in a given dataset without the
-      // SQL text itself needing to change.
-      const metaEntries: Array<[string, string]> = [
-        ["generatedAt", dataset.generatedAt],
-        ["totalApps", String(dataset.apps.length)],
-        ["categoryCounts:all", JSON.stringify(categoryCountsAll)],
-        ["categoryCounts:game", JSON.stringify(categoryCountsGame)],
-        ["categoryCounts:app", JSON.stringify(categoryCountsApp)],
-        [
-          BROWSE_KEYS_META_KEY,
-          JSON.stringify({
-            generation,
-            sourceIdsChunkSize: SOURCE_IDS_CHUNK_SIZE,
-            freeCounts: true,
-          }),
-        ],
-        ...Object.entries(listingIds).map(([key, ids]): [string, string] => [
-          key,
-          JSON.stringify(ids),
-        ]),
-      ];
-      const metaValuesSql = metaEntries.map(() => "(?, ?)").join(", ");
-
-      await db.batch(
-        [
-          ...(existing.rows.length > 0 ? [{ sql: `ALTER TABLE apps RENAME TO apps_old` }] : []),
-          { sql: `ALTER TABLE apps_next RENAME TO apps` },
-          { sql: `DROP TABLE IF EXISTS apps_old` },
-          ...(existingFts.rows.length > 0
-            ? [{ sql: `ALTER TABLE apps_fts RENAME TO apps_fts_old` }]
-            : []),
-          { sql: `ALTER TABLE apps_fts_next RENAME TO apps_fts` },
-          { sql: `DROP TABLE IF EXISTS apps_fts_old` },
-          {
-            sql: `INSERT INTO meta (key, value) VALUES ${metaValuesSql}
-                  ON CONFLICT(key) DO UPDATE SET value = excluded.value`,
-            args: metaEntries.flat(),
-          },
-        ],
-        "write",
-      );
-
-      // The previous generation's browse rows are unreachable now that
-      // `browseKeys` points at this one — drop them (and, as a side effect,
-      // any generation a failed publish left behind).
-      await db.execute({
-        sql: `DELETE FROM meta
-              WHERE (key LIKE 'count:%' AND key NOT LIKE ?)
-                 OR (key LIKE 'countFree:%' AND key NOT LIKE ?)
-                 OR (key LIKE 'sourceIds:%' AND key NOT LIKE ?)`,
-        args: [`count:${generation}:%`, `countFree:${generation}:%`, `sourceIds:${generation}:%`],
-      });
-
-      // Built once over the finished `apps` table, after the swap above
-      // has already dropped `apps_old` (and with it, any previous run's
-      // same-named indexes) — see APPS_INDEXES_SQL's comment for why
-      // this can't happen before the swap. Sequential for the same
-      // "don't open parallel connections for no throughput gain" reason
-      // as the insert batches. Briefly unindexed between the swap and
-      // this loop finishing (a few seconds for 168k rows), which is a
-      // far smaller cost than either failing outright on every publish
-      // after the first, or dropping the live indexes before the swap
-      // and running unindexed for the whole publish duration instead.
-      for (const indexSql of APPS_INDEXES_SQL) {
-        // eslint-disable-next-line no-await-in-loop
-        await createIndexWithRetry(db, indexSql);
-      }
+      await publishFull(db, dataset, rows);
+      return {
+        mode: "full",
+        fullReason,
+        inserted: dataset.apps.length,
+        updated: 0,
+        deleted: 0,
+        unchanged: 0,
+        searchRowsWritten: dataset.apps.length,
+        metaWritten: 0,
+        metaDeleted: 0,
+      };
     },
   };
+}
+
+/** Digits only, so it's safe inside a LIKE pattern. */
+function generationOf(dataset: TursoDataset): string {
+  return dataset.generatedAt.replaceAll(/\D/g, "");
+}
+
+/**
+ * Every `meta` row a dataset leaves, split the way a full publish writes
+ * them: `bulk` before the swap, `swap` inside its transaction (see the
+ * comment above BROWSE_KEYS_META_KEY). An incremental publish writes both
+ * as one list, only the rows whose value changed.
+ */
+function computeMeta(
+  dataset: TursoDataset,
+  generation: string,
+): { bulk: Array<[string, string]>; swap: Array<[string, string]> } {
+  const categoryCountsAll = countByCategory(dataset.apps);
+  const categoryCountsGame = countByCategory(
+    dataset.apps.filter((app) => app.contentType === "game"),
+  );
+  const categoryCountsApp = countByCategory(
+    dataset.apps.filter((app) => app.contentType !== "game"),
+  );
+  const listingIds = computeListingIds(dataset.apps);
+  const browseCounts = computeBrowseCounts(dataset.apps, generation);
+  const sourceIdChunks = computeSourceIdChunks(dataset.apps, generation);
+
+  // A dynamic key/value list rather than a hand-written VALUES(?, ?, ...)
+  // literal — ~60 precomputed listing keys (3 typeFilter variants x 3
+  // metrics, plus one per category and one per source) makes hand-sizing
+  // the positional args error-prone, and this scales to however many
+  // categories/sources actually exist in a given dataset without the
+  // SQL text itself needing to change.
+  return {
+    bulk: [
+      ...computeListingRows(dataset.apps, listingIds),
+      ...[...browseCounts].map(([key, count]): [string, string] => [key, String(count)]),
+      ...[...sourceIdChunks].map(([key, ids]): [string, string] => [key, JSON.stringify(ids)]),
+    ],
+    swap: [
+      ["generatedAt", dataset.generatedAt],
+      ["totalApps", String(dataset.apps.length)],
+      ["categoryCounts:all", JSON.stringify(categoryCountsAll)],
+      ["categoryCounts:game", JSON.stringify(categoryCountsGame)],
+      ["categoryCounts:app", JSON.stringify(categoryCountsApp)],
+      [
+        BROWSE_KEYS_META_KEY,
+        JSON.stringify({
+          generation,
+          sourceIdsChunkSize: SOURCE_IDS_CHUNK_SIZE,
+          freeCounts: true,
+        }),
+      ],
+      ...Object.entries(listingIds).map(([key, ids]): [string, string] => [
+        key,
+        JSON.stringify(ids),
+      ]),
+    ],
+  };
+}
+
+/**
+ * Rebuilds everything into fresh tables and swaps them in: the first
+ * publish, a schema change, or `--full`.
+ */
+async function publishFull(
+  db: Client,
+  dataset: TursoDataset,
+  rows: ReadonlyMap<string, readonly unknown[]>,
+): Promise<void> {
+  // Hashes aren't trusted until `endPublish`: a run dying half way makes
+  // the next incremental publish compare every row (see incremental.ts).
+  await beginPublish(db);
+  // Defends against a straggler `apps_old` from some earlier run that
+  // never made it to this function's own `DROP TABLE IF EXISTS
+  // apps_old` below (e.g. a crash/timeout between the rename and the
+  // drop) — its indexes would otherwise squat the exact names
+  // APPS_INDEXES_SQL tries to create later, permanently, on every
+  // subsequent publish regardless of the read-your-writes retry above
+  // (that retry only covers a transient lag, not a genuinely
+  // still-existing table). Dropped up front rather than only right
+  // before the swap so a straggler can't survive even if this run
+  // itself fails before reaching that point.
+  await db.execute(`DROP TABLE IF EXISTS apps_old`);
+  await db.execute(`DROP TABLE IF EXISTS apps_next`);
+  await db.execute(`DROP TABLE IF EXISTS apps_fts_old`);
+  await db.execute(`DROP TABLE IF EXISTS apps_fts_next`);
+  await db.execute(appsTableSql("apps_next"));
+
+  // Sequential on purpose: each batch already groups BATCH_SIZE rows
+  // into one round trip; firing all batches concurrently would just
+  // open many parallel connections against the same DB for no real
+  // throughput gain.
+  for (const batch of chunk(dataset.apps, BATCH_SIZE)) {
+    // eslint-disable-next-line no-await-in-loop
+    await db.batch(
+      batch.map((app) => ({
+        sql: `INSERT INTO apps_next (${INSERT_COLUMNS.join(", ")}) VALUES (${INSERT_COLUMNS.map(() => "?").join(", ")})`,
+        args: rows.get(app.id) as never[],
+      })),
+      "write",
+    );
+  }
+
+  // See APPS_FTS_SQL. Same rowids as `apps_next` (and so `apps`, the
+  // rename keeps them), so an incremental publish finds an app's search
+  // row by rowid. `optimize` merges the bulk insert's segments into one,
+  // which every later search would otherwise pay for.
+  await db.execute(APPS_FTS_SQL("apps_fts_next"));
+  await db.execute(
+    `INSERT INTO apps_fts_next (rowid, id, name, short_description) SELECT rowid, id, name, short_description FROM apps_next`,
+  );
+  await db.execute(`INSERT INTO apps_fts_next (apps_fts_next) VALUES ('optimize')`);
+
+  const existing = await db.execute(
+    `SELECT name FROM sqlite_master WHERE type='table' AND name='apps'`,
+  );
+  const existingFts = await db.execute(
+    `SELECT name FROM sqlite_master WHERE type='table' AND name='apps_fts'`,
+  );
+
+  const generation = generationOf(dataset);
+  const meta = computeMeta(dataset, generation);
+  // Browse rows are written before the swap, invisible until `browseKeys`
+  // flips in the swap transaction below — see the comment above
+  // BROWSE_KEYS_META_KEY. Listing rows aren't generation-scoped: each is
+  // self-contained (never joined against `apps`), so going live a few
+  // seconds before the swap is harmless, and keeping them (up to ~30 KB
+  // per list) out of the swap transaction's single request matters more.
+  await upsertMetaInBatches(db, meta.bulk);
+  const metaEntries = meta.swap;
+  const metaValuesSql = metaEntries.map(() => "(?, ?)").join(", ");
+
+  await db.batch(
+    [
+      ...(existing.rows.length > 0 ? [{ sql: `ALTER TABLE apps RENAME TO apps_old` }] : []),
+      { sql: `ALTER TABLE apps_next RENAME TO apps` },
+      { sql: `DROP TABLE IF EXISTS apps_old` },
+      ...(existingFts.rows.length > 0
+        ? [{ sql: `ALTER TABLE apps_fts RENAME TO apps_fts_old` }]
+        : []),
+      { sql: `ALTER TABLE apps_fts_next RENAME TO apps_fts` },
+      { sql: `DROP TABLE IF EXISTS apps_fts_old` },
+      {
+        sql: `INSERT INTO meta (key, value) VALUES ${metaValuesSql}
+              ON CONFLICT(key) DO UPDATE SET value = excluded.value`,
+        args: metaEntries.flat(),
+      },
+    ],
+    "write",
+  );
+
+  // The previous generation's browse rows are unreachable now that
+  // `browseKeys` points at this one — drop them, and every other row this
+  // dataset no longer produces (a category gone, or a combination that fell
+  // to zero under a same-`generatedAt` republish, which the generation alone
+  // can't tell apart).
+  await deleteStaleMeta(db, new Set([...meta.bulk, ...meta.swap].map(([key]) => key)));
+
+  // Built once over the finished `apps` table, after the swap above
+  // has already dropped `apps_old` (and with it, any previous run's
+  // same-named indexes) — see APPS_INDEXES_SQL's comment for why
+  // this can't happen before the swap. Sequential for the same
+  // "don't open parallel connections for no throughput gain" reason
+  // as the insert batches. Briefly unindexed between the swap and
+  // this loop finishing (a few seconds for 168k rows), which is a
+  // far smaller cost than either failing outright on every publish
+  // after the first, or dropping the live indexes before the swap
+  // and running unindexed for the whole publish duration instead.
+  for (const indexSql of APPS_INDEXES_SQL) {
+    // eslint-disable-next-line no-await-in-loop
+    await createIndexWithRetry(db, indexSql);
+  }
+
+  await endPublish(db, rows);
 }

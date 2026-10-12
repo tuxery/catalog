@@ -39,8 +39,9 @@ describe("createTursoClient", () => {
     expect(execute).toHaveBeenCalledWith(expect.stringContaining("DROP TABLE IF EXISTS apps_next"));
     expect(execute).toHaveBeenCalledWith(expect.stringContaining("CREATE TABLE apps_next"));
 
-    // One batch for the row insert, one batch for the swap + meta write
-    expect(batch).toHaveBeenCalledTimes(2);
+    // One batch for the row insert, one for the swap + meta write, one for
+    // the end-of-publish bookkeeping (incremental.ts' endPublish)
+    expect(batch).toHaveBeenCalledTimes(3);
 
     const insertBatch = batch.mock.calls[0]?.[0] as { sql: string; args: unknown[] }[];
     expect(insertBatch).toHaveLength(1);
@@ -336,12 +337,14 @@ describe("createTursoClient", () => {
     const create = statements.findIndex((sql) =>
       sql.includes("CREATE VIRTUAL TABLE apps_fts_next"),
     );
-    const fill = statements.findIndex((sql) => sql.includes("INSERT INTO apps_fts_next (id"));
+    const fill = statements.findIndex((sql) => sql.includes("INSERT INTO apps_fts_next ("));
     const optimize = statements.findIndex((sql) => sql.includes("VALUES ('optimize')"));
     expect(statements[create]).toContain("fts5(id, name, short_description");
     expect(statements[create]).toContain("tokenize='trigram'");
     expect(statements[create]).toContain("detail='full'");
     expect(statements[fill]).toContain("FROM apps_next");
+    // apps' own rowids, so an incremental publish finds a search row by rowid.
+    expect(statements[fill]).toContain("SELECT rowid, id, name, short_description");
     expect(create).toBeLessThan(fill);
     expect(fill).toBeLessThan(optimize);
 
@@ -539,7 +542,7 @@ describe("precomputed browse keys", () => {
     ).toBe(false);
 
     // The generation only becomes visible through the swap transaction.
-    const swapBatch = batch.mock.calls.at(-1)?.[0] as { sql: string; args?: unknown[] }[];
+    const swapBatch = batch.mock.calls[1]?.[0] as { sql: string; args?: unknown[] }[];
     const swapMeta = swapBatch.find((s) => s.sql.includes("INSERT INTO meta"));
     expect(JSON.parse(metaValue(swapMeta?.args as unknown[], "browseKeys") ?? "")).toEqual({
       generation: GEN,
@@ -549,17 +552,20 @@ describe("precomputed browse keys", () => {
     expect(meta.has("browseKeys")).toBe(false);
   });
 
-  it("drops the previous generation's rows after the swap, keeping only the current one", async () => {
-    const { execute, client } = fakeClient(false);
-    const tursoClient = createTursoClient({ url: "file::memory:" }, client);
+  it("drops every row the new dataset doesn't produce after a full swap: the previous generation, a category gone", async () => {
+    const db = createClient({ url: "file::memory:" });
+    const tursoClient = createTursoClient({ url: "file::memory:" }, db);
+    const tool = { ...APP, id: "t", category: "Utilities" };
 
-    await tursoClient.publish({ generatedAt: "2026-01-01T00:00:00.000Z", apps: [APP] });
+    await tursoClient.publish({ generatedAt: "2026-01-01T00:00:00.000Z", apps: [APP, tool] });
+    await tursoClient.publish(
+      { generatedAt: "2026-02-01T00:00:00.000Z", apps: [APP] },
+      { full: true },
+    );
 
-    const cleanup = execute.mock.calls
-      .map(([statement]) => statement as { sql?: string; args?: unknown[] })
-      .find((statement) => statement.sql?.includes("DELETE FROM meta"));
-    expect(cleanup?.args).toEqual([`count:${GEN}:%`, `countFree:${GEN}:%`, `sourceIds:${GEN}:%`]);
-    expect(cleanup?.sql).toContain("NOT LIKE");
+    const keys = (await db.execute(`SELECT key FROM meta`)).rows.map((row) => String(row.key));
+    expect(keys.filter((key) => key.includes(GEN))).toEqual([]);
+    expect(keys.filter((key) => key.includes("Utilities"))).toEqual([]);
   });
 
   it("orders each source's id chunks exactly like SQLite's ORDER BY name ASC (UTF-8 byte order), and chunks at 500", async () => {
@@ -627,13 +633,38 @@ describe("precomputed browse keys", () => {
       (await db.execute(`SELECT value FROM meta WHERE key = 'count:${GEN}:all:all:gog:*'`)).rows,
     ).toHaveLength(1);
 
-    // Second publish: the only gog app is gone.
-    await tursoClient.publish({ generatedAt: "2026-02-01T00:00:00.000Z", apps: [APP] });
+    // Second publish, incremental: the only gog app is gone, and so is every
+    // key counting it, while the live generation keeps its name.
+    const report = await tursoClient.publish({
+      generatedAt: "2026-02-01T00:00:00.000Z",
+      apps: [APP],
+    });
+    expect(report.mode).toBe("incremental");
+    const gogKeys = async () =>
+      (await db.execute(`SELECT key FROM meta WHERE key LIKE '%:gog:%'`)).rows.map((row) =>
+        String(row.key),
+      );
+    expect(await gogKeys()).toEqual([]);
     const keys = (
       await db.execute(`SELECT key FROM meta WHERE key LIKE 'count:%' OR key LIKE 'sourceIds:%'`)
     ).rows.map((row) => String(row.key));
     expect(keys.length).toBeGreaterThan(0);
-    expect(keys.every((key) => key.includes(":20260201000000000:"))).toBe(true);
+    expect(keys.every((key) => key.includes(`:${GEN}:`))).toBe(true);
+
+    // A full publish moves everything to the new generation.
+    await tursoClient.publish(
+      { generatedAt: "2026-02-01T00:00:00.000Z", apps: [APP, game] },
+      { full: true },
+    );
+    await tursoClient.publish(
+      { generatedAt: "2026-02-01T00:00:00.000Z", apps: [APP] },
+      { full: true },
+    );
+    expect(await gogKeys()).toEqual([]);
+    const fullKeys = (
+      await db.execute(`SELECT key FROM meta WHERE key LIKE 'count:%' OR key LIKE 'sourceIds:%'`)
+    ).rows.map((row) => String(row.key));
+    expect(fullKeys.every((key) => key.includes(":20260201000000000:"))).toBe(true);
     expect(
       JSON.parse(
         String(

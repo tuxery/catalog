@@ -1,5 +1,10 @@
 name: Publish dataset to Turso
 
+# Publishes are incremental since 2026-10-12 (src/store/incremental.ts):
+# only the rows that changed are written, ~206k rows for a dataset where
+# nearly every app changed against ~1.74M for a full rebuild. The note
+# below dates from full rebuilds only.
+#
 # Manual-only, on purpose (2026-09-03): this used to auto-publish on
 # every PR (to preview) and every merge to main (to prod), but each
 # publish does a full 168k-row bulk insert plus a from-scratch rebuild of
@@ -39,6 +44,11 @@ on:
         options:
           - preview
           - prod
+      full:
+        description: "Rebuild every table and index (pnpm seed --full) instead of writing only what changed"
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -61,7 +71,7 @@ jobs:
         env:
           TURSO_DB_URL: ${{ secrets.PREVIEW_TURSO_DB_URL }}
           TURSO_DB_AUTH_TOKEN: ${{ secrets.PREVIEW_TURSO_DB_AUTH_TOKEN }}
-        run: pnpm seed --preview
+        run: pnpm seed --preview ${{ inputs.full && '--full' || '' }}
 
   publish-prod:
     if: github.event.inputs.target == 'prod'
@@ -80,4 +90,4 @@ jobs:
         env:
           TURSO_DB_URL: ${{ secrets.PROD_TURSO_DB_URL }}
           TURSO_DB_AUTH_TOKEN: ${{ secrets.PROD_TURSO_DB_AUTH_TOKEN }}
-        run: pnpm seed --prod
+        run: pnpm seed --prod ${{ inputs.full && '--full' || '' }}

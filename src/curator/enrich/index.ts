@@ -24,6 +24,7 @@ import {
 } from "./category";
 import { computeDataConfidence, forceMatchedKeys } from "./data-confidence";
 import {
+  pickAgeRating,
   pickLanguages,
   pickLastUpdated,
   pickLicense,
@@ -809,7 +810,7 @@ export function enrichApps(
       longDescription: pickRichField("longDescription", app.packages, (pkg) => pkg.longDescription),
       screenshots: pickRichField("screenshots", app.packages, (pkg) => pkg.screenshots),
       videos: pickRichField("videos", app.packages, (pkg) => pkg.videos),
-      ageRating: pickRichField("ageRating", app.packages, (pkg) => pkg.ageRating),
+      ageRating: pickAgeRating(app.packages),
       requirements: pickRichField("requirements", app.packages, (pkg) => pkg.requirements),
       permissions: pickRichField("permissions", app.packages, (pkg) => pkg.permissions),
       languages: pickLanguages(app.packages),

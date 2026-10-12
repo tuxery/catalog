@@ -1,3 +1,6 @@
+import type { AgeRating } from "../types";
+import { OARS_INTENSITIES, oarsAttributeAge } from "./oars";
+
 /**
  * AppStream fields the XML (`appstream.ts`) and DEP-11 YAML (`dep11.ts`)
  * parsers both read: content rating, relations and videos. Each parser
@@ -21,21 +24,25 @@ export interface AppstreamRelations {
   supports?: AppstreamRelation[];
 }
 
-const INTENSITIES = ["none", "mild", "moderate", "intense"] as const;
-
 /**
- * An OARS rating as one badge value: the strongest intensity any of its
- * attributes declares (`none`, `mild`, `moderate`, `intense`). A rating
- * with no attribute at all is a checked app with nothing to declare, so
- * `none`. `undefined` for an unknown intensity everywhere: never guessed.
- * Mapping OARS to a minimum age is a policy of each store, not data.
+ * An OARS rating as the unified `AgeRating`: `minAge` is the highest
+ * minimum age among its attributes (`_shared/oars.ts`) and `value` the
+ * strongest intensity any of them declares (`none`, `mild`, `moderate`,
+ * `intense`) for the per-source detail. A rating with no attribute at
+ * all is a checked app with nothing to declare: `none`, age 0. An
+ * attribute with an intensity it doesn't know is ignored, never guessed.
  */
-export function summarizeContentRating(
-  intensities: string[],
-): { system: string; value: string } | undefined {
-  const known = intensities.map((value) => INTENSITIES.indexOf(value as never));
-  if (known.some((rank) => rank === -1)) return undefined;
-  return { system: "OARS", value: INTENSITIES[Math.max(0, ...known)] as string };
+export function summarizeContentRating(attributes: { id: string; value: string }[]): AgeRating {
+  const known = attributes.filter(({ value }) => OARS_INTENSITIES.includes(value as never));
+  const strongest = Math.max(
+    0,
+    ...known.map(({ value }) => OARS_INTENSITIES.indexOf(value as never)),
+  );
+  return {
+    system: "OARS",
+    value: OARS_INTENSITIES[strongest] as string,
+    minAge: Math.max(0, ...known.map(({ id, value }) => oarsAttributeAge(id, value))),
+  };
 }
 
 const CONTROLS: Record<string, string> = {

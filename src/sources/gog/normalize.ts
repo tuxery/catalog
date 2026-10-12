@@ -72,6 +72,7 @@ export function normalize(entries: GogCacheEntry[]): SourcedPackage[] {
       hasGameCategory: true,
       developer: entry.developers[0],
       publisher: entry.publisher,
+      ageRating: entry.ageRating,
       iconUrl: entry.iconUrl,
       longDescription: entry.longDescription,
       screenshots: entry.screenshots.length > 0 ? entry.screenshots : undefined,

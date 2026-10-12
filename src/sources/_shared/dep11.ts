@@ -1,4 +1,9 @@
-import { PROJECT_LINK_TYPES, type ProjectLinks, type ProjectLinkType } from "../types";
+import {
+  PROJECT_LINK_TYPES,
+  type ProjectLinks,
+  type ProjectLinkType,
+  type AgeRating,
+} from "../types";
 import {
   summarizeContentRating,
   summarizeRelations,
@@ -58,7 +63,7 @@ export interface Dep11Component {
   /** `Languages:` locale codes, in document order. */
   languages?: string[];
   /** `ContentRating:`'s strongest OARS intensity — see `SourcedPackage.ageRating`. */
-  ageRating?: { system: string; value: string };
+  ageRating?: AgeRating;
   /** `Requires:`/`Recommends:`/`Supports:` as one readable line — see `SourcedPackage.requirements`. */
   requirements?: string;
 }
@@ -397,7 +402,7 @@ export function parseDep11Yaml(yaml: string): Dep11Document {
       }
       case "ContentRating": {
         const end = nextTopLevelKeyIndex(lines, index + 1);
-        const ratings = new Map<string, string[]>();
+        const ratings = new Map<string, { id: string; value: string }[]>();
         let system = "";
         for (let cursor = index + 1; cursor < end; cursor += 1) {
           const blockLine = lines[cursor] ?? "";
@@ -407,11 +412,15 @@ export function parseDep11Yaml(yaml: string): Dep11Document {
             ratings.set(system, []);
             continue;
           }
-          const attribute = /^ {4}[a-z-]+: (.+)$/.exec(blockLine);
-          if (attribute && system) ratings.get(system)?.push(stripQuotes(attribute[1] ?? ""));
+          const attribute = /^ {4}([a-z-]+): (.+)$/.exec(blockLine);
+          if (attribute && system) {
+            ratings
+              .get(system)
+              ?.push({ id: attribute[1] as string, value: stripQuotes(attribute[2] ?? "") });
+          }
         }
-        const intensities = ratings.get("oars-1.1") ?? [...ratings.values()][0];
-        if (intensities) current.ageRating = summarizeContentRating(intensities);
+        const attributes = ratings.get("oars-1.1") ?? [...ratings.values()][0];
+        if (attributes) current.ageRating = summarizeContentRating(attributes);
         index = end;
         break;
       }

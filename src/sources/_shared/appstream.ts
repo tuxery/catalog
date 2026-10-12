@@ -6,6 +6,7 @@ import {
   type ReleaseEntry,
   type ProjectLinks,
   type ProjectLinkType,
+  type AgeRating,
 } from "../types";
 import {
   pickPlayableVideo,
@@ -94,6 +95,7 @@ interface RawScreenshot {
 
 interface RawContentAttribute {
   "#text"?: string;
+  "@_id"?: string;
 }
 
 interface RawContentRating {
@@ -174,7 +176,7 @@ export interface AppstreamComponent {
   /** One playable file per screenshot that has a video, in screenshot order — see `SourcedPackage.videos`. */
   videos?: string[];
   /** `<content_rating>`'s strongest OARS intensity — see `SourcedPackage.ageRating`. */
-  ageRating?: { system: string; value: string };
+  ageRating?: AgeRating;
   /** `<requires>`/`<recommends>`/`<supports>` as one readable line — see `SourcedPackage.requirements`. */
   requirements?: string;
   /** The newest `<release>`'s own `<description>`, flattened the same way as the component's own `<description>` — see `SourcedPackage.changelog`. `undefined` when the newest release has no description (common — many releases are just a bare `<release version="x"/>`, no notes). */
@@ -394,16 +396,18 @@ function pickVideos(
   return videos.length > 0 ? videos : undefined;
 }
 
-/** The component's OARS rating (1.1 over any older one) as a badge value. */
+/** The component's OARS rating (1.1 over any older one) as an `AgeRating`. */
 function pickAgeRating(
   ratings: RawContentRating | RawContentRating[] | undefined,
-): { system: string; value: string } | undefined {
+): AgeRating | undefined {
   const all = asList(ratings).filter((rating) => (rating["@_type"] ?? "").startsWith("oars"));
   const rating = all.find((entry) => entry["@_type"] === "oars-1.1") ?? all[0];
   if (!rating) return undefined;
   return summarizeContentRating(
-    asList(rating.content_attribute).map((attribute) =>
-      (typeof attribute === "string" ? attribute : (attribute["#text"] ?? "")).trim(),
+    asList(rating.content_attribute).flatMap((attribute) =>
+      typeof attribute === "string"
+        ? []
+        : [{ id: attribute["@_id"] ?? "", value: (attribute["#text"] ?? "").trim() }],
     ),
   );
 }

@@ -63,7 +63,7 @@ version and download size.
 | `releases` + `changelog` | Upstream stores, distro AppStream                                                                                                                                       | AppStream `<releases>` only, see below                              |
 | `lastUpdated`            | Every package's upstream release date                                                                                                                                   | Newest among default builds, see below                              |
 | `approxSizeBytes`        | Flathub                                                                                                                                                                 | A Flatpak download. Installed sizes stay per package                |
-| `ageRating`              | Upstream stores, distro AppStream                                                                                                                                       | AppStream `<content_rating>` (OARS), see [Age rating](#age-rating)  |
+| `ageRating`              | Upstream stores, distro AppStream, GOG                                                                                                                                  | OARS and GOG's PEGI/ESRB, see [Age rating](#age-rating)             |
 | `requirements`           | Upstream stores, distro AppStream                                                                                                                                       | AppStream `<requires>`/`<recommends>`/`<supports>`, one line        |
 | `permissions`            | Flathub                                                                                                                                                                 | The Flatpak's own sandbox. Partial, see [Permissions](#permissions) |
 
@@ -104,25 +104,27 @@ unset). It is carried per package for now: no `CatalogApp` badge yet.
 
 ### Age rating
 
-OARS describes intensities per attribute (`violence-cartoon: mild`),
-and turning them into a minimum age is each store's policy, not data.
-`ageRating` is therefore `{ system: "OARS", value }` with the strongest
-intensity declared (`none`, `mild`, `moderate`, `intense`); a rating
-with no attribute at all is a checked app with nothing to declare, so
-`none`, and an app without `<content_rating>` has none.
+Ratings come in different systems (OARS in AppStream, PEGI/ESRB/USK at
+GOG), so they are put on one scale: the **minimum age in years**.
 
-### Permissions
+- **OARS** lists intensities per attribute (`violence-cartoon: mild`).
+  Each attribute at each intensity implies an age in Common Sense
+  Media's table, the one libappstream uses (`_shared/oars.ts`); the
+  rating's age is the highest among its attributes. A rating with no
+  attribute is a checked app with nothing to declare: age 0. An app
+  without `<content_rating>` has no rating at all, which is not age 0.
+- **GOG** gives the age of each national system: PEGI first, else ESRB,
+  else USK.
+- Each package keeps its own rating (`SourcedPackage.ageRating`:
+  system, the source's wording, `minAge`) for the per-source detail.
+- `CatalogApp.ageRating` is `{ system: "min-age", value }` with the
+  **strictest** age among the packages: a source that rated higher saw
+  something the others may have missed. This is the one field picked
+  across packages rather than from one (rule 3), like `rating`.
 
-`permissions` holds a Flatpak's `finish-args` (`--share=network`,
-`--filesystem=xdg-download:ro`, ...), the form the app turns into its
-sandbox summary. Flathub's summary API only exposes the shared
-namespaces, sockets, devices, filesystems and the session bus's
-`talk`/`own` names: `--allow=` features (`devel`), `--persist`, the
-system bus and the environment are missing from it even when the
-manifest declares them (checked on GNOME Builder, which has
-`--allow=devel`). So a list here is a lower bound, and an app without
-one (a runtime, an extension) has no sandbox information at all, which
-is not the same as a closed sandbox.
+The scale describes how much mature content an app declares, not how
+safe it is. The website explains it in its glossary and shows the
+sources' detail in the badge's tooltip.
 
 ### Dates
 

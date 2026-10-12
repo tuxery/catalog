@@ -242,10 +242,11 @@ describe("parseDep11Yaml: content rating and requirements", () => {
     expect(
       parse("ContentRating:\n  oars-1.1:\n    violence-cartoon: mild\n    social-chat: moderate\n")
         ?.ageRating,
-    ).toEqual({ system: "OARS", value: "moderate" });
+    ).toEqual({ system: "OARS", value: "moderate", minAge: 10 });
     expect(parse("ContentRating:\n  oars-1.1: {}\n")?.ageRating).toEqual({
       system: "OARS",
       value: "none",
+      minAge: 0,
     });
     expect(parse("Categories:\n- Game\n")?.ageRating).toBeUndefined();
   });

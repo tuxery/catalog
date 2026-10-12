@@ -3,6 +3,7 @@ import { flattenHtmlDescription } from "../_shared/dep11";
 import { fetchOrThrow } from "../_shared/http";
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
+import type { AgeRating } from "../types";
 import type { GogCacheEntry, GogFetchMetadata } from "./types";
 
 // GOG's catalog API is undocumented but real and unauthenticated, already
@@ -41,11 +42,29 @@ interface RawProduct {
   reviewsRating?: number;
   reviewsCount?: number;
   genres?: { name: string; slug: string }[];
+  ratings?: { name?: string; ageRating?: string }[];
 }
 
 interface RawCatalogPage {
   pages?: number;
   products?: RawProduct[];
+}
+
+// GOG lists a product's age rating per national system, as the minimum age
+// in years. PEGI first (the European standard), then the others.
+const AGE_SYSTEMS = [
+  ["pegiRating", "PEGI"],
+  ["esrbRating", "ESRB"],
+  ["uskRating", "USK"],
+] as const;
+
+/** The first of PEGI, ESRB or USK the product has, as an `AgeRating` (its age is its minimum age). Pure — no I/O. */
+export function pickAgeRating(ratings: RawProduct["ratings"]): AgeRating | undefined {
+  for (const [name, system] of AGE_SYSTEMS) {
+    const age = Number(ratings?.find((rating) => rating.name === name)?.ageRating);
+    if (Number.isInteger(age) && age >= 0) return { system, value: String(age), minAge: age };
+  }
+  return undefined;
 }
 
 /** Substitutes GOG's `{formatter}` size placeholder with a working image size. Pure — no I/O. */
@@ -77,6 +96,7 @@ export function mapProducts(products: RawProduct[]): GogCacheEntry[] {
         ? { average: (product.reviewsRating ?? 0) / 10, count: product.reviewsCount }
         : undefined,
       genres: (product.genres ?? []).map((genre) => genre.slug),
+      ageRating: pickAgeRating(product.ratings),
     }));
 }
 

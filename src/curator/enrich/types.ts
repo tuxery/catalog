@@ -201,7 +201,7 @@ export interface CatalogApp {
   requirements?: string;
   /** The Flathub package's own sandbox permissions as `finish-args` — a lower bound, see docs/rich-fields.md. Other formats' confinement belongs to each package. */
   permissions?: string[];
-  /** AppStream's `<content_rating>` (OARS) as its strongest intensity — see `SourcedPackage.ageRating`. */
+  /** The unified age rating: `{ system: "min-age", value }` with the strictest minimum age, in years, among the packages' own ratings (`SourcedPackage.ageRating`) — see `pickAgeRating`. */
   ageRating?: { system: string; value: string };
   /** No upstream signal in any current source — likely editorial/manual, not auto-extractable. */
   aiFeatures?: boolean;

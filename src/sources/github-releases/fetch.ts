@@ -1,5 +1,6 @@
 import { parallel } from "helpers4/promise";
 import { fetchOrThrow } from "../_shared/http";
+import { percentileScores } from "../_shared/popularity";
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
 import type { GithubReleasesCacheEntry, GithubReleasesFetchMetadata } from "./types";
@@ -66,6 +67,9 @@ interface RawRepo {
   html_url?: string;
   stargazers_count?: number;
   archived?: boolean;
+  license?: { spdx_id?: string | null } | null;
+  topics?: string[];
+  pushed_at?: string;
 }
 
 interface RawSearchResponse {
@@ -75,6 +79,7 @@ interface RawSearchResponse {
 
 export interface RawRelease {
   tag_name?: string;
+  published_at?: string;
   html_url?: string;
 }
 
@@ -183,6 +188,12 @@ async function lookupLatestRelease(repo: string): Promise<RawRelease | undefined
   return (await response.json()) as RawRelease;
 }
 
+/** GitHub's detected SPDX id; `NOASSERTION` ("Other") says nothing. Pure. */
+export function repoLicense(license: RawRepo["license"]): string | undefined {
+  const id = license?.spdx_id?.trim();
+  return id && id !== "NOASSERTION" ? id : undefined;
+}
+
 /**
  * Resolves every repo's latest Release, `concurrency` at a time — same
  * bounded-worker-pool shape as `appimage/fetch.ts`'s `resolveEntries`
@@ -207,6 +218,10 @@ export async function resolveEntries(
         homepage: repo.html_url ?? `https://github.com/${repo.full_name}`,
         releaseUrl: release.html_url ?? `https://github.com/${repo.full_name}/releases/latest`,
         stars: repo.stargazers_count ?? 0,
+        license: repoLicense(repo.license),
+        topics: repo.topics?.length ? repo.topics : undefined,
+        pushedAt: repo.pushed_at,
+        releasedAt: release.published_at,
       };
     }),
     concurrency,
@@ -222,7 +237,11 @@ export async function resolveEntries(
  */
 export async function fetchGithubReleases(cachePath: string): Promise<number> {
   const repos = await searchRepos();
-  const entries = await resolveEntries(repos, lookupLatestRelease, LOOKUP_CONCURRENCY);
+  const resolved = await resolveEntries(repos, lookupLatestRelease, LOOKUP_CONCURRENCY);
+  const popularity = percentileScores(new Map(resolved.map((entry) => [entry.repo, entry.stars])));
+  const entries = resolved.map((entry) =>
+    Object.assign(entry, { popularity: popularity.get(entry.repo) }),
+  );
 
   writeNdjson(cachePath, entries);
   writeMetadata<GithubReleasesFetchMetadata>(cachePath, {

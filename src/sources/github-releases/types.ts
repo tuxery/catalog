@@ -19,6 +19,16 @@ export interface GithubReleasesCacheEntry {
   /** The Release page itself, not a specific asset — no reliable per-project convention for picking "the right download" across arbitrary repos, so this hands off to the user instead of guessing. */
   releaseUrl: string;
   stars: number;
+  /** The repo's SPDX id (`GPL-3.0`), absent when GitHub detects none or only `NOASSERTION`. */
+  license?: string;
+  /** The repo's topics, absent when it has none. */
+  topics?: string[];
+  /** The repo's `pushed_at` (ISO). */
+  pushedAt?: string;
+  /** The latest Release's publication date (ISO) — upstream's own release date. */
+  releasedAt?: string;
+  /** See `SourcedPackage.popularity`: the repo's stars as a percentile among this source's repos. */
+  popularity?: number;
 }
 
 export interface GithubReleasesFetchMetadata extends FetchMetadata {

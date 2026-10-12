@@ -9,5 +9,10 @@ export function normalize(entries: GithubReleasesCacheEntry[]): SourcedPackage[]
     version: entry.version,
     appId: entry.repo,
     homepage: entry.releaseUrl,
+    license: entry.license,
+    topics: entry.topics,
+    pushedAt: entry.pushedAt,
+    lastUpdated: entry.releasedAt,
+    popularity: entry.popularity,
   }));
 }

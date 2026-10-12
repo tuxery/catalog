@@ -135,7 +135,7 @@ export async function fetchGog(cachePath: string): Promise<number> {
     listed.map((entry) => () => fetchDetails(entry.id)),
     DETAIL_CONCURRENCY,
   );
-  const entries = listed.map((entry, i) => ({ ...entry, ...details[i] }));
+  const entries = listed.map((entry, i) => Object.assign(entry, details[i]));
 
   writeNdjson(cachePath, entries);
   writeMetadata<GogFetchMetadata>(cachePath, {

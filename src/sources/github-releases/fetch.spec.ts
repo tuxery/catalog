@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from "vitest";
-import { midDate, nextDate, resolveEntries, searchDateRange } from "./fetch";
+import { midDate, nextDate, repoLicense, resolveEntries, searchDateRange } from "./fetch";
 import type { RawRelease, SearchPage } from "./fetch";
 
 type Lookup = (repo: string) => Promise<RawRelease | undefined>;
@@ -34,8 +34,35 @@ describe("resolveEntries", () => {
         homepage: "https://github.com/owner/example",
         releaseUrl: "https://github.com/owner/example/releases/tag/v1.2.3",
         stars: 42,
+        license: undefined,
+        topics: undefined,
+        pushedAt: undefined,
+        releasedAt: undefined,
       },
     ]);
+  });
+
+  it("keeps the license, topics, push date and release date the search and release already return", async () => {
+    const repos = [
+      repo({
+        license: { spdx_id: "GPL-3.0" },
+        topics: ["linux-app", "electron"],
+        pushed_at: "2026-10-10T08:00:00Z",
+      }),
+    ];
+    const lookup = vi.fn<Lookup>(async () => ({
+      tag_name: "v1.2.3",
+      published_at: "2026-09-30T12:00:00Z",
+    }));
+
+    const [entry] = await resolveEntries(repos, lookup, 2);
+
+    expect(entry).toMatchObject({
+      license: "GPL-3.0",
+      topics: ["linux-app", "electron"],
+      pushedAt: "2026-10-10T08:00:00Z",
+      releasedAt: "2026-09-30T12:00:00Z",
+    });
   });
 
   it("drops a repo with no Release at all — real case: shell-installer projects like winapps", async () => {
@@ -171,11 +198,21 @@ describe("searchDateRange", () => {
     // correctly off the empty page 2, same as any other under-cap range.
     const fetchPage = vi.fn<(from: string, to: string, page: number) => Promise<SearchPage>>(
       async (_from, _to, page) =>
-        page === 1 ? { items: [repoNamed("owner/same-day")], totalCount: 999_999 } : { items: [], totalCount: 999_999 },
+        page === 1
+          ? { items: [repoNamed("owner/same-day")], totalCount: 999_999 }
+          : { items: [], totalCount: 999_999 },
     );
 
     const repos = await searchDateRange("2020-01-01", "2020-01-01", fetchPage);
 
     expect(repos).toEqual([repoNamed("owner/same-day")]);
+  });
+});
+
+describe("repoLicense", () => {
+  it("keeps GitHub's SPDX id and drops NOASSERTION and absence", () => {
+    expect(repoLicense({ spdx_id: "MIT" })).toBe("MIT");
+    expect(repoLicense({ spdx_id: "NOASSERTION" })).toBeUndefined();
+    expect(repoLicense(null)).toBeUndefined();
   });
 });

@@ -1,5 +1,6 @@
 import { XMLParser } from "fast-xml-parser";
 import type { FormalSignals } from "../types";
+import { epochSecondsToIso, positiveInt } from "./epoch";
 import { compactFormal, relationNames, sourceRpmName } from "./formal";
 import { fetchGunzippedText, fetchText, fetchZstdText } from "./http";
 
@@ -70,17 +71,6 @@ function entryNames(list: RawRpmEntryList | undefined, self: string): string[] |
   );
 }
 
-/** A repodata `<time build>` (epoch seconds) as ISO, `undefined` for a missing or zero one. */
-function buildTimeIso(seconds: string | undefined): string | undefined {
-  const epoch = Number(seconds);
-  return Number.isFinite(epoch) && epoch > 0 ? new Date(epoch * 1000).toISOString() : undefined;
-}
-
-function positiveInt(value: string | undefined): number | undefined {
-  const parsed = Number(value);
-  return Number.isInteger(parsed) && parsed > 0 ? parsed : undefined;
-}
-
 const DESKTOP_PROVIDES_PATTERN = /^application\(.*\.desktop\)$/;
 
 /**
@@ -131,7 +121,7 @@ export function parsePrimaryXml(xml: string): RpmPrimaryEntry[] {
         version: pkg.version?.["@_ver"] ?? "unknown",
         homepage: pkg.url || undefined,
         license: format?.["rpm:license"]?.trim() || undefined,
-        builtAt: buildTimeIso(pkg.time?.["@_build"]),
+        builtAt: epochSecondsToIso(pkg.time?.["@_build"]),
         installedSizeBytes: positiveInt(pkg.size?.["@_installed"]),
         group: pkg.format?.["rpm:group"] || undefined,
         hasDesktopFile: provides.some((entry) =>

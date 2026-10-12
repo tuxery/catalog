@@ -3,6 +3,7 @@ import { mkdir, readdir, readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import * as tar from "tar";
 import { compactFormal, relationNames } from "../_shared/formal";
+import { epochSecondsToIso, positiveInt } from "../_shared/epoch";
 import { fetchOrThrow } from "../_shared/http";
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
@@ -58,6 +59,9 @@ export function mapDescFiles(
         version: fields.VERSION?.[0] ?? "unknown",
         homepage: fields.URL?.[0] || undefined,
         repo,
+        license: fields.LICENSE?.length ? fields.LICENSE.join(" AND ") : undefined,
+        builtAt: epochSecondsToIso(fields.BUILDDATE?.[0]),
+        installedSizeBytes: positiveInt(fields.ISIZE?.[0]),
         formal: compactFormal(name, {
           base: fields.BASE?.[0],
           provides: relationNames(fields.PROVIDES, name),

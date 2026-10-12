@@ -21,6 +21,8 @@ export interface AurCacheEntry {
   keywords?: string[];
   /** SPDX-ish license strings from the dump's `License` field, AND-joined (e.g. "GPL3 AND MIT"). */
   license?: string;
+  /** The dump's `LastModified` as an ISO date — see `SourcedPackage.builtAt`. */
+  builtAt?: string;
   /** See `SourcedPackage.popularity`. */
   popularity?: number;
   /** `PackageBase`/`Provides`/`Conflicts`/`Replaces`/`Depends` from the dump — see `FormalSignals`. */

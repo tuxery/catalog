@@ -44,6 +44,11 @@ describe("mapPackages", () => {
     });
   });
 
+  it("dates the package from LastModified", () => {
+    const [entry] = mapPackages([{ Name: "yay", LastModified: 1791363489 }], new Map());
+    expect(entry?.builtAt).toBe("2026-10-07T08:58:09.000Z");
+  });
+
   it("drops entries with no name", () => {
     expect(mapPackages([{ Description: "orphaned" }], new Map())).toEqual([]);
   });

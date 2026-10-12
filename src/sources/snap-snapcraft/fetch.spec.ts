@@ -1,5 +1,11 @@
 import { describe, expect, it } from "vitest";
-import { applyCategories, applyFeaturedTag, mapResults, sweepQueriesRecursively } from "./fetch";
+import {
+  applyCategories,
+  applyFeaturedTag,
+  mapChannelMap,
+  mapResults,
+  sweepQueriesRecursively,
+} from "./fetch";
 import type { SnapcraftCacheEntry } from "./types";
 
 describe("mapResults", () => {
@@ -58,7 +64,13 @@ describe("mapResults", () => {
 });
 
 function entry(name: string): SnapcraftCacheEntry {
-  return { name, title: name, summary: "", version: "unknown", channel: "stable" };
+  return {
+    name,
+    title: name,
+    summary: "",
+    version: "unknown",
+    channel: "stable",
+  };
 }
 
 describe("applyFeaturedTag", () => {
@@ -123,7 +135,9 @@ async function findSharedSnapUnderTwoPrefixes(prefix: string) {
 }
 
 describe("sweepQueriesRecursively", () => {
-  const CAPPED_RESULTS = Array.from({ length: 100 }, (_, i) => ({ name: `capped-${i}` }));
+  const CAPPED_RESULTS = Array.from({ length: 100 }, (_, i) => ({
+    name: `capped-${i}`,
+  }));
 
   it("does not recurse into a prefix that comes back under the 100-result cap", async () => {
     const calls: string[] = [];
@@ -158,8 +172,7 @@ describe("sweepQueriesRecursively", () => {
     // Only the "a" branch stays capped at every depth — bounds the test's
     // own runtime while still proving the depth limit kicks in rather
     // than recursing forever.
-    const find = async (prefix: string) =>
-      /^a+$/.test(prefix) ? CAPPED_RESULTS : [];
+    const find = async (prefix: string) => (/^a+$/.test(prefix) ? CAPPED_RESULTS : []);
 
     const { prefixesTried } = await sweepQueriesRecursively(find);
 
@@ -167,5 +180,30 @@ describe("sweepQueriesRecursively", () => {
     // depth 4: 36 ("aaa" capped) — depth 5 never happens (MAX_QUERY_DEPTH
     // is 4), even though "aaaa" would also come back capped.
     expect(prefixesTried).toBe(36 * 4);
+  });
+});
+
+const amd64 = (name: string, version: string) => ({
+  channel: { name, architecture: "amd64" },
+  version,
+});
+
+describe("mapChannelMap", () => {
+  it("keeps one amd64 channel per name and drops branches", () => {
+    expect(
+      mapChannelMap([
+        amd64("v11/stable", "11.71.7"),
+        {
+          channel: { name: "v11/stable", architecture: "arm64" },
+          version: "11.71.7",
+        },
+        { channel: { name: "stable", architecture: "i386" }, version: "6.4.4" },
+        amd64("edge", "11.72.0"),
+        amd64("22/stable/hotfix", "22.1.0"),
+      ]),
+    ).toEqual([
+      { channel: "v11/stable", version: "11.71.7" },
+      { channel: "edge", version: "11.72.0" },
+    ]);
   });
 });

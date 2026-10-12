@@ -5,7 +5,7 @@ import { fetchOrThrow } from "../_shared/http";
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
 import type { StoreCollectionTag } from "../types";
-import type { SnapcraftCacheEntry, SnapcraftFetchMetadata } from "./types";
+import type { SnapcraftCacheEntry, SnapcraftChannel, SnapcraftFetchMetadata } from "./types";
 
 // Snapcraft's own hand-picked "featured" collection — distinct from the
 // `category=featured` store category already swept below (that's one
@@ -19,6 +19,13 @@ const FEATURED_PARAMS = "featured=true";
 const FIND_URL = "https://api.snapcraft.io/v2/snaps/find";
 const FIELDS = "title,summary,version,channel,media,links";
 const DEVICE_SERIES = "16";
+const RISKS = new Set(["stable", "candidate", "beta", "edge"]);
+const INFO_URL = "https://api.snapcraft.io/v2/snaps/info";
+// The cache is x86_64 like Flathub's; the channel-map lists every arch.
+const ARCH = "amd64";
+// One `info` call per snap (~0.75s, no throttling observed 2026-09-04),
+// so bounded like the sweeps above.
+const INFO_CONCURRENCY = 8;
 
 // Snapcraft has no single full-catalog dump (unlike Flathub's appstream.xml.gz),
 // and /v2/snaps/find has no pagination or sort parameter — `page` and
@@ -113,7 +120,10 @@ export async function sweepQueriesRecursively(
     prefixesTried += frontier.length;
     // eslint-disable-next-line no-await-in-loop
     const batches = await parallel(
-      frontier.map((prefix) => async () => ({ prefix, results: await findQuery(prefix) })),
+      frontier.map((prefix) => async () => ({
+        prefix,
+        results: await findQuery(prefix),
+      })),
       SWEEP_CONCURRENCY,
     );
 
@@ -251,6 +261,53 @@ export function applyCategories(
   });
 }
 
+interface RawChannelMapEntry {
+  channel?: { name?: string; architecture?: string };
+  version?: string;
+}
+
+/**
+ * Keeps one channel per name from a snap's channel-map, amd64 only, branches dropped — the
+ * map lists every architecture, and the same channel once per arch. Pure —
+ * no I/O — so it's the part covered by tests.
+ */
+export function mapChannelMap(channelMap: RawChannelMapEntry[]): SnapcraftChannel[] {
+  const byName = new Map<string, SnapcraftChannel>();
+  for (const item of channelMap) {
+    const channel = item.channel?.name;
+    if (item.channel?.architecture !== ARCH || !channel || !item.version) continue;
+    // A branch (`22/stable/hotfix`) is a short-lived fix for one customer, not a line to pick.
+    if (!RISKS.has(channel.split("/").at(-1) ?? "")) continue;
+    byName.set(channel, { channel, version: item.version });
+  }
+  return [...byName.values()];
+}
+
+/** The snap's channels, or `undefined` when the call keeps failing (or the snap is gone) — the entry then keeps its single search-result channel. */
+async function fetchChannels(name: string): Promise<SnapcraftChannel[] | undefined> {
+  try {
+    const response = await retry(
+      () =>
+        fetchOrThrow(
+          `${INFO_URL}/${encodeURIComponent(name)}?fields=channel-map`,
+          `Snapcraft info "${name}"`,
+          { headers: { "Snap-Device-Series": DEVICE_SERIES } },
+        ),
+      {
+        attempts: FIND_RETRIES,
+        delayMs: (attempt) => RETRY_BASE_DELAY_MS * 2 ** (attempt - 1),
+      },
+    );
+    const body = (await response.json()) as {
+      "channel-map"?: RawChannelMapEntry[];
+    };
+    const channels = mapChannelMap(body["channel-map"] ?? []);
+    return channels.length > 0 ? channels : undefined;
+  } catch {
+    return undefined;
+  }
+}
+
 async function find(params: string, label: string): Promise<RawResult[]> {
   const url = `${FIND_URL}?${params}&fields=${FIELDS}`;
   return retry(
@@ -261,7 +318,10 @@ async function find(params: string, label: string): Promise<RawResult[]> {
       const body = (await response.json()) as { results?: RawResult[] };
       return body.results ?? [];
     },
-    { attempts: FIND_RETRIES, delayMs: (attempt) => RETRY_BASE_DELAY_MS * 2 ** (attempt - 1) },
+    {
+      attempts: FIND_RETRIES,
+      delayMs: (attempt) => RETRY_BASE_DELAY_MS * 2 ** (attempt - 1),
+    },
   );
 }
 
@@ -313,6 +373,16 @@ export async function fetchSnapcraft(cachePath: string): Promise<number> {
   );
   const entries = applyCategories(applyFeaturedTag(deduped, featuredNames), namesByCategory);
 
+  // The bulk `find` response carries a single channel per snap; the full
+  // channel-map (track × risk) only exists on the per-snap `info` endpoint.
+  const channelMaps = await parallel(
+    entries.map((entry) => () => fetchChannels(entry.name)),
+    INFO_CONCURRENCY,
+  );
+  entries.forEach((entry, i) => {
+    entry.channels = channelMaps[i];
+  });
+
   writeNdjson(cachePath, entries);
   writeMetadata<SnapcraftFetchMetadata>(cachePath, {
     source: "snap-snapcraft",
@@ -324,6 +394,7 @@ export async function fetchSnapcraft(cachePath: string): Promise<number> {
     queryCharsSwept: QUERY_CHARS,
     queryPrefixesTried: queryResults.prefixesTried,
     categoryPrefixesTried: sumBy(categorySweeps, (sweep) => sweep.prefixesTried),
+    channelMapsFetched: channelMaps.filter(Boolean).length,
   });
 
   return entries.length;

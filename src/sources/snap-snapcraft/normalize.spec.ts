@@ -69,6 +69,48 @@ describe("snapcraft normalize", () => {
   });
 });
 
+describe("normalize with a channel-map", () => {
+  it("emits one package per channel, with its own track, risk and version", () => {
+    const result = normalize([
+      {
+        name: "postman",
+        title: "Postman",
+        summary: "",
+        version: "11.71.7",
+        channel: "v11/stable",
+        channels: [
+          { channel: "stable", version: "11.71.7" },
+          { channel: "v10/stable", version: "10.24.0" },
+          { channel: "edge", version: "11.72.0" },
+        ],
+      },
+    ]);
+
+    expect(
+      result.map(({ appId, version, track, risk }) => ({
+        appId,
+        version,
+        track,
+        risk,
+      })),
+    ).toEqual([
+      {
+        appId: "postman",
+        version: "11.71.7",
+        track: undefined,
+        risk: undefined,
+      },
+      { appId: "postman", version: "10.24.0", track: "v10", risk: undefined },
+      {
+        appId: "postman",
+        version: "11.72.0",
+        track: undefined,
+        risk: "nightly",
+      },
+    ]);
+  });
+});
+
 describe("splitSnapChannel", () => {
   it("reads a bare risk, mapping edge to nightly and stable to the default", () => {
     expect(splitSnapChannel("stable")).toEqual({});

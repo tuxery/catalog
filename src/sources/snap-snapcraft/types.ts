@@ -6,6 +6,12 @@ import type { StoreCollectionTag } from "../types";
  * fetching. Deliberately close to the upstream API fields rather than the
  * normalized `SourcedPackage` — see `normalize.ts`.
  */
+export interface SnapcraftChannel {
+  /** Full channel name as the store prints it: `stable`, `v11/beta`, `22/stable/hotfix`. A bare risk is the `latest` track. */
+  channel: string;
+  version: string;
+}
+
 export interface SnapcraftCacheEntry {
   /** Snap name, e.g. "spotify" — also its store identifier. */
   name: string;
@@ -14,6 +20,8 @@ export interface SnapcraftCacheEntry {
   version: string;
   /** Release channel/track, e.g. "stable", "edge". */
   channel: string;
+  /** Every amd64 channel of the snap's channel-map (`/v2/snaps/info`), absent when that call failed — `normalize` then falls back to `channel`/`version`. */
+  channels?: SnapcraftChannel[];
   iconUrl?: string;
   website?: string;
   /** See `SourcedPackage.storeCollections` — only ever `["featured"]` or `undefined` here, Snapcraft has no verified/recently-added/updated collection API. */
@@ -35,4 +43,6 @@ export interface SnapcraftFetchMetadata extends FetchMetadata {
   queryPrefixesTried: number;
   /** How many distinct per-category `category=X&q=prefix` prefixes were queried this run (summed across all categories). */
   categoryPrefixesTried: number;
+  /** How many snaps had their full channel-map fetched this run — the rest keep their single search-result channel. */
+  channelMapsFetched: number;
 }

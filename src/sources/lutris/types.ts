@@ -27,6 +27,8 @@ export interface LutrisCacheEntry {
   genres: string[];
   /** The game's own real description from `/api/games/<game_slug>`, richer than the installer's one-liner. `undefined` when Lutris has none. */
   gameDescription?: string;
+  /** The game's `icon_url` from `/api/games/<game_slug>`, absent when Lutris has no icon for it (an empty string upstream). */
+  iconUrl?: string;
   /** The installer's own storefront/method label as Lutris names it (e.g. "GOG", "Steam", "CD + nGlide") — not a software version, Lutris's closest thing to a build-channel tag (see `normalize.ts`). `undefined` when Lutris leaves it blank. */
   version?: string;
 }

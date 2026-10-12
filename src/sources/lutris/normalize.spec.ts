@@ -37,6 +37,16 @@ describe("lutris normalize", () => {
     ]);
   });
 
+  it("carries the game's icon", () => {
+    const [pkg] = normalize([
+      {
+        ...storeEntry("frozen-synapse-gog", "GOG"),
+        iconUrl: "https://lutris.net/games/icon/frozen-synapse.png",
+      },
+    ]);
+    expect(pkg?.iconUrl).toBe("https://lutris.net/games/icon/frozen-synapse.png");
+  });
+
   it("maps IGDB genres to game categories and sets hasGameCategory", () => {
     const entry: LutrisCacheEntry = {
       gameId: 16467,

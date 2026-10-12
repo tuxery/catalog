@@ -73,6 +73,7 @@ export function mapInstallers(installers: RawInstaller[]): LutrisCacheEntry[] {
 interface RawGame {
   genres?: { name?: string }[];
   description?: string | null;
+  icon_url?: string | null;
 }
 
 // Bounded concurrency out of courtesy to a public API with no documented
@@ -81,7 +82,7 @@ const GAME_ENRICH_CONCURRENCY = 10;
 
 async function fetchGameEnrichment(
   slug: string,
-): Promise<{ genres: string[]; description?: string }> {
+): Promise<{ genres: string[]; description?: string; iconUrl?: string }> {
   const response = await fetchOrThrow(
     `https://lutris.net/api/games/${slug}`,
     `Lutris game "${slug}"`,
@@ -92,6 +93,7 @@ async function fetchGameEnrichment(
       .map((genre) => genre.name)
       .filter((name): name is string => Boolean(name)),
     description: game.description ?? undefined,
+    iconUrl: game.icon_url || undefined,
   };
 }
 
@@ -107,7 +109,11 @@ async function enrichWithGames(entries: LutrisCacheEntry[]): Promise<LutrisCache
   const enrichments = await parallel(
     slugs.map((slug) => async () => ({
       slug,
-      ...(await fetchGameEnrichment(slug).catch(() => ({ genres: [], description: undefined }))),
+      ...(await fetchGameEnrichment(slug).catch(() => ({
+        genres: [],
+        description: undefined,
+        iconUrl: undefined,
+      }))),
     })),
     GAME_ENRICH_CONCURRENCY,
   );
@@ -119,6 +125,7 @@ async function enrichWithGames(entries: LutrisCacheEntry[]): Promise<LutrisCache
       ...entry,
       genres: enrichment?.genres ?? [],
       gameDescription: enrichment?.description,
+      iconUrl: enrichment?.iconUrl,
     };
   });
 }

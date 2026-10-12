@@ -14,6 +14,8 @@ export interface GentooCacheEntry {
   version: string;
   description: string;
   homepage?: string;
+  /** The picked version's raw `LICENSE` (`GPL-2 || ( MIT BSD )`), Gentoo names and syntax; `normalize.ts` converts it with `license.ts`. */
+  license?: string;
   /** The picked version's raw `KEYWORDS` (e.g. `amd64 ~arm64`): per-architecture stability, `~` prefix = testing. Kept raw; `normalize.ts` derives the channel. Absent in caches fetched before this field existed, and on ebuilds with empty keywords (live ebuilds). */
   keywords?: string;
 }

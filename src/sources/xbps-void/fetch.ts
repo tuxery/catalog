@@ -4,6 +4,7 @@ import { join } from "node:path";
 import { zstdDecompressSync } from "node:zlib";
 import { parse as parsePlist } from "plist";
 import * as tar from "tar";
+import { positiveInt } from "../_shared/epoch";
 import { fetchOrThrow } from "../_shared/http";
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
@@ -36,8 +37,20 @@ export function mapPlist(packages: PlistPackages, repo: VoidCacheEntry["repo"]):
     short_desc: typeof fields.short_desc === "string" ? fields.short_desc : "",
     pkgver: typeof fields.pkgver === "string" ? fields.pkgver : name,
     homepage: typeof fields.homepage === "string" ? fields.homepage : undefined,
+    license: voidLicense(fields.license),
+    installedSizeBytes: positiveInt(fields.installed_size as number | string | undefined),
     repo,
   }));
+}
+
+/** Void lists a package's licenses comma-separated (`GPL-2.0-or-later, MIT`): all of them apply, hence AND. Pure. */
+export function voidLicense(license: unknown): string | undefined {
+  if (typeof license !== "string") return undefined;
+  const parts = license
+    .split(",")
+    .map((part) => part.trim())
+    .filter(Boolean);
+  return parts.length > 0 ? parts.join(" AND ") : undefined;
 }
 
 /**

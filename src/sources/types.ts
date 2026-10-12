@@ -110,7 +110,7 @@ export interface SourcedPackage {
    * When this package itself was built or uploaded (ISO): an RPM's build
    * time, Arch's `%BUILDDATE%`, a snap revision's release date, AUR's
    * `LastModified`. Says how fresh this listing is, not when the project
-   * last released — see `lastUpdated`. Not populated by any connector yet.
+   * last released — see `lastUpdated`. Snap fills it per channel.
    */
   builtAt?: string;
   /**
@@ -210,8 +210,10 @@ export interface SourcedPackage {
   license?: string;
   /** The app's actual developer/team name — AppStream's `<developer_name>`/`<developer>`, GOG's developer. Distro "Maintainer"/"Packager" fields denote the packager and never land here, nor a store account (`publisher`). */
   developer?: string;
-  /** The store account publishing this listing (a snap's publisher, a GOG publisher), which may not be the developer. Not populated by any connector yet. */
+  /** The store account publishing this listing (a snap's publisher, a GOG publisher), which may not be the developer. */
   publisher?: string;
+  /** Whether the store verified `publisher`'s identity (Snap's `validation: "verified"`). Only ever `true` — `undefined` when unverified or unknown. */
+  publisherVerified?: boolean;
   /** Long-form, multi-paragraph description — distinct from `description` (every source's short one-liner). AppStream's `<description>` (Flathub, AppCenter and the distro AppStream feeds), flattened from its `<p>`/`<ul>`/`<ol>` structure to plain text (see `_shared/appstream.ts`'s `pickLongDescription`). */
   longDescription?: string;
   /** Screenshot image URLs, always full URLs already — AppStream's `<screenshots>`, GOG's. */

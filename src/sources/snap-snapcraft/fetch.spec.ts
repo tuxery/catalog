@@ -3,6 +3,7 @@ import {
   applyCategories,
   applyFeaturedTag,
   mapChannelMap,
+  mapLinks,
   mapResults,
   sweepQueriesRecursively,
 } from "./fetch";
@@ -38,8 +39,66 @@ describe("mapResults", () => {
         channel: "stable",
         iconUrl: "https://dashboard.snapcraft.io/site_media/appmedia/2021/12/firefox_logo.png",
         website: "https://www.mozilla.org/firefox/",
+        screenshots: ["https://example.com/shot.png"],
       },
     ]);
+  });
+
+  it("keeps the rich fields of a real listing (vlc, 2026-10-12)", () => {
+    const [vlc] = mapResults([
+      {
+        name: "vlc",
+        revision: { version: "3.0.24-rc1" },
+        snap: {
+          title: "VLC",
+          summary: "The ultimate media player",
+          description: "VLC is a free and open source cross-platform multimedia player.",
+          license: "GPL-2.0+",
+          publisher: { "display-name": "VideoLAN", validation: "verified" },
+          media: [
+            { type: "icon", url: "https://dashboard.snapcraft.io/vlc.png" },
+            { type: "screenshot", url: "https://dashboard.snapcraft.io/shot-1.jpg" },
+            { type: "banner", url: "https://dashboard.snapcraft.io/banner.png" },
+            { type: "screenshot", url: "https://dashboard.snapcraft.io/shot-2.png" },
+          ],
+          links: {
+            contact: ["https://www.videolan.org/support/"],
+            donations: ["https://videolan.org/contribute.html"],
+            issues: ["https://code.videolan.org/videolan/vlc/-/work_items"],
+            source: ["https://code.videolan.org/videolan/vlc"],
+            website: ["https://www.videolan.org/vlc/"],
+          },
+        },
+      },
+    ]);
+
+    expect(vlc).toMatchObject({
+      longDescription: "VLC is a free and open source cross-platform multimedia player.",
+      license: "GPL-2.0+",
+      publisher: "VideoLAN",
+      publisherVerified: true,
+      screenshots: [
+        "https://dashboard.snapcraft.io/shot-1.jpg",
+        "https://dashboard.snapcraft.io/shot-2.png",
+      ],
+      links: {
+        bugtracker: "https://code.videolan.org/videolan/vlc/-/work_items",
+        "vcs-browser": "https://code.videolan.org/videolan/vlc",
+        donation: "https://videolan.org/contribute.html",
+        contact: "https://www.videolan.org/support/",
+      },
+    });
+  });
+
+  it.each([
+    ["verified", true],
+    ["starred", undefined],
+    ["unproven", undefined],
+  ])("flags a %s publisher as verified: %s", (validation, expected) => {
+    const [mapped] = mapResults([
+      { name: "x", snap: { publisher: { "display-name": "X", validation } } },
+    ]);
+    expect(mapped?.publisherVerified).toBe(expected);
   });
 
   it("falls back gracefully when optional fields are missing", () => {
@@ -204,6 +263,38 @@ describe("mapChannelMap", () => {
     ).toEqual([
       { channel: "v11/stable", version: "11.71.7" },
       { channel: "edge", version: "11.72.0" },
+    ]);
+  });
+});
+
+describe("mapLinks", () => {
+  it("drops contact emails and links of other schemes", () => {
+    expect(
+      mapLinks({ contact: ["mailto:hi@example.com"], issues: ["https://example.com/issues"] }),
+    ).toEqual({ bugtracker: "https://example.com/issues" });
+  });
+
+  it("is undefined without any usable link", () => {
+    expect(mapLinks({ website: ["https://example.com"] })).toBeUndefined();
+    expect(mapLinks(undefined)).toBeUndefined();
+  });
+});
+
+describe("mapChannelMap release dates", () => {
+  it("keeps each channel's released-at as releasedAt", () => {
+    expect(
+      mapChannelMap([
+        {
+          channel: {
+            name: "stable",
+            architecture: "amd64",
+            "released-at": "2026-09-22T13:42:44.025641+00:00",
+          },
+          version: "3.0.24-rc1",
+        },
+      ]),
+    ).toEqual([
+      { channel: "stable", version: "3.0.24-rc1", releasedAt: "2026-09-22T13:42:44.025641+00:00" },
     ]);
   });
 });

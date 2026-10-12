@@ -61,6 +61,14 @@ describe("pickRichField", () => {
     ]);
   });
 
+  it("takes a snap's publisher, ranked by GOG's", () => {
+    const packages = [
+      pkg({ source: "gog", publisher: "CD Projekt" }),
+      pkg({ source: "snap-snapcraft", publisher: "VideoLAN" }),
+    ];
+    expect(pickRichField("publisher", packages, (p) => p.publisher)).toBe("VideoLAN");
+  });
+
   it("lists every source once per field", () => {
     for (const order of Object.values(FIELD_PRIORITY)) {
       expect(new Set(order).size).toBe(order.length);
@@ -108,6 +116,22 @@ describe("pickLicense", () => {
       pkg({ source: "rpm-fedora", license: "MIT" }),
     ];
     expect(pickLicense(packages).licenseSpdx).toBeUndefined();
+  });
+
+  it("skips Snap's unset and Other Open Source licenses", () => {
+    const packages = [
+      pkg({ source: "snap-snapcraft", license: "unset" }),
+      pkg({ source: "appimage", license: "Other Open Source" }),
+    ];
+    expect(pickLicense(packages)).toEqual({});
+  });
+
+  it("takes a snap's license when no AppStream or packager states one", () => {
+    const packages = [
+      pkg({ source: "snap-snapcraft", license: "GPL-2.0+" }),
+      pkg({ source: "pacman-aur", license: "GPL" }),
+    ];
+    expect(pickLicense(packages).license).toBe("GPL-2.0+");
   });
 
   it("keeps a custom or LicenseRef license: it says something", () => {

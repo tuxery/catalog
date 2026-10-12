@@ -53,11 +53,11 @@ version and download size.
 | ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `iconUrl`                | Upstream stores, distro AppStream, Snap, AppImage, vendor repos, GOG, Lutris                                                                                            |                                                                     |
 | `screenshots`            | Upstream stores, distro AppStream, Snap, AppImage, GOG                                                                                                                  | One source's whole set                                              |
-| `videos`                 | Upstream stores, distro AppStream, Snap, GOG                                                                                                                            | Not sourced yet                                                     |
+| `videos`                 | Upstream stores, distro AppStream, Snap, GOG                                                                                                                            | Not sourced yet (Snap's API carries no video)                       |
 | `longDescription`        | Upstream stores, distro AppStream, Snap, GOG, Lutris, AppImage, Nix                                                                                                     | Nix's `meta.longDescription` last: packager-written                 |
 | `license`                | Upstream stores, distro AppStream, then packagers: Fedora, openSUSE, RPM Fusion, Arch, Alpine, Nix, Gentoo, Void, Solus, then vendor repos, GitHub, Snap, AppImage, AUR | See [License](#license)                                             |
 | `developer`              | Upstream stores, distro AppStream, GOG, AppImage                                                                                                                        | Never a store account, never a packager or maintainer               |
-| `publisher`              | Snap, GOG                                                                                                                                                               | The account publishing the listing. Not sourced yet                 |
+| `publisher`              | Snap, GOG                                                                                                                                                               | The account publishing the listing, see [Publisher](#publisher)     |
 | `languages`              | Upstream stores, distro AppStream                                                                                                                                       | The longest list wins, see below                                    |
 | `links`                  | Upstream stores, distro AppStream, Snap, AppImage, GitHub releases                                                                                                      | Each link type picked on its own                                    |
 | `releases` + `changelog` | Upstream stores, distro AppStream                                                                                                                                       | AppStream `<releases>` only, see below                              |
@@ -90,6 +90,15 @@ SPDX form of Flathub's "GPL3". A disagreeing source never does.
 `custom` and `LicenseRef-...` are real licenses (proprietary or
 source-available, with a URL): they win like any other. Only
 placeholders are skipped.
+
+### Publisher
+
+`publisher` is the display name of the account publishing the listing:
+a snap's publisher is often not the app's developer (a community snap of
+someone else's software), which is why it never fills `developer`.
+`SourcedPackage.publisherVerified` is set when the store vouches for the
+account (Snap's `validation: "verified"`; `starred` and `unproven` stay
+unset). It is carried per package for now: no `CatalogApp` badge yet.
 
 ### Dates
 

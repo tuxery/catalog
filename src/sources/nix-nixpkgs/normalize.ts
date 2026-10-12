@@ -12,6 +12,8 @@ export function normalize(entries: NixpkgsCacheEntry[]): SourcedPackage[] {
     // package sets, mainly) — the full attribute path is.
     appId: entry.attrPath,
     homepage: entry.homepage,
+    longDescription: entry.longDescription,
+    license: entry.license,
     section: entry.prefix,
     // nixpkgs' `-unwrapped` is the raw package a wrapper derivation of the
     // same name is built from (match/group.ts folds them together); a

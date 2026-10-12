@@ -47,6 +47,13 @@ describe("parsePackages", () => {
     expect(entries[1]?.homepage).toBeUndefined();
   });
 
+  it("converts Installed-Size from KiB to bytes", () => {
+    expect(entries[0]?.installedSizeBytes).toBe(54427 * 1024);
+    expect(
+      parsePackages("Package: bare\nVersion: 1\n", "main")[0]?.installedSizeBytes,
+    ).toBeUndefined();
+  });
+
   it("stamps every row with the given component", () => {
     expect(entries.every((entry) => entry.component === "main")).toBe(true);
   });

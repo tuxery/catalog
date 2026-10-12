@@ -1,4 +1,9 @@
-import { debFormalSignals, parseDeb822Stanzas, parseDebtags } from "../_shared/deb822";
+import {
+  debFormalSignals,
+  debInstalledSizeBytes,
+  parseDeb822Stanzas,
+  parseDebtags,
+} from "../_shared/deb822";
 import { fetchGunzippedText } from "../_shared/http";
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
@@ -56,6 +61,7 @@ export function parsePackages(text: string, component: string): DebianCacheEntry
       homepage: fields.Homepage || undefined,
       component,
       section: fields.Section || undefined,
+      installedSizeBytes: debInstalledSizeBytes(fields),
       formal: debFormalSignals(fields),
       hasGameCategory: hasGameDebtag(parseDebtags(raw)),
     }));

@@ -19,6 +19,10 @@ export interface NixpkgsCacheEntry {
   description: string;
   version: string;
   homepage?: string;
+  /** `meta.longDescription`, trimmed — Markdown the packager wrote. */
+  longDescription?: string;
+  /** `meta.license` as an SPDX-ish expression, a list AND-joined — see `nixLicense` in fetch.ts. */
+  license?: string;
   /**
    * The attribute path's namespace prefix, when it has one (the part
    * before the first `.`) — e.g. `kdePackages` for

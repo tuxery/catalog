@@ -28,6 +28,8 @@ export interface UbuntuCacheEntry {
    * directly comparable to Debian's bare value. See SourcedPackage.section.
    */
   section?: string;
+  /** `Installed-Size` (KiB upstream) in bytes — see `SourcedPackage.installedSizeBytes`. */
+  installedSizeBytes?: number;
   /** `Source`/`Provides`/`Conflicts`/`Replaces`/`Depends`/`Enhances` — see `FormalSignals`. */
   formal?: FormalSignals;
 }

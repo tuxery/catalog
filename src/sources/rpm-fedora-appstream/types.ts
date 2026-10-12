@@ -32,6 +32,12 @@ export interface FedoraAppstreamCacheEntry {
   developer?: string;
   longDescription?: string;
   screenshots: string[];
+  /** See `SourcedPackage.videos`. */
+  videos?: string[];
+  /** See `SourcedPackage.ageRating`. */
+  ageRating?: { system: string; value: string };
+  /** See `SourcedPackage.requirements`. */
+  requirements?: string;
   languages?: string[];
   changelog?: string;
   lastUpdated?: string;

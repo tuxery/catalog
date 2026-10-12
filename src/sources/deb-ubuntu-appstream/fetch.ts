@@ -73,6 +73,8 @@ export function toCacheEntries(
     developer: entry.developer,
     longDescription: entry.longDescription,
     screenshots: entry.screenshots,
+    ageRating: entry.ageRating,
+    requirements: entry.requirements,
     languages: entry.languages,
   }));
 }

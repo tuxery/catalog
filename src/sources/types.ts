@@ -219,6 +219,14 @@ export interface SourcedPackage {
   longDescription?: string;
   /** Screenshot image URLs, always full URLs already — AppStream's `<screenshots>`, GOG's. */
   screenshots?: string[];
+  /** Video files (MP4/WebM, never a streaming page), one per screenshot that has one — AppStream's `<screenshot><video>`. */
+  videos?: string[];
+  /** The app's content rating as `{ system, value }`: AppStream's `<content_rating>` (OARS) reduced to its strongest intensity (`none`, `mild`, `moderate`, `intense`). */
+  ageRating?: { system: string; value: string };
+  /** What the app needs and supports (controls, display size, internet) as one readable line, from AppStream's `<requires>`/`<recommends>`/`<supports>`. */
+  requirements?: string;
+  /** The sandbox permissions the package asks for, one readable line each — Flatpak's `finish-args`. */
+  permissions?: string[];
   /** Language codes the app is translated into (e.g. ["en_US", "de", "fr"]) — AppStream's `<languages><lang>`. */
   languages?: string[];
   /** The newest release's own changelog text, flattened the same way as `longDescription` — AppStream's `<releases><release><description>`. `undefined` when the newest release has no description (common — most releases are just a bare version tag, no notes). */

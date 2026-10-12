@@ -221,3 +221,51 @@ describe("flattenHtmlDescription", () => {
     );
   });
 });
+
+describe("parseDep11Yaml: content rating and requirements", () => {
+  // Real Debian trixie blocks (2026-10-12), around a minimal component.
+  const yaml = (extra: string) => `---
+File: DEP-11
+Version: '1.0'
+MediaBaseUrl: https://appstream.debian.org/media/trixie
+---
+Type: desktop-application
+ID: org.example.app
+Package: example
+Name:
+  C: Example
+${extra}`;
+  const parse = (extra: string) => parseDep11Yaml(yaml(extra)).components[0];
+
+  it("summarizes ContentRating as its strongest intensity, empty meaning none", () => {
+    expect(
+      parse("ContentRating:\n  oars-1.1:\n    violence-cartoon: mild\n    social-chat: moderate\n")
+        ?.ageRating,
+    ).toEqual({ system: "OARS", value: "moderate" });
+    expect(parse("ContentRating:\n  oars-1.1: {}\n")?.ageRating).toEqual({
+      system: "OARS",
+      value: "none",
+    });
+    expect(parse("Categories:\n- Game\n")?.ageRating).toBeUndefined();
+  });
+
+  it("reads Requires, Recommends and Supports, side included", () => {
+    expect(
+      parse(
+        "Requires:\n- display_length: 300\n- display_length: 360\n  side: longest\n- internet: always\n" +
+          "Recommends:\n- control: gamepad\nSupports:\n- control: pointing\n- control: keyboard\n",
+      )?.requirements,
+    ).toBe(
+      "Requires: a screen with its shortest side at least 300 px, a screen with its longest side at least 360 px, an internet connection. " +
+        "Recommends: gamepad. Supports: mouse or touchpad, keyboard.",
+    );
+  });
+
+  it("keeps one component's requirements off the next", () => {
+    const { components } = parseDep11Yaml(
+      yaml("Requires:\n- internet: always\n") +
+        "---\nType: desktop-application\nID: org.example.two\nPackage: two\n",
+    );
+    expect(components[1]?.requirements).toBeUndefined();
+  });
+});

@@ -219,6 +219,10 @@ export interface SourcedPackage {
   longDescription?: string;
   /** Screenshot image URLs, always full URLs already — AppStream's `<screenshots>`, GOG's. */
   screenshots?: string[];
+  /** Free-form tags the maintainers chose for the project — a GitHub repo's topics. Kept per package, not interpreted. */
+  topics?: string[];
+  /** When the project's repository last received a push (ISO) — a sign the project is alive, not a release or build date. GitHub repos only. */
+  pushedAt?: string;
   /** Video files (MP4/WebM, never a streaming page), one per screenshot that has one — AppStream's `<screenshot><video>`. */
   videos?: string[];
   /** The app's content rating as `{ system, value }`: AppStream's `<content_rating>` (OARS) reduced to its strongest intensity (`none`, `mild`, `moderate`, `intense`). */

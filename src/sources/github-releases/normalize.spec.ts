@@ -12,6 +12,11 @@ describe("github-releases normalize", () => {
       homepage: "https://github.com/yorukot/superfile",
       releaseUrl: "https://github.com/yorukot/superfile/releases/tag/v1.3.1",
       stars: 22800,
+      license: "MIT",
+      topics: ["linux-app", "tui"],
+      pushedAt: "2026-10-10T08:00:00Z",
+      releasedAt: "2026-09-30T12:00:00Z",
+      popularity: 0.97,
     };
 
     expect(normalize([entry])).toEqual([
@@ -22,6 +27,11 @@ describe("github-releases normalize", () => {
         version: "v1.3.1",
         appId: "yorukot/superfile",
         homepage: "https://github.com/yorukot/superfile/releases/tag/v1.3.1",
+        license: "MIT",
+        topics: ["linux-app", "tui"],
+        pushedAt: "2026-10-10T08:00:00Z",
+        lastUpdated: "2026-09-30T12:00:00Z",
+        popularity: 0.97,
       },
     ]);
   });

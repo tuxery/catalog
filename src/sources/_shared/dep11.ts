@@ -1,4 +1,10 @@
 import { PROJECT_LINK_TYPES, type ProjectLinks, type ProjectLinkType } from "../types";
+import {
+  summarizeContentRating,
+  summarizeRelations,
+  type AppstreamRelation,
+  type AppstreamRelations,
+} from "./appstream-extras";
 /**
  * Minimal hand-rolled parser for DEP-11 YAML — Debian's AppStream metadata
  * variant, the `dep11/Components-<arch>.yml.gz` file published per
@@ -13,7 +19,7 @@ import { PROJECT_LINK_TYPES, type ProjectLinks, type ProjectLinkType } from "../
  * Tuxery consumes is read — everything else is skipped as one block.
  * The block-skip is indentation-driven: a block ends at the next
  * column-0 `Key:` line, so unknown keys (`Launchable`, `Provides`,
- * `Release`, `ContentRating`, ...) cost nothing and can't break the parse.
+ * `Release`, ...) cost nothing and can't break the parse.
  *
  * Languages: DEP-11 repeats every translatable key once per language
  * (`Name: {fr: ..., C: ...}`) — only the untranslated `C:` entry is read,
@@ -51,6 +57,10 @@ export interface Dep11Component {
   links?: ProjectLinks;
   /** `Languages:` locale codes, in document order. */
   languages?: string[];
+  /** `ContentRating:`'s strongest OARS intensity — see `SourcedPackage.ageRating`. */
+  ageRating?: { system: string; value: string };
+  /** `Requires:`/`Recommends:`/`Supports:` as one readable line — see `SourcedPackage.requirements`. */
+  requirements?: string;
 }
 
 export interface Dep11Document {
@@ -226,12 +236,15 @@ export function parseDep11Yaml(yaml: string): Dep11Document {
 
   const components: Dep11Component[] = [];
   let current: Dep11Component | undefined;
+  let relations: AppstreamRelations = {};
 
   const pushCurrent = (): void => {
     if (current && APP_TYPES.has(current.type) && current.id && current.pkgname) {
+      current.requirements = summarizeRelations(relations);
       components.push(current);
     }
     current = undefined;
+    relations = {};
   };
 
   while (index < lines.length) {
@@ -379,6 +392,48 @@ export function parseDep11Yaml(yaml: string): Dep11Document {
             }
           }
         }
+        index = end;
+        break;
+      }
+      case "ContentRating": {
+        const end = nextTopLevelKeyIndex(lines, index + 1);
+        const ratings = new Map<string, string[]>();
+        let system = "";
+        for (let cursor = index + 1; cursor < end; cursor += 1) {
+          const blockLine = lines[cursor] ?? "";
+          const systemMatch = /^ {2}(oars-[0-9.]+):/.exec(blockLine);
+          if (systemMatch) {
+            system = systemMatch[1] as string;
+            ratings.set(system, []);
+            continue;
+          }
+          const attribute = /^ {4}[a-z-]+: (.+)$/.exec(blockLine);
+          if (attribute && system) ratings.get(system)?.push(stripQuotes(attribute[1] ?? ""));
+        }
+        const intensities = ratings.get("oars-1.1") ?? [...ratings.values()][0];
+        if (intensities) current.ageRating = summarizeContentRating(intensities);
+        index = end;
+        break;
+      }
+      case "Requires":
+      case "Recommends":
+      case "Supports": {
+        const end = nextTopLevelKeyIndex(lines, index + 1);
+        const items: AppstreamRelation[] = [];
+        for (let cursor = index + 1; cursor < end; cursor += 1) {
+          const blockLine = lines[cursor] ?? "";
+          const item = /^- ([a-z_]+): (.*)$/.exec(blockLine);
+          if (item) {
+            items.push({ kind: item[1] as string, value: stripQuotes(item[2] ?? "") });
+            continue;
+          }
+          // `side:`, `compare:` and `version:` continue the item above.
+          const attribute = /^ {2}(side|compare|version): (.*)$/.exec(blockLine);
+          const last = items.at(-1);
+          if (attribute && last)
+            last[attribute[1] as "side" | "compare" | "version"] = stripQuotes(attribute[2] ?? "");
+        }
+        relations[key.toLowerCase() as keyof AppstreamRelations] = items;
         index = end;
         break;
       }

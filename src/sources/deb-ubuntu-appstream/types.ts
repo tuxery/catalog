@@ -37,6 +37,10 @@ export interface UbuntuAppstreamCacheEntry {
   longDescription?: string;
   /** See `SourcedPackage.screenshots`. */
   screenshots: string[];
+  /** See `SourcedPackage.ageRating`. */
+  ageRating?: { system: string; value: string };
+  /** See `SourcedPackage.requirements`. */
+  requirements?: string;
   /** See `SourcedPackage.languages`. */
   languages?: string[];
 }

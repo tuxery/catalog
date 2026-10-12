@@ -20,6 +20,8 @@ export function normalize(entries: UbuntuAppstreamCacheEntry[]): SourcedPackage[
     developer: entry.developer,
     longDescription: entry.longDescription,
     screenshots: entry.screenshots.length > 0 ? entry.screenshots : undefined,
+    ageRating: entry.ageRating,
+    requirements: entry.requirements,
     languages: entry.languages,
   }));
 }

@@ -136,7 +136,7 @@ export interface CatalogApp {
   approxSizeBytes?: number;
   /** Screenshot image URLs — populated by Flathub/AppCenter's AppStream `<screenshots>`. */
   screenshots?: string[];
-  /** Not sourced yet. */
+  /** Video files, one per screenshot that has one — see `SourcedPackage.videos`. */
   videos?: string[];
   /**
    * A count-weighted average across every member package's own rating —
@@ -197,11 +197,11 @@ export interface CatalogApp {
    * `pickLastUpdated`. `undefined` when no member package has one.
    */
   lastUpdated?: string;
-  /** Not sourced yet — AppStream's `<requires>`/`<recommends>`/`<supports>` (controls, display size, internet), as one readable summary. */
+  /** AppStream's `<requires>`/`<recommends>`/`<supports>` (controls, display size, internet) as one readable line — see `SourcedPackage.requirements`. */
   requirements?: string;
   /** Not sourced yet — the Flathub package's own sandbox permissions (`finish-args`). Other formats' confinement belongs to each package. */
   permissions?: string[];
-  /** Not sourced yet — AppStream's `<content_rating>` (OARS). */
+  /** AppStream's `<content_rating>` (OARS) as its strongest intensity — see `SourcedPackage.ageRating`. */
   ageRating?: { system: string; value: string };
   /** No upstream signal in any current source — likely editorial/manual, not auto-extractable. */
   aiFeatures?: boolean;

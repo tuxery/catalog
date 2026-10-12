@@ -387,3 +387,89 @@ describe("resolveIconUrl", () => {
     expect(url).toBeUndefined();
   });
 });
+
+describe("parseAppstreamXml: content rating, requirements and videos", () => {
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<components version="0.8" origin="flathub">
+  <component type="desktop-application">
+    <id>org.example.Rated</id>
+    <name>Rated</name>
+    <summary>A rated app</summary>
+    <content_rating type="oars-1.0">
+      <content_attribute id="violence-cartoon">intense</content_attribute>
+    </content_rating>
+    <content_rating type="oars-1.1">
+      <content_attribute id="violence-cartoon">mild</content_attribute>
+      <content_attribute id="social-chat">moderate</content_attribute>
+      <content_attribute id="money-purchasing">none</content_attribute>
+    </content_rating>
+    <requires>
+      <display_length>360</display_length>
+      <internet>always</internet>
+    </requires>
+    <recommends>
+      <display_length compare="ge" side="longest">1024</display_length>
+      <control>gamepad</control>
+    </recommends>
+    <supports>
+      <control>pointing</control>
+      <control>keyboard</control>
+      <control>touch</control>
+    </supports>
+    <screenshots>
+      <screenshot type="default">
+        <image type="source">https://example.com/a.png</image>
+        <video container="webm" codec="vp9">https://example.com/a.webm</video>
+        <video container="mp4" codec="h264">https://example.com/a.mp4</video>
+      </screenshot>
+      <screenshot>
+        <image type="source">https://example.com/b.png</image>
+        <video>https://www.youtube.com/watch?v=abc</video>
+      </screenshot>
+      <screenshot>
+        <image type="source">https://example.com/c.png</image>
+        <video container="webm">https://example.com/c.webm</video>
+      </screenshot>
+    </screenshots>
+  </component>
+  <component type="desktop-application">
+    <id>org.example.Unrated</id>
+    <name>Unrated</name>
+    <summary>No metadata</summary>
+  </component>
+  <component type="desktop-application">
+    <id>org.example.Checked</id>
+    <name>Checked</name>
+    <summary>Checked, nothing to declare</summary>
+    <content_rating type="oars-1.1"/>
+  </component>
+</components>`;
+  const entries = parseAppstreamXml(xml);
+  const byId = (id: string) => entries.find((entry) => entry.id === id);
+
+  it("summarizes the OARS 1.1 rating as its strongest intensity", () => {
+    expect(byId("org.example.Rated")?.ageRating).toEqual({ system: "OARS", value: "moderate" });
+  });
+
+  it("reads an empty content_rating as none, and no content_rating as nothing", () => {
+    expect(byId("org.example.Checked")?.ageRating).toEqual({ system: "OARS", value: "none" });
+    expect(byId("org.example.Unrated")?.ageRating).toBeUndefined();
+  });
+
+  it("writes the requirements as one readable line", () => {
+    expect(byId("org.example.Rated")?.requirements).toBe(
+      "Requires: a screen with its shortest side at least 360 px, an internet connection. " +
+        "Recommends: a screen with its longest side at least 1024 px, gamepad. " +
+        "Supports: mouse or touchpad, keyboard, touch screen.",
+    );
+    expect(byId("org.example.Unrated")?.requirements).toBeUndefined();
+  });
+
+  it("keeps one playable file per screenshot, MP4 before WebM, no streaming pages", () => {
+    expect(byId("org.example.Rated")?.videos).toEqual([
+      "https://example.com/a.mp4",
+      "https://example.com/c.webm",
+    ]);
+    expect(byId("org.example.Unrated")?.videos).toBeUndefined();
+  });
+});

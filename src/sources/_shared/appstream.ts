@@ -7,6 +7,12 @@ import {
   type ProjectLinks,
   type ProjectLinkType,
 } from "../types";
+import {
+  pickPlayableVideo,
+  summarizeContentRating,
+  summarizeRelations,
+  type AppstreamRelation,
+} from "./appstream-extras";
 import { compactFormal } from "./formal";
 
 // AppStream also lists "addon"/"runtime"/"localization"/"generic" components
@@ -75,9 +81,29 @@ interface RawScreenshotImage {
   "@_type"?: string;
 }
 
+interface RawVideo {
+  "#text"?: string;
+  "@_container"?: string;
+  "@_codec"?: string;
+}
+
 interface RawScreenshot {
   image?: RawScreenshotImage[];
+  video?: RawVideo | RawVideo[] | string;
 }
+
+interface RawContentAttribute {
+  "#text"?: string;
+}
+
+interface RawContentRating {
+  "@_type"?: string;
+  content_attribute?: RawContentAttribute | RawContentAttribute[] | string;
+}
+
+/** A `<requires>`/`<recommends>`/`<supports>` block: each child tag is a relation kind, repeated or not, plain text or with `compare`/`side`/`version` attributes. */
+type RawRelations = Record<string, unknown>;
+type RawRelationChild = string | Record<string, string>;
 
 interface RawComponent {
   "@_type"?: string;
@@ -100,6 +126,10 @@ interface RawComponent {
   developer?: RawDeveloper;
   screenshots?: { screenshot?: RawScreenshot[] };
   languages?: RawLanguages;
+  content_rating?: RawContentRating | RawContentRating[];
+  requires?: RawRelations;
+  recommends?: RawRelations;
+  supports?: RawRelations;
   extends?: string[];
   replaces?: { id?: string[] };
 }
@@ -141,6 +171,12 @@ export interface AppstreamComponent {
   screenshots: string[];
   /** Language codes from `<languages><lang>`, e.g. ["en_US", "de", "fr"] — the completion `percentage` attribute isn't kept, just which languages exist at all. See `SourcedPackage.languages`. */
   languages?: string[];
+  /** One playable file per screenshot that has a video, in screenshot order — see `SourcedPackage.videos`. */
+  videos?: string[];
+  /** `<content_rating>`'s strongest OARS intensity — see `SourcedPackage.ageRating`. */
+  ageRating?: { system: string; value: string };
+  /** `<requires>`/`<recommends>`/`<supports>` as one readable line — see `SourcedPackage.requirements`. */
+  requirements?: string;
   /** The newest `<release>`'s own `<description>`, flattened the same way as the component's own `<description>` — see `SourcedPackage.changelog`. `undefined` when the newest release has no description (common — many releases are just a bare `<release version="x"/>`, no notes). */
   changelog?: string;
   /** The newest `<release>`'s own `@_timestamp` (Unix epoch seconds), converted to an ISO date string — see `SourcedPackage.lastUpdated`. `undefined` when the newest release has no timestamp, or the value doesn't parse as a real number. */
@@ -331,6 +367,65 @@ function pickScreenshots(screenshots: { screenshot?: RawScreenshot[] } | undefin
     .filter((url): url is string => Boolean(url));
 }
 
+function asList<T>(value: T | T[] | undefined): T[] {
+  if (value === undefined) return [];
+  return Array.isArray(value) ? value : [value];
+}
+
+/** Every `<screenshot>`'s best `<video>` file, `undefined` when none has one. */
+function pickVideos(
+  screenshots: { screenshot?: RawScreenshot[] } | undefined,
+): string[] | undefined {
+  const videos = (screenshots?.screenshot ?? [])
+    .map((screenshot) =>
+      pickPlayableVideo(
+        asList(screenshot.video).map((video) =>
+          typeof video === "string"
+            ? { url: video.trim() }
+            : {
+                url: (video["#text"] ?? "").trim(),
+                container: video["@_container"],
+                codec: video["@_codec"],
+              },
+        ),
+      ),
+    )
+    .filter((url): url is string => Boolean(url));
+  return videos.length > 0 ? videos : undefined;
+}
+
+/** The component's OARS rating (1.1 over any older one) as a badge value. */
+function pickAgeRating(
+  ratings: RawContentRating | RawContentRating[] | undefined,
+): { system: string; value: string } | undefined {
+  const all = asList(ratings).filter((rating) => (rating["@_type"] ?? "").startsWith("oars"));
+  const rating = all.find((entry) => entry["@_type"] === "oars-1.1") ?? all[0];
+  if (!rating) return undefined;
+  return summarizeContentRating(
+    asList(rating.content_attribute).map((attribute) =>
+      (typeof attribute === "string" ? attribute : (attribute["#text"] ?? "")).trim(),
+    ),
+  );
+}
+
+function toRelations(block: RawRelations | undefined): AppstreamRelation[] {
+  return Object.entries(block ?? {}).flatMap(([kind, children]) =>
+    kind.startsWith("@_")
+      ? []
+      : asList(children as RawRelationChild | RawRelationChild[] | undefined).map((child) =>
+          typeof child === "string"
+            ? { kind, value: child }
+            : {
+                kind,
+                value: child["#text"] ?? "",
+                compare: child["@_compare"],
+                side: child["@_side"],
+                version: child["@_version"],
+              },
+        ),
+  );
+}
+
 /**
  * Parses an AppStream repodata file (already decompressed) into cache
  * rows — shared by Flathub and elementary AppCenter, which are both
@@ -403,6 +498,13 @@ export function parseAppstreamXml(
       longDescription: pickLongDescription(component.description),
       screenshots: pickScreenshots(component.screenshots),
       languages: pickLanguages(component.languages),
+      videos: pickVideos(component.screenshots),
+      ageRating: pickAgeRating(component.content_rating),
+      requirements: summarizeRelations({
+        requires: toRelations(component.requires),
+        recommends: toRelations(component.recommends),
+        supports: toRelations(component.supports),
+      }),
       changelog: pickChangelog(component.releases),
       lastUpdated: pickLastUpdated(component.releases),
       formal: compactFormal(component.id ?? "", {

@@ -10,6 +10,12 @@ export interface SolusCacheEntry {
   summary: string;
   version: string;
   homepage?: string;
+  /** The `<License>` elements AND-joined (`GPL-2.0-or-later AND MIT`) — see `SourcedPackage.license`. */
+  license?: string;
+  /** The newest `<Update>`'s `<Date>` — when the package was last rebuilt, see `SourcedPackage.builtAt`. */
+  builtAt?: string;
+  /** `<InstalledSize>`, in bytes — see `SourcedPackage.installedSizeBytes`. */
+  installedSizeBytes?: number;
   /** Solus's own hierarchical grouping (e.g. `games.strategy`, `programming.library`) — see `SourcedPackage.section`. */
   partOf?: string;
 }

@@ -1,4 +1,5 @@
 import { XMLParser } from "fast-xml-parser";
+import { positiveInt } from "../_shared/epoch";
 import { fetchZstdText } from "../_shared/http";
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
@@ -21,8 +22,21 @@ interface RawPackage {
   Name?: string;
   Summary?: RawLocalizedText[];
   PartOf?: string;
-  History?: { Update?: { Version?: string }[] };
+  License?: string[];
+  InstalledSize?: string;
+  History?: { Update?: { Version?: string; Date?: string }[] };
   Source?: { Homepage?: string };
+}
+
+/** The `<License>` elements AND-joined, blanks dropped; `undefined` without any. Pure. */
+export function solusLicense(licenses: string[] | undefined): string | undefined {
+  const kept = (licenses ?? []).map((license) => license.trim()).filter(Boolean);
+  return kept.length > 0 ? kept.join(" AND ") : undefined;
+}
+
+/** A `YYYY-MM-DD` update date as a UTC ISO timestamp, `undefined` when it isn't one. */
+function isoDate(date: string | undefined): string | undefined {
+  return date && /^\d{4}-\d{2}-\d{2}$/.test(date) ? `${date}T00:00:00.000Z` : undefined;
 }
 
 /**
@@ -39,7 +53,8 @@ export function parseIndexXml(xml: string): SolusCacheEntry[] {
     ignoreAttributes: false,
     attributeNamePrefix: "@_",
     textNodeName: "#text",
-    isArray: (name) => name === "Package" || name === "Summary" || name === "Update",
+    isArray: (name) =>
+      name === "Package" || name === "Summary" || name === "Update" || name === "License",
     parseTagValue: false,
     parseAttributeValue: false,
   });
@@ -60,6 +75,9 @@ export function parseIndexXml(xml: string): SolusCacheEntry[] {
         version: pkg.History?.Update?.[0]?.Version ?? "unknown",
         homepage: pkg.Source?.Homepage || undefined,
         partOf: pkg.PartOf || undefined,
+        license: solusLicense(pkg.License),
+        builtAt: isoDate(pkg.History?.Update?.[0]?.Date),
+        installedSizeBytes: positiveInt(pkg.InstalledSize),
       };
     });
 }

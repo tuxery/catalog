@@ -12,5 +12,8 @@ export function normalize(entries: SolusCacheEntry[]): SourcedPackage[] {
     appId: entry.name,
     homepage: entry.homepage,
     section: entry.partOf,
+    license: entry.license,
+    builtAt: entry.builtAt,
+    installedSizeBytes: entry.installedSizeBytes,
   }));
 }

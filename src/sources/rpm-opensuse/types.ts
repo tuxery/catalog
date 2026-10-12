@@ -19,6 +19,12 @@ export interface OpenSuseCacheEntry {
   group?: string;
   /** Whether this package's RPM provides list includes a synthetic `application(*.desktop)` entry — see `SourcedPackage.hasDesktopFile`. */
   hasDesktopFile: boolean;
+  /** See `RpmPrimaryEntry.license`. */
+  license?: string;
+  /** See `RpmPrimaryEntry.builtAt`. */
+  builtAt?: string;
+  /** See `RpmPrimaryEntry.installedSizeBytes`. */
+  installedSizeBytes?: number;
   /** See `RpmPrimaryEntry.formal`. */
   formal?: FormalSignals;
 }

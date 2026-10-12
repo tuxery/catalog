@@ -110,7 +110,8 @@ export interface SourcedPackage {
    * When this package itself was built or uploaded (ISO): an RPM's build
    * time, Arch's `%BUILDDATE%`, a snap revision's release date, AUR's
    * `LastModified`. Says how fresh this listing is, not when the project
-   * last released — see `lastUpdated`. Snap fills it per channel.
+   * last released — see `lastUpdated`. Snap fills it per channel, the
+   * RPM connectors from `<time build>`.
    */
   builtAt?: string;
   /**

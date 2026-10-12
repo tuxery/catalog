@@ -76,6 +76,37 @@ describe("parsePrimaryXml", () => {
     });
   });
 
+  it("reads the license, build time and installed size", () => {
+    const [pkg] = parsePrimaryXml(`<?xml version="1.0" encoding="UTF-8"?>
+<metadata xmlns="http://linux.duke.edu/metadata/common" xmlns:rpm="http://linux.duke.edu/metadata/rpm" packages="1">
+<package type="rpm">
+  <name>0ad</name>
+  <version epoch="0" ver="0.28.0" rel="1.fc44"/>
+  <time file="1791364080" build="1791363489"/>
+  <size package="6139458" installed="26731912" archive="26763252"/>
+  <format>
+    <rpm:license>GPL-2.0-or-later AND MIT</rpm:license>
+  </format>
+</package>
+</metadata>`);
+
+    expect(pkg).toMatchObject({
+      license: "GPL-2.0-or-later AND MIT",
+      builtAt: "2026-10-07T08:58:09.000Z",
+      installedSizeBytes: 26731912,
+    });
+  });
+
+  it("leaves the build time and installed size out when they are zero or absent", () => {
+    const [pkg] = parsePrimaryXml(`<metadata xmlns:rpm="http://linux.duke.edu/metadata/rpm">
+<package type="rpm"><name>x</name><time build="0"/><size installed="0"/><format><rpm:license> </rpm:license></format></package>
+</metadata>`);
+
+    expect(pkg?.builtAt).toBeUndefined();
+    expect(pkg?.installedSizeBytes).toBeUndefined();
+    expect(pkg?.license).toBeUndefined();
+  });
+
   it("falls back gracefully when optional fields, including group, are missing", () => {
     expect(entries[1]).toEqual({
       name: "0ad-data",

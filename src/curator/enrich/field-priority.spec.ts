@@ -134,6 +134,17 @@ describe("pickLicense", () => {
     expect(pickLicense(packages).license).toBe("GPL-2.0+");
   });
 
+  it("doesn't borrow a distro's own LicenseRef identifiers as the SPDX form", () => {
+    const packages = [
+      pkg({ source: "flatpak-flathub", license: "GPL-2.0+ and CC-BY-SA" }),
+      pkg({
+        source: "rpm-fedora",
+        license: "GPL-2.0-or-later AND LicenseRef-Callaway-BSD AND CC-BY-SA-3.0",
+      }),
+    ];
+    expect(pickLicense(packages).licenseSpdx).toBeUndefined();
+  });
+
   it("keeps a custom or LicenseRef license: it says something", () => {
     const packages = [
       pkg({

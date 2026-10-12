@@ -145,7 +145,8 @@ than duplicated per repo:
 - `pnpm seed --measure`: one publish through a throwaway `sqld` over a
   copy of the local database (spare ports, `pnpm serve` untouched).
   2026-10-04, 173,785 apps: ~2.6M rows written, ~4.4M read, mostly one
-  write per row per index.
+  write per row per index. `--full` measures a full publish instead of
+  an incremental one.
 
 Local is not iso with Turso Cloud: released `sqld` (0.24.32) embeds
 SQLite 3.45.1 without `ENABLE_STAT4`, the cloud runs 3.47.0 with it. Calibrated
@@ -172,13 +173,27 @@ maintenance command, not run on every dev boot.
 
 In local mode, the database file lives at this repo's `.turso-state/`
 (gitignored) — never under `app`, so no dataset bytes touch that repo's
-filesystem, even transiently. Publishing to Turso (`src/store`'s
-`createTursoClient`) writes into a fresh `apps_next` table and atomically
-renames it over `apps` (`ALTER TABLE ... RENAME`), so a rebuild in
-progress — inserting 226k rows takes about a minute — never leaves readers
-seeing an empty or half-populated table. Re-running `pnpm seed` while
-`pnpm serve` is already running is safe: the swap happens on the file
-`pnpm serve` is reading live, no restart needed.
+filesystem, even transiently.
+
+**Publishing is incremental** (`src/store/incremental.ts`): when the live
+database has this code's tables, columns and indexes, `publish()` writes
+only what changed — an `UPDATE` of the columns that differ, a `DELETE` for
+an app gone from the dataset (with its search row and every `meta` key that
+no longer exists), an `INSERT` for a new one. Measured 2026-10-12 on
+100,770 apps with `pnpm seed --measure`: a full publish writes ~1.74M rows;
+the incremental one ~206k when 99% of the apps changed (the rich-fields
+work), 4 when nothing did. A row hash per app, kept in `meta`, finds what
+changed; a publish that dies half way leaves a `publishInProgress` mark, and
+the next one then compares every live row instead of trusting the hashes
+(~1 read per app). Rows change one by one, so for the few seconds a publish
+runs `app` can see some apps updated and others not yet.
+
+Anything else — a first publish, a column or index added, `pnpm seed
+--full` — is a **full publish**: it writes a fresh `apps_next` table and
+atomically renames it over `apps` (`ALTER TABLE ... RENAME`), so readers
+never see an empty or half-populated table, then rebuilds every index.
+Re-running `pnpm seed` while `pnpm serve` is already running is safe in
+both modes, no restart needed.
 
 ## Product families vocabulary
 

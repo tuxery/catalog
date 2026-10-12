@@ -3,7 +3,7 @@ import { spawnSync } from "node:child_process";
 import { tmpdir } from "node:os";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { createTursoClient, parseTursoDataset } from "../src/store";
+import { createTursoClient, parseTursoDataset, type PublishReport } from "../src/store";
 import { refreshSources } from "./_refresh-sources";
 import { readSqldStats, startSqld, waitForSqld } from "./_sqld";
 import { PREVIEW_ENV_PATH, PROD_ENV_PATH, readSharedEnv } from "./_shared-env";
@@ -46,6 +46,23 @@ const force = process.argv.includes("--force");
 const prod = process.argv.includes("--prod");
 const preview = process.argv.includes("--preview");
 const measure = process.argv.includes("--measure");
+// Rebuild every table and index even when only some rows changed (see
+// src/store/incremental.ts): after changing the store's schema by hand, or
+// to rule the incremental path out while debugging.
+const full = process.argv.includes("--full");
+
+function describeReport(report: PublishReport): string {
+  const mode =
+    report.mode === "full"
+      ? `full publish${report.fullReason ? ` (${report.fullReason})` : ""}`
+      : "incremental publish";
+  return (
+    `${mode}: ${report.inserted} inserted, ${report.updated} updated, ` +
+    `${report.deleted} deleted, ${report.unchanged} unchanged; ` +
+    `${report.searchRowsWritten} search rows, ` +
+    `${report.metaWritten} meta rows written, ${report.metaDeleted} deleted`
+  );
+}
 const remote = preview || prod;
 
 if (force) refreshSources();
@@ -84,7 +101,8 @@ if (measure) {
     await waitForSqld(sqld.url);
     const before = await readSqldStats(sqld.adminUrl);
     const started = Date.now();
-    await createTursoClient({ url: sqld.url }).publish(dataset);
+    const report = await createTursoClient({ url: sqld.url }).publish(dataset, { full });
+    console.log(describeReport(report));
     const after = await readSqldStats(sqld.adminUrl);
     console.log(
       `\nOne publish of ${dataset.apps.length} apps (${Math.round((Date.now() - started) / 1000)}s): ` +
@@ -113,12 +131,12 @@ if (measure) {
     process.exit(1);
   }
   const client = createTursoClient({ url: env.TURSO_DB_URL, authToken: env.TURSO_DB_AUTH_TOKEN });
-  await client.publish(dataset);
+  console.log(describeReport(await client.publish(dataset, { full })));
   console.log(`\n${dataset.apps.length} apps published to ${env.TURSO_DB_URL} (${mode} mode).`);
 } else {
   mkdirSync(dirname(LOCAL_DB_PATH), { recursive: true });
   const client = createTursoClient({ url: `file:${LOCAL_DB_PATH}` });
-  await client.publish(dataset);
+  console.log(describeReport(await client.publish(dataset, { full })));
   console.log(
     `\n${dataset.apps.length} apps seeded at ${LOCAL_DB_PATH}. Run \`pnpm serve\` to start the local server.`,
   );

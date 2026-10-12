@@ -1,6 +1,8 @@
 export {
   createTursoClient,
   type AppRecord,
+  type PublishOptions,
+  type PublishReport,
   type TursoClient,
   type TursoConfig,
   type TursoDataset,

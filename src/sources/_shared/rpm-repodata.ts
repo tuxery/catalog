@@ -16,7 +16,10 @@ interface RawRpmPackage {
   summary?: string;
   version?: { "@_ver"?: string };
   url?: string;
+  time?: { "@_build"?: string };
+  size?: { "@_installed"?: string };
   format?: {
+    "rpm:license"?: string;
     "rpm:group"?: string;
     "rpm:sourcerpm"?: string;
     "rpm:provides"?: RawRpmEntryList;
@@ -49,6 +52,12 @@ export interface RpmPrimaryEntry {
    * isn't evidence of "not a GUI app", only presence is meaningful.
    */
   hasDesktopFile: boolean;
+  /** RPM `<rpm:license>`, the packager's SPDX expression on Fedora and openSUSE (`GPL-3.0-or-later AND MIT`) — see `SourcedPackage.license`. */
+  license?: string;
+  /** `<time build>` as an ISO date: when the package was built, not an upstream release — see `SourcedPackage.builtAt`. */
+  builtAt?: string;
+  /** `<size installed>`, in bytes — see `SourcedPackage.installedSizeBytes`. */
+  installedSizeBytes?: number;
   /** `sourcerpm`/`provides`/`conflicts`/`obsoletes`/`requires`/`enhances`+`supplements` — see `FormalSignals`. */
   formal?: FormalSignals;
 }
@@ -59,6 +68,17 @@ function entryNames(list: RawRpmEntryList | undefined, self: string): string[] |
     (list?.["rpm:entry"] ?? []).map((entry) => entry["@_name"] ?? ""),
     self,
   );
+}
+
+/** A repodata `<time build>` (epoch seconds) as ISO, `undefined` for a missing or zero one. */
+function buildTimeIso(seconds: string | undefined): string | undefined {
+  const epoch = Number(seconds);
+  return Number.isFinite(epoch) && epoch > 0 ? new Date(epoch * 1000).toISOString() : undefined;
+}
+
+function positiveInt(value: string | undefined): number | undefined {
+  const parsed = Number(value);
+  return Number.isInteger(parsed) && parsed > 0 ? parsed : undefined;
 }
 
 const DESKTOP_PROVIDES_PATTERN = /^application\(.*\.desktop\)$/;
@@ -110,6 +130,9 @@ export function parsePrimaryXml(xml: string): RpmPrimaryEntry[] {
         summary: pkg.summary ?? "",
         version: pkg.version?.["@_ver"] ?? "unknown",
         homepage: pkg.url || undefined,
+        license: format?.["rpm:license"]?.trim() || undefined,
+        builtAt: buildTimeIso(pkg.time?.["@_build"]),
+        installedSizeBytes: positiveInt(pkg.size?.["@_installed"]),
         group: pkg.format?.["rpm:group"] || undefined,
         hasDesktopFile: provides.some((entry) =>
           DESKTOP_PROVIDES_PATTERN.test(entry["@_name"] ?? ""),

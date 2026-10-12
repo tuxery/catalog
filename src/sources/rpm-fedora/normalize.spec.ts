@@ -10,6 +10,9 @@ describe("fedora normalize", () => {
       version: "0.28.0",
       homepage: "http://play0ad.com",
       hasDesktopFile: true,
+      license: "GPL-2.0-or-later AND MIT",
+      builtAt: "2026-10-07T08:58:09.000Z",
+      installedSizeBytes: 26731912,
     };
 
     expect(normalize([entry])).toEqual([
@@ -21,6 +24,9 @@ describe("fedora normalize", () => {
         appId: "0ad",
         homepage: "http://play0ad.com",
         hasDesktopFile: true,
+        license: "GPL-2.0-or-later AND MIT",
+        builtAt: "2026-10-07T08:58:09.000Z",
+        installedSizeBytes: 26731912,
       },
     ]);
   });

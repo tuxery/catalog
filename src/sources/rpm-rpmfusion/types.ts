@@ -18,6 +18,12 @@ export interface RpmFusionCacheEntry {
   homepage?: string;
   group?: string;
   hasDesktopFile: boolean;
+  /** See `RpmPrimaryEntry.license`. */
+  license?: string;
+  /** See `RpmPrimaryEntry.builtAt`. */
+  builtAt?: string;
+  /** See `RpmPrimaryEntry.installedSizeBytes`. */
+  installedSizeBytes?: number;
   /** See `RpmPrimaryEntry.formal`. */
   formal?: FormalSignals;
 }

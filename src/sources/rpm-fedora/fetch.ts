@@ -38,12 +38,25 @@ function repoBasesFor(release: string): string[] {
  */
 export function parsePrimary(xml: string): FedoraCacheEntry[] {
   return parsePrimaryXml(xml).map(
-    ({ name, summary, version, homepage, hasDesktopFile, formal }) => ({
+    ({
       name,
       summary,
       version,
       homepage,
       hasDesktopFile,
+      license,
+      builtAt,
+      installedSizeBytes,
+      formal,
+    }) => ({
+      name,
+      summary,
+      version,
+      homepage,
+      hasDesktopFile,
+      license,
+      builtAt,
+      installedSizeBytes,
       formal,
     }),
   );

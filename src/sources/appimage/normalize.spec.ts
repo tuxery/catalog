@@ -10,6 +10,11 @@ describe("appimage normalize", () => {
       repo: "KDE/krita",
       version: "5.2.2",
       iconFilename: "krita.png",
+      iconUrl: "https://appimage.github.io/database/Krita/icons/512x512/krita.png",
+      screenshots: ["https://appimage.github.io/database/Krita/screenshot.png"],
+      license: "GPL-3.0-or-later",
+      developer: "KDE",
+      links: { "vcs-browser": "https://github.com/KDE/krita" },
       homepage: "https://krita.org",
     };
 
@@ -21,6 +26,11 @@ describe("appimage normalize", () => {
         version: "5.2.2",
         appId: "KDE/krita",
         iconFilename: "krita.png",
+        iconUrl: "https://appimage.github.io/database/Krita/icons/512x512/krita.png",
+        screenshots: ["https://appimage.github.io/database/Krita/screenshot.png"],
+        license: "GPL-3.0-or-later",
+        developer: "KDE",
+        links: { "vcs-browser": "https://github.com/KDE/krita" },
         homepage: "https://krita.org",
       },
     ]);

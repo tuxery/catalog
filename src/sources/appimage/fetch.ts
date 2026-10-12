@@ -26,15 +26,39 @@ interface RawLink {
   url?: string;
 }
 
+// The feed's icon and screenshot paths are relative to the database folder
+// of appimage.github.io (checked 2026-10-12: .../database/<path> serves them).
+const MEDIA_BASE = "https://appimage.github.io/database";
+
 interface RawItem {
   name?: string;
   description?: string;
+  license?: unknown;
+  authors?: { name?: unknown }[] | null;
+  screenshots?: string[] | null;
   links?: RawLink[] | null;
   icons?: string[] | null;
 }
 
 interface RawFeed {
   items?: RawItem[];
+}
+
+function mediaUrl(path: string | undefined): string | undefined {
+  return path ? `${MEDIA_BASE}/${path.replace(/^\//, "")}` : undefined;
+}
+
+function mediaUrls(paths: string[] | null | undefined): string[] | undefined {
+  const urls = (paths ?? []).map(mediaUrl).filter((url): url is string => url !== undefined);
+  return urls.length > 0 ? urls : undefined;
+}
+
+function authorNames(authors: { name?: unknown }[] | null | undefined): string | undefined {
+  // Some feed authors have a numeric or null name.
+  const names = (authors ?? [])
+    .map((author) => (typeof author.name === "string" ? author.name.trim() : ""))
+    .filter(Boolean);
+  return names.length > 0 ? names.join(", ") : undefined;
 }
 
 /**
@@ -55,6 +79,11 @@ export function mapItems(items: RawItem[]): AppImageCacheEntry[] {
       description: item.description ?? "",
       repo,
       iconFilename: item.icons?.[0]?.split("/").pop(),
+      iconUrl: mediaUrl(item.icons?.[0]),
+      screenshots: mediaUrls(item.screenshots),
+      license: typeof item.license === "string" ? item.license.trim() || undefined : undefined,
+      developer: authorNames(item.authors),
+      links: { "vcs-browser": `https://github.com/${repo}` },
       homepage: `https://github.com/${repo}`,
     });
   }

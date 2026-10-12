@@ -14,6 +14,9 @@ describe("mapItems", () => {
           { type: "Download", url: "https://github.com/KDE/krita/releases" },
         ],
         icons: ["Krita/icons/512x512/krita.png"],
+        screenshots: ["Krita/screenshot.png"],
+        license: "GPL-3.0-or-later",
+        authors: [{ name: "KDE", url: "https://github.com/KDE" }],
       },
     ];
 
@@ -23,6 +26,11 @@ describe("mapItems", () => {
         description: "Digital painting, illustration, and animation",
         repo: "KDE/krita",
         iconFilename: "krita.png",
+        iconUrl: "https://appimage.github.io/database/Krita/icons/512x512/krita.png",
+        screenshots: ["https://appimage.github.io/database/Krita/screenshot.png"],
+        license: "GPL-3.0-or-later",
+        developer: "KDE",
+        links: { "vcs-browser": "https://github.com/KDE/krita" },
         homepage: "https://github.com/KDE/krita",
       },
     ]);
@@ -41,6 +49,20 @@ describe("mapItems", () => {
     expect(mapItems(items)).toEqual([]);
   });
 
+  it("ignores authors without a text name", () => {
+    const [mapped] = mapItems([
+      {
+        name: "Odd",
+        links: [{ type: "GitHub", url: "owner/odd" }],
+        authors: [{ name: 42 }, { name: null }, { name: " Ada " }, {}],
+        license: 7,
+      },
+    ]);
+
+    expect(mapped?.developer).toBe("Ada");
+    expect(mapped?.license).toBeUndefined();
+  });
+
   it("drops items with no name", () => {
     expect(mapItems([{ links: [{ type: "GitHub", url: "owner/repo" }] }])).toEqual([]);
   });
@@ -54,6 +76,11 @@ describe("mapItems", () => {
         description: "",
         repo: "owner/bare",
         iconFilename: undefined,
+        iconUrl: undefined,
+        screenshots: undefined,
+        license: undefined,
+        developer: undefined,
+        links: { "vcs-browser": "https://github.com/owner/bare" },
         homepage: "https://github.com/owner/bare",
       },
     ]);

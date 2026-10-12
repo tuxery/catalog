@@ -1,10 +1,12 @@
 import { describe, expect, it } from "vitest";
-import { mapPlist } from "./fetch";
+import { mapPlist, voidLicense } from "./fetch";
 
 const SAMPLE_PACKAGES = {
   "0ad": {
     architecture: "x86_64",
     homepage: "https://play0ad.com",
+    installed_size: 11756502,
+    license: "GPL-2.0-or-later, CC-BY-SA-3.0, MPL-2.0, MIT",
     pkgver: "0ad-0.27.1_6",
     short_desc: "Historically-based real-time strategy game",
   },
@@ -21,6 +23,8 @@ describe("mapPlist", () => {
         short_desc: "Historically-based real-time strategy game",
         pkgver: "0ad-0.27.1_6",
         homepage: "https://play0ad.com",
+        license: "GPL-2.0-or-later AND CC-BY-SA-3.0 AND MPL-2.0 AND MIT",
+        installedSizeBytes: 11756502,
         repo: "main",
       },
       {
@@ -28,6 +32,8 @@ describe("mapPlist", () => {
         short_desc: "",
         pkgver: "bare-pkg-1.0_1",
         homepage: undefined,
+        license: undefined,
+        installedSizeBytes: undefined,
         repo: "main",
       },
     ]);
@@ -39,5 +45,17 @@ describe("mapPlist", () => {
 
   it("returns an empty array for no packages", () => {
     expect(mapPlist({}, "multilib")).toEqual([]);
+  });
+});
+
+describe("voidLicense", () => {
+  it("AND-joins the comma list and keeps an expression as is", () => {
+    expect(voidLicense("MIT, Apache-2.0")).toBe("MIT AND Apache-2.0");
+    expect(voidLicense("MIT OR Apache-2.0")).toBe("MIT OR Apache-2.0");
+  });
+
+  it("is undefined when blank or not text", () => {
+    expect(voidLicense(" , ")).toBeUndefined();
+    expect(voidLicense(undefined)).toBeUndefined();
   });
 });

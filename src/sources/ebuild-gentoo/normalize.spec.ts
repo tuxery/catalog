@@ -25,6 +25,20 @@ describe("gentoo normalize", () => {
     ]);
   });
 
+  it("converts the ebuild's LICENSE to an SPDX expression", () => {
+    const entry: GentooCacheEntry = {
+      category: "games-strategy",
+      name: "0ad",
+      version: "0.28.0-r1",
+      description: "A free, real-time strategy game",
+      license: "CC-BY-SA-3.0 GPL-2 LGPL-2.1 LPPL-1.3c MIT ZLIB",
+    };
+
+    expect(normalize([entry])[0]?.license).toBe(
+      "CC-BY-SA-3.0 AND GPL-2.0-only AND LGPL-2.1-only AND LPPL-1.3c AND MIT AND Zlib",
+    );
+  });
+
   it("derives the risk from the amd64 keyword", () => {
     const entry: GentooCacheEntry = {
       category: "app-misc",

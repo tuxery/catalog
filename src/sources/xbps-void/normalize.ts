@@ -23,5 +23,7 @@ export function normalize(entries: VoidCacheEntry[]): SourcedPackage[] {
     // main + nonfree + multilib too — see fetch.ts.
     appId: entry.name,
     homepage: entry.homepage,
+    license: entry.license,
+    installedSizeBytes: entry.installedSizeBytes,
   }));
 }

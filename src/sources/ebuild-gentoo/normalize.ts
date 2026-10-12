@@ -1,4 +1,5 @@
 import { nameAxes } from "../_shared/name-axes";
+import { gentooLicenseToSpdx } from "./license";
 import type { Risk, SourcedPackage } from "../types";
 import type { GentooCacheEntry } from "./types";
 
@@ -29,6 +30,7 @@ export function normalize(entries: GentooCacheEntry[]): SourcedPackage[] {
       // than dropped, unlike bare `entry.name`.
       appId: `${entry.category}/${entry.name}`,
       homepage: entry.homepage,
+      license: gentooLicenseToSpdx(entry.license),
       // Gentoo's category (e.g. "games-strategy", "dev-libs") serves the
       // same Section-equivalent role Debian/openSUSE/Slackware/Solus's
       // fields do — see filter/rules.ts's GENTOO_NOISE_CATEGORIES.

@@ -172,6 +172,7 @@ async function readAllEntries(md5CacheDir: string): Promise<GentooCacheEntry[]> 
         description: fields.DESCRIPTION ?? "",
         homepage: fields.HOMEPAGE || undefined,
         keywords: fields.KEYWORDS || undefined,
+        license: fields.LICENSE?.trim() || undefined,
       };
     }),
   );

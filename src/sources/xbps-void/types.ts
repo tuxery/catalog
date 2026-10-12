@@ -12,6 +12,10 @@ export interface VoidCacheEntry {
   /** `<pkgname>-<version>_<revision>`, e.g. `0ad-0.27.1_6` — see `normalize.ts`'s version extraction. */
   pkgver: string;
   homepage?: string;
+  /** The index's `license`, its comma-separated list AND-joined (`GPL-2.0-or-later AND MIT`) — see `SourcedPackage.license`. */
+  license?: string;
+  /** The index's `installed_size`, in bytes — see `SourcedPackage.installedSizeBytes`. */
+  installedSizeBytes?: number;
   /** Which repo this package belongs to — "main" (the default repo), "nonfree" (proprietary/restricted, same organizing principle as Debian's non-free), or "multilib" (32-bit compat packages for 64-bit systems, `-32bit`-suffixed names). */
   repo: "main" | "nonfree" | "multilib";
 }

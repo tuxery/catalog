@@ -152,7 +152,8 @@ export function pickRichField<T>(
 }
 
 /** What sources put in a license field when they don't know it — a real license, even "custom" or a `LicenseRef-`, never matches. */
-const LICENSE_PLACEHOLDER = /^(?:unknown|other|none|n\/?a|noassertion|unspecified)$/i;
+const LICENSE_PLACEHOLDER =
+  /^(?:unknown|unset|other(?: open source)?|none|n\/?a|noassertion|unspecified)$/i;
 
 function isUsableLicense(license: string | undefined): license is string {
   return license !== undefined && !LICENSE_PLACEHOLDER.test(license.trim());

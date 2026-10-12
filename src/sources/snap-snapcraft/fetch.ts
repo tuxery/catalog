@@ -4,7 +4,7 @@ import { dedupeByKey } from "../_shared/dedupe";
 import { fetchOrThrow } from "../_shared/http";
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
-import type { StoreCollectionTag } from "../types";
+import type { ProjectLinks, StoreCollectionTag } from "../types";
 import type { SnapcraftCacheEntry, SnapcraftChannel, SnapcraftFetchMetadata } from "./types";
 
 // Snapcraft's own hand-picked "featured" collection — distinct from the
@@ -17,7 +17,7 @@ import type { SnapcraftCacheEntry, SnapcraftChannel, SnapcraftFetchMetadata } fr
 const FEATURED_PARAMS = "featured=true";
 
 const FIND_URL = "https://api.snapcraft.io/v2/snaps/find";
-const FIELDS = "title,summary,version,channel,media,links";
+const FIELDS = "title,summary,description,version,channel,media,links,license,publisher";
 const DEVICE_SERIES = "16";
 const RISKS = new Set(["stable", "candidate", "beta", "edge"]);
 const INFO_URL = "https://api.snapcraft.io/v2/snaps/info";
@@ -179,15 +179,40 @@ interface RawMedia {
   url?: string;
 }
 
+// Snap's link keys onto Tuxery's project link types. `website` is the
+// homepage, kept apart; `contact` is sometimes a bare email, which
+// `mapLinks` leaves out.
+const SNAP_LINK_TO_PROJECT_LINK: Record<string, keyof ProjectLinks> = {
+  issues: "bugtracker",
+  source: "vcs-browser",
+  donations: "donation",
+  contact: "contact",
+};
+
 interface RawResult {
   name: string;
   revision?: { channel?: string; version?: string };
   snap?: {
     title?: string;
     summary?: string;
+    description?: string;
+    license?: string;
+    publisher?: { "display-name"?: string; validation?: string };
     media?: RawMedia[];
-    links?: { website?: string[] };
+    links?: Record<string, string[] | undefined>;
   };
+}
+
+/** Snap's link lists reduced to one `http(s)` URL per project link type, `undefined` when none. Pure — no I/O. */
+export function mapLinks(
+  links: Record<string, string[] | undefined> | undefined,
+): ProjectLinks | undefined {
+  const mapped: ProjectLinks = {};
+  for (const [key, type] of Object.entries(SNAP_LINK_TO_PROJECT_LINK)) {
+    const href = links?.[key]?.find((url) => /^https?:\/\//i.test(url));
+    if (href) mapped[type] = href;
+  }
+  return Object.keys(mapped).length > 0 ? mapped : undefined;
 }
 
 /**
@@ -197,15 +222,26 @@ interface RawResult {
 export function mapResults(results: RawResult[]): SnapcraftCacheEntry[] {
   return results
     .filter((result) => result.name)
-    .map((result) => ({
-      name: result.name,
-      title: result.snap?.title ?? result.name,
-      summary: result.snap?.summary ?? "",
-      version: result.revision?.version ?? "unknown",
-      channel: result.revision?.channel ?? "stable",
-      iconUrl: result.snap?.media?.find((media) => media.type === "icon")?.url,
-      website: result.snap?.links?.website?.[0],
-    }));
+    .map((result) => {
+      const screenshotUrls = result.snap?.media
+        ?.filter((media) => media.type === "screenshot" && media.url)
+        .map((media) => media.url as string);
+      return {
+        name: result.name,
+        title: result.snap?.title ?? result.name,
+        summary: result.snap?.summary ?? "",
+        version: result.revision?.version ?? "unknown",
+        channel: result.revision?.channel ?? "stable",
+        iconUrl: result.snap?.media?.find((media) => media.type === "icon")?.url,
+        website: result.snap?.links?.website?.[0],
+        longDescription: result.snap?.description?.trim() || undefined,
+        license: result.snap?.license?.trim() || undefined,
+        publisher: result.snap?.publisher?.["display-name"]?.trim() || undefined,
+        publisherVerified: result.snap?.publisher?.validation === "verified" || undefined,
+        screenshots: screenshotUrls?.length ? screenshotUrls : undefined,
+        links: mapLinks(result.snap?.links),
+      };
+    });
 }
 
 /** Tags each entry `["featured"]` when its name is in the featured-collection sweep's result set, `undefined` otherwise. Pure — no I/O. */
@@ -262,7 +298,7 @@ export function applyCategories(
 }
 
 interface RawChannelMapEntry {
-  channel?: { name?: string; architecture?: string };
+  channel?: { name?: string; architecture?: string; "released-at"?: string };
   version?: string;
 }
 
@@ -278,7 +314,11 @@ export function mapChannelMap(channelMap: RawChannelMapEntry[]): SnapcraftChanne
     if (item.channel?.architecture !== ARCH || !channel || !item.version) continue;
     // A branch (`22/stable/hotfix`) is a short-lived fix for one customer, not a line to pick.
     if (!RISKS.has(channel.split("/").at(-1) ?? "")) continue;
-    byName.set(channel, { channel, version: item.version });
+    byName.set(channel, {
+      channel,
+      version: item.version,
+      releasedAt: item.channel?.["released-at"],
+    });
   }
   return [...byName.values()];
 }

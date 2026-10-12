@@ -115,6 +115,16 @@ because a paragraph per cell made the table unreadable.
    (docs/product-families.md). A snap whose call fails keeps its single
    `find` channel. `src/sources/snap-snapcraft/fetch.ts`.
 
+   The same `find` call also carries the listing's rich fields
+   (`description`, `license`, `publisher`, `media`, `links`), so they cost
+   no extra request: the publisher's display name and whether Canonical
+   verified them (`validation: "verified"`, not `starred`), the
+   publisher's Markdown description kept as written, the SPDX-ish
+   license (`unset` and `Other Open Source` count as no license), the
+   `screenshot` media (banners left out) and the `issues`/`source`/
+   `donations`/`contact` links. Each channel's `released-at` from the
+   channel-map is the package's `builtAt`. Snap's API has no video media.
+
 4. **AppImage** — [`appimage.github.io/feed.json`](https://appimage.github.io/feed.json)
    (community-curated — not to be confused with the separate
    AppImageHub.com, first investigated as a second source and found not

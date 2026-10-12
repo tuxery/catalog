@@ -122,7 +122,7 @@ export interface CatalogApp {
   category: string;
   /** Who makes the app — never a distro packager nor a store account (that's `publisher`). See `SourcedPackage.developer`. */
   developer?: string;
-  /** The store account publishing the listing (a snap's publisher, a GOG publisher) when it isn't the developer's own. Not sourced yet. */
+  /** The store account publishing the listing (a snap's publisher, a GOG publisher) when it isn't the developer's own. Snap's today (`SourcedPackage.publisherVerified` says whether the store verified it). */
   publisher?: string;
   /** The license as its best-ranked source states it (e.g. "GPL-3.0+ AND LGPL-3.0+"): upstream's AppStream `<project_license>` first, then the packagers' — see `field-priority.ts`'s `pickLicense`. */
   license?: string;

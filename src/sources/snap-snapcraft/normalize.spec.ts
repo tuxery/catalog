@@ -127,4 +127,41 @@ describe("splitSnapChannel", () => {
   it("ignores a trailing branch", () => {
     expect(splitSnapChannel("22/stable/hotfix")).toEqual({ track: "22" });
   });
+
+  it("carries the rich fields and dates each channel by its own release", () => {
+    const entry: SnapcraftCacheEntry = {
+      name: "vlc",
+      title: "VLC",
+      summary: "The ultimate media player",
+      version: "3.0.24-rc1",
+      channel: "stable",
+      channels: [
+        {
+          channel: "stable",
+          version: "3.0.24-rc1",
+          releasedAt: "2026-09-22T13:42:44.025641+00:00",
+        },
+        { channel: "edge", version: "4.0.0-dev", releasedAt: "2026-10-11T02:00:00.000000+00:00" },
+      ],
+      longDescription: "VLC is a free and open source cross-platform multimedia player.",
+      license: "GPL-2.0+",
+      publisher: "VideoLAN",
+      publisherVerified: true,
+      screenshots: ["https://dashboard.snapcraft.io/shot-1.jpg"],
+      links: { bugtracker: "https://code.videolan.org/videolan/vlc/-/work_items" },
+    };
+
+    const [stable, edge] = normalize([entry]);
+    expect(stable).toMatchObject({
+      longDescription: entry.longDescription,
+      license: "GPL-2.0+",
+      publisher: "VideoLAN",
+      publisherVerified: true,
+      screenshots: entry.screenshots,
+      links: entry.links,
+      builtAt: "2026-09-22T13:42:44.025641+00:00",
+    });
+    expect(edge?.builtAt).toBe("2026-10-11T02:00:00.000000+00:00");
+    expect(stable?.lastUpdated).toBeUndefined();
+  });
 });

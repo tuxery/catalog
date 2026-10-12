@@ -222,9 +222,8 @@ describe("flattenHtmlDescription", () => {
   });
 });
 
-describe("parseDep11Yaml: content rating and requirements", () => {
-  // Real Debian trixie blocks (2026-10-12), around a minimal component.
-  const yaml = (extra: string) => `---
+// Real Debian trixie blocks (2026-10-12), around a minimal component.
+const yamlWith = (extra: string) => `---
 File: DEP-11
 Version: '1.0'
 MediaBaseUrl: https://appstream.debian.org/media/trixie
@@ -235,7 +234,9 @@ Package: example
 Name:
   C: Example
 ${extra}`;
-  const parse = (extra: string) => parseDep11Yaml(yaml(extra)).components[0];
+
+describe("parseDep11Yaml: content rating and requirements", () => {
+  const parse = (extra: string) => parseDep11Yaml(yamlWith(extra)).components[0];
 
   it("summarizes ContentRating as its strongest intensity, empty meaning none", () => {
     expect(
@@ -263,7 +264,7 @@ ${extra}`;
 
   it("keeps one component's requirements off the next", () => {
     const { components } = parseDep11Yaml(
-      yaml("Requires:\n- internet: always\n") +
+      yamlWith("Requires:\n- internet: always\n") +
         "---\nType: desktop-application\nID: org.example.two\nPackage: two\n",
     );
     expect(components[1]?.requirements).toBeUndefined();

@@ -4,6 +4,7 @@ import { join } from "node:path";
 import * as tar from "tar";
 import { compactFormal, relationNames } from "../_shared/formal";
 import { epochSecondsToIso, positiveInt } from "../_shared/epoch";
+import { fetchPkgstatsScores } from "./pkgstats";
 import { fetchOrThrow } from "../_shared/http";
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
@@ -107,10 +108,16 @@ async function fetchRepoEntries(repo: ArchRepo, workDir: string): Promise<ArchCa
  * only ever belongs to one. See docs/sources.md.
  */
 export async function fetchArch(cachePath: string): Promise<number> {
-  const entries = await withTempDir("arch-fetch", async (workDir) => {
-    const entriesByRepo = await Promise.all(REPOS.map((repo) => fetchRepoEntries(repo, workDir)));
-    return entriesByRepo.flat();
-  });
+  const [repoEntries, popularity] = await Promise.all([
+    withTempDir("arch-fetch", async (workDir) => {
+      const entriesByRepo = await Promise.all(REPOS.map((repo) => fetchRepoEntries(repo, workDir)));
+      return entriesByRepo.flat();
+    }),
+    fetchPkgstatsScores(),
+  ]);
+  const entries = repoEntries.map((entry) =>
+    Object.assign(entry, { popularity: popularity.get(entry.name) }),
+  );
 
   writeNdjson(cachePath, entries);
   writeMetadata<ArchFetchMetadata>(cachePath, {

@@ -36,6 +36,21 @@ function annotateStoreId(pkg: SourcedPackage, members: readonly SourcedPackage[]
   return pkg;
 }
 
+/**
+ * The name a nixpkgs package is known by for curated tracks: its top-level
+ * attribute (`firefox-esr`), minus `-unwrapped` and a pinned major
+ * (`firefox-esr-153`). `pname` can't tell them apart: `firefox`,
+ * `firefox-esr` and `firefox-esr-153` are all pname `firefox`. Nested
+ * attributes (`kdePackages.akregator`) have none. Pure.
+ */
+export function nixTrackName(pkg: Pick<SourcedPackage, "source" | "appId">): string | undefined {
+  if (pkg.source !== "nix-nixpkgs" || !pkg.appId || pkg.appId.includes(".")) return undefined;
+  return pkg.appId
+    .toLowerCase()
+    .replace(/-unwrapped$/, "")
+    .replace(/-\d+(?:[._]\d+)*$/, "");
+}
+
 /** A curated track lookup: build-suffix-stripped package name -> track. */
 export function trackNames(tracks: readonly MatchTrackEntry[]): Map<string, string> {
   const byName = new Map<string, string>();
@@ -66,7 +81,7 @@ export function annotateMembers(
 
   return members.map((pkg) => {
     const own = strippedName(pkg).toLowerCase();
-    const curatedTrack = tracks.get(own);
+    const curatedTrack = tracks.get(own) ?? tracks.get(nixTrackName(pkg) ?? "");
     if (curatedTrack) return pkg.track ? pkg : { ...pkg, track: curatedTrack };
     if (STORE_ID_SOURCES.has(pkg.source)) return annotateStoreId(pkg, members);
     if (!VARIANT_NAMING_SOURCES.has(pkg.source)) return pkg;

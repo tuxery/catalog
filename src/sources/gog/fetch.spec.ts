@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { mapProducts, resolveScreenshotUrl } from "./fetch";
+import { mapProductDetails, mapProducts, resolveScreenshotUrl } from "./fetch";
 
 describe("resolveScreenshotUrl", () => {
   it("substitutes the {formatter} placeholder for a verified-working size", () => {
@@ -96,5 +96,49 @@ describe("mapProducts", () => {
     ];
 
     expect(mapProducts(products)[0]?.rating).toBeUndefined();
+  });
+});
+
+describe("mapProductDetails", () => {
+  // Firewatch, api.gog.com/products/1459256379?expand=description, 2026-10-12.
+  const firewatch = {
+    images: {
+      icon: "//images-3.gog-statics.com/a62be6b74721d83d70eae613235f8e6f3ac0b913a8da0a791223ece4fa04d293.png",
+    },
+    description: {
+      lead: "<b>Firewatch</b> is a single-player first-person mystery.",
+      full: "<b>Firewatch</b> is a single-player first-person mystery set in the Wyoming wilderness. \n <br><br>\nThe year is 1989.",
+    },
+  };
+
+  it("resolves the protocol-relative icon and flattens the full description to text", () => {
+    expect(mapProductDetails(firewatch)).toEqual({
+      iconUrl:
+        "https://images-3.gog-statics.com/a62be6b74721d83d70eae613235f8e6f3ac0b913a8da0a791223ece4fa04d293.png",
+      longDescription:
+        "Firewatch is a single-player first-person mystery set in the Wyoming wilderness.\n\nThe year is 1989.",
+    });
+  });
+
+  it("falls back to the lead, and to nothing", () => {
+    expect(mapProductDetails({ description: { lead: "<p>Short.</p>" } }).longDescription).toBe(
+      "Short.",
+    );
+    expect(mapProductDetails({})).toEqual({ iconUrl: undefined, longDescription: undefined });
+  });
+});
+
+describe("mapProducts publisher", () => {
+  it("comma-joins the publishers", () => {
+    const [entry] = mapProducts([
+      {
+        id: "1",
+        slug: "a",
+        title: "A",
+        productType: "game",
+        publishers: ["Campo Santo", "Panic"],
+      },
+    ]);
+    expect(entry?.publisher).toBe("Campo Santo, Panic");
   });
 });

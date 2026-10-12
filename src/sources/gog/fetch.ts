@@ -1,3 +1,5 @@
+import { parallel, retry } from "helpers4/promise";
+import { flattenHtmlDescription } from "../_shared/dep11";
 import { fetchOrThrow } from "../_shared/http";
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
@@ -15,6 +17,17 @@ const BASE_URL = "https://catalog.gog.com/v1/catalog";
 // 400. This one works and gives a reasonable screenshot width (639px).
 const SCREENSHOT_FORMATTER = "product_card_v2_mobile_slider_639";
 
+const PRODUCT_URL = "https://api.gog.com/products";
+// One product call per game (~1,400 in all), bounded like the other
+// per-item lookups (Snap's channel-maps).
+const DETAIL_CONCURRENCY = 8;
+const DETAIL_RETRIES = 3;
+
+interface RawProductDetails {
+  images?: { icon?: string };
+  description?: { lead?: string; full?: string };
+}
+
 interface RawProduct {
   id?: string;
   slug?: string;
@@ -22,6 +35,7 @@ interface RawProduct {
   productType?: string;
   storeLink?: string;
   developers?: string[];
+  publishers?: string[];
   screenshots?: string[];
   /** 0-50 scale (e.g. 39 = 3.9/5 stars). 0 when `reviewsCount` is also 0 (no reviews yet), not a real zero rating. */
   reviewsRating?: number;
@@ -57,12 +71,40 @@ export function mapProducts(products: RawProduct[]): GogCacheEntry[] {
       slug: product.slug,
       storeLink: product.storeLink,
       developers: product.developers ?? [],
+      publisher: product.publishers?.length ? product.publishers.join(", ") : undefined,
       screenshots: (product.screenshots ?? []).map(resolveScreenshotUrl),
       rating: product.reviewsCount
         ? { average: (product.reviewsRating ?? 0) / 10, count: product.reviewsCount }
         : undefined,
       genres: (product.genres ?? []).map((genre) => genre.slug),
     }));
+}
+
+/** The icon URL and plain-text description of one `api.gog.com/products/<id>` response. Pure — no I/O. */
+export function mapProductDetails(
+  details: RawProductDetails,
+): Pick<GogCacheEntry, "iconUrl" | "longDescription"> {
+  // GOG serves its images protocol-relative (`//images-3.gog-statics.com/...`).
+  const icon = details.images?.icon;
+  const html = details.description?.full || details.description?.lead;
+  return {
+    iconUrl: icon ? new URL(icon, "https://images.gog-statics.com").href : undefined,
+    longDescription: html ? flattenHtmlDescription(html) || undefined : undefined,
+  };
+}
+
+async function fetchDetails(
+  id: string,
+): Promise<Pick<GogCacheEntry, "iconUrl" | "longDescription"> | undefined> {
+  try {
+    const response = await retry(
+      () => fetchOrThrow(`${PRODUCT_URL}/${id}?expand=description`, `GOG product ${id}`),
+      { attempts: DETAIL_RETRIES, delayMs: (attempt) => 500 * 2 ** (attempt - 1) },
+    );
+    return mapProductDetails((await response.json()) as RawProductDetails);
+  } catch {
+    return undefined;
+  }
 }
 
 async function fetchPage(page: number): Promise<RawCatalogPage> {
@@ -88,7 +130,12 @@ export async function fetchGog(cachePath: string): Promise<number> {
     pages.push(await fetchPage(page));
   }
 
-  const entries = mapProducts(pages.flatMap((p) => p.products ?? []));
+  const listed = mapProducts(pages.flatMap((p) => p.products ?? []));
+  const details = await parallel(
+    listed.map((entry) => () => fetchDetails(entry.id)),
+    DETAIL_CONCURRENCY,
+  );
+  const entries = listed.map((entry, i) => ({ ...entry, ...details[i] }));
 
   writeNdjson(cachePath, entries);
   writeMetadata<GogFetchMetadata>(cachePath, {
@@ -97,6 +144,7 @@ export async function fetchGog(cachePath: string): Promise<number> {
     url: `${BASE_URL}?systems=linux`,
     entryCount: entries.length,
     systemsFilter: "linux",
+    detailsFetched: details.filter(Boolean).length,
     pagesFetched: totalPages,
   });
 

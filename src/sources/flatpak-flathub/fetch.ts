@@ -6,6 +6,7 @@ import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
 import { fetchOdrsRatings, pickOdrsRating, type OdrsRating } from "../_shared/odrs";
 import type { StoreCollectionTag } from "../types";
+import { toFinishArgs, type RawPermissions } from "./permissions";
 import type { FlathubCacheEntry, FlathubFetchMetadata } from "./types";
 
 // Flathub publishes one appstream file per arch — this is the one most
@@ -159,6 +160,7 @@ interface RawStats {
 // not e.g. a beta branch's (usually larger, different footprint) size.
 interface RawSummary {
   download_size?: number;
+  metadata?: { permissions?: RawPermissions | null };
   branches?: Record<string, { download_size?: number }>;
 }
 
@@ -166,6 +168,7 @@ export interface FlathubAppExtras {
   installsTotal?: number;
   installsLast7Days?: number;
   approxSizeBytes?: number;
+  permissions?: string[];
 }
 
 /**
@@ -195,6 +198,7 @@ export function toAppExtras(
     installsTotal: stats?.installs_total,
     installsLast7Days: stats?.installs_per_day ? sumLast7Days(stats.installs_per_day) : undefined,
     approxSizeBytes: summary?.branches?.stable?.download_size ?? summary?.download_size,
+    permissions: toFinishArgs(summary?.metadata?.permissions),
   };
 }
 

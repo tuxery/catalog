@@ -49,23 +49,23 @@ version and download size.
 
 ## Per field
 
-| Field                    | Sources, best first                                                                                                                                                     | Notes                                                              |
-| ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
-| `iconUrl`                | Upstream stores, distro AppStream, Snap, AppImage, vendor repos, GOG, Lutris                                                                                            |                                                                    |
-| `screenshots`            | Upstream stores, distro AppStream, Snap, AppImage, GOG                                                                                                                  | One source's whole set                                             |
-| `videos`                 | Upstream stores, distro AppStream, Snap, GOG                                                                                                                            | One MP4/WebM per screenshot; Snap's API carries none               |
-| `longDescription`        | Upstream stores, distro AppStream, Snap, GOG, Lutris, AppImage, Nix                                                                                                     | Nix's `meta.longDescription` last: packager-written                |
-| `license`                | Upstream stores, distro AppStream, then packagers: Fedora, openSUSE, RPM Fusion, Arch, Alpine, Nix, Gentoo, Void, Solus, then vendor repos, GitHub, Snap, AppImage, AUR | See [License](#license)                                            |
-| `developer`              | Upstream stores, distro AppStream, GOG, AppImage                                                                                                                        | Never a store account, never a packager or maintainer              |
-| `publisher`              | Snap, GOG                                                                                                                                                               | The account publishing the listing, see [Publisher](#publisher)    |
-| `languages`              | Upstream stores, distro AppStream                                                                                                                                       | The longest list wins, see below                                   |
-| `links`                  | Upstream stores, distro AppStream, Snap, AppImage, GitHub releases                                                                                                      | Each link type picked on its own                                   |
-| `releases` + `changelog` | Upstream stores, distro AppStream                                                                                                                                       | AppStream `<releases>` only, see below                             |
-| `lastUpdated`            | Every package's upstream release date                                                                                                                                   | Newest among default builds, see below                             |
-| `approxSizeBytes`        | Flathub                                                                                                                                                                 | A Flatpak download. Installed sizes stay per package               |
-| `ageRating`              | Upstream stores, distro AppStream                                                                                                                                       | AppStream `<content_rating>` (OARS), see [Age rating](#age-rating) |
-| `requirements`           | Upstream stores, distro AppStream                                                                                                                                       | AppStream `<requires>`/`<recommends>`/`<supports>`, one line       |
-| `permissions`            | Flathub                                                                                                                                                                 | The Flatpak's own sandbox. Not sourced yet                         |
+| Field                    | Sources, best first                                                                                                                                                     | Notes                                                               |
+| ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `iconUrl`                | Upstream stores, distro AppStream, Snap, AppImage, vendor repos, GOG, Lutris                                                                                            |                                                                     |
+| `screenshots`            | Upstream stores, distro AppStream, Snap, AppImage, GOG                                                                                                                  | One source's whole set                                              |
+| `videos`                 | Upstream stores, distro AppStream, Snap, GOG                                                                                                                            | One MP4/WebM per screenshot; Snap's API carries none                |
+| `longDescription`        | Upstream stores, distro AppStream, Snap, GOG, Lutris, AppImage, Nix                                                                                                     | Nix's `meta.longDescription` last: packager-written                 |
+| `license`                | Upstream stores, distro AppStream, then packagers: Fedora, openSUSE, RPM Fusion, Arch, Alpine, Nix, Gentoo, Void, Solus, then vendor repos, GitHub, Snap, AppImage, AUR | See [License](#license)                                             |
+| `developer`              | Upstream stores, distro AppStream, GOG, AppImage                                                                                                                        | Never a store account, never a packager or maintainer               |
+| `publisher`              | Snap, GOG                                                                                                                                                               | The account publishing the listing, see [Publisher](#publisher)     |
+| `languages`              | Upstream stores, distro AppStream                                                                                                                                       | The longest list wins, see below                                    |
+| `links`                  | Upstream stores, distro AppStream, Snap, AppImage, GitHub releases                                                                                                      | Each link type picked on its own                                    |
+| `releases` + `changelog` | Upstream stores, distro AppStream                                                                                                                                       | AppStream `<releases>` only, see below                              |
+| `lastUpdated`            | Every package's upstream release date                                                                                                                                   | Newest among default builds, see below                              |
+| `approxSizeBytes`        | Flathub                                                                                                                                                                 | A Flatpak download. Installed sizes stay per package                |
+| `ageRating`              | Upstream stores, distro AppStream                                                                                                                                       | AppStream `<content_rating>` (OARS), see [Age rating](#age-rating)  |
+| `requirements`           | Upstream stores, distro AppStream                                                                                                                                       | AppStream `<requires>`/`<recommends>`/`<supports>`, one line        |
+| `permissions`            | Flathub                                                                                                                                                                 | The Flatpak's own sandbox. Partial, see [Permissions](#permissions) |
 
 Not in this table: name, short description and homepage come from the
 group's representative (`SOURCE_PRIORITY` in `enrich/index.ts`);
@@ -108,6 +108,19 @@ and turning them into a minimum age is each store's policy, not data.
 intensity declared (`none`, `mild`, `moderate`, `intense`); a rating
 with no attribute at all is a checked app with nothing to declare, so
 `none`, and an app without `<content_rating>` has none.
+
+### Permissions
+
+`permissions` holds a Flatpak's `finish-args` (`--share=network`,
+`--filesystem=xdg-download:ro`, ...), the form the app turns into its
+sandbox summary. Flathub's summary API only exposes the shared
+namespaces, sockets, devices, filesystems and the session bus's
+`talk`/`own` names: `--allow=` features (`devel`), `--persist`, the
+system bus and the environment are missing from it even when the
+manifest declares them (checked on GNOME Builder, which has
+`--allow=devel`). So a list here is a lower bound, and an app without
+one (a runtime, an extension) has no sandbox information at all, which
+is not the same as a closed sandbox.
 
 ### Dates
 

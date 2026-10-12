@@ -199,7 +199,7 @@ export interface CatalogApp {
   lastUpdated?: string;
   /** AppStream's `<requires>`/`<recommends>`/`<supports>` (controls, display size, internet) as one readable line — see `SourcedPackage.requirements`. */
   requirements?: string;
-  /** Not sourced yet — the Flathub package's own sandbox permissions (`finish-args`). Other formats' confinement belongs to each package. */
+  /** The Flathub package's own sandbox permissions as `finish-args` — a lower bound, see docs/rich-fields.md. Other formats' confinement belongs to each package. */
   permissions?: string[];
   /** AppStream's `<content_rating>` (OARS) as its strongest intensity — see `SourcedPackage.ageRating`. */
   ageRating?: { system: string; value: string };

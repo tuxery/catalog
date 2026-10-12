@@ -57,6 +57,8 @@ export interface FlathubCacheEntry {
   installsLast7Days?: number;
   /** See `SourcedPackage.approxSizeBytes`. */
   approxSizeBytes?: number;
+  /** See `SourcedPackage.permissions`. */
+  permissions?: string[];
   /** Component type, `<extends>`, `<replaces>` — see `FormalSignals`. Add-on rows become packages too; the pipeline attaches them to the app they extend as companions. */
   formal?: FormalSignals;
 }

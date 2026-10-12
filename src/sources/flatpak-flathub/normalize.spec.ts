@@ -116,6 +116,23 @@ describe("flathub normalize", () => {
     expect(normalize([entry])[0]?.approxSizeBytes).toBe(125_546_324);
   });
 
+  it("carries the sandbox permissions through", () => {
+    const entry: FlathubCacheEntry = {
+      id: "org.example.App",
+      name: "App",
+      summary: "An app",
+      hasGameCategory: false,
+      categories: [],
+      screenshots: [],
+      permissions: ["--share=network", "--filesystem=xdg-download"],
+    };
+
+    expect(normalize([entry])[0]?.permissions).toEqual([
+      "--share=network",
+      "--filesystem=xdg-download",
+    ]);
+  });
+
   it("carries hasGameCategory through when true", () => {
     const entry: FlathubCacheEntry = {
       id: "org.example.Game",

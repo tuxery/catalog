@@ -21,6 +21,7 @@ export function normalize(entries: AurCacheEntry[]): SourcedPackage[] {
       homepage: entry.homepage,
       keywords: entry.keywords,
       license: entry.license,
+      builtAt: entry.builtAt,
       popularity: entry.popularity,
       formal: entry.formal,
       risk,

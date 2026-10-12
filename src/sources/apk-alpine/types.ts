@@ -11,6 +11,12 @@ export interface AlpineCacheEntry {
   description: string;
   version: string;
   homepage?: string;
+  /** APKINDEX `L:`, an SPDX expression — see `SourcedPackage.license`. */
+  license?: string;
+  /** APKINDEX `t:` (build time, epoch seconds) as an ISO date — see `SourcedPackage.builtAt`. */
+  builtAt?: string;
+  /** APKINDEX `I:`, in bytes — see `SourcedPackage.installedSizeBytes`. */
+  installedSizeBytes?: number;
   /** Which repo this package belongs to — "main" (Alpine-team-maintained) or "community" (broader, community-maintained), same organizing split as Debian's main/contrib/non-free. */
   repo: "main" | "community";
 }

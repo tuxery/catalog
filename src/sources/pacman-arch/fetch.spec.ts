@@ -18,6 +18,13 @@ http://play0ad.com/
 
 %LICENSE%
 GPL-2.0-or-later
+MIT
+
+%BUILDDATE%
+1791363489
+
+%ISIZE%
+26731912
 
 %ARCH%
 x86_64
@@ -65,6 +72,9 @@ describe("mapDescFiles", () => {
         version: "0.28.0-3",
         homepage: "http://play0ad.com/",
         repo: "extra",
+        license: "GPL-2.0-or-later AND MIT",
+        builtAt: "2026-10-07T08:58:09.000Z",
+        installedSizeBytes: 26731912,
         formal: { conflicts: ["0ad-git"], depends: ["0ad-data", "binutils", "boost-libs"] },
       },
     ]);

@@ -59,6 +59,9 @@ describe("mapStanzas", () => {
         description: "File archiver with a high compression ratio",
         version: "26.01-r0",
         homepage: "https://7-zip.org/",
+        license: "LGPL-2.0-only",
+        builtAt: "2026-06-18T22:57:56.000Z",
+        installedSizeBytes: 1788296,
         repo: "main",
       },
       {
@@ -66,6 +69,9 @@ describe("mapStanzas", () => {
         description: "Alpine Auditor",
         version: "0.7.2-r3",
         homepage: undefined,
+        license: undefined,
+        builtAt: undefined,
+        installedSizeBytes: 3097,
         repo: "main",
       },
     ]);

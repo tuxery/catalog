@@ -1,3 +1,4 @@
+import { epochSecondsToIso, positiveInt } from "../_shared/epoch";
 import { withTempDir } from "helpers4/node";
 import { readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
@@ -58,6 +59,9 @@ export function mapStanzas(
       description: fields.T ?? "",
       version: fields.V ?? "unknown",
       homepage: fields.U || undefined,
+      license: fields.L?.trim() || undefined,
+      builtAt: epochSecondsToIso(fields.t),
+      installedSizeBytes: positiveInt(fields.I),
       repo,
     }));
 }

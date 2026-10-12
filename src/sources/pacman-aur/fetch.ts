@@ -1,3 +1,4 @@
+import { epochSecondsToIso } from "../_shared/epoch";
 import { compactFormal, relationNames } from "../_shared/formal";
 import { fetchGunzippedText } from "../_shared/http";
 import { writeMetadata } from "../_shared/metadata";
@@ -16,6 +17,8 @@ interface RawPackage {
   /** SPDX-ish license strings (e.g. ["GPL3"]) — see `AurCacheEntry.license`. */
   License?: string[] | null;
   Popularity?: number;
+  /** Epoch seconds of the last PKGBUILD update. */
+  LastModified?: number;
   /** Formal relations — see `AurCacheEntry.formal`. */
   PackageBase?: string;
   Provides?: string[] | null;
@@ -70,6 +73,7 @@ export function mapPackages(
       homepage: pkg.URL ?? undefined,
       keywords: pkg.Keywords?.filter((keyword) => keyword.trim().length > 0),
       license: pkg.License?.length ? pkg.License.join(" AND ") : undefined,
+      builtAt: epochSecondsToIso(pkg.LastModified),
       popularity: popularityRanks.get(pkg.Name),
       formal: compactFormal(pkg.Name, {
         base: pkg.PackageBase,

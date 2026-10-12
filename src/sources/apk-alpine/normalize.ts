@@ -11,5 +11,8 @@ export function normalize(entries: AlpineCacheEntry[]): SourcedPackage[] {
     // main + community too — see fetch.ts.
     appId: entry.name,
     homepage: entry.homepage,
+    license: entry.license,
+    builtAt: entry.builtAt,
+    installedSizeBytes: entry.installedSizeBytes,
   }));
 }

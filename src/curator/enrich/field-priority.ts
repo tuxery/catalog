@@ -51,6 +51,8 @@ export type RichField =
   | "releases"
   | "approxSizeBytes"
   | "ageRating"
+  | "brandColors"
+  | "kudos"
   | "requirements"
   | "permissions";
 
@@ -106,6 +108,9 @@ export const FIELD_PRIORITY: Record<RichField, readonly PackageSourceId[]> = {
   // See `pickAgeRating`: the strictest of these, not the first.
   ageRating: [...UPSTREAM_STORES, ...DISTRO_APPSTREAM, "gog"],
   requirements: [...UPSTREAM_STORES, ...DISTRO_APPSTREAM],
+  // One source's whole pair, never a light color from one and a dark one from another.
+  brandColors: [...UPSTREAM_STORES, ...DISTRO_APPSTREAM],
+  kudos: [...UPSTREAM_STORES, ...DISTRO_APPSTREAM],
   // The Flatpak's own sandbox: other formats' confinement is per package.
   permissions: ["flatpak-flathub"],
 };

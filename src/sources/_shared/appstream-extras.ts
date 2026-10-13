@@ -1,4 +1,4 @@
-import type { AgeRating } from "../types";
+import type { AgeRating, BrandColors } from "../types";
 import { OARS_INTENSITIES, oarsAttributeAge } from "./oars";
 
 /**
@@ -138,4 +138,43 @@ export function pickPlayableVideo(videos: AppstreamVideo[]): string | undefined 
   const h264 = files.find((video) => video.container === "mp4" || /\.mp4(\?|$)/i.test(video.url));
   const webm = files.find((video) => video.container === "webm" || /\.webm(\?|$)/i.test(video.url));
   return (h264 ?? webm ?? files[0])?.url;
+}
+
+/** One `<branding><color>`: `<color type="primary" scheme_preference="dark">#1E3A8A</color>`, or DEP-11's `type`/`scheme-preference`/`value` item. */
+export interface AppstreamColor {
+  type?: string;
+  scheme?: string;
+  value: string;
+}
+
+const HEX_COLOR = /^#[0-9a-f]{6}$/i;
+
+/**
+ * The `primary` color of each color scheme, lowercased `#rrggbb`. Anything
+ * else is dropped (a named color, `#abc`, a stray `url(...)`): the value
+ * ends up in a CSS declaration on the site, so only a plain hex color gets
+ * through. A color with no scheme preference fills the schemes the app
+ * doesn't declare; `undefined` when none is usable.
+ */
+export function summarizeBrandColors(colors: AppstreamColor[]): BrandColors | undefined {
+  const primary = colors
+    .filter((color) => (color.type ?? "primary") === "primary")
+    .map((color) => ({ scheme: color.scheme, value: color.value.trim().toLowerCase() }))
+    .filter((color) => HEX_COLOR.test(color.value));
+  const brand: BrandColors = {};
+  brand.light = primary.find((color) => color.scheme === "light")?.value;
+  brand.dark = primary.find((color) => color.scheme === "dark")?.value;
+  const neutral = primary.find((color) => color.scheme === undefined || color.scheme === "")?.value;
+  brand.light ??= neutral;
+  brand.dark ??= neutral;
+  const result: BrandColors = {};
+  if (brand.light) result.light = brand.light;
+  if (brand.dark) result.dark = brand.dark;
+  return result.light || result.dark ? result : undefined;
+}
+
+/** The kudos a developer states, trimmed and deduplicated, in document order; `undefined` when none. */
+export function summarizeKudos(kudos: string[]): string[] | undefined {
+  const unique = [...new Set(kudos.map((kudo) => kudo.trim()).filter(Boolean))];
+  return unique.length > 0 ? unique : undefined;
 }

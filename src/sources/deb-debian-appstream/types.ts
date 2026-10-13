@@ -37,6 +37,8 @@ export interface DebianAppstreamCacheEntry {
   screenshots: string[];
   /** See `SourcedPackage.ageRating`. */
   ageRating?: AgeRating;
+  /** See `SourcedPackage.brandColors`. */
+  brandColors?: { light?: string; dark?: string };
   /** See `SourcedPackage.requirements`. */
   requirements?: string;
   /** See `SourcedPackage.languages`. */

@@ -811,6 +811,8 @@ export function enrichApps(
       screenshots: pickRichField("screenshots", app.packages, (pkg) => pkg.screenshots),
       videos: pickRichField("videos", app.packages, (pkg) => pkg.videos),
       ageRating: pickAgeRating(app.packages),
+      brandColors: pickRichField("brandColors", app.packages, (pkg) => pkg.brandColors),
+      kudos: pickRichField("kudos", app.packages, (pkg) => pkg.kudos),
       requirements: pickRichField("requirements", app.packages, (pkg) => pkg.requirements),
       permissions: pickRichField("permissions", app.packages, (pkg) => pkg.permissions),
       languages: pickLanguages(app.packages),

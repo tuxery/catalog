@@ -1,12 +1,15 @@
 import {
   PROJECT_LINK_TYPES,
+  type BrandColors,
   type ProjectLinks,
   type ProjectLinkType,
   type AgeRating,
 } from "../types";
 import {
+  summarizeBrandColors,
   summarizeContentRating,
   summarizeRelations,
+  type AppstreamColor,
   type AppstreamRelation,
   type AppstreamRelations,
 } from "./appstream-extras";
@@ -62,6 +65,8 @@ export interface Dep11Component {
   links?: ProjectLinks;
   /** `Languages:` locale codes, in document order. */
   languages?: string[];
+  /** `Branding:`'s primary color per color scheme — see `SourcedPackage.brandColors`. DEP-11 has no kudos. */
+  brandColors?: BrandColors;
   /** `ContentRating:`'s strongest OARS intensity — see `SourcedPackage.ageRating`. */
   ageRating?: AgeRating;
   /** `Requires:`/`Recommends:`/`Supports:` as one readable line — see `SourcedPackage.requirements`. */
@@ -443,6 +448,28 @@ export function parseDep11Yaml(yaml: string): Dep11Document {
             last[attribute[1] as "side" | "compare" | "version"] = stripQuotes(attribute[2] ?? "");
         }
         relations[key.toLowerCase() as keyof AppstreamRelations] = items;
+        index = end;
+        break;
+      }
+      case "Branding": {
+        const end = nextTopLevelKeyIndex(lines, index + 1);
+        const colors: AppstreamColor[] = [];
+        for (let cursor = index + 1; cursor < end; cursor += 1) {
+          const blockLine = lines[cursor] ?? "";
+          const start = /^ {2}- type: (.*)$/.exec(blockLine);
+          if (start) {
+            colors.push({ type: stripQuotes(start[1] ?? ""), value: "" });
+            continue;
+          }
+          // `scheme-preference:` and `value:` continue the item above.
+          const attribute = /^ {4}(scheme-preference|value): (.*)$/.exec(blockLine);
+          const last = colors.at(-1);
+          if (attribute && last) {
+            if (attribute[1] === "value") last.value = stripQuotes(attribute[2] ?? "");
+            else last.scheme = stripQuotes(attribute[2] ?? "");
+          }
+        }
+        current.brandColors = summarizeBrandColors(colors);
         index = end;
         break;
       }

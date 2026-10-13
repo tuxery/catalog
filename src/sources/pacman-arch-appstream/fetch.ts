@@ -60,6 +60,8 @@ export function toCacheEntries(components: AppstreamComponent[]): PacmanArchApps
       screenshots: component.screenshots,
       videos: component.videos,
       ageRating: component.ageRating,
+      brandColors: component.brandColors,
+      kudos: component.kudos,
       requirements: component.requirements,
       languages: component.languages,
       changelog: component.changelog,

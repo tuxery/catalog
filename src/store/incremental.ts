@@ -114,6 +114,8 @@ export interface PublishReport {
   unchanged: number;
   /** Search rows rewritten (an app's name or short description changed, or it came or went). */
   searchRowsWritten: number;
+  /** Columns added in place before the publish (see `inspectLiveStore`). */
+  addedColumns?: string[];
   metaWritten: number;
   metaDeleted: number;
 }
@@ -182,7 +184,13 @@ export async function endPublish(
 
 /** The live store, when an incremental publish can run on it. */
 export type LiveStore =
-  | { ok: true; generation: string | undefined; trustHashes: boolean }
+  | {
+      ok: true;
+      generation: string | undefined;
+      trustHashes: boolean;
+      /** Columns this code has and the live table lacks, as `[name, SQL type]`: added in place before the publish. */
+      addColumns: Array<[string, string]>;
+    }
   | { ok: false; reason: string };
 
 function normalizeSql(sql: string): string {
@@ -206,6 +214,8 @@ export async function inspectLiveStore(
   db: Client,
   columns: readonly string[],
   indexesSql: readonly string[],
+  /** Nullable columns (name to SQL type) that may be added in place; any other missing column needs a full publish. */
+  addable: ReadonlyMap<string, string> = new Map(),
 ): Promise<LiveStore> {
   const tables = await db.execute(
     `SELECT name FROM sqlite_master WHERE type = 'table' AND name IN ('apps', 'apps_fts', 'meta')`,
@@ -216,11 +226,18 @@ export async function inspectLiveStore(
   }
 
   const info = await db.execute(`PRAGMA table_info(apps)`);
-  const live = info.rows.map((row) => String(row.name)).toSorted();
-  const expected = [...columns].toSorted();
-  if (live.join(",") !== expected.join(",")) {
+  const live = new Set(info.rows.map((row) => String(row.name)));
+  // A column this code has and the table lacks is added in place when it is
+  // nullable (`ALTER TABLE ADD COLUMN` writes no row, and the incremental
+  // writes below fill it where it has a value): a new field costs its own
+  // rows, not a rebuild of all of them. Anything else, a column gone or a
+  // required one missing, is a schema change for the full publish.
+  const missing = columns.filter((column) => !live.has(column));
+  const unexpected = [...live].filter((column) => !columns.includes(column));
+  if (unexpected.length > 0 || missing.some((column) => !addable.has(column))) {
     return { ok: false, reason: "the apps columns differ from this code's" };
   }
+  const addColumns = missing.map((column): [string, string] => [column, addable.get(column) ?? ""]);
 
   const indexes = await db.execute(
     `SELECT sql FROM sqlite_master WHERE type = 'index' AND tbl_name = 'apps' AND sql IS NOT NULL`,
@@ -257,6 +274,7 @@ export async function inspectLiveStore(
     ok: true,
     generation: typeof generation === "string" ? generation : undefined,
     trustHashes: inProgress === undefined,
+    addColumns,
   };
 }
 
@@ -317,6 +335,11 @@ export async function publishIncremental(
   const trustHashes = live.trustHashes && liveHashes.size > 0;
 
   await beginPublish(db);
+  for (const [column, type] of live.addColumns) {
+    // eslint-disable-next-line no-await-in-loop
+    await db.execute(`ALTER TABLE apps ADD COLUMN ${column} ${type}`);
+  }
+  report.addedColumns = live.addColumns.map(([column]) => column);
 
   const statements: InStatement[] = [];
   const touchedBuckets = new Set<number>();

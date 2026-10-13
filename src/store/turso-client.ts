@@ -94,6 +94,10 @@ export interface AppRecord {
   companionCounts?: Record<string, number>;
   /** Forks, successors, wrappers, ... both directions — see `CatalogApp.relations`. */
   relations?: unknown[];
+  /** Brand colors per color scheme (`#rrggbb`) — see `CatalogApp.brandColors`. */
+  brandColors?: { light?: string; dark?: string };
+  /** AppStream kudos as stated — see `CatalogApp.kudos`. */
+  kudos?: string[];
 }
 
 export interface TursoDataset {
@@ -169,6 +173,10 @@ const INSERT_COLUMNS = [
   "companions_json",
   "companion_counts_json",
   "relations_json",
+  // Appended: a column added later is added in place by an incremental
+  // publish (see incremental.ts), which needs it after the existing ones.
+  "brand_colors_json",
+  "kudos_json",
 ];
 
 function appsTableSql(tableName: string): string {
@@ -219,7 +227,9 @@ function appsTableSql(tableName: string): string {
       packages_json TEXT NOT NULL,
       companions_json TEXT,
       companion_counts_json TEXT,
-      relations_json TEXT
+      relations_json TEXT,
+      brand_colors_json TEXT,
+      kudos_json TEXT
     )
   `;
 }
@@ -820,6 +830,8 @@ function toRow(app: AppRecord): unknown[] {
     toJsonColumn(app.companions),
     toJsonColumn(app.companionCounts),
     toJsonColumn(app.relations),
+    toJsonColumn(app.brandColors),
+    toJsonColumn(app.kudos),
   ];
 }
 
@@ -886,7 +898,12 @@ export function createTursoClient(config: TursoConfig, client?: Client): TursoCl
       const rows = new Map(dataset.apps.map((app) => [app.id, toRow(app)] as const));
       let fullReason = "asked for (--full)";
       if (!options.full) {
-        const live = await inspectLiveStore(db, INSERT_COLUMNS, APPS_INDEXES_SQL);
+        const live = await inspectLiveStore(
+          db,
+          INSERT_COLUMNS,
+          APPS_INDEXES_SQL,
+          nullableColumnTypes(),
+        );
         if (live.ok) {
           // The live generation, so every browse key keeps its name and only
           // the values that changed are rewritten.
@@ -913,6 +930,16 @@ export function createTursoClient(config: TursoConfig, client?: Client): TursoCl
       };
     },
   };
+}
+
+/** Every column the table declares without NOT NULL, to its SQL type: the ones an incremental publish may add to a live table in place. */
+function nullableColumnTypes(): Map<string, string> {
+  const types = new Map<string, string>();
+  for (const line of appsTableSql("apps").split("\n")) {
+    const match = /^\s+(\w+) (TEXT|INTEGER|REAL),?$/.exec(line);
+    if (match) types.set(match[1] as string, match[2] as string);
+  }
+  return types;
 }
 
 /** Digits only, so it's safe inside a LIKE pattern. */

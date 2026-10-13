@@ -74,6 +74,7 @@ export function toCacheEntries(
     longDescription: entry.longDescription,
     screenshots: entry.screenshots,
     ageRating: entry.ageRating,
+    brandColors: entry.brandColors,
     requirements: entry.requirements,
     languages: entry.languages,
   }));

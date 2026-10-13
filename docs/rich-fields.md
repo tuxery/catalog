@@ -65,6 +65,8 @@ version and download size.
 | `approxSizeBytes`        | Flathub                                                                                                                                                                 | A Flatpak download. Installed sizes stay per package                |
 | `ageRating`              | Upstream stores, distro AppStream, GOG                                                                                                                                  | OARS and GOG's PEGI/ESRB, see [Age rating](#age-rating)             |
 | `requirements`           | Upstream stores, distro AppStream                                                                                                                                       | AppStream `<requires>`/`<recommends>`/`<supports>`, one line        |
+| `brandColors`            | Upstream stores, distro AppStream                                                                                                                                       | AppStream `<branding>`, see [Brand colors](#brand-colors-and-kudos) |
+| `kudos`                  | Upstream stores, distro AppStream                                                                                                                                       | AppStream `<kudos>`, as stated                                      |
 | `permissions`            | Flathub                                                                                                                                                                 | The Flatpak's own sandbox. Partial, see [Permissions](#permissions) |
 
 Not in this table: name, short description and homepage come from the
@@ -101,6 +103,25 @@ someone else's software), which is why it never fills `developer`.
 `SourcedPackage.publisherVerified` is set when the store vouches for the
 account (Snap's `validation: "verified"`; `starred` and `unproven` stay
 unset). It is carried per package for now: no `CatalogApp` badge yet.
+
+### Brand colors and kudos
+
+`brandColors` is AppStream's `<branding>`: the `primary` color for each
+color scheme (`light`, `dark`), as lowercase `#rrggbb`. A color with no
+scheme preference fills the scheme the app doesn't declare. Only plain hex
+colors get through (`red`, `#abc` and anything with a `;` or `url(` are
+dropped): the site puts the value in a CSS declaration. One source's whole
+pair wins, never a light from one and a dark from another. The site still
+checks the contrast before using one. 1,292 apps on 2026-10-13 (Flathub
+1,250, elementary AppCenter 22, the Arch and Debian/Ubuntu feeds 20), and
+62 of the 3,835 most popular: most developers haven't set one.
+
+`kudos` is AppStream's `<kudos>` as the developer states them, Flathub,
+AppCenter and the XML distro feeds only (DEP-11 has none): `HiDpiIcon`
+(1,249 apps), `ModernToolkit` (357), `HighContrast` (221), `UserDocs`
+(124), `Notifications` (93), `AppMenu` (28), `SearchProvider` (17). Only
+`HighContrast` and `HiDpiIcon` are accessibility or display hints; the
+site picks what it shows.
 
 ### Age rating
 

@@ -203,6 +203,10 @@ export interface CatalogApp {
   permissions?: string[];
   /** The unified age rating: `{ system: "min-age", value }` with the strictest minimum age, in years, among the packages' own ratings (`SourcedPackage.ageRating`) — see `pickAgeRating`. */
   ageRating?: { system: string; value: string };
+  /** The app's brand colors per color scheme (`#rrggbb`) — AppStream's `<branding>`, see `SourcedPackage.brandColors`. Used as a tint on the page, so the site checks contrast before using one. */
+  brandColors?: { light?: string; dark?: string };
+  /** AppStream's `<kudos>` as the developer states them (`HiDpiIcon`, `HighContrast`, `ModernToolkit`...) — see `SourcedPackage.kudos`. The page turns the accessibility ones into hints. */
+  kudos?: string[];
   /** No upstream signal in any current source — likely editorial/manual, not auto-extractable. */
   aiFeatures?: boolean;
   /** No upstream signal in any current source — likely editorial/manual, not auto-extractable. */

@@ -199,7 +199,17 @@ date (not the build date: two builds of one commit are one version);
 was built from caches that may be a week old. `app` stamps its own commit
 the same way.
 
-Anything else — a first publish, a column or index added, `pnpm seed
+A remote publish (`pnpm seed --preview`/`--prod`, the publish workflow)
+**refuses to fall back to a full one** and stops before writing anything,
+with the reason: a full publish has to be asked for with `--full` (the
+workflow's `full` input), after `pnpm turso-stats`. On 2026-10-12 the first
+two publishes after this mode landed fell back to full unasked (preview and
+prod still had the columns of 2026-10-11, older than `main`'s) and their
+~3.5M rows written blocked Turso writes until the 1 November reset. A
+nullable column added since is added in place, so this only stops for a
+schema change the incremental path can't make.
+
+Anything else — a first publish, a column or index changed, `pnpm seed
 --full` — is a **full publish**: it writes a fresh `apps_next` table and
 atomically renames it over `apps` (`ALTER TABLE ... RENAME`), so readers
 never see an empty or half-populated table, then rebuilds every index.

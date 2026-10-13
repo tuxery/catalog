@@ -122,6 +122,15 @@ export interface TursoConfig {
 export interface PublishOptions {
   /** Rebuild every table and index even when an incremental publish could run (`pnpm seed --full`). */
   full?: boolean;
+  /**
+   * Throw, before writing anything, when an incremental publish can't run
+   * and `full` wasn't asked for. A full publish writes ~17 rows per app
+   * (~1.7M for 100k apps) against a 10M monthly quota: on 2026-10-12 two of
+   * them ran unasked (preview and prod had older columns) and blocked
+   * writes for the rest of the month. `pnpm seed --preview`/`--prod` set
+   * this; a local publish doesn't.
+   */
+  refuseFull?: boolean;
 }
 
 export interface TursoClient {
@@ -923,6 +932,13 @@ export function createTursoClient(config: TursoConfig, client?: Client): TursoCl
           );
         }
         fullReason = live.reason;
+        if (options.refuseFull) {
+          throw new Error(
+            `refusing a full publish (${live.reason}): it rewrites every row and index, ` +
+              `~17 rows written per app. Pass --full (or the publish workflow's "full" input) ` +
+              `to do it on purpose, after checking the quota with \`pnpm turso-stats\`.`,
+          );
+        }
       }
       await publishFull(db, dataset, rows);
       return {

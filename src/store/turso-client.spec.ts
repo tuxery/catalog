@@ -76,25 +76,37 @@ describe("createTursoClient", () => {
     );
   });
 
-  it("writes companions, their counts and relations as JSON columns", async () => {
+  it("writes companions, their counts, relations, brand colors and kudos as JSON columns", async () => {
     const { batch, client } = fakeClient(false);
     const tursoClient = createTursoClient({ url: "file::memory:" }, client);
     const companions = [{ name: "vlc-plugin-x", kind: "plugin", description: "", packages: [] }];
     const relations = [
       { type: "forkOf", direction: "incoming", app: { id: "y", name: "Y" }, origin: "curated" },
     ];
+    const brandColors = { light: "#bfdbfe", dark: "#1e3a8a" };
 
     await tursoClient.publish({
       generatedAt: "2026-01-01T00:00:00.000Z",
-      apps: [{ ...APP, companions, companionCounts: { plugin: 1 }, relations }],
+      apps: [
+        {
+          ...APP,
+          companions,
+          companionCounts: { plugin: 1 },
+          relations,
+          brandColors,
+          kudos: ["HiDpiIcon"],
+        },
+      ],
     });
 
     const insertBatch = batch.mock.calls[0]?.[0] as { args: unknown[] }[];
     const args = insertBatch[0]?.args;
-    expect(args?.slice(-3)).toEqual([
+    expect(args?.slice(-5)).toEqual([
       JSON.stringify(companions),
       JSON.stringify({ plugin: 1 }),
       JSON.stringify(relations),
+      JSON.stringify(brandColors),
+      JSON.stringify(["HiDpiIcon"]),
     ]);
   });
 

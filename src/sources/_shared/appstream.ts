@@ -2,6 +2,7 @@ import { XMLParser } from "fast-xml-parser";
 import {
   MAX_RELEASES,
   PROJECT_LINK_TYPES,
+  type BrandColors,
   type FormalSignals,
   type ReleaseEntry,
   type ProjectLinks,
@@ -10,8 +11,11 @@ import {
 } from "../types";
 import {
   pickPlayableVideo,
+  summarizeBrandColors,
   summarizeContentRating,
+  summarizeKudos,
   summarizeRelations,
+  type AppstreamColor,
   type AppstreamRelation,
 } from "./appstream-extras";
 import { compactFormal } from "./formal";
@@ -77,6 +81,12 @@ interface RawDescription {
   ol?: RawList[];
 }
 
+interface RawColor {
+  "#text"?: string;
+  "@_type"?: string;
+  "@_scheme_preference"?: string;
+}
+
 interface RawScreenshotImage {
   "#text"?: string;
   "@_type"?: string;
@@ -129,6 +139,8 @@ interface RawComponent {
   screenshots?: { screenshot?: RawScreenshot[] };
   languages?: RawLanguages;
   content_rating?: RawContentRating | RawContentRating[];
+  branding?: { color?: RawColor[] };
+  kudos?: { kudo?: string[] };
   requires?: RawRelations;
   recommends?: RawRelations;
   supports?: RawRelations;
@@ -175,6 +187,10 @@ export interface AppstreamComponent {
   languages?: string[];
   /** One playable file per screenshot that has a video, in screenshot order — see `SourcedPackage.videos`. */
   videos?: string[];
+  /** `<branding>`'s primary color per color scheme — see `SourcedPackage.brandColors`. */
+  brandColors?: BrandColors;
+  /** `<kudos>` as stated — see `SourcedPackage.kudos`. */
+  kudos?: string[];
   /** `<content_rating>`'s strongest OARS intensity — see `SourcedPackage.ageRating`. */
   ageRating?: AgeRating;
   /** `<requires>`/`<recommends>`/`<supports>` as one readable line — see `SourcedPackage.requirements`. */
@@ -463,6 +479,8 @@ export function parseAppstreamXml(
         "screenshot",
         "image",
         "lang",
+        "color",
+        "kudo",
         "extends",
       ].includes(name) || String(jpath).endsWith(".replaces.id"),
     // Without this, fast-xml-parser silently turns purely-numeric text
@@ -503,6 +521,14 @@ export function parseAppstreamXml(
       screenshots: pickScreenshots(component.screenshots),
       languages: pickLanguages(component.languages),
       videos: pickVideos(component.screenshots),
+      brandColors: summarizeBrandColors(
+        (component.branding?.color ?? []).map((color): AppstreamColor => ({
+          type: color["@_type"],
+          scheme: color["@_scheme_preference"],
+          value: color["#text"] ?? "",
+        })),
+      ),
+      kudos: summarizeKudos((component.kudos?.kudo ?? []).map(String)),
       ageRating: pickAgeRating(component.content_rating),
       requirements: summarizeRelations({
         requires: toRelations(component.requires),

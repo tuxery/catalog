@@ -251,6 +251,17 @@ describe("parseDep11Yaml: content rating and requirements", () => {
     expect(parse("Categories:\n- Game\n")?.ageRating).toBeUndefined();
   });
 
+  it("reads Branding's primary color per scheme, and keeps it off the next component", () => {
+    const branding =
+      "Branding:\n  colors:\n  - type: primary\n    scheme-preference: light\n    value: '#dc8add'\n" +
+      "  - type: primary\n    scheme-preference: dark\n    value: '#443583'\n";
+    expect(parse(branding)?.brandColors).toEqual({ light: "#dc8add", dark: "#443583" });
+    expect(parse("Categories:\n- Game\n")?.brandColors).toBeUndefined();
+    expect(
+      parse("Branding:\n  colors:\n  - type: primary\n    value: 'not-a-color'\n")?.brandColors,
+    ).toBeUndefined();
+  });
+
   it("reads Requires, Recommends and Supports, side included", () => {
     expect(
       parse(

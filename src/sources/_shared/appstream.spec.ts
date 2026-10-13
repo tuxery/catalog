@@ -481,3 +481,58 @@ describe("parseAppstreamXml: content rating, requirements and videos", () => {
     expect(byId("org.example.Unrated")?.videos).toBeUndefined();
   });
 });
+
+describe("parseAppstreamXml: branding and kudos", () => {
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<components version="0.8" origin="flathub">
+  <component type="desktop-application">
+    <id>org.example.Branded</id>
+    <name>Branded</name>
+    <summary>Has brand colors</summary>
+    <branding>
+      <color type="primary" scheme_preference="dark">#1E3A8A</color>
+      <color type="primary" scheme_preference="light">#BFDBFE</color>
+    </branding>
+    <kudos>
+      <kudo>HiDpiIcon</kudo>
+      <kudo>HighContrast</kudo>
+    </kudos>
+  </component>
+  <component type="desktop-application">
+    <id>org.example.OneColor</id>
+    <name>One color</name>
+    <summary>A single color for both schemes</summary>
+    <branding>
+      <color type="primary">#336699</color>
+    </branding>
+    <kudos>
+      <kudo>UserDocs</kudo>
+    </kudos>
+  </component>
+  <component type="desktop-application">
+    <id>org.example.Plain</id>
+    <name>Plain</name>
+    <summary>Nothing declared</summary>
+  </component>
+</components>`;
+  const entries = parseAppstreamXml(xml);
+  const byId = (id: string) => entries.find((entry) => entry.id === id);
+
+  it("reads the primary color of each scheme", () => {
+    expect(byId("org.example.Branded")?.brandColors).toEqual({
+      light: "#bfdbfe",
+      dark: "#1e3a8a",
+    });
+    expect(byId("org.example.OneColor")?.brandColors).toEqual({
+      light: "#336699",
+      dark: "#336699",
+    });
+    expect(byId("org.example.Plain")?.brandColors).toBeUndefined();
+  });
+
+  it("reads the kudos as stated", () => {
+    expect(byId("org.example.Branded")?.kudos).toEqual(["HiDpiIcon", "HighContrast"]);
+    expect(byId("org.example.OneColor")?.kudos).toEqual(["UserDocs"]);
+    expect(byId("org.example.Plain")?.kudos).toBeUndefined();
+  });
+});

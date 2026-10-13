@@ -39,6 +39,10 @@ export interface AppCenterCacheEntry {
   videos?: string[];
   /** See `SourcedPackage.ageRating`. */
   ageRating?: AgeRating;
+  /** See `SourcedPackage.brandColors`. */
+  brandColors?: { light?: string; dark?: string };
+  /** See `SourcedPackage.kudos`. */
+  kudos?: string[];
   /** See `SourcedPackage.requirements`. */
   requirements?: string;
   /** See `SourcedPackage.languages`. */

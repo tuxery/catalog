@@ -24,6 +24,8 @@ export function normalize(entries: PacmanArchAppstreamCacheEntry[]): SourcedPack
     screenshots: entry.screenshots.length > 0 ? entry.screenshots : undefined,
     videos: entry.videos,
     ageRating: entry.ageRating,
+    brandColors: entry.brandColors,
+    kudos: entry.kudos,
     requirements: entry.requirements,
     languages: entry.languages,
     changelog: entry.changelog,

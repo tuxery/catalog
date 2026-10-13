@@ -227,6 +227,10 @@ export interface SourcedPackage {
   videos?: string[];
   /** This source's content rating, with the minimum age it implies — see `AgeRating`. */
   ageRating?: AgeRating;
+  /** The app's own brand colors, one per color scheme (`#rrggbb`) — AppStream's `<branding>`. A background tint meant to sit behind the app's icon and name, so the page picks the one matching the visitor's scheme. See `BrandColors`. */
+  brandColors?: BrandColors;
+  /** AppStream's `<kudos>` as the developer states them (`HiDpiIcon`, `HighContrast`, `ModernToolkit`, `UserDocs`...). Flathub only, ~25 apps. */
+  kudos?: string[];
   /** What the app needs and supports (controls, display size, internet) as one readable line, from AppStream's `<requires>`/`<recommends>`/`<supports>`. */
   requirements?: string;
   /** The sandbox permissions the package asks for, one readable line each — Flatpak's `finish-args`. */
@@ -362,6 +366,16 @@ export interface FormalSignals {
   extends?: string[];
   /** AppStream component type when the source is AppStream (`desktop-application`, `console-application`, `addon`, `localization`, ...). */
   componentType?: string;
+}
+
+/**
+ * An app's brand colors from AppStream's `<branding>`: the `primary` color
+ * for each color scheme, as `#rrggbb`. A color with no scheme preference
+ * fills both. Only the schemes the app declares are present.
+ */
+export interface BrandColors {
+  light?: string;
+  dark?: string;
 }
 
 /**

@@ -120,6 +120,47 @@ describe("incremental publish", () => {
     expect(keys.some((key) => key.includes(":game:"))).toBe(false);
   });
 
+  it("adds a new nullable column in place, writing only the rows that have a value for it", async () => {
+    const db = memoryDb();
+    const client = createTursoClient({ url: "file::memory:" }, db);
+    await client.publish(BEFORE);
+    // The store as an older version of this code left it: without the last two columns.
+    await db.execute(`ALTER TABLE apps DROP COLUMN brand_colors_json`);
+    await db.execute(`ALTER TABLE apps DROP COLUMN kudos_json`);
+
+    const branded = {
+      ...BEFORE,
+      apps: BEFORE.apps.map((entry) =>
+        entry.id === "a"
+          ? { ...entry, brandColors: { light: "#bfdbfe", dark: "#1e3a8a" }, kudos: ["HiDpiIcon"] }
+          : entry,
+      ),
+    };
+    const report = await client.publish(branded);
+
+    expect(report).toMatchObject({
+      mode: "incremental",
+      addedColumns: ["brand_colors_json", "kudos_json"],
+      inserted: 0,
+      updated: 1,
+      deleted: 0,
+      unchanged: 2,
+    });
+    expect(await snapshot(db)).toEqual(await fullPublishOf(branded));
+  });
+
+  it("falls back to a full publish for a missing required column", async () => {
+    const db = memoryDb();
+    const client = createTursoClient({ url: "file::memory:" }, db);
+    await client.publish(BEFORE);
+    await db.execute(`ALTER TABLE apps DROP COLUMN packages_json`);
+
+    expect(await client.publish(AFTER)).toMatchObject({
+      mode: "full",
+      fullReason: expect.stringContaining("columns"),
+    });
+  });
+
   it("writes nothing for an unchanged dataset", async () => {
     const db = memoryDb();
     const client = createTursoClient({ url: "file::memory:" }, db);

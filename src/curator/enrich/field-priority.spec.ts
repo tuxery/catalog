@@ -193,6 +193,23 @@ describe("pickAgeRating", () => {
   });
 });
 
+describe("brand colors and kudos", () => {
+  it("takes one source's whole pair, never a light from one and a dark from another", () => {
+    const packages = [
+      pkg({ source: "deb-debian-appstream", brandColors: { light: "#aaaaaa", dark: "#bbbbbb" } }),
+      pkg({ source: "flatpak-flathub", brandColors: { light: "#111111" } }),
+    ];
+    expect(pickRichField("brandColors", packages, (p) => p.brandColors)).toEqual({
+      light: "#111111",
+    });
+  });
+
+  it("takes kudos from an AppStream source only", () => {
+    const packages = [pkg({ source: "snap-snapcraft", kudos: ["HiDpiIcon"] })];
+    expect(pickRichField("kudos", packages, (p) => p.kudos)).toBeUndefined();
+  });
+});
+
 describe("pickLanguages", () => {
   it("takes the longest list, not the best-ranked one", () => {
     const packages = [

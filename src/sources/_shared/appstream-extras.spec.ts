@@ -1,5 +1,62 @@
 import { describe, expect, it } from "vitest";
-import { pickPlayableVideo, summarizeContentRating, summarizeRelations } from "./appstream-extras";
+import {
+  pickPlayableVideo,
+  summarizeBrandColors,
+  summarizeContentRating,
+  summarizeKudos,
+  summarizeRelations,
+} from "./appstream-extras";
+
+describe("summarizeBrandColors", () => {
+  it("takes the primary color of each scheme, lowercased", () => {
+    expect(
+      summarizeBrandColors([
+        { type: "primary", scheme: "dark", value: "#1E3A8A" },
+        { type: "primary", scheme: "light", value: "#BFDBFE" },
+      ]),
+    ).toEqual({ light: "#bfdbfe", dark: "#1e3a8a" });
+  });
+
+  it("lets a color without a scheme fill the schemes the app doesn't declare", () => {
+    expect(summarizeBrandColors([{ type: "primary", value: "#336699" }])).toEqual({
+      light: "#336699",
+      dark: "#336699",
+    });
+    expect(
+      summarizeBrandColors([
+        { type: "primary", value: "#336699" },
+        { type: "primary", scheme: "dark", value: "#112233" },
+      ]),
+    ).toEqual({ light: "#336699", dark: "#112233" });
+  });
+
+  it("drops anything but a plain #rrggbb: the value ends up in CSS", () => {
+    expect(
+      summarizeBrandColors([
+        { type: "primary", scheme: "light", value: "red" },
+        { type: "primary", scheme: "dark", value: "#abc" },
+        { type: "primary", value: "#123456;background:url(//evil)" },
+        { type: "primary", value: "url(javascript:alert(1))" },
+      ]),
+    ).toBeUndefined();
+  });
+
+  it("ignores a color of another type", () => {
+    expect(
+      summarizeBrandColors([{ type: "secondary", scheme: "light", value: "#336699" }]),
+    ).toBeUndefined();
+  });
+});
+
+describe("summarizeKudos", () => {
+  it("trims, deduplicates and keeps the order", () => {
+    expect(summarizeKudos([" HiDpiIcon", "HighContrast", "HiDpiIcon", ""])).toEqual([
+      "HiDpiIcon",
+      "HighContrast",
+    ]);
+    expect(summarizeKudos([])).toBeUndefined();
+  });
+});
 
 describe("summarizeContentRating", () => {
   it("takes the highest age among the attributes and the strongest intensity", () => {

@@ -33,6 +33,14 @@ const AppRecordSchema = z.looseObject({
 const TursoDatasetSchema = z
   .object({
     generatedAt: z.iso.datetime(),
+    // Optional: a dataset built before it existed (`pnpm seed` reuses
+    // dist/dataset.json) must still publish.
+    buildInfo: z
+      .object({
+        catalog: z.object({ commit: z.string().min(1), date: z.iso.datetime() }).optional(),
+        sources: z.object({ oldest: z.iso.datetime(), newest: z.iso.datetime() }).optional(),
+      })
+      .optional(),
     apps: z.array(AppRecordSchema),
   })
   .superRefine((dataset, ctx) => {

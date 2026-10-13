@@ -188,6 +188,17 @@ the next one then compares every live row instead of trusting the hashes
 (~1 read per app). Rows change one by one, so for the few seconds a publish
 runs `app` can see some apps updated and others not yet.
 
+**Versions** (the site footer's "App · Catalog · Sources" line): no
+hand-bumped version number anywhere, since nothing here is installed by
+anyone and a number someone must remember to change never moves. Each
+dataset carries `buildInfo` (`src/pipeline/build-info.ts`, stored as
+`meta.buildInfo`): `catalog` is the commit that built it and its commit
+date (not the build date: two builds of one commit are one version);
+`sources` is the oldest and newest `fetchedAt` of `src/sources/cache/
+*.meta.json` — `generatedAt` isn't data freshness, it is when the dataset
+was built from caches that may be a week old. `app` stamps its own commit
+the same way.
+
 Anything else — a first publish, a column or index added, `pnpm seed
 --full` — is a **full publish**: it writes a fresh `apps_next` table and
 atomically renames it over `apps` (`ALTER TABLE ... RENAME`), so readers

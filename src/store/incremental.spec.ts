@@ -274,6 +274,36 @@ describe("incremental publish", () => {
     expect(await searchRowidsAligned(db)).toBe(true);
   });
 
+  it("refuses, before writing anything, a full publish it wasn't asked for", async () => {
+    const db = memoryDb();
+    const client = createTursoClient({ url: "file::memory:" }, db);
+    await client.publish(BEFORE);
+    await db.execute(`DROP INDEX idx_apps_name`);
+    const before = await snapshot(db);
+
+    await expect(client.publish(AFTER, { refuseFull: true })).rejects.toThrow(
+      /refusing a full publish \(the apps indexes differ/,
+    );
+    expect(await snapshot(db)).toEqual(before);
+    expect(
+      (await db.execute(`SELECT key FROM meta WHERE key = 'publishInProgress'`)).rows,
+    ).toHaveLength(0);
+
+    // Asked for, it runs.
+    expect(await client.publish(AFTER, { full: true, refuseFull: true })).toMatchObject({
+      mode: "full",
+    });
+  });
+
+  it("still publishes incrementally with refuseFull when it can", async () => {
+    const db = memoryDb();
+    const client = createTursoClient({ url: "file::memory:" }, db);
+    await client.publish(BEFORE);
+    expect(await client.publish(AFTER, { refuseFull: true })).toMatchObject({
+      mode: "incremental",
+    });
+  });
+
   it("rebuilds everything when asked to", async () => {
     const db = memoryDb();
     const client = createTursoClient({ url: "file::memory:" }, db);

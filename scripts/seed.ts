@@ -131,7 +131,8 @@ if (measure) {
     process.exit(1);
   }
   const client = createTursoClient({ url: env.TURSO_DB_URL, authToken: env.TURSO_DB_AUTH_TOKEN });
-  console.log(describeReport(await client.publish(dataset, { full })));
+  // A remote full publish only on purpose: see PublishOptions.refuseFull.
+  console.log(describeReport(await client.publish(dataset, { full, refuseFull: !full })));
   console.log(`\n${dataset.apps.length} apps published to ${env.TURSO_DB_URL} (${mode} mode).`);
 } else {
   mkdirSync(dirname(LOCAL_DB_PATH), { recursive: true });

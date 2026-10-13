@@ -7,9 +7,12 @@ import {
 } from "../curator";
 import type { LlmClassificationEntry } from "../curator/enrich/llm-classifications";
 import { searchAllSources, type SourcedPackage } from "../sources";
+import { readBuildInfo, type BuildInfo } from "./build-info";
 
 export interface Dataset {
   generatedAt: string;
+  /** Which code built it and how old its sources are — see `BuildInfo`. */
+  buildInfo: BuildInfo;
   apps: CatalogApp[];
 }
 
@@ -64,5 +67,5 @@ export async function buildDataset(options: BuildDatasetOptions = {}): Promise<D
     ? families
     : families.filter((app) => !app.excluded && !app.companionOf);
 
-  return { generatedAt: new Date().toISOString(), apps };
+  return { generatedAt: new Date().toISOString(), buildInfo: readBuildInfo(), apps };
 }

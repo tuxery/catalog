@@ -24,6 +24,22 @@ describe("parseTursoDataset", () => {
     expect(() => parseTursoDataset({ apps: [app("a")] })).toThrow(/generatedAt/);
   });
 
+  it("accepts a dataset with or without buildInfo, and rejects a malformed one", () => {
+    const buildInfo = {
+      catalog: { commit: "35e082b", date: "2026-10-12T21:30:00.000Z" },
+      sources: { oldest: "2026-10-10T04:00:00.000Z", newest: "2026-10-12T21:20:11.071Z" },
+    };
+    expect(parseTursoDataset({ ...dataset([app("a")]), buildInfo }).buildInfo).toEqual(buildInfo);
+    expect(parseTursoDataset({ ...dataset([app("a")]), buildInfo: {} }).buildInfo).toEqual({});
+    expect(parseTursoDataset(dataset([app("a")])).buildInfo).toBeUndefined();
+    expect(() =>
+      parseTursoDataset({
+        ...dataset([app("a")]),
+        buildInfo: { catalog: { commit: "x", date: "yesterday" } },
+      }),
+    ).toThrow(/date/);
+  });
+
   it("rejects a dataset below the remote floor, but not when seeding locally", () => {
     expect(() => parseTursoDataset(dataset([app("a")]), { minApps: 2 })).toThrow(/floor/);
     expect(parseTursoDataset(dataset([app("a")])).apps).toHaveLength(1);

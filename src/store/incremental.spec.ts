@@ -161,6 +161,27 @@ describe("incremental publish", () => {
     });
   });
 
+  it("keeps meta.buildInfo current: written, replaced, and dropped when the dataset has none", async () => {
+    const db = memoryDb();
+    const client = createTursoClient({ url: "file::memory:" }, db);
+    const read = async () =>
+      (await db.execute(`SELECT value FROM meta WHERE key = 'buildInfo'`)).rows[0]?.value;
+    const first = { catalog: { commit: "aaaaaaa", date: "2026-10-12T21:30:00.000Z" } };
+
+    await client.publish({ ...BEFORE, buildInfo: first });
+    expect(JSON.parse(String(await read()))).toEqual(first);
+
+    const second = {
+      ...first,
+      sources: { oldest: "2026-10-10T04:00:00.000Z", newest: "2026-10-12T21:20:11.071Z" },
+    };
+    expect((await client.publish({ ...BEFORE, buildInfo: second })).mode).toBe("incremental");
+    expect(JSON.parse(String(await read()))).toEqual(second);
+
+    await client.publish(BEFORE);
+    expect(await read()).toBeUndefined();
+  });
+
   it("writes nothing for an unchanged dataset", async () => {
     const db = memoryDb();
     const client = createTursoClient({ url: "file::memory:" }, db);

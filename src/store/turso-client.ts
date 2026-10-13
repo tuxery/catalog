@@ -100,8 +100,16 @@ export interface AppRecord {
   kudos?: string[];
 }
 
+/** Same shape as the pipeline's `BuildInfo`, local like `AppRecord`. */
+export interface BuildInfo {
+  catalog?: { commit: string; date: string };
+  sources?: { oldest: string; newest: string };
+}
+
 export interface TursoDataset {
   generatedAt: string;
+  /** Written to `meta.buildInfo` as JSON for the site's footer. Absent on a dataset built before it existed. */
+  buildInfo?: BuildInfo;
   apps: AppRecord[];
 }
 
@@ -982,6 +990,9 @@ function computeMeta(
     ],
     swap: [
       ["generatedAt", dataset.generatedAt],
+      ...(dataset.buildInfo
+        ? [["buildInfo", JSON.stringify(dataset.buildInfo)] as [string, string]]
+        : []),
       ["totalApps", String(dataset.apps.length)],
       ["categoryCounts:all", JSON.stringify(categoryCountsAll)],
       ["categoryCounts:game", JSON.stringify(categoryCountsGame)],

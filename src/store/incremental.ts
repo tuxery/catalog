@@ -332,7 +332,8 @@ export async function publishIncremental(
     }
   }
   // No hashes at all: a store published before this module, compared in full.
-  const trustHashes = live.trustHashes && liveHashes.size > 0;
+  // A column added in place isn't in the stored hashes either way: compare every row.
+  const trustHashes = live.trustHashes && liveHashes.size > 0 && live.addColumns.length === 0;
 
   await beginPublish(db);
   for (const [column, type] of live.addColumns) {

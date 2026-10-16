@@ -4210,5 +4210,18 @@
       }
     ],
     "reason": "The INSTEAD text-adventure engine: its Snap says Development, its AppStream entry Game, so the app/game guard keeps them apart on its own."
+  },
+  {
+    "destination": {
+      "source": "snap-snapcraft",
+      "appId": "space-cadet-pinball"
+    },
+    "sources": [
+      {
+        "source": "snap-snapcraft",
+        "appId": "space-cadet"
+      }
+    ],
+    "reason": "Same game (the 3D Pinball for Windows – Space Cadet reverse engineering, k4zmu2a/SpaceCadetPinball): ubuntu.retro-os.live repackages it as its own snap. Both are titled \"Space Cadet Pinball\" on the Snap Store, which makes the title store-generic (see group.ts storeGenericNames), so the name no longer joins them."
   }
 ]

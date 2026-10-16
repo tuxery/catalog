@@ -179,6 +179,13 @@ const GENERIC_NAME_BLOCKLIST = new Set([
   "screenshot",
 ]);
 
+// Compared with normalized names, so normalized too: `normalizeName` drops
+// spaces, and "text editor" as written never equalled any name's
+// "texteditor" — the four multi-word entries above had no effect from
+// 2026-10-11 until 2026-10-16, which let "Text Editor" chain gedit, GNOME
+// Text Editor, deepin-editor and twig into one group.
+const GENERIC_NAMES = new Set([...GENERIC_NAME_BLOCKLIST].map((name) => normalizeName(name)));
+
 /**
  * Tier 1's key function — `pkg.appId`, except for `GENERIC_NAME_BLOCKLIST`
  * entries (checked via `normalizeName`, since the bare-package-name
@@ -192,7 +199,52 @@ const GENERIC_NAME_BLOCKLIST = new Set([
  */
 function tier1Key(pkg: SourcedPackage): string | undefined {
   if (!pkg.appId) return undefined;
-  return GENERIC_NAME_BLOCKLIST.has(normalizeName(pkg.appId)) ? undefined : pkg.appId;
+  return GENERIC_NAMES.has(normalizeName(pkg.appId)) ? undefined : pkg.appId;
+}
+
+// The blocklist above is curated, one incident at a time. The stores with
+// editorial titles also say it themselves: when one store lists two
+// different apps under the same name, that name doesn't identify a product
+// — Flathub's three "Media Downloader" (com.markopejic.downloader,
+// com.warlordsoftwares.media-downloader, io.github.mhogomchungu.media-
+// downloader), the Snap Store's three "WhatsApp Desktop", two "Sticky
+// Notes" on each. Matching on such a name chained unrelated apps into
+// groups of up to 50 packages (2026-10-16: gedit with GNOME Text Editor
+// and twig through "Text Editor", ytDownloader with a dozen others). Only
+// these stores count: each of their app ids is one product, and their
+// names are titles; distro package names follow their own conventions.
+// Builds of one product (a track, a flavor, a pre-release) count once.
+const TITLED_STORES = new Set<string>([
+  "flatpak-flathub",
+  "flatpak-appcenter",
+  "snap-snapcraft",
+  "appimage",
+  "gog",
+  "github-releases",
+]);
+
+/**
+ * Every normalized name a titled store lists two different apps under —
+ * see `TITLED_STORES`. Not a tier-2 key for those stores' own packages:
+ * their title says nothing about which app they are. Distro packages keep
+ * matching on it among themselves (`rsync` is several apps on the Snap
+ * Store, still one across Debian, Fedora and Arch).
+ */
+export function storeGenericNames(packages: SourcedPackage[]): Set<string> {
+  // Per store and name: the name, and the distinct app ids listed under it.
+  const listings = new Map<string, { name: string; appIds: Set<string> }>();
+  for (const pkg of packages) {
+    if (!TITLED_STORES.has(pkg.source) || !pkg.appId || isBuildVariant(pkg)) continue;
+    const name = normalizeName(pkg.name);
+    if (!name) continue;
+    const key = `${pkg.source}|${name}`;
+    const listing = listings.get(key) ?? { name, appIds: new Set<string>() };
+    listing.appIds.add(pkg.appId);
+    listings.set(key, listing);
+  }
+  return new Set(
+    [...listings.values()].filter((listing) => listing.appIds.size > 1).map(({ name }) => name),
+  );
 }
 
 // AUR's own submission guidelines reserve these suffixes for an alternate
@@ -320,7 +372,7 @@ function unionDescribedVariants(
   const byName = new Map<string, SourcedPackage[]>();
   for (const pkg of packages) {
     const name = normalizeName(stripVariantSuffix(pkg));
-    if (GENERIC_NAME_BLOCKLIST.has(name)) continue;
+    if (GENERIC_NAMES.has(name)) continue;
     const list = byName.get(name) ?? [];
     list.push(pkg);
     byName.set(name, list);
@@ -428,7 +480,7 @@ function unionLocaleBuilds(
   const byName = new Map<string, SourcedPackage>();
   for (const pkg of packages) {
     const name = normalizeName(stripVariantSuffix(pkg));
-    if (!GENERIC_NAME_BLOCKLIST.has(name) && !byName.has(name)) byName.set(name, pkg);
+    if (!GENERIC_NAMES.has(name) && !byName.has(name)) byName.set(name, pkg);
   }
 
   const seriesByBase = new Map<string, SourcedPackage[]>();
@@ -484,7 +536,7 @@ function nameStems(pkg: SourcedPackage): string[] {
   ) {
     stems.push(normalizeName(pkg.appId.split(/[./]/).at(-1) ?? ""));
   }
-  return unique(stems).filter((stem) => stem.length >= 3 && !GENERIC_NAME_BLOCKLIST.has(stem));
+  return unique(stems).filter((stem) => stem.length >= 3 && !GENERIC_NAMES.has(stem));
 }
 
 /**
@@ -732,9 +784,21 @@ function guardUnions(
   };
 }
 
-function tier2Key(pkg: SourcedPackage): string | undefined {
+/** A store-generic name together with the package's project homepage, for the pass after tier 2. */
+function genericNameHomepageKey(
+  pkg: SourcedPackage,
+  generic: ReadonlySet<string>,
+): string | undefined {
   const normalized = normalizeName(stripVariantSuffix(pkg));
-  return GENERIC_NAME_BLOCKLIST.has(normalized) ? undefined : normalized;
+  if (!generic.has(normalized) || GENERIC_NAMES.has(normalized)) return undefined;
+  const homepage = homepageKey(pkg.homepage);
+  return homepage ? `${normalized}|${homepage}` : undefined;
+}
+
+function tier2Key(pkg: SourcedPackage, generic: ReadonlySet<string>): string | undefined {
+  const normalized = normalizeName(stripVariantSuffix(pkg));
+  if (GENERIC_NAMES.has(normalized)) return undefined;
+  return TITLED_STORES.has(pkg.source) && generic.has(normalized) ? undefined : normalized;
 }
 
 // How a package is shipped rather than what was built: AUR's `-bin`/
@@ -898,10 +962,24 @@ export function groupPackages(
   // stay out: they're named after the app they are ("Mines", "Map"), but
   // share the package's node, so one generic-name hit would pull in the
   // package's every other app (sgt-puzzles' 40 puzzles into GNOME Mines).
+  // Not on a name a titled store gives two different apps
+  // (`storeGenericNames`) for that store's own packages...
+  const generic = storeGenericNames(packages);
   unionByExactKey(
     typed,
     packages,
-    (pkg) => (ambiguous.has(packageKey(pkg)) ? undefined : tier2Key(pkg)),
+    (pkg) => (ambiguous.has(packageKey(pkg)) ? undefined : tier2Key(pkg, generic)),
+    overrides.denyPairs,
+  );
+  // ...unless the two also point at the same project homepage: Flathub's
+  // Wine is the distributions' wine (winehq.org) though the Snap Store has
+  // other "Wine" apps, while the Snap Store's "Text Editor" (twig) stays
+  // apart from GNOME Text Editor. Tier 2f does it for other names, but
+  // skips homepages carrying many packages, as winehq.org does.
+  unionByExactKey(
+    typed,
+    packages,
+    (pkg) => (ambiguous.has(packageKey(pkg)) ? undefined : genericNameHomepageKey(pkg, generic)),
     overrides.denyPairs,
   );
 

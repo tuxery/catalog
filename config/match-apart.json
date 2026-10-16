@@ -1152,5 +1152,294 @@
       }
     ],
     "reason": "elementary's Pomodoro by oowoosh0 (a) versus GNOME Pomodoro (b), two unrelated timers. Found by catalog#103's before/after diff."
+  },
+  {
+    "a": [
+      {
+        "source": "pacman-aur",
+        "appId": "jre"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "jdk"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "jre-lts"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "jdk-lts"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "jdk11"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "jdk8"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "jre8"
+      }
+    ],
+    "b": [
+      {
+        "source": "snap-snapcraft",
+        "appId": "openjdk"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "jdk"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "jre"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "jdk8"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "jdk11"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "jdk17"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "jdk21"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "jdk25"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "jre8"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "openjdk"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "openjdk8"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "openjdk11"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "openjdk17"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "openjdk21"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "openjdk25"
+      },
+      {
+        "source": "apk-alpine",
+        "appId": "openjdk8"
+      },
+      {
+        "source": "apk-alpine",
+        "appId": "openjdk11"
+      },
+      {
+        "source": "apk-alpine",
+        "appId": "openjdk17"
+      },
+      {
+        "source": "apk-alpine",
+        "appId": "openjdk21"
+      },
+      {
+        "source": "apk-alpine",
+        "appId": "openjdk25"
+      },
+      {
+        "source": "xbps-void",
+        "appId": "openjdk"
+      },
+      {
+        "source": "xbps-void",
+        "appId": "openjdk8"
+      },
+      {
+        "source": "xbps-void",
+        "appId": "openjdk11"
+      },
+      {
+        "source": "xbps-void",
+        "appId": "openjdk17"
+      },
+      {
+        "source": "xbps-void",
+        "appId": "openjdk21"
+      },
+      {
+        "source": "xbps-void",
+        "appId": "openjdk25"
+      },
+      {
+        "source": "eopkg-solus",
+        "appId": "openjdk-11"
+      },
+      {
+        "source": "eopkg-solus",
+        "appId": "openjdk-17"
+      },
+      {
+        "source": "eopkg-solus",
+        "appId": "openjdk-21"
+      },
+      {
+        "source": "ebuild-gentoo",
+        "appId": "dev-java/openjdk"
+      },
+      {
+        "source": "ebuild-gentoo",
+        "appId": "dev-java/openjdk-bin"
+      }
+    ],
+    "reason": "Oracle Java SE (AUR jdk, jre, jdk-lts, jre-lts, jdk8, jdk11, jre8: oracle.com / java.com binaries under Oracle's license) is not OpenJDK (b). They met through the package id jdk/jre, which Nixpkgs uses for its OpenJDK. Found by the megagroup audit of 2026-10-16."
+  },
+  {
+    "a": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.cburch.Logisim"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "logisim"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "logisim"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "logisim"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "logisim"
+      },
+      {
+        "source": "deb-debian-appstream",
+        "appId": "logisim"
+      },
+      {
+        "source": "deb-ubuntu-appstream",
+        "appId": "logisim"
+      }
+    ],
+    "b": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.github.reds.LogisimEvolution"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "logisim-evolution"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "logisim-evolution-snapcraft"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "logisim-evolution"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "logisim-evolution-bin"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "logisim-evolution-git"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "logisim-evolution"
+      },
+      {
+        "source": "apk-alpine",
+        "appId": "logisim-evolution"
+      },
+      {
+        "source": "xbps-void",
+        "appId": "logisim-evolution"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "logisim-ita-bin"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "logisim-snapcraft"
+      }
+    ],
+    "reason": "Logisim, Carl Burch's original (a, cburch.com, unmaintained since 2014), versus its forks Logisim-evolution and Logisim ITA (b). Found by the megagroup audit of 2026-10-16."
+  },
+  {
+    "a": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "com.github.reds.LogisimEvolution"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "logisim-evolution"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "logisim-evolution-snapcraft"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "logisim-evolution"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "logisim-evolution-bin"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "logisim-evolution-git"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "logisim-evolution"
+      },
+      {
+        "source": "apk-alpine",
+        "appId": "logisim-evolution"
+      },
+      {
+        "source": "xbps-void",
+        "appId": "logisim-evolution"
+      }
+    ],
+    "b": [
+      {
+        "source": "pacman-aur",
+        "appId": "logisim-ita-bin"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "logisim-snapcraft"
+      }
+    ],
+    "reason": "Logisim-evolution (a, github.com/logisim-evolution) versus Logisim ITA (b, github.com/LogisimIt; the logisim-snapcraft snap packages ITA 2.16). Found by the megagroup audit of 2026-10-16."
   }
 ]

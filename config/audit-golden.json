@@ -1869,10 +1869,6 @@
         "appId": "org.gnome.Evince"
       },
       {
-        "source": "flatpak-flathub",
-        "appId": "org.gnome.Papers"
-      },
-      {
         "source": "snap-snapcraft",
         "appId": "evince"
       },
@@ -1881,14 +1877,6 @@
         "appId": "evince"
       },
       {
-        "source": "deb-debian",
-        "appId": "papers"
-      },
-      {
-        "source": "deb-ubuntu",
-        "appId": "papers"
-      },
-      {
         "source": "deb-ubuntu",
         "appId": "evince"
       },
@@ -1897,24 +1885,8 @@
         "appId": "evince"
       },
       {
-        "source": "rpm-fedora",
-        "appId": "papers"
-      },
-      {
-        "source": "rpm-fedora",
-        "appId": "xreader"
-      },
-      {
         "source": "pacman-arch",
         "appId": "evince"
-      },
-      {
-        "source": "pacman-arch",
-        "appId": "papers"
-      },
-      {
-        "source": "pacman-arch",
-        "appId": "xreader"
       }
     ]
   },
@@ -1926,36 +1898,8 @@
         "appId": "io.github.aandrew_me.ytdn"
       },
       {
-        "source": "flatpak-flathub",
-        "appId": "page.codeberg.impromptux.ytdl-gui"
-      },
-      {
-        "source": "snap-snapcraft",
-        "appId": "youtube-dl-pro"
-      },
-      {
         "source": "snap-snapcraft",
         "appId": "ytdownloader"
-      },
-      {
-        "source": "snap-snapcraft",
-        "appId": "youtube-downloader"
-      },
-      {
-        "source": "snap-snapcraft",
-        "appId": "yt-downloader-bp"
-      },
-      {
-        "source": "snap-snapcraft",
-        "appId": "yt-downloader"
-      },
-      {
-        "source": "deb-debian",
-        "appId": "youtubedl-gui"
-      },
-      {
-        "source": "deb-ubuntu",
-        "appId": "youtubedl-gui"
       }
     ]
   },
@@ -2043,24 +1987,8 @@
         "appId": "org.gnome.TextEditor"
       },
       {
-        "source": "flatpak-flathub",
-        "appId": "org.gnome.gedit.desktop"
-      },
-      {
-        "source": "snap-snapcraft",
-        "appId": "gedit"
-      },
-      {
-        "source": "snap-snapcraft",
-        "appId": "twig"
-      },
-      {
         "source": "snap-snapcraft",
         "appId": "gnome-text-editor"
-      },
-      {
-        "source": "deb-debian",
-        "appId": "gedit"
       },
       {
         "source": "deb-debian",
@@ -2071,24 +1999,8 @@
         "appId": "gnome-text-editor"
       },
       {
-        "source": "deb-ubuntu",
-        "appId": "gedit"
-      },
-      {
-        "source": "rpm-fedora",
-        "appId": "gedit"
-      },
-      {
         "source": "rpm-fedora",
         "appId": "gnome-text-editor"
-      },
-      {
-        "source": "pacman-arch",
-        "appId": "deepin-editor"
-      },
-      {
-        "source": "pacman-arch",
-        "appId": "gedit"
       },
       {
         "source": "pacman-arch",
@@ -2649,39 +2561,15 @@
       },
       {
         "source": "deb-debian",
-        "appId": "gpicview"
-      },
-      {
-        "source": "deb-debian",
-        "appId": "loupe"
-      },
-      {
-        "source": "deb-debian",
-        "appId": "sugar-imageviewer-activity"
-      },
-      {
-        "source": "deb-ubuntu",
         "appId": "loupe"
       },
       {
         "source": "deb-ubuntu",
-        "appId": "gpicview"
-      },
-      {
-        "source": "deb-ubuntu",
-        "appId": "sugar-imageviewer-activity"
-      },
-      {
-        "source": "rpm-fedora",
-        "appId": "gpicview"
+        "appId": "loupe"
       },
       {
         "source": "rpm-fedora",
         "appId": "loupe"
-      },
-      {
-        "source": "pacman-arch",
-        "appId": "gpicview"
       },
       {
         "source": "pacman-arch",
@@ -2857,10 +2745,6 @@
       {
         "source": "flatpak-flathub",
         "appId": "dev.pulsar_edit.Pulsar"
-      },
-      {
-        "source": "flatpak-flathub",
-        "appId": "pl.fuzjajadrowa.pulsar"
       }
     ]
   },
@@ -3131,19 +3015,7 @@
     "anchors": [
       {
         "source": "flatpak-flathub",
-        "appId": "com.markopejic.downloader"
-      },
-      {
-        "source": "flatpak-flathub",
         "appId": "com.warlordsoftwares.media-downloader"
-      },
-      {
-        "source": "flatpak-flathub",
-        "appId": "io.github.mhogomchungu.media-downloader"
-      },
-      {
-        "source": "rpm-fedora",
-        "appId": "media-downloader"
       }
     ]
   },

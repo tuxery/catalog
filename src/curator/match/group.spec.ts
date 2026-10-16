@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import type { SourcedPackage } from "../../sources";
-import { groupPackages } from "./group";
+import { groupPackages, storeGenericNames } from "./group";
 import type { MatchOverrides } from "./overrides";
 
 function pkg(overrides: Partial<SourcedPackage>): SourcedPackage {
@@ -911,5 +911,118 @@ describe("groupPackages — product families", () => {
     );
 
     expect(groups.map((group) => group.packages.length).toSorted()).toEqual([1, 1, 2]);
+  });
+});
+
+/** The group holding the package with `appId`. */
+const groupOf = (groups: ReturnType<typeof groupPackages>, appId: string) =>
+  groups.find((group) => group.packages.some((member) => member.appId === appId));
+
+describe("store-generic names", () => {
+  it("finds the names a titled store gives two different apps, not a build's", () => {
+    const generic = storeGenericNames([
+      pkg({ name: "Media Downloader", appId: "com.markopejic.downloader" }),
+      pkg({ name: "Media Downloader", appId: "io.github.mhogomchungu.media-downloader" }),
+      pkg({ name: "Firefox", appId: "org.mozilla.firefox" }),
+      pkg({ name: "Firefox", appId: "org.mozilla.firefox", track: "esr" }),
+      pkg({ source: "snap-snapcraft", name: "Firefox", appId: "firefox" }),
+      // Distro package names follow their own conventions: never counted.
+      pkg({ source: "pacman-aur", name: "rsync", appId: "rsync" }),
+      pkg({ source: "pacman-aur", name: "Rsync", appId: "rsync-git" }),
+    ]);
+    expect([...generic]).toEqual(["mediadownloader"]);
+  });
+
+  it("doesn't chain different apps through a title a store gives several of them", () => {
+    // 2026-10-16: Flathub's three "Media Downloader" and the Snap Store's
+    // "Text Editor" (twig) chained gedit, GNOME Text Editor, twig and more.
+    const groups = groupPackages(
+      [
+        pkg({ name: "Media Downloader", appId: "com.markopejic.downloader" }),
+        pkg({ name: "Media Downloader", appId: "com.warlordsoftwares.media-downloader" }),
+        pkg({ name: "Media Downloader", appId: "io.github.mhogomchungu.media-downloader" }),
+        pkg({ source: "appimage", name: "Media Downloader", appId: "hmidani/Media_Downloader" }),
+      ],
+      NO_OVERRIDES,
+    );
+    expect(groups).toHaveLength(4);
+  });
+
+  it("still joins a store package on such a title when both point at the same homepage", () => {
+    const groups = groupPackages(
+      [
+        pkg({ name: "Wine", appId: "org.winehq.Wine", homepage: "https://www.winehq.org/" }),
+        pkg({ source: "snap-snapcraft", name: "Wine", appId: "wine-platform-runtime" }),
+        pkg({
+          source: "snap-snapcraft",
+          name: "Wine",
+          appId: "wine-community",
+          homepage: "https://example.org/wine",
+        }),
+        pkg({
+          source: "deb-debian",
+          name: "wine",
+          appId: "wine",
+          homepage: "https://www.winehq.org",
+        }),
+        pkg({
+          source: "rpm-fedora",
+          name: "wine",
+          appId: "wine",
+          homepage: "https://www.winehq.org/",
+        }),
+        // winehq.org carries many packages (wine-mono, wine-gecko, wine-staging,
+        // ...), past what the same-homepage tier (2f) looks at.
+        ...Array.from({ length: 40 }, (_, index) =>
+          pkg({
+            source: "pacman-aur",
+            name: `wine-extra-${index}`,
+            appId: `wine-extra-${index}`,
+            homepage: "https://www.winehq.org",
+          }),
+        ),
+      ],
+      NO_OVERRIDES,
+    );
+    const wine = groupOf(groups, "org.winehq.Wine");
+    expect(wine?.packages.map((member) => `${member.source}:${member.appId}`).toSorted()).toEqual([
+      "deb-debian:wine",
+      "flatpak-flathub:org.winehq.Wine",
+      "rpm-fedora:wine",
+    ]);
+    expect(groupOf(groups, "wine-community")?.packages).toHaveLength(1);
+  });
+
+  it("keeps matching distro packages among themselves on a store-generic name", () => {
+    const groups = groupPackages(
+      [
+        pkg({ source: "snap-snapcraft", name: "rsync", appId: "rsync-leftyfb" }),
+        pkg({ source: "snap-snapcraft", name: "rsync", appId: "rsync" }),
+        pkg({ source: "deb-debian", name: "rsync", appId: "rsync" }),
+        pkg({ source: "pacman-arch", name: "rsync", appId: "rsync" }),
+      ],
+      NO_OVERRIDES,
+    );
+    expect(groupOf(groups, "rsync-leftyfb")?.packages).toHaveLength(1);
+    // Debian and Arch still meet (and the snap named rsync, through its id).
+    expect(
+      groups.some(
+        (group) =>
+          group.packages.filter((member) => member.source !== "snap-snapcraft").length === 2,
+      ),
+    ).toBe(true);
+  });
+
+  it("applies the curated blocklist's multi-word entries to normalized names", () => {
+    // `normalizeName` drops spaces: "text editor" as written never matched
+    // "texteditor" before 2026-10-16.
+    const groups = groupPackages(
+      [
+        pkg({ source: "pacman-arch-appstream", name: "Text Editor", appId: "deepin-editor" }),
+        pkg({ source: "deb-debian-appstream", name: "Text Editor", appId: "gnome-text-editor" }),
+      ],
+      NO_OVERRIDES,
+    );
+    expect(groups).toHaveLength(2);
   });
 });

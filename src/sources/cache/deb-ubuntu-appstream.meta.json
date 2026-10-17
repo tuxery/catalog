@@ -1,9 +1,9 @@
 {
   "source": "deb-ubuntu-appstream",
-  "fetchedAt": "2026-10-13T14:17:57.470Z",
-  "url": "https://archive.ubuntu.com/ubuntu/dists/resolute/main/dep11/Components-amd64.yml.gz, https://archive.ubuntu.com/ubuntu/dists/resolute/universe/dep11/Components-amd64.yml.gz, https://archive.ubuntu.com/ubuntu/dists/resolute/multiverse/dep11/Components-amd64.yml.gz",
-  "entryCount": 2235,
-  "suite": "resolute",
+  "fetchedAt": "2026-10-17T08:48:09.420Z",
+  "url": "https://archive.ubuntu.com/ubuntu/dists/stonking/main/dep11/Components-amd64.yml.gz, https://archive.ubuntu.com/ubuntu/dists/stonking/universe/dep11/Components-amd64.yml.gz, https://archive.ubuntu.com/ubuntu/dists/stonking/multiverse/dep11/Components-amd64.yml.gz",
+  "entryCount": 2286,
+  "suite": "stonking",
   "component": "main+universe+multiverse",
   "arch": "amd64"
 }

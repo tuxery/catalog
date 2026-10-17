@@ -1,9 +1,9 @@
 {
   "source": "gog",
-  "fetchedAt": "2026-10-12T21:23:29.653Z",
+  "fetchedAt": "2026-10-17T08:49:23.141Z",
   "url": "https://catalog.gog.com/v1/catalog?systems=linux",
-  "entryCount": 1372,
+  "entryCount": 1374,
   "systemsFilter": "linux",
-  "detailsFetched": 430,
+  "detailsFetched": 1374,
   "pagesFetched": 28
 }

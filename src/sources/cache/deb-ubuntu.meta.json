@@ -1,9 +1,9 @@
 {
   "source": "deb-ubuntu",
-  "fetchedAt": "2026-10-12T20:45:49.779Z",
-  "url": "https://archive.ubuntu.com/ubuntu/dists/resolute/main/binary-amd64/Packages.gz, https://archive.ubuntu.com/ubuntu/dists/resolute/universe/binary-amd64/Packages.gz, https://archive.ubuntu.com/ubuntu/dists/resolute/restricted/binary-amd64/Packages.gz, https://archive.ubuntu.com/ubuntu/dists/resolute/multiverse/binary-amd64/Packages.gz",
-  "entryCount": 75328,
-  "suite": "resolute",
+  "fetchedAt": "2026-10-17T08:45:07.453Z",
+  "url": "https://archive.ubuntu.com/ubuntu/dists/stonking/main/binary-amd64/Packages.gz, https://archive.ubuntu.com/ubuntu/dists/stonking/universe/binary-amd64/Packages.gz, https://archive.ubuntu.com/ubuntu/dists/stonking/restricted/binary-amd64/Packages.gz, https://archive.ubuntu.com/ubuntu/dists/stonking/multiverse/binary-amd64/Packages.gz",
+  "entryCount": 76940,
+  "suite": "stonking",
   "component": "main+universe+restricted+multiverse",
   "arch": "amd64"
 }

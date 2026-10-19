@@ -1,7 +1,7 @@
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
 import { fetchPrimaryXml, parsePrimaryXml } from "../_shared/rpm-repodata";
-import type { OpenSuseCacheEntry, OpenSuseFetchMetadata } from "./types";
+import { LEAP_TRACK, type OpenSuseCacheEntry, type OpenSuseFetchMetadata } from "./types";
 
 // openSUSE Tumbleweed (the rolling release, so there's no version number to
 // pin the way Fedora pins a release) publishes the same repomd.xml ->
@@ -16,9 +16,21 @@ import type { OpenSuseCacheEntry, OpenSuseFetchMetadata } from "./types";
 // primary.xml already bundles every package's `<arch>` in one file, and on
 // real data that's only ever "x86_64" or "noarch", so no arch filtering is
 // needed either.
+//
+// Leap, the numbered release most desktops and servers run, is a different
+// distribution (built from SUSE Linux Enterprise) with its own package set and
+// versions: its repos are fetched too, as a track of their own
+// (docs/product-families.md) next to Tumbleweed, the default line.
+const ORIGIN = "https://downloadcontent.opensuse.org";
 const REPOS = [
-  { id: "oss", base: "https://downloadcontent.opensuse.org/tumbleweed/repo/oss" },
-  { id: "non-oss", base: "https://downloadcontent.opensuse.org/tumbleweed/repo/non-oss" },
+  { id: "oss", base: `${ORIGIN}/tumbleweed/repo/oss` },
+  { id: "non-oss", base: `${ORIGIN}/tumbleweed/repo/non-oss` },
+  { id: "oss", base: `${ORIGIN}/distribution/leap/16.0/repo/oss/x86_64`, track: LEAP_TRACK },
+  {
+    id: "non-oss",
+    base: `${ORIGIN}/distribution/leap/16.0/repo/non-oss/x86_64`,
+    track: LEAP_TRACK,
+  },
 ] as const;
 
 /**
@@ -68,11 +80,12 @@ export function parsePrimary(xml: string, repo: OpenSuseCacheEntry["repo"]): Ope
  */
 async function fetchRepo(repo: (typeof REPOS)[number]): Promise<OpenSuseCacheEntry[]> {
   const xml = await fetchPrimaryXml(repo.base, "openSUSE");
-  return parsePrimary(xml, repo.id);
+  const entries = parsePrimary(xml, repo.id);
+  return "track" in repo ? entries.map((entry) => ({ ...entry, track: repo.track })) : entries;
 }
 
 /**
- * Downloads openSUSE Tumbleweed's oss + non-oss repodata for one arch and
+ * Downloads openSUSE Tumbleweed's and Leap's oss + non-oss repodata and
  * writes the concatenated entries to `cachePath` as NDJSON. See
  * docs/sources.md.
  */
@@ -86,7 +99,7 @@ export async function fetchOpenSuse(cachePath: string): Promise<number> {
     fetchedAt: new Date().toISOString(),
     url: REPOS.map((repo) => repo.base).join(", "),
     entryCount: entries.length,
-    reposFetched: REPOS.map((repo) => repo.id),
+    reposFetched: REPOS.map((repo) => ("track" in repo ? `${repo.track}/${repo.id}` : repo.id)),
   });
 
   return entries.length;

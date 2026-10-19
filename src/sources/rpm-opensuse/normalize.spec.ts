@@ -39,4 +39,14 @@ describe("opensuse normalize", () => {
 
     expect(normalize([entry])[0]?.section).toBeUndefined();
   });
+
+  it("carries Leap as a track, and leaves Tumbleweed on the default line", () => {
+    const base = { summary: "", version: "1", repo: "oss", hasDesktopFile: true } as const;
+    const [tumbleweed, leap] = normalize([
+      { ...base, name: "gimp" },
+      { ...base, name: "gimp", track: "leap-16.0" },
+    ]);
+    expect(tumbleweed?.track).toBeUndefined();
+    expect(leap?.track).toBe("leap-16.0");
+  });
 });

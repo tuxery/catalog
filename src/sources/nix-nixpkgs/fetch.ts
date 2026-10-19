@@ -104,18 +104,19 @@ export function mapPackages(packages: Record<string, RawPackage>): NixpkgsCacheE
  */
 export async function fetchNixpkgs(cachePath: string): Promise<number> {
   // One dump at a time: each is several hundred MB of JSON once decoded.
-  const entries: NixpkgsCacheEntry[] = [];
+  const lists: NixpkgsCacheEntry[][] = [];
   for (const channel of CHANNELS) {
     // eslint-disable-next-line no-await-in-loop
     const json = await fetchText(channel.url, "nixpkgs dump");
     const dump = JSON.parse(json) as RawDump;
     const mapped = mapPackages(dump.packages ?? {});
-    entries.push(
-      ...("track" in channel
-        ? mapped.map((entry) => ({ ...entry, track: channel.track }))
-        : mapped),
+    lists.push(
+      "track" in channel ? mapped.map((entry) => ({ ...entry, track: channel.track })) : mapped,
     );
   }
+  // `.flat()`, not `push(...list)`: spreading 130,000 entries into one call
+  // overflows the stack (it broke the 2026-10-19 refresh).
+  const entries = lists.flat();
 
   writeNdjson(cachePath, entries);
   writeMetadata<NixpkgsFetchMetadata>(cachePath, {

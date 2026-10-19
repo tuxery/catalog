@@ -47,4 +47,11 @@ describe("nixpkgs normalize", () => {
 
     expect(normalize([entry])[0]?.section).toBeUndefined();
   });
+
+  it("carries the stable channel as a track, and leaves nixos-unstable on the default line", () => {
+    const base = { attrPath: "gimp", name: "gimp", description: "", version: "3" };
+    const [unstable, stable] = normalize([base, { ...base, track: "26.05" }]);
+    expect(unstable?.track).toBeUndefined();
+    expect(stable?.track).toBe("26.05");
+  });
 });

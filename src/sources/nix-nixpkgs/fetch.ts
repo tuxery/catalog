@@ -1,14 +1,23 @@
 import { fetchText } from "../_shared/http";
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
-import type { NixpkgsCacheEntry, NixpkgsFetchMetadata } from "./types";
+import { STABLE_TRACK, type NixpkgsCacheEntry, type NixpkgsFetchMetadata } from "./types";
 
 // nixpkgs publishes one giant per-channel dump, updated continuously.
 // The .br extension is misleading: the server sends it with a real
 // `Content-Encoding: br` header, and Node's built-in fetch transparently
 // decompresses that itself — response.text() already returns plain
 // JSON, no manual zlib.brotliDecompressSync() step needed.
-const PACKAGES_URL = "https://channels.nixos.org/nixos-unstable/packages.json.br";
+//
+// Two channels: nixos-unstable (rolling, the default line: what much of the
+// Nix community runs day to day) and the latest numbered stable one, kept as
+// a track of its own (docs/product-families.md) so a NixOS user on it finds
+// what they would get. NixOS releases in May and November: bump
+// `STABLE_TRACK` (types.ts) and the URL together.
+const CHANNELS = [
+  { url: "https://channels.nixos.org/nixos-unstable/packages.json.br" },
+  { url: `https://channels.nixos.org/nixos-${STABLE_TRACK}/packages.json.br`, track: STABLE_TRACK },
+] as const;
 // Only arch this repo tracks anywhere else — the dump also has a small
 // number of i686-linux (32-bit) entries, excluded.
 const SYSTEM = "x86_64-linux";
@@ -90,19 +99,29 @@ export function mapPackages(packages: Record<string, RawPackage>): NixpkgsCacheE
 }
 
 /**
- * Downloads nixpkgs' channel dump and writes the normalized entries to
- * `cachePath` as NDJSON. See docs/sources.md.
+ * Downloads nixpkgs' unstable and stable channel dumps and writes the
+ * normalized entries to `cachePath` as NDJSON. See docs/sources.md.
  */
 export async function fetchNixpkgs(cachePath: string): Promise<number> {
-  const json = await fetchText(PACKAGES_URL, "nixpkgs dump");
-  const dump = JSON.parse(json) as RawDump;
-  const entries = mapPackages(dump.packages ?? {});
+  // One dump at a time: each is several hundred MB of JSON once decoded.
+  const entries: NixpkgsCacheEntry[] = [];
+  for (const channel of CHANNELS) {
+    // eslint-disable-next-line no-await-in-loop
+    const json = await fetchText(channel.url, "nixpkgs dump");
+    const dump = JSON.parse(json) as RawDump;
+    const mapped = mapPackages(dump.packages ?? {});
+    entries.push(
+      ...("track" in channel
+        ? mapped.map((entry) => ({ ...entry, track: channel.track }))
+        : mapped),
+    );
+  }
 
   writeNdjson(cachePath, entries);
   writeMetadata<NixpkgsFetchMetadata>(cachePath, {
     source: "nix-nixpkgs",
     fetchedAt: new Date().toISOString(),
-    url: PACKAGES_URL,
+    url: CHANNELS.map((channel) => channel.url).join(", "),
     entryCount: entries.length,
   });
 

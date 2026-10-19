@@ -29,6 +29,11 @@ export interface NixpkgsCacheEntry {
    * `kdePackages.akregator`. See `SourcedPackage.section`.
    */
   prefix?: string;
+  /** `STABLE_TRACK` for an entry of the stable channel; absent for nixos-unstable, the default line. See `SourcedPackage.track`. */
+  track?: string;
 }
+
+/** The numbered stable channel kept next to nixos-unstable, as a track. */
+export const STABLE_TRACK = "26.05";
 
 export type NixpkgsFetchMetadata = FetchMetadata;

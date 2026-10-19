@@ -1,4 +1,5 @@
 import { unique } from "helpers4/array";
+import { percentileScores } from "../_shared/popularity";
 import type { SourcedPackage } from "../types";
 import type { GogCacheEntry } from "./types";
 
@@ -50,6 +51,14 @@ function mapGogGenres(slugs: string[]): string[] {
 }
 
 export function normalize(entries: GogCacheEntry[]): SourcedPackage[] {
+  // GOG's catalog API has no popularity figure, but every product reports how
+  // many reviews it has: its percentile among GOG's games is the popularity
+  // signal (the way Debian's popcon and Arch's pkgstats become one), so the
+  // GOG trending row has more than the 16 games borrowing a score from
+  // another source. Products without a review get none, never a fake zero.
+  const popularity = percentileScores(
+    new Map(entries.map((entry) => [entry.id, entry.rating?.count ?? 0])),
+  );
   return entries.map((entry) => {
     // Defensive against the pre-existing committed cache file, which
     // predates this field and has no `genres` key at all yet (until the
@@ -77,6 +86,7 @@ export function normalize(entries: GogCacheEntry[]): SourcedPackage[] {
       longDescription: entry.longDescription,
       screenshots: entry.screenshots.length > 0 ? entry.screenshots : undefined,
       rating: entry.rating,
+      popularity: popularity.get(entry.id),
       categories: categories.length > 0 ? categories : undefined,
     };
   });

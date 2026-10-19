@@ -120,4 +120,23 @@ describe("gog normalize", () => {
 
     expect(normalize([entry])[0]?.categories).toBeUndefined();
   });
+
+  it("scores each game's popularity by its review count, among GOG's games", () => {
+    const entry = (id: string, count: number): GogCacheEntry => ({
+      id,
+      title: id,
+      slug: id,
+      developers: [],
+      screenshots: [],
+      genres: [],
+      rating: count ? { average: 4, count } : undefined,
+    });
+    const byName = Object.fromEntries(
+      normalize([entry("a", 900), entry("b", 90), entry("c", 9), entry("d", 0)]).map((pkg) => [
+        pkg.name,
+        pkg.popularity,
+      ]),
+    );
+    expect(byName).toEqual({ a: 1, b: 0.5, c: 0, d: undefined });
+  });
 });

@@ -295,7 +295,9 @@ true`.
     `.txz`), so the existing name-pattern filter has far less to catch —
     its package "series" (the short component code in `PACKAGE
 LOCATION`, e.g. `l` for libraries, `kde`, `y` for games) is a real
-    signal where the name alone isn't. `src/sources/slackware/fetch.ts`.
+    signal where the name alone isn't. Two trees are fetched: `-current`
+    (rolling, the default line) and `slackware64-15.0`, the numbered stable
+    release, as track `15.0` (tuxery/catalog#67). `src/sources/slackware/fetch.ts`.
 15. **Solus** — `eopkg-index.xml.zst` (Zstandard, same "Node's built-in
     zlib decodes it" pattern as Fedora/openSUSE, 4.1MB vs. 67MB
     uncompressed), 11,660 packages in Solus's single rolling repo

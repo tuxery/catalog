@@ -18,5 +18,6 @@ export function normalize(entries: OpenSuseCacheEntry[]): SourcedPackage[] {
     builtAt: entry.builtAt,
     installedSizeBytes: entry.installedSizeBytes,
     formal: entry.formal,
+    track: entry.track,
   }));
 }

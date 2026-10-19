@@ -250,6 +250,10 @@ true`.
     stronger, richer filter signal than Debian's flat Section vocabulary,
     reused via the same `SourcedPackage.section` slot.
     `src/sources/rpm-opensuse/fetch.ts`.
+    Leap 16.0 (`distribution/leap/16.0/repo/{oss,non-oss}/x86_64`: the
+    top-level repo bundles every architecture, a 1 GB `primary.xml`) is
+    fetched too, as track `leap-16.0` (tuxery/catalog#66): ~60,000 more
+    entries, 1,500 with a desktop file.
 12. **Alpine** (main + community) — a custom text format
     (`APKINDEX.tar.gz`, extracted the same way as Arch's `.db` archives
     via the `tar` npm package), single-letter field prefixes (`P:name`,

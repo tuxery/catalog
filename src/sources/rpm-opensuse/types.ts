@@ -27,7 +27,12 @@ export interface OpenSuseCacheEntry {
   installedSizeBytes?: number;
   /** See `RpmPrimaryEntry.formal`. */
   formal?: FormalSignals;
+  /** `LEAP_TRACK` for a Leap package; absent for Tumbleweed, the default line. See `SourcedPackage.track`. */
+  track?: string;
 }
+
+/** The Leap release kept next to Tumbleweed, as a track. */
+export const LEAP_TRACK = "leap-16.0";
 
 export interface OpenSuseFetchMetadata extends FetchMetadata {
   reposFetched: string[];

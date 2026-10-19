@@ -642,14 +642,19 @@ as a second AppImage source` card was investigated and rejected for
 32. **Vendor repos** — software shipped through the vendor's own first-party
     apt repository rather than any distro archive (Brave, Chrome, VS Code,
     Edge, Vivaldi, Opera, Signal, 1Password, Spotify, Tailscale, Sublime,
-    Mullvad), which no distro connector can see. Not exhaustive and can't be:
+    Mullvad, Mozilla's Firefox, Steam, Element, GitHub CLI, Syncthing,
+    Cloudflare WARP, Insync, AnyDesk, TeamViewer, Dropbox, Slack), which no distro connector can see. Not exhaustive and can't be:
     there is no index of vendor repos, so the list is hand-vetted in
     `src/sources/vendor-repos/vendors.ndjson` (package, the vendor's amd64
     `Packages` URL, install page) and each entry's newest stable version
     is read from that index — plain GETs, the same requests `apt update`
-    makes, about a dozen. Display names are the vendor's ("Google Chrome"),
+    makes, about two dozen. Left out after checking: Docker (the engine is a
+    service, Docker Desktop is not in the apt repo), VirtualBox (the package name
+    carries the version), Jellyfin (its repo's versions don't rank), Proton VPN
+    and Mozilla VPN (no stable package in the index), HashiCorp, NodeSource and
+    Kubernetes tools (command-line infrastructure, not apps). Display names are the vendor's ("Google Chrome"),
     which is what lets them merge into Flathub/Snap/AUR listings of the same
-    product; the 15 current entries all do. Newest version is picked with
+    product; the 26 current entries (checked 2026-10-19 against each live index). Newest version is picked with
     dpkg ordering (`_shared/deb-version.ts`), not a naive compare, since
     indexes keep history and `~` pre-releases. One vendor down keeps its
     previous cache row. rpm/zypper repos carry the same products, so apt

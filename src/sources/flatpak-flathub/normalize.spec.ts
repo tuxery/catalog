@@ -190,4 +190,18 @@ describe("flathub normalize", () => {
     expect(pkg?.developer).toBe("Example Team");
     expect(pkg?.longDescription).toBe("A longer description.");
   });
+
+  it("turns the beta branch into the beta risk, and leaves stable with none", () => {
+    const base: FlathubCacheEntry = {
+      id: "org.gimp.GIMP",
+      name: "GIMP",
+      summary: "",
+      hasGameCategory: false,
+      categories: [],
+      screenshots: [],
+    };
+    const [stable, beta] = normalize([base, { ...base, branch: "beta" }]);
+    expect(stable?.risk).toBeUndefined();
+    expect(beta?.risk).toBe("beta");
+  });
 });

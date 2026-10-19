@@ -1,5 +1,11 @@
 import type { FetchMetadata } from "../_shared/metadata";
-import type { FormalSignals, ProjectLinks, ReleaseEntry, StoreCollectionTag, AgeRating } from "../types";
+import type {
+  FormalSignals,
+  ProjectLinks,
+  ReleaseEntry,
+  StoreCollectionTag,
+  AgeRating,
+} from "../types";
 
 /**
  * One `<component>` entry from Flathub's appstream repodata
@@ -65,6 +71,8 @@ export interface FlathubCacheEntry {
   permissions?: string[];
   /** Component type, `<extends>`, `<replaces>` — see `FormalSignals`. Add-on rows become packages too; the pipeline attaches them to the app they extend as companions. */
   formal?: FormalSignals;
+  /** `"beta"` for a row of Flathub's beta repo; absent for the stable one. See `SourcedPackage.risk`. */
+  branch?: "beta";
 }
 
 export interface FlathubFetchMetadata extends FetchMetadata {

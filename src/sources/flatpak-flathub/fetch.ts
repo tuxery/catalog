@@ -15,6 +15,11 @@ import type { FlathubCacheEntry, FlathubFetchMetadata } from "./types";
 const ARCH = "x86_64";
 const REPO_BASE = `https://dl.flathub.org/repo/appstream/${ARCH}`;
 const APPSTREAM_URL = `${REPO_BASE}/appstream.xml.gz`;
+// Flathub's separate beta repo (opt-in in the Flatpak client: `flatpak remote-add
+// flathub-beta`), a different set of builds of its own: the apps' beta branch,
+// the `beta` risk (docs/product-families.md), not a track.
+const BETA_REPO_BASE = `https://dl.flathub.org/beta-repo/appstream/${ARCH}`;
+const BETA_APPSTREAM_URL = `${BETA_REPO_BASE}/appstream.xml.gz`;
 
 // Flathub's own collection API — the same ranked/curated lists its own
 // frontend uses — public and unauthenticated. "Popular" is a top-250
@@ -264,6 +269,33 @@ export function parseAppstream(
 }
 
 /**
+ * Parses the beta repo's appstream XML into cache rows marked `branch:
+ * "beta"`. Apps only (an add-on of a beta app is not worth a row), without the
+ * stable repo's joins: its stats, ratings and collections describe the stable
+ * app, and the per-app API calls would hit the same ids twice. Pure — no I/O.
+ */
+export function parseBetaAppstream(xml: string): FlathubCacheEntry[] {
+  return parseAppstreamXml(xml, { includeAddons: false }).map((entry) =>
+    Object.assign(entry, {
+      iconUrl: resolveIconUrl(entry, BETA_REPO_BASE),
+      branch: "beta" as const,
+    }),
+  );
+}
+
+/** The beta repo's rows, or none when it can't be read: a failing beta repo must not cost the stable one. */
+async function fetchBetaEntries(): Promise<FlathubCacheEntry[]> {
+  try {
+    return parseBetaAppstream(
+      await fetchGunzippedText(BETA_APPSTREAM_URL, "Flathub beta appstream"),
+    );
+  } catch (error) {
+    console.warn(`Flathub beta repo skipped: ${String(error)}`);
+    return [];
+  }
+}
+
+/**
  * Downloads Flathub's appstream repodata — the same file real Flatpak
  * clients use to discover apps — and writes the normalized entries to
  * `cachePath` as NDJSON. Single gzipped XML file, no auth, no pagination;
@@ -284,13 +316,13 @@ export async function fetchFlathub(cachePath: string): Promise<number> {
     fetchAppExtras,
     EXTRAS_CONCURRENCY,
   );
-  const entries = [...apps, ...parsed.filter(isAddonComponent)];
+  const entries = [...apps, ...parsed.filter(isAddonComponent), ...(await fetchBetaEntries())];
 
   writeNdjson(cachePath, entries);
   writeMetadata<FlathubFetchMetadata>(cachePath, {
     source: "flatpak-flathub",
     fetchedAt: new Date().toISOString(),
-    url: APPSTREAM_URL,
+    url: `${APPSTREAM_URL}, ${BETA_APPSTREAM_URL}`,
     entryCount: entries.length,
     arch: ARCH,
   });

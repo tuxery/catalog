@@ -1,7 +1,7 @@
 import { fetchText } from "../_shared/http";
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
-import type { SlackwareCacheEntry, SlackwareFetchMetadata } from "./types";
+import { STABLE_TRACK, type SlackwareCacheEntry, type SlackwareFetchMetadata } from "./types";
 
 // Slackware's official mirror-selection redirector — Node's fetch follows
 // its 302 to a geographically-chosen mirror transparently. A single
@@ -9,7 +9,16 @@ import type { SlackwareCacheEntry, SlackwareFetchMetadata } from "./types";
 // Slackware doesn't split -dev/-doc subpackages the way Debian/Fedora do,
 // so its "series" component (below) is a real signal where the name
 // alone isn't.
-const URL = "https://mirrors.slackware.com/slackware/slackware64-current/PACKAGES.TXT";
+// Two trees: -current (rolling, the default line: what much of the community
+// runs day to day) and the numbered stable release, kept as its own track
+// (docs/product-families.md) so a person on 15.0 finds what they'd get.
+const TREES = [
+  { url: "https://mirrors.slackware.com/slackware/slackware64-current/PACKAGES.TXT" },
+  {
+    url: "https://mirrors.slackware.com/slackware/slackware64-15.0/PACKAGES.TXT",
+    track: STABLE_TRACK,
+  },
+] as const;
 
 /**
  * Splits a Slackware package filename into name and version. Format is
@@ -60,18 +69,24 @@ export function parsePackagesTxt(text: string): SlackwareCacheEntry[] {
 }
 
 /**
- * Downloads Slackware's `PACKAGES.TXT` and writes the parsed entries to
- * `cachePath` as NDJSON. See docs/sources.md.
+ * Downloads Slackware's `PACKAGES.TXT` for -current and for the stable
+ * release (a track of its own) and writes the parsed entries to `cachePath`
+ * as NDJSON. See docs/sources.md.
  */
 export async function fetchSlackware(cachePath: string): Promise<number> {
-  const text = await fetchText(URL, "Slackware PACKAGES.TXT");
-  const entries = parsePackagesTxt(text);
+  const trees = await Promise.all(
+    TREES.map(async (tree) => {
+      const entries = parsePackagesTxt(await fetchText(tree.url, "Slackware PACKAGES.TXT"));
+      return "track" in tree ? entries.map((entry) => ({ ...entry, track: tree.track })) : entries;
+    }),
+  );
+  const entries = trees.flat();
 
   writeNdjson(cachePath, entries);
   writeMetadata<SlackwareFetchMetadata>(cachePath, {
     source: "slackware",
     fetchedAt: new Date().toISOString(),
-    url: URL,
+    url: TREES.map((tree) => tree.url).join(", "),
     entryCount: entries.length,
   });
 

@@ -13,5 +13,6 @@ export function normalize(entries: SlackwareCacheEntry[]): SourcedPackage[] {
     appId: entry.name,
     homepage: entry.homepage,
     section: entry.series,
+    track: entry.track,
   }));
 }

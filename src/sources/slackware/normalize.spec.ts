@@ -24,4 +24,13 @@ describe("slackware normalize", () => {
       },
     ]);
   });
+
+  it("carries the stable release as a track, and leaves -current on the default line", () => {
+    const [current, stable] = normalize([
+      { name: "vim", version: "9.1-1", summary: "", series: "ap" },
+      { name: "vim", version: "9.0-1", summary: "", series: "ap", track: "15.0" },
+    ]);
+    expect(current?.track).toBeUndefined();
+    expect(stable?.track).toBe("15.0");
+  });
 });

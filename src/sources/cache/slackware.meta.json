@@ -1,6 +1,6 @@
 {
   "source": "slackware",
-  "fetchedAt": "2026-10-17T08:47:11.455Z",
-  "url": "https://mirrors.slackware.com/slackware/slackware64-current/PACKAGES.TXT",
-  "entryCount": 1907
+  "fetchedAt": "2026-10-19T19:43:27.673Z",
+  "url": "https://mirrors.slackware.com/slackware/slackware64-current/PACKAGES.TXT, https://mirrors.slackware.com/slackware/slackware64-15.0/PACKAGES.TXT",
+  "entryCount": 3497
 }

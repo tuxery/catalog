@@ -2,6 +2,16 @@ import { describe, expect, it } from "vitest";
 import { normalize } from "./normalize";
 import type { GogCacheEntry } from "./types";
 
+const reviewed = (id: string, count: number): GogCacheEntry => ({
+  id,
+  title: id,
+  slug: id,
+  developers: [],
+  screenshots: [],
+  genres: [],
+  rating: count ? { average: 4, count } : undefined,
+});
+
 describe("gog normalize", () => {
   it("maps a cache entry to a SourcedPackage", () => {
     const entry: GogCacheEntry = {
@@ -122,20 +132,10 @@ describe("gog normalize", () => {
   });
 
   it("scores each game's popularity by its review count, among GOG's games", () => {
-    const entry = (id: string, count: number): GogCacheEntry => ({
-      id,
-      title: id,
-      slug: id,
-      developers: [],
-      screenshots: [],
-      genres: [],
-      rating: count ? { average: 4, count } : undefined,
-    });
     const byName = Object.fromEntries(
-      normalize([entry("a", 900), entry("b", 90), entry("c", 9), entry("d", 0)]).map((pkg) => [
-        pkg.name,
-        pkg.popularity,
-      ]),
+      normalize([reviewed("a", 900), reviewed("b", 90), reviewed("c", 9), reviewed("d", 0)]).map(
+        (pkg) => [pkg.name, pkg.popularity],
+      ),
     );
     expect(byName).toEqual({ a: 1, b: 0.5, c: 0, d: undefined });
   });

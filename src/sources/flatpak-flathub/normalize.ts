@@ -40,5 +40,6 @@ export function normalize(entries: FlathubCacheEntry[]): SourcedPackage[] {
     approxSizeBytes: entry.approxSizeBytes,
     permissions: entry.permissions,
     formal: entry.formal,
+    risk: entry.branch === "beta" ? "beta" : undefined,
   }));
 }

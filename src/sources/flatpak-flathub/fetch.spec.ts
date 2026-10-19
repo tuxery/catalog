@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import {
   buildStoreCollectionTags,
   parseAppstream,
+  parseBetaAppstream,
   rankPopularity,
   resolveAppExtras,
   sumLast7Days,
@@ -248,5 +249,24 @@ describe("resolveAppExtras", () => {
 
     expect(resolved).toHaveLength(1);
     expect(resolved[0]?.installsTotal).toBeUndefined();
+  });
+});
+
+describe("parseBetaAppstream", () => {
+  const entries = parseBetaAppstream(FIXTURE);
+
+  it("marks every app as a beta-branch row, with an icon from the beta repo", () => {
+    expect(entries.map((entry) => entry.branch)).toEqual(["beta", "beta", "beta"]);
+    const cachedOnly = entries.find((entry) => entry.id === "org.example.CachedOnly");
+    expect(cachedOnly?.iconUrl).toBe(
+      "https://dl.flathub.org/beta-repo/appstream/x86_64/icons/128x128/org.example.CachedOnly.png",
+    );
+  });
+
+  it("leaves out the stable repo's joins: ratings, popularity, collections", () => {
+    const [firefox] = entries;
+    expect(firefox?.rating).toBeUndefined();
+    expect(firefox?.popularity).toBeUndefined();
+    expect(firefox?.storeCollections).toBeUndefined();
   });
 });

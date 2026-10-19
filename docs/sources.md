@@ -62,7 +62,11 @@ because a paragraph per cell made the table unreadable.
 1. **Flathub** — `dl.flathub.org/repo/appstream/x86_64/appstream.xml.gz`,
    the appstream repodata Flatpak clients themselves consume. Single
    gzipped XML file, no auth, no pagination. The canonical catalog —
-   exhaustive by construction. Also joins in Flathub's own
+   exhaustive by construction. Flathub's separate beta repo
+   (`dl.flathub.org/beta-repo/appstream/x86_64/appstream.xml.gz`, 171 apps on
+   2026-10-19) is read too, as `risk: "beta"` packages of the same app
+   (tuxery/catalog#61), without the stable repo's stats, ratings and
+   collections; a beta repo that can't be read is skipped, not fatal. Also joins in Flathub's own
    `/api/v2/collection/{verified,recently-added,recently-updated}`
    (`page`/`per_page` must both be passed together — either alone 400s,
    despite the OpenAPI spec listing them as independently optional) as

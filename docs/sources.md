@@ -335,8 +335,11 @@ LOCATION`, e.g. `l` for libraries, `kde`, `y` for games) is a real
     unique in-house software" card on the Tuxery GitHub Project for the
     next distinct category (curated per-distro app stores, not package-
     manager dumps).
-17. **Nixpkgs** — `channels.nixos.org/nixos-unstable/packages.json.br`, a
-    single continuously-updated channel dump — the closest thing to a
+17. **Nixpkgs** — `channels.nixos.org/nixos-unstable/packages.json.br` (the
+    default line), plus the latest numbered stable channel
+    (`nixos-<STABLE_TRACK>`, 26.05 today, a track of its own: tuxery/catalog#65;
+    bump it in `src/sources/nix-nixpkgs/types.ts` with each NixOS release, May and
+    November). Each is a single continuously-updated channel dump — the closest thing to a
     full-catalog file this codebase has seen (149,121 raw entries, more
     than AUR). The `.br` extension is misleading: the server sends a real
     `Content-Encoding: br` header, and Node's `fetch` transparently

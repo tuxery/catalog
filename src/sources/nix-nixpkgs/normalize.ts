@@ -15,6 +15,7 @@ export function normalize(entries: NixpkgsCacheEntry[]): SourcedPackage[] {
     longDescription: entry.longDescription,
     license: entry.license,
     section: entry.prefix,
+    track: entry.track,
     // nixpkgs' `-unwrapped` is the raw package a wrapper derivation of the
     // same name is built from (match/group.ts folds them together); a
     // flavor so the two don't read as the same build in the install drawer.

@@ -2,6 +2,7 @@ import { fetchAlpine } from "./apk-alpine/fetch";
 import { fetchAppCenter } from "./flatpak-appcenter/fetch";
 import { fetchAppImage } from "./appimage/fetch";
 import { fetchManualAppImages } from "./appimage-manual/fetch";
+import { fetchAppImageHub } from "./appimagehub/fetch";
 import { fetchArch } from "./pacman-arch/fetch";
 import { fetchArchAppstream } from "./pacman-arch-appstream/fetch";
 import { fetchAur } from "./pacman-aur/fetch";
@@ -43,6 +44,7 @@ export const REFRESHERS: Record<string, (cachePath: string) => Promise<number>> 
   "snap-snapcraft": fetchSnapcraft,
   appimage: fetchAppImage,
   "appimage-manual": fetchManualAppImages,
+  appimagehub: fetchAppImageHub,
   "pacman-aur": fetchAur,
   "deb-debian": fetchDebian,
   "deb-ubuntu": fetchUbuntu,

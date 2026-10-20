@@ -15,6 +15,7 @@ table is the map, the Project is the tracked work.
 | 2   | Snapcraft             | —                    | Snap       | 10,926  | ⚠️          | Implemented | [3]   |
 | 3   | AppImage              | —                    | AppImage   | 2,165   | ⚠️          | Implemented | [4]   |
 | 3b  | Manual AppImage seed  | —                    | AppImage   | 1       | ✅          | Implemented | [25]  |
+| 3c  | AppImageHub           | —                    | AppImage   | 1,631   | ✅          | Implemented | [33]  |
 | 4   | GitHub Releases       | —                    | Any        | 498     | ❌          | Implemented | [5]   |
 | 5a  | AUR (Arch, community) | —                    | Native     | 117,520 | ✅          | Implemented | [6]   |
 | 5b  | Arch official         | core                 | Native     | 296     | ✅          | Implemented | [7]   |
@@ -131,11 +132,7 @@ because a paragraph per cell made the table unreadable.
 
 4. **AppImage** — [`appimage.github.io/feed.json`](https://appimage.github.io/feed.json)
    (community-curated — not to be confused with the separate
-   AppImageHub.com, first investigated as a second source and found not
-   viable — deprecated API, site behind bot detection — but re-checked
-   2026-09-30: its OCS API at `api.appimagehub.com/ocs/v1/content/data`
-   now answers plain JSON, ~1,600 items with a category (`typename`),
-   version, tags and detail page, so it's a candidate again), filtered
+   AppImageHub.com, now its own source: [33]), filtered
    to entries with a GitHub repo link (~2,165 of ~2,570 as of
    2026-09-30, up from ~1,400 items earlier in September). Each repo
    checked for existence via GitHub's API (dropping the ~5% confirmed
@@ -673,6 +670,29 @@ as a second AppImage source` card was investigated and rejected for
     previous cache row. rpm/zypper repos carry the same products, so apt
     only. Adding a vendor: verify the package is the stable channel and the
     install page is the vendor's own.
+
+33. **AppImageHub** — opendesktop.org's AppImage store, through its OCS API
+    (`api.appimagehub.com/ocs/v1/content/data`, `pagesize=99`: 17 requests,
+    1,631 items on 2026-10-20). The web site's robots.txt disallows
+    everything and the API has no published terms, so this source exists
+    only because opendesktop.org allowed it on 2026-10-20, on conditions:
+    one full sweep a week (the connector skips a sweep less than six days
+    after the last one), the exact User-Agent it was announced with, a link
+    to the item's AppImageHub page as the download destination with
+    visible "Source: AppImageHub" wherever the data is used, and **no
+    public redistribution**: the store's categories and tags are free to
+    use, but names, summaries and versions are written by its uploaders
+    and can't be relicensed. Its cache is therefore not in this repository
+    but in the private `tuxery/source-cache` (`src/sources/_shared/
+cache-path.ts`), the data is never part of an open-data export, and no
+    image or (signed, expiring) download URL is kept. Without that checkout
+    the source reads as empty; a remote `pnpm seed` refuses to publish
+    without it rather than deleting its apps. The 72 store categories map to
+    freedesktop ones (wallpapers, splash screens, skins and widget
+    libraries are dropped), license tags to SPDX, `release-beta`/
+    `release-git` to risks and `original-product` to upstream provenance.
+    On the first sweep, 1,492 apps carried an AppImageHub package, 520 of
+    them new (35 left to classify). `src/sources/appimagehub/fetch.ts`.
 
 ## Cross-cutting notes
 

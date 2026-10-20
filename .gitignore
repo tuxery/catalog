@@ -36,3 +36,6 @@ pnpm-debug.log*
 !.vscode/settings.json
 .idea
 .DS_Store
+
+# The private source caches' checkout in CI (see AGENTS.md "Source cache")
+source-cache-private

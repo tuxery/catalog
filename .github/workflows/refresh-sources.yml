@@ -58,6 +58,20 @@ jobs:
           private-key: ${{ secrets.PUSHINATOR_KEY }}
           permission-contents: write
           permission-pull-requests: write
+          # tuxery/source-cache holds the caches that must not be public
+          # (src/sources/_shared/cache-path.ts): the app needs to be
+          # installed there too, with the same permissions.
+          repositories: catalog,source-cache
+
+      # The private caches, checked out inside the workspace but committed
+      # to their own repository (last step). Never print their content:
+      # this repository's run logs are public.
+      - name: Check out the private source caches
+        uses: actions/checkout@v7
+        with:
+          repository: tuxery/source-cache
+          token: ${{ steps.pushinator.outputs.token }}
+          path: source-cache-private
 
       - uses: helpers4/action/setup-pnpm@6fddd178620e7325d446a246c38a44f979569fc4 # main @ 2026-07-29
         with:
@@ -65,6 +79,7 @@ jobs:
 
       - name: Refresh source caches
         env:
+          TUXERY_PRIVATE_CACHE_DIR: ${{ github.workspace }}/source-cache-private/cache
           # AppImage's version-resolution step and the GitHub Releases
           # source's own search+lookup both use this — 5000 req/hr vs. 60
           # unauthenticated (see docs/sources.md's AppImage/GitHub Releases
@@ -104,6 +119,7 @@ jobs:
         continue-on-error: true
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          TUXERY_PRIVATE_CACHE_DIR: ${{ github.workspace }}/source-cache-private/cache
         run: |
           set -o pipefail
           if [ -z "$GEMINI_API_KEY" ]; then
@@ -147,3 +163,17 @@ jobs:
           add-paths: |
             src/sources/cache/
             config/llm-classifications.json
+
+      # Same weekly PR, in the private repository, for its caches.
+      - name: Open a PR with the updated private caches
+        uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1 @ 2026-04-10
+        with:
+          token: ${{ steps.pushinator.outputs.token }}
+          path: source-cache-private
+          commit-message: "chore(sources): 🔧 scheduled private source cache refresh"
+          title: "chore(sources): scheduled private source cache refresh"
+          body: 'Automated weekly refresh of the private caches (`cache/*.ndjson`), opened by tuxery/catalog''s "Refresh source caches" workflow.'
+          branch: chore/scheduled-source-refresh
+          delete-branch: true
+          add-paths: |
+            cache/

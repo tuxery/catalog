@@ -5,6 +5,7 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { createTursoClient, parseTursoDataset, type PublishReport } from "../src/store";
 import { refreshSources } from "./_refresh-sources";
+import { hasCacheDir, RESTRICTED_SOURCES } from "../src/sources/_shared/cache-path";
 import { readSqldStats, startSqld, waitForSqld } from "./_sqld";
 import { PREVIEW_ENV_PATH, PROD_ENV_PATH, readSharedEnv } from "./_shared-env";
 
@@ -64,6 +65,18 @@ function describeReport(report: PublishReport): string {
   );
 }
 const remote = preview || prod;
+
+// A publish without the private caches (tuxery/source-cache) would delete
+// every app that only they list, and strip their packages from the others:
+// a remote publish refuses to run without them. Local seeds don't need them.
+const missingPrivate = [...RESTRICTED_SOURCES].filter((source) => !hasCacheDir(source));
+if (remote && missingPrivate.length > 0) {
+  console.error(
+    `Refusing to publish: no private cache checkout for ${missingPrivate.join(", ")} ` +
+      "(tuxery/source-cache next to this repository, or TUXERY_PRIVATE_CACHE_DIR).",
+  );
+  process.exit(1);
+}
 
 if (force) refreshSources();
 

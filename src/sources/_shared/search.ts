@@ -1,5 +1,5 @@
-import { fileURLToPath } from "node:url";
 import type { SourcedPackage } from "../types";
+import { cachePathFor } from "./cache-path";
 import { readNdjson } from "./ndjson";
 
 /**
@@ -10,17 +10,14 @@ import { readNdjson } from "./ndjson";
  * Was previously ~17 lines of identical boilerplate hand-copied into
  * each source's own `index.ts`; this is the one place it's implemented.
  *
- * Resolves the cache path relative to *this* module's own location
- * (`_shared/`), not the caller's — safe because `_shared/` sits at the
- * same depth under `sources/` as every per-source folder, so
- * `../cache/<name>.ndjson` lands in the identical place (`src/sources/
- * cache/`) no matter which one computes it.
+ * The cache is `src/sources/cache/<name>.ndjson`, or the private one for a
+ * restricted source (`./cache-path.ts`), read as empty when it isn't there.
  */
 export function makeCacheSearch<T>(
   cacheName: string,
   normalize: (entries: T[]) => SourcedPackage[],
 ): (query: string) => Promise<SourcedPackage[]> {
-  const cachePath = fileURLToPath(new URL(`../cache/${cacheName}.ndjson`, import.meta.url));
+  const cachePath = cachePathFor(cacheName);
 
   return async function search(query: string): Promise<SourcedPackage[]> {
     void query;

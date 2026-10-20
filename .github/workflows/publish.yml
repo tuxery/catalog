@@ -67,8 +67,27 @@ jobs:
         with:
           node-version: "26"
 
+      # The private caches (src/sources/_shared/cache-path.ts): without
+      # them `pnpm seed` refuses to publish rather than dropping their apps.
+      - name: Mint a token for the private source caches
+        id: pushinator
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0 @ 2026-10-02
+        with:
+          client-id: ${{ vars.PUSHINATOR_ID || secrets.PUSHINATOR_ID }}
+          private-key: ${{ secrets.PUSHINATOR_KEY }}
+          repositories: source-cache
+          permission-contents: read
+
+      - name: Check out the private source caches
+        uses: actions/checkout@v7
+        with:
+          repository: tuxery/source-cache
+          token: ${{ steps.pushinator.outputs.token }}
+          path: source-cache-private
+
       - name: Seed Turso preview
         env:
+          TUXERY_PRIVATE_CACHE_DIR: ${{ github.workspace }}/source-cache-private/cache
           TURSO_DB_URL: ${{ secrets.PREVIEW_TURSO_DB_URL }}
           TURSO_DB_AUTH_TOKEN: ${{ secrets.PREVIEW_TURSO_DB_AUTH_TOKEN }}
         run: pnpm seed --preview ${{ inputs.full && '--full' || '' }}
@@ -86,8 +105,27 @@ jobs:
         with:
           node-version: "26"
 
+      # The private caches (src/sources/_shared/cache-path.ts): without
+      # them `pnpm seed` refuses to publish rather than dropping their apps.
+      - name: Mint a token for the private source caches
+        id: pushinator
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0 @ 2026-10-02
+        with:
+          client-id: ${{ vars.PUSHINATOR_ID || secrets.PUSHINATOR_ID }}
+          private-key: ${{ secrets.PUSHINATOR_KEY }}
+          repositories: source-cache
+          permission-contents: read
+
+      - name: Check out the private source caches
+        uses: actions/checkout@v7
+        with:
+          repository: tuxery/source-cache
+          token: ${{ steps.pushinator.outputs.token }}
+          path: source-cache-private
+
       - name: Seed Turso prod
         env:
+          TUXERY_PRIVATE_CACHE_DIR: ${{ github.workspace }}/source-cache-private/cache
           TURSO_DB_URL: ${{ secrets.PROD_TURSO_DB_URL }}
           TURSO_DB_AUTH_TOKEN: ${{ secrets.PROD_TURSO_DB_AUTH_TOKEN }}
         run: pnpm seed --prod ${{ inputs.full && '--full' || '' }}

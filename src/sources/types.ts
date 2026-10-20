@@ -17,6 +17,7 @@ export type PackageSourceId =
   | "snap-snapcraft"
   | "appimage"
   | "appimage-manual"
+  | "appimagehub"
   | "pacman-aur"
   | "deb-debian"
   | "deb-ubuntu"

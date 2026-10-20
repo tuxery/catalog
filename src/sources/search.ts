@@ -3,6 +3,7 @@ import { searchAlpine } from "./apk-alpine";
 import { searchAppCenter } from "./flatpak-appcenter";
 import { searchAppImage } from "./appimage";
 import { searchManualAppImages } from "./appimage-manual";
+import { searchAppImageHub } from "./appimagehub";
 import { searchArch } from "./pacman-arch";
 import { searchArchAppstream } from "./pacman-arch-appstream";
 import { searchAur } from "./pacman-aur";
@@ -44,6 +45,7 @@ export async function searchAllSources(query: string): Promise<SourcedPackage[]>
     searchSnapcraft(query),
     searchAppImage(query),
     searchManualAppImages(query),
+    searchAppImageHub(query),
     searchAur(query),
     searchDebian(query),
     searchUbuntu(query),

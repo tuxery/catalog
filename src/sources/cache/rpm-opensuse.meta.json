@@ -1,8 +1,8 @@
 {
   "source": "rpm-opensuse",
-  "fetchedAt": "2026-10-19T19:42:57.770Z",
+  "fetchedAt": "2026-10-24T09:05:18.390Z",
   "url": "https://downloadcontent.opensuse.org/tumbleweed/repo/oss, https://downloadcontent.opensuse.org/tumbleweed/repo/non-oss, https://downloadcontent.opensuse.org/distribution/leap/16.0/repo/oss/x86_64, https://downloadcontent.opensuse.org/distribution/leap/16.0/repo/non-oss/x86_64",
-  "entryCount": 113512,
+  "entryCount": 113759,
   "reposFetched": [
     "oss",
     "non-oss",

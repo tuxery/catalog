@@ -1,8 +1,8 @@
 {
   "source": "deb-popos",
-  "fetchedAt": "2026-10-19T19:44:04.003Z",
+  "fetchedAt": "2026-10-24T09:06:16.229Z",
   "url": "https://apt.pop-os.org/release/dists/resolute/main/binary-amd64/Packages.gz",
-  "entryCount": 78,
+  "entryCount": 75,
   "release": "resolute",
   "component": "main",
   "arch": "amd64"

@@ -1,7 +1,7 @@
 {
   "source": "flatpak-flathub",
-  "fetchedAt": "2026-10-19T19:07:31.763Z",
+  "fetchedAt": "2026-10-24T08:30:44.769Z",
   "url": "https://dl.flathub.org/repo/appstream/x86_64/appstream.xml.gz, https://dl.flathub.org/beta-repo/appstream/x86_64/appstream.xml.gz",
-  "entryCount": 4410,
+  "entryCount": 4414,
   "arch": "x86_64"
 }

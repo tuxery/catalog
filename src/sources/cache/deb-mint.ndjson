@@ -95,14 +95,14 @@
 {"name":"webapp-manager","description":"Web Application Manager","version":"1.4.6","section":"admin","formal":{"depends":["gir1.2-xapp-1.0","python3","python3-gi","python3-bs4","python3-configobj","python3-pil","python3-setproctitle","python3-tldextract","xapps-common","dconf-gsettings-backend","gsettings-backend"]}}
 {"name":"wine-desktop-files","description":"Microsoft Windows Compatibility Layer","version":"5.0.3","section":"admin","formal":{"base":"wine-installer"}}
 {"name":"wine-installer","description":"Microsoft Windows Compatibility Layer","version":"5.0.3","section":"admin","formal":{"depends":["wine","wine-desktop-files"]}}
-{"name":"xapp-aiff-thumbnailer","description":"AIFF thumbnailer","version":"1.2.9","section":"gnome","formal":{"base":"xapp-thumbnailers","depends":["xapp-thumbnailers-common","python3-mutagen"]}}
-{"name":"xapp-appimage-thumbnailer","description":"AppImage thumbnailer","version":"1.2.9","section":"gnome","formal":{"base":"xapp-thumbnailers","depends":["xapp-thumbnailers-common","python3-pyelftools","squashfs-tools"]}}
-{"name":"xapp-epub-thumbnailer","description":"ePub thumbnailer","version":"1.2.9","section":"gnome","formal":{"base":"xapp-thumbnailers","depends":["xapp-thumbnailers-common"]}}
-{"name":"xapp-gimp-thumbnailer","description":"Gimp thumbnailer","version":"1.2.9","section":"gnome","formal":{"base":"xapp-thumbnailers","depends":["xapp-thumbnailers-common"]}}
-{"name":"xapp-jxl-thumbnailer","description":"JPEG XL thumbnailer","version":"1.2.9","section":"gnome","formal":{"base":"xapp-thumbnailers","depends":["xapp-thumbnailers-common","libjxl-tools"]}}
-{"name":"xapp-mp3-thumbnailer","description":"MP3 thumbnailer","version":"1.2.9","section":"gnome","formal":{"base":"xapp-thumbnailers","depends":["xapp-thumbnailers-common","python3-eyed3"]}}
-{"name":"xapp-ora-thumbnailer","description":"OpenRaster thumbnailer","version":"1.2.9","section":"gnome","formal":{"base":"xapp-thumbnailers","depends":["xapp-thumbnailers-common"]}}
-{"name":"xapp-raw-thumbnailer","description":"RAW thumbnailer","version":"1.2.9","section":"gnome","formal":{"base":"xapp-thumbnailers","depends":["xapp-thumbnailers-common","dcraw"]}}
+{"name":"xapp-aiff-thumbnailer","description":"AIFF thumbnailer","version":"1.2.10","section":"gnome","formal":{"base":"xapp-thumbnailers","depends":["xapp-thumbnailers-common","python3-mutagen"]}}
+{"name":"xapp-appimage-thumbnailer","description":"AppImage thumbnailer","version":"1.2.10","section":"gnome","formal":{"base":"xapp-thumbnailers","depends":["xapp-thumbnailers-common","python3-pyelftools","squashfs-tools"]}}
+{"name":"xapp-epub-thumbnailer","description":"ePub thumbnailer","version":"1.2.10","section":"gnome","formal":{"base":"xapp-thumbnailers","depends":["xapp-thumbnailers-common"]}}
+{"name":"xapp-gimp-thumbnailer","description":"Gimp thumbnailer","version":"1.2.10","section":"gnome","formal":{"base":"xapp-thumbnailers","depends":["xapp-thumbnailers-common"]}}
+{"name":"xapp-jxl-thumbnailer","description":"JPEG XL thumbnailer","version":"1.2.10","section":"gnome","formal":{"base":"xapp-thumbnailers","depends":["xapp-thumbnailers-common","libjxl-tools"]}}
+{"name":"xapp-mp3-thumbnailer","description":"MP3 thumbnailer","version":"1.2.10","section":"gnome","formal":{"base":"xapp-thumbnailers","depends":["xapp-thumbnailers-common","python3-eyed3"]}}
+{"name":"xapp-ora-thumbnailer","description":"OpenRaster thumbnailer","version":"1.2.10","section":"gnome","formal":{"base":"xapp-thumbnailers","depends":["xapp-thumbnailers-common"]}}
+{"name":"xapp-raw-thumbnailer","description":"RAW thumbnailer","version":"1.2.10","section":"gnome","formal":{"base":"xapp-thumbnailers","depends":["xapp-thumbnailers-common","dcraw"]}}
 {"name":"xapp-symbolic-icons","description":"Set of symbolic icons for GTK applications","version":"1.0.9","homepage":"https://github.com/xapp-project/xapp-symbolic-icons","section":"x11","formal":{"depends":["python3"]}}
-{"name":"xapp-thumbnailers-common","description":"Common files for XApp thumbnailers","version":"1.2.9","section":"gnome","formal":{"base":"xapp-thumbnailers","depends":["python3","python3-pil","gir1.2-xapp-1.0"]}}
-{"name":"xapp-vorbiscomment-thumbnailer","description":"VorbisComment thumbnailer","version":"1.2.9","section":"gnome","formal":{"base":"xapp-thumbnailers","depends":["xapp-thumbnailers-common","python3-mutagen"]}}
+{"name":"xapp-thumbnailers-common","description":"Common files for XApp thumbnailers","version":"1.2.10","section":"gnome","formal":{"base":"xapp-thumbnailers","depends":["python3","python3-pil","gir1.2-xapp-1.0"]}}
+{"name":"xapp-vorbiscomment-thumbnailer","description":"VorbisComment thumbnailer","version":"1.2.10","section":"gnome","formal":{"base":"xapp-thumbnailers","depends":["xapp-thumbnailers-common","python3-mutagen"]}}

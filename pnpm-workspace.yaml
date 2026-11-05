@@ -36,7 +36,12 @@ minimumReleaseAgeExclude:
 # vite's postcss resolves source-map-js 1.2.1 (event-loop DoS,
 # GHSA-68fv-2mgg-jv7q, fixed in 1.2.2). Dev tooling only, pinned until
 # the parents' own ranges move past them.
+#
+# vitest resolves vite 8.2.0-8.2.3 (launch-editor existence check bypass,
+# GHSA-587h-7wmj-h5pm, fixed in 8.2.4). Dev tooling only, pinned until
+# vitest's own range moves past it.
 overrides:
   "@xmldom/xmldom": ">=0.9.12"
   "tinypool": ">=2.1.2"
   "source-map-js": ">=1.2.2"
+  "vite": ">=8.2.4"

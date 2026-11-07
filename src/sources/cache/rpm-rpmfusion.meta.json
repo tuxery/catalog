@@ -1,8 +1,8 @@
 {
   "source": "rpm-rpmfusion",
-  "fetchedAt": "2026-10-19T19:43:16.569Z",
-  "url": "https://download1.rpmfusion.org/free/fedora/releases/44/Everything/x86_64/os, https://download1.rpmfusion.org/nonfree/fedora/releases/44/Everything/x86_64/os, https://download1.rpmfusion.org/free/fedora/updates/44/x86_64, https://download1.rpmfusion.org/nonfree/fedora/updates/44/x86_64",
-  "entryCount": 554,
-  "release": "44",
+  "fetchedAt": "2026-11-07T11:25:48.610Z",
+  "url": "https://download1.rpmfusion.org/free/fedora/releases/45/Everything/x86_64/os, https://download1.rpmfusion.org/nonfree/fedora/releases/45/Everything/x86_64/os, https://download1.rpmfusion.org/free/fedora/updates/45/x86_64, https://download1.rpmfusion.org/nonfree/fedora/updates/45/x86_64",
+  "entryCount": 535,
+  "release": "45",
   "arch": "x86_64"
 }

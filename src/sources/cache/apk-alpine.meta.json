@@ -1,8 +1,8 @@
 {
   "source": "apk-alpine",
-  "fetchedAt": "2026-10-31T10:38:45.317Z",
+  "fetchedAt": "2026-11-07T11:25:49.968Z",
   "url": "https://dl-cdn.alpinelinux.org/alpine/latest-stable/{main,community}/x86_64/APKINDEX.tar.gz",
-  "entryCount": 28668,
+  "entryCount": 28669,
   "reposFetched": [
     "main",
     "community"

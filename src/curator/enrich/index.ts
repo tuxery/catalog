@@ -580,7 +580,15 @@ function pickLinks(packages: SourcedPackage[]): ProjectLinks | undefined {
  * them up counts the same votes and installs once per package.
  */
 function distinctListings(packages: SourcedPackage[]): SourcedPackage[] {
-  return [...new Map(packages.map((pkg) => [packageKey(pkg), pkg])).values()];
+  const listings = new Map<string, SourcedPackage>();
+  for (const pkg of packages) {
+    const key = packageKey(pkg);
+    const kept = listings.get(key);
+    // Flathub's beta rows share the stable listing's key but carry none of
+    // its stats, so a later beta row must not replace the stable one.
+    if (!kept || (kept.risk && !pkg.risk)) listings.set(key, pkg);
+  }
+  return [...listings.values()];
 }
 
 /**

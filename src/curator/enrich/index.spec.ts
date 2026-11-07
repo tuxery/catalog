@@ -1043,6 +1043,20 @@ describe("enrichApps", () => {
     expect(app?.installsLast7Days).toBe(5_800);
   });
 
+  it("keeps the stable listing's installs when a beta row of the same listing follows it", () => {
+    const matched: MatchedApp[] = [
+      {
+        id: "flathub:example",
+        packages: [
+          pkg({ source: "flatpak-flathub", appId: "org.example.App", installsTotal: 1_000_000 }),
+          pkg({ source: "flatpak-flathub", appId: "org.example.App", risk: "beta" }),
+        ],
+      },
+    ];
+
+    expect(enrichApps(matched)[0]?.installsTotal).toBe(1_000_000);
+  });
+
   it("leaves installsTotal/installsLast7Days undefined when no member package reports either", () => {
     const matched: MatchedApp[] = [
       { id: "aur:example", packages: [pkg({ source: "pacman-aur", name: "example" })] },

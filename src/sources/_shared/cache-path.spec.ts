@@ -1,6 +1,16 @@
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
-import { cachePathFor, hasCacheDir, RESTRICTED_SOURCES } from "./cache-path";
+import { cachePathFor, hasCacheDir, hasRestrictedPackage, RESTRICTED_SOURCES } from "./cache-path";
+
+describe("hasRestrictedPackage", () => {
+  it("finds a restricted package among an app's others", () => {
+    expect(hasRestrictedPackage([{ source: "deb-debian" }, { source: "appimagehub" }])).toBe(true);
+  });
+
+  it("is false for public sources only", () => {
+    expect(hasRestrictedPackage([{ source: "deb-debian" }])).toBe(false);
+  });
+});
 
 describe("cachePathFor", () => {
   it("keeps a public source's cache in this repository", () => {

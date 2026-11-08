@@ -17,6 +17,15 @@ import { fileURLToPath } from "node:url";
  */
 export const RESTRICTED_SOURCES: ReadonlySet<string> = new Set(["appimagehub"]);
 
+/**
+ * Whether any of `packages` comes from a restricted source. A merged app's
+ * name or description can come from such a package, so tools that send those
+ * fields out of the pipeline, or log them publicly, skip the whole app.
+ */
+export function hasRestrictedPackage(packages: readonly { source: string }[]): boolean {
+  return packages.some((pkg) => RESTRICTED_SOURCES.has(pkg.source));
+}
+
 const PUBLIC_CACHE_DIR = fileURLToPath(new URL("../cache/", import.meta.url));
 
 /**

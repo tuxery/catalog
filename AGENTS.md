@@ -95,8 +95,9 @@ redistribution (only `appimagehub` today, `RESTRICTED_SOURCES` in
 one (the dev container clones it) or `TUXERY_PRIVATE_CACHE_DIR`. Without it
 the source reads as empty and everything still builds; a remote publish
 refuses to run. Never copy such a cache into `src/sources/cache/`, print it
-in a workflow log (they are public) or upload it as an artifact. A source
-goes private only when its own terms or maintainers say so.
+in a workflow log (they are public), upload it as an artifact or send it to
+an outside service (`scripts/classify-llm.ts` skips any app carrying such a
+package, `hasRestrictedPackage`). A source goes private only when its own terms or maintainers say so.
 
 Every `fetch.ts` also writes a `cache/<source>.meta.json` sidecar (via
 `_shared/metadata.ts`) recording when and from where the data was fetched —

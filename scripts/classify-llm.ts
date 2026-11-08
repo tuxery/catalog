@@ -8,6 +8,7 @@ import {
   type LlmClassificationEntry,
 } from "../src/curator/enrich/llm-classifications";
 import { buildDataset } from "../src/pipeline";
+import { hasRestrictedPackage } from "../src/sources/_shared/cache-path";
 import { loadLlmModels, type LlmModel } from "../src/curator/enrich/llm-models";
 import {
   buildSystemPrompt,
@@ -271,6 +272,9 @@ async function main(): Promise<void> {
   const groups = queueGroups(
     dataset.apps,
     (app) =>
+      // Names and descriptions go to the LLM, to this run's public log and,
+      // through `reason`, to a public file: never a restricted source's.
+      !hasRestrictedPackage(app.packages) &&
       (sourceFilter === undefined || app.packages.some((pkg) => pkg.source === sourceFilter)) &&
       (!existing.has(app.id) || (retryLow && existing.get(app.id)?.confidence === "low")),
   );

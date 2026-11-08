@@ -1,6 +1,16 @@
 import { gunzipSync, zstdDecompressSync } from "node:zlib";
 import { fetchOrThrow as fetchOrThrowHttp, HttpError } from "helpers4/promise";
 
+/** Who is asking, so a source's operators can recognise this traffic and reach us. */
+export const USER_AGENT = "tuxery-catalog (+https://github.com/tuxery/catalog)";
+
+/** `init` with our User-Agent, unless it already sets one (AppImageHub's agreed one, say). */
+export function withUserAgent(init?: RequestInit): RequestInit {
+  const headers = new Headers(init?.headers);
+  if (!headers.has("User-Agent")) headers.set("User-Agent", USER_AGENT);
+  return { ...init, headers };
+}
+
 /**
  * Fetches `url` and throws a consistent, source-labeled error on any
  * non-2xx response — every connector's `fetch.ts` used to repeat this
@@ -15,7 +25,7 @@ export async function fetchOrThrow(
   init?: RequestInit,
 ): Promise<Response> {
   try {
-    return await fetchOrThrowHttp(url, init);
+    return await fetchOrThrowHttp(url, withUserAgent(init));
   } catch (error) {
     // helpers4's HttpError names the URL; the logs read better by source.
     if (!(error instanceof HttpError)) throw error;

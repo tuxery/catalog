@@ -1,6 +1,28 @@
 import { gzipSync, zstdCompressSync } from "node:zlib";
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { fetchGunzippedText, fetchOrThrow, fetchText, fetchZstdText } from "./http";
+import {
+  fetchGunzippedText,
+  fetchOrThrow,
+  fetchText,
+  fetchZstdText,
+  USER_AGENT,
+  withUserAgent,
+} from "./http";
+
+describe("withUserAgent", () => {
+  it("adds our User-Agent and keeps the other options", () => {
+    const init = withUserAgent({ method: "POST", headers: { Accept: "text/plain" } });
+    const headers = new Headers(init.headers);
+    expect(init.method).toBe("POST");
+    expect(headers.get("User-Agent")).toBe(USER_AGENT);
+    expect(headers.get("Accept")).toBe("text/plain");
+  });
+
+  it("keeps a User-Agent the caller sets", () => {
+    const headers = new Headers(withUserAgent({ headers: { "User-Agent": "agreed" } }).headers);
+    expect(headers.get("User-Agent")).toBe("agreed");
+  });
+});
 
 describe("fetchOrThrow", () => {
   afterEach(() => {
@@ -38,7 +60,10 @@ describe("fetchOrThrow", () => {
 
     await fetchOrThrow("https://example.com", "Example", { headers: { "X-Test": "1" } });
 
-    expect(fetchMock).toHaveBeenCalledWith("https://example.com", { headers: { "X-Test": "1" } });
+    const headers = new Headers(fetchMock.mock.calls[0]?.[1]?.headers);
+    expect(fetchMock.mock.calls[0]?.[0]).toBe("https://example.com");
+    expect(headers.get("X-Test")).toBe("1");
+    expect(headers.get("User-Agent")).toBe(USER_AGENT);
   });
 });
 

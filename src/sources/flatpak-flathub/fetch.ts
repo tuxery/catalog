@@ -1,7 +1,7 @@
 import { sumBy } from "helpers4/array";
 import { parallel } from "helpers4/promise";
 import { isAddonComponent, parseAppstreamXml, resolveIconUrl } from "../_shared/appstream";
-import { fetchOrThrow, fetchGunzippedText } from "../_shared/http";
+import { fetchOrThrow, fetchGunzippedText, withUserAgent } from "../_shared/http";
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
 import { fetchOdrsRatings, pickOdrsRating, type OdrsRating } from "../_shared/odrs";
@@ -208,7 +208,7 @@ export function toAppExtras(
 }
 
 async function fetchJson<T>(url: string): Promise<T | undefined> {
-  const response = await fetch(url);
+  const response = await fetch(url, withUserAgent());
   if (!response.ok) return undefined;
   return (await response.json()) as T;
 }

@@ -1,0 +1,674 @@
+{
+  "checkedOn": "2026-11-08",
+  "disclaimer": "Reading of public documents, not legal advice. \"unclear\" means no document settles it, not that it's allowed.",
+  "sources": {
+    "apk-alpine": {
+      "verdict": "low-risk-no-terms",
+      "automatedFetch": "public-mirror-no-terms",
+      "publicStorage": "unclear",
+      "attribution": null,
+      "fieldLicense": "Each package's own license; no license stated for the index itself.",
+      "evidence": [
+        {
+          "url": "https://dl-cdn.alpinelinux.org/alpine/latest-stable",
+          "read": true,
+          "finding": "Alpine: public package index made for package managers. No terms on reusing its metadata found."
+        },
+        {
+          "url": "https://wiki.alpinelinux.org/wiki/Alpine_Linux:Copyrights",
+          "read": false,
+          "finding": "Blocked by the wiki's anti-bot page, not read."
+        }
+      ]
+    },
+    "appimage": {
+      "verdict": "clear",
+      "automatedFetch": "allowed",
+      "publicStorage": "allowed",
+      "attribution": "Keep the repository's MIT notice with any copy (not done yet in src/sources/cache/).",
+      "fieldLicense": "MIT on the repository; icons and screenshots belong to each project.",
+      "evidence": [
+        {
+          "url": "https://github.com/AppImage/appimage.github.io",
+          "read": true,
+          "finding": "README offers feed.json for reuse and lists catalogs built from it; asks to contact them on IRC for changes. LICENSE is MIT."
+        }
+      ],
+      "note": "The per-repo lookups go through the GitHub API, see github-releases."
+    },
+    "appimage-manual": {
+      "verdict": "clear",
+      "automatedFetch": "not-applicable",
+      "publicStorage": "allowed",
+      "attribution": null,
+      "fieldLicense": "Written by Tuxery; names a third-party app.",
+      "evidence": [],
+      "note": "Hand-written seed, nothing fetched from a catalog."
+    },
+    "appimagehub": {
+      "verdict": "clear",
+      "automatedFetch": "allowed",
+      "publicStorage": "forbidden",
+      "attribution": "Link to the app's detail page with a visible \"Source: AppImageHub\".",
+      "fieldLicense": "Names, summaries and versions can't be relicensed; categories and tags are free to use.",
+      "evidence": [
+        {
+          "url": "https://github.com/tuxery/catalog/blob/main/docs/sources.md",
+          "read": true,
+          "finding": "Written permission from opendesktop.org on 2026-10-20: one sweep a week, exact User-Agent, private cache, no dataset redistribution."
+        }
+      ],
+      "note": "Private cache in tuxery/source-cache."
+    },
+    "deb-debian": {
+      "verdict": "low-risk-no-terms",
+      "automatedFetch": "public-mirror-no-terms",
+      "publicStorage": "unclear",
+      "attribution": null,
+      "fieldLicense": "Each package's own license; no license stated for the index itself.",
+      "evidence": [
+        {
+          "url": "https://deb.debian.org/debian/dists",
+          "read": true,
+          "finding": "Debian: public package index made for package managers. No terms on reusing its metadata found."
+        },
+        {
+          "url": "https://www.debian.org/legal/licenses/",
+          "read": true,
+          "finding": "Licensing is decided per package. Does not say whether descriptions or metadata are covered."
+        },
+        {
+          "url": "https://popcon.debian.org/",
+          "read": true,
+          "finding": "Popularity data is public; no terms found."
+        }
+      ]
+    },
+    "deb-debian-appstream": {
+      "verdict": "low-risk-no-terms",
+      "automatedFetch": "public-mirror-no-terms",
+      "publicStorage": "unclear",
+      "attribution": "Depends on each app's metadata_license, which we don't keep.",
+      "fieldLicense": "Per app: permissive metadata_license. Screenshots and icons: no license stated; we keep their URLs.",
+      "evidence": [
+        {
+          "url": "https://www.freedesktop.org/software/appstream/docs/chap-Metadata.html",
+          "read": true,
+          "finding": "AppStream requires a metadata_license from a vetted permissive list (FSFAP, MIT, CC0-1.0, CC-BY, CC-BY-SA, GFDL...) so that metadata can be combined into catalogs. Some of those ask for attribution or share-alike."
+        },
+        {
+          "url": "https://deb.debian.org/debian/dists",
+          "read": true,
+          "finding": "Debian: AppStream catalog published for software centers."
+        },
+        {
+          "url": "https://deb.debian.org/debian/dists/trixie/main/dep11/Components-amd64.yml.gz",
+          "read": true,
+          "finding": "Measured: 0 MetadataLicense keys in the catalog, so the per-app license can't be read from it."
+        }
+      ]
+    },
+    "deb-deepin": {
+      "verdict": "low-risk-no-terms",
+      "automatedFetch": "public-mirror-no-terms",
+      "publicStorage": "unclear",
+      "attribution": null,
+      "fieldLicense": "Each package's own license; no license stated for the index itself.",
+      "evidence": [
+        {
+          "url": "https://community-packages.deepin.com/deepin/dists",
+          "read": true,
+          "finding": "Deepin: public package index made for package managers. No terms on reusing its metadata found."
+        },
+        {
+          "url": "https://www.deepin.org/en/agreement/",
+          "read": false,
+          "finding": "Page answers but holds no readable text without JavaScript."
+        }
+      ]
+    },
+    "deb-mint": {
+      "verdict": "low-risk-no-terms",
+      "automatedFetch": "public-mirror-no-terms",
+      "publicStorage": "unclear",
+      "attribution": null,
+      "fieldLicense": "Each package's own license; no license stated for the index itself.",
+      "evidence": [
+        {
+          "url": "http://packages.linuxmint.com",
+          "read": true,
+          "finding": "Linux Mint: public package index made for package managers. No terms on reusing its metadata found."
+        },
+        {
+          "url": "https://linuxmint.com/about.php",
+          "read": true,
+          "finding": "Footer: \"All rights reserved\", about the distribution, nothing about package metadata."
+        }
+      ]
+    },
+    "deb-mxlinux": {
+      "verdict": "low-risk-no-terms",
+      "automatedFetch": "public-mirror-no-terms",
+      "publicStorage": "unclear",
+      "attribution": null,
+      "fieldLicense": "Each package's own license; no license stated for the index itself.",
+      "evidence": [
+        {
+          "url": "https://mxrepo.com/mx/repo",
+          "read": true,
+          "finding": "MX Linux: public package index made for package managers. No terms on reusing its metadata found."
+        },
+        {
+          "url": "https://mxlinux.org/terms-of-use/",
+          "read": false,
+          "finding": "Answers 403 to automated requests, not read."
+        }
+      ]
+    },
+    "deb-popos": {
+      "verdict": "low-risk-no-terms",
+      "automatedFetch": "public-mirror-no-terms",
+      "publicStorage": "unclear",
+      "attribution": null,
+      "fieldLicense": "Each package's own license; no license stated for the index itself.",
+      "evidence": [
+        {
+          "url": "https://apt.pop-os.org/release/dists",
+          "read": true,
+          "finding": "Pop!_OS: public package index made for package managers. No terms on reusing its metadata found."
+        },
+        {
+          "url": "https://system76.com/legal/terms-of-service",
+          "read": false,
+          "finding": "404: the terms page wasn't found at this address."
+        }
+      ]
+    },
+    "deb-ubuntu": {
+      "verdict": "low-risk-no-terms",
+      "automatedFetch": "public-mirror-no-terms",
+      "publicStorage": "unclear",
+      "attribution": null,
+      "fieldLicense": "Each package's own license; no license stated for the index itself.",
+      "evidence": [
+        {
+          "url": "https://archive.ubuntu.com/ubuntu/dists",
+          "read": true,
+          "finding": "Ubuntu: public package index made for package managers. No terms on reusing its metadata found."
+        },
+        {
+          "url": "https://canonical.com/legal/intellectual-property-policy",
+          "read": true,
+          "finding": "Updated 2015. Allows sites about Ubuntu if no endorsement is implied. Says packages and binaries are in many cases Canonical's copyright, distinct from the components. Does not name package metadata."
+        }
+      ]
+    },
+    "deb-ubuntu-appstream": {
+      "verdict": "low-risk-no-terms",
+      "automatedFetch": "public-mirror-no-terms",
+      "publicStorage": "unclear",
+      "attribution": "Depends on each app's metadata_license, which we don't keep.",
+      "fieldLicense": "Per app: permissive metadata_license. Screenshots and icons: no license stated; we keep their URLs.",
+      "evidence": [
+        {
+          "url": "https://www.freedesktop.org/software/appstream/docs/chap-Metadata.html",
+          "read": true,
+          "finding": "AppStream requires a metadata_license from a vetted permissive list (FSFAP, MIT, CC0-1.0, CC-BY, CC-BY-SA, GFDL...) so that metadata can be combined into catalogs. Some of those ask for attribution or share-alike."
+        },
+        {
+          "url": "https://archive.ubuntu.com/ubuntu/dists",
+          "read": true,
+          "finding": "Ubuntu: AppStream catalog published for software centers."
+        },
+        {
+          "url": "https://canonical.com/legal/intellectual-property-policy",
+          "read": true,
+          "finding": "Updated 2015. Allows sites about Ubuntu if no endorsement is implied. Says packages and binaries are in many cases Canonical's copyright, distinct from the components. Does not name package metadata."
+        }
+      ]
+    },
+    "ebuild-gentoo": {
+      "verdict": "clear",
+      "automatedFetch": "allowed",
+      "publicStorage": "allowed",
+      "attribution": "Keep the GPL-2 notice with any copy of ebuild text (not done yet in src/sources/cache/).",
+      "fieldLicense": "GPL-2 on the ebuild tree, DESCRIPTION fields included.",
+      "evidence": [
+        {
+          "url": "https://gitweb.gentoo.org/repo/gentoo.git",
+          "read": true,
+          "finding": "Ebuilds carry the header \"Distributed under the terms of the GNU General Public License v2\"."
+        },
+        {
+          "url": "https://distfiles.gentoo.org/snapshots/portage-latest.tar.xz",
+          "read": true,
+          "finding": "Public snapshot made for download."
+        }
+      ]
+    },
+    "eopkg-solus": {
+      "verdict": "low-risk-no-terms",
+      "automatedFetch": "public-mirror-no-terms",
+      "publicStorage": "unclear",
+      "attribution": null,
+      "fieldLicense": "Repository recipes under several licenses per file (SPDX identifiers); no license stated for the built index.",
+      "evidence": [
+        {
+          "url": "https://github.com/getsolus/packages/blob/main/LICENSE.md",
+          "read": true,
+          "finding": "Files are licensed per time and manner of contribution, indicated with SPDX identifiers."
+        },
+        {
+          "url": "https://packages.getsol.us/shannon/eopkg-index.xml.zst",
+          "read": true,
+          "finding": "Public index made for the package manager."
+        }
+      ]
+    },
+    "flatpak-appcenter": {
+      "verdict": "low-risk-no-terms",
+      "automatedFetch": "public-mirror-no-terms",
+      "publicStorage": "unclear",
+      "attribution": "Depends on each app's metadata_license, which we don't keep.",
+      "fieldLicense": "Per app: permissive metadata_license. Screenshots and icons: no license stated; we keep their URLs.",
+      "evidence": [
+        {
+          "url": "https://www.freedesktop.org/software/appstream/docs/chap-Metadata.html",
+          "read": true,
+          "finding": "AppStream requires a metadata_license from a vetted permissive list (FSFAP, MIT, CC0-1.0, CC-BY, CC-BY-SA, GFDL...) so that metadata can be combined into catalogs. Some of those ask for attribution or share-alike."
+        },
+        {
+          "url": "https://flatpak.elementary.io/repo/appstream",
+          "read": true,
+          "finding": "elementary: AppStream catalog published for software centers."
+        },
+        {
+          "url": "https://elementary.io/legal",
+          "read": false,
+          "finding": "404: no terms page at this address."
+        }
+      ],
+      "note": "Ratings come from ODRS, see flatpak-flathub."
+    },
+    "flatpak-flathub": {
+      "verdict": "owner-review",
+      "automatedFetch": "forbidden-by-text",
+      "publicStorage": "unclear",
+      "attribution": "Depends on each app's metadata_license, which neither the catalog nor the API exposes.",
+      "fieldLicense": "Per app: permissive metadata_license (AppStream); FSFAP suggested when upstream gives none. Screenshots and icons: no license stated.",
+      "evidence": [
+        {
+          "url": "https://flathub.org/en/terms-and-conditions",
+          "read": true,
+          "finding": "Forbids using the site \"to spam, phish, pharm, pretext, spider, crawl, or scrape\" and reproducing or copying \"any portion of the Service\" without written permission. No date, no mention of an API or metadata; the wording reads like a store template (\"purchasing something from us\")."
+        },
+        {
+          "url": "https://flathub.org/api/v2/openapi.json",
+          "read": true,
+          "finding": "Public API, including stats and appstream routes, with no termsOfService."
+        },
+        {
+          "url": "https://dl.flathub.org/repo/appstream/x86_64/appstream.xml.gz",
+          "read": true,
+          "finding": "Measured: 4,830 components, 0 metadata_license tags. The API also returned none for the 6 apps sampled."
+        },
+        {
+          "url": "https://www.freedesktop.org/software/appstream/docs/chap-Metadata.html",
+          "read": true,
+          "finding": "AppStream requires a metadata_license from a vetted permissive list (FSFAP, MIT, CC0-1.0, CC-BY, CC-BY-SA, GFDL...) so that metadata can be combined into catalogs. Some of those ask for attribution or share-alike."
+        },
+        {
+          "url": "https://docs.flathub.org/docs/for-app-authors/metainfo-guidelines",
+          "read": true,
+          "finding": "Authors must set metadata_license; says catalogs are read by software stores."
+        },
+        {
+          "url": "https://odrs.gnome.org/",
+          "read": true,
+          "finding": "Ratings: public service, code under GPL-3.0; no terms on the ratings data found. We keep only aggregates."
+        }
+      ],
+      "note": "The published catalog and API suggest reuse is expected, but the only terms found say otherwise.",
+      "action": "Ask Flathub whether the terms cover the catalog and API, and whether a public copy is fine."
+    },
+    "github-releases": {
+      "verdict": "clear",
+      "automatedFetch": "allowed",
+      "publicStorage": "allowed",
+      "attribution": null,
+      "fieldLicense": "Repository facts; each repository's own license for its description.",
+      "evidence": [
+        {
+          "url": "https://docs.github.com/en/site-policy/github-terms/github-terms-of-service",
+          "read": true,
+          "finding": "Section H allows API use; excessive use can suspend access, tokens can't be shared to exceed limits, no spam or sale of personal data. D.8: the terms don't restrict lawful access to public repositories' contents."
+        },
+        {
+          "url": "https://docs.github.com/en/site-policy/acceptable-use-policies/github-acceptable-use-policies",
+          "read": true,
+          "finding": "\"Scraping does not refer to the collection of information through our API.\" Section 6 also says not to reproduce or copy \"any portion of the Service\"; D.8 of the terms above is what covers public repositories' contents."
+        }
+      ]
+    },
+    "gog": {
+      "verdict": "owner-review",
+      "automatedFetch": "unverified",
+      "publicStorage": "unclear",
+      "attribution": null,
+      "fieldLicense": "Store descriptions, screenshots and ratings: GOG's or publishers'. No license found.",
+      "evidence": [
+        {
+          "url": "https://support.gog.com/hc/articles/16034990432541",
+          "read": false,
+          "finding": "Current User Agreement, linked by GOG's announcement. Behind an anti-bot challenge: NOT read."
+        },
+        {
+          "url": "https://www.gog.com/en/news/were_updating_our_user_agreement_and_other_gog_terms",
+          "read": true,
+          "finding": "New terms apply from 2024-02-17; gives the link above."
+        },
+        {
+          "url": "https://api.gog.com/robots.txt",
+          "read": true,
+          "finding": "\"Disallow: /\" for all agents. The connector uses this host for product details."
+        }
+      ],
+      "note": "Highest risk: an undocumented API, and full store descriptions are published in this public repository.",
+      "action": "Read the User Agreement. Recommended meanwhile: treat as restricted (private cache)."
+    },
+    "lutris": {
+      "verdict": "owner-review",
+      "automatedFetch": "discouraged",
+      "publicStorage": "unclear",
+      "attribution": null,
+      "fieldLicense": "Installer scripts and descriptions written by the community; no license found for the data.",
+      "evidence": [
+        {
+          "url": "https://lutris.net/robots.txt",
+          "read": true,
+          "finding": "\"Disallow: /api\" for all agents, the path the connector calls."
+        },
+        {
+          "url": "https://lutris.net/about",
+          "read": true,
+          "finding": "No terms or API policy; /terms, /tos and /privacy answer 404."
+        },
+        {
+          "url": "https://github.com/lutris/website",
+          "read": true,
+          "finding": "The site's code is AGPL-3.0; says nothing on its data."
+        }
+      ],
+      "action": "Ask the Lutris maintainers whether a weekly read of /api and a public copy are fine."
+    },
+    "nix-nixpkgs": {
+      "verdict": "clear",
+      "automatedFetch": "allowed",
+      "publicStorage": "allowed",
+      "attribution": "Keep the MIT notice with any copy (not done yet in src/sources/cache/).",
+      "fieldLicense": "MIT on nixpkgs, package descriptions included.",
+      "evidence": [
+        {
+          "url": "https://github.com/NixOS/nixpkgs",
+          "read": true,
+          "finding": "Repository license: MIT."
+        },
+        {
+          "url": "https://channels.nixos.org/",
+          "read": true,
+          "finding": "Public channel files made for download."
+        }
+      ]
+    },
+    "pacman-arch": {
+      "verdict": "low-risk-no-terms",
+      "automatedFetch": "public-mirror-no-terms",
+      "publicStorage": "unclear",
+      "attribution": null,
+      "fieldLicense": "Each package's own license; no license stated for the index itself.",
+      "evidence": [
+        {
+          "url": "https://geo.mirror.pkgbuild.com",
+          "read": true,
+          "finding": "Arch: public package index made for package managers. No terms on reusing its metadata found."
+        },
+        {
+          "url": "https://terms.archlinux.org/docs/terms-of-service/",
+          "read": true,
+          "finding": "No clause on automated access or on reusing package metadata."
+        },
+        {
+          "url": "https://pkgstats.archlinux.de/",
+          "read": false,
+          "finding": "Popularity API: site unreachable from here, not read."
+        }
+      ]
+    },
+    "pacman-arch-appstream": {
+      "verdict": "low-risk-no-terms",
+      "automatedFetch": "public-mirror-no-terms",
+      "publicStorage": "unclear",
+      "attribution": "Depends on each app's metadata_license, which we don't keep.",
+      "fieldLicense": "Per app: permissive metadata_license. Screenshots and icons: no license stated; we keep their URLs.",
+      "evidence": [
+        {
+          "url": "https://www.freedesktop.org/software/appstream/docs/chap-Metadata.html",
+          "read": true,
+          "finding": "AppStream requires a metadata_license from a vetted permissive list (FSFAP, MIT, CC0-1.0, CC-BY, CC-BY-SA, GFDL...) so that metadata can be combined into catalogs. Some of those ask for attribution or share-alike."
+        },
+        {
+          "url": "https://geo.mirror.pkgbuild.com",
+          "read": true,
+          "finding": "Arch: AppStream catalog published for software centers."
+        },
+        {
+          "url": "https://archlinux.org/robots.txt",
+          "read": true,
+          "finding": "Disallows /packages/search/, with Crawl-delay: 2. The connector makes one lookup there per run."
+        }
+      ]
+    },
+    "pacman-aur": {
+      "verdict": "low-risk-no-terms",
+      "automatedFetch": "public-mirror-no-terms",
+      "publicStorage": "unclear",
+      "attribution": null,
+      "fieldLicense": "Contributions default to GPL-3.0 where a project names no license; the terms don't name AUR metadata.",
+      "evidence": [
+        {
+          "url": "https://terms.archlinux.org/docs/terms-of-service/",
+          "read": true,
+          "finding": "No clause on automated access or metadata. 5.2 covers contributed software."
+        },
+        {
+          "url": "https://wiki.archlinux.org/title/Aurweb_RPC_interface",
+          "read": false,
+          "finding": "Blocked by the wiki's anti-bot page, not read."
+        },
+        {
+          "url": "https://aur.archlinux.org/robots.txt",
+          "read": true,
+          "finding": "Doesn't disallow the metadata dump the connector uses; Crawl-delay: 2."
+        }
+      ]
+    },
+    "rpm-fedora": {
+      "verdict": "low-risk-no-terms",
+      "automatedFetch": "public-mirror-no-terms",
+      "publicStorage": "unclear",
+      "attribution": null,
+      "fieldLicense": "Each package's own license; no license stated for the index itself.",
+      "evidence": [
+        {
+          "url": "https://dl.fedoraproject.org/pub/fedora",
+          "read": true,
+          "finding": "Fedora: public package index made for package managers. No terms on reusing its metadata found."
+        },
+        {
+          "url": "https://docs.fedoraproject.org/en-US/legal/",
+          "read": false,
+          "finding": "Blocked by an anti-bot page, not read."
+        }
+      ]
+    },
+    "rpm-fedora-appstream": {
+      "verdict": "low-risk-no-terms",
+      "automatedFetch": "public-mirror-no-terms",
+      "publicStorage": "unclear",
+      "attribution": "Depends on each app's metadata_license, which we don't keep.",
+      "fieldLicense": "Per app: permissive metadata_license. Screenshots and icons: no license stated; we keep their URLs.",
+      "evidence": [
+        {
+          "url": "https://www.freedesktop.org/software/appstream/docs/chap-Metadata.html",
+          "read": true,
+          "finding": "AppStream requires a metadata_license from a vetted permissive list (FSFAP, MIT, CC0-1.0, CC-BY, CC-BY-SA, GFDL...) so that metadata can be combined into catalogs. Some of those ask for attribution or share-alike."
+        },
+        {
+          "url": "https://dl.fedoraproject.org/pub/fedora",
+          "read": true,
+          "finding": "Fedora: AppStream catalog published for software centers."
+        },
+        {
+          "url": "https://docs.fedoraproject.org/en-US/legal/",
+          "read": false,
+          "finding": "Blocked by an anti-bot page, not read."
+        }
+      ]
+    },
+    "rpm-opensuse": {
+      "verdict": "low-risk-no-terms",
+      "automatedFetch": "public-mirror-no-terms",
+      "publicStorage": "unclear",
+      "attribution": null,
+      "fieldLicense": "Each package's own license; no license stated for the index itself.",
+      "evidence": [
+        {
+          "url": "https://downloadcontent.opensuse.org",
+          "read": true,
+          "finding": "openSUSE: public package index made for package managers. No terms on reusing its metadata found."
+        },
+        {
+          "url": "https://en.opensuse.org/openSUSE:Trademark_guidelines",
+          "read": false,
+          "finding": "Answers 403 to automated requests, not read."
+        }
+      ]
+    },
+    "rpm-opensuse-appstream": {
+      "verdict": "low-risk-no-terms",
+      "automatedFetch": "public-mirror-no-terms",
+      "publicStorage": "unclear",
+      "attribution": "Depends on each app's metadata_license, which we don't keep.",
+      "fieldLicense": "Per app: permissive metadata_license. Screenshots and icons: no license stated; we keep their URLs.",
+      "evidence": [
+        {
+          "url": "https://www.freedesktop.org/software/appstream/docs/chap-Metadata.html",
+          "read": true,
+          "finding": "AppStream requires a metadata_license from a vetted permissive list (FSFAP, MIT, CC0-1.0, CC-BY, CC-BY-SA, GFDL...) so that metadata can be combined into catalogs. Some of those ask for attribution or share-alike."
+        },
+        {
+          "url": "https://downloadcontent.opensuse.org/tumbleweed/repo",
+          "read": true,
+          "finding": "openSUSE: AppStream catalog published for software centers."
+        }
+      ]
+    },
+    "rpm-rpmfusion": {
+      "verdict": "low-risk-no-terms",
+      "automatedFetch": "public-mirror-no-terms",
+      "publicStorage": "unclear",
+      "attribution": null,
+      "fieldLicense": "Each package's own license; no license stated for the index itself.",
+      "evidence": [
+        {
+          "url": "https://download1.rpmfusion.org/free/fedora",
+          "read": true,
+          "finding": "RPM Fusion: public package index made for package managers. No terms on reusing its metadata found."
+        },
+        {
+          "url": "https://rpmfusion.org/",
+          "read": false,
+          "finding": "Blocked by an anti-bot page, not read."
+        }
+      ]
+    },
+    "slackware": {
+      "verdict": "low-risk-no-terms",
+      "automatedFetch": "public-mirror-no-terms",
+      "publicStorage": "unclear",
+      "attribution": null,
+      "fieldLicense": "Each package's own license; no license stated for the index itself.",
+      "evidence": [
+        {
+          "url": "https://mirrors.slackware.com/slackware/slackware64-15.0",
+          "read": true,
+          "finding": "Slackware: public package index made for package managers. No terms on reusing its metadata found."
+        },
+        {
+          "url": "https://www.slackware.com/",
+          "read": false,
+          "finding": "Answers 403 to automated requests, not read."
+        }
+      ]
+    },
+    "snap-snapcraft": {
+      "verdict": "owner-review",
+      "automatedFetch": "discouraged",
+      "publicStorage": "unclear",
+      "attribution": "Each snap's own license applies to the snap; none stated for its store text.",
+      "fieldLicense": "Publisher-written text. No license stated for store metadata.",
+      "evidence": [
+        {
+          "url": "https://canonical.com/legal/terms-and-policies/snap-store-terms",
+          "read": true,
+          "finding": "October 2020. Allows using the store \"to browse, locate, or download Snaps\". 5.8 forbids what \"attempts to reverse engineer or otherwise access the Snap Store infrastructure\". No clause on scraping or on reusing metadata."
+        },
+        {
+          "url": "https://api.snapcraft.io/robots.txt",
+          "read": true,
+          "finding": "\"Disallow: /\" for all agents, the host the connector calls."
+        },
+        {
+          "url": "https://github.com/tuxery/catalog/blob/main/src/sources/cache/snap-snapcraft.meta.json",
+          "read": true,
+          "finding": "Measured on the 2026-11-07 run: 39,852 + 82,656 search prefixes and 11,510 channel maps, about 134,000 requests a week."
+        }
+      ],
+      "note": "The volume matters as much as the terms: a weekly sweep of about 134,000 requests to an undocumented API.",
+      "action": "Ask Canonical (legal@canonical.com is the address its terms give) for a sanctioned way to list snaps, and reduce the sweep meanwhile."
+    },
+    "vendor-repos": {
+      "verdict": "low-risk-no-terms",
+      "automatedFetch": "public-mirror-no-terms",
+      "publicStorage": "unclear",
+      "attribution": null,
+      "fieldLicense": "Vendor-written package text, often for proprietary software. Not audited vendor by vendor.",
+      "evidence": [
+        {
+          "url": "https://github.com/tuxery/catalog/blob/main/src/sources/vendor-repos/vendors.ndjson",
+          "read": false,
+          "finding": "26 packages from 23 public APT indexes, one line of text each. Vendors' own terms not read."
+        }
+      ]
+    },
+    "xbps-void": {
+      "verdict": "clear",
+      "automatedFetch": "allowed",
+      "publicStorage": "allowed",
+      "attribution": "Keep the BSD notice with any copy (not done yet in src/sources/cache/).",
+      "fieldLicense": "BSD-style license on void-packages.",
+      "evidence": [
+        {
+          "url": "https://github.com/void-linux/void-packages/blob/master/COPYING",
+          "read": true,
+          "finding": "BSD-style: redistribution and use permitted if the notice is kept."
+        },
+        {
+          "url": "https://repo-default.voidlinux.org/current",
+          "read": true,
+          "finding": "Public repository made for the package manager."
+        }
+      ]
+    }
+  }
+}

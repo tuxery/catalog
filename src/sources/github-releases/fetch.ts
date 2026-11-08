@@ -1,5 +1,5 @@
 import { parallel } from "helpers4/promise";
-import { fetchOrThrow } from "../_shared/http";
+import { fetchOrThrow, withUserAgent } from "../_shared/http";
 import { percentileScores } from "../_shared/popularity";
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
@@ -181,9 +181,12 @@ async function searchRepos(): Promise<RawRepo[]> {
  * this one repo, not crash the whole fetch.
  */
 async function lookupLatestRelease(repo: string): Promise<RawRelease | undefined> {
-  const response = await fetch(`https://api.github.com/repos/${repo}/releases/latest`, {
-    headers: authHeaders(),
-  });
+  const response = await fetch(
+    `https://api.github.com/repos/${repo}/releases/latest`,
+    withUserAgent({
+      headers: authHeaders(),
+    }),
+  );
   if (!response.ok) return undefined;
   return (await response.json()) as RawRelease;
 }

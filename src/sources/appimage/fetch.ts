@@ -1,5 +1,5 @@
 import { parallel } from "helpers4/promise";
-import { fetchOrThrow } from "../_shared/http";
+import { fetchOrThrow, withUserAgent } from "../_shared/http";
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
 import type { AppImageCacheEntry, AppImageFetchMetadata } from "./types";
@@ -116,13 +116,19 @@ async function lookupRepo(repo: string): Promise<RepoLookupResult> {
   const headers: Record<string, string> = { Accept: "application/vnd.github+json" };
   if (GITHUB_TOKEN) headers.Authorization = `Bearer ${GITHUB_TOKEN}`;
 
-  const repoResponse = await fetch(`https://api.github.com/repos/${repo}`, { headers });
+  const repoResponse = await fetch(
+    `https://api.github.com/repos/${repo}`,
+    withUserAgent({ headers }),
+  );
   if (repoResponse.status === 404) return { exists: false };
   if (!repoResponse.ok) return { exists: true };
 
-  const releaseResponse = await fetch(`https://api.github.com/repos/${repo}/releases/latest`, {
-    headers,
-  });
+  const releaseResponse = await fetch(
+    `https://api.github.com/repos/${repo}/releases/latest`,
+    withUserAgent({
+      headers,
+    }),
+  );
   if (!releaseResponse.ok) return { exists: true };
 
   const body = (await releaseResponse.json()) as { tag_name?: string };

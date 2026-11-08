@@ -9,7 +9,7 @@ import type { FetchMetadata } from "../_shared/metadata";
  * and their pictures weren't part of what was allowed.
  */
 export interface AppImageHubCacheEntry {
-  /** OCS content id, e.g. "2367450". */
+  /** OCS content id, e.g. "1000001". */
   id: string;
   name: string;
   /** The store's category, e.g. "Audioplayers" — free to use, per opendesktop.org. */

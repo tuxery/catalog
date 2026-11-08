@@ -5,25 +5,25 @@ describe("appimagehub mapItems", () => {
   it("keeps what the cache needs, tags as a list, and no image or download URL", () => {
     const [entry] = mapItems([
       {
-        id: 2367450,
-        name: " mpz - music player ",
+        id: 1000001,
+        name: " Example Player ",
         typename: "Audioplayers",
         summary: "A folder player",
         version: "",
         download_version1: "2.1.0",
         tags: "software, gplv3,app,appimage,x86-64",
-        detailpage: "https://www.appimagehub.com/p/2367450",
+        detailpage: "https://www.appimagehub.com/p/1000001",
         changed: "2026-10-18T18:41:26+00:00",
       },
     ]);
     expect(entry).toEqual({
-      id: "2367450",
-      name: "mpz - music player",
+      id: "1000001",
+      name: "Example Player",
       typename: "Audioplayers",
       summary: "A folder player",
       version: "2.1.0",
       tags: ["software", "gplv3", "app", "appimage", "x86-64"],
-      detailpage: "https://www.appimagehub.com/p/2367450",
+      detailpage: "https://www.appimagehub.com/p/1000001",
       changed: "2026-10-18T18:41:26+00:00",
     });
   });

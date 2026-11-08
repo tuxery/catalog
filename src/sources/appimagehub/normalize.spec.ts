@@ -4,7 +4,7 @@ import type { AppImageHubCacheEntry } from "./types";
 
 const entry = (extra: Partial<AppImageHubCacheEntry>): AppImageHubCacheEntry => ({
   id: "1",
-  name: "Mpz",
+  name: "Example Player",
   typename: "Audioplayers",
   summary: "A folder player",
   version: "2.1.0",
@@ -18,7 +18,7 @@ describe("appimagehub normalize", () => {
     const [pkg] = normalize([entry({ tags: ["appimage", "gplv3", "original-product"] })]);
     expect(pkg).toMatchObject({
       source: "appimagehub",
-      name: "Mpz",
+      name: "Example Player",
       description: "A folder player",
       version: "2.1.0",
       appId: "1",

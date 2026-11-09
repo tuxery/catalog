@@ -62,13 +62,21 @@ export const FIELD_PRIORITY: Record<RichField, readonly PackageSourceId[]> = {
     ...DISTRO_APPSTREAM,
     "snap-snapcraft",
     "appimage",
+    "appimage-manual",
     "vendor-repos",
     "gog",
     "lutris",
   ],
   // One source's whole set, never a mix: screenshots from two sources
   // show two different releases' UIs side by side.
-  screenshots: [...UPSTREAM_STORES, ...DISTRO_APPSTREAM, "snap-snapcraft", "appimage", "gog"],
+  screenshots: [
+    ...UPSTREAM_STORES,
+    ...DISTRO_APPSTREAM,
+    "snap-snapcraft",
+    "appimage",
+    "appimage-manual",
+    "gog",
+  ],
   videos: [...UPSTREAM_STORES, ...DISTRO_APPSTREAM, "snap-snapcraft", "gog"],
   longDescription: [
     ...UPSTREAM_STORES,

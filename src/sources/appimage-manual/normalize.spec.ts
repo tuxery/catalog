@@ -22,6 +22,22 @@ describe("appimage-manual normalize", () => {
     ]);
   });
 
+  it("passes on the vendor's icon and screenshots when the seed has them", () => {
+    const [pkg] = normalize([
+      {
+        name: "App",
+        description: "An app",
+        homepage: "https://example.com",
+        iconUrl: "https://example.com/icon.png",
+        screenshots: ["https://example.com/shot.png"],
+      },
+    ]);
+    expect(pkg).toMatchObject({
+      iconUrl: "https://example.com/icon.png",
+      screenshots: ["https://example.com/shot.png"],
+    });
+  });
+
   it("always sets version to unknown — no release feed exists for this source", () => {
     const entry: ManualAppImageCacheEntry = {
       name: "App",

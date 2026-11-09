@@ -11,5 +11,7 @@ export function normalize(entries: ManualAppImageCacheEntry[]): SourcedPackage[]
     version: "unknown",
     appId: entry.name,
     homepage: entry.homepage,
+    ...(entry.iconUrl && { iconUrl: entry.iconUrl }),
+    ...(entry.screenshots?.length && { screenshots: entry.screenshots }),
   }));
 }

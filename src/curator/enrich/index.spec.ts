@@ -931,6 +931,23 @@ describe("enrichApps", () => {
     expect(app?.installsLast7Days).toBe(5_643);
   });
 
+  it("counts ODRS's votes once when Flathub and AppCenter both carry them (real case: AppEditor)", () => {
+    const matched: MatchedApp[] = [
+      {
+        id: "com.github.donadigo.appeditor",
+        packages: [
+          pkg({ source: "flatpak-flathub", rating: { average: 3.08, count: 26 } }),
+          pkg({ source: "flatpak-appcenter", rating: { average: 3.08, count: 26 } }),
+          pkg({ source: "gog", rating: { average: 5, count: 4 } }),
+        ],
+      },
+    ];
+
+    const app = enrichApps(matched)[0];
+    expect(app?.rating?.count).toBe(30);
+    expect(app?.rating?.average).toBeCloseTo((3.08 * 26 + 5 * 4) / 30);
+  });
+
   it("leaves rating undefined when no member package has one, never a synthetic 0", () => {
     const matched: MatchedApp[] = [
       { id: "aur:example", packages: [pkg({ source: "pacman-aur", name: "example" })] },

@@ -455,12 +455,11 @@ research writeup.
     Games Launcher, Lutris) that need to query GOG's own catalog
     themselves — not just a scraped guess. `systems=linux` filters
     server-side to Linux-compatible products (2,658 of 12,589 total,
-    ~21%, inclusive rather than Linux-exclusive — e.g. Firewatch's own
-    `operatingSystems` is `["windows", "linux", "osx"]`); `productType`
+    ~21%, inclusive rather than Linux-exclusive: a game's `operatingSystems`
+    is often `["windows", "linux", "osx"]`); `productType`
     further narrows to real standalone games (1,342 of those), dropping
-    "pack" (bundle editions of games already counted on their own,
-    e.g. "Planescape: Torment: Enhanced Edition" alongside the base
-    "Planescape: Torment") and "dlc" (add-on content, not standalone
+    "pack" (bundle editions of games already counted on their own) and
+    "dlc" (add-on content, not standalone
     installable). `limit` caps at 100 (a `limit=200` request returns a
     real 400); 27 real pages, fetched sequentially rather than
     concurrently given the API has no documented rate-limit guidance.
@@ -468,6 +467,15 @@ research writeup.
     (only the per-product detail page has one, which would mean 2,000+
     extra requests just for that) — left blank, same precedent as
     AppImage's frequently-blank feed. `src/sources/gog/fetch.ts`.
+    **Private cache, as our own precaution** (2026-11-09): GOG has not asked
+    for this and no term we read forbids public storage, but its User
+    Agreement sits behind an anti-bot page and stays unread, `api.gog.com`'s
+    robots.txt disallows everything, and the cache holds full store
+    descriptions. So it lives in `tuxery/source-cache` like AppImageHub's, read
+    the same way (`src/sources/_shared/cache-path.ts`), and is left out of
+    open data. Earlier versions remain in this repository's git history, which
+    wasn't rewritten. Moving it back to public is a one-line change, if GOG's
+    terms or GOG itself allow it.
 24. **Lutris** — lutris.net/api/installers, real, public, unauthenticated.
     Its `/api/games` endpoint (347k+ entries) looked more promising at
     first glance but turned out to be mostly an IGDB mirror — most

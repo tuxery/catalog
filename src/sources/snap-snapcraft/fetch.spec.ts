@@ -1,11 +1,16 @@
 import { describe, expect, it } from "vitest";
 import {
-  applyCategories,
   applyFeaturedTag,
+  listingToResult,
+  mapCategories,
   mapChannelMap,
   mapLinks,
   mapResults,
-  sweepQueriesRecursively,
+  mergeEntries,
+  pickSnapsToDetail,
+  rotationSlot,
+  type RawListing,
+  type SnapDetails,
 } from "./fetch";
 import type { SnapcraftCacheEntry } from "./types";
 
@@ -146,99 +151,225 @@ describe("applyFeaturedTag", () => {
   });
 });
 
-describe("applyCategories", () => {
-  it("translates a swept Snap category to its freedesktop-equivalent tag", () => {
-    const tagged = applyCategories([entry("gimp")], new Map([["art-and-design", ["gimp"]]]));
-
-    expect(tagged[0]?.categories).toEqual(["Graphics"]);
-    expect(tagged[0]?.hasGameCategory).toBeUndefined();
+describe("mapCategories", () => {
+  it("translates a store category to its freedesktop-equivalent tag", () => {
+    expect(mapCategories(["development"]).categories).toEqual(["Development"]);
   });
 
-  it("carries more than one freedesktop tag when a snap swept under multiple categories", () => {
-    const tagged = applyCategories(
-      [entry("krita")],
-      new Map([
-        ["art-and-design", ["krita"]],
-        ["photo-and-video", ["krita"]],
-      ]),
-    );
-
-    expect(tagged[0]?.categories).toEqual(expect.arrayContaining(["Graphics", "Photography"]));
-    expect(tagged[0]?.categories).toHaveLength(2);
+  it("carries more than one tag for a snap in several categories", () => {
+    expect(mapCategories(["development", "utilities"]).categories).toEqual([
+      "Development",
+      "Utility",
+    ]);
   });
 
-  it("flags the dedicated games category as hasGameCategory, not as a categories tag", () => {
-    const tagged = applyCategories([entry("0ad")], new Map([["games", ["0ad"]]]));
-
-    expect(tagged[0]?.hasGameCategory).toBe(true);
-    expect(tagged[0]?.categories).toBeUndefined();
+  it("flags the dedicated games category as hasGameCategory, not as a tag", () => {
+    expect(mapCategories(["games"])).toEqual({ categories: undefined, hasGameCategory: true });
   });
 
-  it("ignores a swept category with no freedesktop equivalent", () => {
-    const tagged = applyCategories([entry("chezmoi")], new Map([["personalisation", ["chezmoi"]]]));
-
-    expect(tagged[0]?.categories).toBeUndefined();
-    expect(tagged[0]?.hasGameCategory).toBeUndefined();
-  });
-
-  it("leaves an unswept entry untouched", () => {
-    const tagged = applyCategories([entry("code")], new Map([["development", ["other-snap"]]]));
-
-    expect(tagged[0]?.categories).toBeUndefined();
-    expect(tagged[0]?.hasGameCategory).toBeUndefined();
+  it("ignores a category with no freedesktop equivalent", () => {
+    expect(mapCategories(["entertainment"])).toEqual({
+      categories: undefined,
+      hasGameCategory: undefined,
+    });
   });
 });
 
-async function findSharedSnapUnderTwoPrefixes(prefix: string) {
-  return prefix === "a" || prefix === "b" ? [{ name: "shared-snap" }] : [];
-}
+const listing = (name: string, overrides: Partial<RawListing> = {}): RawListing => ({
+  package_name: name,
+  title: name,
+  summary: "A summary",
+  version: "2",
+  channel: "stable",
+  last_updated: "2026-01-01T00:00:00+00:00",
+  ...overrides,
+});
 
-describe("sweepQueriesRecursively", () => {
-  const CAPPED_RESULTS = Array.from({ length: 100 }, (_, i) => ({
-    name: `capped-${i}`,
-  }));
+// A week in which none of `names` is in rotation, so only the other rules pick them.
+const quietWeek = (...names: string[]) =>
+  [0, 1, 2, 3].find((week) => names.every((name) => rotationSlot(name) !== week)) ?? 0;
 
-  it("does not recurse into a prefix that comes back under the 100-result cap", async () => {
-    const calls: string[] = [];
-    const find = async (prefix: string) => {
-      calls.push(prefix);
-      return prefix === "a" ? [{ name: "audacity" }] : [];
-    };
+const known = (
+  name: string,
+  overrides: Partial<SnapcraftCacheEntry> = {},
+): SnapcraftCacheEntry => ({
+  name,
+  title: name,
+  summary: "An older summary",
+  version: "2",
+  channel: "stable",
+  channels: [{ channel: "stable", version: "2" }],
+  ...overrides,
+});
 
-    const { results, prefixesTried } = await sweepQueriesRecursively(find);
+const byName = (entries: SnapcraftCacheEntry[]) => new Map(entries.map((row) => [row.name, row]));
 
-    expect(results).toEqual(expect.arrayContaining([{ name: "audacity" }]));
-    expect(calls.filter((c) => c.startsWith("a")).length).toBe(1); // just "a", no "aa".."a9"
-    expect(prefixesTried).toBe(36); // the base alphabet, once
+describe("listingToResult", () => {
+  it("reads the same through mapResults as a find result does", () => {
+    const [merged] = mapResults([
+      listingToResult(
+        listing("some-snap", {
+          description: " Long text ",
+          license: "MIT",
+          publisher: "Someone",
+          developer_validation: "verified",
+          icon_url: "https://example.com/icon.png",
+          screenshot_urls: ["https://example.com/shot.png"],
+          links: { website: ["https://example.com/"], source: ["https://example.com/src"] },
+        }),
+      ),
+    ]);
+    expect(merged).toMatchObject({
+      name: "some-snap",
+      version: "2",
+      channel: "stable",
+      longDescription: "Long text",
+      license: "MIT",
+      publisher: "Someone",
+      publisherVerified: true,
+      iconUrl: "https://example.com/icon.png",
+      screenshots: ["https://example.com/shot.png"],
+      website: "https://example.com/",
+      links: { "vcs-browser": "https://example.com/src" },
+    });
+  });
+});
+
+describe("pickSnapsToDetail", () => {
+  const FETCHED_AT = "2026-06-01T00:00:00.000Z";
+  it("picks a new snap and one whose version moved, and leaves an unchanged one", () => {
+    const names = ["new-snap", "moved-snap", "same-snap"];
+    const picked = pickSnapsToDetail(
+      [listing("new-snap"), listing("moved-snap", { version: "3" }), listing("same-snap")],
+      byName([known("moved-snap"), known("same-snap")]),
+      FETCHED_AT,
+      quietWeek(...names),
+    );
+    expect(picked.toSorted()).toEqual(["moved-snap", "new-snap"]);
   });
 
-  it("recurses one level deeper for a prefix that comes back exactly at the cap", async () => {
-    const find = async (prefix: string) => (prefix === "a" ? CAPPED_RESULTS : []);
-
-    const { prefixesTried } = await sweepQueriesRecursively(find);
-
-    // 36 base prefixes, plus 36 more ("aa".."a9") from "a" hitting the cap.
-    expect(prefixesTried).toBe(36 + 36);
+  it("picks a rebuild of the same version, released since the last run", () => {
+    const picked = pickSnapsToDetail(
+      [listing("rebuilt", { last_updated: "2026-06-02T00:00:00+00:00" })],
+      byName([known("rebuilt")]),
+      FETCHED_AT,
+      quietWeek("rebuilt"),
+    );
+    expect(picked).toEqual(["rebuilt"]);
   });
 
-  it("deduplicates the same snap surfacing under more than one prefix", async () => {
-    const { results } = await sweepQueriesRecursively(findSharedSnapUnderTwoPrefixes);
-
-    expect(results.filter((r) => r.name === "shared-snap")).toHaveLength(1);
+  it("retries a listed snap left without channels", () => {
+    const picked = pickSnapsToDetail(
+      [listing("no-channels")],
+      byName([known("no-channels", { channels: undefined })]),
+      FETCHED_AT,
+      quietWeek("no-channels"),
+    );
+    expect(picked).toEqual(["no-channels"]);
   });
 
-  it("bounds recursion at MAX_QUERY_DEPTH even if every prefix keeps hitting the cap", async () => {
-    // Only the "a" branch stays capped at every depth — bounds the test's
-    // own runtime while still proving the depth limit kicks in rather
-    // than recursing forever.
-    const find = async (prefix: string) => (/^a+$/.test(prefix) ? CAPPED_RESULTS : []);
+  it("visits every snap once over the rotation, an unlisted one included", () => {
+    const names = Array.from({ length: 40 }, (_, i) => `snap-${i}`);
+    const previous = byName(names.map((name) => known(name)));
+    const listed = names.slice(1).map((name) => listing(name));
+    const weeks = [0, 1, 2, 3].map((week) => pickSnapsToDetail(listed, previous, FETCHED_AT, week));
+    expect(weeks.flat().toSorted()).toEqual(names.toSorted());
+    expect(weeks.flat()).toContain("snap-0");
+  });
 
-    const { prefixesTried } = await sweepQueriesRecursively(find);
+  it("wraps around: week 4 is week 0's share", () => {
+    const previous = byName([known("a"), known("b"), known("c")]);
+    expect(pickSnapsToDetail([], previous, FETCHED_AT, 4)).toEqual(
+      pickSnapsToDetail([], previous, FETCHED_AT, 0),
+    );
+  });
+});
 
-    // depth 1: 36, depth 2: 36 ("a" capped), depth 3: 36 ("aa" capped),
-    // depth 4: 36 ("aaa" capped) — depth 5 never happens (MAX_QUERY_DEPTH
-    // is 4), even though "aaaa" would also come back capped.
-    expect(prefixesTried).toBe(36 * 4);
+describe("mergeEntries", () => {
+  const none = new Map<string, SnapDetails>();
+  const NO_FEATURED = new Set<string>();
+
+  it("refreshes a listed snap's listing fields and keeps its channels and categories", () => {
+    const [merged] = mergeEntries(
+      [listing("a", { summary: "A newer summary" })],
+      byName([known("a", { categories: ["Utility"], hasGameCategory: true })]),
+      none,
+      NO_FEATURED,
+    );
+    expect(merged).toMatchObject({
+      summary: "A newer summary",
+      channels: [{ channel: "stable", version: "2" }],
+      categories: ["Utility"],
+      hasGameCategory: true,
+    });
+  });
+
+  it("takes channels and categories from a fresh info call", () => {
+    const channels = [{ channel: "beta", version: "3" }];
+    const [merged] = mergeEntries(
+      [listing("a")],
+      byName([known("a", { categories: ["Utility"] })]),
+      new Map([["a", { status: "ok", channels, categoryNames: ["games"] }]]),
+      NO_FEATURED,
+    );
+    expect(merged).toMatchObject({ channels, hasGameCategory: true });
+    expect(merged?.categories).toBeUndefined();
+  });
+
+  it("keeps a snap no longer listed until info says it's gone", () => {
+    const previous = byName([known("unlisted"), known("removed")]);
+    const entries = mergeEntries(
+      [],
+      previous,
+      new Map([["removed", { status: "gone" }]]),
+      NO_FEATURED,
+    );
+    expect(entries.map((row) => row.name)).toEqual(["unlisted"]);
+  });
+
+  it("drops nothing when info fails, and keeps the old version so the next run asks again", () => {
+    const moved = listing("a", { version: "3" });
+    const previous = byName([known("a")]);
+    const details = new Map<string, SnapDetails>([["a", { status: "failed" }]]);
+    const [merged] = mergeEntries([moved], previous, details, NO_FEATURED);
+    expect(merged).toMatchObject({ version: "2", channels: [{ channel: "stable", version: "2" }] });
+    expect(
+      pickSnapsToDetail([moved], byName([merged as SnapcraftCacheEntry]), undefined, 0),
+    ).toContain("a");
+  });
+
+  it("keeps known snaps in their previous order: a merged app's id depends on it", () => {
+    const entries = mergeEntries(
+      [listing("alpha"), listing("zeta"), listing("new-snap")],
+      byName([known("zeta"), known("alpha")]),
+      new Map(),
+      new Set(),
+    );
+    expect(entries.map((row) => row.name)).toEqual(["zeta", "alpha", "new-snap"]);
+  });
+
+  it("adds new snaps by name, and tags the featured ones", () => {
+    const entries = mergeEntries(
+      [listing("zeta"), listing("alpha")],
+      new Map(),
+      new Map([["alpha", { status: "ok", categoryNames: [] }]]),
+      new Set(["zeta"]),
+    );
+    expect(entries.map((row) => row.name)).toEqual(["alpha", "zeta"]);
+    expect(entries[1]?.storeCollections).toEqual(["featured"]);
+    expect(entries[0]?.storeCollections).toBeUndefined();
+  });
+
+  it("doesn't change the previous cache's objects", () => {
+    const previous = byName([known("a")]);
+    mergeEntries(
+      [],
+      previous,
+      new Map([["a", { status: "ok", categoryNames: [] }]]),
+      new Set(["a"]),
+    );
+    expect(previous.get("a")?.storeCollections).toBeUndefined();
+    expect(previous.get("a")?.channels).toEqual([{ channel: "stable", version: "2" }]);
   });
 });
 

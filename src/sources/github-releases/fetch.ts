@@ -42,10 +42,9 @@ const LOOKUP_CONCURRENCY = 20;
 // GitHub has no offset-based pagination past 1,000 for any single query,
 // but a query scoped with `created:<from>..<to>` reports its own
 // `total_count`, so a range that itself exceeds 1,000 can be bisected on
-// creation date into two ranges, each independently re-queried — same
-// "adaptive deepening to route around a hard result cap" shape as
-// Snapcraft's `sweepQueriesRecursively`, bisecting a date range instead of
-// a query-string prefix. `MAX_BISECTION_DEPTH` is a circuit breaker (2^6
+// creation date into two ranges, each independently re-queried, which is
+// "adaptive deepening to route around a hard result cap" on a date range.
+// `MAX_BISECTION_DEPTH` is a circuit breaker (2^6
 // = 64 leaf ranges), not an expected ceiling — real growth from 1,278
 // repos needs at most one or two splits for a long while yet.
 const MAX_BISECTION_DEPTH = 6;

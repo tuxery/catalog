@@ -2,8 +2,8 @@ import type { FetchMetadata } from "../_shared/metadata";
 import type { ProjectLinks, StoreCollectionTag } from "../types";
 
 /**
- * One entry from `api.snapcraft.io/v2/snaps/find`, the shape cached after
- * fetching. Deliberately close to the upstream API fields rather than the
+ * One snap from `api.snapcraft.io/api/v1/snaps/search` and `/v2/snaps/info`, the
+ * shape cached after fetching. Deliberately close to the upstream API fields rather than the
  * normalized `SourcedPackage` — see `normalize.ts`.
  */
 export interface SnapcraftChannel {
@@ -22,7 +22,7 @@ export interface SnapcraftCacheEntry {
   version: string;
   /** Release channel/track, e.g. "stable", "edge". */
   channel: string;
-  /** Every amd64 channel of the snap's channel-map (`/v2/snaps/info`), absent when that call failed — `normalize` then falls back to `channel`/`version`. */
+  /** Every amd64 channel of the snap's channel-map (`/v2/snaps/info`), absent when the snap has no amd64 build or that call failed — `normalize` then falls back to `channel`/`version`. */
   channels?: SnapcraftChannel[];
   iconUrl?: string;
   website?: string;
@@ -42,21 +42,23 @@ export interface SnapcraftCacheEntry {
   storeCollections?: StoreCollectionTag[];
   /** See `SourcedPackage.categories` — already translated from Snap's own store-category vocabulary to the freedesktop-equivalent tags `pickCategory` understands, see fetch.ts's `SNAP_CATEGORY_TO_FREEDESKTOP`. */
   categories?: string[];
-  /** See `SourcedPackage.hasGameCategory` — set from the dedicated "games" store category sweep, which has no genre granularity to translate. */
+  /** See `SourcedPackage.hasGameCategory` — set from the dedicated "games" store category, which has no genre granularity to translate. */
   hasGameCategory?: boolean;
 }
 
 export interface SnapcraftFetchMetadata extends FetchMetadata {
   /** `Snap-Device-Series` header value sent with every request. */
   deviceSeries: string;
-  /** Store categories swept to build this cache — see fetch.ts. */
-  categoriesSwept: string[];
-  /** Alphabet used to build every `q=` search prefix, recursively deepened where a prefix hits the 100-result cap — see fetch.ts's `sweepQueriesRecursively`. */
-  queryCharsSwept: string[];
-  /** How many distinct `q=` prefixes were actually queried this run — varies run to run as the store grows/shrinks, unlike `queryCharsSwept` (the fixed alphabet). */
-  queryPrefixesTried: number;
-  /** How many distinct per-category `category=X&q=prefix` prefixes were queried this run (summed across all categories). */
-  categoryPrefixesTried: number;
-  /** How many snaps had their full channel-map fetched this run — the rest keep their single search-result channel. */
-  channelMapsFetched: number;
+  /** Pages of the v1 search walked this run. */
+  listingPagesFetched: number;
+  /** How many snaps that listing held; the cache can hold a few more, see `mergeEntries`. */
+  listedSnaps: number;
+  /** `/v2/snaps/info` calls that answered this run. The other snaps keep their previous channels and categories. */
+  detailsFetched: number;
+  /** `/v2/snaps/info` calls that kept failing, left for a later run. */
+  detailsFailed: number;
+  /** Snaps `/v2/snaps/info` said no longer exist, dropped from the cache. */
+  snapsGone: number;
+  /** Requests this run made to the store, retries aside. */
+  requests: number;
 }

@@ -2842,12 +2842,12 @@
   {
     "pattern": "lgogdownloader",
     "category": "Utilities",
-    "reason": "Open source downloader for GOG.com game installers, same game-library-tooling family as Steam/Lutris already mapped to Utilities."
+    "reason": "Category taken from the game's GOG store listing."
   },
   {
     "pattern": "lgogdownloader-git",
     "category": "Utilities",
-    "reason": "Open source downloader for GOG.com game installers, same game-library-tooling family as Steam/Lutris already mapped to Utilities."
+    "reason": "Category taken from the game's GOG store listing."
   },
   {
     "pattern": "lightspark",
@@ -3997,7 +3997,7 @@
   {
     "pattern": "minigalaxy*",
     "category": "Utilities",
-    "reason": "A simple GOG client for Linux -- a game-store launcher, same family as this file's existing lutris*/steam*/bottles* Utilities precedent."
+    "reason": "Category taken from the game's GOG store listing."
   },
   {
     "pattern": "The Unofficial Homestuck Collection",

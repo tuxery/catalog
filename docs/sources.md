@@ -12,7 +12,7 @@ table is the map, the Project is the tracked work.
 | --- | --------------------- | -------------------- | ---------- | ------- | ----------- | ----------- | ----- |
 | 1   | Flathub               | —                    | Flatpak    | 3,363   | ✅          | Implemented | [1]   |
 | 1b  | Other Flatpak remotes | —                    | Flatpak    | —       | ⚠️          | Not started | [2]   |
-| 2   | Snapcraft             | —                    | Snap       | 10,926  | ⚠️          | Implemented | [3]   |
+| 2   | Snapcraft             | —                    | Snap       | 11,827  | ⚠️          | Implemented | [3]   |
 | 3   | AppImage              | —                    | AppImage   | 2,165   | ⚠️          | Implemented | [4]   |
 | 3b  | Manual AppImage seed  | —                    | AppImage   | 1       | ✅          | Implemented | [25]  |
 | 3c  | AppImageHub           | —                    | AppImage   | 1,631   | ✅          | Implemented | [33]  |
@@ -80,55 +80,44 @@ because a paragraph per cell made the table unreadable.
    different host. Not investigated yet; mostly nightly/testing builds,
    not curated apps, so low priority — Flathub already covers the vast
    majority of published apps.
-3. **Snapcraft** — `api.snapcraft.io/v2/snaps/find`
-   (`Snap-Device-Series: 16` header). No pagination or sort param (both
-   rejected outright as "Bad parameters") — every query caps at exactly
-   100 results, confirmed live 2026-09-04 (`q=a` and even `q=ab` both
-   return exactly 100). Swept two independent ways and merged by name:
-   `category=` across 20 categories (from
-   `api.snapcraft.io/api/v1/snaps/sections`), and a recursively-deepened
-   `q=` search (`sweepQueriesRecursively`) — a single-character sweep
-   alone silently truncated at the cap for every popular letter/digit, so
-   any prefix that comes back AT the cap gets re-swept once per extra
-   character (down to 4 characters, a circuit breaker rather than an
-   expected ceiling) instead of being trusted as complete. Still an
-   approximation, not a dump — no known way to actually enumerate the
-   full store, and this is closer to it rather than exhaustive. Verified
-   live: the recursive sweep tried 36,468 distinct query prefixes and
-   grew the cache from 3,666 to 10,924 unique snaps (+198%) in one run.
-   A third sweep, `?featured=true` (~100 hand-picked snaps), tags matches
-   as `SourcedPackage.storeCollections: ["featured"]` rather than folding
-   into the general merge untraceably — distinct from the
-   `category=featured` store category already part of the merge above.
+3. **Snapcraft** — `api.snapcraft.io`, undocumented, and its robots.txt
+   disallows everything, so requests are kept low on purpose. Since 2026-11-09,
+   about 3,700 requests a week (`src/sources/snap-snapcraft/fetch.ts`):
 
-   The category sweep is itself recursive now (2026-09-04): the original
-   flat `find?category=X` silently truncated at 100 for any category with
-   more than that (games/development/productivity/...), which is why most
-   snaps came back with no category at all. It now runs
-   `sweepQueriesRecursively` scoped per category (`category=X&q=prefix`),
-   so `applyCategories` sees the FULL membership of every category — 4,737
-   snaps with a category and 1,099 games flagged, vs. 1,086/100 before,
-   worth −2,243 "To Classify". The cost is ~105k requests (~68k category +
-   ~36k global `q=`) per run — heavier on Snapcraft's public API, so
-   `find` retries transient socket drops (`UND_ERR_SOCKET`, the API
-   intermittently resets a connection under that load) a few times with
-   exponential backoff rather than failing the whole multi-minute fetch.
-   `find` returns one channel per snap, so each discovered snap then gets
-   one `/v2/snaps/info/<name>?fields=version,channel-map` call (8 at a time): its
-   amd64 channels (branches dropped) become the cache row's `channels`,
-   and `normalize` emits one package per channel, split into track × risk
-   (docs/product-families.md). A snap whose call fails keeps its single
-   `find` channel. `src/sources/snap-snapcraft/fetch.ts`.
+   - **The list, about 48 requests.** `api/v1/snaps/search?scope=wide&
+confinement=strict,classic`, unlike v2's `find`, is paged: 47 pages of 250
+     (the server's ceiling) held 11,583 snaps on 2026-11-09, with the listing's
+     rich fields, no extra call needed (the publisher and whether Canonical
+     verified them, the Markdown description, the SPDX-ish license, icon,
+     screenshots and links; `unset` and `Other Open Source` count as no
+     license). One `find?featured=true` call (~100 hand-picked snaps) tags
+     `SourcedPackage.storeCollections: ["featured"]`.
+   - **`/v2/snaps/info/<name>?fields=version,channel-map,categories`, about
+     3,600 requests, 4 at a time.** Its amd64 channels (branches dropped) become
+     the row's `channels`, `normalize` emits one package per channel, split into
+     track × risk (docs/product-families.md), each `released-at` is the package's
+     `builtAt`; its `categories` become the freedesktop tags and `hasGameCategory`.
+     Only for a new snap (about 160 a week), a snap whose stable version or
+     `last_updated` moved (about 600), a listed snap left without channels, and
+     a quarter of all the others (a stable hash of the name, so every snap gets
+     its call every 4 weeks). So a channel other than the latest stable one can
+     be up to 4 weeks old: about 4% of snaps move only there each week.
+   - **Everything else keeps what the previous cache says.** A snap missing from
+     the list stays until `info` answers 404: the 291 missing on 2026-11-09 are
+     nearly all snaps with no amd64 build (283 have no channels), which the old
+     sweep found through search. A list under 90% of the cache's size fails the
+     refresh and keeps the cache. A failed `info` leaves the snap as it was.
 
-   The same `find` call also carries the listing's rich fields
-   (`description`, `license`, `publisher`, `media`, `links`), so they cost
-   no extra request: the publisher's display name and whether Canonical
-   verified them (`validation: "verified"`, not `starred`), the
-   publisher's Markdown description kept as written, the SPDX-ish
-   license (`unset` and `Other Open Source` count as no license), the
-   `screenshot` media (banners left out) and the `issues`/`source`/
-   `donations`/`contact` links. Each channel's `released-at` from the
-   channel-map is the package's `builtAt`. Snap's API has no video media.
+   **What this replaced:** recursive `q=` prefixes on `v2/snaps/find` (no paging,
+   100 results per query), globally and per store category. The run of
+   2026-11-07 made 39,852 + 82,656 searches and 11,510 channel-map calls, about
+   134,000 requests. Compared on 2026-11-09, in about 205 requests with pauses:
+   the 11,536 snaps both know agree on title, summary, description, license,
+   publisher, icon, screenshots and links for 99.8% or more; all 100 featured
+   snaps are listed; 47 listed snaps weren't in the cache yet, consistent with
+   the 160 new ones a week. 39 of 39 sampled `categories` gave the same tags as
+   the category sweep. `api/v1/snaps/names`, snapd's own catalog, answered 429 on
+   both tries and was left alone. Snap's API has no video media.
 
 4. **AppImage** — [`appimage.github.io/feed.json`](https://appimage.github.io/feed.json)
    (community-curated — not to be confused with the separate
@@ -154,8 +143,8 @@ because a paragraph per cell made the table unreadable.
    actually tagged `linux-app`, only 1,000 reachable), so the query is
    recursively bisected on `created:<from>..<to>` date range whenever a
    range's own `total_count` exceeds the cap (`searchDateRange`, same
-   "adaptive deepening around a hard result cap" shape as Snapcraft's
-   `sweepQueriesRecursively`), instead of trusting one unbounded query.
+   "adaptive deepening around a hard result cap"), instead of trusting one
+   unbounded query.
    Kept only if the repo also has a real tagged Release (necessary —
    nothing to install otherwise — but not sufficient on its own: some
    repos with the topic and a Release are packaging tooling, not an app
@@ -705,7 +694,7 @@ cache-path.ts`), the data is never part of an open-data export, and no
 ## Cross-cutting notes
 
 - **Two-stage model per source**: `fetch.ts` (network → `src/sources/cache/<source>.ndjson`, source-specific row type) and `normalize.ts` (cache → the shared `SourcedPackage` type). Only `fetch.ts` needs implementing per row above — `normalize.ts`, the cache read path, and tests already exist per source (see the root [`AGENTS.md`](../AGENTS.md)'s "Source cache" section).
-- **Fetch metadata**: every implemented `fetch.ts` writes a `cache/<source>.meta.json` sidecar — `fetchedAt`, the upstream `url`, `entryCount`, plus source-specific details (Flathub's `arch`, Snapcraft's `deviceSeries`/`categoriesSwept`). See `_shared/metadata.ts`.
+- **Fetch metadata**: every implemented `fetch.ts` writes a `cache/<source>.meta.json` sidecar — `fetchedAt`, the upstream `url`, `entryCount`, plus source-specific details (Flathub's `arch`, Snapcraft's `deviceSeries`/`listingPagesFetched`). See `_shared/metadata.ts`.
 - **Rich fields per source** (2026-10-12, which source wins each field is [`rich-fields.md`](rich-fields.md)'s job; this is what each connector reads):
   - Snap: publisher (+ `publisherVerified`), license, long description, screenshots, links, `builtAt` per channel.
   - Fedora, openSUSE, RPM Fusion: license (`<rpm:license>`), `builtAt` (`<time build>`), installed size (`<size installed>`).

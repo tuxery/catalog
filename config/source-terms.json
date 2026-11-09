@@ -631,11 +631,11 @@
         {
           "url": "https://github.com/tuxery/catalog/blob/main/src/sources/cache/snap-snapcraft.meta.json",
           "read": true,
-          "finding": "Measured on the 2026-11-07 run: 39,852 + 82,656 search prefixes and 11,510 channel maps, about 134,000 requests a week."
+          "finding": "Measured on the 2026-11-07 run, the last of the old sweep: 39,852 + 82,656 search prefixes and 11,510 channel maps, about 134,000 requests a week."
         }
       ],
-      "note": "The volume matters as much as the terms: a weekly sweep of about 134,000 requests to an undocumented API.",
-      "action": "Ask Canonical (legal@canonical.com is the address its terms give) for a sanctioned way to list snaps, and reduce the sweep meanwhile."
+      "note": "The volume matters as much as the terms: an undocumented API. The weekly refresh went from about 134,000 requests to about 3,700 (estimated, no real run yet) on 2026-11-09, see docs/sources.md.",
+      "action": "Ask Canonical (legal@canonical.com is the address its terms give) for a sanctioned way to list snaps."
     },
     "vendor-repos": {
       "verdict": "low-risk-no-terms",

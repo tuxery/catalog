@@ -105,7 +105,7 @@ repository's git history, and hand-written `config/` reasons may quote it.
 Every `fetch.ts` also writes a `cache/<source>.meta.json` sidecar (via
 `_shared/metadata.ts`) recording when and from where the data was fetched —
 `fetchedAt`, `url`, `entryCount`, plus whatever else is relevant per source
-(Flathub's `arch`, Snapcraft's `deviceSeries`/`categoriesSwept`). Kept as a
+(Flathub's `arch`, Snapcraft's `deviceSeries`/`listingPagesFetched`). Kept as a
 sibling file rather than fields on every NDJSON row, so a re-fetch's
 changed timestamp doesn't touch every data line's diff. `_shared/deb822.ts`
 is the one format-parsing helper shared between sources (Debian and

@@ -15,11 +15,11 @@ const reviewed = (id: string, count: number): GogCacheEntry => ({
 describe("gog normalize", () => {
   it("maps a cache entry to a SourcedPackage", () => {
     const entry: GogCacheEntry = {
-      id: "1459256379",
-      title: "Firewatch",
-      slug: "firewatch",
-      storeLink: "https://www.gog.com/en/game/firewatch",
-      developers: ["Campo Santo"],
+      id: "1000000001",
+      title: "Lantern Keep",
+      slug: "lantern-keep",
+      storeLink: "https://www.gog.com/en/game/lantern-keep",
+      developers: ["Example Studio"],
       screenshots: ["https://images.gog-statics.com/a_product_card_v2_mobile_slider_639.jpg"],
       genres: [],
     };
@@ -27,13 +27,13 @@ describe("gog normalize", () => {
     expect(normalize([entry])).toEqual([
       {
         source: "gog",
-        name: "Firewatch",
+        name: "Lantern Keep",
         description: "",
         version: "unknown",
-        appId: "firewatch",
-        homepage: "https://www.gog.com/en/game/firewatch",
+        appId: "lantern-keep",
+        homepage: "https://www.gog.com/en/game/lantern-keep",
         hasGameCategory: true,
-        developer: "Campo Santo",
+        developer: "Example Studio",
         screenshots: ["https://images.gog-statics.com/a_product_card_v2_mobile_slider_639.jpg"],
       },
     ]);
@@ -93,23 +93,23 @@ describe("gog normalize", () => {
 
   it("passes the cache entry's rating through unchanged", () => {
     const entry: GogCacheEntry = {
-      id: "1459256379",
-      title: "Firewatch",
-      slug: "firewatch",
+      id: "1000000001",
+      title: "Lantern Keep",
+      slug: "lantern-keep",
       developers: [],
       screenshots: [],
       genres: [],
-      rating: { average: 3.9, count: 2153 },
+      rating: { average: 4, count: 1200 },
     };
 
-    expect(normalize([entry])[0]?.rating).toEqual({ average: 3.9, count: 2153 });
+    expect(normalize([entry])[0]?.rating).toEqual({ average: 4, count: 1200 });
   });
 
   it("maps GOG's own genre slugs to a categories-games.json freedesktop-equivalent key", () => {
     const entry: GogCacheEntry = {
-      id: "1207658930",
-      title: "The Witcher 2",
-      slug: "the_witcher_2",
+      id: "1000000002",
+      title: "Invented Quest 2",
+      slug: "invented_quest_2",
       developers: [],
       screenshots: [],
       genres: ["rpg", "action", "fantasy"],

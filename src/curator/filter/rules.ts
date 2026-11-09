@@ -1363,12 +1363,12 @@ const DEB_FAMILY_GAME_SOURCES = new Set<PackageSourceId>([
  *   a joystick-to-keyboard mapper).
  * - AUR's own `gog-` name prefix (AUR carries no Section-equivalent field
  *   at all, so this is a name check, not a section one) — community
- *   packaging wrappers around a real GOG.com game installer (gog-deponia,
- *   gog-stardew-valley, gog-x4_foundations, ...). Surfaced live
+ *   packaging wrappers around a real GOG.com game installer (gog-invented-saga,
+ *   gog-invented-valley, gog-sample_title, ...). Surfaced live
  *   investigating the apps "To Classify" bucket (2026-09-02): 146 real
  *   matches, every one sampled a real GOG game (including several whose
  *   own description doesn't use the word "game" at all, e.g.
- *   gog-a-short-hike, gog-hypnospace-outlaw), zero false positives.
+ *   gog-sample-hike, gog-another-title), zero false positives.
  * - AUR's own `pzl_` name prefix — a single coherent puzzle-game suite
  *   (pzl_sudoku, pzl_sokoban, pzl_wordladder, ...) with a shared
  *   `pzl_common` data package, same "no Section field, name is the only

@@ -4,7 +4,7 @@ import type { SourcedPackage } from "../types";
 import type { GogCacheEntry } from "./types";
 
 // GOG's own genre-tag vocabulary (catalog.gog.com/v1/catalog's `genres`
-// field — real, verified live 2026-09-03: e.g. the Witcher 2 carries
+// field — real, verified live 2026-09-03: e.g. an RPG can carry
 // [{name:"Role-playing",slug:"rpg"},{name:"Action",slug:"action"},
 // {name:"Fantasy",slug:"fantasy"}]) mapped to the closest
 // `categories-games.json` freedesktop-equivalent key, reusing the exact

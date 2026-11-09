@@ -7,10 +7,10 @@ import type { AgeRating } from "../types";
  * rather than the normalized `SourcedPackage` — see `normalize.ts`.
  */
 export interface GogCacheEntry {
-  /** GOG's own numeric product id (as a string), e.g. "1459256379". */
+  /** GOG's own numeric product id (as a string), e.g. "1000000001". */
   id: string;
   title: string;
-  /** URL-safe product slug, e.g. "firewatch" — used to build the store page URL when `storeLink` is missing. */
+  /** URL-safe product slug, e.g. "lantern-keep" — used to build the store page URL when `storeLink` is missing. */
   slug: string;
   /** Real product page URL, when the API provides one — see `fetch.ts`'s fallback for when it doesn't. */
   storeLink?: string;

@@ -64,7 +64,7 @@ describe("pickRichField", () => {
 
   it("takes a snap's publisher, ranked by GOG's", () => {
     const packages = [
-      pkg({ source: "gog", publisher: "CD Projekt" }),
+      pkg({ source: "gog", publisher: "Example Publisher" }),
       pkg({ source: "snap-snapcraft", publisher: "VideoLAN" }),
     ];
     expect(pickRichField("publisher", packages, (p) => p.publisher)).toBe("VideoLAN");

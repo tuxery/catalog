@@ -353,7 +353,7 @@
     "gog": {
       "verdict": "owner-review",
       "automatedFetch": "unverified",
-      "publicStorage": "unclear",
+      "publicStorage": "forbidden",
       "attribution": null,
       "fieldLicense": "Store descriptions, screenshots and ratings: GOG's or publishers'. No license found.",
       "evidence": [
@@ -373,8 +373,8 @@
           "finding": "\"Disallow: /\" for all agents. The connector uses this host for product details."
         }
       ],
-      "note": "Highest risk: an undocumented API, and full store descriptions are published in this public repository.",
-      "action": "Read the User Agreement. Recommended meanwhile: treat as restricted (private cache)."
+      "note": "Private cache in tuxery/source-cache as OUR precaution since 2026-11-09: GOG has not asked for this and no term we read forbids public storage; the User Agreement is unread (anti-bot page). publicStorage says what we do, not what GOG said. Undocumented API, and the cache holds full store descriptions. Earlier versions of the cache remain in this repository's git history.",
+      "action": "Read the User Agreement, and ask GOG. Then keep this, or move the cache back to public."
     },
     "lutris": {
       "verdict": "owner-review",

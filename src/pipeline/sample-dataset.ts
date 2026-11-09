@@ -1,6 +1,7 @@
 import { mkdir, writeFile } from "node:fs/promises";
 import { dirname } from "node:path";
 import { fileURLToPath } from "node:url";
+import { hasRestrictedPackage } from "../sources/_shared/cache-path";
 import { buildDataset } from "./build-dataset";
 
 const SAMPLE_SIZE = 1000;
@@ -17,12 +18,17 @@ function flagValue(name: string): string | undefined {
  * groupPackages/enrichApps iterate sources in a fixed order. Committed
  * here (same repo as this command), read cross-repo by `app`'s
  * `dev-worker.mjs` default — see that file's comment. Manual/occasional
- * maintenance command, not run on every dev boot — see AGENTS.md.
+ * maintenance command, not run on every dev boot — see AGENTS.md. This file
+ * is public, so an app carrying a restricted source's package stays out even
+ * when the private caches are checked out here.
  */
 async function main() {
   const outPath = flagValue("out") ?? DEFAULT_OUT;
   const dataset = await buildDataset();
-  const sample = { ...dataset, apps: dataset.apps.slice(0, SAMPLE_SIZE) };
+  const sample = {
+    ...dataset,
+    apps: dataset.apps.filter((app) => !hasRestrictedPackage(app.packages)).slice(0, SAMPLE_SIZE),
+  };
 
   await mkdir(dirname(outPath), { recursive: true });
   await writeFile(outPath, JSON.stringify(sample, null, 2));

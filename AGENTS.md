@@ -89,15 +89,18 @@ CI/dev never starts from zero and upstream APIs aren't hit on every
 rebuild.
 
 **Exception, private caches.** A source whose terms forbid public
-redistribution (only `appimagehub` today, `RESTRICTED_SOURCES` in
-`src/sources/_shared/cache-path.ts`) keeps its cache in the private
+redistribution (`appimagehub`), or that we hold back as our own precaution
+because its terms couldn't be read (`gog`, no request from GOG;
+`RESTRICTED_SOURCES` in `src/sources/_shared/cache-path.ts`) keeps its cache in the private
 `tuxery/source-cache` repository instead, read from a checkout next to this
 one (the dev container clones it) or `TUXERY_PRIVATE_CACHE_DIR`. Without it
 the source reads as empty and everything still builds; a remote publish
-refuses to run. Never copy such a cache into `src/sources/cache/`, print it
+refuses to run without each source's file. Never copy such a cache into `src/sources/cache/`, print it
 in a workflow log (they are public), upload it as an artifact or send it to
-an outside service (`scripts/classify-llm.ts` skips any app carrying such a
-package, `hasRestrictedPackage`). A source goes private only when its own terms or maintainers say so.
+an outside service (`scripts/classify-llm.ts` and `scripts/triage-llm.ts` skip any app carrying
+such a package, `hasRestrictedPackage`, and `pnpm sample` leaves it out). Moving
+a source doesn't clean what is already public: its file stays in this
+repository's git history, and hand-written `config/` reasons may quote it.
 
 Every `fetch.ts` also writes a `cache/<source>.meta.json` sidecar (via
 `_shared/metadata.ts`) recording when and from where the data was fetched —

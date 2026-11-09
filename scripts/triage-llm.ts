@@ -12,6 +12,7 @@ import {
   type TriageItem,
   type TriageSuggestion,
 } from "../src/pipeline/triage-prompt";
+import { RESTRICTED_SOURCES } from "../src/sources/_shared/cache-path";
 import { createRotation, StopRun } from "./_llm-rotation";
 
 /**
@@ -114,6 +115,9 @@ async function main(): Promise<void> {
         reach: suspect.reach,
       })),
     )
+    // Names and descriptions go to the LLM and to a public file: never a
+    // restricted source's, and a merged app's can come from it.
+    .filter((item) => !item.apps.some((app) => app.sources.some((s) => RESTRICTED_SOURCES.has(s))))
     .filter((item) => neededKeys(item).some((key) => !suggestions.has(key)));
   const todo = queue.slice(0, sample ?? limit ?? queue.length);
 

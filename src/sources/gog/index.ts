@@ -5,7 +5,8 @@ import type { GogCacheEntry } from "./types";
 /**
  * Searches GOG's Linux-compatible catalog for games matching `query`.
  *
- * Reads the git-committed cache (see AGENTS.md's "Source cache") rather
- * than the network.
+ * Reads the private cache (tuxery/source-cache, see
+ * `../_shared/cache-path.ts`) rather than the network, and finds nothing
+ * without a checkout of it.
  */
 export const searchGog = makeCacheSearch<GogCacheEntry>("gog", normalize);

@@ -121,11 +121,12 @@
           "finding": "Deepin: public package index made for package managers. No terms on reusing its metadata found."
         },
         {
-          "url": "https://www.deepin.org/en/agreement/",
-          "read": false,
-          "finding": "Page answers but holds no readable text without JavaScript."
+          "url": "https://www.deepin.org/en/agreement/end-user-license-agreement/",
+          "read": true,
+          "finding": "End User License Agreement for Deepin OS (2020-12-08): covers the OS; each component keeps its own open-source license (art. 1); no redistribution for commercial purposes (art. 3). Nothing on the repository index or its metadata."
         }
-      ]
+      ],
+      "action": "Asked support@deepin.org on 2026-11-09; waiting for a reply."
     },
     "deb-mint": {
       "verdict": "low-risk-no-terms",
@@ -232,7 +233,7 @@
       "automatedFetch": "allowed",
       "publicStorage": "allowed",
       "attribution": "Keep the GPL-2 notice with any copy of ebuild text (src/sources/cache/LICENSES/, since 2026-11-09).",
-      "fieldLicense": "GPL-2 on the ebuild tree, DESCRIPTION fields included.",
+      "fieldLicense": "GPL-2 on the ebuilds. We read the md5-cache generated from them, which states no license of its own; we treat it as GPL-2 too.",
       "evidence": [
         {
           "url": "https://gitweb.gentoo.org/repo/gentoo.git",
@@ -242,9 +243,10 @@
         {
           "url": "https://distfiles.gentoo.org/snapshots/portage-latest.tar.xz",
           "read": true,
-          "finding": "Public snapshot made for download."
+          "finding": "Public snapshot made for download. We extract only metadata/md5-cache/, whose files carry no license header."
         }
-      ]
+      ],
+      "action": "Asked trustees@gentoo.org on 2026-11-09 whether treating the md5-cache as GPL-2 is right; waiting for a reply."
     },
     "eopkg-solus": {
       "verdict": "low-risk-no-terms",
@@ -325,7 +327,7 @@
         {
           "url": "https://odrs.gnome.org/",
           "read": true,
-          "finding": "Ratings: public service, code under GPL-3.0; no terms on the ratings data found. We keep only aggregates."
+          "finding": "Ratings: public service, code under GPL-3.0; no terms on the ratings data found. We keep only aggregates. On 2026-11-09 its maintainer, Richard Hughes, replied by email that our use \"sounds fine\", and asked, without requiring it, that we say the ratings come from ODRS; app shows \"via ODRS\" on them."
         }
       ],
       "note": "The published catalog and API suggest reuse is expected, but the only terms found say otherwise.",

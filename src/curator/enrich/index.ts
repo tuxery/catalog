@@ -591,6 +591,9 @@ function distinctListings(packages: SourcedPackage[]): SourcedPackage[] {
   return [...listings.values()];
 }
 
+/** Sources whose `rating` is GNOME's ODRS pool for the app, not votes of their own. */
+const ODRS_RATED_SOURCES: ReadonlySet<string> = new Set(["flatpak-flathub", "flatpak-appcenter"]);
+
 /**
  * Combines every member package's own rating into one count-weighted
  * average — unlike `pickField`, which picks a single source's value,
@@ -599,15 +602,26 @@ function distinctListings(packages: SourcedPackage[]): SourcedPackage[] {
  * should all count, not just the highest-priority source's. `undefined`
  * when no member package has a rating at all — never a synthetic 0.
  * Per-source figures stay readable on `CatalogApp.packages[].rating` for
- * a "ratings by source" breakdown.
+ * a "ratings by source" breakdown. Flathub and AppCenter both carry
+ * ODRS's rating, the same votes, so it counts once: the listing with the
+ * most votes.
  */
 function aggregateRating(
   packages: SourcedPackage[],
 ): { average: number; count: number } | undefined {
-  const rated = distinctListings(packages).filter(
+  const withVotes = distinctListings(packages).filter(
     (pkg): pkg is SourcedPackage & { rating: { average: number; count: number } } =>
       Boolean(pkg.rating && pkg.rating.count > 0),
   );
+  const odrs = withVotes.filter((pkg) => ODRS_RATED_SOURCES.has(pkg.source));
+  const odrsKept = odrs.reduce<(typeof odrs)[number] | undefined>(
+    (best, pkg) => (!best || pkg.rating.count > best.rating.count ? pkg : best),
+    undefined,
+  );
+  const rated = [
+    ...withVotes.filter((pkg) => !ODRS_RATED_SOURCES.has(pkg.source)),
+    ...(odrsKept ? [odrsKept] : []),
+  ];
   if (rated.length === 0) return undefined;
 
   const count = sumBy(rated, (pkg) => pkg.rating.count);

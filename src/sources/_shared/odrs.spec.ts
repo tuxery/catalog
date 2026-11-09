@@ -43,4 +43,16 @@ describe("pickOdrsRating", () => {
 
     expect(pickOdrsRating(ratings, "org.unknown.App")).toBeUndefined();
   });
+
+  it("finds both pools from an id that already ends in .desktop (real case: AppCenter's AppEditor)", () => {
+    const ratings = new Map([
+      ["com.github.donadigo.appeditor", { average: 3, count: 15 }],
+      ["com.github.donadigo.appeditor.desktop", { average: 4, count: 11 }],
+    ]);
+
+    expect(pickOdrsRating(ratings, "com.github.donadigo.appeditor.desktop")).toEqual(
+      pickOdrsRating(ratings, "com.github.donadigo.appeditor"),
+    );
+    expect(pickOdrsRating(ratings, "com.github.donadigo.appeditor.desktop")?.count).toBe(26);
+  });
 });

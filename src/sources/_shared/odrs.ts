@@ -69,16 +69,19 @@ export async function fetchOdrsRatings(): Promise<Map<string, OdrsRating>> {
  * (`org.mozilla.Firefox.desktop`), sometimes both at once with different
  * vote counts each. Both are looked up and combined into one
  * count-weighted average rather than picking just one and silently
- * dropping the other's votes. Pure — no I/O.
+ * dropping the other's votes. An id that already ends in `.desktop`
+ * (AppCenter's `com.github.donadigo.appeditor.desktop`) is stripped
+ * first, so it finds the bare pool too, the same figure Flathub gets.
+ * Pure — no I/O.
  */
 export function pickOdrsRating(
   ratings: Map<string, OdrsRating>,
   appstreamId: string,
 ): OdrsRating | undefined {
-  const candidates = [
-    ratings.get(appstreamId.toLowerCase()),
-    ratings.get(`${appstreamId}.desktop`.toLowerCase()),
-  ].filter((rating): rating is OdrsRating => rating !== undefined);
+  const bareId = appstreamId.toLowerCase().replace(/\.desktop$/, "");
+  const candidates = [ratings.get(bareId), ratings.get(`${bareId}.desktop`)].filter(
+    (rating): rating is OdrsRating => rating !== undefined,
+  );
   if (candidates.length === 0) return undefined;
 
   const count = sumBy(candidates, (rating) => rating.count);

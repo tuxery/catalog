@@ -25,7 +25,7 @@
       "verdict": "clear",
       "automatedFetch": "allowed",
       "publicStorage": "allowed",
-      "attribution": "Keep the repository's MIT notice with any copy (not done yet in src/sources/cache/).",
+      "attribution": "Keep the repository's MIT notice with any copy (src/sources/cache/LICENSES/, since 2026-11-09).",
       "fieldLicense": "MIT on the repository; icons and screenshots belong to each project.",
       "evidence": [
         {
@@ -231,7 +231,7 @@
       "verdict": "clear",
       "automatedFetch": "allowed",
       "publicStorage": "allowed",
-      "attribution": "Keep the GPL-2 notice with any copy of ebuild text (not done yet in src/sources/cache/).",
+      "attribution": "Keep the GPL-2 notice with any copy of ebuild text (src/sources/cache/LICENSES/, since 2026-11-09).",
       "fieldLicense": "GPL-2 on the ebuild tree, DESCRIPTION fields included.",
       "evidence": [
         {
@@ -405,7 +405,7 @@
       "verdict": "clear",
       "automatedFetch": "allowed",
       "publicStorage": "allowed",
-      "attribution": "Keep the MIT notice with any copy (not done yet in src/sources/cache/).",
+      "attribution": "Keep the MIT notice with any copy (src/sources/cache/LICENSES/, since 2026-11-09).",
       "fieldLicense": "MIT on nixpkgs, package descriptions included.",
       "evidence": [
         {
@@ -655,7 +655,7 @@
       "verdict": "clear",
       "automatedFetch": "allowed",
       "publicStorage": "allowed",
-      "attribution": "Keep the BSD notice with any copy (not done yet in src/sources/cache/).",
+      "attribution": "Keep the BSD notice with any copy (src/sources/cache/LICENSES/, since 2026-11-09).",
       "fieldLicense": "BSD-style license on void-packages.",
       "evidence": [
         {

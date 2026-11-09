@@ -761,8 +761,8 @@ describe("looksLikeGamePackage", () => {
   });
 
   it("flags AUR's gog- name prefix even with no section at all", () => {
-    expect(looksLikeGamePackage("pacman-aur", undefined, "gog-stardew-valley")).toBe(true);
-    expect(looksLikeGamePackage("pacman-aur", undefined, "gog-a-short-hike")).toBe(true);
+    expect(looksLikeGamePackage("pacman-aur", undefined, "gog-invented-valley")).toBe(true);
+    expect(looksLikeGamePackage("pacman-aur", undefined, "gog-sample-hike")).toBe(true);
   });
 
   it('does not flag an unrelated AUR package that merely contains "gog"', () => {
@@ -771,7 +771,7 @@ describe("looksLikeGamePackage", () => {
   });
 
   it("does not apply the gog- prefix to a different source", () => {
-    expect(looksLikeGamePackage("deb-debian", undefined, "gog-stardew-valley")).toBe(false);
+    expect(looksLikeGamePackage("deb-debian", undefined, "gog-invented-valley")).toBe(false);
   });
 
   it("flags AUR's pzl_ name prefix (the pzl puzzle-suite) even with no section at all", () => {

@@ -380,7 +380,7 @@ function unionDescribedVariants(
 
   for (const pkg of packages) {
     // `gog-<title>` wrappers have their own tier, and sequels often reuse the
-    // prequel's blurb (`gog-deponia-2-...` is not a variant of `gog-deponia`).
+    // prequel's blurb (`gog-invented-saga-2-...` is not a variant of `gog-invented-saga`).
     if (pkg.source !== "pacman-aur" || pkg.name.startsWith("gog-")) continue;
     const description = normalizeDescription(pkg.description);
     if (description.length < MIN_DESCRIPTION_LENGTH) continue;

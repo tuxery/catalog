@@ -12,7 +12,7 @@ describe("resolveScreenshotUrl", () => {
 describe("mapProducts", () => {
   it("keeps only productType 'game', dropping packs and DLC", () => {
     const products = [
-      { id: "1", slug: "firewatch", title: "Firewatch", productType: "game" },
+      { id: "1", slug: "lantern-keep", title: "Lantern Keep", productType: "game" },
       { id: "2", slug: "bundle", title: "Some Bundle", productType: "pack" },
       { id: "3", slug: "addon", title: "Some DLC", productType: "dlc" },
     ];
@@ -34,8 +34,8 @@ describe("mapProducts", () => {
     const products = [
       {
         id: "1",
-        slug: "firewatch",
-        title: "Firewatch",
+        slug: "lantern-keep",
+        title: "Lantern Keep",
         productType: "game",
         screenshots: ["https://images.gog-statics.com/a_{formatter}.jpg"],
       },
@@ -58,29 +58,29 @@ describe("mapProducts", () => {
     const products = [
       {
         id: "1",
-        slug: "firewatch",
-        title: "Firewatch",
+        slug: "lantern-keep",
+        title: "Lantern Keep",
         productType: "game",
-        storeLink: "https://www.gog.com/en/game/firewatch",
+        storeLink: "https://www.gog.com/en/game/lantern-keep",
       },
     ];
 
-    expect(mapProducts(products)[0]?.storeLink).toBe("https://www.gog.com/en/game/firewatch");
+    expect(mapProducts(products)[0]?.storeLink).toBe("https://www.gog.com/en/game/lantern-keep");
   });
 
   it("converts reviewsRating's 0-50 scale to a 0-5 average when reviews exist", () => {
     const products = [
       {
         id: "1",
-        slug: "firewatch",
-        title: "Firewatch",
+        slug: "lantern-keep",
+        title: "Lantern Keep",
         productType: "game",
-        reviewsRating: 39,
-        reviewsCount: 2153,
+        reviewsRating: 40,
+        reviewsCount: 1200,
       },
     ];
 
-    expect(mapProducts(products)[0]?.rating).toEqual({ average: 3.9, count: 2153 });
+    expect(mapProducts(products)[0]?.rating).toEqual({ average: 4, count: 1200 });
   });
 
   it("drops the rating for unreviewed products rather than keeping a fake zero", () => {
@@ -100,23 +100,22 @@ describe("mapProducts", () => {
 });
 
 describe("mapProductDetails", () => {
-  // Firewatch, api.gog.com/products/1459256379?expand=description, 2026-10-12.
-  const firewatch = {
+  // Invented values, in the shape of api.gog.com/products/<id>?expand=description.
+  const game = {
     images: {
-      icon: "//images-3.gog-statics.com/a62be6b74721d83d70eae613235f8e6f3ac0b913a8da0a791223ece4fa04d293.png",
+      icon: "//images-3.gog-statics.com/0123456789abcdef.png",
     },
     description: {
-      lead: "<b>Firewatch</b> is a single-player first-person mystery.",
-      full: "<b>Firewatch</b> is a single-player first-person mystery set in the Wyoming wilderness. \n <br><br>\nThe year is 1989.",
+      lead: "<b>Lantern Keep</b> is a made-up mystery.",
+      full: "<b>Lantern Keep</b> is a made-up mystery set in a made-up forest. \n <br><br>\nThe year is unknown.",
     },
   };
 
   it("resolves the protocol-relative icon and flattens the full description to text", () => {
-    expect(mapProductDetails(firewatch)).toEqual({
-      iconUrl:
-        "https://images-3.gog-statics.com/a62be6b74721d83d70eae613235f8e6f3ac0b913a8da0a791223ece4fa04d293.png",
+    expect(mapProductDetails(game)).toEqual({
+      iconUrl: "https://images-3.gog-statics.com/0123456789abcdef.png",
       longDescription:
-        "Firewatch is a single-player first-person mystery set in the Wyoming wilderness.\n\nThe year is 1989.",
+        "Lantern Keep is a made-up mystery set in a made-up forest.\n\nThe year is unknown.",
     });
   });
 
@@ -136,23 +135,23 @@ describe("mapProducts publisher", () => {
         slug: "a",
         title: "A",
         productType: "game",
-        publishers: ["Campo Santo", "Panic"],
+        publishers: ["Example Studio", "Sample Press"],
       },
     ]);
-    expect(entry?.publisher).toBe("Campo Santo, Panic");
+    expect(entry?.publisher).toBe("Example Studio, Sample Press");
   });
 });
 
 describe("pickAgeRating", () => {
-  // Firewatch's ratings in catalog.gog.com, 2026-10-12.
-  const firewatch = [
+  // Invented ratings, in the shape of catalog.gog.com.
+  const game = [
     { name: "pegiRating", ageRating: "16" },
     { name: "esrbRating", ageRating: "17" },
   ];
 
   it("takes PEGI first, then ESRB, then USK", () => {
-    expect(pickAgeRating(firewatch)).toEqual({ system: "PEGI", value: "16", minAge: 16 });
-    expect(pickAgeRating(firewatch.slice(1))).toEqual({ system: "ESRB", value: "17", minAge: 17 });
+    expect(pickAgeRating(game)).toEqual({ system: "PEGI", value: "16", minAge: 16 });
+    expect(pickAgeRating(game.slice(1))).toEqual({ system: "ESRB", value: "17", minAge: 17 });
     expect(pickAgeRating([{ name: "uskRating", ageRating: "0" }])).toEqual({
       system: "USK",
       value: "0",

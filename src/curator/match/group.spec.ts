@@ -30,10 +30,10 @@ describe("groupPackages", () => {
 
   it("merges an AUR gog-* wrapper (variant suffix included) with the GOG.com listing of the same title", () => {
     const packages = [
-      pkg({ source: "gog", name: "Stardew Valley" }),
-      pkg({ source: "pacman-aur", name: "gog-stardew-valley" }),
-      pkg({ source: "pacman-aur", name: "gog-hollow-knight-bin" }),
-      pkg({ source: "gog", name: "Hollow Knight" }),
+      pkg({ source: "gog", name: "Invented Valley" }),
+      pkg({ source: "pacman-aur", name: "gog-invented-valley" }),
+      pkg({ source: "pacman-aur", name: "gog-sample-knight-bin" }),
+      pkg({ source: "gog", name: "Sample Knight" }),
     ];
 
     const groups = groupPackages(packages, NO_OVERRIDES);
@@ -44,9 +44,9 @@ describe("groupPackages", () => {
 
   it("doesn't strip gog- from other sources or match a gog-* wrapper to a non-GOG package", () => {
     const packages = [
-      pkg({ source: "flatpak-flathub", name: "Stardew Valley" }),
-      pkg({ source: "pacman-aur", name: "gog-stardew-valley" }),
-      pkg({ source: "deb-debian", name: "gog-stardew-valley" }),
+      pkg({ source: "flatpak-flathub", name: "Invented Valley" }),
+      pkg({ source: "pacman-aur", name: "gog-invented-valley" }),
+      pkg({ source: "deb-debian", name: "gog-invented-valley" }),
     ];
 
     expect(groupPackages(packages, NO_OVERRIDES)).toHaveLength(2);
@@ -177,10 +177,10 @@ describe("groupPackages", () => {
   });
 
   it("leaves gog-* sequels alone even when they reuse the prequel's description", () => {
-    const description = "Rufus is not a pleasant guy. Ill-tempered and selfish.";
+    const description = "A made-up hero in a made-up adventure, told over two games.";
     const packages = [
-      pkg({ source: "pacman-aur", name: "gog-deponia", description }),
-      pkg({ source: "pacman-aur", name: "gog-deponia-2-chaos-on-deponia", description }),
+      pkg({ source: "pacman-aur", name: "gog-invented-saga", description }),
+      pkg({ source: "pacman-aur", name: "gog-invented-saga-2-the-sequel", description }),
     ];
 
     expect(groupPackages(packages, NO_OVERRIDES)).toHaveLength(2);

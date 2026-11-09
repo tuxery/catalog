@@ -8,7 +8,7 @@ import type { GogCacheEntry, GogFetchMetadata } from "./types";
 
 // GOG's catalog API is undocumented but real and unauthenticated, already
 // relied on by community tools like Heroic/Lutris. `systems=linux` is
-// inclusive, not Linux-exclusive (e.g. Firewatch also lists windows/osx) —
+// inclusive, not Linux-exclusive (a game often also lists windows/osx) —
 // matches "can I install this on Linux", not "Linux only". `limit` caps
 // at 100; 200 returns a 400.
 const LIMIT = 100;

@@ -890,7 +890,7 @@ describe("enrichApps", () => {
   it("combines every member package's rating into one count-weighted average", () => {
     const matched: MatchedApp[] = [
       {
-        id: "gog:firewatch",
+        id: "gog:lantern-keep",
         packages: [
           pkg({ source: "gog", rating: { average: 4, count: 100 } }),
           pkg({ source: "lutris", rating: { average: 2, count: 50 } }),

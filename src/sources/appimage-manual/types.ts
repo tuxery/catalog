@@ -13,6 +13,10 @@ export interface ManualAppImageCacheEntry {
   name: string;
   description: string;
   homepage: string;
+  /** The vendor's own icon, loaded from its site. */
+  iconUrl?: string;
+  /** The vendor's own screenshots, loaded from its site. */
+  screenshots?: string[];
 }
 
 export type ManualAppImageFetchMetadata = FetchMetadata;

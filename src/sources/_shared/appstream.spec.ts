@@ -536,3 +536,26 @@ describe("parseAppstreamXml: branding and kudos", () => {
     expect(byId("org.example.Plain")?.kudos).toBeUndefined();
   });
 });
+
+describe("parseAppstreamXml: Flatpak runtime", () => {
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<components version="0.8" origin="flathub">
+  <component type="desktop-application">
+    <id>ai.jan.Jan</id>
+    <name>Jan</name>
+    <summary>Local AI</summary>
+    <bundle type="flatpak" runtime="org.gnome.Platform/x86_64/51" sdk="org.gnome.Sdk/x86_64/51">app/ai.jan.Jan/x86_64/stable</bundle>
+  </component>
+  <component type="desktop-application">
+    <id>org.example.NoBundle</id>
+    <name>No bundle</name>
+    <summary>A distro component</summary>
+  </component>
+</components>`;
+
+  it("reads the flatpak bundle's runtime as id//branch, and nothing without one", () => {
+    const [jan, plain] = parseAppstreamXml(xml);
+    expect(jan?.runtime).toBe("org.gnome.Platform//51");
+    expect(plain?.runtime).toBeUndefined();
+  });
+});

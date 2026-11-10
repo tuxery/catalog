@@ -232,6 +232,13 @@ export interface SourcedPackage {
   brandColors?: BrandColors;
   /** AppStream's `<kudos>` as the developer states them (`HiDpiIcon`, `HighContrast`, `ModernToolkit`, `UserDocs`...). Flathub only, ~25 apps. */
   kudos?: string[];
+  /**
+   * The Flatpak runtime the app runs on, as `<id>//<branch>`
+   * (`org.gnome.Platform//51`), from the remote's AppStream `<bundle>`.
+   * Flathub and AppCenter only. Stays on the package (the page shows it in
+   * the Flatpak group's technical details), no app-level field.
+   */
+  runtime?: string;
   /** What the app needs and supports (controls, display size, internet) as one readable line, from AppStream's `<requires>`/`<recommends>`/`<supports>`. */
   requirements?: string;
   /** The sandbox permissions the package asks for, one readable line each — Flatpak's `finish-args`. */

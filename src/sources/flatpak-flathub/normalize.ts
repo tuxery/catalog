@@ -24,6 +24,7 @@ export function normalize(entries: FlathubCacheEntry[]): SourcedPackage[] {
     ageRating: entry.ageRating,
     brandColors: entry.brandColors,
     kudos: entry.kudos,
+    runtime: entry.runtime,
     requirements: entry.requirements,
     languages: entry.languages,
     changelog: entry.changelog,

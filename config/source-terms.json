@@ -367,20 +367,15 @@
     },
     "gog": {
       "verdict": "owner-review",
-      "automatedFetch": "unverified",
+      "automatedFetch": "forbidden-by-text",
       "publicStorage": "forbidden",
       "attribution": null,
       "fieldLicense": "Store descriptions, screenshots and ratings: GOG's or publishers'. No license found.",
       "evidence": [
         {
-          "url": "https://support.gog.com/hc/articles/16034990432541",
-          "read": false,
-          "finding": "Current User Agreement, linked by GOG's announcement. Behind an anti-bot challenge: NOT read."
-        },
-        {
-          "url": "https://www.gog.com/en/news/were_updating_our_user_agreement_and_other_gog_terms",
+          "url": "https://support.gog.com/hc/articles/212632089",
           "read": true,
-          "finding": "New terms apply from 2024-02-17; gives the link above."
+          "finding": "User Agreement in force since 9 March 2026 (read through a copy at tostracker.app/document/gog, version of 2026-04-04). §11.1(e): no \"automation software, robots, bots, extraction tools or other software that interact with or affect GOG services or GOG content\", nor \"unauthorized third party programs that collect information about GOG services\". §10.1: no use of GOG services or content, \"databases, data\" and \"text\" included, except as the Agreement explains. §11.1(a): personal enjoyment only. Nothing on APIs, linking or affiliates."
         },
         {
           "url": "https://api.gog.com/robots.txt",
@@ -388,8 +383,8 @@
           "finding": "\"Disallow: /\" for all agents. The connector uses this host for product details."
         }
       ],
-      "note": "Private cache in tuxery/source-cache as OUR precaution since 2026-11-09: GOG has not asked for this and no term we read forbids public storage; the User Agreement is unread (anti-bot page). publicStorage says what we do, not what GOG said. Undocumented API, and the cache holds full store descriptions. Earlier versions of the cache remain in this repository's git history.",
-      "action": "Read the User Agreement, and ask GOG. Then keep this, or move the cache back to public."
+      "note": "Our connector (catalog.gog.com, then api.gog.com per game, about 1,400 requests a week) is exactly what §11.1(e) forbids. Fetch paused on 2026-11-10 (REFRESHERS keeps the cache, so GOG games stay listed with their link to GOG). Private cache since 2026-11-09; earlier versions remain in this repository's git history.",
+      "action": "Ask GOG for permission. If refused or unanswered, remove the source and its cache."
     },
     "lutris": {
       "verdict": "owner-review",

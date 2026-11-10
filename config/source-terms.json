@@ -303,9 +303,9 @@
     },
     "flatpak-flathub": {
       "verdict": "owner-review",
-      "automatedFetch": "forbidden-by-text",
+      "automatedFetch": "allowed",
       "publicStorage": "unclear",
-      "attribution": "Depends on each app's metadata_license, which neither the catalog nor the API exposes.",
+      "attribution": "Depends on each app's metadata_license, which the catalog doesn't expose.",
       "fieldLicense": "Per app: permissive metadata_license (AppStream); FSFAP suggested when upstream gives none. Screenshots and icons: no license stated.",
       "evidence": [
         {
@@ -337,10 +337,15 @@
           "url": "https://odrs.gnome.org/",
           "read": true,
           "finding": "Ratings: public service, code under GPL-3.0; no terms on the ratings data found. We keep only aggregates. On 2026-11-09 its maintainer, Richard Hughes, replied by email that our use \"sounds fine\", and asked, without requiring it, that we say the ratings come from ODRS; app shows \"via ODRS\" on them."
+        },
+        {
+          "url": "https://github.com/flathub-infra/website",
+          "read": true,
+          "finding": "Email reply from a Flathub admin on 2026-11-10 to our question of 2026-11-09: parse appstream.xml (the website's own code shows how), \"scrapping our API is not welcome\". We stopped every flathub.org/api call (about 8,900 a week: per-app stats and summary, collections) before the 2026-11-14 refresh; only dl.flathub.org's appstream files are read. The public copy wasn't addressed."
         }
       ],
-      "note": "The published catalog and API suggest reuse is expected, but the only terms found say otherwise.",
-      "action": "Ask Flathub whether the terms cover the catalog and API, and whether a public copy is fine."
+      "note": "Reading the appstream files is what Flathub pointed us to; their API is off limits. Their site terms forbid copying \"any portion of the Service\", and whether our public copy of appstream metadata counts was left unanswered.",
+      "action": "Owner decides whether to keep the public copy of Flathub's appstream data or move it to the private source-cache."
     },
     "github-releases": {
       "verdict": "clear",

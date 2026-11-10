@@ -43,6 +43,8 @@ export interface AppCenterCacheEntry {
   brandColors?: { light?: string; dark?: string };
   /** See `SourcedPackage.kudos`. */
   kudos?: string[];
+  /** See `SourcedPackage.runtime`. */
+  runtime?: string;
   /** See `SourcedPackage.requirements`. */
   requirements?: string;
   /** See `SourcedPackage.languages`. */

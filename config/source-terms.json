@@ -394,7 +394,7 @@
         }
       ],
       "note": "Our connector (catalog.gog.com, then api.gog.com per game, about 1,400 requests a week) is exactly what §11.1(e) forbids. Fetch paused on 2026-11-10 (REFRESHERS keeps the cache, so GOG games stay listed with their link to GOG). Private cache since 2026-11-09; earlier versions remain in this repository's git history.",
-      "action": "Ask GOG for permission. If refused or unanswered, remove the source and its cache."
+      "action": "Asked legal@gog.com on 2026-11-10 (the contact the GOG GALAXY Licence Agreement gives for questions on its terms). If refused or unanswered, remove the source and its cache."
     },
     "lutris": {
       "verdict": "owner-review",

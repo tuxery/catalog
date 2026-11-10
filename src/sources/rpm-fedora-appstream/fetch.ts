@@ -1,6 +1,6 @@
 import { gunzipSync, zstdDecompressSync } from "node:zlib";
 import { parseAppstreamXml, type AppstreamComponent } from "../_shared/appstream";
-import { fetchCurrentFedoraRelease } from "../_shared/fedora-release";
+import { withCurrentFedoraRelease } from "../_shared/fedora-release";
 import { fetchOrThrow } from "../_shared/http";
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
@@ -174,12 +174,11 @@ async function fetchFedoraXml(release: string): Promise<string> {
 
 /**
  * Downloads Fedora's AppStream metadata for the current release (resolved
- * live via Bodhi — see `fetchCurrentFedoraRelease`) and writes the parsed
+ * live via Bodhi — see `withCurrentFedoraRelease`) and writes the parsed
  * components to `cachePath` as NDJSON. See docs/sources.md.
  */
 export async function fetchFedoraAppstream(cachePath: string): Promise<number> {
-  const release = await fetchCurrentFedoraRelease();
-  const xml = await fetchFedoraXml(release);
+  const { release, result: xml } = await withCurrentFedoraRelease(fetchFedoraXml);
   const entries = toCacheEntries(parseAppstreamXml(xml));
 
   writeNdjson(cachePath, entries);

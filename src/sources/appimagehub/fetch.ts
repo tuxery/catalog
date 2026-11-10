@@ -19,9 +19,9 @@ import type { AppImageHubCacheEntry, AppImageHubFetchMetadata } from "./types";
 //   and the data is never redistributed as a dataset.
 //
 // Added on 2026-11-10, same conditions:
-// - `description` may be shown, truncated only (first paragraph or about
-//   300 characters) with a link to the detail page for the rest; it is
-//   uploader HTML, so it is reduced to plain text here;
+// - `description` may be shown; on listing and card views only truncated
+//   (first paragraph or about 300 characters). It is uploader HTML, so it
+//   is reduced to plain text here;
 // - preview images may be loaded from their servers, never copied, with
 //   the browser's Referer kept; icons no larger than 128x128 (see
 //   `normalize.ts`'s `iconRendering`).
@@ -71,26 +71,10 @@ const PREVIEW_KEYS = [
   "previewpic9",
 ] as const satisfies readonly (keyof RawItem)[];
 
-/** The longest description excerpt kept, in characters ("roughly the first 300"). */
-export const EXCERPT_MAX = 300;
-
-/**
- * Uploader HTML as plain text, cut to its first paragraph and to at most
- * `EXCERPT_MAX` characters, at a word boundary with an ellipsis. No markup
- * survives, which is how it is sanitized. Pure.
- */
-export function descriptionExcerpt(html: string | undefined): string | undefined {
+/** Uploader HTML as plain text, paragraphs kept; no markup survives, which is how it is sanitized. Pure. */
+export function descriptionText(html: string | undefined): string | undefined {
   if (!html) return undefined;
-  const text = flattenHtmlDescription(html.replace(/&nbsp;|&#160;/g, " "));
-  const first = text
-    .split(/\n\s*\n/)[0]
-    ?.replace(/\s+/g, " ")
-    .trim();
-  if (!first) return undefined;
-  if (first.length <= EXCERPT_MAX) return first;
-  const cut = first.slice(0, EXCERPT_MAX - 1);
-  const atWord = cut.slice(0, cut.lastIndexOf(" ")).replace(/[\s,;:.-]+$/, "");
-  return `${atWord || cut}…`;
+  return flattenHtmlDescription(html.replace(/&nbsp;|&#160;/g, " ")) || undefined;
 }
 
 /** The item's preview image URLs, in order, `undefined` when it has none. Pure. */
@@ -127,7 +111,7 @@ export function mapItems(items: RawItem[]): AppImageHubCacheEntry[] {
           .filter(Boolean),
         detailpage: item.detailpage,
         changed: item.changed,
-        descriptionExcerpt: descriptionExcerpt(item.description),
+        descriptionText: descriptionText(item.description),
         previewPics: previewPics(item),
       },
     ];

@@ -690,11 +690,12 @@ cache-path.ts`), the data is never part of an open-data export, and no
     `release-git` to risks and `original-product` to upstream provenance.
     On the first sweep, 1,492 apps carried an AppImageHub package, 520 of
     them new (35 left to classify). On 2026-11-10 opendesktop.org also
-    allowed, on the same terms: the item's `description` (uploader HTML),
-    shown truncated only, first paragraph or about 300 characters, with a
-    link to the detail page for the rest (the cache keeps only that
-    plain-text excerpt; it also replaces the summary when the summary is
-    its legacy ~40-character cut); and its preview images, loaded from
+    allowed, on the same terms: the item's `description` (uploader HTML,
+    kept as plain text with every tag stripped), truncated on listing and
+    card views to the first paragraph or about 300 characters (the short
+    description, used only when the summary is its legacy ~40-character
+    cut), and in full on the app's own page, next to "Source: AppImageHub"
+    and the download link; and its preview images, loaded from
     their servers with the browser's Referer, never copied, icons asked
     for at 128x128 at most by rewriting the cache path's size segment.
     `previewpic1` is usually the icon, the others screenshots; all three

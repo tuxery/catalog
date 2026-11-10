@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { descriptionExcerpt, EXCERPT_MAX, mapItems, sweptRecently } from "./fetch";
+import { descriptionText, mapItems, sweptRecently } from "./fetch";
 
 describe("appimagehub mapItems", () => {
   it("keeps what the cache needs, tags as a list, and no download URL", () => {
@@ -40,7 +40,7 @@ describe("appimagehub mapItems", () => {
 });
 
 describe("appimagehub previews and description", () => {
-  it("keeps the preview URLs in order and a plain-text excerpt of the description", () => {
+  it("keeps the preview URLs in order and the description as plain text", () => {
     const [entry] = mapItems([
       {
         id: 7,
@@ -52,22 +52,18 @@ describe("appimagehub previews and description", () => {
         previewpic4: "",
       },
     ]);
-    expect(entry?.descriptionExcerpt).toBe("Plays folders & playlists.");
+    expect(entry?.descriptionText).toBe("Plays folders & playlists.\n\nSecond paragraph.");
     expect(entry?.previewPics).toEqual([
       "https://images.pling.com/cache/770x540-4/img/a.png",
       "https://images.pling.com/cache/770x540-4/img/b.png",
     ]);
   });
 
-  it("leaves no markup, and cuts a long first paragraph at a word, with an ellipsis", () => {
-    const long = `<p>${"word ".repeat(100)}</p>`;
-    const excerpt = descriptionExcerpt(long) ?? "";
-    expect(excerpt.length).toBeLessThanOrEqual(EXCERPT_MAX);
-    expect(excerpt.endsWith("word…")).toBe(true);
-    expect(descriptionExcerpt('<script>alert(1)</script><img src=x onerror="y">Hi')).not.toMatch(
+  it("leaves no markup", () => {
+    expect(descriptionText('<script>alert(1)</script><img src=x onerror="y">Hi')).not.toMatch(
       /[<>]/,
     );
-    expect(descriptionExcerpt("")).toBeUndefined();
+    expect(descriptionText("")).toBeUndefined();
   });
 });
 

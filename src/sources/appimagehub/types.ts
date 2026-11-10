@@ -25,12 +25,12 @@ export interface AppImageHubCacheEntry {
   /** Last change on the store (ISO), for incremental sweeps. */
   changed?: string;
   /**
-   * The item's `description` (uploader-written HTML), reduced to plain text
-   * and to its first paragraph, at most `EXCERPT_MAX` characters: the
-   * truncated rendering opendesktop.org allowed (2026-11-10), with a link
-   * to the detail page for the rest. The full text is never kept.
+   * The item's `description` (uploader-written HTML) as plain text: every
+   * tag stripped, which is how it is sanitized. Shown in full on the app's
+   * own page; cards and lists get only an excerpt (see `normalize.ts`'s
+   * `shortDescription`), as opendesktop.org asked (2026-11-10).
    */
-  descriptionExcerpt?: string;
+  descriptionText?: string;
   /** `previewpic1`…`previewpic9`, as given (770x540 renderings on images.pling.com); the first is usually the app's icon. */
   previewPics?: string[];
 }

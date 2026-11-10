@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { isApp, normalize } from "./normalize";
+import { iconRendering, isApp, normalize, shortDescription } from "./normalize";
 import type { AppImageHubCacheEntry } from "./types";
 
 const entry = (extra: Partial<AppImageHubCacheEntry>): AppImageHubCacheEntry => ({
@@ -55,5 +55,36 @@ describe("appimagehub normalize", () => {
     expect(isApp(entry({ typename: "Qt Widgets" }))).toBe(false);
     expect(isApp(entry({ tags: ["app"] }))).toBe(false);
     expect(isApp(entry({}))).toBe(true);
+  });
+});
+
+describe("appimagehub images and descriptions", () => {
+  it("asks for the icon at 128x128 from the first preview, and keeps the rest as screenshots", () => {
+    const [pkg] = normalize([
+      entry({
+        previewPics: [
+          "https://images.pling.com/cache/770x540-4/img/a.png",
+          "https://images.pling.com/cache/770x540-4/img/b.png",
+        ],
+      }),
+    ]);
+    expect(pkg?.iconUrl).toBe("https://images.pling.com/cache/128x128-4/img/a.png");
+    expect(pkg?.screenshots).toEqual(["https://images.pling.com/cache/770x540-4/img/b.png"]);
+  });
+
+  it("uses no icon when the URL has no size segment to rewrite", () => {
+    expect(iconRendering("https://example.org/a.png")).toBeUndefined();
+  });
+
+  it("replaces a summary cut at ~40 characters with the description's first sentence", () => {
+    const cut = entry({
+      summary: "A music player that plays whole folders",
+      descriptionExcerpt:
+        "A music player that plays whole folders and playlists. It also has a tray icon.",
+    });
+    expect(shortDescription(cut)).toBe("A music player that plays whole folders and playlists.");
+    expect(shortDescription(entry({ descriptionExcerpt: "Something else entirely." }))).toBe(
+      "A folder player",
+    );
   });
 });

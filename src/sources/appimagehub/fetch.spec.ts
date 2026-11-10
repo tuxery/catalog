@@ -1,8 +1,8 @@
 import { describe, expect, it } from "vitest";
-import { mapItems, sweptRecently } from "./fetch";
+import { descriptionExcerpt, EXCERPT_MAX, mapItems, sweptRecently } from "./fetch";
 
 describe("appimagehub mapItems", () => {
-  it("keeps what the cache needs, tags as a list, and no image or download URL", () => {
+  it("keeps what the cache needs, tags as a list, and no download URL", () => {
     const [entry] = mapItems([
       {
         id: 1000001,
@@ -36,6 +36,38 @@ describe("appimagehub mapItems", () => {
         { id: 3, name: "No page" },
       ]),
     ).toEqual([]);
+  });
+});
+
+describe("appimagehub previews and description", () => {
+  it("keeps the preview URLs in order and a plain-text excerpt of the description", () => {
+    const [entry] = mapItems([
+      {
+        id: 7,
+        name: "Example",
+        detailpage: "https://www.appimagehub.com/p/7",
+        description: "<p>Plays <b>folders</b>&nbsp;&amp; playlists.</p><p>Second paragraph.</p>",
+        previewpic1: "https://images.pling.com/cache/770x540-4/img/a.png",
+        previewpic2: "https://images.pling.com/cache/770x540-4/img/b.png",
+        previewpic4: "",
+      },
+    ]);
+    expect(entry?.descriptionExcerpt).toBe("Plays folders & playlists.");
+    expect(entry?.previewPics).toEqual([
+      "https://images.pling.com/cache/770x540-4/img/a.png",
+      "https://images.pling.com/cache/770x540-4/img/b.png",
+    ]);
+  });
+
+  it("leaves no markup, and cuts a long first paragraph at a word, with an ellipsis", () => {
+    const long = `<p>${"word ".repeat(100)}</p>`;
+    const excerpt = descriptionExcerpt(long) ?? "";
+    expect(excerpt.length).toBeLessThanOrEqual(EXCERPT_MAX);
+    expect(excerpt.endsWith("word…")).toBe(true);
+    expect(descriptionExcerpt('<script>alert(1)</script><img src=x onerror="y">Hi')).not.toMatch(
+      /[<>]/,
+    );
+    expect(descriptionExcerpt("")).toBeUndefined();
   });
 });
 

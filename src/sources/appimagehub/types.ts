@@ -5,8 +5,9 @@ import type { FetchMetadata } from "../_shared/metadata";
  * data`), the shape cached after fetching. Kept in the private cache only
  * (see `../_shared/cache-path.ts`): opendesktop.org's names, summaries and
  * versions are written by their uploaders and may not be redistributed.
- * No image or download URL is kept: download links are signed and expire,
- * and their pictures weren't part of what was allowed.
+ * No download URL is kept: download links are signed and expire. Preview
+ * image URLs are kept since opendesktop.org allowed loading them from
+ * their servers (2026-11-10); the images themselves are never copied.
  */
 export interface AppImageHubCacheEntry {
   /** OCS content id, e.g. "1000001". */
@@ -23,6 +24,15 @@ export interface AppImageHubCacheEntry {
   detailpage: string;
   /** Last change on the store (ISO), for incremental sweeps. */
   changed?: string;
+  /**
+   * The item's `description` (uploader-written HTML), reduced to plain text
+   * and to its first paragraph, at most `EXCERPT_MAX` characters: the
+   * truncated rendering opendesktop.org allowed (2026-11-10), with a link
+   * to the detail page for the rest. The full text is never kept.
+   */
+  descriptionExcerpt?: string;
+  /** `previewpic1`…`previewpic9`, as given (770x540 renderings on images.pling.com); the first is usually the app's icon. */
+  previewPics?: string[];
 }
 
 export interface AppImageHubFetchMetadata extends FetchMetadata {

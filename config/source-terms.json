@@ -50,12 +50,17 @@
       "automatedFetch": "allowed",
       "publicStorage": "forbidden",
       "attribution": "Link to the app's detail page with a visible \"Source: AppImageHub\".",
-      "fieldLicense": "Names, summaries and versions can't be relicensed; categories and tags are free to use.",
+      "fieldLicense": "Names, summaries, descriptions and versions are written by uploaders and can't be relicensed; categories and tags are free to use. Preview images belong to the uploaders: access is permitted, no rights granted.",
       "evidence": [
         {
           "url": "https://github.com/tuxery/catalog/blob/main/docs/sources.md",
           "read": true,
           "finding": "Written permission from opendesktop.org on 2026-10-20: one sweep a week, exact User-Agent, private cache, no dataset redistribution."
+        },
+        {
+          "url": "https://github.com/tuxery/catalog/blob/main/docs/sources.md",
+          "read": true,
+          "finding": "Email reply from opendesktop.org on 2026-11-10: the description may be shown truncated only (first paragraph or ~300 characters) with a link to the detail page, sanitized, same conditions; preview images may be loaded from their servers, never copied or re-hosted, Referer kept, icons no larger than 128x128 (by rewriting the cache size segment); don't build on the license tags or on icon/license fields not yet exposed; listings need no per-card credit, a source badge is welcome."
         }
       ],
       "note": "Private cache in tuxery/source-cache."

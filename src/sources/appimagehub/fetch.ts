@@ -1,4 +1,5 @@
 import { setTimeout as sleep } from "node:timers/promises";
+import { flattenHtmlDescription } from "../_shared/dep11";
 import { fetchOrThrow } from "../_shared/http";
 import { readMetadata, writeMetadata } from "../_shared/metadata";
 import { readNdjson } from "../_shared/ndjson";
@@ -16,6 +17,14 @@ import type { AppImageHubCacheEntry, AppImageHubFetchMetadata } from "./types";
 // - categories and tags are free to use; names, summaries and versions
 //   can't be relicensed: the cache is private (`../_shared/cache-path.ts`)
 //   and the data is never redistributed as a dataset.
+//
+// Added on 2026-11-10, same conditions:
+// - `description` may be shown, truncated only (first paragraph or about
+//   300 characters) with a link to the detail page for the rest; it is
+//   uploader HTML, so it is reduced to plain text here;
+// - preview images may be loaded from their servers, never copied, with
+//   the browser's Referer kept; icons no larger than 128x128 (see
+//   `normalize.ts`'s `iconRendering`).
 //
 // They may adjust limits or withdraw access, with notice: removing the
 // source from `REFRESHERS`/`search.ts` is enough to stop it entirely.
@@ -38,6 +47,58 @@ interface RawItem {
   tags?: string;
   detailpage?: string;
   changed?: string;
+  description?: string;
+  previewpic1?: string;
+  previewpic2?: string;
+  previewpic3?: string;
+  previewpic4?: string;
+  previewpic5?: string;
+  previewpic6?: string;
+  previewpic7?: string;
+  previewpic8?: string;
+  previewpic9?: string;
+}
+
+const PREVIEW_KEYS = [
+  "previewpic1",
+  "previewpic2",
+  "previewpic3",
+  "previewpic4",
+  "previewpic5",
+  "previewpic6",
+  "previewpic7",
+  "previewpic8",
+  "previewpic9",
+] as const satisfies readonly (keyof RawItem)[];
+
+/** The longest description excerpt kept, in characters ("roughly the first 300"). */
+export const EXCERPT_MAX = 300;
+
+/**
+ * Uploader HTML as plain text, cut to its first paragraph and to at most
+ * `EXCERPT_MAX` characters, at a word boundary with an ellipsis. No markup
+ * survives, which is how it is sanitized. Pure.
+ */
+export function descriptionExcerpt(html: string | undefined): string | undefined {
+  if (!html) return undefined;
+  const text = flattenHtmlDescription(html.replace(/&nbsp;|&#160;/g, " "));
+  const first = text
+    .split(/\n\s*\n/)[0]
+    ?.replace(/\s+/g, " ")
+    .trim();
+  if (!first) return undefined;
+  if (first.length <= EXCERPT_MAX) return first;
+  const cut = first.slice(0, EXCERPT_MAX - 1);
+  const atWord = cut.slice(0, cut.lastIndexOf(" ")).replace(/[\s,;:.-]+$/, "");
+  return `${atWord || cut}…`;
+}
+
+/** The item's preview image URLs, in order, `undefined` when it has none. Pure. */
+function previewPics(item: RawItem): string[] | undefined {
+  const urls = PREVIEW_KEYS.map((key) => item[key]?.trim()).filter((url): url is string =>
+    Boolean(url?.startsWith("https://")),
+  );
+  return urls.length > 0 ? urls : undefined;
 }
 
 interface RawPage {
@@ -66,6 +127,8 @@ export function mapItems(items: RawItem[]): AppImageHubCacheEntry[] {
           .filter(Boolean),
         detailpage: item.detailpage,
         changed: item.changed,
+        descriptionExcerpt: descriptionExcerpt(item.description),
+        previewPics: previewPics(item),
       },
     ];
   });

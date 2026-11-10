@@ -66,6 +66,7 @@ export const FIELD_PRIORITY: Record<RichField, readonly PackageSourceId[]> = {
     "vendor-repos",
     "gog",
     "lutris",
+    "appimagehub",
   ],
   // One source's whole set, never a mix: screenshots from two sources
   // show two different releases' UIs side by side.
@@ -76,6 +77,7 @@ export const FIELD_PRIORITY: Record<RichField, readonly PackageSourceId[]> = {
     "appimage",
     "appimage-manual",
     "gog",
+    "appimagehub",
   ],
   videos: [...UPSTREAM_STORES, ...DISTRO_APPSTREAM, "snap-snapcraft", "gog"],
   longDescription: [
@@ -86,6 +88,7 @@ export const FIELD_PRIORITY: Record<RichField, readonly PackageSourceId[]> = {
     "lutris",
     "appimage",
     "nix-nixpkgs",
+    "appimagehub",
   ],
   // Upstream's own declaration first, then the packagers' — see `pickLicense`.
   license: [

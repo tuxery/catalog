@@ -107,6 +107,32 @@ function tagRisk(tags: string[]): Pick<SourcedPackage, "track" | "risk"> {
   return {};
 }
 
+/**
+ * A preview image's URL at `size` (e.g. "128x128"), by rewriting the size
+ * segment of images.pling.com's cache path, which opendesktop.org
+ * documented for this (2026-11-10): `/cache/770x540-4/img/...` becomes
+ * `/cache/128x128-4/img/...`. `undefined` when the URL has no such
+ * segment, so an icon is never loaded at a size we can't control. Pure.
+ */
+export function iconRendering(url: string, size = "128x128"): string | undefined {
+  const pattern = /^(https:\/\/images\.pling\.com\/cache\/)\d+x\d+(-\d+\/)/;
+  return pattern.test(url) ? url.replace(pattern, `$1${size}$2`) : undefined;
+}
+
+/**
+ * The short description: the store's summary, unless it is that legacy
+ * ~40-character cut of the description (opendesktop.org, 2026-11-10), in
+ * which case the description's first sentence, from the excerpt. Pure.
+ */
+export function shortDescription(entry: AppImageHubCacheEntry): string {
+  const summary = entry.summary;
+  const excerpt = entry.descriptionExcerpt;
+  if (!excerpt) return summary;
+  const stem = summary.replace(/(?:\.\.\.|…)$/, "").trim();
+  if (!stem || !excerpt.startsWith(stem) || excerpt.length <= summary.length) return summary;
+  return excerpt.match(/^.+?[.!?](?=\s|$)/)?.[0] ?? excerpt;
+}
+
 /** Whether an item is an AppImage application rather than artwork or a component. Pure. */
 export function isApp(entry: AppImageHubCacheEntry): boolean {
   return entry.tags.includes("appimage") && !NOT_APPS.has(entry.typename);
@@ -121,7 +147,16 @@ export function normalize(entries: AppImageHubCacheEntry[]): SourcedPackage[] {
     return {
       source: "appimagehub",
       name: entry.name,
-      description: entry.summary,
+      description: shortDescription(entry),
+      // A first-paragraph excerpt only; the app links to the detail page
+      // for the rest, as opendesktop.org asked.
+      longDescription: entry.descriptionExcerpt,
+      // previewpic1 is usually the app's icon (not guaranteed, per
+      // opendesktop.org), asked for at 128x128 at most; the others are
+      // screenshots. Both load from their servers, last in FIELD_PRIORITY.
+      iconUrl: entry.previewPics?.[0] ? iconRendering(entry.previewPics[0]) : undefined,
+      screenshots:
+        entry.previewPics && entry.previewPics.length > 1 ? entry.previewPics.slice(1) : undefined,
       version: entry.version ?? "unknown",
       appId: entry.id,
       track: axes.track,

@@ -682,14 +682,26 @@ as a second AppImage source` card was investigated and rejected for
     and can't be relicensed. Its cache is therefore not in this repository
     but in the private `tuxery/source-cache` (`src/sources/_shared/
 cache-path.ts`), the data is never part of an open-data export, and no
-    image or (signed, expiring) download URL is kept. Without that checkout
+    (signed, expiring) download URL is kept. Without that checkout
     the source reads as empty; a remote `pnpm seed` refuses to publish
     without it rather than deleting its apps. The 72 store categories map to
     freedesktop ones (wallpapers, splash screens, skins and widget
     libraries are dropped), license tags to SPDX, `release-beta`/
     `release-git` to risks and `original-product` to upstream provenance.
     On the first sweep, 1,492 apps carried an AppImageHub package, 520 of
-    them new (35 left to classify). `src/sources/appimagehub/fetch.ts`.
+    them new (35 left to classify). On 2026-11-10 opendesktop.org also
+    allowed, on the same terms: the item's `description` (uploader HTML),
+    shown truncated only, first paragraph or about 300 characters, with a
+    link to the detail page for the rest (the cache keeps only that
+    plain-text excerpt; it also replaces the summary when the summary is
+    its legacy ~40-character cut); and its preview images, loaded from
+    their servers with the browser's Referer, never copied, icons asked
+    for at 128x128 at most by rewriting the cache path's size segment.
+    `previewpic1` is usually the icon, the others screenshots; all three
+    fields come last in `FIELD_PRIORITY`. They also said not to build on
+    their license tags (the uploader may mean a more specific variant), so
+    they stay out of the app-level `license`.
+    `src/sources/appimagehub/fetch.ts`.
 
 ## Cross-cutting notes
 

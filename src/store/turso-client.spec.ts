@@ -339,6 +339,40 @@ describe("createTursoClient", () => {
     expect(idsFor("trendingBySource:snap")).toEqual(["other-source"]);
   });
 
+  it("lists each source's recently updated apps by that source's own newest date", async () => {
+    const { batch, client } = fakeClient(false);
+    const tursoClient = createTursoClient({ url: "file::memory:" }, client);
+    const withPackages = (id: string, packages: unknown[]): AppRecord => ({
+      ...APP,
+      id,
+      iconUrl: "icon.png",
+      packages,
+    });
+    const apps: AppRecord[] = [
+      withPackages("old-release", [{ source: "flathub", lastUpdated: "2026-01-01T00:00:00.000Z" }]),
+      // Snap's date is the revision's upload, Flathub's the project's release.
+      withPackages("both", [
+        { source: "flathub", lastUpdated: "2026-03-01T00:00:00.000Z" },
+        { source: "snap", builtAt: "2026-02-01T00:00:00.000Z" },
+      ]),
+      withPackages("no-date", [{ source: "flathub" }]),
+      withPackages("future", [{ source: "flathub", lastUpdated: "2999-01-01T00:00:00.000Z" }]),
+      {
+        ...withPackages("no-icon", [{ source: "flathub", lastUpdated: "2026-05-01" }]),
+        iconUrl: undefined,
+      },
+    ];
+
+    await tursoClient.publish({ generatedAt: "2026-01-01T00:00:00.000Z", apps });
+
+    const swapBatch = batch.mock.calls[1]?.[0] as { sql: string; args?: unknown[] }[];
+    const args = swapBatch.find((s) => s.sql.includes("INSERT INTO meta"))?.args as unknown[];
+    const idsFor = (key: string) => JSON.parse(metaValue(args, key) ?? "[]") as string[];
+
+    expect(idsFor("recentlyUpdatedBySource:flathub")).toEqual(["both", "old-release"]);
+    expect(idsFor("recentlyUpdatedBySource:snap")).toEqual(["both"]);
+  });
+
   it("builds the trigram search index from apps_next and swaps it in with apps, in the same transaction", async () => {
     const { execute, batch, client } = fakeClient(false);
     const tursoClient = createTursoClient({ url: "file::memory:" }, client);

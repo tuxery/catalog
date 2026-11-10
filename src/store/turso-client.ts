@@ -462,6 +462,29 @@ function byLastUpdatedDesc(a: AppRecord, b: AppRecord): number {
   return aValue === bValue ? 0 : aValue < bValue ? 1 : -1;
 }
 
+/**
+ * When `source` last updated `app`, as a timestamp: the newest date among
+ * that source's packages, the project's own release date (`lastUpdated`,
+ * AppStream's newest `<release>`) or else the package's build or upload
+ * date (`builtAt`: an RPM or Arch build, a snap revision, an AUR upload).
+ * Dates in the future (a packager's typo) are ignored. Pure.
+ */
+export function sourceUpdatedAt(app: AppRecord, source: string, now: number): number | undefined {
+  let newest: number | undefined;
+  for (const pkg of app.packages as {
+    source?: unknown;
+    lastUpdated?: unknown;
+    builtAt?: unknown;
+  }[]) {
+    if (pkg.source !== source) continue;
+    const raw = pkg.lastUpdated ?? pkg.builtAt;
+    const time = typeof raw === "string" ? Date.parse(raw) : Number.NaN;
+    if (Number.isNaN(time) || time > now) continue;
+    if (newest === undefined || time > newest) newest = time;
+  }
+  return newest;
+}
+
 function byInstallsLast7DaysDesc(a: AppRecord, b: AppRecord): number {
   return (b.installsLast7Days ?? 0) - (a.installsLast7Days ?? 0);
 }
@@ -483,8 +506,9 @@ function byCategoryPreviewOrder(a: AppRecord, b: AppRecord): number {
  * Precomputes every bounded "listing" query `app`'s catalog.ts used to run
  * live at request time — trending/new/download-trending (3 `typeFilter`
  * variants each), per-category previews (one per real category, ~27
- * today), and per-source trending (one per source actually present in
- * this dataset, ~25 today). Each has a small, closed parameter space that
+ * today), and per-source trending and recently updated (one each per
+ * source actually present in this dataset, ~25 today, see
+ * `sourceUpdatedAt`). Each has a small, closed parameter space that
  * only changes when this dataset republishes (manual, infrequent) — the
  * same "precompute once here instead of aggregating live on every
  * request" fix as `countByCategory` above, extended to the rest of the
@@ -541,7 +565,19 @@ function computeListingIds(apps: AppRecord[]): Record<string, string[]> {
     );
   }
 
+  const now = Date.now();
   for (const source of distinctSources(apps)) {
+    const updatedAt = new Map<string, number>();
+    for (const app of apps) {
+      const time = hasVisualAsset(app) ? sourceUpdatedAt(app, source, now) : undefined;
+      if (time !== undefined) updatedAt.set(app.id, time);
+    }
+    ids[`recentlyUpdatedBySource:${source}`] = topIds(
+      apps,
+      (app) => updatedAt.has(app.id),
+      (a, b) => (updatedAt.get(b.id) ?? 0) - (updatedAt.get(a.id) ?? 0),
+      TRENDING_PAGE_SIZE,
+    );
     ids[`trendingBySource:${source}`] = topIds(
       apps,
       (app) =>

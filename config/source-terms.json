@@ -90,7 +90,7 @@
         {
           "url": "https://lists.debian.org/debian-legal/",
           "read": true,
-          "finding": "Reply on debian-legal (2026-11-10) to our question of the same day, from a list member, not an official Debian position: no one would mind, and even otherwise it sounds like fair use, \"similar to repology listing metadata from packages in various Linux distributions\"."
+          "finding": "Reply on debian-legal (2026-11-10) to our question of the same day, from Soren Stoutner, a Debian Developer (soren@debian.org), speaking for himself rather than as an official Debian position: no one would mind, and even otherwise it sounds like fair use, \"similar to repology listing metadata from packages in various Linux distributions\"."
         }
       ]
     },
@@ -119,7 +119,7 @@
         {
           "url": "https://lists.debian.org/debian-legal/",
           "read": true,
-          "finding": "Reply on debian-legal (2026-11-10) to our question of the same day, from a list member, not an official Debian position: no one would mind, and even otherwise it sounds like fair use, \"similar to repology listing metadata from packages in various Linux distributions\"."
+          "finding": "Reply on debian-legal (2026-11-10) to our question of the same day, from Soren Stoutner, a Debian Developer (soren@debian.org), speaking for himself rather than as an official Debian position: no one would mind, and even otherwise it sounds like fair use, \"similar to repology listing metadata from packages in various Linux distributions\"."
         }
       ]
     },

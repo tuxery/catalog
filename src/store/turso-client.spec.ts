@@ -720,3 +720,20 @@ describe("precomputed browse keys", () => {
     ).toEqual({ generation: "20260201000000000", sourceIdsChunkSize: 500, freeCounts: true });
   });
 });
+
+describe("sourceTerms meta", () => {
+  it("writes the dataset's source terms to meta, for app's per-source pages", async () => {
+    const { batch, client } = fakeClient(false);
+    const tursoClient = createTursoClient({ url: "file::memory:" }, client);
+    const sourceTerms = { checkedOn: "2026-11-10", disclaimer: "x", sources: {} };
+    await tursoClient.publish({
+      generatedAt: "2026-01-01T00:00:00.000Z",
+      apps: [APP],
+      sourceTerms,
+    });
+
+    const swapBatch = batch.mock.calls[1]?.[0] as { sql: string; args?: unknown[] }[];
+    const args = swapBatch.find((s) => s.sql.includes("INSERT INTO meta"))?.args as unknown[];
+    expect(JSON.parse(metaValue(args, "sourceTerms") ?? "null")).toEqual(sourceTerms);
+  });
+});

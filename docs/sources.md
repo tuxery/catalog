@@ -78,6 +78,11 @@ because a paragraph per cell made the table unreadable.
    install counts, download size, sandbox permissions, the Popular ranking
    and the recently-added/updated lists are gone; don't bring them back
    from the API.
+   The cache itself is private since 2026-11-10 (`tuxery/source-cache`,
+   `RESTRICTED_SOURCES`): whether a public copy of the appstream data is
+   fine was left unanswered, and Flathub's site terms forbid copying "any
+   portion of the Service". Earlier copies remain in this repository's git
+   history.
    `src/sources/flatpak-flathub/fetch.ts`.
 2. **Other Flatpak remotes** (GNOME nightly, KDE `kdeapps`, Fedora's own
    flatpak remote, ...) — same appstream.xml.gz mechanism per remote,

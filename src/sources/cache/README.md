@@ -1,7 +1,7 @@
 # Source cache
 
 Git-committed NDJSON snapshots of each upstream source's raw data — one
-file per source (`flathub.ndjson`, `snapcraft.ndjson`, `appimage.ndjson`,
+file per source (`snap-snapcraft.ndjson`, `appimage.ndjson`, `deb-debian.ndjson`,
 ...), one JSON object per line, typed in that source's own
 `../src/<source>/types.ts` (deliberately not a shared schema, since
 upstream shapes differ).
@@ -10,8 +10,9 @@ Read by each source's `index.ts` by default (offline, no network — see the
 root `AGENTS.md`'s "Source cache" section). Written by that source's
 `fetch.ts`, once implemented, on a schedule rather than on every push.
 
-Sources whose data must not be redistributed (`RESTRICTED_SOURCES`) are
-not here but in the private tuxery/source-cache repository.
+Sources whose data must not be redistributed (`RESTRICTED_SOURCES`:
+AppImageHub, Flathub, GOG) are not here but in the private
+tuxery/source-cache repository.
 
 ## Licenses
 

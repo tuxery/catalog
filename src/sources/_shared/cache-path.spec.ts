@@ -26,8 +26,8 @@ describe("hasRestrictedPackage", () => {
 
 describe("cachePathFor", () => {
   it("keeps a public source's cache in this repository", () => {
-    expect(cachePathFor("flatpak-flathub", {})).toMatch(
-      /src\/sources\/cache\/flatpak-flathub\.ndjson$/,
+    expect(cachePathFor("deb-debian", {})).toMatch(
+      /src\/sources\/cache\/deb-debian\.ndjson$/,
     );
   });
 

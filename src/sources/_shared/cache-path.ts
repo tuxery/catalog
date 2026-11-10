@@ -15,11 +15,19 @@ import { fileURLToPath } from "node:url";
  * - `gog`: our precaution, not a request from GOG and not a ban we found. Its
  *   User Agreement sits behind an anti-bot page, so it is unread, and the
  *   cache holds full store descriptions (docs/sources.md, config/source-terms.json).
+ * - `flatpak-flathub`: our decision. Flathub said scraping their API is not
+ *   welcome (2026-11-10) and pointed to the appstream file we now read alone;
+ *   whether a public copy of it is fine was left unanswered, and their site
+ *   terms forbid copying "any portion of the Service".
  *
- * Without a checkout of that repository (an outside contributor, `app`'s CI)
- * these sources read as empty and the pipeline builds without them.
+ * Without a checkout of that repository (an outside contributor) these
+ * sources read as empty and the pipeline builds without them.
  */
-export const RESTRICTED_SOURCES: ReadonlySet<string> = new Set(["appimagehub", "gog"]);
+export const RESTRICTED_SOURCES: ReadonlySet<string> = new Set([
+  "appimagehub",
+  "flatpak-flathub",
+  "gog",
+]);
 
 /**
  * Whether any of `packages` comes from a restricted source. A merged app's

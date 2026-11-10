@@ -302,9 +302,9 @@
       "note": "Ratings come from ODRS, see flatpak-flathub."
     },
     "flatpak-flathub": {
-      "verdict": "owner-review",
+      "verdict": "clear",
       "automatedFetch": "allowed",
-      "publicStorage": "unclear",
+      "publicStorage": "forbidden",
       "attribution": "Depends on each app's metadata_license, which the catalog doesn't expose.",
       "fieldLicense": "Per app: permissive metadata_license (AppStream); FSFAP suggested when upstream gives none. Screenshots and icons: no license stated.",
       "evidence": [
@@ -344,8 +344,7 @@
           "finding": "Email reply from a Flathub admin on 2026-11-10 to our question of 2026-11-09: parse appstream.xml (the website's own code shows how), \"scrapping our API is not welcome\". We stopped every flathub.org/api call (about 8,900 a week: per-app stats and summary, collections) before the 2026-11-14 refresh; only dl.flathub.org's appstream files are read. The public copy wasn't addressed."
         }
       ],
-      "note": "Reading the appstream files is what Flathub pointed us to; their API is off limits. Their site terms forbid copying \"any portion of the Service\", and whether our public copy of appstream metadata counts was left unanswered.",
-      "action": "Owner decides whether to keep the public copy of Flathub's appstream data or move it to the private source-cache."
+      "note": "Reading the appstream files is what Flathub pointed us to; their API is off limits. Whether a public copy of the appstream data is fine was left unanswered, and their site terms forbid copying \"any portion of the Service\", so since 2026-11-10 the cache is private (tuxery/source-cache). Earlier copies remain in this repository's git history."
     },
     "github-releases": {
       "verdict": "clear",

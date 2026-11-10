@@ -233,7 +233,7 @@
       "automatedFetch": "allowed",
       "publicStorage": "allowed",
       "attribution": "Keep the GPL-2 notice with any copy of ebuild text (src/sources/cache/LICENSES/, since 2026-11-09).",
-      "fieldLicense": "GPL-2 on the ebuilds. We read the md5-cache generated from them, which states no license of its own; we treat it as GPL-2 too.",
+      "fieldLicense": "GPL-2 on the ebuilds. The md5-cache we read is generated from them and carries no copyright of its own; to the extent it has any (or EU database rights), Gentoo offers it under GPL-2 too (confirmed 2026-11-10).",
       "evidence": [
         {
           "url": "https://gitweb.gentoo.org/repo/gentoo.git",
@@ -244,9 +244,13 @@
           "url": "https://distfiles.gentoo.org/snapshots/portage-latest.tar.xz",
           "read": true,
           "finding": "Public snapshot made for download. We extract only metadata/md5-cache/, whose files carry no license header."
+        },
+        {
+          "url": "mailto:trustees@gentoo.org",
+          "read": true,
+          "finding": "Reply of 2026-11-10 from Ulrich Müller (Gentoo) to our question of 2026-11-09: our \"usage pattern looks good\"; the md5-cache is machine-generated (by pmaint) from the ebuilds and eclasses, \"we don't believe that the cache carries a copyright of its own\", and to the extent it has any, or sui generis database rights in the EU, Gentoo makes it available under GPL-2, like the ebuilds."
         }
-      ],
-      "action": "Asked trustees@gentoo.org on 2026-11-09 whether treating the md5-cache as GPL-2 is right; waiting for a reply."
+      ]
     },
     "eopkg-solus": {
       "verdict": "low-risk-no-terms",

@@ -13,7 +13,6 @@ import { fetchFedora } from "./rpm-fedora/fetch";
 import { fetchFlathub } from "./flatpak-flathub/fetch";
 import { fetchGentoo } from "./ebuild-gentoo/fetch";
 import { fetchGithubReleases } from "./github-releases/fetch";
-import { fetchGog } from "./gog/fetch";
 import { fetchLutris } from "./lutris/fetch";
 import { fetchMint } from "./deb-mint/fetch";
 import { fetchMxLinux } from "./deb-mxlinux/fetch";
@@ -30,6 +29,19 @@ import { fetchUbuntu } from "./deb-ubuntu/fetch";
 import { fetchUbuntuAppstream } from "./deb-ubuntu-appstream/fetch";
 import { fetchVendorRepos } from "./vendor-repos/fetch";
 import { fetchVoid } from "./xbps-void/fetch";
+import { readNdjson } from "./_shared/ndjson";
+
+/**
+ * A refresher for a source whose fetch is paused: it calls nothing, keeps
+ * the cache as it is (so the source's apps stay listed) and says why in the
+ * refresh log. The source's own `fetch.ts` stays, for when it resumes.
+ */
+function paused(source: string, reason: string): (cachePath: string) => Promise<number> {
+  return async (cachePath) => {
+    console.log(`${source}: fetch paused, cache kept. ${reason}`);
+    return readNdjson(cachePath).length;
+  };
+}
 
 /**
  * Every source's cache refresher, by source id: the single list the
@@ -67,7 +79,13 @@ export const REFRESHERS: Record<string, (cachePath: string) => Promise<number>> 
   "deb-mxlinux": fetchMxLinux,
   "deb-debian-appstream": fetchDebianAppstream,
   "deb-ubuntu-appstream": fetchUbuntuAppstream,
-  gog: fetchGog,
+  // GOG's User Agreement (9 March 2026, §11.1(e)) forbids "extraction tools
+  // ... that collect information about GOG services": paused until GOG
+  // answers. Resume with `gog: fetchGog` from "./gog/fetch".
+  gog: paused(
+    "gog",
+    "GOG's User Agreement §11.1(e) forbids extraction tools; paused 2026-11-10 until GOG answers.",
+  ),
   lutris: fetchLutris,
   "github-releases": fetchGithubReleases,
   "vendor-repos": fetchVendorRepos,

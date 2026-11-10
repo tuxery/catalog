@@ -474,6 +474,13 @@ research writeup.
     open data. Earlier versions remain in this repository's git history, which
     wasn't rewritten. Moving it back to public is a one-line change, if GOG's
     terms or GOG itself allow it.
+    **Fetch paused since 2026-11-10.** GOG's User Agreement (in force since
+    9 March 2026, §11.1(e)) forbids "extraction tools or other software that
+    interact with or affect GOG services or GOG content" and "unauthorized
+    third party programs that collect information about GOG services",
+    which is what this connector does (about 1,400 requests a week).
+    `REFRESHERS` now keeps the last cache without calling GOG, so its games
+    stay listed with their link to GOG, until GOG answers our request.
 24. **Lutris** — lutris.net/api/installers, real, public, unauthenticated.
     Its `/api/games` endpoint (347k+ entries) looked more promising at
     first glance but turned out to be mostly an IGDB mirror — most

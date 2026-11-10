@@ -66,14 +66,18 @@ because a paragraph per cell made the table unreadable.
    exhaustive by construction. Flathub's separate beta repo
    (`dl.flathub.org/beta-repo/appstream/x86_64/appstream.xml.gz`, 171 apps on
    2026-10-19) is read too, as `risk: "beta"` packages of the same app
-   (tuxery/catalog#61), without the stable repo's stats, ratings and
-   collections; a beta repo that can't be read is skipped, not fatal. Also joins in Flathub's own
-   `/api/v2/collection/{verified,recently-added,recently-updated}`
-   (`page`/`per_page` must both be passed together — either alone 400s,
-   despite the OpenAPI spec listing them as independently optional) as
-   `SourcedPackage.storeCollections` tags — "verified" pages through the
-   full list (a real status, not a top-N ranking), the two recency feeds
-   stay top-250 like `popular` already is.
+   (tuxery/catalog#61), without the stable repo's ratings and verification;
+   a beta repo that can't be read is skipped, not fatal. "Verified" comes
+   from the appstream's own `flathub::verification::verified` custom key
+   (2,467 apps on 2026-11-10), as `SourcedPackage.storeCollections`.
+   **Never flathub.org's API.** Until 2026-11-14 we also called
+   `/api/v2/stats/{id}` and `/api/v2/summary/{id}` for every app (about
+   8,900 requests a week) and `/api/v2/collection/*`. Asked about it, a
+   Flathub admin answered on 2026-11-10 that scraping their API is not
+   welcome, and that the appstream file holds most of what we need. So
+   install counts, download size, sandbox permissions, the Popular ranking
+   and the recently-added/updated lists are gone; don't bring them back
+   from the API.
    `src/sources/flatpak-flathub/fetch.ts`.
 2. **Other Flatpak remotes** (GNOME nightly, KDE `kdeapps`, Fedora's own
    flatpak remote, ...) — same appstream.xml.gz mechanism per remote,
@@ -716,7 +720,7 @@ cache-path.ts`), the data is never part of an open-data export, and no
   - Gentoo: `LICENSE` converted to SPDX through Gentoo's own `license-mapping.conf`, inverted (`ebuild-gentoo/license-table.ts`; 91% of ebuilds with a license give a valid expression). Nix: `meta.license`, `meta.longDescription` (read from the current `nixos-unstable` dump; the channel itself is the open Nixpkgs-channel card).
   - Debian, Ubuntu: `Installed-Size` (KiB to bytes). Debian also gets popcon popularity.
   - AppStream (XML for Flathub, AppCenter, Fedora, openSUSE, Arch; DEP-11 for Debian, Ubuntu): OARS content rating (as a minimum age, see rich-fields.md), requires/recommends/supports, and (XML only) videos.
-  - AppImage: icons and screenshots under `appimage.github.io/database`, license, authors as developer, the repo as source link. GOG: icon, long description (one `api.gog.com/products` call per game), publisher, PEGI/ESRB/USK age, and popularity (the percentile of a game's review count among GOG's games: the catalog API has no popularity figure, and the review count needs no extra request). Lutris: icon. GitHub releases: license, topics, push date, release date, stars as popularity. Flathub: `finish-args` rebuilt from the summary API (a lower bound).
+  - AppImage: icons and screenshots under `appimage.github.io/database`, license, authors as developer, the repo as source link. GOG: icon, long description (one `api.gog.com/products` call per game), publisher, PEGI/ESRB/USK age, and popularity (the percentile of a game's review count among GOG's games: the catalog API has no popularity figure, and the review count needs no extra request). Lutris: icon. GitHub releases: license, topics, push date, release date, stars as popularity.
   - Not reachable: icons of the Fedora, openSUSE and Arch AppStream feeds, and the 34% of Debian/Ubuntu components that only have cached icons. Those ship in icon tarballs (or, for Debian, as `.jxl` files under the media tree) with no per-file URL a browser can use: they need to be hosted by us.
 - **Matching cost**: the curator module's `match/group.ts` (formerly the standalone `the old matcher package` package — merged into `curator` alongside the new `filter/` stage) originally bucketed by an 8-char normalized-name prefix before pairwise scoring within each bucket — a mitigation over a naive full pairwise scan, but one whose cost still climbed super-linearly as more sources landed: ~6s at ~123k packages, ~26s at ~192k, ~51s at ~268k, ~111s at ~357k raw, ~35s after `curator/filter` cut the input to ~303k (see the "Matcher bucket sizes growing again" card, now closed). It's since been replaced with a union-find over exact-match tiers — manual overrides → exact `appId` → exact normalized name, each an O(1)-per-package map lookup, no pairwise comparison at all. A fourth, fuzzy/scored tier (`match/score.ts`'s `scoreMatch`, name-distance + appId + icon-filename weights) was considered but turned out to be mathematically unreachable once the two exact tiers run first — with the current weights (name 0.5, appId 0.35, icon 0.15) and a 0.75 threshold, no pair lacking an exact appId or exact name can score above 0.65 — so it was dropped rather than shipped as inert code; `scoreMatch` stays exported for when weights get revisited. Net effect: grouping the filtered ~303k packages now takes well under a second. The exact-`appId` tier's own `GENERIC_NAME_BLOCKLIST` protection (see the constant's comment in `match/group.ts` for the full list of real cross-source collisions it was built to prevent) originally only guarded the exact-name tier — an ultra-review pass caught that the identical class of collision reaches the appId tier too, since bare-package-name sources (AUR, Arch, Fedora, Debian/Ubuntu family, Snapcraft, Alpine, Void, Slackware, Solus, openSUSE, Gentoo, nixpkgs) literally use the package name as `appId`. Confirmed live before fixing: `fuse`, `weather`, `calendar`, and `notes` were each merging 3-8 bare-appId sources into one group purely on this unguarded tier — every one happened to be the same real software today (no visible wrong merge), but with no actual guard against the same unrelated-software collision the blocklist's own examples describe. Fixed by applying the identical blocklist check (via `tier1Key`) to the appId tier; the four affected clusters now correctly split back into one app per source rather than staying merged by luck.
 - **Scheduled refresh**: `.github/workflows/refresh-sources.yml` runs every `fetch.ts` weekly (Saturday 4am UTC — weekend timing on purpose, see the workflow's own comment — or on demand via `workflow_dispatch` for a single source), opening a PR with any cache diff rather than pushing straight to main (branch-protected, PR + rebase only) — one source failing doesn't block the others, it's just left at its last successful cache state.

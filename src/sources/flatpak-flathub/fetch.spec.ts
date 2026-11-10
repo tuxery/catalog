@@ -1,15 +1,5 @@
 import { describe, expect, it } from "vitest";
-import {
-  buildStoreCollectionTags,
-  parseAppstream,
-  parseBetaAppstream,
-  rankPopularity,
-  resolveAppExtras,
-  sumLast7Days,
-  toAppExtras,
-  type FlathubAppExtras,
-} from "./fetch";
-import type { FlathubCacheEntry } from "./types";
+import { parseAppstream, parseBetaAppstream, verifiedIds } from "./fetch";
 
 const FIXTURE = `<?xml version="1.0" encoding="UTF-8"?>
 <components version="0.8" origin="flathub">
@@ -17,6 +7,9 @@ const FIXTURE = `<?xml version="1.0" encoding="UTF-8"?>
     <id>org.mozilla.firefox</id>
     <name>Firefox</name>
     <summary>Fast, Private &amp; Safe Web Browser</summary>
+    <custom>
+      <value key="flathub::verification::verified">true</value>
+    </custom>
     <releases>
       <release timestamp="1786320000" version="153.0.4"/>
     </releases>
@@ -38,10 +31,9 @@ const FIXTURE = `<?xml version="1.0" encoding="UTF-8"?>
 `;
 
 const ODRS_RATINGS = new Map([["org.mozilla.firefox.desktop", { average: 3.9, count: 778 }]]);
-const POPULARITY_RANKS = new Map([["org.mozilla.firefox", 0.9]]);
 
 describe("parseAppstream", () => {
-  const entries = parseAppstream(FIXTURE, ODRS_RATINGS, POPULARITY_RANKS);
+  const entries = parseAppstream(FIXTURE, ODRS_RATINGS);
 
   it("delegates to the shared AppStream parser", () => {
     const firefox = entries.find((entry) => entry.id === "org.mozilla.firefox");
@@ -65,15 +57,8 @@ describe("parseAppstream", () => {
       releases: [{ version: "153.0.4", date: "2026-08-10T00:00:00.000Z" }],
       formal: { componentType: "desktop-application" },
       rating: { average: 3.9, count: 778 },
-      popularity: 0.9,
-      storeCollections: undefined,
+      storeCollections: ["verified"],
     });
-  });
-
-  it("leaves popularity undefined for an id outside the Popular collection", () => {
-    const entry = entries.find((e) => e.id === "org.example.RemoteIcon");
-
-    expect(entry?.popularity).toBeUndefined();
   });
 
   it("prefers a ready-to-use remote icon URL when present", () => {
@@ -96,159 +81,11 @@ describe("parseAppstream", () => {
     expect(entry?.rating).toBeUndefined();
   });
 
-  it("threads storeCollections tags through by id, leaving untagged ids undefined", () => {
-    const tagged = parseAppstream(
-      FIXTURE,
-      ODRS_RATINGS,
-      POPULARITY_RANKS,
-      new Map([["org.mozilla.firefox", ["verified", "recently-updated"]]]),
-    );
-
-    expect(tagged.find((e) => e.id === "org.mozilla.firefox")?.storeCollections).toEqual([
-      "verified",
-      "recently-updated",
-    ]);
-    expect(tagged.find((e) => e.id === "org.example.RemoteIcon")?.storeCollections).toBeUndefined();
-  });
-});
-
-describe("rankPopularity", () => {
-  it("scores rank 1 as 1, decreasing towards 0 for the last hit", () => {
-    const hits = [{ app_id: "a" }, { app_id: "b" }, { app_id: "c" }];
-
-    const ranks = rankPopularity(hits);
-    expect(ranks.get("a")).toBe(1);
-    expect(ranks.get("b")).toBeCloseTo(0.5, 5);
-    expect(ranks.get("c")).toBe(0);
-  });
-
-  it("skips hits with no app_id", () => {
-    const ranks = rankPopularity([{ app_id: "a" }, {}]);
-    expect(ranks.size).toBe(1);
-  });
-
-  it("scores the sole hit as 1 rather than dividing by zero", () => {
-    const ranks = rankPopularity([{ app_id: "only" }]);
-    expect(ranks.get("only")).toBe(1);
-  });
-});
-
-describe("buildStoreCollectionTags", () => {
-  it("tags each id with the collection(s) it appears in", () => {
-    const tags = buildStoreCollectionTags([
-      { tag: "verified", ids: ["a", "b"] },
-      { tag: "recently-added", ids: ["b", "c"] },
-    ]);
-
-    expect(tags.get("a")).toEqual(["verified"]);
-    expect(tags.get("b")).toEqual(["verified", "recently-added"]);
-    expect(tags.get("c")).toEqual(["recently-added"]);
-    expect(tags.has("d")).toBe(false);
-  });
-
-  it("returns an empty map for no collections", () => {
-    expect(buildStoreCollectionTags([]).size).toBe(0);
-  });
-});
-
-describe("sumLast7Days", () => {
-  it("sums the 7 most recent dates, ignoring older ones", () => {
-    const perDay = {
-      "2026-08-20": 100,
-      "2026-08-21": 100,
-      "2026-08-22": 100,
-      "2026-08-23": 100,
-      "2026-08-24": 100,
-      "2026-08-25": 100,
-      "2026-08-26": 100,
-      // Older, outside the last-7-days window — must not be counted.
-      "2026-08-19": 9999,
-    };
-
-    expect(sumLast7Days(perDay)).toBe(700);
-  });
-
-  it("returns undefined with fewer than 7 days of history", () => {
-    const perDay = { "2026-08-25": 10, "2026-08-26": 20 };
-
-    expect(sumLast7Days(perDay)).toBeUndefined();
-  });
-});
-
-describe("toAppExtras", () => {
-  it("maps installs_total, sums the last 7 days, and picks the stable branch's download_size", () => {
-    const perDay = Object.fromEntries(
-      Array.from({ length: 8 }, (_, i) => [`2026-08-${20 + i}`, 10]),
-    );
-
+  it("marks verified apps from the appstream's own custom key, and only those", () => {
     expect(
-      toAppExtras(
-        { installs_total: 500, installs_per_day: perDay },
-        { branches: { stable: { download_size: 125_546_324 }, beta: { download_size: 999 } } },
-      ),
-    ).toEqual({
-      installsTotal: 500,
-      installsLast7Days: 70,
-      approxSizeBytes: 125_546_324,
-      permissions: undefined,
-    });
-  });
-
-  it("falls back to the top-level download_size when there's no stable branch entry", () => {
-    expect(toAppExtras(undefined, { download_size: 42, branches: {} })).toEqual({
-      installsTotal: undefined,
-      installsLast7Days: undefined,
-      approxSizeBytes: 42,
-      permissions: undefined,
-    });
-  });
-
-  it("leaves every field undefined when both responses are undefined (both endpoints failed)", () => {
-    expect(toAppExtras(undefined, undefined)).toEqual({
-      installsTotal: undefined,
-      installsLast7Days: undefined,
-      approxSizeBytes: undefined,
-      permissions: undefined,
-    });
-  });
-
-  it("leaves installsLast7Days undefined when there's no daily series at all", () => {
-    expect(toAppExtras({ installs_total: 500 }, undefined)).toEqual({
-      installsTotal: 500,
-      installsLast7Days: undefined,
-      approxSizeBytes: undefined,
-    });
-  });
-});
-
-function statsEntry(id: string): FlathubCacheEntry {
-  return { id, name: id, summary: "", hasGameCategory: false, categories: [], screenshots: [] };
-}
-
-async function lookupById(id: string): Promise<FlathubAppExtras> {
-  return { installsTotal: id === "a" ? 100 : 200 };
-}
-
-async function lookupNothing(): Promise<FlathubAppExtras> {
-  return {};
-}
-
-describe("resolveAppExtras", () => {
-  it("attaches each entry's resolved extras", async () => {
-    const entries = [statsEntry("a"), statsEntry("b")];
-
-    const resolved = await resolveAppExtras(entries, lookupById, 2);
-
-    expect(resolved.map((e) => e.installsTotal)).toEqual([100, 200]);
-  });
-
-  it("keeps an entry with no extras, just without the new fields", async () => {
-    const entries = [statsEntry("no-stats")];
-
-    const resolved = await resolveAppExtras(entries, lookupNothing, 2);
-
-    expect(resolved).toHaveLength(1);
-    expect(resolved[0]?.installsTotal).toBeUndefined();
+      entries.find((e) => e.id === "org.example.RemoteIcon")?.storeCollections,
+    ).toBeUndefined();
+    expect([...verifiedIds(FIXTURE)]).toEqual(["org.mozilla.firefox"]);
   });
 });
 
@@ -263,10 +100,9 @@ describe("parseBetaAppstream", () => {
     );
   });
 
-  it("leaves out the stable repo's joins: ratings, popularity, collections", () => {
+  it("leaves out the stable repo's joins: ratings, verification", () => {
     const [firefox] = entries;
     expect(firefox?.rating).toBeUndefined();
-    expect(firefox?.popularity).toBeUndefined();
     expect(firefox?.storeCollections).toBeUndefined();
   });
 });

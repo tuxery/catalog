@@ -110,6 +110,8 @@ export interface TursoDataset {
   generatedAt: string;
   /** Written to `meta.buildInfo` as JSON for the site's footer. Absent on a dataset built before it existed. */
   buildInfo?: BuildInfo;
+  /** Written to `meta.sourceTerms` as JSON: `config/source-terms.json`, rendered by `app`'s per-source pages. */
+  sourceTerms?: unknown;
   apps: AppRecord[];
 }
 
@@ -1044,6 +1046,9 @@ function computeMeta(
       ["generatedAt", dataset.generatedAt],
       ...(dataset.buildInfo
         ? [["buildInfo", JSON.stringify(dataset.buildInfo)] as [string, string]]
+        : []),
+      ...(dataset.sourceTerms
+        ? [["sourceTerms", JSON.stringify(dataset.sourceTerms)] as [string, string]]
         : []),
       ["totalApps", String(dataset.apps.length)],
       ["categoryCounts:all", JSON.stringify(categoryCountsAll)],

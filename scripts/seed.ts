@@ -7,6 +7,7 @@ import { createTursoClient, parseTursoDataset, type PublishReport } from "../src
 import { refreshSources } from "./_refresh-sources";
 import { hasCacheFile, RESTRICTED_SOURCES } from "../src/sources/_shared/cache-path";
 import { readSqldStats, startSqld, waitForSqld } from "./_sqld";
+import { readSourceTerms } from "../src/pipeline/source-terms";
 import { PREVIEW_ENV_PATH, PROD_ENV_PATH, readSharedEnv } from "./_shared-env";
 
 const DATASET_PATH = fileURLToPath(new URL("../dist/dataset.json", import.meta.url));
@@ -91,9 +92,15 @@ if (force || !existsSync(DATASET_PATH)) {
 // replace preview/prod with it.
 const MIN_REMOTE_APPS = 50_000;
 
-const dataset = parseTursoDataset(JSON.parse(readFileSync(DATASET_PATH, "utf8")), {
-  minApps: remote ? MIN_REMOTE_APPS : 0,
-});
+const dataset = {
+  ...parseTursoDataset(JSON.parse(readFileSync(DATASET_PATH, "utf8")), {
+    minApps: remote ? MIN_REMOTE_APPS : 0,
+  }),
+  // Read at publish time, not baked into dist/dataset.json: an edit to the
+  // terms reaches app's per-source pages with the next publish, rebuilt
+  // dataset or not.
+  sourceTerms: readSourceTerms(),
+};
 
 if (measure) {
   // What one publish costs in Turso's billed counters, without spending any

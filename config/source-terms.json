@@ -86,6 +86,11 @@
           "url": "https://popcon.debian.org/",
           "read": true,
           "finding": "Popularity data is public; no terms found."
+        },
+        {
+          "url": "https://lists.debian.org/debian-legal/",
+          "read": true,
+          "finding": "Reply on debian-legal (2026-11-10) to our question of the same day, from a list member, not an official Debian position: no one would mind, and even otherwise it sounds like fair use, \"similar to repology listing metadata from packages in various Linux distributions\"."
         }
       ]
     },
@@ -110,6 +115,11 @@
           "url": "https://deb.debian.org/debian/dists/trixie/main/dep11/Components-amd64.yml.gz",
           "read": true,
           "finding": "Measured: 0 MetadataLicense keys in the catalog, so the per-app license can't be read from it."
+        },
+        {
+          "url": "https://lists.debian.org/debian-legal/",
+          "read": true,
+          "finding": "Reply on debian-legal (2026-11-10) to our question of the same day, from a list member, not an official Debian position: no one would mind, and even otherwise it sounds like fair use, \"similar to repology listing metadata from packages in various Linux distributions\"."
         }
       ]
     },

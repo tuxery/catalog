@@ -1,6 +1,6 @@
 import { createClient, type Client } from "@libsql/client";
 import { describe, expect, it, vi } from "vitest";
-import { createTursoClient, type AppRecord } from "./turso-client";
+import { byPopularFirst, createTursoClient, type AppRecord } from "./turso-client";
 
 const APP: AppRecord = {
   id: "flathub:org.videolan.VLC",
@@ -594,6 +594,7 @@ describe("precomputed browse keys", () => {
       generation: GEN,
       sourceIdsChunkSize: 500,
       freeCounts: true,
+      categoryIds: true,
     });
     expect(meta.has("browseKeys")).toBe(false);
   });
@@ -717,6 +718,41 @@ describe("precomputed browse keys", () => {
           (await db.execute(`SELECT value FROM meta WHERE key = 'browseKeys'`)).rows[0]?.value,
         ),
       ),
-    ).toEqual({ generation: "20260201000000000", sourceIdsChunkSize: 500, freeCounts: true });
+    ).toEqual({
+      generation: "20260201000000000",
+      sourceIdsChunkSize: 500,
+      freeCounts: true,
+      categoryIds: true,
+    });
+  });
+});
+
+describe("byPopularFirst", () => {
+  const entry = (id: string, extra: Partial<AppRecord>) => ({
+    id,
+    name: Buffer.from(id),
+    app: { ...APP, id, name: id, ...extra } as AppRecord,
+  });
+
+  it("lists scored apps with an icon first, then iconed ones A-Z, then scored ones without, then the rest", () => {
+    const entries = [
+      entry("zz-plain", {}),
+      entry("perl", { popularity: 0.99 }),
+      entry("b-icon", { iconUrl: "b.png" }),
+      entry("kate", { iconUrl: "k.png", popularity: 0.5 }),
+      entry("a-icon", { iconUrl: "a.png" }),
+      entry("imhex", { iconUrl: "i.png", popularity: 0.9 }),
+      entry("aa-plain", {}),
+    ];
+    // eslint-disable-next-line unicorn/no-array-sort
+    expect(entries.sort(byPopularFirst).map((e) => e.id)).toEqual([
+      "imhex",
+      "kate",
+      "a-icon",
+      "b-icon",
+      "perl",
+      "aa-plain",
+      "zz-plain",
+    ]);
   });
 });

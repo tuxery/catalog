@@ -800,6 +800,64 @@ function computeSourceIdChunks(apps: AppRecord[], generation: string): Map<strin
   return chunks;
 }
 
+/**
+ * The default ("popular first") order of a category page, as tiers: apps
+ * with an icon and a popularity score first (most popular first), then
+ * apps with an icon (A-Z), then apps with a score but no icon (most
+ * popular first), then the rest (A-Z). The icon rule is the trending
+ * lists' (`hasVisualAsset`): without it, the score's AUR and popcon
+ * percentiles put command-line packages (`perl`, `binutils`) ahead of the
+ * category's real apps. Exported for its test.
+ */
+export function byPopularFirst(
+  a: { id: string; name: Buffer; app: AppRecord },
+  b: { id: string; name: Buffer; app: AppRecord },
+): number {
+  const tier = (app: AppRecord) =>
+    (hasVisualAsset(app) ? 0 : 2) + (app.popularity === undefined ? 1 : 0);
+  return (
+    tier(a.app) - tier(b.app) ||
+    (b.app.popularity ?? 0) - (a.app.popularity ?? 0) ||
+    byNameAscThenId(a, b)
+  );
+}
+
+/** Mirrored by hand in `app`'s `browse-keys.ts`. The category goes last: it may itself contain ":". */
+export function categoryIdsChunkKey(generation: string, index: number, category: string): string {
+  return `categoryIds:${generation}:${index}:${category}`;
+}
+
+/**
+ * For each category, the ids of its apps in `byPopularFirst` order, cut
+ * into `SOURCE_IDS_CHUNK_SIZE`-id chunk rows (`categoryIdsChunkKey`): a
+ * category page with no query and no other filter reads its page from
+ * here instead of sorting the category live. One list per category (an
+ * app has at most one), so about one chunk row per 500 categorized apps.
+ */
+function computeCategoryIdChunks(apps: AppRecord[], generation: string): Map<string, string[]> {
+  const sorted = apps
+    .filter((app) => app.category !== undefined)
+    .map((app) => ({ id: app.id, name: Buffer.from(app.name), app }));
+  // eslint-disable-next-line unicorn/no-array-sort
+  sorted.sort(byPopularFirst);
+
+  const idsByCategory = new Map<string, string[]>();
+  for (const { id, app } of sorted) {
+    const category = app.category as string;
+    const ids = idsByCategory.get(category);
+    if (ids) ids.push(id);
+    else idsByCategory.set(category, [id]);
+  }
+
+  const chunks = new Map<string, string[]>();
+  for (const [category, ids] of idsByCategory) {
+    chunk(ids, SOURCE_IDS_CHUNK_SIZE).forEach((part, index) => {
+      chunks.set(categoryIdsChunkKey(generation, index, category), part);
+    });
+  }
+  return chunks;
+}
+
 const INDEX_RETRY_ATTEMPTS = 3;
 const INDEX_RETRY_BASE_DELAY_MS = 500;
 
@@ -1029,6 +1087,7 @@ function computeMeta(
   const listingIds = computeListingIds(dataset.apps);
   const browseCounts = computeBrowseCounts(dataset.apps, generation);
   const sourceIdChunks = computeSourceIdChunks(dataset.apps, generation);
+  const categoryIdChunks = computeCategoryIdChunks(dataset.apps, generation);
 
   // A dynamic key/value list rather than a hand-written VALUES(?, ?, ...)
   // literal — ~60 precomputed listing keys (3 typeFilter variants x 3
@@ -1041,6 +1100,7 @@ function computeMeta(
       ...computeListingRows(dataset.apps, listingIds),
       ...[...browseCounts].map(([key, count]): [string, string] => [key, String(count)]),
       ...[...sourceIdChunks].map(([key, ids]): [string, string] => [key, JSON.stringify(ids)]),
+      ...[...categoryIdChunks].map(([key, ids]): [string, string] => [key, JSON.stringify(ids)]),
     ],
     swap: [
       ["generatedAt", dataset.generatedAt],
@@ -1060,6 +1120,8 @@ function computeMeta(
           generation,
           sourceIdsChunkSize: SOURCE_IDS_CHUNK_SIZE,
           freeCounts: true,
+          // `categoryIdsChunkKey` rows exist, chunked like `sourceIds:`.
+          categoryIds: true,
         }),
       ],
       ...Object.entries(listingIds).map(([key, ids]): [string, string] => [

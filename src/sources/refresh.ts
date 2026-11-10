@@ -1,5 +1,6 @@
 import { cachePathFor, hasCacheDir } from "./_shared/cache-path";
 import { REFRESHERS } from "./refreshers";
+import { refreshWithRetries } from "./refresh-retry";
 
 async function main() {
   const [sourceName] = process.argv.slice(2);
@@ -32,7 +33,7 @@ async function main() {
     return;
   }
   const cachePath = cachePathFor(sourceName);
-  const count = await refresh(cachePath);
+  const count = await refreshWithRetries(sourceName, () => refresh(cachePath));
   console.log(`${sourceName}: wrote ${count} entries to ${cachePath}`);
 }
 

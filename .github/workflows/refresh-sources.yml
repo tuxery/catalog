@@ -104,6 +104,9 @@ jobs:
           if [ -n "$failed" ]; then
             echo "::warning::Sources that failed to refresh:$failed"
           fi
+          # Read by "Write the PR body": the failures used to show only as
+          # warnings here, never in the PR.
+          echo "$failed" > failed-sources.txt
 
       # New and changed apps get their LLM verdict (app/game/library/other)
       # in the same PR as the caches, instead of waiting for a manual
@@ -132,13 +135,16 @@ jobs:
           } > classify-summary.md
 
       - name: Write the PR body
+        env:
+          TUXERY_PRIVATE_CACHE_DIR: ${{ github.workspace }}/source-cache-private/cache
         run: |
           {
             echo 'Automated weekly refresh of `src/sources/cache/*.ndjson`, plus LLM'
             echo 'verdicts for the apps it adds (`config/llm-classifications.json`).'
-            echo 'See the "Refresh source caches" workflow run for any sources'
-            echo 'that failed to refresh (left at their last successful state,'
-            echo 'not blocking the others).'
+            echo
+            # Failed sources and caches older than two weeks (ids and dates only).
+            pnpm exec tsx src/sources/refresh-report.ts $(cat failed-sources.txt 2>/dev/null) \
+              || echo "Refresh report unavailable, see the run log."
             echo
             cat classify-summary.md 2>/dev/null || echo "LLM classification skipped or failed, see the run log."
           } > pr-body.md

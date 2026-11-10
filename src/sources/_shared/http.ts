@@ -76,3 +76,46 @@ export async function fetchZstdText(
   const compressed = Buffer.from(await response.arrayBuffer());
   return zstdDecompressSync(compressed).toString("utf8");
 }
+
+/** The HTTP status of a failed fetch, from `fetchOrThrow`'s error or its `HttpError` cause. */
+function statusOf(error: unknown): number | undefined {
+  for (let current = error; current; current = (current as { cause?: unknown }).cause) {
+    if (current instanceof HttpError) return current.status;
+    if (!(current instanceof Error)) return undefined;
+  }
+  return undefined;
+}
+
+/** Whether a fetch failed with a 404: the resource isn't (or isn't yet) published. */
+export function isNotFound(error: unknown): boolean {
+  return statusOf(error) === 404;
+}
+
+const TRANSIENT_CODES = new Set([
+  "ECONNRESET",
+  "ECONNREFUSED",
+  "ETIMEDOUT",
+  "EAI_AGAIN",
+  "EPIPE",
+  "UND_ERR_SOCKET",
+  "UND_ERR_CONNECT_TIMEOUT",
+  "UND_ERR_HEADERS_TIMEOUT",
+  "UND_ERR_BODY_TIMEOUT",
+]);
+
+/**
+ * Whether a failed refresh is worth trying again: a network error that
+ * usually clears up (a reset connection, a timeout, a DNS hiccup) or a
+ * 5xx from the server, anywhere in the error's `cause` chain. Never a 4xx,
+ * an expired certificate or a parse error: those fail the same way twice.
+ */
+export function isTransient(error: unknown): boolean {
+  const status = statusOf(error);
+  if (status !== undefined) return status >= 500;
+  for (let current = error; current; current = (current as { cause?: unknown }).cause) {
+    const code = (current as { code?: unknown }).code;
+    if (typeof code === "string" && TRANSIENT_CODES.has(code)) return true;
+    if (!(current instanceof Error)) break;
+  }
+  return false;
+}

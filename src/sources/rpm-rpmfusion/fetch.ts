@@ -1,5 +1,5 @@
 import { dedupeByKey } from "../_shared/dedupe";
-import { fetchCurrentFedoraRelease } from "../_shared/fedora-release";
+import { withCurrentFedoraRelease } from "../_shared/fedora-release";
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
 import { fetchPrimaryXml, parsePrimaryXml } from "../_shared/rpm-repodata";
@@ -82,9 +82,10 @@ export function mergeByName(repoEntries: RpmFusionCacheEntry[][]): RpmFusionCach
  * NDJSON. See docs/sources.md.
  */
 export async function fetchRpmFusion(cachePath: string): Promise<number> {
-  const release = await fetchCurrentFedoraRelease();
+  const { release, result: repoEntries } = await withCurrentFedoraRelease((candidate) =>
+    Promise.all(repoBasesFor(candidate).map(fetchRepo)),
+  );
   const repoBases = repoBasesFor(release);
-  const repoEntries = await Promise.all(repoBases.map(fetchRepo));
   const entries = mergeByName(repoEntries);
 
   writeNdjson(cachePath, entries);

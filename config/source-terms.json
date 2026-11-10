@@ -60,7 +60,7 @@
         {
           "url": "https://github.com/tuxery/catalog/blob/main/docs/sources.md",
           "read": true,
-          "finding": "Email reply from opendesktop.org on 2026-11-10: the description may be shown truncated only (first paragraph or ~300 characters) with a link to the detail page, sanitized, same conditions; preview images may be loaded from their servers, never copied or re-hosted, Referer kept, icons no larger than 128x128 (by rewriting the cache size segment); don't build on the license tags or on icon/license fields not yet exposed; listings need no per-card credit, a source badge is welcome."
+          "finding": "Email reply from opendesktop.org on 2026-11-10: the description may be shown, sanitized, same conditions, truncated on listing and card views (first paragraph or ~300 characters) with a link to the detail page; we read that as allowing the full text on an app's own page, and told them so; preview images may be loaded from their servers, never copied or re-hosted, Referer kept, icons no larger than 128x128 (by rewriting the cache size segment); don't build on the license tags or on icon/license fields not yet exposed; listings need no per-card credit, a source badge is welcome."
         }
       ],
       "note": "Private cache in tuxery/source-cache."

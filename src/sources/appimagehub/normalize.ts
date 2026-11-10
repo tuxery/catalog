@@ -119,14 +119,35 @@ export function iconRendering(url: string, size = "128x128"): string | undefined
   return pattern.test(url) ? url.replace(pattern, `$1${size}$2`) : undefined;
 }
 
+/** The longest card and listing text, in characters ("roughly the first 300"). */
+export const EXCERPT_MAX = 300;
+
 /**
- * The short description: the store's summary, unless it is that legacy
- * ~40-character cut of the description (opendesktop.org, 2026-11-10), in
- * which case the description's first sentence, from the excerpt. Pure.
+ * The description's first paragraph, at most `EXCERPT_MAX` characters, cut
+ * at a word with an ellipsis: the truncated rendering opendesktop.org asks
+ * for on listing and card views (2026-11-10). Pure.
+ */
+export function descriptionExcerpt(text: string | undefined): string | undefined {
+  const first = text
+    ?.split(/\n\s*\n/)[0]
+    ?.replace(/\s+/g, " ")
+    .trim();
+  if (!first) return undefined;
+  if (first.length <= EXCERPT_MAX) return first;
+  const cut = first.slice(0, EXCERPT_MAX - 1);
+  const atWord = cut.slice(0, cut.lastIndexOf(" ")).replace(/[\s,;:.-]+$/, "");
+  return `${atWord || cut}…`;
+}
+
+/**
+ * The short description, shown on cards and lists: the store's summary,
+ * unless it is that legacy ~40-character cut of the description
+ * (opendesktop.org, 2026-11-10), in which case the first sentence of the
+ * description's excerpt, so never more than the excerpt. Pure.
  */
 export function shortDescription(entry: AppImageHubCacheEntry): string {
   const summary = entry.summary;
-  const excerpt = entry.descriptionExcerpt;
+  const excerpt = descriptionExcerpt(entry.descriptionText);
   if (!excerpt) return summary;
   const stem = summary.replace(/(?:\.\.\.|…)$/, "").trim();
   if (!stem || !excerpt.startsWith(stem) || excerpt.length <= summary.length) return summary;
@@ -148,9 +169,9 @@ export function normalize(entries: AppImageHubCacheEntry[]): SourcedPackage[] {
       source: "appimagehub",
       name: entry.name,
       description: shortDescription(entry),
-      // A first-paragraph excerpt only; the app links to the detail page
-      // for the rest, as opendesktop.org asked.
-      longDescription: entry.descriptionExcerpt,
+      // The full text, shown only on the app's own page, next to "Source:
+      // AppImageHub" and its download link; cards get `description` above.
+      longDescription: entry.descriptionText,
       // previewpic1 is usually the app's icon (not guaranteed, per
       // opendesktop.org), asked for at 128x128 at most; the others are
       // screenshots. Both load from their servers, last in FIELD_PRIORITY.

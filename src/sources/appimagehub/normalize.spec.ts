@@ -1,5 +1,12 @@
 import { describe, expect, it } from "vitest";
-import { iconRendering, isApp, normalize, shortDescription } from "./normalize";
+import {
+  descriptionExcerpt,
+  EXCERPT_MAX,
+  iconRendering,
+  isApp,
+  normalize,
+  shortDescription,
+} from "./normalize";
 import type { AppImageHubCacheEntry } from "./types";
 
 const entry = (extra: Partial<AppImageHubCacheEntry>): AppImageHubCacheEntry => ({
@@ -79,12 +86,24 @@ describe("appimagehub images and descriptions", () => {
   it("replaces a summary cut at ~40 characters with the description's first sentence", () => {
     const cut = entry({
       summary: "A music player that plays whole folders",
-      descriptionExcerpt:
-        "A music player that plays whole folders and playlists. It also has a tray icon.",
+      descriptionText:
+        "A music player that plays whole folders and playlists. It also has a tray icon.\n\nMore.",
     });
     expect(shortDescription(cut)).toBe("A music player that plays whole folders and playlists.");
-    expect(shortDescription(entry({ descriptionExcerpt: "Something else entirely." }))).toBe(
+    expect(shortDescription(entry({ descriptionText: "Something else entirely." }))).toBe(
       "A folder player",
     );
+  });
+
+  it("keeps the full text as the long description, for the app's own page", () => {
+    const [pkg] = normalize([entry({ descriptionText: "First.\n\nSecond." })]);
+    expect(pkg?.longDescription).toBe("First.\n\nSecond.");
+  });
+
+  it("cuts the card excerpt to the first paragraph, at most 300 characters, at a word", () => {
+    expect(descriptionExcerpt("First.\n\nSecond.")).toBe("First.");
+    const excerpt = descriptionExcerpt("word ".repeat(100)) ?? "";
+    expect(excerpt.length).toBeLessThanOrEqual(EXCERPT_MAX);
+    expect(excerpt.endsWith("word…")).toBe(true);
   });
 });

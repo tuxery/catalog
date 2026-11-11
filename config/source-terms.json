@@ -410,7 +410,7 @@
     "lutris": {
       "verdict": "clear",
       "automatedFetch": "allowed",
-      "publicStorage": "unclear",
+      "publicStorage": "allowed",
       "attribution": null,
       "fieldLicense": "Installer scripts and descriptions written by the community; no license found for the data.",
       "evidence": [
@@ -432,7 +432,7 @@
         {
           "url": "https://github.com/lutris/website/issues/777",
           "read": true,
-          "finding": "Reply from Lutris's founder (strycore, 2026-11-10) to our issue: \"it's fine you can make calls to scrape the API\", it sits behind Cloudflare so there's no risk of hammering it. IGDB is only one of Lutris's import channels, and its IGDB sync will improve. The public copy wasn't addressed."
+          "finding": "Reply from Lutris's founder (strycore, 2026-11-10) to our issue: \"it's fine you can make calls to scrape the API\", it sits behind Cloudflare so there's no risk of hammering it. IGDB is only one of Lutris's import channels, and its IGDB sync will improve. Our issue also asked whether a public copy is fine; he closed it right after answering, without objection, which we read as approval of the whole request."
         }
       ],
       "note": "The genres (and possibly some descriptions) come from Lutris's IGDB import, one of several channels."

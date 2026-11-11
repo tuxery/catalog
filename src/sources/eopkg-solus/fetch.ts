@@ -8,10 +8,13 @@ import type { SolusCacheEntry, SolusFetchMetadata } from "./types";
 // Solus publishes eopkg-index.xml in three forms at the same path
 // (uncompressed, .xz, .zst) — the .zst one is used here since Node's
 // built-in zlib decodes it with no new dependency, and it's far smaller
-// than the uncompressed original. Single repo ("shannon", Solus's
-// rolling release), no per-arch split to worry about (Solus is
-// x86_64-only).
-const URL = "https://packages.getsol.us/shannon/eopkg-index.xml.zst";
+// than the uncompressed original. The stable repo, "polaris", as Solus's
+// maintainers advised (2026-11-10): it's what an end-user system runs,
+// with less churn than unstable, and its updates land on Fridays, late in
+// the North American day, just before our Saturday refresh. The "shannon"
+// index read until then had last changed on 2026-06-24. No per-arch split
+// to worry about (Solus is x86_64-only).
+const URL = "https://packages.getsol.us/polaris/eopkg-index.xml.zst";
 
 interface RawLocalizedText {
   "#text"?: string;

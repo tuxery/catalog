@@ -39,7 +39,7 @@ table is the map, the Project is the tracked work.
 | 5h  | Void                  | nonfree              | Native     | 67      | ✅          | Implemented | [13]  |
 | 5h  | Void                  | multilib             | Native     | 5,710   | ✅          | Implemented | [13]  |
 | 5i  | Slackware             | —                    | Native     | 1,887   | ✅          | Implemented | [14]  |
-| 5j  | Solus                 | shannon              | Native     | 11,660  | ✅          | Implemented | [15]  |
+| 5j  | Solus                 | polaris              | Native     | 11,660  | ✅          | Implemented | [15]  |
 | 5k  | Gentoo                | —                    | Native     | 19,443  | ⚠️          | Implemented | [16]  |
 | 6   | Nixpkgs               | —                    | Native     | 131,101 | ✅          | Implemented | [17]  |
 | 7a  | elementary AppCenter  | —                    | Flatpak    | 158     | ✅          | Implemented | [18]  |
@@ -303,8 +303,9 @@ LOCATION`, e.g. `l` for libraries, `kde`, `y` for games) is a real
     release, as track `15.0` (tuxery/catalog#67). `src/sources/slackware/fetch.ts`.
 15. **Solus** — `eopkg-index.xml.zst` (Zstandard, same "Node's built-in
     zlib decodes it" pattern as Fedora/openSUSE, 4.1MB vs. 67MB
-    uncompressed), 11,660 packages in Solus's single rolling repo
-    ("shannon"). A richer XML schema than RPM/deb822: `Summary` repeats
+    uncompressed), 11,660 packages, from the stable repo ("polaris"), as
+    Solus's maintainers advised on 2026-11-10 (until then the "shannon"
+    index, last changed on 2026-06-24). A richer XML schema than RPM/deb822: `Summary` repeats
     per language (English picked by `xml:lang="en"`) and there's no flat
     `Version` field — it's the most recent `<Update>` under `<History>`
     (verified always listed newest-first). `PartOf`, a dotted

@@ -280,11 +280,17 @@
           "finding": "Files are licensed per time and manner of contribution, indicated with SPDX identifiers."
         },
         {
-          "url": "https://packages.getsol.us/shannon/eopkg-index.xml.zst",
+          "url": "https://packages.getsol.us/polaris/eopkg-index.xml.zst",
           "read": true,
-          "finding": "Public index made for the package manager."
+          "finding": "Public index made for the package manager, stable repo."
+        },
+        {
+          "url": "https://github.com/getsolus/packages/issues/7815",
+          "read": false,
+          "finding": "Reply from two Solus maintainers on Matrix (#solus-development, 2026-11-10) to our question of the same day: once a week is perfectly fine; read the stable \"polaris\" index rather than unstable (what end users run, less churn; updates land on Fridays, late in the North American day). The repo has no clear license yet, which they are working on in this issue."
         }
-      ]
+      ],
+      "action": "Solus is settling the repository's license (getsolus/packages#7815): update fieldLicense and publicStorage once it's decided."
     },
     "flatpak-appcenter": {
       "verdict": "low-risk-no-terms",

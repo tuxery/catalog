@@ -712,7 +712,7 @@ cache-path.ts`), the data is never part of an open-data export, and no
     card views to the first paragraph or about 300 characters (the short
     description, used only when the summary is its legacy ~40-character
     cut), and in full on the app's own page, next to "Source: AppImageHub"
-    and the download link; and its preview images, loaded from
+    and the download link (confirmed by opendesktop.org on 2026-11-11 as the reading for this integration); and its preview images, loaded from
     their servers with the browser's Referer, never copied, icons asked
     for at 128x128 at most by rewriting the cache path's size segment.
     `previewpic1` is usually the icon, the others screenshots; all three

@@ -677,6 +677,104 @@ describe("enrichApps", () => {
       expect(app?.category).toBe("Science");
     });
 
+    describe("a verdict inherited from a member package", () => {
+      const common = pkg({
+        source: "deb-debian",
+        name: "example3-common",
+        appId: "example3-common",
+        description: "Shared files for Example",
+      });
+      const hides: LlmClassificationEntry = {
+        id: "deb-debian:example3-common",
+        type: "other",
+        confidence: "high",
+        ...fixture,
+      };
+
+      it("hides a group with no formal evidence of being an application", () => {
+        const app = withLlm(
+          [{ id: "example", packages: [common, pkg({ source: "pacman-arch", name: "example" })] }],
+          [hides],
+        );
+        expect(app?.excluded).toBe("other");
+      });
+
+      it("doesn't hide a group one of whose packages ships a desktop file", () => {
+        const app = withLlm(
+          [
+            {
+              id: "example",
+              packages: [
+                common,
+                pkg({ source: "pacman-arch", name: "example", hasDesktopFile: true }),
+              ],
+            },
+          ],
+          [hides],
+        );
+        expect(app?.excluded).toBeUndefined();
+      });
+
+      it("doesn't hide a group one of whose packages is an AppStream desktop application", () => {
+        const app = withLlm(
+          [
+            {
+              id: "example",
+              packages: [
+                common,
+                pkg({
+                  source: "deb-debian-appstream",
+                  name: "Example",
+                  formal: { componentType: "desktop-application" },
+                }),
+              ],
+            },
+          ],
+          [hides],
+        );
+        expect(app?.excluded).toBeUndefined();
+      });
+
+      it("still hides on the group's own verdict, whatever the evidence", () => {
+        const app = withLlm(
+          [
+            {
+              id: "example",
+              packages: [
+                common,
+                pkg({ source: "pacman-arch", name: "example", hasDesktopFile: true }),
+              ],
+            },
+          ],
+          [{ id: "example", type: "library", confidence: "high", ...fixture }],
+        );
+        expect(app?.excluded).toBe("library");
+      });
+
+      it("prefers a member's `app` or `game` verdict over another member's `other`", () => {
+        const app = withLlm(
+          [
+            {
+              id: "example",
+              packages: [common, pkg({ source: "pacman-arch", name: "example", appId: "example" })],
+            },
+          ],
+          [
+            hides,
+            {
+              id: "pacman-arch:example",
+              type: "game",
+              category: "Strategy",
+              confidence: "high",
+              ...fixture,
+            },
+          ],
+        );
+        expect(app?.excluded).toBeUndefined();
+        expect(app?.contentType).toBe("game");
+      });
+    });
+
     it("leaves an app visible under its deterministic type when `library`/`other` is only medium", () => {
       const app = withLlm(heuristicApp, [
         { id: "aur:proton-cachyos-native", type: "other", confidence: "medium", ...fixture },

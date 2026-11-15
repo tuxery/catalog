@@ -707,6 +707,21 @@ export function hasUpstreamCategory(packages: SourcedPackage[]): boolean {
   );
 }
 
+/**
+ * True when a member package is formally an application: it ships a
+ * `.desktop` file, or its AppStream component is a desktop or console
+ * application. Stronger than a store category, which add-ons and data
+ * packs carry too.
+ */
+export function hasApplicationEvidence(packages: readonly SourcedPackage[]): boolean {
+  return packages.some(
+    (pkg) =>
+      pkg.hasDesktopFile === true ||
+      pkg.formal?.componentType === "desktop-application" ||
+      pkg.formal?.componentType === "console-application",
+  );
+}
+
 /** The highest-priority member package's non-empty upstream `categories`, if any. */
 function pickCategories(packages: SourcedPackage[]): string[] {
   return (
@@ -723,7 +738,11 @@ function pickCategories(packages: SourcedPackage[]): string[] {
  *
  * - `library`/`other` at `HIDE_CONFIDENCE` hide the app (`excluded`)
  *   wherever its type came from — a library isn't a better app because a
- *   store tagged it. Below that, the deterministic result stands.
+ *   store tagged it. Below that, the deterministic result stands. A
+ *   verdict the group only inherited from a member package
+ *   (`classificationFor`) was given on that package's own text, so it
+ *   doesn't hide a group that carries formal evidence of being an
+ *   application (`hasApplicationEvidence`).
  * - `app`/`game` set the type unless upstream metadata already decided it
  *   (or the deterministic pass left the app in "To Classify", where the
  *   LLM is the only signal). The category then comes from the
@@ -731,16 +750,18 @@ function pickCategories(packages: SourcedPackage[]): string[] {
  *   otherwise — so a rule-based category survives a type the LLM confirms.
  */
 function applyLlmClassification(
-  llm: LlmClassification | undefined,
+  verdict: GroupClassification | undefined,
   upstream: boolean,
+  applicationEvidence: boolean,
   heuristicType: ContentType,
   deterministicCategory: string,
   pickLabel: (type: ContentType) => string,
 ): { type: ContentType; category: string; excluded?: HiddenType } {
   const deterministic = { type: heuristicType, category: deterministicCategory };
-  if (llm === undefined) return deterministic;
+  if (verdict === undefined) return deterministic;
+  const { llm, inherited } = verdict;
   if (llm.type === "library" || llm.type === "other") {
-    return llm.confidence === HIDE_CONFIDENCE
+    return llm.confidence === HIDE_CONFIDENCE && !(inherited && applicationEvidence)
       ? { ...deterministic, excluded: llm.type }
       : deterministic;
   }
@@ -752,6 +773,12 @@ function applyLlmClassification(
   };
 }
 
+/** A group's LLM verdict, and whether it was given for the group itself or for one of its member packages. */
+interface GroupClassification {
+  llm: LlmClassification;
+  inherited: boolean;
+}
+
 /**
  * The LLM verdict for a group: keyed by its own id, else by the id one of
  * its default builds would have named it with alone (`standaloneAppId`) —
@@ -760,19 +787,26 @@ function applyLlmClassification(
  * already had, without re-running `classify-llm`. Build variants are
  * skipped: `pulseaudio-dummy`'s own "other" verdict must not hide
  * PulseAudio.
+ *
+ * Among the members' verdicts an `app` or `game` one wins over `library`
+ * and `other`, whatever the package order: a product ships data and
+ * library packages next to its program (`musescore3-common`, "Shared
+ * files for MuseScore"), and their verdicts describe those packages, not
+ * the product.
  */
 function classificationFor(
   app: MatchedApp,
   llmByAppId: Map<string, LlmClassification>,
-): LlmClassification | undefined {
+): GroupClassification | undefined {
   const own = llmByAppId.get(app.id);
-  if (own) return own;
-  for (const pkg of app.packages) {
-    if (isBuildVariant(pkg)) continue;
-    const entry = llmByAppId.get(standaloneAppId(pkg));
-    if (entry) return entry;
-  }
-  return undefined;
+  if (own) return { llm: own, inherited: false };
+  const fromMembers = app.packages
+    .filter((pkg) => !isBuildVariant(pkg))
+    .map((pkg) => llmByAppId.get(standaloneAppId(pkg)))
+    .filter((entry) => entry !== undefined);
+  const llm =
+    fromMembers.find((entry) => entry.type === "app" || entry.type === "game") ?? fromMembers[0];
+  return llm ? { llm, inherited: true } : undefined;
 }
 
 /** Turns grouped packages into the display-ready `CatalogApp` records the website reads — see `types.ts` for what's populated today vs. tracked as roadmap. */
@@ -827,6 +861,7 @@ export function enrichApps(
     const { type, category, excluded } = applyLlmClassification(
       classificationFor(app, llmByAppId),
       hasUpstreamCategory(app.packages),
+      hasApplicationEvidence(app.packages),
       heuristicType,
       deterministicCategory,
       pickLabel,

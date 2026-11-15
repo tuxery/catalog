@@ -96,6 +96,11 @@
           "url": "https://lists.debian.org/debian-legal/",
           "read": true,
           "finding": "Reply on debian-legal (2026-11-10) to our question of the same day, from Soren Stoutner, a Debian Developer (soren@debian.org), speaking for himself rather than as an official Debian position: no one would mind, and even otherwise it sounds like fair use, \"similar to repology listing metadata from packages in various Linux distributions\"."
+        },
+        {
+          "url": "https://lists.debian.org/debian-legal/2026/11/msg00012.html",
+          "read": true,
+          "finding": "Second reply on debian-legal (2026-11-12), from Maytham Alsudany, a Debian Developer: only on AppStream's metadata_license, see deb-debian-appstream."
         }
       ]
     },
@@ -125,6 +130,11 @@
           "url": "https://lists.debian.org/debian-legal/",
           "read": true,
           "finding": "Reply on debian-legal (2026-11-10) to our question of the same day, from Soren Stoutner, a Debian Developer (soren@debian.org), speaking for himself rather than as an official Debian position: no one would mind, and even otherwise it sounds like fair use, \"similar to repology listing metadata from packages in various Linux distributions\"."
+        },
+        {
+          "url": "https://lists.debian.org/debian-legal/2026/11/msg00012.html",
+          "read": true,
+          "finding": "Second reply on debian-legal (2026-11-12), from Maytham Alsudany, a Debian Developer (maytham@debian.org), to our note that DEP-11 carries no per-app metadata license: upstream metainfo files must have a metadata_license, as AppStream requires. True, but the catalog spec (chap-CatalogData) has no such field, so DEP-11 drops it; reading it means opening each package's /usr/share/metainfo file. Every allowed value is permissive, a few ask for attribution or share-alike."
         }
       ]
     },
@@ -402,10 +412,15 @@
           "url": "https://api.gog.com/robots.txt",
           "read": true,
           "finding": "\"Disallow: /\" for all agents. The connector uses this host for product details."
+        },
+        {
+          "url": "https://support.gog.com/",
+          "read": true,
+          "finding": "Reply from GOG's customer support (a Senior Technical Customer Support Specialist), not legal, to our request: they \"cannot guarantee or offer any services other than the ones we officially support on our website and via our GOG GALAXY\". Not a permission; doesn't address the User Agreement's ban either."
         }
       ],
       "note": "Our connector (catalog.gog.com, then api.gog.com per game, about 1,400 requests a week) is exactly what §11.1(e) forbids. Fetch paused on 2026-11-10 (REFRESHERS keeps the cache, so GOG games stay listed with their link to GOG). Private cache since 2026-11-09; earlier versions remain in this repository's git history.",
-      "action": "Asked legal@gog.com on 2026-11-10 (the contact the GOG GALAXY Licence Agreement gives for questions on its terms). If refused or unanswered, remove the source and its cache."
+      "action": "Asked legal@gog.com on 2026-11-10; only customer support answered, without granting anything. Owner to decide: wait longer for legal, or remove the source and its cache now."
     },
     "lutris": {
       "verdict": "clear",
@@ -670,7 +685,7 @@
           "finding": "Measured on the 2026-11-07 run, the last of the old sweep: 39,852 + 82,656 search prefixes and 11,510 channel maps, about 134,000 requests a week."
         }
       ],
-      "note": "The volume matters as much as the terms: an undocumented API. The weekly refresh went from about 134,000 requests to about 3,700 (estimated, no real run yet) on 2026-11-09, see docs/sources.md.",
+      "note": "The volume matters as much as the terms: an undocumented API. The weekly refresh went from about 134,000 requests to about 3,700 on 2026-11-09 (measured on the 2026-11-14 run: 4,174, of which 49 list pages and 4,124 per-snap details), see docs/sources.md.",
       "action": "Ask Canonical (legal@canonical.com is the address its terms give) for a sanctioned way to list snaps."
     },
     "vendor-repos": {

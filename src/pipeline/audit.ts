@@ -1,6 +1,7 @@
 import { max, unique } from "helpers4/array";
 import { z } from "zod";
 import type { CatalogApp } from "../curator";
+import { hasApplicationEvidence } from "../curator/enrich";
 import { stripVariantSuffix } from "../curator/match/group";
 import { homepageKey } from "../curator/match/homepage";
 import { normalizeName } from "../curator/match/normalize";
@@ -195,16 +196,7 @@ export function megagroupSuspects(apps: readonly CatalogApp[]): AuditSuspect[] {
  */
 export function hiddenAppSuspects(apps: readonly CatalogApp[]): AuditSuspect[] {
   return apps
-    .filter(
-      (app) =>
-        app.excluded &&
-        app.packages.some(
-          (pkg) =>
-            pkg.hasDesktopFile ||
-            pkg.formal?.componentType === "desktop-application" ||
-            pkg.formal?.componentType === "console-application",
-        ),
-    )
+    .filter((app) => app.excluded && hasApplicationEvidence(app.packages))
     .map((app) => suspect("hidden-app", app.id, [app]));
 }
 

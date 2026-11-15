@@ -184,9 +184,8 @@ rebuilding the dataset or seeding anything, for periodic cache maintenance
 decoupled from wanting to dev right now. `pnpm refresh <source>` refreshes
 one source by itself (what `reset-caches` calls in a loop, and what
 `.github/workflows/refresh-sources.yml` runs on a schedule). `pnpm sample`
-regenerates `src/pipeline/dev-sample/dataset.json`, the deterministic
-sample `app`'s own dev-worker reads by default — a manual/occasional
-maintenance command, not run on every dev boot.
+writes a 1,000-app slice of the dataset to `dist/sample-dataset.json`
+(gitignored, never committed), for seeding a small local database.
 
 In local mode, the database file lives at this repo's `.turso-state/`
 (gitignored) — never under `app`, so no dataset bytes touch that repo's

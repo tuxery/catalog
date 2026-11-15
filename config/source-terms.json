@@ -178,9 +178,9 @@
       ]
     },
     "deb-mxlinux": {
-      "verdict": "low-risk-no-terms",
-      "automatedFetch": "public-mirror-no-terms",
-      "publicStorage": "unclear",
+      "verdict": "clear",
+      "automatedFetch": "allowed",
+      "publicStorage": "allowed",
       "attribution": null,
       "fieldLicense": "Each package's own license; no license stated for the index itself.",
       "evidence": [
@@ -193,8 +193,14 @@
           "url": "https://mxlinux.org/terms-of-use/",
           "read": false,
           "finding": "Answers 403 to automated requests, not read."
+        },
+        {
+          "url": "https://forum.mxlinux.org/",
+          "read": true,
+          "finding": "Replies on the MX Linux forum on 2026-11-13 to our post: a forum member (AK-47) saw no problem, the apps being mostly open source, as long as we don't strain their servers' bandwidth; dolphin_oracle, MX's lead developer: \"the data is public. as long as the data isn't modified I guess.\""
         }
-      ]
+      ],
+      "note": "Condition from MX: don't modify the data. We read only MX's own packages (about 140, mx-* names) and show their descriptions as published; matching only links them to other sources' entries. Bandwidth: one Packages index a week."
     },
     "deb-popos": {
       "verdict": "low-risk-no-terms",
@@ -644,9 +650,9 @@
       ]
     },
     "slackware": {
-      "verdict": "low-risk-no-terms",
-      "automatedFetch": "public-mirror-no-terms",
-      "publicStorage": "unclear",
+      "verdict": "clear",
+      "automatedFetch": "allowed",
+      "publicStorage": "allowed",
       "attribution": null,
       "fieldLicense": "Each package's own license; no license stated for the index itself.",
       "evidence": [
@@ -659,6 +665,11 @@
           "url": "https://www.slackware.com/",
           "read": false,
           "finding": "Answers 403 to automated requests, not read."
+        },
+        {
+          "url": "https://www.linuxquestions.org/questions/slackware-14/",
+          "read": true,
+          "finding": "Reply from Patrick Volkerding (volkerdi, Slackware's maintainer) on 2026-11-11 to our post on the LinuxQuestions Slackware forum, the project's usual place for questions: \"No problem at all. Cheers!\""
         }
       ]
     },

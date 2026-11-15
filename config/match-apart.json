@@ -1441,5 +1441,44 @@
       }
     ],
     "reason": "Logisim-evolution (a, github.com/logisim-evolution) versus Logisim ITA (b, github.com/LogisimIt; the logisim-snapcraft snap packages ITA 2.16). Found by the megagroup audit of 2026-10-16."
+  },
+  {
+    "a": [
+      {
+        "source": "snap-snapcraft",
+        "appId": "nodemaster"
+      }
+    ],
+    "b": [
+      {
+        "source": "pacman-arch",
+        "appId": "linux"
+      },
+      {
+        "source": "xbps-void",
+        "appId": "linux"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "linux"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "linux_latest"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "linux_testing"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "linuxPackages_custom_tinyconfig_kernel"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "linux-git"
+      }
+    ],
+    "reason": "NodeMaster (a, a knowledge-management desktop app, nodemaster.antsnest.co.kr) versus the Linux kernel (b). The snap's title is Korean followed by \"Linux\"; name normalization keeps only the Latin letters, so it keyed on \"linux\" and joined the kernel's group, which is hidden as not an app."
   }
 ]

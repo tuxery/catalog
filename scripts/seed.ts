@@ -8,40 +8,23 @@ import { refreshSources } from "./_refresh-sources";
 import { hasCacheFile, RESTRICTED_SOURCES } from "../src/sources/_shared/cache-path";
 import { readSqldStats, startSqld, waitForSqld } from "./_sqld";
 import { readSourceTerms } from "../src/pipeline/source-terms";
-import { PREVIEW_ENV_PATH, PROD_ENV_PATH, readSharedEnv } from "./_shared-env";
+import { tursoCredentials } from "./_turso-env";
 
 const DATASET_PATH = fileURLToPath(new URL("../dist/dataset.json", import.meta.url));
 
 // Local libSQL file — lives here, never under `app`, so no dataset bytes
 // touch that repo's filesystem even transiently. This is local dev's only
-// mode now — there is no hosted "Turso dev" database any more (see
-// PREVIEW_ENV_PATH below): a Workers isolate can't open a SQLite file
+// mode now — there is no hosted "Turso dev" database any more: a Workers isolate can't open a SQLite file
 // directly, so `app`'s local dev points at the `turso dev` HTTP server
 // `pnpm serve` runs in front of this same file instead.
 const LOCAL_DB_PATH = fileURLToPath(new URL("../.turso-state/local.db", import.meta.url));
 
-// Credentials for the two real hosted Turso DBs (--preview/--prod) live in
-// the shared env files described in _shared-env.ts, read by both repos
-// (`app`'s scripts/dev.mjs parses them the same way) so there's a single
-// place to update rather than drifting copies.
+// Credentials for the two real hosted Turso DBs (--preview/--prod) come
+// from the environment, see _turso-env.ts.
 
 function run(cmd: string, args: string[]): void {
   const result = spawnSync(cmd, args, { stdio: "inherit" });
   if (result.status !== 0) process.exit(result.status ?? 1);
-}
-
-/**
- * Turso credentials for --preview/--prod: the shared env file if it
- * exists and has TURSO_DB_URL (the local devcontainer case), else
- * `process.env` directly (the CI case — GitHub Actions secrets arrive
- * this way, not as a file at `envPath`).
- */
-function resolveTursoEnv(envPath: string): Record<string, string | undefined> {
-  if (existsSync(envPath)) {
-    const fileEnv = readSharedEnv(envPath);
-    if (fileEnv.TURSO_DB_URL) return fileEnv;
-  }
-  return process.env;
 }
 
 const force = process.argv.includes("--force");
@@ -144,16 +127,18 @@ if (measure) {
   }
 } else if (remote) {
   const mode = prod ? "prod" : "preview";
-  const envPath = prod ? PROD_ENV_PATH : PREVIEW_ENV_PATH;
-  const env = resolveTursoEnv(envPath);
-  if (!env.TURSO_DB_URL) {
-    console.error(`--${mode} requires TURSO_DB_URL in ${envPath} or the environment.`);
+  const { url, authToken } = tursoCredentials(mode);
+  if (!url) {
+    const prefix = mode.toUpperCase();
+    console.error(
+      `--${mode} requires ${prefix}_TURSO_DB_URL and ${prefix}_TURSO_DB_AUTH_TOKEN in the environment (OpenBao kv/orgs/tuxery, see openbao-env status), or TURSO_DB_URL/TURSO_DB_AUTH_TOKEN in CI.`,
+    );
     process.exit(1);
   }
-  const client = createTursoClient({ url: env.TURSO_DB_URL, authToken: env.TURSO_DB_AUTH_TOKEN });
+  const client = createTursoClient({ url, authToken });
   // A remote full publish only on purpose: see PublishOptions.refuseFull.
   console.log(describeReport(await client.publish(dataset, { full, refuseFull: !full })));
-  console.log(`\n${dataset.apps.length} apps published to ${env.TURSO_DB_URL} (${mode} mode).`);
+  console.log(`\n${dataset.apps.length} apps published to ${url} (${mode} mode).`);
 } else {
   mkdirSync(dirname(LOCAL_DB_PATH), { recursive: true });
   const client = createTursoClient({ url: `file:${LOCAL_DB_PATH}` });

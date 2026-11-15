@@ -1,6 +1,5 @@
 import { sumBy } from "helpers4/array";
 import { SQLD_ADMIN_PORT, readSqldStats } from "./_sqld";
-import { PREVIEW_ENV_PATH, PROD_ENV_PATH, SHARED_ENV_PATH, readSharedEnv } from "./_shared-env";
 
 /**
  * `pnpm turso-stats`: the Turso org's usage for the current billing month
@@ -31,9 +30,9 @@ import { PREVIEW_ENV_PATH, PROD_ENV_PATH, SHARED_ENV_PATH, readSharedEnv } from 
  * per-database auth tokens the app uses — those can query a database but
  * can't read usage. Mint one scoped to the org and read-only:
  *   turso auth api-tokens mint turso-stats --org <org> --read-only
- * Locally it's read from /workspaces/.dev/.env; in CI from a secret.
- * Databases come from the same TURSO_DB_URLs `pnpm seed --preview/--prod`
- * uses (PREVIEW_/PROD_TURSO_DB_URL in CI); the org slug is derived from
+ * It comes from the environment: OpenBao (kv/orgs/tuxery) through
+ * openbao-env in the devcontainer, a secret in CI. Databases come from
+ * PREVIEW_TURSO_DB_URL/PROD_TURSO_DB_URL, the same names in both; the org slug is derived from
  * them (`libsql://<db>-<org>.…`) unless TURSO_ORG is set.
  */
 
@@ -63,9 +62,9 @@ function flag(name: string): string | undefined {
 const threshold = flag("--threshold") === undefined ? undefined : Number(flag("--threshold"));
 const asJson = process.argv.includes("--json");
 
-/** `process.env` first (CI secrets), then the devcontainer's shared env file. */
-function env(name: string, file = SHARED_ENV_PATH): string | undefined {
-  return process.env[name] || readSharedEnv(file)[name] || undefined;
+/** From the environment: CI secrets, or OpenBao through openbao-env in the devcontainer. */
+function env(name: string): string | undefined {
+  return process.env[name] || undefined;
 }
 
 /** "libsql://prod-tuxery.aws-eu-west-1.turso.io" → "prod-tuxery". */
@@ -74,13 +73,12 @@ function hostLabel(url: string): string {
 }
 
 function resolveDatabases(): { org: string; names: string[] } {
-  const urls = [
-    env("PREVIEW_TURSO_DB_URL") ?? readSharedEnv(PREVIEW_ENV_PATH).TURSO_DB_URL,
-    env("PROD_TURSO_DB_URL") ?? readSharedEnv(PROD_ENV_PATH).TURSO_DB_URL,
-  ].filter((url): url is string => Boolean(url));
+  const urls = [env("PREVIEW_TURSO_DB_URL"), env("PROD_TURSO_DB_URL")].filter(
+    (url): url is string => Boolean(url),
+  );
   if (urls.length === 0) {
     throw new Error(
-      "No database URL found: set PREVIEW_TURSO_DB_URL/PROD_TURSO_DB_URL, or TURSO_DB_URL in /workspaces/.dev/.env.preview/.env.prod.",
+      "No database URL found: set PREVIEW_TURSO_DB_URL and/or PROD_TURSO_DB_URL (OpenBao kv/orgs/tuxery in the devcontainer).",
     );
   }
   const labels = urls.map(hostLabel);
@@ -152,7 +150,7 @@ async function main(): Promise<void> {
   const token = env("TURSO_API_TOKEN");
   if (!token) {
     throw new Error(
-      "TURSO_API_TOKEN is required (a Platform API token, not a database token): turso auth api-tokens mint turso-stats --org <org> --read-only — then add it to /workspaces/.dev/.env (local) or as a secret (CI).",
+      "TURSO_API_TOKEN is required (a Platform API token, not a database token): turso auth api-tokens mint turso-stats --org <org> --read-only — then add it to OpenBao kv/orgs/tuxery (devcontainer) or as a secret (CI).",
     );
   }
   const { org, names } = resolveDatabases();

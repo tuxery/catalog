@@ -210,5 +210,10 @@
     "a": { "source": "eopkg-solus", "appId": "aquamarine" },
     "b": { "source": "gog", "appId": "aquamarine" },
     "reason": "Same pairing as the AUR deny above, one more real member of the Hyprland aquamarine cluster (union-find needs each real member denied individually against the false gog match)."
+  },
+  {
+    "a": { "source": "appimage", "appId": "blue-nebula/base" },
+    "b": { "source": "pacman-arch", "appId": "base" },
+    "reason": "Same name (\"base\") but unrelated: the AppImage is Blue Nebula, a first-person shooter, Arch's base is the metapackage that defines a minimal Arch install. Merged, Arch's install-count percentile put a shooter named \"base\" in the homepage's Trending games (seen 2026-11-15)."
   }
 ]

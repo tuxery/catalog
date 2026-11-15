@@ -65,5 +65,10 @@
     ],
     "name": "snapd",
     "reason": "The snapd daemon/tooling itself — \"Daemon and tooling that enable snap packages\"/\"Service and tools for management of snap packages\" — background plumbing, not a launchable end-user app. User-reported. rpm-fedora's entry has hasDesktopFile:true despite this, so the GUI/desktop-file signal alone doesn't rescue it."
+  },
+  {
+    "sources": ["pacman-arch"],
+    "name": "base",
+    "reason": "Arch's metapackage for a minimal install (\"Minimal package set to define a basic Arch Linux installation\"), not an app. It used to be hidden inside a false merge with Blue Nebula's AppImage, also named \"base\" (see match-deny.json)."
   }
 ]

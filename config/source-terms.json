@@ -423,10 +423,15 @@
           "url": "https://support.gog.com/",
           "read": true,
           "finding": "Reply from GOG's customer support (a Senior Technical Customer Support Specialist), not legal, to our request: they \"cannot guarantee or offer any services other than the ones we officially support on our website and via our GOG GALAXY\". Not a permission; doesn't address the User Agreement's ban either."
+        },
+        {
+          "url": "https://support.gog.com/hc/en-us/articles/4405004689297",
+          "read": true,
+          "finding": "How to join the GOG Affiliate Program (updated 2026-05-18): open to publishers, influencers and business partners, through affiliate@gog.com and AdTraction; \"If you need a product feed, feel free to use our API\", with a limit of 200 requests/hour/IP on api.gog.com/products/* and none on v1/v2 games. So GOG does sanction reading its API, for affiliates."
         }
       ],
       "note": "Our connector (catalog.gog.com, then api.gog.com per game, about 1,400 requests a week) is exactly what §11.1(e) forbids. Fetch paused on 2026-11-10 (REFRESHERS keeps the cache, so GOG games stay listed with their link to GOG). Private cache since 2026-11-09; earlier versions remain in this repository's git history.",
-      "action": "Asked legal@gog.com on 2026-11-10; only customer support answered, without granting anything. Owner to decide: wait longer for legal, or remove the source and its cache now."
+      "action": "Asked legal@gog.com on 2026-11-10; only customer support answered, without granting anything, and closed the ticket. Next: ask affiliate@gog.com, since GOG's affiliate page invites affiliates to use its API as a product feed. If refused or unanswered, remove the source and its cache."
     },
     "lutris": {
       "verdict": "clear",
@@ -697,7 +702,7 @@
         }
       ],
       "note": "The volume matters as much as the terms: an undocumented API. The weekly refresh went from about 134,000 requests to about 3,700 on 2026-11-09 (measured on the 2026-11-14 run: 4,174, of which 49 list pages and 4,124 per-snap details), see docs/sources.md.",
-      "action": "Ask Canonical (legal@canonical.com is the address its terms give) for a sanctioned way to list snaps."
+      "action": "Asked legal@canonical.com on 2026-11-15 (the address its terms give) whether our use is fine, for a sanctioned way to list snaps, and about the public copy; waiting for a reply."
     },
     "vendor-repos": {
       "verdict": "low-risk-no-terms",

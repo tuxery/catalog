@@ -408,14 +408,15 @@ function unionDescribedVariants(
 
 /**
  * Tier 2b: AUR's `gog-<title>` wrappers (community packages around a GOG.com
- * installer, ~150 of them) against the `gog` source's own listing of the
- * same title. Scoped to exactly those two sources: a blanket "strip a
+ * installer, ~150 of them) against a game store's own listing of the same
+ * title: the `gog` source's, and Lutris's, which lists the same games with
+ * their GOG installers. Scoped to exactly those sources: a blanket "strip a
  * vendor prefix" rule would be far too broad, but a `gog-` AUR package that
- * normalizes onto a GOG.com title is that game by construction, and no other
- * source is keyed here, so nothing else can collide with it.
+ * normalizes onto a game title in one of them is that game by construction,
+ * and no other source is keyed here, so nothing else can collide with it.
  */
 function gogWrapperKey(pkg: SourcedPackage): string | undefined {
-  if (pkg.source === "gog") return normalizeName(pkg.name);
+  if (pkg.source === "gog" || pkg.source === "lutris") return normalizeName(pkg.name);
   if (pkg.source === "pacman-aur" && pkg.name.startsWith("gog-")) {
     return normalizeName(stripVariantSuffix({ ...pkg, name: pkg.name.slice("gog-".length) }));
   }
@@ -983,7 +984,7 @@ export function groupPackages(
     overrides.denyPairs,
   );
 
-  // Tier 2b: AUR's gog-* wrappers onto the matching GOG.com listing.
+  // Tier 2b: AUR's gog-* wrappers onto the matching GOG.com or Lutris listing.
   unionByExactKey(typed, packages, gogWrapperKey, overrides.denyPairs);
 
   // Tier 2c: AUR variants (`<project>-<difference>`) of a project whose description they share.

@@ -93,6 +93,11 @@ const SOURCE_PRIORITY: PackageSourceId[] = [
   "deb-ubuntu-appstream",
   "rpm-fedora-appstream",
   "pacman-arch-appstream",
+  // Game stores' own titles ("Stardew Valley", "Hotline Miami"), ahead of
+  // the packager-style names the AUR and Gentoo give the same games
+  // (`gog-stardew-valley`, `hotlinemiami`).
+  "gog",
+  "lutris",
 ];
 
 function pickByPriority(packages: SourcedPackage[]): SourcedPackage {

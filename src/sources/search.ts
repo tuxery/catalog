@@ -1,3 +1,4 @@
+import { WITHHELD_SOURCES } from "./_shared/cache-path";
 import { withDefaultProvenance } from "./_shared/provenance";
 import { searchAlpine } from "./apk-alpine";
 import { searchAppCenter } from "./flatpak-appcenter";
@@ -37,6 +38,7 @@ import { searchVoid } from "./xbps-void";
  * Queries every known source in parallel and returns the combined,
  * un-deduplicated results — pass this to the curator module's
  * `filterPackages` then `groupPackages` to get a catalog of unified apps.
+ * A withheld source's packages (`WITHHELD_SOURCES`) are left out.
  */
 export async function searchAllSources(query: string): Promise<SourcedPackage[]> {
   const results = await Promise.all([
@@ -74,5 +76,8 @@ export async function searchAllSources(query: string): Promise<SourcedPackage[]>
     searchGithubReleases(query),
   ]);
 
-  return results.flat().map(withDefaultProvenance);
+  return results
+    .flat()
+    .filter((pkg) => !WITHHELD_SOURCES.has(pkg.source))
+    .map(withDefaultProvenance);
 }

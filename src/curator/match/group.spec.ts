@@ -42,6 +42,18 @@ describe("groupPackages", () => {
     expect(groups.every((group) => group.packages.length === 2)).toBe(true);
   });
 
+  it("merges an AUR gog-* wrapper with the Lutris listing of the same title", () => {
+    const packages = [
+      pkg({ source: "lutris", name: "Invented Valley" }),
+      pkg({ source: "pacman-aur", name: "gog-invented-valley" }),
+    ];
+
+    const groups = groupPackages(packages, NO_OVERRIDES);
+
+    expect(groups).toHaveLength(1);
+    expect(groups[0]?.packages).toHaveLength(2);
+  });
+
   it("doesn't strip gog- from other sources or match a gog-* wrapper to a non-GOG package", () => {
     const packages = [
       pkg({ source: "flatpak-flathub", name: "Invented Valley" }),

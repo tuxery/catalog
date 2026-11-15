@@ -150,8 +150,8 @@ export interface CatalogApp {
    */
   rating?: { average: number; count: number };
   /**
-   * A trending/popularity score (0-1) — the mean of every member
-   * package's own `SourcedPackage.popularity`, see `enrich/index.ts`'s
+   * A trending/popularity score (0-1) — the mean of the app's best three
+   * sources' `SourcedPackage.popularity`, see `enrich/index.ts`'s
    * `aggregatePopularity`. Not a directly meaningful percentage, only a
    * relative ranking signal for sorting a "trending" listing — AUR's
    * decayed usage `Popularity` (bulk dump, sparse real coverage) and

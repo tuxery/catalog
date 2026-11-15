@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import type { SourcedPackage } from "../../sources";
 import type { MatchedApp } from "../match/group";
 import { TO_CLASSIFY } from "./category";
-import { enrichApps } from "./index";
+import { aggregatePopularity, enrichApps } from "./index";
 import type { LlmClassificationEntry } from "./llm-classifications";
 
 function pkg(overrides: Partial<SourcedPackage>): SourcedPackage {
@@ -967,18 +967,33 @@ describe("enrichApps", () => {
     expect(enrichApps(matched)[0]?.rating).toBeUndefined();
   });
 
-  it("averages every member package's popularity score", () => {
+  it("averages the best three sources' popularity, a missing one counting as 0.5", () => {
     const matched: MatchedApp[] = [
       {
         id: "flathub:example",
         packages: [
           pkg({ source: "flatpak-flathub", popularity: 1 }),
-          pkg({ source: "pacman-aur", popularity: 0.5 }),
+          pkg({ source: "pacman-aur", popularity: 0.8 }),
         ],
       },
     ];
 
-    expect(enrichApps(matched)[0]?.popularity).toBe(0.75);
+    expect(enrichApps(matched)[0]?.popularity).toBeCloseTo((1 + 0.8 + 0.5) / 3);
+  });
+
+  it("ranks an app popular in several sources above one scored by a single source", () => {
+    const broad = aggregatePopularity([
+      pkg({ source: "pacman-arch", popularity: 0.95 }),
+      pkg({ source: "deb-debian", popularity: 0.9 }),
+      pkg({ source: "deb-debian", popularity: 0.1 }),
+      pkg({ source: "flatpak-flathub", popularity: 0.92 }),
+      pkg({ source: "nix-nixpkgs", popularity: 0.2 }),
+    ]);
+    const single = aggregatePopularity([pkg({ source: "pacman-aur", popularity: 0.999 })]);
+
+    expect(broad).toBeCloseTo((0.95 + 0.92 + 0.9) / 3);
+    expect(single).toBeCloseTo((0.999 + 0.5 + 0.5) / 3);
+    expect(broad).toBeGreaterThan(single as number);
   });
 
   it("leaves popularity undefined when no member package has a score", () => {

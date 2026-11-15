@@ -634,19 +634,35 @@ function aggregateRating(
   return { average: weightedSum / count, count };
 }
 
-/**
- * Averages every member package's own popularity score into one
- * app-level trending signal — unlike `rating`, there's no natural weight
- * (vote count) to skew by, so a plain mean of whichever member packages
- * have a score. `undefined` when no member package has one at all.
- */
-function aggregatePopularity(packages: SourcedPackage[]): number | undefined {
-  const scored = packages.filter(
-    (pkg): pkg is SourcedPackage & { popularity: number } => pkg.popularity !== undefined,
-  );
-  if (scored.length === 0) return undefined;
+/** How many sources' scores make up an app's popularity, see `aggregatePopularity`. */
+const POPULARITY_SOURCES = 3;
+/** What a source with no score counts for: no evidence either way, the middle of a percentile. */
+const POPULARITY_NO_EVIDENCE = 0.5;
 
-  return meanBy(scored, (pkg) => pkg.popularity);
+/**
+ * One app-level popularity score from its member packages' own scores
+ * (each a 0-1 percentile within its source): the mean of its best
+ * `POPULARITY_SOURCES` sources, each source counted once at its best
+ * package, and a missing source counted as `POPULARITY_NO_EVIDENCE`.
+ *
+ * A plain mean of every scored package ranked the wrong apps first:
+ * percentiles saturate near 1 at the top of every source, so an app
+ * scored by the AUR alone (0.99) beat Firefox (0.69, pulled down by
+ * Debian's little-installed non-ESR package). Here one source can lift
+ * an app to 0.83 at most, and only apps popular in several places reach
+ * the top. `undefined` when no member package has a score at all.
+ */
+export function aggregatePopularity(packages: SourcedPackage[]): number | undefined {
+  const bestBySource = new Map<string, number>();
+  for (const pkg of packages) {
+    if (pkg.popularity === undefined) continue;
+    bestBySource.set(pkg.source, Math.max(bestBySource.get(pkg.source) ?? 0, pkg.popularity));
+  }
+  if (bestBySource.size === 0) return undefined;
+
+  const best = [...bestBySource.values()].toSorted((a, b) => b - a).slice(0, POPULARITY_SOURCES);
+  while (best.length < POPULARITY_SOURCES) best.push(POPULARITY_NO_EVIDENCE);
+  return meanBy(best, (score) => score);
 }
 
 /**
@@ -661,7 +677,7 @@ function aggregateStoreCollections(packages: SourcedPackage[]): StoreCollectionT
 
 /**
  * Sums a numeric field across every member package that has one — unlike
- * `aggregatePopularity`'s mean (a 0-1 percentile score, not additive
+ * `aggregatePopularity` (0-1 percentile scores, not additive
  * across sources), install counts from independent sources genuinely add
  * up — once per store listing, see `distinctListings`. `undefined` when no
  * member package reports the field at all, never a synthetic 0.

@@ -272,8 +272,8 @@ export interface SourcedPackage {
    * metadata dump every `pacman-aur` fetch already downloads — only
    * entries with any real votes get a score) and Flathub's own "Popular"
    * collection API (a live top-250 ranked list — apps outside it get no
-   * score, never a fake bottom value). the curator module averages
-   * whichever member packages have a score into `CatalogApp.popularity`
+   * score, never a fake bottom value). the curator module combines
+   * the member packages' scores into `CatalogApp.popularity`
    * — see `enrich/index.ts`'s `aggregatePopularity`.
    */
   popularity?: number;

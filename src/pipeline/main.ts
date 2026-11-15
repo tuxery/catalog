@@ -7,8 +7,8 @@ const OUT_PATH = join(process.cwd(), "dist", "dataset.json");
 /**
  * Only ever writes the build artifact (`dist/dataset.json`) — never
  * touches Turso. `scripts/seed.ts --preview`/`--prod` is the sole,
- * explicit publish path (each reading its own `.env.preview`/`.env.prod`
- * credentials); this file used to also auto-publish whenever a bare
+ * explicit publish path (credentials from the environment, see
+ * scripts/_turso-env.ts); this file used to also auto-publish whenever a bare
  * `TURSO_DB_URL` happened to be set in the environment, which was both
  * unused (no CI workflow ever relied on it) and a real risk to "local
  * dev/CI dataset rebuilds never touch a live database" — removed

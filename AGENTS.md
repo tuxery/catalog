@@ -142,10 +142,13 @@ dev DB was retired 2026-09-03 in favor of this):
 
 Two real hosted DBs exist beyond local dev, both reached the same way —
 `pnpm seed --preview`/`--prod` publish straight to them (no `pnpm serve`
-needed — Turso already serves them), reading credentials from
-`/workspaces/.dev/.env.preview`/`.env.prod`
-(`TURSO_DB_URL`/`TURSO_DB_AUTH_TOKEN`), shared with `app`'s side rather
-than duplicated per repo:
+needed — Turso already serves them), reading credentials from the
+environment: `PREVIEW_TURSO_DB_URL`/`PREVIEW_TURSO_DB_AUTH_TOKEN` and
+`PROD_TURSO_DB_URL`/`PROD_TURSO_DB_AUTH_TOKEN`, the same names as the
+GitHub Actions secrets. In the devcontainer they come from OpenBao
+(`kv/orgs/tuxery`, loaded by openbao-env, see `openbao-env status`),
+shared with `app`'s side rather than duplicated per repo
+(`scripts/_turso-env.ts`):
 
 - **preview**: backs Cloudflare's preview Worker deployment.
 - **prod**: backs the production Worker.
@@ -267,7 +270,7 @@ terms in code, config, comments and cards.
   `.github/workflows/turso-quota.yml` runs it daily and opens a "Turso
   quota alert" issue at 80% used or when on track to exceed a quota. It
   needs a Turso _Platform API_ token (`TURSO_API_TOKEN`, org-scoped and
-  read-only) in `/workspaces/.dev/.env` locally and as a repo secret in
+  read-only) in OpenBao (`kv/orgs/tuxery`) locally and as a repo secret in
   CI — the per-database tokens can't read usage. Mint it with:
   `turso auth api-tokens mint turso-stats --org tuxery --read-only`. To
   find _which_ query is expensive, use the Turso CLI's `db inspect`

@@ -88,10 +88,10 @@ refresh" card on the Tuxery GitHub Project. Committing the cache means
 CI/dev never starts from zero and upstream APIs aren't hit on every
 rebuild.
 
-**Exception, private caches.** A source whose terms forbid public
-redistribution (`appimagehub`), or that we hold back as our own precaution
-because its terms couldn't be read (`gog`, no request from GOG;
-`RESTRICTED_SOURCES` in `src/sources/_shared/cache-path.ts`) keeps its cache in the private
+**Exception, private caches.** A source whose terms or maintainers rule out
+public redistribution, or that we hold back ourselves (`appimagehub`,
+`flatpak-flathub`, `gog`: `RESTRICTED_SOURCES` in
+`src/sources/_shared/cache-path.ts`, with the reason for each) keeps its cache in the private
 `tuxery/source-cache` repository instead, read from a checkout next to this
 one (the dev container clones it) or `TUXERY_PRIVATE_CACHE_DIR`. Without it
 the source reads as empty and everything still builds; a remote publish

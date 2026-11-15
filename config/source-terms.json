@@ -430,7 +430,7 @@
           "finding": "How to join the GOG Affiliate Program (updated 2026-05-18): open to publishers, influencers and business partners, through affiliate@gog.com and AdTraction; \"If you need a product feed, feel free to use our API\", with a limit of 200 requests/hour/IP on api.gog.com/products/* and none on v1/v2 games. So GOG does sanction reading its API, for affiliates."
         }
       ],
-      "note": "Our connector (catalog.gog.com, then api.gog.com per game, about 1,400 requests a week) is exactly what §11.1(e) forbids. Fetch paused on 2026-11-10 (REFRESHERS keeps the cache, so GOG games stay listed with their link to GOG). Private cache since 2026-11-09; earlier versions remain in this repository's git history.",
+      "note": "Our connector (catalog.gog.com, then api.gog.com per game, about 1,400 requests a week) is exactly what §11.1(e) forbids. Fetch paused on 2026-11-10. Withheld from the dataset since 2026-11-15 (WITHHELD_SOURCES): no GOG package, description, screenshot or rating is published until GOG allows it. Private cache since 2026-11-09; earlier versions remain in this repository's git history.",
       "action": "Asked legal@gog.com on 2026-11-10 (only customer support answered, granting nothing, and closed the ticket), then affiliate@gog.com on 2026-11-15, since GOG's affiliate page invites affiliates to use its API as a product feed. Told them we'd call api.gog.com/products only for new games, under 200 requests/hour; refreshing known games is to be designed later. If refused or unanswered, remove the source and its cache."
     },
     "lutris": {

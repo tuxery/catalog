@@ -33,8 +33,8 @@ import { readNdjson } from "./_shared/ndjson";
 
 /**
  * A refresher for a source whose fetch is paused: it calls nothing, keeps
- * the cache as it is (so the source's apps stay listed) and says why in the
- * refresh log. The source's own `fetch.ts` stays, for when it resumes.
+ * the cache as it is and says why in the refresh log. The source's own
+ * `fetch.ts` stays, for when it resumes.
  */
 function paused(source: string, reason: string): (cachePath: string) => Promise<number> {
   return async (cachePath) => {
@@ -80,8 +80,12 @@ export const REFRESHERS: Record<string, (cachePath: string) => Promise<number>> 
   "deb-debian-appstream": fetchDebianAppstream,
   "deb-ubuntu-appstream": fetchUbuntuAppstream,
   // GOG's User Agreement (9 March 2026, §11.1(e)) forbids "extraction tools
-  // ... that collect information about GOG services": paused until GOG
-  // answers. Resume with `gog: fetchGog` from "./gog/fetch".
+  // ... that collect information about GOG services": paused, and its
+  // packages withheld from the dataset (`WITHHELD_SOURCES`), until GOG
+  // answers. Not resumable as is: `./gog/fetch` asks api.gog.com for about
+  // 1,400 products, 8 at a time, where GOG's affiliate page allows 200
+  // requests an hour per IP and we told GOG we'd stay under that, for new
+  // games only. Pace it first.
   gog: paused(
     "gog",
     "GOG's User Agreement §11.1(e) forbids extraction tools; paused 2026-11-10 until GOG answers.",

@@ -466,22 +466,21 @@ research writeup.
     (only the per-product detail page has one, which would mean 2,000+
     extra requests just for that) — left blank, same precedent as
     AppImage's frequently-blank feed. `src/sources/gog/fetch.ts`.
-    **Private cache, as our own precaution** (2026-11-09): GOG has not asked
-    for this and no term we read forbids public storage, but its User
-    Agreement sits behind an anti-bot page and stays unread, `api.gog.com`'s
-    robots.txt disallows everything, and the cache holds full store
-    descriptions. So it lives in `tuxery/source-cache` like AppImageHub's, read
-    the same way (`src/sources/_shared/cache-path.ts`), and is left out of
-    open data. Earlier versions remain in this repository's git history, which
-    wasn't rewritten. Moving it back to public is a one-line change, if GOG's
-    terms or GOG itself allow it.
-    **Fetch paused since 2026-11-10.** GOG's User Agreement (in force since
-    9 March 2026, §11.1(e)) forbids "extraction tools or other software that
-    interact with or affect GOG services or GOG content" and "unauthorized
-    third party programs that collect information about GOG services",
-    which is what this connector does (about 1,400 requests a week).
-    `REFRESHERS` now keeps the last cache without calling GOG, so its games
-    stay listed with their link to GOG, until GOG answers our request.
+    **Private cache** (2026-11-09): `api.gog.com`'s robots.txt disallows
+    everything and the cache holds full store descriptions, so it lives in
+    `tuxery/source-cache` like AppImageHub's
+    (`src/sources/_shared/cache-path.ts`) and is left out of open data.
+    Earlier versions remain in this repository's git history, which wasn't
+    rewritten.
+    **Fetch paused since 2026-11-10, data withheld since 2026-11-15.** GOG's
+    User Agreement (in force since 9 March 2026, §11.1(e)) forbids
+    "extraction tools or other software that interact with or affect GOG
+    services or GOG content" and "unauthorized third party programs that
+    collect information about GOG services", which is what this connector
+    does (about 1,400 requests a week). `REFRESHERS` calls nothing, and
+    `WITHHELD_SOURCES` keeps every GOG package out of the dataset: a game
+    that other sources also carry stays listed without its GOG option, a
+    GOG-only one is not listed. Until GOG answers (config/source-terms.json).
 24. **Lutris** — lutris.net/api/installers, real, public, unauthenticated.
     Its `/api/games` endpoint (347k+ entries) looked more promising at
     first glance but turned out to be mostly an IGDB mirror — most

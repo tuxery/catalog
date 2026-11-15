@@ -12,9 +12,9 @@ import { fileURLToPath } from "node:url";
  * - `appimagehub`: opendesktop.org allowed a weekly read-only sync on
  *   2026-10-20 on condition that their data is neither committed to this
  *   public repository nor redistributed as a dataset (docs/sources.md).
- * - `gog`: our precaution, not a request from GOG and not a ban we found. Its
- *   User Agreement sits behind an anti-bot page, so it is unread, and the
- *   cache holds full store descriptions (docs/sources.md, config/source-terms.json).
+ * - `gog`: its User Agreement (§11.1(e)) forbids extraction tools, and the
+ *   cache holds full store descriptions (docs/sources.md,
+ *   config/source-terms.json). Also withheld, see `WITHHELD_SOURCES`.
  * - `flatpak-flathub`: our decision. Flathub said scraping their API is not
  *   welcome (2026-11-10) and pointed to the appstream file we now read alone;
  *   whether a public copy of it is fine was left unanswered, and their site
@@ -28,6 +28,17 @@ export const RESTRICTED_SOURCES: ReadonlySet<string> = new Set([
   "flatpak-flathub",
   "gog",
 ]);
+
+/**
+ * Sources left out of the dataset altogether: their terms forbid collecting
+ * the data (`automatedFetch: "forbidden-by-text"` in
+ * config/source-terms.json) and no permission was given. The cache already
+ * fetched stays in the private repository, unread by the pipeline, until
+ * the provider answers:
+ *
+ * - `gog`: User Agreement §11.1(e). Asked on 2026-11-10 and 2026-11-15.
+ */
+export const WITHHELD_SOURCES: ReadonlySet<string> = new Set(["gog"]);
 
 /**
  * Whether any of `packages` comes from a restricted source. A merged app's

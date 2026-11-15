@@ -1,12 +1,17 @@
 import { readdirSync, readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { describe, expect, it } from "vitest";
-import { RESTRICTED_SOURCES } from "./cache-path";
+import { RESTRICTED_SOURCES, WITHHELD_SOURCES } from "./cache-path";
 
 const SOURCES_DIR = fileURLToPath(new URL("../", import.meta.url));
 const terms = JSON.parse(
   readFileSync(new URL("../../../config/source-terms.json", import.meta.url), "utf8"),
-) as { sources: Record<string, { publicStorage: string; verdict: string; action?: string }> };
+) as {
+  sources: Record<
+    string,
+    { automatedFetch: string; publicStorage: string; verdict: string; action?: string }
+  >;
+};
 
 describe("config/source-terms.json", () => {
   it("has one record per source connector, and none for a removed one", () => {
@@ -22,6 +27,13 @@ describe("config/source-terms.json", () => {
       .filter(([, record]) => record.publicStorage === "forbidden")
       .map(([source]) => source);
     expect(new Set(forbidden)).toEqual(RESTRICTED_SOURCES);
+  });
+
+  it("agrees with WITHHELD_SOURCES on whose terms forbid collecting the data", () => {
+    const forbidden = Object.entries(terms.sources)
+      .filter(([, record]) => record.automatedFetch === "forbidden-by-text")
+      .map(([source]) => source);
+    expect(new Set(forbidden)).toEqual(WITHHELD_SOURCES);
   });
 
   it("says what to do about every source waiting on the owner", () => {

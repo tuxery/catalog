@@ -350,7 +350,7 @@
     "reason": "Real standalone CLI batch-queue tool despite the task- tasksel noise prefix — see filter/rules.ts's TASKSEL_PREFIX comment"
   },
   {
-    "sources": ["pacman-aur"],
+    "sources": ["brew-homebrew", "pacman-aur"],
     "name": "xml-coreutils",
     "reason": "Real standalone CLI tool collection despite the xml- Perl/library noise prefix — see filter/rules.ts's xml- comment"
   },
@@ -390,7 +390,7 @@
     "reason": "WPS Office's own font sub-package, deliberately kept visible under config/category-rules.json's wps-office-365* family entry rather than treated as noise — see filter/rules.ts's generic -fonts$ comment"
   },
   {
-    "sources": ["nix-nixpkgs"],
+    "sources": ["brew-homebrew", "nix-nixpkgs"],
     "name": "sqlite3-to-mysql",
     "reason": "Real standalone SQLite-to-MySQL conversion CLI despite the -mysql noise suffix — see filter/rules.ts's -mysql$ comment"
   },
@@ -463,5 +463,40 @@
     "sources": ["pacman-aur"],
     "name": "r-nacos-git",
     "reason": "Real standalone app despite AUR's r-* R-package rule (filter/rules.ts) — not an R package: a Nacos server re-implemented in Rust"
+  },
+  {
+    "sources": ["brew-homebrew"],
+    "name": "apcupsd",
+    "reason": "Real standalone daemon despite Homebrew's nothing-to-run mark (its executables list is empty) — the APC UPS control daemon and its apcaccess/apctest tools; see filter/rules.ts's HOMEBREW_NOISE_SECTIONS comment"
+  },
+  {
+    "sources": ["brew-homebrew"],
+    "name": "daemonize",
+    "reason": "Real standalone CLI tool despite Homebrew's nothing-to-run mark (its executables list is empty) — runs a command as a UNIX daemon; see filter/rules.ts's HOMEBREW_NOISE_SECTIONS comment"
+  },
+  {
+    "sources": ["brew-homebrew"],
+    "name": "p0f",
+    "reason": "Real standalone CLI tool despite Homebrew's nothing-to-run mark (its executables list is empty) — a passive OS fingerprinting tool; see filter/rules.ts's HOMEBREW_NOISE_SECTIONS comment"
+  },
+  {
+    "sources": ["brew-homebrew"],
+    "name": "gptsync",
+    "reason": "Real standalone CLI tool despite Homebrew's nothing-to-run mark (its executables list is empty) — synchronizes GPT and MBR partition tables; see filter/rules.ts's HOMEBREW_NOISE_SECTIONS comment"
+  },
+  {
+    "sources": ["brew-homebrew"],
+    "name": "miruo",
+    "reason": "Real standalone CLI tool despite Homebrew's nothing-to-run mark (its executables list is empty) — a TCP session monitor; see filter/rules.ts's HOMEBREW_NOISE_SECTIONS comment"
+  },
+  {
+    "sources": ["brew-homebrew"],
+    "name": "Liquibase Community",
+    "reason": "Real standalone CLI (the cask installs the liquibase command) despite the 'Library for' phrase of its description — see filter/rules.ts's SUPPORT_DESCRIPTION_PATTERNS comment"
+  },
+  {
+    "sources": ["brew-homebrew"],
+    "name": "Sentinel",
+    "reason": "Real standalone CLI (the cask installs HashiCorp's sentinel command) despite the 'framework for' phrase of its description — see filter/rules.ts's SUPPORT_DESCRIPTION_PATTERNS comment"
   }
 ]

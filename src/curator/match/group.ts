@@ -299,6 +299,11 @@ const NIX_UNWRAPPED_SUFFIX = /-unwrapped$/;
 // Measured 2026-10-09: 726 published apps were nothing but such a build,
 // e.g. `3proxy-32bit`, `AppStream-32bit`.
 const VOID_32BIT_SUFFIX = /-32bit$/;
+// Homebrew's versioned formulae: `node@22` is an older line of `node`,
+// kept installable next to it (152 of the formulae kept on 2026-11-15:
+// node@22, openssl@3.0, python@3.12, mariadb@10.6...). Casks are matched
+// on their display name, which carries no `@`.
+const HOMEBREW_VERSION_SUFFIX = /@[^@]+$/;
 
 /**
  * Strips AUR/Gentoo's own build-variant/channel-word suffix convention
@@ -314,6 +319,7 @@ const VOID_32BIT_SUFFIX = /-32bit$/;
 export function stripVariantSuffix(pkg: Pick<SourcedPackage, "source" | "name">): string {
   if (pkg.source === "nix-nixpkgs") return pkg.name.replace(NIX_UNWRAPPED_SUFFIX, "");
   if (pkg.source === "xbps-void") return pkg.name.replace(VOID_32BIT_SUFFIX, "");
+  if (pkg.source === "brew-homebrew") return pkg.name.replace(HOMEBREW_VERSION_SUFFIX, "");
   if (!SOURCES_WITH_VARIANT_SUFFIXES.has(pkg.source)) return pkg.name;
   const name = pkg.source === "pacman-aur" ? pkg.name.replace(AUR_APPIMAGE_SUFFIX, "") : pkg.name;
   return name.replace(CHANNEL_WORD_SUFFIX, "").replace(VARIANT_SUFFIX, "");

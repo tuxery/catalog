@@ -1480,5 +1480,218 @@
       }
     ],
     "reason": "NodeMaster (a, a knowledge-management desktop app, nodemaster.antsnest.co.kr) versus the Linux kernel (b). The snap's title is Korean followed by \"Linux\"; name normalization keeps only the Latin letters, so it keyed on \"linux\" and joined the kernel's group, which is hidden as not an app."
+  },
+  {
+    "a": [
+      {
+        "source": "brew-homebrew",
+        "appId": "ares"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "ares-decrypt"
+      }
+    ],
+    "b": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "dev.ares.ares"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "ares"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "ares"
+      },
+      {
+        "source": "deb-debian-appstream",
+        "appId": "ares"
+      },
+      {
+        "source": "deb-ubuntu-appstream",
+        "appId": "ares"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "ares"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "ares-emu"
+      },
+      {
+        "source": "pacman-arch-appstream",
+        "appId": "ares-emu"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "ares-emu-git"
+      }
+    ],
+    "reason": "Homebrew's ares is bee-san's Ares, a tool that decodes encrypted text (github.com/bee-san/Ares, AUR's ares-decrypt); every other \"ares\" is the multi-system console emulator (ares-emu.net). Same bare name, so Homebrew's formula joined the emulator and pulled ares-decrypt in with it (2026-11-15)."
+  },
+  {
+    "a": [
+      {
+        "source": "brew-homebrew",
+        "appId": "gauge"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "gauge"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "gauge-unwrapped"
+      }
+    ],
+    "b": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "io.github.josephmawa.Gauge"
+      }
+    ],
+    "reason": "Homebrew's and nixpkgs' gauge is the test automation tool (gauge.org); Flathub's Gauge is a unit converter (github.com/josephmawa/Gauge). nixpkgs names its package gauge-wrapped, so the two only met once Homebrew's bare \"gauge\" matched both (2026-11-15)."
+  },
+  {
+    "a": [
+      {
+        "source": "brew-homebrew",
+        "appId": "nats"
+      }
+    ],
+    "b": [
+      {
+        "source": "ebuild-gentoo",
+        "appId": "dev-haskell/nats"
+      }
+    ],
+    "reason": "Homebrew's nats is the NATS messaging system's command-line client (github.com/nats-io/natscli); Gentoo's dev-haskell/nats is a Haskell library of natural numbers (github.com/ekmett/nats). The formula shares its name with the library and its id with the NATS server snap, and joined the three into one group (2026-11-15)."
+  },
+  {
+    "a": [
+      {
+        "source": "brew-homebrew",
+        "appId": "elm"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "elm-bin"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "elm-git"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "elmPackages.elm"
+      }
+    ],
+    "b": [
+      {
+        "source": "pacman-aur",
+        "appId": "elm"
+      },
+      {
+        "source": "slackware",
+        "appId": "elm"
+      }
+    ],
+    "reason": "Homebrew's elm is the Elm language compiler (elm-lang.org), like AUR's elm-bin and elm-git and nixpkgs' elmPackages.elm; AUR's and Slackware's bare \"elm\" is the Elm Mail System. match-deny.json keeps AUR's elm away from each compiler package pair by pair; Homebrew's formula, also a bare \"elm\", joined the mail client and brought the compilers back with it (2026-11-15)."
+  },
+  {
+    "a": [
+      {
+        "source": "brew-homebrew",
+        "appId": "gama"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "gama-github-actions-manager"
+      }
+    ],
+    "b": [
+      {
+        "source": "pacman-aur",
+        "appId": "gama"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "gama-bin"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "gama"
+      },
+      {
+        "source": "rpm-opensuse",
+        "appId": "gama"
+      }
+    ],
+    "reason": "Homebrew's gama is termkit's GitHub Actions manager for the terminal (github.com/termkit/gama, AUR's gama-github-actions-manager); every other \"gama\" is GNU Gama, which adjusts geodetic networks (gnu.org/software/gama). Same bare name (2026-11-15)."
+  },
+  {
+    "a": [
+      {
+        "source": "brew-homebrew",
+        "appId": "mandown"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "mandown-md-viewer"
+      }
+    ],
+    "b": [
+      {
+        "source": "pacman-aur",
+        "appId": "mandown-git"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "mandown"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "mandown"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "comic-mandown"
+      },
+      {
+        "source": "rpm-opensuse",
+        "appId": "mandown"
+      },
+      {
+        "source": "apk-alpine",
+        "appId": "mandown"
+      },
+      {
+        "source": "xbps-void",
+        "appId": "mandown"
+      },
+      {
+        "source": "eopkg-solus",
+        "appId": "mandown"
+      }
+    ],
+    "reason": "Homebrew's mandown is Titor8115's man-page-like Markdown viewer (github.com/Titor8115/mandown, AUR's mandown-md-viewer); the other packages named mandown are kornelski's Markdown-to-man-page converter (gitlab.com/kornelski/mandown) and potatoeggy's comic downloader (github.com/potatoeggy/mandown), neither of which is the viewer (2026-11-15)."
+  },
+  {
+    "a": [
+      {
+        "source": "pacman-aur",
+        "appId": "watch-git"
+      }
+    ],
+    "b": [
+      {
+        "source": "brew-homebrew",
+        "appId": "watch"
+      }
+    ],
+    "reason": "AUR's watch-git is eaburns' Watch, which reruns a command in an acme window when a directory changes (github.com/eaburns/Watch); Homebrew's watch is procps-ng's watch, the same program as nixpkgs' watch (gitlab.com/procps-ng/procps). The formula's bare name joined watch-git to the whole procps group (2026-11-15)."
   }
 ]

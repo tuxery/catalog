@@ -1,4 +1,5 @@
 import type { PackageSourceId } from "../../sources";
+import { NOTHING_TO_RUN_SECTION } from "../../sources/brew-homebrew/normalize";
 
 // Cross-distro Linux packaging naming conventions that reliably indicate a
 // support package (dev headers, debug symbols, docs, fonts, libraries,
@@ -1227,6 +1228,27 @@ const GENTOO_NOISE_CATEGORIES = new Set([
   "dev-perl",
 ]);
 
+// Homebrew has no category field. Its connector fills the `section` slot
+// with one value of its own making, for a formula whose `executables` list
+// is empty and that defines no `service`: nothing lands on the PATH and
+// nothing runs in the background, so there is nothing a user could launch.
+// Measured 2026-11-15 on the 8,401 formulae installable on Linux: 1,211
+// carry it. The name and description rules above already drop 505 of them
+// (`lib*`, "library for", ...); the other 706 are what those rules can't
+// see: C and C++ libraries under a bare project name (abseil, spdlog,
+// googletest, nlohmann-json, re2), Qt modules (qtmultimedia, qtwebchannel),
+// shell completions (28), data and schema packages (ca-certificates,
+// gsettings-desktop-schemas, mecab dictionaries), PostgreSQL extensions,
+// VapourSynth filters, and plugins a shell sources (zsh-autosuggestions,
+// antigen, zinit: a host is needed, same litmus as an editor plugin).
+// Checked on a random 140 of the 706 and on every one whose description
+// says daemon, server, client, tool, manager or command: five ship a real
+// command the list misses (apcupsd, daemonize, p0f, gptsync, miruo),
+// rescued by name in config/filter-keep.json. The 75 formulae Homebrew
+// lists no executables for at all (Linux-only ones: btrfs-progs, iptables,
+// lm-sensors) don't carry the value: no list is no evidence.
+const HOMEBREW_NOISE_SECTIONS = new Set([NOTHING_TO_RUN_SECTION]);
+
 // Gentoo `games-*` subcategories that are tools *for* games rather than
 // games themselves — see `looksLikeGamePackage`'s doc comment for the
 // full reasoning (this carve-out is what lets them fall through to
@@ -1234,7 +1256,7 @@ const GENTOO_NOISE_CATEGORIES = new Set([
 // genre-less "game").
 const GENTOO_GAME_ADJACENT_SECTIONS = new Set(["games-emulation", "games-util", "games-server"]);
 
-/** Best-effort guess from Debian/Ubuntu's `Section` field, nixpkgs' attribute-path prefix, openSUSE's `<rpm:group>` value, Slackware's package series, Solus's `PartOf` value, or Gentoo's category, alongside `looksLikeSupportPackage`'s name-based guess — see this file's comments on `NOISE_SECTIONS`/`NIX_NOISE_PREFIX_PATTERNS`/`OPENSUSE_NOISE_GROUPS`/`SLACKWARE_NOISE_SERIES`/`SOLUS_NOISE_PARTOF`/`GENTOO_NOISE_CATEGORIES` for which values are safe. */
+/** Best-effort guess from Debian/Ubuntu's `Section` field, nixpkgs' attribute-path prefix, openSUSE's `<rpm:group>` value, Slackware's package series, Solus's `PartOf` value, Gentoo's category, or Homebrew's nothing-to-run mark, alongside `looksLikeSupportPackage`'s name-based guess — see this file's comments on `NOISE_SECTIONS`/`NIX_NOISE_PREFIX_PATTERNS`/`OPENSUSE_NOISE_GROUPS`/`SLACKWARE_NOISE_SERIES`/`SOLUS_NOISE_PARTOF`/`GENTOO_NOISE_CATEGORIES`/`HOMEBREW_NOISE_SECTIONS` for which values are safe. */
 export function looksLikeSupportSection(section: string | undefined): boolean {
   if (section === undefined) return false;
   return (
@@ -1243,7 +1265,8 @@ export function looksLikeSupportSection(section: string | undefined): boolean {
     OPENSUSE_NOISE_GROUPS.has(section) ||
     SLACKWARE_NOISE_SERIES.has(section) ||
     GENTOO_NOISE_CATEGORIES.has(section) ||
-    SOLUS_NOISE_PARTOF.has(section)
+    SOLUS_NOISE_PARTOF.has(section) ||
+    HOMEBREW_NOISE_SECTIONS.has(section)
   );
 }
 

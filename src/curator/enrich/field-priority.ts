@@ -35,6 +35,7 @@ const DISTRO_LICENSES: PackageSourceId[] = [
   "ebuild-gentoo",
   "xbps-void",
   "eopkg-solus",
+  "brew-homebrew",
 ];
 
 /** `CatalogApp` fields picked from one member package by `FIELD_PRIORITY`'s order. */
@@ -172,8 +173,8 @@ export function pickRichField<T>(
 const LICENSE_PLACEHOLDER =
   /^(?:unknown|unset|other(?: open source)?|none|n\/?a|noassertion|unspecified)$/i;
 
-/** `LicenseRef-Callaway-BSD`, `LicenseRef-Fedora-Public-Domain`, `LicenseRef-SUSE-...`: a distro's own identifiers, meaningless once borrowed onto another source's license. */
-const DISTRO_LICENSE_REF = /LicenseRef-(?:Callaway|Fedora|SUSE)-/;
+/** `LicenseRef-Callaway-BSD`, `LicenseRef-Fedora-Public-Domain`, `LicenseRef-SUSE-...`, `LicenseRef-Homebrew-public-domain`: a distro's own identifiers, meaningless once borrowed onto another source's license. */
+const DISTRO_LICENSE_REF = /LicenseRef-(?:Callaway|Fedora|SUSE|Homebrew)-/;
 
 function isUsableLicense(license: string | undefined): license is string {
   return license !== undefined && !LICENSE_PLACEHOLDER.test(license.trim());

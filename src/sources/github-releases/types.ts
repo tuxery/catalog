@@ -27,8 +27,6 @@ export interface GithubReleasesCacheEntry {
   pushedAt?: string;
   /** The latest Release's publication date (ISO) — upstream's own release date. */
   releasedAt?: string;
-  /** See `SourcedPackage.popularity`: the repo's stars as a percentile among this source's repos. */
-  popularity?: number;
 }
 
 export interface GithubReleasesFetchMetadata extends FetchMetadata {

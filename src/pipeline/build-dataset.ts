@@ -1,4 +1,5 @@
 import {
+  applyGithubStars,
   attachFamilies,
   enrichApps,
   filterPackages,
@@ -6,7 +7,12 @@ import {
   type CatalogApp,
 } from "../curator";
 import type { LlmClassificationEntry } from "../curator/enrich/llm-classifications";
-import { searchAllSources, type SourcedPackage } from "../sources";
+import {
+  readGithubStars,
+  searchAllSources,
+  type GithubStarsCacheEntry,
+  type SourcedPackage,
+} from "../sources";
 import { readBuildInfo, type BuildInfo } from "./build-info";
 
 export interface Dataset {
@@ -29,13 +35,16 @@ export interface BuildDatasetOptions {
   llmClassifications?: LlmClassificationEntry[];
   /** Keeps apps a high-confidence LLM verdict marked `excluded` (libraries, other non-apps). */
   includeExcluded?: boolean;
+  /** Overrides the GitHub stars cache (`src/sources/cache/github-stars.ndjson`), keyed by repository. */
+  githubStars?: ReadonlyMap<string, GithubStarsCacheEntry>;
 }
 
 /**
  * Runs the sources + curator pipeline end to end: fetch (cached) ->
  * filter out non-app/game packages -> group the rest into unified apps ->
  * enrich each group into a display-ready `CatalogApp` -> attach
- * companions and relations (docs/product-families.md) -> drop the ones
+ * companions and relations (docs/product-families.md) -> give the apps
+ * left their GitHub repository's stars (popularity) -> drop the ones
  * the LLM marked `excluded` and the companions, so the published dataset
  * (and the site) only ever holds apps and games. Every source reads real cached data (see the
  * sources module) — see docs/sources.md in tuxery/catalog for status per
@@ -63,9 +72,16 @@ export async function buildDataset(options: BuildDatasetOptions = {}): Promise<D
     options.llmClassifications,
   );
   const families = attachFamilies(enriched, [...addons, ...filteredOut]);
-  const apps = options.includeExcluded
-    ? families
-    : families.filter((app) => !app.excluded && !app.companionOf);
+  const visible = families.filter((app) => !app.excluded && !app.companionOf);
+  // Only published apps get stars; everything else pointing to the same
+  // repository (a library, an add-on, an unpublished app) makes it shared.
+  const published = new Set(visible);
+  applyGithubStars(visible, options.githubStars ?? readGithubStars(), [
+    ...families.filter((app) => !published.has(app)).flatMap((app) => app.packages),
+    ...filteredOut,
+    ...addons,
+  ]);
+  const apps = options.includeExcluded ? families : visible;
 
   return { generatedAt: new Date().toISOString(), buildInfo: readBuildInfo(), apps };
 }

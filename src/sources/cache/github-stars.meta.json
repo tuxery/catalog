@@ -1,0 +1,9 @@
+{
+  "source": "github-stars",
+  "fetchedAt": "2026-11-16T23:42:24.852Z",
+  "url": "https://api.github.com/graphql",
+  "entryCount": 100789,
+  "repositoriesReferenced": 102329,
+  "repositoriesQueried": 102329,
+  "repositoriesMissing": 1540
+}

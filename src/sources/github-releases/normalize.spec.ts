@@ -3,7 +3,7 @@ import { normalize } from "./normalize";
 import type { GithubReleasesCacheEntry } from "./types";
 
 describe("github-releases normalize", () => {
-  it("maps a cache entry to a SourcedPackage, using the Release page as homepage", () => {
+  it("maps a cache entry to a SourcedPackage, using the Release page as homepage, stars left to github-stars", () => {
     const entry: GithubReleasesCacheEntry = {
       name: "superfile",
       description: "Pretty fancy and modern terminal file manager",
@@ -16,7 +16,6 @@ describe("github-releases normalize", () => {
       topics: ["linux-app", "tui"],
       pushedAt: "2026-10-10T08:00:00Z",
       releasedAt: "2026-09-30T12:00:00Z",
-      popularity: 0.97,
     };
 
     expect(normalize([entry])).toEqual([
@@ -31,7 +30,6 @@ describe("github-releases normalize", () => {
         topics: ["linux-app", "tui"],
         pushedAt: "2026-10-10T08:00:00Z",
         lastUpdated: "2026-09-30T12:00:00Z",
-        popularity: 0.97,
       },
     ]);
   });

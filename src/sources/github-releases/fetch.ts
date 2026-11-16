@@ -1,6 +1,5 @@
 import { parallel } from "helpers4/promise";
 import { fetchOrThrow, withUserAgent } from "../_shared/http";
-import { percentileScores } from "../_shared/popularity";
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
 import type { GithubReleasesCacheEntry, GithubReleasesFetchMetadata } from "./types";
@@ -239,11 +238,9 @@ export async function resolveEntries(
  */
 export async function fetchGithubReleases(cachePath: string): Promise<number> {
   const repos = await searchRepos();
-  const resolved = await resolveEntries(repos, lookupLatestRelease, LOOKUP_CONCURRENCY);
-  const popularity = percentileScores(new Map(resolved.map((entry) => [entry.repo, entry.stars])));
-  const entries = resolved.map((entry) =>
-    Object.assign(entry, { popularity: popularity.get(entry.repo) }),
-  );
+  // `stars` stays as GitHub reported it; the popularity it feeds is the
+  // `github-stars` source's, over every app with a GitHub repository.
+  const entries = await resolveEntries(repos, lookupLatestRelease, LOOKUP_CONCURRENCY);
 
   writeNdjson(cachePath, entries);
   writeMetadata<GithubReleasesFetchMetadata>(cachePath, {

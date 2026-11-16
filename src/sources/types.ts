@@ -268,14 +268,15 @@ export interface SourcedPackage {
    * signal — normalized to 0-1 *within this source's own distribution*
    * (a percentile-style rank, e.g. 1 for the single most popular real
    * entry), not a directly comparable absolute count across sources the
-   * way `rating` is. Two independent sources today: AUR's own decayed
-   * usage-frequency `Popularity` field (already present in the bulk
-   * metadata dump every `pacman-aur` fetch already downloads — only
-   * entries with any real votes get a score) and Flathub's own "Popular"
-   * collection API (a live top-250 ranked list — apps outside it get no
-   * score, never a fake bottom value). the curator module combines
-   * the member packages' scores into `CatalogApp.popularity`
-   * — see `enrich/index.ts`'s `aggregatePopularity`.
+   * way `rating` is: the AUR's decayed usage `Popularity`, Flathub's
+   * "Popular" collection (top 250 only), Debian's popcon, Arch's
+   * pkgstats, Homebrew's install counts — only entries with real usage
+   * get a score, never a fake bottom value. GitHub stars are not a
+   * package's: the `github-stars` cache gives them to the app whose
+   * packages point to the repository (`curator/enrich/github-stars.ts`).
+   * The curator module combines the member packages' scores into
+   * `CatalogApp.popularity` — see `enrich/index.ts`'s
+   * `aggregatePopularity`.
    */
   popularity?: number;
   /**

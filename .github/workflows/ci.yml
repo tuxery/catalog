@@ -69,3 +69,40 @@ jobs:
         env:
           TUXERY_PRIVATE_CACHE_DIR: ${{ github.workspace }}/source-cache-private/cache
         run: pnpm audit-matching --check
+
+  # src/store/store-contract.json must be byte for byte app's
+  # src/store-contract.json: store-contract.spec.ts pins publish() to this
+  # copy, app's tests pin catalog.ts to that one. A contract change goes on
+  # same-named branches in both repos, so this compares with app's branch of
+  # this PR's name when it exists (then its base, then the pushed branch),
+  # and app's main otherwise. app is public: the default token reads it.
+  store-contract:
+    name: Store contract matches app's
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - name: Compare with app's copy
+        env:
+          GH_TOKEN: ${{ github.token }}
+          HEAD_REF: ${{ github.head_ref }}
+          BASE_REF: ${{ github.base_ref }}
+          REF_NAME: ${{ github.ref_name }}
+        run: |
+          ref=main
+          for candidate in "$HEAD_REF" "$BASE_REF" "$REF_NAME"; do
+            if [ -n "$candidate" ] && git ls-remote --exit-code --heads https://github.com/tuxery/app.git "$candidate" > /dev/null; then
+              ref=$candidate
+              break
+            fi
+          done
+          echo "Comparing with app's $ref"
+          gh api -H "Accept: application/vnd.github.raw" \
+            "repos/tuxery/app/contents/src/store-contract.json?ref=$ref" > "$RUNNER_TEMP/app-store-contract.json"
+          if ! diff -u "$RUNNER_TEMP/app-store-contract.json" src/store/store-contract.json; then
+            echo "::error file=src/store/store-contract.json::differs from app's src/store-contract.json on $ref: change both, on same-named branches"
+            exit 1
+          fi

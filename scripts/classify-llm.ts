@@ -13,6 +13,7 @@ import { loadLlmModels, type LlmModel } from "../src/curator/enrich/llm-models";
 import {
   buildSystemPrompt,
   buildUserPrompt,
+  checkBatchResults,
   parseResults,
   TAXONOMY,
   type BatchItem,
@@ -315,7 +316,7 @@ async function main(): Promise<void> {
     }
     const { batch, results: batchResults, model } = await classifyNextBatch(group);
     group.cursor += batch.length;
-    for (const result of batchResults) {
+    for (const result of checkBatchResults(batchResults, batch.length)) {
       const item = batch[result.n - 1];
       if (!item) continue;
       results.set(item.id, {

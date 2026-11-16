@@ -151,6 +151,30 @@ function parseType(token: string): LlmType | undefined {
   return Object.hasOwn(TYPE_TOKENS, key) ? TYPE_TOKENS[key] : undefined;
 }
 
+/** The longest `reason` kept: it is written to a public file, and a few words are all it is for. */
+export const MAX_REASON_LENGTH = 120;
+
+/**
+ * A batch's parsed results, as far as they can be trusted to describe the
+ * batch's own apps: none at all when a line number repeats (the reply no
+ * longer maps one line to one app, as when a description in the batch
+ * tells the model to answer for the others), else the results whose `n` is
+ * one of the batch's lines, with `reason` cut to `MAX_REASON_LENGTH`.
+ */
+export function checkBatchResults(results: BatchResult[], batchSize: number): BatchResult[] {
+  const seen = new Set<number>();
+  for (const { n } of results) {
+    if (seen.has(n)) return [];
+    seen.add(n);
+  }
+  return results
+    .filter(({ n }) => n >= 1 && n <= batchSize)
+    .map((result) => ({
+      ...result,
+      reason: [...result.reason].slice(0, MAX_REASON_LENGTH).join(""),
+    }));
+}
+
 /** A type without a category: the model must answer "-" (an empty field is tolerated). */
 const NO_CATEGORY = new Set(["-", ""]);
 

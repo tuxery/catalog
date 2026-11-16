@@ -1,6 +1,12 @@
 import { describe, expect, it } from "vitest";
 import { APP_CATEGORY_LABEL_VALUES, GAME_CATEGORY_LABEL_VALUES } from "./category";
-import { buildSystemPrompt, buildUserPrompt, parseResults } from "./llm-prompt";
+import {
+  buildSystemPrompt,
+  buildUserPrompt,
+  checkBatchResults,
+  MAX_REASON_LENGTH,
+  parseResults,
+} from "./llm-prompt";
 
 const reply = (...lines: string[]): string => JSON.stringify({ results: lines });
 
@@ -85,5 +91,32 @@ describe("parseResults", () => {
 
   it("throws on text that isn't JSON", () => {
     expect(() => parseResults("not json")).toThrow(SyntaxError);
+  });
+});
+
+const batchResult = (n: number, reason = "x") =>
+  ({ n, type: "other", confidence: "high", reason }) as const;
+
+describe("checkBatchResults", () => {
+  it("keeps the results of the batch's own lines", () => {
+    expect(checkBatchResults([batchResult(1), batchResult(2)], 2)).toEqual([
+      batchResult(1),
+      batchResult(2),
+    ]);
+  });
+
+  it("drops a line number outside the batch", () => {
+    expect(checkBatchResults([batchResult(0), batchResult(1), batchResult(3)], 2)).toEqual([
+      batchResult(1),
+    ]);
+  });
+
+  it("drops the whole batch when a line number repeats", () => {
+    expect(checkBatchResults([batchResult(1), batchResult(2), batchResult(2)], 3)).toEqual([]);
+  });
+
+  it("cuts a long reason", () => {
+    const [kept] = checkBatchResults([batchResult(1, "y".repeat(500))], 1);
+    expect(kept?.reason).toHaveLength(MAX_REASON_LENGTH);
   });
 });

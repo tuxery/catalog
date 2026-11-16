@@ -27,6 +27,8 @@ const DEFAULT_PROVENANCE: Partial<Record<PackageSourceId, Provenance>> = {
   slackware: "distro",
   "eopkg-solus": "distro",
   "ebuild-gentoo": "distro",
+  // Formulae: Homebrew builds its own bottles from source. Casks set their own.
+  "brew-homebrew": "distro",
   "deb-mint": "upstream",
   "deb-popos": "upstream",
   "deb-deepin": "upstream",

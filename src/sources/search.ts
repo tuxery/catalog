@@ -17,6 +17,7 @@ import { searchFlathub } from "./flatpak-flathub";
 import { searchGentoo } from "./ebuild-gentoo";
 import { searchGithubReleases } from "./github-releases";
 import { searchGog } from "./gog";
+import { searchHomebrew } from "./brew-homebrew";
 import { searchLutris } from "./lutris";
 import { searchMint } from "./deb-mint";
 import { searchVendorRepos } from "./vendor-repos";
@@ -74,6 +75,9 @@ export async function searchAllSources(query: string): Promise<SourcedPackage[]>
     searchGog(query),
     searchLutris(query),
     searchGithubReleases(query),
+    // After every Linux-native source: a group without a Snap or Flatpak
+    // package takes its id and its display name from its first member.
+    searchHomebrew(query),
   ]);
 
   return results

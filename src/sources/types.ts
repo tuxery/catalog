@@ -43,7 +43,8 @@ export type PackageSourceId =
   | "gog"
   | "lutris"
   | "github-releases"
-  | "vendor-repos";
+  | "vendor-repos"
+  | "brew-homebrew";
 
 /**
  * A single package as reported by one source, before deduplication.

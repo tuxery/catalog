@@ -1,0 +1,31 @@
+{
+  "$comment": "What tuxery/catalog's publish() writes to Turso and tuxery/app's catalog.ts reads back. Kept byte for byte identical in catalog (src/store/store-contract.json) and app (src/store-contract.json): each repo's unit tests pin its own code to this file, and each repo's CI compares its copy with the other repo's (the same-named branch, else main). Change both copies together, on same-named branches.",
+  "summaryColumns": [
+    "id",
+    "name",
+    "short_description",
+    "icon_url",
+    "kind",
+    "content_type",
+    "category",
+    "rating_average",
+    "rating_count",
+    "packages_json"
+  ],
+  "listingSizes": {
+    "trending": 60,
+    "categoryPreview": 12
+  },
+  "browseKeys": {
+    "metaKey": "browseKeys",
+    "fields": ["generation", "sourceIdsChunkSize", "freeCounts", "categoryIds"]
+  },
+  "unsetFilter": "*",
+  "metaKeyFormats": {
+    "count": "count:{generation}:{interface}:{type}:{source}:{category}",
+    "countFree": "countFree:{generation}:{interface}:{type}:{source}:{category}",
+    "sourceIds": "sourceIds:{generation}:{source}:{chunk}",
+    "categoryIds": "categoryIds:{generation}:{chunk}:{category}",
+    "listingRows": "listingRows:{listing}"
+  }
+}

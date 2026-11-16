@@ -768,6 +768,31 @@
         }
       ]
     },
+    "wikidata": {
+      "verdict": "clear",
+      "automatedFetch": "allowed",
+      "publicStorage": "allowed",
+      "attribution": null,
+      "fieldLicense": "CC0 1.0 for Wikidata's structured data (package ids, labels, websites, repositories). A P154 logo is a file on Wikimedia Commons under its own license: only its file name is kept, never the image.",
+      "evidence": [
+        {
+          "url": "https://www.wikidata.org/wiki/Wikidata:Licensing",
+          "read": true,
+          "finding": "Data in the main, Property, Lexeme and EntitySchema namespaces \"is released into the public domain under Creative Commons Zero\". Text in other namespaces is CC BY-SA 4.0; we read none."
+        },
+        {
+          "url": "https://www.mediawiki.org/wiki/Wikidata_Query_Service/User_Manual",
+          "read": true,
+          "finding": "The public SPARQL endpoint is offered for querying: 60 s per query, 60 s of processing time per minute per client (User-Agent + IP), 30 error queries per minute, 5 parallel queries per IP; HTTP 429 with Retry-After above that. Our refresh runs five queries of 1-2 s each, one at a time."
+        },
+        {
+          "url": "https://foundation.wikimedia.org/wiki/Policy:Wikimedia_Foundation_User-Agent_Policy",
+          "read": true,
+          "finding": "Automated clients must send a descriptive User-Agent with contact information (an email address, a website or a wiki user). Ours names the project and its repository URL."
+        }
+      ],
+      "note": "Not a package source: Wikidata links one software item to its package ids on other repositories. Used by `pnpm wikidata-suggest` to propose match-force/match-apart entries for review, never applied automatically. Repology's project name (P6931) isn't read."
+    },
     "xbps-void": {
       "verdict": "clear",
       "automatedFetch": "allowed",

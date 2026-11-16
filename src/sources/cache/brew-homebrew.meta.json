@@ -1,0 +1,14 @@
+{
+  "source": "brew-homebrew",
+  "fetchedAt": "2026-11-15T23:30:13.944Z",
+  "url": "https://formulae.brew.sh/api/formula.json, https://formulae.brew.sh/api/cask.json",
+  "entryCount": 8747,
+  "formulaeTotal": 8731,
+  "formulaeKept": 8401,
+  "casksTotal": 7834,
+  "casksOnLinux": 2956,
+  "casksKept": 346,
+  "analyticsUrl": "https://formulae.brew.sh/api/analytics/install-on-request/homebrew-core/30d.json",
+  "analyticsStart": "2026-10-16",
+  "analyticsEnd": "2026-11-15"
+}

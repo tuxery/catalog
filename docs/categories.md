@@ -1,0 +1,126 @@
+# Categories
+
+Every app in the catalog has exactly one category, and every game one
+genre: `CatalogApp.category`, always set, "To Classify" when nothing
+says what it is. Apps and games use two separate closed lists
+(`APP_CATEGORY_LABEL_VALUES` and `GAME_CATEGORY_LABEL_VALUES` in
+`src/curator/enrich/category.ts`): a category only means something
+together with its type. The label is also the category's id: `app` links
+to `/browse/?category=<label>`.
+
+## App categories
+
+| Category                 | What goes there                                                        | Main signals                                                                                   |
+| ------------------------ | ---------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| Web Browsers             | browsers, their forks and extensions                                   | `WebBrowser`, Gentoo `www-client`, openSUSE `Web/Browsers`, refinements                        |
+| Messaging & Calls        | chat, instant messaging, IRC, Matrix/XMPP, VoIP, video calls           | `InstantMessaging`, `Chat`, `IRCClient`, `Telephony`, `VideoConference`, `net-im`, refinements |
+| Email                    | mail clients, mail servers and mail tools                              | `Email`, Debian `mail`, Gentoo `mail-*`/`net-mail`, openSUSE `Email/*`, refinements            |
+| Social Media             | clients and front ends for Mastodon, Bluesky, Reddit, Lemmy, Nostr ... | refinements only (no freedesktop key exists)                                                   |
+| File Sharing & Downloads | torrents, P2P, download managers, FTP, file transfer, cloud sync       | `FileTransfer`, `P2P`, Gentoo `net-p2p`/`net-ftp`, refinements                                 |
+| Networking               | network tools and servers, DNS, proxies, remote connections, radio     | `Network`, Debian `net`/`web`/`comm`/`hamradio`, Gentoo `net-*`/`www-*`                        |
+| Gaming Tools             | emulators of game systems, game launchers, mod managers, Proton/Steam  | `GameTool`, Gentoo `games-util`/`games-emulation`, `proton*`/`steam*` names, refinements       |
+| Developer Tools          | IDEs, compilers, debuggers, build and VCS tools                        | `Development`, Debian `devel`, Gentoo `dev-*`                                                  |
+| System Tools             | monitoring, disks, drivers, terminals, package managers, backups       | `System`, Debian `admin`, Gentoo `sys-*`                                                       |
+| Settings                 | configuration panels, desktop tweaks                                   | `Settings`, `DesktopSettings`                                                                  |
+| Security                 | passwords, encryption, VPN, antivirus, pentesting                      | `Security`, Gentoo `app-crypt`/`net-vpn`                                                       |
+| Utilities                | small helpers that fit nowhere else                                    | `Utility`, Debian `utils`                                                                      |
+| Productivity             | office suites, notes, to-do, PDF, calendars                            | `Office`, `Calendar`                                                                           |
+| Business, Finance        | ERP, CRM, invoicing; accounting, budgeting, crypto wallets             | `ContactManagement`; `Finance`                                                                 |
+| Graphics & Design        | drawing, image editing, 3D, CAD                                        | `Graphics`                                                                                     |
+| Photo & Video            | viewing, editing, recording and playing photos and video               | `Photography`, `Video`                                                                         |
+| Music & Audio            | players, editors, synths, audio tools                                  | `Audio`, `Music`                                                                               |
+| Education, Science       | learning; science, engineering, maths                                  | `Education`; `Science`                                                                         |
+| Books & Reference        | e-book readers, dictionaries, documentation                            | `Literature`, `Dictionary`                                                                     |
+| News & Weather           | news and feed readers, weather                                         | `News`, `Feed`                                                                                 |
+| Travel & Navigation      | maps, GPS, route planning                                              | `Maps`                                                                                         |
+
+The first six are the split of what used to be one "Internet &
+Communication" category: 8,794 apps (2026-11-16) where Firefox,
+Thunderbird, Discord, qBittorrent and Wireshark sat side by side.
+Flathub ("Networking" with subcategories), GNOME Software ("Socialize"
+apart from "Work") and the mobile stores (Google Play's "Communication"
+and "Social", Apple's "Social Networking") all draw these lines.
+
+## Game genres
+
+Action, Shooter, Adventure, Visual Novel, Arcade, Music & Rhythm, Board &
+Cards, Puzzle, Educational, Role-Playing, Simulation, Racing, Sports,
+Strategy.
+
+- **Shooter** has its own freedesktop key (`Shooter`), Lutris and GOG
+  genres, and is a genre of its own on Steam, IGDB and GOG.
+- **Racing**, **Music & Rhythm** and **Visual Novel** have none:
+  Lutris/GOG genres map to the `X-Racing`, `X-Rhythm` and `X-VisualNovel`
+  extension keys (`src/sources/{lutris,gog}/normalize.ts`), and a game's
+  own description moves it there through a refinement.
+- **Not genres here**: _Casual_ describes an audience, not a kind of
+  game (Google Play's "Casual" mixes puzzle, idle and match-3 games), so
+  there is no Casual genre and no "Casual games" row; _Casino_ games are
+  card games (Board & Cards); _Word_ and _Trivia_ games are puzzles (57
+  of them, 2026-11-16: too few for their own genre).
+
+## How a category is chosen
+
+In order, the first one that answers wins (`enrichApps` in
+`src/curator/enrich/index.ts`):
+
+1. **Upstream store categories**: the freedesktop Main and Additional
+   Categories of the highest-priority package that has some
+   (`config/categories-apps.json`, `config/categories-games.json`; key
+   order is preference order, specific before generic).
+2. **The LLM verdict** (`config/llm-classifications.json`), only when
+   step 3 finds nothing, or to change the type.
+3. **In-house heuristics**: name rules (`category-rules.json`,
+   `game-category-rules.json`), distro sections and AUR keywords
+   (`category-section.ts`, `category-keywords.ts`), then description
+   phrases (`description-category-rules.json`,
+   `description-game-category-rules.json`).
+4. **Refinements** (`config/category-refinements.json`) last: a broad
+   category moves to a finer one when the app's name, short description
+   or LLM verdict reason names it. This is how the many apps that carry
+   only a generic signal (a bare `Network` key, Debian's `net` section, a
+   verdict of the old taxonomy) still land in the right one: an IRC
+   client filed under Networking moves to Messaging & Calls, an Arcade
+   game about karts to Racing, a Game Boy emulator filed under System
+   Tools to Gaming Tools. Each rule names the categories it may move an
+   app out of, so a precise signal (Firefox's `WebBrowser` key) is never
+   second-guessed by a phrase.
+
+Anything still without an answer is "To Classify".
+
+### Labels of an earlier taxonomy
+
+`config/llm-classifications.json` is the models' raw output and is never
+rewritten by hand, so it keeps the labels it was written with.
+`LEGACY_APP_CATEGORY_LABELS` (`category.ts`) maps each retired label to
+the catch-all of what it was split into ("Internet & Communication" →
+Networking), and the refinements then read the verdict's own reason
+("IRC client", "Torrent client") to move it further. `app` keeps old
+links working the same way (its category aliases).
+
+## Kids
+
+Not a category: an app for children is still an Education app or a
+Puzzle game, and a category would take it out of those. The signals
+measured 2026-11-16: the `KidsGame` key (42 games), "for children/for
+kids/toddlers/preschool" in a description (74 apps and games in all,
+some false positives such as "reaping children" processes), and the
+OARS rating, which says what content an app is free of, not who it is
+for (2,877 apps rated "0+"). A "For kids" collection (a tag shown as its
+own row and filter) would sit on top of the categories rather than
+replace one.
+
+## Measured 2026-11-16
+
+Published dataset (`pnpm start`, private caches present), before → after
+the split: Internet & Communication 8,794 → Networking 4,521, Messaging &
+Calls 1,489, File Sharing & Downloads 1,275, Email 730, Web Browsers 548,
+Social Media 166, Gaming Tools 45, News & Weather 21 (RSS readers).
+Gaming Tools 1,290 in all (System Tools 933, Utilities 221, Developer
+Tools 63, Internet & Communication 45, Settings 18, Photo & Video 10).
+Games: Action 1,407 → 983 and Shooter 425; Adventure 830 → 474 and Visual
+Novel 359; Sports 117 → 56 and Racing 92; Music & Rhythm 46. A hand check
+of 80 random apps and games in the new categories found 71 right (89%,
+67 of 72 outside Networking); the misses were mostly apps Networking keeps
+as the catch-all (AI chat clients, an anime tracker), which the old
+category had misfiled too.

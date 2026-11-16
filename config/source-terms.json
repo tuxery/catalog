@@ -432,6 +432,26 @@
         }
       ]
     },
+    "github-stars": {
+      "verdict": "clear",
+      "automatedFetch": "allowed",
+      "publicStorage": "allowed",
+      "attribution": null,
+      "fieldLicense": "Repository facts (name, star count), no text.",
+      "evidence": [
+        {
+          "url": "https://docs.github.com/en/site-policy/github-terms/github-terms-of-service",
+          "read": true,
+          "finding": "Section H allows API use; excessive use can suspend access, tokens can't be shared to exceed limits, no spam or sale of personal data. D.8: the terms don't restrict lawful access to public repositories' contents."
+        },
+        {
+          "url": "https://docs.github.com/en/site-policy/acceptable-use-policies/github-acceptable-use-policies",
+          "read": true,
+          "finding": "\"Scraping does not refer to the collection of information through our API.\" Section 6 also says not to reproduce or copy \"any portion of the Service\"; D.8 of the terms above is what covers public repositories' contents."
+        }
+      ],
+      "note": "Same API and terms as github-releases: one GraphQL query per 100 repositories, the ones other sources' packages link to. The cache holds only repository names and star counts."
+    },
     "gog": {
       "verdict": "owner-review",
       "automatedFetch": "forbidden-by-text",

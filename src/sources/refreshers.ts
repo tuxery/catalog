@@ -13,6 +13,7 @@ import { fetchFedora } from "./rpm-fedora/fetch";
 import { fetchFlathub } from "./flatpak-flathub/fetch";
 import { fetchGentoo } from "./ebuild-gentoo/fetch";
 import { fetchGithubReleases } from "./github-releases/fetch";
+import { fetchGithubStars } from "./github-stars/fetch";
 import { fetchHomebrew } from "./brew-homebrew/fetch";
 import { fetchLutris } from "./lutris/fetch";
 import { fetchMint } from "./deb-mint/fetch";
@@ -95,4 +96,8 @@ export const REFRESHERS: Record<string, (cachePath: string) => Promise<number>> 
   "github-releases": fetchGithubReleases,
   "vendor-repos": fetchVendorRepos,
   "brew-homebrew": fetchHomebrew,
+  // Last: it reads every other source's cache for the GitHub repositories
+  // their packages point to, so it sees this run's fresh ones (the
+  // workflow refreshes in this order, see `refresh.ts --list`).
+  "github-stars": fetchGithubStars,
 };

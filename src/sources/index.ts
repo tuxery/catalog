@@ -43,3 +43,4 @@ export { searchLutris } from "./lutris";
 export { searchGithubReleases } from "./github-releases";
 export { searchHomebrew } from "./brew-homebrew";
 export { searchAllSources } from "./search";
+export { packageGithubRepos, readGithubStars, type GithubStarsCacheEntry } from "./github-stars";

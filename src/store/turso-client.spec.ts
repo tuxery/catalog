@@ -29,6 +29,13 @@ function fakeClient(tableExists: boolean) {
   return { execute, batch, client: { execute, batch } as unknown as Client };
 }
 
+const withPackages = (id: string, packages: unknown[]): AppRecord => ({
+  ...APP,
+  id,
+  iconUrl: "icon.png",
+  packages,
+});
+
 describe("createTursoClient", () => {
   it("creates apps_next, batch-inserts rows, then swaps it in as apps", async () => {
     const { execute, batch, client } = fakeClient(false);
@@ -342,12 +349,6 @@ describe("createTursoClient", () => {
   it("lists each source's recently updated apps by that source's own newest date", async () => {
     const { batch, client } = fakeClient(false);
     const tursoClient = createTursoClient({ url: "file::memory:" }, client);
-    const withPackages = (id: string, packages: unknown[]): AppRecord => ({
-      ...APP,
-      id,
-      iconUrl: "icon.png",
-      packages,
-    });
     const apps: AppRecord[] = [
       withPackages("old-release", [{ source: "flathub", lastUpdated: "2026-01-01T00:00:00.000Z" }]),
       // Snap's date is the revision's upload, Flathub's the project's release.
@@ -727,13 +728,13 @@ describe("precomputed browse keys", () => {
   });
 });
 
-describe("byPopularFirst", () => {
-  const entry = (id: string, extra: Partial<AppRecord>) => ({
-    id,
-    name: Buffer.from(id),
-    app: { ...APP, id, name: id, ...extra } as AppRecord,
-  });
+const entry = (id: string, extra: Partial<AppRecord>) => ({
+  id,
+  name: Buffer.from(id),
+  app: { ...APP, id, name: id, ...extra } as AppRecord,
+});
 
+describe("byPopularFirst", () => {
   it("lists scored apps with an icon first, then iconed ones A-Z, then scored ones without, then the rest", () => {
     const entries = [
       entry("zz-plain", {}),

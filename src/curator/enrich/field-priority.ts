@@ -233,16 +233,19 @@ export function pickLanguages(packages: SourcedPackage[]): string[] | undefined 
   return longest?.languages;
 }
 
+/** Every release date the packages carry. */
+function releaseDates(pool: SourcedPackage[]): string[] {
+  return pool.map((pkg) => pkg.lastUpdated).filter((date): date is string => hasValue(date));
+}
+
 /**
  * The newest upstream release date among default builds: a nightly or a
  * snap's edge channel says nothing about the product's last release.
  * Falls back to every package when no default build has a date.
  */
 export function pickLastUpdated(packages: SourcedPackage[]): string | undefined {
-  const dates = (pool: SourcedPackage[]) =>
-    pool.map((pkg) => pkg.lastUpdated).filter((date): date is string => hasValue(date));
-  const defaults = dates(packages.filter(isDefaultBuild));
-  const all = defaults.length > 0 ? defaults : dates(packages);
+  const defaults = releaseDates(packages.filter(isDefaultBuild));
+  const all = defaults.length > 0 ? defaults : releaseDates(packages);
   if (all.length === 0) return undefined;
   return all.reduce((latest, date) => (date > latest ? date : latest));
 }

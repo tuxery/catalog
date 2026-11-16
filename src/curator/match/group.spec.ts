@@ -558,10 +558,10 @@ describe("buildAppId (via groupPackages' id field)", () => {
   });
 });
 
-describe("groupPackages — product families", () => {
-  const aur = (name: string, description: string, formal?: SourcedPackage["formal"]) =>
-    pkg({ source: "pacman-aur", name, appId: name, description, formal });
+const aur = (name: string, description: string, formal?: SourcedPackage["formal"]) =>
+  pkg({ source: "pacman-aur", name, appId: name, description, formal });
 
+describe("groupPackages — product families", () => {
   it("folds a drop-in build into its project and labels its flavor and provenance", () => {
     const groups = groupPackages(
       [

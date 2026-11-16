@@ -151,15 +151,24 @@ export interface CatalogApp {
   rating?: { average: number; count: number };
   /**
    * A trending/popularity score (0-1) — the mean of the app's best three
-   * sources' `SourcedPackage.popularity`, see `enrich/index.ts`'s
-   * `aggregatePopularity`. Not a directly meaningful percentage, only a
-   * relative ranking signal for sorting a "trending" listing — AUR's
-   * decayed usage `Popularity` (bulk dump, sparse real coverage) and
-   * Flathub's own "Popular" collection (top 250 only) are today's two
-   * sources, both already normalized to comparable 0-1 scales before
-   * reaching here. `undefined` when no member package has a score.
+   * sources, see `enrich/index.ts`'s `aggregatePopularity`: each member
+   * package's `SourcedPackage.popularity` (the AUR's usage ranking,
+   * Flathub's "Popular" collection, Debian's popcon, Arch's pkgstats,
+   * Homebrew's install counts) plus its GitHub repository's stars
+   * (`githubStars`), all normalized to comparable 0-1 percentiles first.
+   * Not a directly meaningful percentage, only a relative ranking signal
+   * for sorting a "trending" listing. `undefined` when no source scores
+   * the app.
    */
   popularity?: number;
+  /**
+   * The app's GitHub repository and its star count, when its packages
+   * point to one (homepage, AppStream project links) that nothing else
+   * points to, or that is named like the app — see
+   * `enrich/github-stars.ts`. Counts as one source of `popularity`. In
+   * the dataset only, not a store column.
+   */
+  githubStars?: { repo: string; stars: number };
   /**
    * The union of every member package's own
    * `SourcedPackage.storeCollections` tags — see `enrich/index.ts`'s

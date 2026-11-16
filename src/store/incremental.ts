@@ -1,6 +1,7 @@
 import { createHash } from "node:crypto";
 import { chunk } from "helpers4/array";
 import type { Client, InStatement, Row } from "@libsql/client";
+import { updateAliases, type AliasReport } from "./id-aliases";
 
 // Incremental publish: write only what changed since the live dataset,
 // instead of rebuilding `apps`, its search index and its 15 indexes from
@@ -118,6 +119,8 @@ export interface PublishReport {
   addedColumns?: string[];
   metaWritten: number;
   metaDeleted: number;
+  /** Old ids redirecting to current ones (see id-aliases.ts). */
+  aliases?: AliasReport;
 }
 
 function sha1(text: string): string {
@@ -285,6 +288,8 @@ export interface IncrementalInput {
   rows: ReadonlyMap<string, readonly unknown[]>;
   /** Every `meta` row the new dataset should leave, built on the live generation. */
   meta: ReadonlyArray<[string, string]>;
+  /** Each package key of the new dataset to the app listing it (see id-aliases.ts' `packageOwners`). */
+  packageOwners: ReadonlyMap<string, string>;
 }
 
 /** Same value as SQLite returns it: `undefined` is stored as NULL, numbers come back as numbers. */
@@ -294,8 +299,8 @@ function sameValue(live: unknown, wanted: unknown): boolean {
 
 /**
  * Brings the live store to `input` with the fewest writes: see the
- * comment at the top of this file. Writes go out in this order — app
- * rows, search rows, `meta`, then the hashes — so `app` never reads a
+ * comment at the top of this file. Writes go out in this order — id
+ * aliases, app rows, search rows, `meta`, then the hashes — so `app` never reads a
  * precomputed listing naming an app that isn't there yet.
  */
 export async function publishIncremental(
@@ -414,8 +419,11 @@ export async function publishIncremental(
     }
   }
 
-  for (const id of liveIds) {
-    if (rows.has(id)) continue;
+  // Before any app is deleted: the aliases are read from the rows going away.
+  const vanishedIds = [...liveIds].filter((id) => !rows.has(id));
+  report.aliases = await updateAliases(db, vanishedIds, input.packageOwners, new Set(rows.keys()));
+
+  for (const id of vanishedIds) {
     report.deleted += 1;
     report.searchRowsWritten += 1;
     touchedBuckets.add(bucketOf(id));

@@ -1693,5 +1693,1304 @@
       }
     ],
     "reason": "AUR's watch-git is eaburns' Watch, which reruns a command in an acme window when a directory changes (github.com/eaburns/Watch); Homebrew's watch is procps-ng's watch, the same program as nixpkgs' watch (gitlab.com/procps-ng/procps). The formula's bare name joined watch-git to the whole procps group (2026-11-15)."
+  },
+  {
+    "a": [
+      {
+        "source": "brew-homebrew",
+        "appId": "cask/warp"
+      }
+    ],
+    "b": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "app.drey.Warp"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "warp-bin"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "warp-git"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "warp"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "warp"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "warp"
+      },
+      {
+        "source": "pacman-arch-appstream",
+        "appId": "warp"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "warp"
+      },
+      {
+        "source": "rpm-opensuse",
+        "appId": "warp"
+      },
+      {
+        "source": "rpm-opensuse-appstream",
+        "appId": "warp"
+      },
+      {
+        "source": "apk-alpine",
+        "appId": "warp"
+      },
+      {
+        "source": "ebuild-gentoo",
+        "appId": "dev-haskell/warp"
+      },
+      {
+        "source": "deb-debian-appstream",
+        "appId": "warp"
+      },
+      {
+        "source": "deb-ubuntu-appstream",
+        "appId": "warp"
+      }
+    ],
+    "reason": "Homebrew's warp cask (\"Rust-based terminal\", warp.dev/terminal) is not Warp (\"Fast and secure file transfer\", apps.gnome.org/Warp): they only share a name. Found reviewing the Homebrew connector's merges (2026-11-16)."
+  },
+  {
+    "a": [
+      {
+        "source": "brew-homebrew",
+        "appId": "railway"
+      }
+    ],
+    "b": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "de.schmidhuberj.DieBahn"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "railway-gtk"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "railway-gtk"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "railway"
+      },
+      {
+        "source": "pacman-arch-appstream",
+        "appId": "railway"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "diebahn"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "railway"
+      },
+      {
+        "source": "apk-alpine",
+        "appId": "railway"
+      },
+      {
+        "source": "ebuild-gentoo",
+        "appId": "gui-apps/railway"
+      },
+      {
+        "source": "deb-debian-appstream",
+        "appId": "railway-gtk"
+      },
+      {
+        "source": "deb-ubuntu-appstream",
+        "appId": "railway-gtk"
+      }
+    ],
+    "reason": "Homebrew's railway formula (\"Develop and deploy code with zero configuration\", railway.com) is not Railway (\"Find all your travel information\", mobile.schmidhuberj.de/railway): they only share a name. Found reviewing the Homebrew connector's merges (2026-11-16)."
+  },
+  {
+    "a": [
+      {
+        "source": "brew-homebrew",
+        "appId": "minder"
+      }
+    ],
+    "b": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "io.github.phase1geo.minder"
+      },
+      {
+        "source": "flatpak-appcenter",
+        "appId": "io.github.phase1geo.minder"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "minder-git"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "minder"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "minder"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "minder"
+      },
+      {
+        "source": "pacman-arch-appstream",
+        "appId": "minder"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "minder"
+      },
+      {
+        "source": "rpm-opensuse",
+        "appId": "minder"
+      },
+      {
+        "source": "rpm-opensuse-appstream",
+        "appId": "minder"
+      },
+      {
+        "source": "xbps-void",
+        "appId": "Minder"
+      },
+      {
+        "source": "deb-debian-appstream",
+        "appId": "minder"
+      },
+      {
+        "source": "deb-ubuntu-appstream",
+        "appId": "minder"
+      }
+    ],
+    "reason": "Homebrew's minder formula (\"CLI for interacting with Stacklok's Minder platform\", mindersec.github.io) is not Minder (\"Create, develop and visualize your ideas\", github.com/phase1geo/minder): they only share a name. Found reviewing the Homebrew connector's merges (2026-11-16)."
+  },
+  {
+    "a": [
+      {
+        "source": "brew-homebrew",
+        "appId": "stencil"
+      }
+    ],
+    "b": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "me.fouquet.Stencil"
+      }
+    ],
+    "reason": "Homebrew's stencil formula (\"Modern living-template engine for evolving repositories\", stencil.rgst.io) is not Stencil (\"Rename batches of files\", codeberg.org/fouquet/Stencil): they only share a name. Found reviewing the Homebrew connector's merges (2026-11-16)."
+  },
+  {
+    "a": [
+      {
+        "source": "brew-homebrew",
+        "appId": "tundra"
+      }
+    ],
+    "b": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "moe.tundra.Tundra"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "tundra"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "tundra-git"
+      }
+    ],
+    "reason": "Homebrew's tundra formula (\"Code build system that tries to be fast for incremental builds\", github.com/deplinenoise/tundra) is not Tundra (\"Update your anime lists automatically\", tundra.moe): they only share a name. Found reviewing the Homebrew connector's merges (2026-11-16)."
+  },
+  {
+    "a": [
+      {
+        "source": "brew-homebrew",
+        "appId": "tailor"
+      }
+    ],
+    "b": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.altlinux.Tailor"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "tailor"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "tailor-bin"
+      }
+    ],
+    "reason": "Homebrew's tailor formula (\"Cross-platform static analyzer and linter for Swift\", sleekbyte.github.io/tailor) is not Tailor (\"Create bootable drives\", qualimock.space/projects/Tailor): they only share a name. Found reviewing the Homebrew connector's merges (2026-11-16)."
+  },
+  {
+    "a": [
+      {
+        "source": "brew-homebrew",
+        "appId": "asc"
+      }
+    ],
+    "b": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.asc_hq.ASC"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "asc-git"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "asc"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "asc"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "asc"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "asc"
+      },
+      {
+        "source": "rpm-fedora-appstream",
+        "appId": "asc"
+      },
+      {
+        "source": "deb-debian-appstream",
+        "appId": "asc"
+      },
+      {
+        "source": "deb-ubuntu-appstream",
+        "appId": "asc"
+      }
+    ],
+    "reason": "Homebrew's asc formula (\"Fast, lightweight CLI for App Store Connect\", asccli.sh) is not Advanced Strategic Command (\"Turn-based strategy game\", asc-hq.org): they only share a name. Found reviewing the Homebrew connector's merges (2026-11-16)."
+  },
+  {
+    "a": [
+      {
+        "source": "brew-homebrew",
+        "appId": "lorem"
+      }
+    ],
+    "b": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.gnome.design.Lorem"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "lorem-git"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "lorem"
+      },
+      {
+        "source": "pacman-arch-appstream",
+        "appId": "lorem"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "lorem"
+      }
+    ],
+    "reason": "Homebrew's lorem formula (\"Python generator for the console\", github.com/per9000/lorem) is not Lorem (\"Generate placeholder text\", apps.gnome.org/Lorem): they only share a name. Found reviewing the Homebrew connector's merges (2026-11-16)."
+  },
+  {
+    "a": [
+      {
+        "source": "brew-homebrew",
+        "appId": "pulp"
+      }
+    ],
+    "b": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.gnome.gitlab.cheywood.Pulp"
+      }
+    ],
+    "reason": "Homebrew's pulp formula (\"Build tool for PureScript projects\", github.com/purescript-contrib/pulp) is not Pulp (\"Skim excessive articles\", gitlab.gnome.org/cheywood/Pulp): they only share a name. Found reviewing the Homebrew connector's merges (2026-11-16)."
+  },
+  {
+    "a": [
+      {
+        "source": "brew-homebrew",
+        "appId": "bomber"
+      }
+    ],
+    "b": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.kde.bomber"
+      },
+      {
+        "source": "snap-snapcraft",
+        "appId": "bomber"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "bomber"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "bomber"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "bomber"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "bomber"
+      },
+      {
+        "source": "pacman-arch-appstream",
+        "appId": "bomber"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "kdePackages.bomber"
+      },
+      {
+        "source": "rpm-opensuse",
+        "appId": "bomber"
+      },
+      {
+        "source": "rpm-opensuse-appstream",
+        "appId": "bomber"
+      },
+      {
+        "source": "rpm-fedora-appstream",
+        "appId": "bomber"
+      },
+      {
+        "source": "slackware",
+        "appId": "bomber"
+      },
+      {
+        "source": "ebuild-gentoo",
+        "appId": "kde-apps/bomber"
+      },
+      {
+        "source": "deb-debian-appstream",
+        "appId": "bomber"
+      },
+      {
+        "source": "deb-ubuntu-appstream",
+        "appId": "bomber"
+      }
+    ],
+    "reason": "Homebrew's bomber formula (\"Scans Software Bill of Materials for security vulnerabilities\", devops-kung-fu.github.io/bomber) is not Bomber (\"Arcade Bombing Game\", apps.kde.org/bomber): they only share a name. Found reviewing the Homebrew connector's merges (2026-11-16)."
+  },
+  {
+    "a": [
+      {
+        "source": "brew-homebrew",
+        "appId": "kommit"
+      }
+    ],
+    "b": [
+      {
+        "source": "flatpak-flathub",
+        "appId": "org.kde.kommit.desktop"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "kommit-git"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "kommit"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "kommit"
+      },
+      {
+        "source": "pacman-arch-appstream",
+        "appId": "kommit"
+      },
+      {
+        "source": "rpm-opensuse",
+        "appId": "kommit"
+      },
+      {
+        "source": "rpm-opensuse-appstream",
+        "appId": "kommit"
+      },
+      {
+        "source": "rpm-fedora-appstream",
+        "appId": "kommit"
+      },
+      {
+        "source": "apk-alpine",
+        "appId": "kommit"
+      }
+    ],
+    "reason": "Homebrew's kommit formula (\"More detailed commit messages without committing!\", github.com/vigo/kommit) is not Kommit (\"Git GUI client\", invent.kde.org/sdk/kommit): they only share a name. Found reviewing the Homebrew connector's merges (2026-11-16)."
+  },
+  {
+    "a": [
+      {
+        "source": "brew-homebrew",
+        "appId": "gradle-profiler"
+      }
+    ],
+    "b": [
+      {
+        "source": "snap-snapcraft",
+        "appId": "gradle"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "gradle-profiler-git"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "gradle"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "gradle"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "gradle"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "gradle"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "gradle-unwrapped"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "gradle_8"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "gradle_8-unwrapped"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "gradle_9"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "gradle_9-unwrapped"
+      },
+      {
+        "source": "apk-alpine",
+        "appId": "gradle"
+      },
+      {
+        "source": "xbps-void",
+        "appId": "gradle"
+      },
+      {
+        "source": "eopkg-solus",
+        "appId": "gradle"
+      },
+      {
+        "source": "ebuild-gentoo",
+        "appId": "dev-java/gradle-bin"
+      },
+      {
+        "source": "brew-homebrew",
+        "appId": "gradle"
+      }
+    ],
+    "reason": "Homebrew's gradle-profiler formula (\"Profiling and benchmarking tool for Gradle builds\", github.com/gradle/gradle-profiler) is not gradle (\"An open-source build automation tool\", github.com/snapcrafters/gradle): they only share a name. Found reviewing the Homebrew connector's merges (2026-11-16)."
+  },
+  {
+    "a": [
+      {
+        "source": "brew-homebrew",
+        "appId": "cask/waku"
+      }
+    ],
+    "b": [
+      {
+        "source": "snap-snapcraft",
+        "appId": "waku"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "waku-bin"
+      }
+    ],
+    "reason": "Homebrew's waku cask (\"Native desktop app for coding agents\", waku.sh) is not waku (\"Let's make starting new projects feel like a breeze again.\", waku.ngjx.org): they only share a name. Found reviewing the Homebrew connector's merges (2026-11-16)."
+  },
+  {
+    "a": [
+      {
+        "source": "brew-homebrew",
+        "appId": "omega"
+      }
+    ],
+    "b": [
+      {
+        "source": "snap-snapcraft",
+        "appId": "omega-linux"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "omega"
+      }
+    ],
+    "reason": "Homebrew's omega formula (\"Packaged search engine for websites, built on top of Xapian\", xapian.org) is not Omega (\"The RPG game Omega\", ubuntu.retro-os.live): they only share a name. Found reviewing the Homebrew connector's merges (2026-11-16)."
+  },
+  {
+    "a": [
+      {
+        "source": "brew-homebrew",
+        "appId": "phantom"
+      }
+    ],
+    "b": [
+      {
+        "source": "snap-snapcraft",
+        "appId": "phantom"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "phantom"
+      }
+    ],
+    "reason": "Homebrew's phantom formula (\"CLI tool for seamless parallel development with Git worktrees\", github.com/phantompane/phantom) is not Phantom (\"Phantom server proxy\", github.com/OliverBrotchie/phantom): they only share a name. Found reviewing the Homebrew connector's merges (2026-11-16)."
+  },
+  {
+    "a": [
+      {
+        "source": "brew-homebrew",
+        "appId": "diary"
+      }
+    ],
+    "b": [
+      {
+        "source": "snap-snapcraft",
+        "appId": "diary"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "diary-bin"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "diary-git"
+      }
+    ],
+    "reason": "Homebrew's diary formula (\"Text-based journaling program\", diary.p0c.ch) is not Diary (\"Record  your dilay life, events, emotions, thoughts or feelings and more.\", github.com/anopensourcecoder/diary): they only share a name. Found reviewing the Homebrew connector's merges (2026-11-16)."
+  },
+  {
+    "a": [
+      {
+        "source": "brew-homebrew",
+        "appId": "matcha"
+      }
+    ],
+    "b": [
+      {
+        "source": "snap-snapcraft",
+        "appId": "matcha"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "matcha-bin"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "matcha-git"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "matcha"
+      },
+      {
+        "source": "rpm-opensuse",
+        "appId": "matcha"
+      },
+      {
+        "source": "xbps-void",
+        "appId": "matcha"
+      },
+      {
+        "source": "github-releases",
+        "appId": "kakilangit/matcha"
+      }
+    ],
+    "reason": "Homebrew's matcha formula (\"Daily digest generator for your RSS feeds\", github.com/piqoni/matcha) is not matcha (\"A beautiful and functional email client for your terminal.\", matcha.email): they only share a name. Found reviewing the Homebrew connector's merges (2026-11-16)."
+  },
+  {
+    "a": [
+      {
+        "source": "brew-homebrew",
+        "appId": "leaf"
+      }
+    ],
+    "b": [
+      {
+        "source": "snap-snapcraft",
+        "appId": "leaf"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "leaf-bin"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "leaf-git"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "leaf-markdown-viewer-bin"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "leaf-markdown-viewer"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "leaf"
+      },
+      {
+        "source": "brew-homebrew",
+        "appId": "leaf-markdown-viewer"
+      }
+    ],
+    "reason": "Homebrew's leaf formula (\"General purpose reloader for all projects\", pkg.go.dev/github.com/vrongmeal/leaf) is not Leaf Markdown Viewer (\"Terminal Markdown previewer — GUI-like experience.\", github.com/RivoLink/leaf): they only share a name. Found reviewing the Homebrew connector's merges (2026-11-16)."
+  },
+  {
+    "a": [
+      {
+        "source": "brew-homebrew",
+        "appId": "pear"
+      }
+    ],
+    "b": [
+      {
+        "source": "snap-snapcraft",
+        "appId": "pear-browser"
+      },
+      {
+        "source": "ebuild-gentoo",
+        "appId": "dev-php/pear"
+      }
+    ],
+    "reason": "Homebrew's pear formula (\"Peer-to-peer application runtime\", docs.pears.com) is not Pear (\"Pear\", pear-browser.com): they only share a name. Found reviewing the Homebrew connector's merges (2026-11-16)."
+  },
+  {
+    "a": [
+      {
+        "source": "brew-homebrew",
+        "appId": "skip"
+      }
+    ],
+    "b": [
+      {
+        "source": "snap-snapcraft",
+        "appId": "skip"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "skip"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "skip-git"
+      }
+    ],
+    "reason": "Homebrew's skip formula (\"Tool for building Swift apps for Android\", skip.dev) is not skip (\"SKIP Manager: Let's you skip package management\", nifftytech.github.io/SKIP): they only share a name. Found reviewing the Homebrew connector's merges (2026-11-16)."
+  },
+  {
+    "a": [
+      {
+        "source": "brew-homebrew",
+        "appId": "cf"
+      }
+    ],
+    "b": [
+      {
+        "source": "snap-snapcraft",
+        "appId": "cf"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "cf"
+      }
+    ],
+    "reason": "Homebrew's cf formula (\"Filter to replace numeric timestamps with a formatted date time\", ee.lbl.gov) is not cf (\"The official command line client for Cloud Foundry.\", no homepage): they only share a name. Found reviewing the Homebrew connector's merges (2026-11-16)."
+  },
+  {
+    "a": [
+      {
+        "source": "brew-homebrew",
+        "appId": "conduit"
+      }
+    ],
+    "b": [
+      {
+        "source": "snap-snapcraft",
+        "appId": "conduit"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "conduit"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "conduit-bin"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "conduit"
+      },
+      {
+        "source": "apk-alpine",
+        "appId": "conduit"
+      },
+      {
+        "source": "xbps-void",
+        "appId": "conduit"
+      },
+      {
+        "source": "ebuild-gentoo",
+        "appId": "dev-haskell/conduit"
+      }
+    ],
+    "reason": "Homebrew's conduit formula (\"Streams data between data stores. Kafka Connect replacement. No JVM required\", conduitio.github.io) is not conduit (\"A Matrix homeserver written in Rust\", no homepage): they only share a name. Found reviewing the Homebrew connector's merges (2026-11-16)."
+  },
+  {
+    "a": [
+      {
+        "source": "brew-homebrew",
+        "appId": "cask/dda"
+      }
+    ],
+    "b": [
+      {
+        "source": "snap-snapcraft",
+        "appId": "dda"
+      }
+    ],
+    "reason": "Homebrew's dda cask (\"Tool for developing on the Datadog Agent platform\", github.com/DataDog/datadog-agent) is not dda (\"DuckDuckGo Instant Answers API brought to your terminal\", github.com/nikolskiy/python-duckduckgo): they only share a name. Found reviewing the Homebrew connector's merges (2026-11-16)."
+  },
+  {
+    "a": [
+      {
+        "source": "brew-homebrew",
+        "appId": "eg"
+      }
+    ],
+    "b": [
+      {
+        "source": "snap-snapcraft",
+        "appId": "eg-unofficial"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "eg"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "eg"
+      }
+    ],
+    "reason": "Homebrew's eg formula (\"Expert Guide. Norton Guide Reader For GNU/Linux\", github.com/davep/eg) is not eg (\"Useful examples at the command line\", no homepage): they only share a name. Found reviewing the Homebrew connector's merges (2026-11-16)."
+  },
+  {
+    "a": [
+      {
+        "source": "brew-homebrew",
+        "appId": "raven"
+      }
+    ],
+    "b": [
+      {
+        "source": "snap-snapcraft",
+        "appId": "raven"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "raven"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "raven-bin"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "raven"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "raven"
+      }
+    ],
+    "reason": "Homebrew's raven formula (\"Risk Analysis and Vulnerability Enumeration for CI/CD\", github.com/CycodeLabs/raven) is not raven (\"Ravencoin - assets made easy.\", github.com/RavenProject/Ravencoin): they only share a name. Found reviewing the Homebrew connector's merges (2026-11-16)."
+  },
+  {
+    "a": [
+      {
+        "source": "brew-homebrew",
+        "appId": "spark"
+      }
+    ],
+    "b": [
+      {
+        "source": "snap-snapcraft",
+        "appId": "spark"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "spark"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "spark-git"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "spark"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "spark3"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "spark4"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "spark_3_4"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "spark_3_5"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "spark_4_0"
+      },
+      {
+        "source": "ebuild-gentoo",
+        "appId": "dev-lang/spark"
+      },
+      {
+        "source": "ebuild-gentoo",
+        "appId": "sys-cluster/spark-bin"
+      }
+    ],
+    "reason": "Homebrew's spark formula (\"Sparklines for the shell\", zachholman.com/spark) is not spark (\"Apache Spark\", no homepage): they only share a name. Found reviewing the Homebrew connector's merges (2026-11-16)."
+  },
+  {
+    "a": [
+      {
+        "source": "brew-homebrew",
+        "appId": "nexus"
+      }
+    ],
+    "b": [
+      {
+        "source": "snap-snapcraft",
+        "appId": "nexus"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "nexus-bin"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "nexus"
+      }
+    ],
+    "reason": "Homebrew's nexus formula (\"Repository manager for binary software components\", sonatype.com) is not nexus (\"Full-feature WAMP v2 router and client written in Go\", no homepage): they only share a name. Found reviewing the Homebrew connector's merges (2026-11-16)."
+  },
+  {
+    "a": [
+      {
+        "source": "brew-homebrew",
+        "appId": "copilot"
+      }
+    ],
+    "b": [
+      {
+        "source": "snap-snapcraft",
+        "appId": "co-pilot"
+      }
+    ],
+    "reason": "Homebrew's copilot formula (\"CLI tool for Amazon ECS and AWS Fargate\", aws.github.io/copilot-cli) is not co-pilot (\"Co-pilot is a developer tool for automating common tasks\", devdimensionlab.github.io): they only share a name. Found reviewing the Homebrew connector's merges (2026-11-16)."
+  },
+  {
+    "a": [
+      {
+        "source": "brew-homebrew",
+        "appId": "render"
+      }
+    ],
+    "b": [
+      {
+        "source": "snap-snapcraft",
+        "appId": "render"
+      }
+    ],
+    "reason": "Homebrew's render formula (\"Command-line interface for Render\", render.com/docs/cli) is not render (\"Universal data-driven templates for generating textual output.\", no homepage): they only share a name. Found reviewing the Homebrew connector's merges (2026-11-16)."
+  },
+  {
+    "a": [
+      {
+        "source": "brew-homebrew",
+        "appId": "astra"
+      }
+    ],
+    "b": [
+      {
+        "source": "appimage",
+        "appId": "Boof2015/astra"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "astra"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "astra-music-bin"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "astra-music-git"
+      }
+    ],
+    "reason": "Homebrew's astra formula (\"Command-Line Interface for DataStax Astra\", docs.datastax.com/en/astra-cli) is not Astra (\"Audiophile music player with advanced visualization\", github.com/Boof2015/astra): they only share a name. Found reviewing the Homebrew connector's merges (2026-11-16)."
+  },
+  {
+    "a": [
+      {
+        "source": "brew-homebrew",
+        "appId": "hive"
+      }
+    ],
+    "b": [
+      {
+        "source": "appimage",
+        "appId": "morapelker/hive"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "hive-bin"
+      }
+    ],
+    "reason": "Homebrew's hive formula (\"Hadoop-based data summarization, query, and analysis\", hive.apache.org) is not Hive (\"Native macOS app for managing git worktrees and AI-powered coding sessions\", github.com/morapelker/hive): they only share a name. Found reviewing the Homebrew connector's merges (2026-11-16)."
+  },
+  {
+    "a": [
+      {
+        "source": "brew-homebrew",
+        "appId": "locust"
+      }
+    ],
+    "b": [
+      {
+        "source": "appimage",
+        "appId": "StopBanning/locust"
+      }
+    ],
+    "reason": "Homebrew's locust formula (\"Scalable user load testing tool written in Python\", locust.io) is not Locust (\"Run AI agents as a team you can watch, on the agents and models you choose.\", github.com/StopBanning/locust): they only share a name. Found reviewing the Homebrew connector's merges (2026-11-16)."
+  },
+  {
+    "a": [
+      {
+        "source": "brew-homebrew",
+        "appId": "cask/maestro"
+      }
+    ],
+    "b": [
+      {
+        "source": "appimage",
+        "appId": "RunMaestro/Maestro"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "maestro"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "maestro-bin"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "maestro-git"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "maestro"
+      }
+    ],
+    "reason": "Homebrew's maestro cask (\"AI agent command center\", runmaestro.ai) is not Maestro (\"Maestro hones fractured attention into focused intent.\", github.com/RunMaestro/Maestro): they only share a name. Found reviewing the Homebrew connector's merges (2026-11-16)."
+  },
+  {
+    "a": [
+      {
+        "source": "brew-homebrew",
+        "appId": "opal"
+      }
+    ],
+    "b": [
+      {
+        "source": "appimage",
+        "appId": "CodeDead/opal"
+      },
+      {
+        "source": "appimagehub",
+        "appId": "2012683"
+      }
+    ],
+    "reason": "Homebrew's opal formula (\"Ruby to JavaScript transpiler\", opalrb.com) is not Opal (\"<p>Opal is a free and open-source JavaFX application that can play relaxing music in the b\", github.com/CodeDead/opal): they only share a name. Found reviewing the Homebrew connector's merges (2026-11-16)."
+  },
+  {
+    "a": [
+      {
+        "source": "brew-homebrew",
+        "appId": "sprocket"
+      }
+    ],
+    "b": [
+      {
+        "source": "appimage",
+        "appId": "spikonado/sprocket"
+      }
+    ],
+    "reason": "Homebrew's sprocket formula (\"Bioinformatics workflow engine built on the Workflow Description Language (WDL)\", sprocket.bio) is not Sprocket (\"Sprocket desktop application\", github.com/spikonado/sprocket): they only share a name. Found reviewing the Homebrew connector's merges (2026-11-16)."
+  },
+  {
+    "a": [
+      {
+        "source": "brew-homebrew",
+        "appId": "tt"
+      }
+    ],
+    "b": [
+      {
+        "source": "appimage",
+        "appId": "pm98zz-c/tT"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "tt"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "tt-bin"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "tt"
+      }
+    ],
+    "reason": "Homebrew's tt formula (\"Command-line utility to manage Tarantool applications\", github.com/tarantool/tt) is not tT (\"Simple Time Tracker\", github.com/pm98zz-c/tT): they only share a name. Found reviewing the Homebrew connector's merges (2026-11-16)."
+  },
+  {
+    "a": [
+      {
+        "source": "brew-homebrew",
+        "appId": "aurora"
+      }
+    ],
+    "b": [
+      {
+        "source": "appimagehub",
+        "appId": "2228703"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "aurora"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "aurora-git"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "aurora"
+      },
+      {
+        "source": "github-releases",
+        "appId": "Daturaxoxo/Aurora"
+      }
+    ],
+    "reason": "Homebrew's aurora formula (\"Beanstalkd queue server console\", xuri.me/aurora) is not Aurora (\"Aurora serves as an alternative to Aura Sync for GNU/Linux, offering control over keyboard\", appimagehub.com/p/2228703): they only share a name. Found reviewing the Homebrew connector's merges (2026-11-16)."
+  },
+  {
+    "a": [
+      {
+        "source": "brew-homebrew",
+        "appId": "countdown"
+      }
+    ],
+    "b": [
+      {
+        "source": "pacman-aur",
+        "appId": "countdown"
+      },
+      {
+        "source": "pacman-aur",
+        "appId": "countdown-git"
+      },
+      {
+        "source": "gog",
+        "appId": "countdown"
+      }
+    ],
+    "reason": "Homebrew's countdown formula (\"Terminal countdown timer\", github.com/antonmedv/countdown) is not Countdown (\"\", gog.com/en/game/countdown): they only share a name. Found reviewing the Homebrew connector's merges (2026-11-16)."
+  },
+  {
+    "a": [
+      {
+        "source": "brew-homebrew",
+        "appId": "ffind"
+      }
+    ],
+    "b": [
+      {
+        "source": "pacman-aur",
+        "appId": "ffind"
+      },
+      {
+        "source": "github-releases",
+        "appId": "ArchitAnant/ffind"
+      }
+    ],
+    "reason": "Homebrew's ffind formula (\"Friendlier find\", github.com/sjl/friendly-find) is not ffind (\"ffind is a fast Linux command-line tool for finding files, built on io_uring for maximum e\", github.com/ArchitAnant/ffind/releases/tag/v1.2): they only share a name. Found reviewing the Homebrew connector's merges (2026-11-16)."
+  },
+  {
+    "a": [
+      {
+        "source": "brew-homebrew",
+        "appId": "volt"
+      }
+    ],
+    "b": [
+      {
+        "source": "pacman-aur",
+        "appId": "volt-bin"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "volt"
+      },
+      {
+        "source": "lutris",
+        "appId": "volt-indiegamestand"
+      }
+    ],
+    "reason": "Homebrew's volt formula (\"Meta-level vim package manager\", github.com/vim-volt/volt) is not Volt (\"You were on the way to a recycling process when fortunately for you - and unfortunately fo\", lutris.net/games/volt): they only share a name. Found reviewing the Homebrew connector's merges (2026-11-16)."
+  },
+  {
+    "a": [
+      {
+        "source": "brew-homebrew",
+        "appId": "braid"
+      }
+    ],
+    "b": [
+      {
+        "source": "gog",
+        "appId": "braid"
+      },
+      {
+        "source": "lutris",
+        "appId": "braid-braid-gog"
+      },
+      {
+        "source": "lutris",
+        "appId": "braid-humble-bundle"
+      }
+    ],
+    "reason": "Homebrew's braid formula (\"Simple tool to help track vendor branches in a Git repository\", cristibalan.github.io/braid) is not Braid (\"\", gog.com/en/game/braid): they only share a name. Found reviewing the Homebrew connector's merges (2026-11-16)."
+  },
+  {
+    "a": [
+      {
+        "source": "brew-homebrew",
+        "appId": "dwarf"
+      }
+    ],
+    "b": [
+      {
+        "source": "lutris",
+        "appId": "dwarf-unexpected-launcher"
+      }
+    ],
+    "reason": "Homebrew's dwarf formula (\"Object file manipulation tool\", github.com/elboza/dwarf-ng) is not dWARf (\"dWARf is inspired by dwarf mythology, taking from all registers to create a unique univers\", lutris.net/games/dwarf): they only share a name. Found reviewing the Homebrew connector's merges (2026-11-16)."
+  },
+  {
+    "a": [
+      {
+        "source": "brew-homebrew",
+        "appId": "quran"
+      }
+    ],
+    "b": [
+      {
+        "source": "github-releases",
+        "appId": "TaufiqOf/Quran"
+      }
+    ],
+    "reason": "Homebrew's quran formula (\"Print Qur'an chapters and verses right in the terminal\", git.hanabi.in/quran-go) is not Quran (\"Quran is a cross-platform desktop application. It helps users read and study the Quran wit\", github.com/TaufiqOf/Quran/releases/tag/v0.0.26): they only share a name. Found reviewing the Homebrew connector's merges (2026-11-16)."
+  },
+  {
+    "a": [
+      {
+        "source": "brew-homebrew",
+        "appId": "glom"
+      }
+    ],
+    "b": [
+      {
+        "source": "nix-nixpkgs",
+        "appId": "glom"
+      }
+    ],
+    "reason": "Homebrew's glom formula (\"Declarative object transformer and formatter, for conglomerating nested data\", glom.readthedocs.io/en/latest) is not glom (\"Easy-to-use database designer and user interface\", gitlab.gnome.org/Archive/glom): they only share a name. Found reviewing the Homebrew connector's merges (2026-11-16)."
+  },
+  {
+    "a": [
+      {
+        "source": "brew-homebrew",
+        "appId": "ki"
+      }
+    ],
+    "b": [
+      {
+        "source": "nix-nixpkgs",
+        "appId": "ki"
+      }
+    ],
+    "reason": "Homebrew's ki formula (\"Kotlin Language Interactive Shell\", github.com/Kotlin/kotlin-interactive-shell) is not ki (\"Version control for Anki collections\", github.com/langfield/ki): they only share a name. Found reviewing the Homebrew connector's merges (2026-11-16)."
   }
 ]

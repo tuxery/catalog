@@ -13,11 +13,10 @@ import type { GogCacheEntry } from "./types";
 // parallel one. Deliberately NOT every GOG slug: "fantasy"/"scifi"/
 // "narrative"/"mystery"/"horror"/"historical"/"comedy"/"exploration"/
 // "detective"/"modern"/"combat"/"fpp"/"tpp"/"programming"/"indie"/"casual"
-// are themes/settings/perspectives, not genres, and "racing"/"survival"/
-// "sandbox"/"turnbased"/"realtime" were checked and rejected — racing in
-// particular is a real, legitimate genre with no home in the 10-value
-// taxonomy (see category.ts's own comment on Casino/Casual/Music/Racing/
-// Trivia/Word), not something to force-map to Sports.
+// are themes/settings/perspectives, not genres, and "survival"/"sandbox"/
+// "turnbased"/"realtime" were checked and rejected. Racing and visual
+// novels have no freedesktop key: they map to the `X-` extension keys
+// `categories-games.json` reads for its Racing and Visual Novel genres.
 const GOG_GENRE_SLUG_TO_GENRE_CATEGORY: Record<string, string> = {
   rpg: "RolePlaying",
   jrpg: "RolePlaying",
@@ -33,7 +32,8 @@ const GOG_GENRE_SLUG_TO_GENRE_CATEGORY: Record<string, string> = {
   "hidden-object": "LogicGame",
   adventure: "AdventureGame",
   pointandclick: "AdventureGame",
-  "visual-novel": "AdventureGame",
+  "visual-novel": "X-VisualNovel",
+  racing: "X-Racing",
   platformer: "ArcadeGame",
   arcade: "ArcadeGame",
   metroidvania: "ActionGame",

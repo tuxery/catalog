@@ -16,3 +16,56 @@ jobs:
     with:
       working-directory: .
       node-version: "26"
+
+  # `pnpm audit-matching --check`: builds the dataset from the source caches
+  # and fails when a golden product (config/audit-golden.json) is split
+  # across cards, shares a card with another, or lost an anchor package.
+  # Needs the private caches (src/sources/_shared/cache-path.ts): most
+  # golden products anchor on a Flathub or Snap package. Read on the runner
+  # only: nothing is uploaded, and the log shows only the golden file's own
+  # anchors and the ids of the groups holding them.
+  #
+  # Skipped on Dependabot's PRs (a re-run by someone else included) and on
+  # PRs from forks, which get no Pushinator key: Dependabot only sees
+  # Dependabot secrets, which hold none on purpose, so updated dependencies
+  # never run with read access to the private caches. Without them the
+  # check would only report every private anchor as missing.
+  golden:
+    name: Golden matching check
+    if: >-
+      github.actor != 'dependabot[bot]' &&
+      github.event.pull_request.user.login != 'dependabot[bot]' &&
+      (github.event_name != 'pull_request' ||
+      github.event.pull_request.head.repo.full_name == github.repository)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - uses: helpers4/action/setup-pnpm@6fddd178620e7325d446a246c38a44f979569fc4 # main @ 2026-07-29
+        with:
+          node-version: "26"
+
+      - name: Mint a read-only token for the private source caches
+        id: pushinator
+        uses: actions/create-github-app-token@64ab729a6294000f5aa4a4bc0b73d1f32bc45510 # v3.2.0 @ 2026-10-02
+        with:
+          client-id: ${{ vars.PUSHINATOR_ID || secrets.PUSHINATOR_ID }}
+          private-key: ${{ secrets.PUSHINATOR_KEY }}
+          repositories: source-cache
+          permission-contents: read
+
+      - name: Check out the private source caches
+        uses: actions/checkout@v7
+        with:
+          repository: tuxery/source-cache
+          token: ${{ steps.pushinator.outputs.token }}
+          path: source-cache-private
+          persist-credentials: false
+
+      - name: Check the golden products
+        env:
+          TUXERY_PRIVATE_CACHE_DIR: ${{ github.workspace }}/source-cache-private/cache
+        run: pnpm audit-matching --check

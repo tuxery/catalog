@@ -378,9 +378,9 @@ function countByCategory(apps: AppRecord[]): CategoryCount[] {
   return result;
 }
 
-// Mirrors `app`'s `TRENDING_PAGE_SIZE`/`CATEGORY_PREVIEW_SIZE` (src/catalog.ts)
-// — kept in sync by hand, like every other cross-repo constant this
-// incident's fixes reference (no shared package between `catalog` and `app`).
+// `app`'s `TRENDING_PAGE_SIZE`/`CATEGORY_PREVIEW_SIZE` (src/catalog.ts): both
+// sides are pinned to `listingSizes` in store-contract.json
+// (store-contract.spec.ts here), the two repos sharing no package.
 const TRENDING_PAGE_SIZE = 60;
 const CATEGORY_PREVIEW_SIZE = 12;
 
@@ -598,7 +598,8 @@ function computeListingIds(apps: AppRecord[]): Record<string, string[]> {
  * (...)` — stored under `listingRows:<listing key>` so a homepage row, the
  * /apps and /games trending grids or a source's trending row cost one
  * `meta` row read instead of one row per app (60 for a trending list).
- * Column names mirror `app`'s `SUMMARY_COLUMNS` (src/catalog.ts) by hand,
+ * Column names are `app`'s `SUMMARY_COLUMNS` (src/catalog.ts), both pinned to
+ * store-contract.json's `summaryColumns`,
  * so `app` runs each row through its existing `toSummary()` unchanged —
  * the summary logic (ratings by source, builds, verified sources) stays
  * in `app` only. `packages_json` is cut down to the package fields
@@ -687,7 +688,7 @@ const SOURCE_IDS_CHUNK_SIZE = 500;
 
 type InterfaceFilterValue = "all" | "gui" | "cli";
 
-/** Mirrored by hand in `app`'s `browse-keys.ts` — both sides must agree on the exact string. `source`/`category` are `*` when the filter isn't set; the category comes last because it's the only part that may itself contain ":". */
+/** Format pinned by store-contract.json, which `app`'s `browse-keys.ts` follows too — both sides must agree on the exact string. `source`/`category` are `*` when the filter isn't set; the category comes last because it's the only part that may itself contain ":". */
 function countKey(
   generation: string,
   interfaceFilter: InterfaceFilterValue,
@@ -703,7 +704,7 @@ function countKey(
  * (`licenseKind: "free"`) — `/browse`'s "free software only" filter. A
  * separate prefix rather than a new segment, so `count:` keys and the app
  * code reading them stay as they are; `browseKeys.freeCounts` tells `app`
- * these exist. Mirrored by hand in `app`'s `browse-keys.ts`.
+ * these exist. Format pinned by store-contract.json, like `app`'s `browse-keys.ts`.
  */
 function freeCountKey(
   generation: string,
@@ -822,7 +823,7 @@ export function byPopularFirst(
   );
 }
 
-/** Mirrored by hand in `app`'s `browse-keys.ts`. The category goes last: it may itself contain ":". */
+/** Format pinned by store-contract.json, like `app`'s `browse-keys.ts`. The category goes last: it may itself contain ":". */
 export function categoryIdsChunkKey(generation: string, index: number, category: string): string {
   return `categoryIds:${generation}:${index}:${category}`;
 }

@@ -14,7 +14,7 @@ describe("categoryFromAurKeywords", () => {
   it("maps verified AUR keywords to their app-taxonomy category", () => {
     expect(categoryFromAurKeywords(pkg({ keywords: ["emulator"] }))).toBe("System Tools");
     expect(categoryFromAurKeywords(pkg({ keywords: ["backup"] }))).toBe("System Tools");
-    expect(categoryFromAurKeywords(pkg({ keywords: ["minecraft"] }))).toBe("System Tools");
+    expect(categoryFromAurKeywords(pkg({ keywords: ["minecraft"] }))).toBe("Gaming Tools");
     expect(categoryFromAurKeywords(pkg({ keywords: ["docker"] }))).toBe("Developer Tools");
     expect(categoryFromAurKeywords(pkg({ keywords: ["vpn"] }))).toBe("Security");
     expect(categoryFromAurKeywords(pkg({ keywords: ["calculator"] }))).toBe("Utilities");
@@ -24,9 +24,7 @@ describe("categoryFromAurKeywords", () => {
     expect(categoryFromAurKeywords(pkg({ keywords: ["music"] }))).toBe("Music & Audio");
     expect(categoryFromAurKeywords(pkg({ keywords: ["ttf"] }))).toBe("Graphics & Design");
     expect(categoryFromAurKeywords(pkg({ keywords: ["icons"] }))).toBe("Graphics & Design");
-    expect(categoryFromAurKeywords(pkg({ keywords: ["telegram"] }))).toBe(
-      "Internet & Communication",
-    );
+    expect(categoryFromAurKeywords(pkg({ keywords: ["telegram"] }))).toBe("Messaging & Calls");
   });
 
   it("maps the 2026-09-04 keyword additions (finance, radio, science, security, battery, todo)", () => {
@@ -35,11 +33,9 @@ describe("categoryFromAurKeywords", () => {
     expect(categoryFromAurKeywords(pkg({ keywords: ["bitcoin"] }))).toBe("Finance");
     expect(categoryFromAurKeywords(pkg({ keywords: ["blockchain"] }))).toBe("Finance");
     expect(categoryFromAurKeywords(pkg({ keywords: ["accounting"] }))).toBe("Finance");
-    expect(categoryFromAurKeywords(pkg({ keywords: ["ham"] }))).toBe("Internet & Communication");
-    expect(categoryFromAurKeywords(pkg({ keywords: ["hamradio"] }))).toBe(
-      "Internet & Communication",
-    );
-    expect(categoryFromAurKeywords(pkg({ keywords: ["sdr"] }))).toBe("Internet & Communication");
+    expect(categoryFromAurKeywords(pkg({ keywords: ["ham"] }))).toBe("Networking");
+    expect(categoryFromAurKeywords(pkg({ keywords: ["hamradio"] }))).toBe("Networking");
+    expect(categoryFromAurKeywords(pkg({ keywords: ["sdr"] }))).toBe("Networking");
     expect(categoryFromAurKeywords(pkg({ keywords: ["astronomy"] }))).toBe("Science");
     expect(categoryFromAurKeywords(pkg({ keywords: ["encryption"] }))).toBe("Security");
     expect(categoryFromAurKeywords(pkg({ keywords: ["password"] }))).toBe("Security");
@@ -82,9 +78,9 @@ describe("gameGenreFromAurKeywords", () => {
     expect(gameGenreFromAurKeywords(pkg({ keywords: ["strategy"] }))).toBe("Strategy");
     expect(gameGenreFromAurKeywords(pkg({ keywords: ["puzzle"] }))).toBe("Puzzle");
     expect(gameGenreFromAurKeywords(pkg({ keywords: ["arcade"] }))).toBe("Arcade");
-    expect(gameGenreFromAurKeywords(pkg({ keywords: ["fps"] }))).toBe("Action");
+    expect(gameGenreFromAurKeywords(pkg({ keywords: ["fps"] }))).toBe("Shooter");
     expect(gameGenreFromAurKeywords(pkg({ keywords: ["simulation"] }))).toBe("Simulation");
-    expect(gameGenreFromAurKeywords(pkg({ keywords: ["racing"] }))).toBe("Sports");
+    expect(gameGenreFromAurKeywords(pkg({ keywords: ["racing"] }))).toBe("Racing");
     expect(gameGenreFromAurKeywords(pkg({ keywords: ["adventure"] }))).toBe("Adventure");
     expect(gameGenreFromAurKeywords(pkg({ keywords: ["boardgame"] }))).toBe("Board & Cards");
   });

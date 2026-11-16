@@ -12,6 +12,14 @@ describe("LlmClassificationsListSchema", () => {
     expect(parsed.success).toBe(true);
   });
 
+  it("accepts a legacy app category, which stored verdicts still carry", () => {
+    expect(
+      LlmClassificationsListSchema.safeParse([
+        { id: "a:1", type: "app", category: "Internet & Communication", ...base },
+      ]).success,
+    ).toBe(true);
+  });
+
   it("rejects a game genre on an app and an app category on a game", () => {
     expect(
       LlmClassificationsListSchema.safeParse([
@@ -55,9 +63,31 @@ describe("llmClassificationMap", () => {
       { id: "l:1", type: "library", ...base },
       { id: "a:2", type: "app", category: "Utilities", ...base, confidence: "low" },
     ]);
-    expect(map.get("a:1")).toEqual({ type: "app", category: "Utilities", confidence: "high" });
-    expect(map.get("g:1")).toEqual({ type: "game", category: "Puzzle", confidence: "medium" });
-    expect(map.get("l:1")).toEqual({ type: "library", category: undefined, confidence: "high" });
+    expect(map.get("a:1")).toEqual({
+      type: "app",
+      category: "Utilities",
+      confidence: "high",
+      reason: "test",
+    });
+    expect(map.get("g:1")).toEqual({
+      type: "game",
+      category: "Puzzle",
+      confidence: "medium",
+      reason: "test",
+    });
+    expect(map.get("l:1")).toEqual({
+      type: "library",
+      category: undefined,
+      confidence: "high",
+      reason: "test",
+    });
     expect(map.has("a:2")).toBe(false);
+  });
+
+  it("translates a legacy app category to the label it became", () => {
+    const map = llmClassificationMap([
+      { id: "a:1", type: "app", category: "Internet & Communication", ...base },
+    ]);
+    expect(map.get("a:1")?.category).toBe("Networking");
   });
 });

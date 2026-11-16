@@ -23,13 +23,13 @@ describe("matchDescriptionCategoryRule", () => {
     const ordered: DescriptionCategoryRuleEntry[] = [
       {
         pattern: "\\bmusic player\\b.*\\bstreaming\\b",
-        category: "Internet & Communication",
+        category: "File Sharing & Downloads",
         reason: "test",
       },
       { pattern: "\\bmusic player\\b", category: "Music & Audio", reason: "test" },
     ];
     expect(matchDescriptionCategoryRule("A music player with streaming support", ordered)).toBe(
-      "Internet & Communication",
+      "File Sharing & Downloads",
     );
   });
 

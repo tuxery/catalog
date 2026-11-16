@@ -6,8 +6,8 @@
   },
   {
     "pattern": "proton*",
-    "category": "Utilities",
-    "reason": "Proton (Valve's own Wine fork) and its real variants/managers — proton-cachyos-native, ProtonUp-Qt, ProtonPlus, ... — same Windows-compatibility-layer family as wine*, verified live."
+    "category": "Gaming Tools",
+    "reason": "Proton (Valve's own Wine fork) and its real variants/managers — proton-cachyos-native, ProtonUp-Qt, ProtonPlus, ... — same Windows-compatibility-layer family as wine*, verified live. Filed under Gaming Tools with the other launchers and compatibility tools for games."
   },
   {
     "pattern": "bottles*",
@@ -16,13 +16,13 @@
   },
   {
     "pattern": "lutris*",
-    "category": "Utilities",
-    "reason": "Lutris, a real standalone open-gaming-platform launcher, plus its real build variants/frontends (lutris-unwrapped, lutris-gamepad-ui-git, ...)."
+    "category": "Gaming Tools",
+    "reason": "Lutris, a real standalone open-gaming-platform launcher, plus its real build variants/frontends (lutris-unwrapped, lutris-gamepad-ui-git, ...). Filed under Gaming Tools with the other launchers and compatibility tools for games."
   },
   {
     "pattern": "steam*",
-    "category": "Utilities",
-    "reason": "Steam and its real companion launchers/tools (Steam Link, steam-appimage, steam-acolyte, ...) — same \"Windows/game-launching tooling\" family as wine*/proton*/lutris*/bottles*."
+    "category": "Gaming Tools",
+    "reason": "Steam and its real companion launchers/tools (Steam Link, steam-appimage, steam-acolyte, ...) — same \"Windows/game-launching tooling\" family as wine*/proton*/lutris*/bottles*. Filed under Gaming Tools with the other launchers and compatibility tools for games."
   },
   {
     "pattern": "brother-*",
@@ -271,17 +271,17 @@
   },
   {
     "pattern": "asterisk-*",
-    "category": "Internet & Communication",
-    "reason": "Asterisk's own telephony-module ecosystem — matches freedesktop's own Telephony/TelephonyTools keys, already mapped to Internet & Communication."
+    "category": "Messaging & Calls",
+    "reason": "Asterisk's own telephony-module ecosystem — matches freedesktop's own Telephony/TelephonyTools keys, mapped to Messaging & Calls."
   },
   {
     "pattern": "kamailio-*",
-    "category": "Internet & Communication",
+    "category": "Messaging & Calls",
     "reason": "Kamailio (a real SIP server)'s own module ecosystem, same reasoning as asterisk-*."
   },
   {
     "pattern": "opensips-*",
-    "category": "Internet & Communication",
+    "category": "Messaging & Calls",
     "reason": "OpenSIPS (a real SIP server)'s own module ecosystem, same reasoning as asterisk-*."
   },
   {
@@ -341,8 +341,8 @@
   },
   {
     "pattern": "proftpd-*",
-    "category": "Internet & Communication",
-    "reason": "ProFTPD (a real FTP server)'s own module ecosystem — matches freedesktop's own FileTransfer key, already mapped to Internet & Communication."
+    "category": "File Sharing & Downloads",
+    "reason": "ProFTPD (a real FTP server)'s own module ecosystem — matches freedesktop's own FileTransfer key, mapped to File Sharing & Downloads."
   },
   {
     "pattern": "idris-*",
@@ -541,22 +541,22 @@
   },
   {
     "pattern": "nextcloud-*",
-    "category": "Internet & Communication",
+    "category": "File Sharing & Downloads",
     "reason": "Nextcloud's own app ecosystem (nextcloud-app-calendar_resource_management, nextcloud-app-oidc, ...) — cloud collaboration/communication software."
   },
   {
     "pattern": "chromium-*",
-    "category": "Internet & Communication",
-    "reason": "Chromium's own extension ecosystem — matches freedesktop's own WebBrowser key, already mapped to Internet & Communication."
+    "category": "Web Browsers",
+    "reason": "Chromium's own extension ecosystem — matches freedesktop's own WebBrowser key, mapped to Web Browsers."
   },
   {
     "pattern": "claws-*",
-    "category": "Internet & Communication",
+    "category": "Email",
     "reason": "Claws Mail's own plugin ecosystem (claws-mail-plugins-rssyl, claws-mail-bsfilter-plugin, ...) — email client tooling."
   },
   {
     "pattern": "pidgin-*",
-    "category": "Internet & Communication",
+    "category": "Messaging & Calls",
     "reason": "Pidgin's own plugin ecosystem (pidgin-sipe-git, pidgin-meshtastic-git, ...) — instant-messaging client tooling."
   },
   {
@@ -746,8 +746,8 @@
   },
   {
     "pattern": "firefox-*",
-    "category": "Internet & Communication",
-    "reason": "Firefox's own extension ecosystem — matches freedesktop's own WebBrowser key, already mapped to Internet & Communication."
+    "category": "Web Browsers",
+    "reason": "Firefox's own extension ecosystem — matches freedesktop's own WebBrowser key, mapped to Web Browsers."
   },
   {
     "pattern": "gtk-*",
@@ -791,7 +791,7 @@
   },
   {
     "pattern": "leechcraft-*",
-    "category": "Internet & Communication",
+    "category": "Networking",
     "reason": "LeechCraft (a real modular internet client)'s own module ecosystem."
   },
   {
@@ -801,7 +801,7 @@
   },
   {
     "pattern": "freeswitch-*",
-    "category": "Internet & Communication",
+    "category": "Messaging & Calls",
     "reason": "FreeSWITCH's own telephony module/sound ecosystem, same reasoning as asterisk-*/kamailio-*."
   },
   {
@@ -946,7 +946,7 @@
   },
   {
     "pattern": "dovecot-*",
-    "category": "Internet & Communication",
+    "category": "Email",
     "reason": "Dovecot (a real IMAP/POP3 mail server)'s own plugin ecosystem, same reasoning as claws-*/pidgin-*."
   },
   {
@@ -1036,7 +1036,7 @@
   },
   {
     "pattern": "youtube-*",
-    "category": "Internet & Communication",
+    "category": "File Sharing & Downloads",
     "reason": "YouTube-client tooling (youtube-tv-desktop-app, youtube-upload-git, youtube-tui, ...) — web-service client software."
   },
   {
@@ -1086,7 +1086,7 @@
   },
   {
     "pattern": "matrix-*",
-    "category": "Internet & Communication",
+    "category": "Messaging & Calls",
     "reason": "Matrix protocol clients/servers (matrix-commander-gael, matrix-tuwunel, ...) — real chat/communication software."
   },
   {
@@ -1191,7 +1191,7 @@
   },
   {
     "pattern": "nextcloud3*",
-    "category": "Internet & Communication",
+    "category": "File Sharing & Downloads",
     "reason": "Nextcloud's own per-major-version app-name prefix (nextcloud32-recommendations, nextcloud33-activity, ...), same reasoning as nextcloud-*."
   },
   {
@@ -1206,7 +1206,7 @@
   },
   {
     "pattern": "evolution-*",
-    "category": "Internet & Communication",
+    "category": "Email",
     "reason": "GNOME Evolution's own plugin ecosystem (evolution-quill, evolution-plugin-spamassassin, ...), same reasoning as claws-*/dovecot-*."
   },
   {
@@ -1221,7 +1221,7 @@
   },
   {
     "pattern": "discord-*",
-    "category": "Internet & Communication",
+    "category": "Messaging & Calls",
     "reason": "Discord-related client/tooling ecosystem (discord-ptb, discord-chat-exporter-cli, ...)."
   },
   {
@@ -1236,7 +1236,7 @@
   },
   {
     "pattern": "baresip-*",
-    "category": "Internet & Communication",
+    "category": "Messaging & Calls",
     "reason": "baresip (a real modular SIP user-agent)'s own module ecosystem, same telephony reasoning as asterisk-*/kamailio-*."
   },
   {
@@ -1261,8 +1261,8 @@
   },
   {
     "pattern": "osmo-*",
-    "category": "Internet & Communication",
-    "reason": "Osmocom's own mobile/telecom-protocol-stack ecosystem (osmo-bsc, osmo-pcu, ...) — matches freedesktop's own Telephony key, already mapped to Internet & Communication."
+    "category": "Networking",
+    "reason": "Osmocom's own mobile/telecom-protocol-stack ecosystem (osmo-bsc, osmo-pcu, ...): cellular network infrastructure, not a calling app."
   },
   {
     "pattern": "remmina-*",
@@ -1316,7 +1316,7 @@
   },
   {
     "pattern": "yt-*",
-    "category": "Internet & Communication",
+    "category": "File Sharing & Downloads",
     "reason": "yt-dlp/youtube-dl-based client tooling (yt-dlg, yt-cli, yt-beats, ...), same reasoning as youtube-*."
   },
   {
@@ -1366,12 +1366,12 @@
   },
   {
     "pattern": "thunderbird-*",
-    "category": "Internet & Communication",
+    "category": "Email",
     "reason": "Thunderbird's own extension ecosystem, same reasoning as firefox-*."
   },
   {
     "pattern": "akonadi-*",
-    "category": "Internet & Communication",
+    "category": "Email",
     "reason": "Akonadi (KDE's PIM storage framework)'s own backend ecosystem — mail/contacts/calendar storage, same family as evolution-*/dovecot-*."
   },
   {
@@ -1451,7 +1451,7 @@
   },
   {
     "pattern": "prosody-*",
-    "category": "Internet & Communication",
+    "category": "Messaging & Calls",
     "reason": "Prosody (a real XMPP server)'s own module ecosystem, same reasoning as freeswitch-*/kamailio-*."
   },
   {
@@ -1466,7 +1466,7 @@
   },
   {
     "pattern": "silo-*",
-    "category": "Internet & Communication",
+    "category": "Networking",
     "reason": "Real standalone single-site-shell wrapper apps for web services (silo-whatsapp, silo-telegram, silo-office365, silo-primevideo, ...)."
   },
   {
@@ -1481,7 +1481,7 @@
   },
   {
     "pattern": "weechat-*",
-    "category": "Internet & Communication",
+    "category": "Messaging & Calls",
     "reason": "WeeChat (a real IRC client)'s own script/plugin ecosystem."
   },
   {
@@ -1611,7 +1611,7 @@
   },
   {
     "pattern": "purple-*",
-    "category": "Internet & Communication",
+    "category": "Messaging & Calls",
     "reason": "libpurple's own protocol-plugin ecosystem (purple-discord-git, purple-teams-git, ...) — instant-messaging infrastructure, same family as pidgin-*."
   },
   {
@@ -1666,7 +1666,7 @@
   },
   {
     "pattern": "kube",
-    "category": "Internet & Communication",
+    "category": "Email",
     "reason": "Kube, a real standalone KDE groupware/PIM client (\"based on QtQuick and Sink\") — genuinely unrelated to the huge Kubernetes ecosystem below despite the identical bare name, so this exact-match entry must stay ordered before kube* to win first."
   },
   {
@@ -1686,7 +1686,7 @@
   },
   {
     "pattern": "psi-plus*",
-    "category": "Internet & Communication",
+    "category": "Messaging & Calls",
     "reason": "Psi+, a real standalone XMPP messenger client, plus its own plugin/resource ecosystem (psi-plus-mediaplugin, psi-plus-resources, ...) — bare \"psi-*\" itself is too heterogeneous to classify in one go (an unrelated pressure-stall-information notifier, a probabilistic-programming research tool, and unrelated LV2 audio plugins all share the prefix), so this stays scoped to the psi-plus sub-family specifically. Verified live: 6 real matches."
   },
   {
@@ -1741,7 +1741,7 @@
   },
   {
     "pattern": "wl-beta",
-    "category": "Internet & Communication",
+    "category": "Email",
     "reason": "Wanderlust, a real standalone Emacs mail/news reader (\"wl\" is its own name, unrelated to the Wayland wl-* prefix below) — this exact-match entry must stay ordered before wl-* to win first."
   },
   {
@@ -1846,7 +1846,7 @@
   },
   {
     "pattern": "znc*",
-    "category": "Internet & Communication",
+    "category": "Messaging & Calls",
     "reason": "ZNC, a real standalone advanced IRC bouncer, plus its module ecosystem (znc-backlog, znc-chanfilter-git, ...) — verified live: 25 real matches, zero unrelated collisions."
   },
   {
@@ -1886,7 +1886,7 @@
   },
   {
     "pattern": "transmission*",
-    "category": "Internet & Communication",
+    "category": "File Sharing & Downloads",
     "reason": "The Transmission BitTorrent client across its many real GUI/CLI frontends, forks, and companion tools (transmission-gtk, transmission-qt, transmissionic-bin, transmission-web-control-git, ...) — verified live: 29 real matches, zero unrelated collisions."
   },
   {
@@ -1901,7 +1901,7 @@
   },
   {
     "pattern": "nfs-browser-bin",
-    "category": "Internet & Communication",
+    "category": "Networking",
     "reason": "方德安全浏览器 (\"FSecure Browser\"), a real Chinese web browser — genuinely unrelated to the NFS network-filesystem family below despite sharing the nfs- prefix, so this exact-match entry must stay ordered before nfs-* to win first."
   },
   {
@@ -1951,7 +1951,7 @@
   },
   {
     "pattern": "elm",
-    "category": "Internet & Communication",
+    "category": "Email",
     "reason": "The Elm Mail System, a real standalone terminal mail client (Slackware/AUR) — genuinely unrelated to the Elm programming-language toolchain above despite the shared bare name, now correctly split into its own group by the new config/match-deny.json/match-force.json entries."
   },
   {
@@ -2361,12 +2361,12 @@
   },
   {
     "pattern": "unifi-lts",
-    "category": "Internet & Communication",
+    "category": "Networking",
     "reason": "Ubiquiti UniFi network controller, LTS release line."
   },
   {
     "pattern": "unifi-lts-data",
-    "category": "Internet & Communication",
+    "category": "Networking",
     "reason": "Shared data files for the UniFi controller LTS package."
   },
   {
@@ -2481,8 +2481,8 @@
   },
   {
     "pattern": "opera-stable",
-    "category": "Internet & Communication",
-    "reason": "The Opera web browser, stable channel — same family as other Opera builds already classified Internet & Communication."
+    "category": "Web Browsers",
+    "reason": "The Opera web browser, stable channel — same family as other Opera builds already classified Web Browsers."
   },
   {
     "pattern": "solus-sc",
@@ -2596,7 +2596,7 @@
   },
   {
     "pattern": "gnumail",
-    "category": "Internet & Communication",
+    "category": "Email",
     "reason": "Full-featured email client for the GNUstep desktop."
   },
   {
@@ -2656,7 +2656,7 @@
   },
   {
     "pattern": "mintchat",
-    "category": "Internet & Communication",
+    "category": "Messaging & Calls",
     "reason": "Chat integration component for Linux Mint."
   },
   {
@@ -2696,7 +2696,7 @@
   },
   {
     "pattern": "mintupload",
-    "category": "Internet & Communication",
+    "category": "File Sharing & Downloads",
     "reason": "Uploads files to the internet from Linux Mint."
   },
   {
@@ -2756,12 +2756,12 @@
   },
   {
     "pattern": "get_flash_videos",
-    "category": "Internet & Communication",
+    "category": "File Sharing & Downloads",
     "reason": "Downloads Flash videos from web pages -- a media downloader tool."
   },
   {
     "pattern": "get-flash-videos",
-    "category": "Internet & Communication",
+    "category": "File Sharing & Downloads",
     "reason": "Downloads Flash videos from web pages -- a media downloader tool."
   },
   {
@@ -2851,12 +2851,12 @@
   },
   {
     "pattern": "lightspark",
-    "category": "Internet & Communication",
+    "category": "Web Browsers",
     "reason": "Open source Flash Player implementation for rendering web Flash content."
   },
   {
     "pattern": "lightspark-git",
-    "category": "Internet & Communication",
+    "category": "Web Browsers",
     "reason": "Open source Flash Player implementation for rendering web Flash content."
   },
   {
@@ -2901,18 +2901,18 @@
   },
   {
     "pattern": "megasync",
-    "category": "Internet & Communication",
-    "reason": "Official MEGA cloud-storage sync client, same cloud-storage/file-sync family already mapped to Internet & Communication."
+    "category": "File Sharing & Downloads",
+    "reason": "Official MEGA cloud-storage sync client, same cloud-storage/file-sync family mapped to File Sharing & Downloads."
   },
   {
     "pattern": "megasync-bin",
-    "category": "Internet & Communication",
-    "reason": "Official MEGA cloud-storage sync client, same cloud-storage/file-sync family already mapped to Internet & Communication."
+    "category": "File Sharing & Downloads",
+    "reason": "Official MEGA cloud-storage sync client, same cloud-storage/file-sync family mapped to File Sharing & Downloads."
   },
   {
     "pattern": "megasync-git",
-    "category": "Internet & Communication",
-    "reason": "Official MEGA cloud-storage sync client, same cloud-storage/file-sync family already mapped to Internet & Communication."
+    "category": "File Sharing & Downloads",
+    "reason": "Official MEGA cloud-storage sync client, same cloud-storage/file-sync family mapped to File Sharing & Downloads."
   },
   {
     "pattern": "meka",
@@ -2926,7 +2926,7 @@
   },
   {
     "pattern": "mimms",
-    "category": "Internet & Communication",
+    "category": "File Sharing & Downloads",
     "reason": "Downloads media streams over the MMS protocol -- a network media downloader."
   },
   {
@@ -3051,7 +3051,7 @@
   },
   {
     "pattern": "smtube",
-    "category": "Internet & Communication",
+    "category": "Networking",
     "reason": "Browse, search and play YouTube videos -- a web video client."
   },
   {
@@ -3061,17 +3061,17 @@
   },
   {
     "pattern": "streamlink-twitch-gui",
-    "category": "Internet & Communication",
+    "category": "Networking",
     "reason": "Multi-platform Twitch.tv browser client for Streamlink."
   },
   {
     "pattern": "streamlink-twitch-gui-bin",
-    "category": "Internet & Communication",
+    "category": "Networking",
     "reason": "Multi-platform Twitch.tv browser client for Streamlink."
   },
   {
     "pattern": "streamlink-twitch-gui-git",
-    "category": "Internet & Communication",
+    "category": "Networking",
     "reason": "Multi-platform Twitch.tv browser client for Streamlink."
   },
   {
@@ -3156,12 +3156,12 @@
   },
   {
     "pattern": "webapp-manager-git",
-    "category": "Internet & Communication",
+    "category": "Web Browsers",
     "reason": "Runs websites as standalone desktop apps -- a web-content integration tool."
   },
   {
     "pattern": "webapp-manager",
-    "category": "Internet & Communication",
+    "category": "Web Browsers",
     "reason": "Runs websites as standalone desktop apps -- a web-content integration tool."
   },
   {
@@ -3176,7 +3176,7 @@
   },
   {
     "pattern": "xvst",
-    "category": "Internet & Communication",
+    "category": "File Sharing & Downloads",
     "reason": "GUI tool for downloading videos from sites like YouTube and GoogleVideo."
   },
   {
@@ -3291,7 +3291,7 @@
   },
   {
     "pattern": "amule-nogui",
-    "category": "Internet & Communication",
+    "category": "File Sharing & Downloads",
     "reason": "Headless components of the aMule P2P file-sharing client, for running on servers."
   },
   {
@@ -3311,7 +3311,7 @@
   },
   {
     "pattern": "mmsrip",
-    "category": "Internet & Communication",
+    "category": "File Sharing & Downloads",
     "reason": "Downloader for the proprietary MMS:// streaming protocol."
   },
   {
@@ -3436,13 +3436,13 @@
   },
   {
     "pattern": "Minecraft Launcher",
-    "category": "Utilities",
-    "reason": "The official Minecraft Launcher -- game-launcher family, same as Wine/Proton/Lutris precedent, non-game contentType already."
+    "category": "Gaming Tools",
+    "reason": "The official Minecraft Launcher -- game-launcher family, same as Wine/Proton/Lutris precedent, non-game contentType already. Filed under Gaming Tools with the other launchers and compatibility tools for games."
   },
   {
     "pattern": "minecraft-launcher",
-    "category": "Utilities",
-    "reason": "The official Minecraft Launcher -- game-launcher family, same as Wine/Proton/Lutris precedent, non-game contentType already."
+    "category": "Gaming Tools",
+    "reason": "The official Minecraft Launcher -- game-launcher family, same as Wine/Proton/Lutris precedent, non-game contentType already. Filed under Gaming Tools with the other launchers and compatibility tools for games."
   },
   {
     "pattern": "Okta CLI",
@@ -3531,12 +3531,12 @@
   },
   {
     "pattern": "DroidStar",
-    "category": "Internet & Communication",
+    "category": "Networking",
     "reason": "A digital voice client for amateur radio networks (D-STAR/DMR/etc)."
   },
   {
     "pattern": "droidstar-git",
-    "category": "Internet & Communication",
+    "category": "Networking",
     "reason": "A digital voice client for amateur radio networks (D-STAR/DMR/etc)."
   },
   {
@@ -3771,22 +3771,22 @@
   },
   {
     "pattern": "MEGAcmd",
-    "category": "Internet & Communication",
+    "category": "File Sharing & Downloads",
     "reason": "MEGA's official command-line client for their cloud storage service -- a cloud-sync/file-transfer tool."
   },
   {
     "pattern": "megacmd",
-    "category": "Internet & Communication",
+    "category": "File Sharing & Downloads",
     "reason": "MEGA's official command-line client for their cloud storage service -- a cloud-sync/file-transfer tool."
   },
   {
     "pattern": "megacmd-bin",
-    "category": "Internet & Communication",
+    "category": "File Sharing & Downloads",
     "reason": "MEGA's official command-line client for their cloud storage service -- a cloud-sync/file-transfer tool."
   },
   {
     "pattern": "lamco-rdp-server",
-    "category": "Internet & Communication",
+    "category": "Networking",
     "reason": "A native Wayland RDP (remote desktop) server -- a remote-access networking tool."
   },
   {
@@ -3816,22 +3816,22 @@
   },
   {
     "pattern": "Beeper",
-    "category": "Internet & Communication",
+    "category": "Messaging & Calls",
     "reason": "A unified inbox aggregating iMessage, WhatsApp, Signal, Telegram, Instagram and more -- a messaging tool."
   },
   {
     "pattern": "beeper-bin",
-    "category": "Internet & Communication",
+    "category": "Messaging & Calls",
     "reason": "A unified inbox aggregating iMessage, WhatsApp, Signal, Telegram, Instagram and more -- a messaging tool."
   },
   {
     "pattern": "beeper-nightly-bin",
-    "category": "Internet & Communication",
+    "category": "Messaging & Calls",
     "reason": "A unified inbox aggregating iMessage, WhatsApp, Signal, Telegram, Instagram and more -- a messaging tool."
   },
   {
     "pattern": "beeper-v4-bin",
-    "category": "Internet & Communication",
+    "category": "Messaging & Calls",
     "reason": "A unified inbox aggregating iMessage, WhatsApp, Signal, Telegram, Instagram and more -- a messaging tool."
   },
   {
@@ -3901,7 +3901,7 @@
   },
   {
     "pattern": "cgoban",
-    "category": "Internet & Communication",
+    "category": "Networking",
     "reason": "An SGF editor and client for connecting to Internet Go servers (IGS) to play Go online -- a network game-client tool."
   },
   {
@@ -4271,12 +4271,12 @@
   },
   {
     "pattern": "mautrix*",
-    "category": "Internet & Communication",
+    "category": "Messaging & Calls",
     "reason": "Matrix bridges (mautrix-telegram/discord/signal/whatsapp/slack/bluesky/...) -- verified live: every mautrix-* name in the AUR is a Matrix bridge service, unambiguously messaging tooling."
   },
   {
     "pattern": "jitsi*",
-    "category": "Internet & Communication",
+    "category": "Messaging & Calls",
     "reason": "Jitsi Meet video-conferencing and its server components (prosody/turnserver/desktop) -- verified live: every jitsi-* name is Jitsi conferencing tooling."
   },
   {
@@ -4356,7 +4356,7 @@
   },
   {
     "pattern": "roundcubemail*",
-    "category": "Internet & Communication",
+    "category": "Email",
     "reason": "Roundcube webmail and its plugin themes -- verified live: every roundcubemail-* name is the webmail client or a plugin for it."
   },
   {
@@ -4371,7 +4371,7 @@
   },
   {
     "pattern": "ipfs*",
-    "category": "Internet & Communication",
+    "category": "File Sharing & Downloads",
     "reason": "IPFS (InterPlanetary File System) and its desktop/cluster tooling -- verified live: every ipfs-* name is the peer-to-peer storage network or its clients."
   },
   {
@@ -4391,12 +4391,12 @@
   },
   {
     "pattern": "mediawiki*",
-    "category": "Internet & Communication",
+    "category": "Networking",
     "reason": "MediaWiki (the Wikipedia engine) and its extensions/skins -- verified live: every mediawiki-* name is the wiki engine or an extension."
   },
   {
     "pattern": "ddns*",
-    "category": "Internet & Communication",
+    "category": "Networking",
     "reason": "Dynamic-DNS clients (ddns, ddns-go, ddns-updater, ddns-henet, ...) -- verified live: every ddns* name is a DDNS updater."
   },
   {

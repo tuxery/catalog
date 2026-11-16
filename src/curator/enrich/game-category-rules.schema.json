@@ -12,13 +12,17 @@
         "type": "string",
         "enum": [
           "Action",
+          "Shooter",
           "Adventure",
+          "Visual Novel",
           "Arcade",
+          "Music & Rhythm",
           "Board & Cards",
           "Puzzle",
           "Educational",
           "Role-Playing",
           "Simulation",
+          "Racing",
           "Sports",
           "Strategy"
         ],

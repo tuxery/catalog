@@ -1,0 +1,116 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "type": {
+        "type": "string",
+        "enum": ["app", "game"],
+        "description": "Which taxonomy the rule works in: `from` and `to` are both labels of this type."
+      },
+      "from": {
+        "minItems": 1,
+        "type": "array",
+        "items": {
+          "type": "string",
+          "enum": [
+            "Developer Tools",
+            "Science",
+            "Education",
+            "Security",
+            "Finance",
+            "Photo & Video",
+            "Music & Audio",
+            "Graphics & Design",
+            "Web Browsers",
+            "Messaging & Calls",
+            "Email",
+            "Social Media",
+            "File Sharing & Downloads",
+            "Networking",
+            "Gaming Tools",
+            "Productivity",
+            "Business",
+            "News & Weather",
+            "Travel & Navigation",
+            "Books & Reference",
+            "System Tools",
+            "Settings",
+            "Utilities",
+            "Action",
+            "Shooter",
+            "Adventure",
+            "Visual Novel",
+            "Arcade",
+            "Music & Rhythm",
+            "Board & Cards",
+            "Puzzle",
+            "Educational",
+            "Role-Playing",
+            "Simulation",
+            "Racing",
+            "Sports",
+            "Strategy"
+          ]
+        },
+        "description": "The broad categories this rule narrows: it only ever moves an app whose category, after every other signal, is one of these."
+      },
+      "to": {
+        "type": "string",
+        "enum": [
+          "Developer Tools",
+          "Science",
+          "Education",
+          "Security",
+          "Finance",
+          "Photo & Video",
+          "Music & Audio",
+          "Graphics & Design",
+          "Web Browsers",
+          "Messaging & Calls",
+          "Email",
+          "Social Media",
+          "File Sharing & Downloads",
+          "Networking",
+          "Gaming Tools",
+          "Productivity",
+          "Business",
+          "News & Weather",
+          "Travel & Navigation",
+          "Books & Reference",
+          "System Tools",
+          "Settings",
+          "Utilities",
+          "Action",
+          "Shooter",
+          "Adventure",
+          "Visual Novel",
+          "Arcade",
+          "Music & Rhythm",
+          "Board & Cards",
+          "Puzzle",
+          "Educational",
+          "Role-Playing",
+          "Simulation",
+          "Racing",
+          "Sports",
+          "Strategy"
+        ],
+        "description": "The finer category the app moves to."
+      },
+      "pattern": {
+        "type": "string",
+        "description": "A JavaScript regular expression source string, matched case-insensitively against the app's display name, its `shortDescription` and, when an LLM verdict applies to it, that verdict's short `reason` (never `longDescription`: incidental phrases in long prose are false positives). Use `\\b` word boundaries."
+      },
+      "reason": {
+        "type": "string",
+        "description": "Why the phrase reliably means the finer category, with what was sampled — so the rule stays auditable."
+      }
+    },
+    "required": ["type", "from", "to", "pattern", "reason"],
+    "additionalProperties": false
+  },
+  "title": "Enrich: category refinements",
+  "description": "Moves an app from a broad category to a finer one when its name, short description or LLM verdict reason names the finer one — run after every other category signal, so it applies whichever signal chose the broad category (a generic freedesktop 'Network' tag, a distro section like Debian's 'net', a name or description rule, an LLM verdict, including one stored under a legacy label). First matching rule wins, in file order. See docs/categories.md."
+}

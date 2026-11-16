@@ -32,7 +32,7 @@ export const TAXONOMY: Taxonomy = {
 
 // One-line glosses for the categories models confuse (measured on sampled
 // answers: Utilities / System Tools / Settings overlap, "Education" vs the
-// game genre "Educational", racing has no genre of its own). Typed as
+// game genre "Educational", emulators between System Tools and Gaming Tools). Typed as
 // Records over the label unions, so a new category can't ship without one.
 const APP_GLOSS: Record<AppCategoryLabel, string> = {
   "Developer Tools": "IDEs, compilers, debuggers, build/VCS tools, CLI tools for programmers",
@@ -43,7 +43,13 @@ const APP_GLOSS: Record<AppCategoryLabel, string> = {
   "Photo & Video": "viewing, editing, converting, recording and playing photos and video",
   "Music & Audio": "players, editors, synths, trackers, audio tools",
   "Graphics & Design": "drawing, image editing, 3D, CAD, DTP",
-  "Internet & Communication": "browsers, mail, chat, torrents, FTP and other network clients",
+  "Web Browsers": "web browsers and browser extensions",
+  "Messaging & Calls": "chat, instant messaging, IRC, VoIP, video calls",
+  Email: "mail clients, mail servers and mail tools",
+  "Social Media": "Mastodon/fediverse, Bluesky, Reddit and other social network clients",
+  "File Sharing & Downloads": "torrents, download managers, FTP, file transfer, cloud sync",
+  Networking: "network tools and servers, DNS, proxies, remote connections, amateur radio",
+  "Gaming Tools": "console emulators, game launchers, mod managers, Proton/Wine for games",
   Productivity: "office suites, notes, to-do, PDF, calendars",
   Business: "ERP, CRM, invoicing, point of sale",
   "News & Weather": "feeds, news readers, weather",
@@ -55,15 +61,19 @@ const APP_GLOSS: Record<AppCategoryLabel, string> = {
 };
 
 const GAME_GLOSS: Record<GameCategoryLabel, string> = {
-  Action: "shooters, fighters, beat 'em ups, action platformers",
-  Adventure: "point-and-click, visual novels, narrative and exploration",
-  Arcade: "retro/arcade, pinball, shoot 'em ups, simple reflex games",
+  Action: "fighters, beat 'em ups, action platformers, hack and slash",
+  Shooter: "first-person, third-person and shoot 'em up shooters",
+  Adventure: "point-and-click, narrative and exploration",
+  "Visual Novel": "visual novels, kinetic novels, dating sims",
+  Arcade: "retro/arcade, pinball, simple reflex games",
+  "Music & Rhythm": "rhythm, karaoke and music games",
   "Board & Cards": "board, card, chess, casino, tabletop",
-  Puzzle: "puzzle, logic, word, tile games",
+  Puzzle: "puzzle, logic, word, trivia, tile games",
   Educational: "games made to teach, mostly for children",
   "Role-Playing": "RPGs, roguelikes, MMORPGs, MUDs",
-  Simulation: "vehicles, flight, city building, management, sandbox, life sims",
-  Sports: "sports and racing",
+  Simulation: "flight, city building, management, sandbox, life sims",
+  Racing: "racing, karting and driving games",
+  Sports: "sports games",
   Strategy: "real-time and turn-based strategy, 4X, tower defense",
 };
 

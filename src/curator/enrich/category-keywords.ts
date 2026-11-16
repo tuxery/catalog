@@ -20,7 +20,7 @@ import type { AppCategoryLabel, GameCategoryLabel } from "./category";
 const AUR_KEYWORD_TO_APP_CATEGORY: Record<string, AppCategoryLabel> = {
   emulator: "System Tools",
   emulation: "System Tools",
-  minecraft: "System Tools",
+  minecraft: "Gaming Tools",
   backup: "System Tools",
   bluetooth: "System Tools",
   printer: "System Tools",
@@ -59,16 +59,16 @@ const AUR_KEYWORD_TO_APP_CATEGORY: Record<string, AppCategoryLabel> = {
   themes: "Graphics & Design",
   icons: "Graphics & Design",
   icon: "Graphics & Design",
-  telegram: "Internet & Communication",
+  telegram: "Messaging & Calls",
   // Sampled live (2026-09-04): `ham`/`hamradio`/`sdr` ride amateur-radio
   // and software-defined-radio tooling (gridtracker, jtdx, gqthres, csdr,
   // linrad, ...) — the same radio-communication domain as category-section.ts's
-  // Debian `hamradio` Section mapping, which already resolves to Internet &
-  // Communication. `radio` alone stays rejected (mixes internet-radio
+  // Debian `hamradio` Section mapping, which resolves to Networking.
+  // `radio` alone stays rejected (mixes internet-radio
   // players and radio-astronomy libraries with genuine ham tooling).
-  ham: "Internet & Communication",
-  hamradio: "Internet & Communication",
-  sdr: "Internet & Communication",
+  ham: "Networking",
+  hamradio: "Networking",
+  sdr: "Networking",
   // Sampled live (2026-09-04): the cryptocurrency keyword cluster rides
   // wallets, miners, explorers and blockchain tooling (atto, beam-wallet,
   // blockstream, bfgminer, ...) — a real, coherent Finance domain AUR
@@ -106,12 +106,14 @@ const AUR_KEYWORD_TO_GAME_GENRE: Record<string, GameCategoryLabel> = {
   puzzle: "Puzzle",
   quiz: "Puzzle",
   arcade: "Arcade",
-  shooter: "Action",
-  fps: "Action",
+  shooter: "Shooter",
+  fps: "Shooter",
   action: "Action",
   platformer: "Action",
   simulation: "Simulation",
-  racing: "Sports",
+  racing: "Racing",
+  rhythm: "Music & Rhythm",
+  "visual-novel": "Visual Novel",
   adventure: "Adventure",
   boardgame: "Board & Cards",
 };

@@ -61,6 +61,10 @@
       "url": "./src/curator/enrich/description-category-rules.schema.json"
     },
     {
+      "fileMatch": ["/config/category-refinements.json"],
+      "url": "./src/curator/enrich/category-refinements.schema.json"
+    },
+    {
       "fileMatch": ["/config/categories-apps.json"],
       "url": "./src/curator/enrich/categories-apps.schema.json"
     },

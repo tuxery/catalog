@@ -32,7 +32,13 @@ export const APP_CATEGORY_LABEL_VALUES = [
   "Photo & Video",
   "Music & Audio",
   "Graphics & Design",
-  "Internet & Communication",
+  "Web Browsers",
+  "Messaging & Calls",
+  "Email",
+  "Social Media",
+  "File Sharing & Downloads",
+  "Networking",
+  "Gaming Tools",
   "Productivity",
   "Business",
   "News & Weather",
@@ -45,16 +51,33 @@ export const APP_CATEGORY_LABEL_VALUES = [
 
 export const GAME_CATEGORY_LABEL_VALUES = [
   "Action",
+  "Shooter",
   "Adventure",
+  "Visual Novel",
   "Arcade",
+  "Music & Rhythm",
   "Board & Cards",
   "Puzzle",
   "Educational",
   "Role-Playing",
   "Simulation",
+  "Racing",
   "Sports",
   "Strategy",
 ] as const;
+
+/**
+ * Labels an earlier taxonomy used and the label each one became, for the
+ * verdicts `config/llm-classifications.json` still stores under them (that
+ * file is the models' raw output, never rewritten by hand). A legacy label
+ * maps to the catch-all of what it was split into; `category-refinements.json`
+ * then moves the app to a finer category when its name, description or the
+ * verdict's own reason says which one. The app's site keeps old links to
+ * these labels working the same way (`app`'s category aliases).
+ */
+export const LEGACY_APP_CATEGORY_LABELS = {
+  "Internet & Communication": "Networking",
+} as const satisfies Record<string, AppCategoryLabel>;
 
 /**
  * What a catalog entry is: a playable `game`, or an `app` (everything else,
@@ -81,6 +104,21 @@ export type HiddenType = Exclude<LlmType, ContentType>;
 /** `config/categories-apps.json`'s own label vocabulary — see `AppCategoryLabel`/`APP_CATEGORY_LABEL_VALUES` above for why it's a closed set. */
 export const AppCategoryLabelSchema = z.enum(APP_CATEGORY_LABEL_VALUES);
 export type AppCategoryLabel = z.infer<typeof AppCategoryLabelSchema>;
+
+/** An app category as stored by an LLM verdict: a current label, or a legacy one `LEGACY_APP_CATEGORY_LABELS` translates. */
+export const StoredAppCategoryLabelSchema = z.enum([
+  ...APP_CATEGORY_LABEL_VALUES,
+  ...(Object.keys(LEGACY_APP_CATEGORY_LABELS) as (keyof typeof LEGACY_APP_CATEGORY_LABELS)[]),
+]);
+
+/** The current label for a stored app category, legacy ones translated. */
+export function currentAppCategoryLabel(
+  label: z.infer<typeof StoredAppCategoryLabelSchema>,
+): AppCategoryLabel {
+  return Object.hasOwn(LEGACY_APP_CATEGORY_LABELS, label)
+    ? LEGACY_APP_CATEGORY_LABELS[label as keyof typeof LEGACY_APP_CATEGORY_LABELS]
+    : (label as AppCategoryLabel);
+}
 
 /** `config/categories-games.json`'s own genre-label vocabulary, same closed-set reasoning as `AppCategoryLabelSchema`. */
 export const GameCategoryLabelSchema = z.enum(GAME_CATEGORY_LABEL_VALUES);
@@ -122,20 +160,22 @@ const GAME_CATEGORY_PREFERENCE = Object.keys(GAME_CATEGORY_LABELS);
 // actually carries (verified live against Flathub/AppCenter's real cache,
 // 2026-08-27: 410 of 777 tagged games carry at least one, the rest have
 // only the bare "Game" Main Category or nothing recognized at all — those
-// fall to `TO_CLASSIFY` below, same as any app with no signal). Casino,
-// Casual, Music, Racing, Trivia, and Word have zero real matches in
-// today's data (no source populates them yet — Flathub/AppCenter's own
-// AppStream categories are the only per-package genre signal that exists;
-// GOG/Lutris carry no equivalent field, see `SourcedPackage`) but are
-// still real, legitimate genres a future signal could populate — kept out
-// of `config/categories-games.json` rather than force-mapped to the
-// nearest real tag, per this file's "never guessed" discipline.
+// fall to `TO_CLASSIFY` below, same as any app with no signal). Racing,
+// rhythm games and visual novels have no freedesktop key: Lutris and GOG
+// genres map to the `X-Racing`/`X-Rhythm`/`X-VisualNovel` extension keys
+// for them (freedesktop reserves the `X-` prefix for exactly this), and
+// `config/category-refinements.json` moves a game whose own description
+// names one of these genres out of the broader one it was filed under.
+// Casino, Casual, Trivia and Word are not genres here: casino games are
+// card games (Board & Cards), word and trivia games are puzzles, and
+// "Casual" describes an audience, not a kind of game — see
+// `docs/categories.md`.
 //
-// "Shooter" folds into "Action" (a real freedesktop Additional Category,
-// distinct from "ActionGame" but the same genre family in every real
-// store's own taxonomy — Steam files Shooter under Action too).
-// "BlocksGame"/"LogicGame" fold into "Puzzle" (block-stacking and logic
-// games are both puzzle games in every real store researched). "KidsGame"
+// "Shooter" is its own genre (a real freedesktop Additional Category,
+// and Steam/IGDB/GOG's own), listed before "ActionGame" so a game tagged
+// both is a shooter. "BlocksGame"/"LogicGame" fold into "Puzzle"
+// (block-stacking and logic games are both puzzle games in every real
+// store researched). "KidsGame"
 // and the freedesktop "Education" Main Category (real co-occurrence with
 // "Game" on real data) both fold into "Educational".
 export function pickCategory(categories: string[], type: ContentType): string {

@@ -23,10 +23,9 @@ const DEBIAN_SECTION_TO_APP_CATEGORY: Partial<Record<string, AppCategoryLabel>> 
   math: "Science",
   science: "Science",
   // No amateur-radio category exists in our taxonomy; radio communication
-  // tooling (SDR receivers, APRS/Morse encoders, ham radio loggers) is
-  // conceptually closest to freedesktop's own Telephony/TelephonyTools
-  // keys, which already map to Internet & Communication.
-  hamradio: "Internet & Communication",
+  // tooling (SDR receivers, APRS/Morse encoders, ham radio loggers) sits
+  // with the rest of the network and radio tooling.
+  hamradio: "Networking",
   // Matches this file's own freedesktop TextEditor key, already mapped to
   // Utilities rather than Developer Tools — kept consistent rather than
   // splitting general text editors from programmer-focused ones, which
@@ -54,10 +53,13 @@ const DEBIAN_SECTION_TO_APP_CATEGORY: Partial<Record<string, AppCategoryLabel>> 
 const DEBIAN_UNGATED_SECTION_TO_APP_CATEGORY: Partial<Record<string, AppCategoryLabel>> = {
   utils: "Utilities",
   text: "Utilities",
-  net: "Internet & Communication",
-  mail: "Internet & Communication",
-  web: "Internet & Communication",
-  comm: "Internet & Communication",
+  // "net" and "web" mix clients, servers and tools: Networking, which
+  // category-refinements.json then narrows from the description. "comm"
+  // is modem, fax and serial-line software.
+  net: "Networking",
+  mail: "Email",
+  web: "Networking",
+  comm: "Networking",
   admin: "System Tools",
   x11: "System Tools",
   otherosfs: "System Tools",
@@ -121,10 +123,10 @@ export function categoryFromDebianSection(pkg: SourcedPackage): AppCategoryLabel
 //   category" reasoning as Debian's own "science"/"math" sections.
 // - `media-sound`/`media-radio` -> Music & Audio, `media-video`/
 //   `media-tv` -> Photo & Video, `media-gfx` -> Graphics & Design.
-// - `net-mail`/`net-irc`/`net-im`/`net-p2p`/`net-voip`/`net-news`/
-//   `net-nntp`/`net-ftp`/`www-apps` -> Internet & Communication (mail/
-//   chat/P2P/VoIP/Usenet/FTP clients, and real self-hostable web software
-//   like Hugo/MediaWiki/selfoss/ttyd).
+// - `net-mail` -> Email, `net-irc`/`net-im`/`net-voip` -> Messaging &
+//   Calls, `net-p2p`/`net-ftp` -> File Sharing & Downloads, `net-news`/
+//   `net-nntp`/`www-apps` -> Networking (Usenet clients, and real
+//   self-hostable web software like Hugo/MediaWiki/selfoss/ttyd).
 // - `net-firewall`/`net-vpn`/`app-crypt` -> Security.
 // - `net-analyzer`/`net-print`/`app-arch`/`app-admin`/`x11-apps`/
 //   `app-emulation` -> System Tools (network diagnostics, printing,
@@ -155,15 +157,15 @@ const GENTOO_SECTION_TO_APP_CATEGORY: Partial<Record<string, AppCategoryLabel>> 
   "media-video": "Photo & Video",
   "media-tv": "Photo & Video",
   "media-gfx": "Graphics & Design",
-  "net-mail": "Internet & Communication",
-  "net-irc": "Internet & Communication",
-  "net-im": "Internet & Communication",
-  "net-p2p": "Internet & Communication",
-  "net-voip": "Internet & Communication",
-  "net-news": "Internet & Communication",
-  "net-nntp": "Internet & Communication",
-  "net-ftp": "Internet & Communication",
-  "www-apps": "Internet & Communication",
+  "net-mail": "Email",
+  "net-irc": "Messaging & Calls",
+  "net-im": "Messaging & Calls",
+  "net-p2p": "File Sharing & Downloads",
+  "net-voip": "Messaging & Calls",
+  "net-news": "Networking",
+  "net-nntp": "Networking",
+  "net-ftp": "File Sharing & Downloads",
+  "www-apps": "Networking",
   "net-firewall": "Security",
   "net-vpn": "Security",
   "app-crypt": "Security",
@@ -178,21 +180,21 @@ const GENTOO_SECTION_TO_APP_CATEGORY: Partial<Record<string, AppCategoryLabel>> 
   // Second wave (2026-09-03, "To Classify" 0% goal) — each value sampled
   // against the real "To Classify" pool before trusting; see the prefix
   // table below for the reasoning behind the families these belong to.
-  "net-misc": "Internet & Communication",
-  "net-dns": "Internet & Communication",
-  "net-proxy": "Internet & Communication",
-  "net-dialup": "Internet & Communication",
-  "net-nds": "Internet & Communication",
-  "net-wireless": "Internet & Communication",
+  "net-misc": "Networking",
+  "net-dns": "Networking",
+  "net-proxy": "Networking",
+  "net-dialup": "Networking",
+  "net-nds": "Networking",
+  "net-wireless": "Networking",
   "net-fs": "System Tools",
-  "www-client": "Internet & Communication",
-  "www-servers": "Internet & Communication",
-  "www-apache": "Internet & Communication",
-  "www-misc": "Internet & Communication",
-  "mail-mta": "Internet & Communication",
-  "mail-filter": "Internet & Communication",
-  "mail-client": "Internet & Communication",
-  "app-mobilephone": "Internet & Communication",
+  "www-client": "Web Browsers",
+  "www-servers": "Networking",
+  "www-apache": "Networking",
+  "www-misc": "Networking",
+  "mail-mta": "Email",
+  "mail-filter": "Email",
+  "mail-client": "Email",
+  "app-mobilephone": "Networking",
   "sys-apps": "System Tools",
   "sys-fs": "System Tools",
   "sys-block": "System Tools",
@@ -213,8 +215,8 @@ const GENTOO_SECTION_TO_APP_CATEGORY: Partial<Record<string, AppCategoryLabel>> 
   "x11-misc": "System Tools",
   "x11-terms": "System Tools",
   "gui-apps": "System Tools",
-  "games-util": "System Tools",
-  "games-emulation": "System Tools",
+  "games-util": "Gaming Tools",
+  "games-emulation": "Gaming Tools",
   "games-server": "System Tools",
   "app-misc": "Utilities",
   "app-editors": "Utilities",
@@ -246,18 +248,18 @@ const GENTOO_SECTION_TO_APP_CATEGORY: Partial<Record<string, AppCategoryLabel>> 
 // dev-tex -> Productivity); sys-* -> System Tools; x11-* -> System
 // Tools (x11-libs/x11-themes are already excluded by
 // GENTOO_NOISE_CATEGORIES before this runs); remaining net-* ->
-// Internet & Communication (the exact net-firewall/net-vpn -> Security
-// and net-analyzer/net-print/net-fs -> System Tools entries above win
-// first); www-* / mail-* -> Internet & Communication; kde-* / gnome-* /
+// Networking (the exact net-firewall/net-vpn -> Security,
+// net-analyzer/net-print/net-fs -> System Tools and the mail/chat/P2P
+// entries above win first); www-* -> Networking; mail-* -> Email; kde-* / gnome-* /
 // mate-* / xfce-* / lxde-* -> Settings, same desktop-environment
 // reasoning as the kde-*/gnome-* name rules in category-rules.json.
 const GENTOO_SECTION_PREFIX_TO_APP_CATEGORY: [prefix: string, category: AppCategoryLabel][] = [
   ["dev-", "Developer Tools"],
   ["sys-", "System Tools"],
   ["x11-", "System Tools"],
-  ["net-", "Internet & Communication"],
-  ["www-", "Internet & Communication"],
-  ["mail-", "Internet & Communication"],
+  ["net-", "Networking"],
+  ["www-", "Networking"],
+  ["mail-", "Email"],
   ["kde-", "Settings"],
   ["gnome-", "Settings"],
   ["mate-", "Settings"],
@@ -391,7 +393,7 @@ const OPENSUSE_GROUP_PREFIX_TO_APP_CATEGORY: [prefix: string, category: AppCateg
   // GUI/Benchmark/X11 entries above win first) and Hardware/* (usbutils/
   // canutils/ckb-next) -> System Tools; Productivity/Networking/*
   // (mosquitto/chrony/darkhttpd/bind/sendmail/ddgr — the network
-  // domain, servers included) -> Internet & Communication; Productivity/
+  // domain, servers included) -> Networking (Email/IM/IRC/Talk/Browsers/FTP/File-Sharing leaves to their own categories); Productivity/
   // Clustering/* (corosync/drbd/booth) -> System Tools; Productivity/
   // Office/* and Productivity/Publishing/* -> Productivity and Books &
   // Reference, the same Office/Publishing freedesktop-key reasoning as
@@ -405,7 +407,14 @@ const OPENSUSE_GROUP_PREFIX_TO_APP_CATEGORY: [prefix: string, category: AppCateg
   ["System/GUI/", "Settings"],
   ["System/", "System Tools"],
   ["Hardware/", "System Tools"],
-  ["Productivity/Networking/", "Internet & Communication"],
+  ["Productivity/Networking/Email/", "Email"],
+  ["Productivity/Networking/Web/Browsers", "Web Browsers"],
+  ["Productivity/Networking/Instant Messenger", "Messaging & Calls"],
+  ["Productivity/Networking/IRC", "Messaging & Calls"],
+  ["Productivity/Networking/Talk/", "Messaging & Calls"],
+  ["Productivity/Networking/Ftp/", "File Sharing & Downloads"],
+  ["Productivity/Networking/File-Sharing", "File Sharing & Downloads"],
+  ["Productivity/Networking/", "Networking"],
   ["Productivity/Clustering/", "System Tools"],
   ["Productivity/Archiving/", "System Tools"],
   ["Productivity/Office/", "Productivity"],
@@ -458,7 +467,9 @@ const SOLUS_PARTOF_TO_APP_CATEGORY: Partial<Record<string, AppCategoryLabel>> = 
   // network.util/network.clients/network.base (getdns/nbd/mosh/ddgr/
   // retroshare — the same "bare system utilities" tolerance the first
   // wave rejected this value for is now accepted: they are still
-  // network-domain software) -> Internet & Communication;
+  // network-domain software) -> Networking; network.mail/im/irc/
+  // web.browser/download -> the matching Email, Messaging & Calls, Web
+  // Browsers and File Sharing & Downloads categories;
   // desktop.kde/desktop.kde.core/desktop.gnome/desktop.gnome.core/
   // desktop.hyprland (bluedevil/drkonqi/alacarte/fcitx —
   // desktop-environment components) -> Settings, same reasoning as the
@@ -479,9 +490,14 @@ const SOLUS_PARTOF_TO_APP_CATEGORY: Partial<Record<string, AppCategoryLabel>> = 
   "programming.devel": "Developer Tools",
   "programming.ide": "Developer Tools",
   virt: "Developer Tools",
-  "network.util": "Internet & Communication",
-  "network.clients": "Internet & Communication",
-  "network.base": "Internet & Communication",
+  "network.util": "Networking",
+  "network.clients": "Networking",
+  "network.base": "Networking",
+  "network.mail": "Email",
+  "network.im": "Messaging & Calls",
+  "network.irc": "Messaging & Calls",
+  "network.web.browser": "Web Browsers",
+  "network.download": "File Sharing & Downloads",
   "desktop.kde": "Settings",
   "desktop.kde.core": "Settings",
   "desktop.gnome": "Settings",
@@ -555,8 +571,7 @@ export function gameGenreFromSolusSection(pkg: SourcedPackage): GameCategoryLabe
 // - e (GNU Emacs) -> Utilities, same TextEditor precedent as Debian's
 //   "editors" section.
 // - f (FAQ/documentation) -> Books & Reference.
-// - n (network: mosh/ModemManager/bind/bootp) -> Internet &
-//   Communication.
+// - n (network: mosh/ModemManager/bind/bootp) -> Networking.
 // - t (TeX/LaTeX) -> Productivity, same reasoning as Debian's "tex"
 //   section.
 // - kde/kdei (the KDE/Plasma shipping series: kdf/kalk/kdebugsettings,
@@ -578,7 +593,7 @@ const SLACKWARE_SERIES_TO_APP_CATEGORY: Partial<Record<string, AppCategoryLabel>
   kde: "Settings",
   kdei: "Settings",
   l: "System Tools",
-  n: "Internet & Communication",
+  n: "Networking",
   t: "Productivity",
   tcl: "Developer Tools",
   x: "System Tools",
@@ -613,7 +628,7 @@ export function categoryFromSlackwareSeries(pkg: SourcedPackage): AppCategoryLab
 // - freebsd/netbsd/openbsd/darwin/unixtools (cross-OS userland/base-
 //   system compat packages) -> System Tools.
 // - nginxModules/apacheHttpdPackages(_2_4) (web-server module/package
-//   ecosystems) -> Internet & Communication.
+//   ecosystems) -> Networking.
 // - home-assistant-* (custom components and Lovelace modules) -> System
 //   Tools, same home-automation reasoning as description-category-rules.
 // - ankiAddons (Anki flashcard ecosystem) -> Education.
@@ -651,9 +666,9 @@ const NIX_SCOPE_TO_APP_CATEGORY: Partial<Record<string, AppCategoryLabel>> = {
   openbsd: "System Tools",
   darwin: "System Tools",
   unixtools: "System Tools",
-  nginxModules: "Internet & Communication",
-  apacheHttpdPackages: "Internet & Communication",
-  apacheHttpdPackages_2_4: "Internet & Communication",
+  nginxModules: "Networking",
+  apacheHttpdPackages: "Networking",
+  apacheHttpdPackages_2_4: "Networking",
   ankiAddons: "Education",
   eclipses: "Developer Tools",
   lomiri: "Settings",

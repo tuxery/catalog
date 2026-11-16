@@ -10,6 +10,7 @@ import {
   upsertMetaInBatches,
   type PublishReport,
 } from "./incremental";
+import { packageOwners, updateAliases, type AliasReport } from "./id-aliases";
 
 export type { PublishReport } from "./incremental";
 
@@ -1009,6 +1010,7 @@ export function createTursoClient(config: TursoConfig, client?: Client): TursoCl
   return {
     async publish(dataset, options = {}) {
       const rows = new Map(dataset.apps.map((app) => [app.id, toRow(app)] as const));
+      const owners = packageOwners(dataset.apps);
       let fullReason = "asked for (--full)";
       if (!options.full) {
         const live = await inspectLiveStore(
@@ -1023,7 +1025,12 @@ export function createTursoClient(config: TursoConfig, client?: Client): TursoCl
           const meta = computeMeta(dataset, live.generation ?? generationOf(dataset));
           return publishIncremental(
             db,
-            { columns: INSERT_COLUMNS, rows, meta: [...meta.bulk, ...meta.swap] },
+            {
+              columns: INSERT_COLUMNS,
+              rows,
+              meta: [...meta.bulk, ...meta.swap],
+              packageOwners: owners,
+            },
             live,
           );
         }
@@ -1036,7 +1043,7 @@ export function createTursoClient(config: TursoConfig, client?: Client): TursoCl
           );
         }
       }
-      await publishFull(db, dataset, rows);
+      const aliases = await publishFull(db, dataset, rows, owners);
       return {
         mode: "full",
         fullReason,
@@ -1047,9 +1054,39 @@ export function createTursoClient(config: TursoConfig, client?: Client): TursoCl
         searchRowsWritten: dataset.apps.length,
         metaWritten: 0,
         metaDeleted: 0,
+        aliases,
       };
     },
   };
+}
+
+const LIVE_ID_PAGE_SIZE = 5000;
+
+/**
+ * Every id of the live `apps` table, for the aliases of those leaving the
+ * catalog. None when there is no such table yet (a first publish), or one
+ * without the stored packages the aliases are built from.
+ */
+async function readLiveIds(db: Client): Promise<string[]> {
+  const info = await db.execute(`PRAGMA table_info(apps)`);
+  const columns = new Set(info.rows.map((row) => row.name));
+  if (!columns.has("id") || !columns.has("packages_json")) return [];
+  const ids: string[] = [];
+  // By id pages: each is a seek on the primary key, and no response holds
+  // every id at once.
+  let after = "";
+  for (;;) {
+    // eslint-disable-next-line no-await-in-loop
+    const page = await db.execute({
+      sql: `SELECT id FROM apps WHERE id > ? ORDER BY id LIMIT ${LIVE_ID_PAGE_SIZE}`,
+      args: [after],
+    });
+    for (const row of page.rows) ids.push(String(row.id));
+    const last = page.rows.at(-1);
+    if (!last || page.rows.length < LIVE_ID_PAGE_SIZE) break;
+    after = String(last.id);
+  }
+  return ids;
 }
 
 /** Every column the table declares without NOT NULL, to its SQL type: the ones an incremental publish may add to a live table in place. */
@@ -1140,10 +1177,15 @@ async function publishFull(
   db: Client,
   dataset: TursoDataset,
   rows: ReadonlyMap<string, readonly unknown[]>,
-): Promise<void> {
+  owners: ReadonlyMap<string, string>,
+): Promise<AliasReport> {
   // Hashes aren't trusted until `endPublish`: a run dying half way makes
   // the next incremental publish compare every row (see incremental.ts).
   await beginPublish(db);
+  // The ids leaving the catalog are read from the live table before the
+  // swap drops it (see id-aliases.ts): ~1 row read per live app.
+  const vanishedIds = (await readLiveIds(db)).filter((id) => !rows.has(id));
+  const aliases = await updateAliases(db, vanishedIds, owners, new Set(rows.keys()));
   // Defends against a straggler `apps_old` from some earlier run that
   // never made it to this function's own `DROP TABLE IF EXISTS
   // apps_old` below (e.g. a crash/timeout between the rename and the
@@ -1246,4 +1288,5 @@ async function publishFull(
   }
 
   await endPublish(db, rows);
+  return aliases;
 }

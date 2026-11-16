@@ -204,6 +204,18 @@ the next one then compares every live row instead of trusting the hashes
 (~1 read per app). Rows change one by one, so for the few seconds a publish
 runs `app` can see some apps updated and others not yet.
 
+**Id aliases** (`src/store/id-aliases.ts`): an app's id changes with its
+group (it gains a Snap or Flatpak, a package is renamed, two groups merge),
+and `app` answers a request for a former id with a permanent redirect to
+the current one. Both publish modes read the packages of every app leaving
+the catalog before deleting it and record, in the `id_aliases` table, the
+app that now lists the package the old id came from (else most of its
+packages, a companion's included). Every publish resolves each alias again
+from its stored package keys, so chains collapse and an alias follows its
+packages; it is dropped when the id comes back or none of its packages is
+listed any more. An id whose packages all left the catalog gets no alias
+and stays a 404.
+
 **Versions** (the site footer's "App · Catalog · Sources" line): no
 hand-bumped version number anywhere, since nothing here is installed by
 anyone and a number someone must remember to change never moves. Each

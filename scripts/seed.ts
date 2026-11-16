@@ -45,7 +45,11 @@ function describeReport(report: PublishReport): string {
     `${mode}: ${report.inserted} inserted, ${report.updated} updated, ` +
     `${report.deleted} deleted, ${report.unchanged} unchanged; ` +
     `${report.searchRowsWritten} search rows, ` +
-    `${report.metaWritten} meta rows written, ${report.metaDeleted} deleted`
+    `${report.metaWritten} meta rows written, ${report.metaDeleted} deleted` +
+    (report.aliases
+      ? `; id aliases: ${report.aliases.added} added, ${report.aliases.repointed} repointed, ` +
+        `${report.aliases.dropped} dropped, ${report.aliases.total} in all`
+      : "")
   );
 }
 const remote = preview || prod;

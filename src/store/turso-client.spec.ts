@@ -22,9 +22,14 @@ function sqlOf(statement: unknown): string {
 }
 
 function fakeClient(tableExists: boolean) {
-  const execute = vi.fn<Client["execute"]>().mockResolvedValue({
-    rows: tableExists ? [{ name: "apps" }] : [],
-  } as never);
+  // The id aliases' own reads find nothing: they have tests of their own (id-aliases.spec.ts).
+  const execute = vi.fn<Client["execute"]>().mockImplementation(
+    async (statement) =>
+      ({
+        rows:
+          tableExists && !/id_aliases|table_info/.test(sqlOf(statement)) ? [{ name: "apps" }] : [],
+      }) as never,
+  );
   const batch = vi.fn<Client["batch"]>().mockResolvedValue([] as never);
   return { execute, batch, client: { execute, batch } as unknown as Client };
 }

@@ -235,9 +235,9 @@ Name:
   C: Example
 ${extra}`;
 
-describe("parseDep11Yaml: content rating and requirements", () => {
-  const parse = (extra: string) => parseDep11Yaml(yamlWith(extra)).components[0];
+const parse = (extra: string) => parseDep11Yaml(yamlWith(extra)).components[0];
 
+describe("parseDep11Yaml: content rating and requirements", () => {
   it("summarizes ContentRating as its strongest intensity, empty meaning none", () => {
     expect(
       parse("ContentRating:\n  oars-1.1:\n    violence-cartoon: mild\n    social-chat: moderate\n")

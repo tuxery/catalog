@@ -24,6 +24,13 @@ const HEROIC: HomebrewCacheEntry = {
   tap: "homebrew/cask",
 };
 
+const licenseOf = (license: string) => normalize([{ ...WGET, license }])[0]?.license;
+
+const sectionOf = (entry: Partial<HomebrewCacheEntry>) =>
+  normalize([{ ...WGET, ...entry }])[0]?.section;
+
+const versionOf = (version: string) => normalize([{ ...HEROIC, version }])[0]?.version;
+
 describe("homebrew normalize", () => {
   it("maps a formula to a SourcedPackage named as `brew install` takes it", () => {
     expect(normalize([WGET])).toEqual([
@@ -74,15 +81,12 @@ describe("homebrew normalize", () => {
   });
 
   it("marks a formula with nothing to run, but not a service or an unknown list", () => {
-    const sectionOf = (entry: Partial<HomebrewCacheEntry>) =>
-      normalize([{ ...WGET, ...entry }])[0]?.section;
     expect(sectionOf({ name: "abseil", executables: 0 })).toBe(NOTHING_TO_RUN_SECTION);
     expect(sectionOf({ name: "bitlbee", executables: 0, service: true })).toBeUndefined();
     expect(sectionOf({ name: "btrfs-progs", executables: undefined })).toBeUndefined();
   });
 
   it("drops Homebrew's placeholder for a license it can't express, and keeps its other identifiers", () => {
-    const licenseOf = (license: string) => normalize([{ ...WGET, license }])[0]?.license;
     expect(licenseOf("LicenseRef-Homebrew-cannot-represent")).toBeUndefined();
     expect(licenseOf("LicenseRef-Homebrew-public-domain")).toBe(
       "LicenseRef-Homebrew-public-domain",
@@ -90,7 +94,6 @@ describe("homebrew normalize", () => {
   });
 
   it("cuts a cask version at its build id", () => {
-    const versionOf = (version: string) => normalize([{ ...HEROIC, version }])[0]?.version;
     expect(versionOf("0.4.28,2")).toBe("0.4.28");
     expect(versionOf("latest")).toBe("latest");
   });

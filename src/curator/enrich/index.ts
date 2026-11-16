@@ -78,6 +78,9 @@ import {
 } from "./llm-classifications";
 import type { CatalogApp } from "./types";
 
+/** The key GitHub stars take among `aggregatePopularity`'s sources: not a package source, so it can't clash with one. */
+const GITHUB_STARS_SOURCE = "github-stars";
+
 /**
  * Preference order for picking the "representative" package a
  * `MatchedApp` group's display fields (name, description, homepage) are
@@ -646,23 +649,30 @@ const POPULARITY_NO_EVIDENCE = 0.5;
 
 /**
  * One app-level popularity score from its member packages' own scores
- * (each a 0-1 percentile within its source): the mean of its best
- * `POPULARITY_SOURCES` sources, each source counted once at its best
- * package, and a missing source counted as `POPULARITY_NO_EVIDENCE`.
+ * (each a 0-1 percentile within its source) and, when it has one, its
+ * GitHub repository's stars (`githubScore`, a percentile among the
+ * catalog's apps, see `github-stars.ts`), which counts as one more
+ * source: the mean of its best `POPULARITY_SOURCES` sources, each source
+ * counted once at its best package, and a missing source counted as
+ * `POPULARITY_NO_EVIDENCE`.
  *
  * A plain mean of every scored package ranked the wrong apps first:
  * percentiles saturate near 1 at the top of every source, so an app
  * scored by the AUR alone (0.99) beat Firefox (0.69, pulled down by
  * Debian's little-installed non-ESR package). Here one source can lift
  * an app to 0.83 at most, and only apps popular in several places reach
- * the top. `undefined` when no member package has a score at all.
+ * the top. `undefined` when no source scores the app at all.
  */
-export function aggregatePopularity(packages: SourcedPackage[]): number | undefined {
+export function aggregatePopularity(
+  packages: SourcedPackage[],
+  githubScore?: number,
+): number | undefined {
   const bestBySource = new Map<string, number>();
   for (const pkg of packages) {
     if (pkg.popularity === undefined) continue;
     bestBySource.set(pkg.source, Math.max(bestBySource.get(pkg.source) ?? 0, pkg.popularity));
   }
+  if (githubScore !== undefined) bestBySource.set(GITHUB_STARS_SOURCE, githubScore);
   if (bestBySource.size === 0) return undefined;
 
   const best = [...bestBySource.values()].toSorted((a, b) => b - a).slice(0, POPULARITY_SOURCES);

@@ -31,6 +31,7 @@ import { fetchUbuntu } from "./deb-ubuntu/fetch";
 import { fetchUbuntuAppstream } from "./deb-ubuntu-appstream/fetch";
 import { fetchVendorRepos } from "./vendor-repos/fetch";
 import { fetchVoid } from "./xbps-void/fetch";
+import { fetchWikidata } from "./wikidata/fetch";
 import { readNdjson } from "./_shared/ndjson";
 
 /**
@@ -96,6 +97,8 @@ export const REFRESHERS: Record<string, (cachePath: string) => Promise<number>> 
   "github-releases": fetchGithubReleases,
   "vendor-repos": fetchVendorRepos,
   "brew-homebrew": fetchHomebrew,
+  // Not a package source: the identity links `pnpm wikidata-suggest` reads.
+  wikidata: fetchWikidata,
   // Last: it reads every other source's cache for the GitHub repositories
   // their packages point to, so it sees this run's fresh ones (the
   // workflow refreshes in this order, see `refresh.ts --list`).

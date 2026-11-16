@@ -1,7 +1,7 @@
 # Source cache
 
 Git-committed NDJSON snapshots of each upstream source's raw data — one
-file per source (`snap-snapcraft.ndjson`, `appimage.ndjson`, `deb-debian.ndjson`,
+file per source (`appimage.ndjson`, `xbps-void.ndjson`, `deb-debian.ndjson`,
 ...), one JSON object per line, typed in that source's own
 `../src/<source>/types.ts` (deliberately not a shared schema, since
 upstream shapes differ).

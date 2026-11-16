@@ -817,6 +817,42 @@ homebrew-core/30d.json` for popularity: three GETs a week, no
     trends/popularity" below).
     `src/sources/github-stars/fetch.ts`.
 
+## Wikidata: identity links, not packages
+
+`src/sources/wikidata/` reads no packages. Wikidata (CC0) links one
+software item to its package ids on other repositories, and
+`pnpm wikidata-suggest` compares those links with our groups: an item
+linking two of our groups is a candidate `config/match-force.json` entry,
+a group holding packages two items link a candidate `match-apart.json`
+entry. The report (`dist/wikidata-suggestions.md`) is for review only:
+the data is thin and community-edited, nothing is merged automatically.
+
+- **Fetch**: `pnpm refresh wikidata`, five SPARQL queries on
+  query.wikidata.org (package ids, then English label, P856 website,
+  P1324 repository and P154 logo of the items that have one), one or two
+  seconds each. Selecting the items in a subquery or joining the four
+  detail fields in one query times out at 60 s. 2026-11-16: 9,880 items,
+  32,350 statements.
+- **Properties** (mapping in `src/pipeline/wikidata-bridge.ts`): Flathub
+  P4655, Snap P4435, AUR P4162, Arch P3454, Debian P3442, Ubuntu P3473,
+  Fedora P3463 (a source package), openSUSE P7788, Gentoo P3499, Alpine
+  P9045, nixpkgs P12433, Homebrew P8443 (formulae only, no cask property).
+  None for our other sources (Mint, Pop!_OS, Void, Solus, Slackware,
+  AppImage, AppCenter, Lutris...). Repology's project name (P6931) is not
+  read: it names a Repology project, which only Repology's own data turns
+  into package ids, and we use nothing from Repology.
+- **Reliability**: on items where three or more properties find one of
+  our groups, a property disagrees with the others' majority 1-4% of the
+  time, openSUSE's P7788 6% (`gphotofs` on gphoto2, `transfig` on Xfig,
+  `bcftools` on SAMtools). An item listing several packages of one
+  repository (Git's `git-gui`, Lua's `lua5.1` to `lua5.4`) names parts or
+  versions we keep apart on purpose, so such links never make a strong
+  suggestion. Hand-checked 2026-11-16 against the packages: 10 of the 13
+  "strong" and 20 of 20 sampled "likely" merge suggestions right, 8 of 12
+  "to check"; 6 of 15 sampled apart suggestions (the rest are two
+  Wikidata items for one product, or a component). 21 of the right ones
+  are in `match-force.json`.
+
 ## Cross-cutting notes
 
 - **Two-stage model per source**: `fetch.ts` (network → `src/sources/cache/<source>.ndjson`, source-specific row type) and `normalize.ts` (cache → the shared `SourcedPackage` type). Only `fetch.ts` needs implementing per row above — `normalize.ts`, the cache read path, and tests already exist per source (see the root [`AGENTS.md`](../AGENTS.md)'s "Source cache" section).

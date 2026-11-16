@@ -21,7 +21,8 @@
     "audit-matching": "tsx scripts/audit-matching.ts",
     "classify-llm": "tsx scripts/classify-llm.ts",
     "triage-llm": "tsx scripts/triage-llm.ts",
-    "reset-caches": "tsx scripts/reset-caches.ts"
+    "reset-caches": "tsx scripts/reset-caches.ts",
+    "wikidata-suggest": "tsx scripts/wikidata-suggest.ts"
   },
   "dependencies": {
     "@libsql/client": "^0.18.0",

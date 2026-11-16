@@ -1970,14 +1970,11 @@
         "appId": "pinta"
       },
       {
-        "source": "rpm-fedora",
-        "appId": "pinta"
-      },
-      {
         "source": "pacman-arch",
         "appId": "pinta"
       }
-    ]
+    ],
+    "note": "No rpm-fedora anchor: Fedora retired pinta (orphaned) and Fedora 45 no longer ships it."
   },
   {
     "product": "Text Editor",
@@ -2107,6 +2104,28 @@
         "appId": "org.gnome.Extensions"
       },
       {
+        "source": "deb-debian-appstream",
+        "appId": "gnome-shell-extension-prefs"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "gnome-extensions-app"
+      },
+      {
+        "source": "rpm-fedora",
+        "appId": "gnome-extensions-app"
+      },
+      {
+        "source": "pacman-arch",
+        "appId": "gnome-extensions-app"
+      }
+    ],
+    "note": "The Extensions app alone: Ubuntu, Fedora and Arch package it as gnome-extensions-app, Debian as gnome-shell-extension-prefs (anchored through its appstream source). GNOME Shell itself is a separate product, the next entry."
+  },
+  {
+    "product": "GNOME Shell",
+    "anchors": [
+      {
         "source": "deb-debian",
         "appId": "gnome-shell"
       },
@@ -2116,17 +2135,14 @@
       },
       {
         "source": "rpm-fedora",
-        "appId": "gnome-extensions-app"
-      },
-      {
-        "source": "rpm-fedora",
         "appId": "gnome-shell"
       },
       {
         "source": "pacman-arch",
         "appId": "gnome-shell"
       }
-    ]
+    ],
+    "note": "Not one of the most-installed products: added by hand so the desktop shell and its Extensions app stay two products."
   },
   {
     "product": "Maps",
@@ -3126,10 +3142,6 @@
     "product": "Black Box",
     "anchors": [
       {
-        "source": "flatpak-flathub",
-        "appId": "com.raggesilver.BlackBox"
-      },
-      {
         "source": "deb-debian",
         "appId": "blackbox-terminal"
       },
@@ -3141,7 +3153,8 @@
         "source": "rpm-fedora",
         "appId": "blackbox-terminal"
       }
-    ]
+    ],
+    "note": "No flatpak-flathub anchor: com.raggesilver.BlackBox is end-of-life on Flathub (\"This flatpak is no longer maintained\") and gone from its appstream."
   },
   {
     "product": "Raspberry Pi Imager",

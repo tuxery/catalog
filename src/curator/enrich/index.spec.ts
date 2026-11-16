@@ -275,7 +275,7 @@ describe("enrichApps", () => {
 
     const app = enrichApps(matched)[0];
     expect(app?.contentType).toBeUndefined();
-    expect(app?.category).toBe("System Tools");
+    expect(app?.category).toBe("Gaming Tools");
   });
 
   it("overrides contentType to undefined (app) when the tool phrase is only in the name, not the description", () => {
@@ -660,7 +660,7 @@ describe("enrichApps", () => {
         },
       ]);
       expect(app?.contentType).toBeUndefined();
-      expect(app?.category).toBe("Utilities");
+      expect(app?.category).toBe("Gaming Tools");
     });
 
     it("hides an app the LLM calls a library with high confidence, even with upstream categories", () => {
@@ -780,7 +780,7 @@ describe("enrichApps", () => {
         { id: "aur:proton-cachyos-native", type: "other", confidence: "medium", ...fixture },
       ]);
       expect(app?.excluded).toBeUndefined();
-      expect(app?.category).toBe("Utilities");
+      expect(app?.category).toBe("Gaming Tools");
     });
   });
 
@@ -792,7 +792,7 @@ describe("enrichApps", () => {
       },
     ];
 
-    expect(enrichApps(matched)[0]?.category).toBe("Utilities");
+    expect(enrichApps(matched)[0]?.category).toBe("Gaming Tools");
   });
 
   it("prefers real upstream category data over a category-rules.json name match", () => {
@@ -840,7 +840,7 @@ describe("enrichApps", () => {
       },
     ];
 
-    expect(enrichApps(matched)[0]?.category).toBe("Utilities");
+    expect(enrichApps(matched)[0]?.category).toBe("Gaming Tools");
   });
 
   it("does not apply a Debian Section-based category match to a game", () => {

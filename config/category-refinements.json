@@ -1,0 +1,86 @@
+[
+  {
+    "type": "app",
+    "from": ["Networking"],
+    "to": "Messaging & Calls",
+    "pattern": "^(?!.*\\b(llms?|ai|gpt|chatgpt|ollama|openai|language models?|assistant)\\b).*\\b(chat|chats|chatting|chatroom|group ?chat|messengers?|messaging|instant messag\\w*|irc|ircd|xmpp|jabber|matrix (client|protocol|homeserver|server|bridge|bot)|mautrix|telegram|discord|signal (messenger|desktop|app|client)|signal-cli|whatsapp|slack|mattermost|rocket\\.?chat|zulip|microsoft teams|teamspeak|mumble|murmur|ventrilo|voip|sip (client|phone|server|proxy|user agent|stack)|softphone|pbx|video ?(calls?|chat|conferenc\\w*|meetings?)|voice (calls?|chat)|online meetings?|jitsi|skype|tox (client|messenger)|briar|simplex|wechat|viber|icq|pidgin|libpurple|delta ?chat|chatmail|chatroulette|sms|mms gateway)\\b",
+    "reason": "Chat, instant messaging, IRC, XMPP/Matrix, VoIP and video-call software. Lines mentioning an AI model or assistant are left out: \"chat with an LLM\" is not messaging."
+  },
+  {
+    "type": "app",
+    "from": ["Networking"],
+    "to": "Web Browsers",
+    "pattern": "\\b((?<!\\b(in|via|from|with|using|through|inside|within|on) (your|a|the|any|its) )web ?browsers?|internet browser|browser (based on|built on|for the (web|internet)|engine)|(chromium|firefox|gecko|webkit|blink|qtwebengine|servo|electron)[- ]based browser|fork of (firefox|chromium|librewolf|ungoogled-chromium)|(firefox|chromium|librewolf) fork|(gemini|gopher) (browser|client)|text-based (web )?browser|kiosk (mode )?browser|privacy[- ](focused|oriented|respecting) browser|browser extensions?|web ?extensions?|userscripts?|(?<!\\b(web|s3|rclone|cloud|file|files|diff|anime|comic|comics|database|db|ldap|smb|samba|network|log|logs|package|packages|app|apps|store|metadata|torrent|torrents|via|your|the|in|from|with|using|default|external|own|any|its|their|headless|remote|mod|model|models|font|fonts|theme|themes|icon|icons|image|images|media|music|repository|source|code|object|class|table|schema|wiki|ftp|sftp|dns|mib|snmp|zeroconf|service|services|device|devices|upnp|dlna|bonjour|avahi|nfs|share|shares)\\s)browsers?(?![- ](based|extensions?|plugins?|integrations?|automation|testing))\\b)\\b",
+    "reason": "Web browsers, their forks and their extensions. A browser named after what it browses (S3, files, LDAP, Samba shares, anime), a web-based tool (\"browser-based\", \"in/via/from your browser\") and browser automation are left out."
+  },
+  {
+    "type": "app",
+    "from": ["Networking"],
+    "to": "Email",
+    "pattern": "\\b(e-?mail (clients?|readers?|servers?|apps?|programs?|backends?|bridges?|sync\\w*|filters?|notifiers?|archiv\\w*|address(es)?|accounts?|messages?|tools?|utilit\\w*|providers?|services?|verif\\w*|validat\\w*)|(mail|imap|pop3?|smtp|jmap) (clients?|servers?|readers?|proxy|relay|filters?|bridges?|sync\\w*|daemon)|mail (transfer|user|delivery|submission) agent|mta|mua|webmail|mailbox(es)?|maildir|mbox|imap|smtp|jmap|dkim|dmarc|spam ?(filters?|assassin)|anti-?spam|mailing ?lists?|thunderbird|mutt|neomutt|sendmail|postfix|exim|dovecot|milter|gmail|hotmail|proton ?mail|mail\\.ru|outlook|mails|mail (\\w+ )?(handlers?|tools?|toolkit|notifiers?|notifications?|monitors?|archivers?|gateways?|hosting|forwarders?|filters?|sending|management|managers?|clients?|servers?|agents?|programs?|readers?|folders?|attachments?|arrival|abuse))\\b",
+    "reason": "Mail clients, mail servers and mail tooling (IMAP/SMTP/JMAP, spam filters, mailing lists)."
+  },
+  {
+    "type": "app",
+    "from": ["Networking"],
+    "to": "File Sharing & Downloads",
+    "pattern": "\\b((bit)?torrents?|magnet links?|(down|up)load(er|ers| managers?| accelerators?| tools?| clients?| utility)|downloads? (videos?|files|music|audio|media|manga|comics|anime|subtitles|from)|(video|media|music|youtube|manga|comic|image|file|subtitle) download\\w*|file[- ]?(sharing|share|transfer|hosting|drop|sync\\w*)|share (files|folders)|send (files|folders)|peer[- ]to[- ]peer|p2p|ed2k|emule|gnutella|soulseek|nzb|webdav|ftps?|cloud (storage|drives?|sync|backups?)|(google|one) ?drive|dropbox|mega(\\.nz| client|sync)|syncthing|seafile|yt-dlp|youtube-dl|ipfs|magic-wormhole|nearby ?share|quick ?share|localsend|android file transfer)\\b",
+    "reason": "Torrent and P2P clients, download managers and media downloaders, FTP/WebDAV, file transfer and cloud sync clients."
+  },
+  {
+    "type": "app",
+    "from": ["Networking"],
+    "to": "Social Media",
+    "pattern": "\\b(mastodon|fediverse|activitypub|bluesky|bsky|at ?protocol|social (network(ing|s)?|media)|reddit|lemmy|twitter|tweets?|microblog\\w*|nostr|misskey|pleroma|akkoma|friendica|diaspora|tumblr|pixelfed|instagram|facebook|kbin|mbin|hacker ?news|lobste\\.rs)\\b",
+    "reason": "Clients, front ends and tools for social networks (Mastodon and the fediverse, Bluesky, Nostr, Reddit, Lemmy, Twitter/X, Instagram)."
+  },
+  {
+    "type": "app",
+    "from": ["Messaging & Calls"],
+    "to": "File Sharing & Downloads",
+    "pattern": "\\b(soulseek|(bit)?torrent|ed2k|gnutella|direct ?connect)\\b",
+    "reason": "File-sharing network clients that also tag Chat (Nicotine+, a Soulseek client, carries Chat and InstantMessaging next to P2P): the network they share files on names what they are for."
+  },
+  {
+    "type": "app",
+    "from": [
+      "System Tools",
+      "Utilities",
+      "Developer Tools",
+      "Settings",
+      "Networking",
+      "Photo & Video"
+    ],
+    "to": "Gaming Tools",
+    "pattern": "\\b((video ?games?|game ?consoles?|consoles?|arcade|nintendo( switch)?|nes|snes|famicom|game ?boy( advance| color)?|gba|nds|3ds|wii( u)?|gamecube|n64|playstation( [1-5])?|ps[1-5x]|psp|ps vita|sega|genesis|mega ?drive|master system|game gear|dreamcast|saturn|atari( [0-9]+)?|amiga|commodore( [0-9]+)?|c64|msx|zx spectrum|amstrad( cpc)?|neo ?geo|pc engine|turbografx|xbox( 360)?|ms-dos|dosbox)\\b[\\w ()+-]{0,25}\\bemulat\\w*|emulators? (for|of) (the )?[\\w ]{0,30}(consoles?|games?)|libretro|retroarch|game ?launchers?|games? (launchers?|managers?|library)|launcher for [\\w ]{0,30}games?|(minecraft|hytale|roblox|osu!?) (launchers?|servers?|mods?|modpacks?|clients?)|mod (managers?|loaders?|organi[sz]ers?|installers?)|modding tools?|game (mods?|modding|trainers?|servers?|streaming|controllers?)|dedicated servers?|steam (play|compatibility|deck|workshop|library)|ge-proton|proton(?! ?(drive|mail|vpn|pass|calendar|authenticator|wallet|bridge))|gamemode|mangohud|vkbasalt|gamescope|cloud gaming|game ?stream\\w*|stream (\\w+ )?games|steam (link|clients?|cli)|(\\w+ )?steam client|game (clients?|lobby|lobbies|hubs?|deals?)|gaming (hubs?|network|service|platform)|battle\\.net)\\b",
+    "reason": "Console and computer emulators for games, game launchers and stores, mod managers, Proton/Steam Play tools, game servers and in-game overlays: tools around games, which users look for next to the games themselves (Flathub and GNOME Software file emulators under games). Emulators of hardware that isn't a games platform (QEMU's CPU targets, network emulators) don't name a console and stay where they are."
+  },
+  {
+    "type": "game",
+    "from": ["Arcade", "Action", "Sports", "Simulation", "Puzzle", "Educational", "Adventure"],
+    "to": "Music & Rhythm",
+    "pattern": "\\b(rhythm|karaoke|stepmania|guitar hero|rock band|dance (game|mat|pad)|beatmania|bms player|music game)\\b",
+    "reason": "Rhythm, karaoke and music games: no freedesktop genre key exists for them, so their own description names the genre."
+  },
+  {
+    "type": "game",
+    "from": ["Sports", "Arcade", "Action", "Simulation", "Strategy", "Adventure"],
+    "to": "Racing",
+    "pattern": "(?<!heart-|pulse-)\\b(racing|racer|racers|kart|karting|rally|drift(ing)?|motorsports?|formula (one|1)|nascar)\\b",
+    "reason": "Racing and driving games: no freedesktop genre key exists for them (they were filed under Sports, Arcade or Action), so their own name or description names the genre."
+  },
+  {
+    "type": "game",
+    "from": ["Action", "Arcade"],
+    "to": "Shooter",
+    "pattern": "\\b(shooters?|shoot ?.?em ?.?ups?|shmups?|first[- ]person shoot\\w*|third[- ]person shoot\\w*|fps|bullet[- ]hell|twin[- ]stick)\\b",
+    "reason": "Shooters, first-person and shoot 'em up alike: the freedesktop Shooter key covers part of them, this catches those tagged only Action or Arcade."
+  },
+  {
+    "type": "game",
+    "from": ["Adventure", "Role-Playing", "Simulation"],
+    "to": "Visual Novel",
+    "pattern": "\\b(visual novels?|kinetic novels?|dating sim\\w*|otome)\\b",
+    "reason": "Visual novels and dating sims: no freedesktop genre key exists for them (filed under Adventure), so their own description names the genre."
+  }
+]

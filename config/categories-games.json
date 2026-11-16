@@ -1,6 +1,9 @@
 {
+  "X-Racing": "Racing",
+  "X-VisualNovel": "Visual Novel",
+  "X-Rhythm": "Music & Rhythm",
+  "Shooter": "Shooter",
   "ActionGame": "Action",
-  "Shooter": "Action",
   "AdventureGame": "Adventure",
   "ArcadeGame": "Arcade",
   "BoardGame": "Board & Cards",

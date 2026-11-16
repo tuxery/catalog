@@ -38,7 +38,13 @@
               "Photo & Video",
               "Music & Audio",
               "Graphics & Design",
-              "Internet & Communication",
+              "Web Browsers",
+              "Messaging & Calls",
+              "Email",
+              "Social Media",
+              "File Sharing & Downloads",
+              "Networking",
+              "Gaming Tools",
               "Productivity",
               "Business",
               "News & Weather",
@@ -46,9 +52,10 @@
               "Books & Reference",
               "System Tools",
               "Settings",
-              "Utilities"
+              "Utilities",
+              "Internet & Communication"
             ],
-            "description": "One of the app categories."
+            "description": "One of the app categories, or a legacy label from an earlier taxonomy (category.ts's LEGACY_APP_CATEGORY_LABELS), translated when applied."
           }
         },
         "required": ["id", "confidence", "reason", "model", "type", "category"],
@@ -82,13 +89,17 @@
             "type": "string",
             "enum": [
               "Action",
+              "Shooter",
               "Adventure",
+              "Visual Novel",
               "Arcade",
+              "Music & Rhythm",
               "Board & Cards",
               "Puzzle",
               "Educational",
               "Role-Playing",
               "Simulation",
+              "Racing",
               "Sports",
               "Strategy"
             ],

@@ -33,6 +33,11 @@ import {
 } from "./field-priority";
 import { loadCategoryRules, matchCategoryRule, type CategoryRuleEntry } from "./category-rules";
 import {
+  loadCategoryRefinements,
+  refineCategory,
+  type CategoryRefinementEntry,
+} from "./category-refinements";
+import {
   loadGameCategoryRules,
   matchGameCategoryRule,
   type GameCategoryRuleEntry,
@@ -821,6 +826,7 @@ export function enrichApps(
   descriptionGameCategoryRules: DescriptionGameCategoryRuleEntry[] = loadDescriptionGameCategoryRules(),
   llmClassifications: LlmClassificationEntry[] = loadLlmClassifications(),
   matchOverrides: MatchOverrides = loadMatchOverrides(),
+  categoryRefinements: CategoryRefinementEntry[] = loadCategoryRefinements(),
 ): CatalogApp[] {
   const llmByAppId = llmClassificationMap(llmClassifications);
   const forceKeys = forceMatchedKeys(matchOverrides);
@@ -858,13 +864,21 @@ export function enrichApps(
         shortDescription,
       );
     const deterministicCategory = pickLabel(heuristicType);
-    const { type, category, excluded } = applyLlmClassification(
-      classificationFor(app, llmByAppId),
+    const verdict = classificationFor(app, llmByAppId);
+    const classified = applyLlmClassification(
+      verdict,
       hasUpstreamCategory(app.packages),
       hasApplicationEvidence(app.packages),
       heuristicType,
       deterministicCategory,
       pickLabel,
+    );
+    const { type, excluded } = classified;
+    const category = refineCategory(
+      type,
+      classified.category,
+      { name: representative.name, shortDescription, llmReason: verdict?.llm.reason },
+      categoryRefinements,
     );
 
     return {

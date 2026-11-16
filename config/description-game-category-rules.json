@@ -11,7 +11,7 @@
   },
   {
     "pattern": "\\bshooter\\b",
-    "category": "Action",
+    "category": "Shooter",
     "reason": "Shooter games and their companion data/server/client packages (Dave Gnukem, gunroar(-data), xonotic-server, teeworlds-data, ...). Verified live: 15 real matches, zero unrelated collisions."
   },
   {
@@ -60,9 +60,9 @@
     "reason": "Management games (\"Classic online F1 manager game — Manage your racing team...\") — management sims in every real store's taxonomy. Verified live."
   },
   {
-    "pattern": "\\b(racing) games?\\b",
-    "category": "Sports",
-    "reason": "Racing games map to Sports, the closest genre in the games taxonomy (no dedicated Racing label; same family in Steam's own taxonomy). Verified live."
+    "pattern": "\\b(racing|kart|karting|rally) games?\\b|\\bkart\\b",
+    "category": "Racing",
+    "reason": "Racing and kart games (Super Tux Kart repackages). Verified live."
   },
   {
     "pattern": "\\b(sports|football|soccer|basketball|golf|tennis) games?\\b",
@@ -128,5 +128,10 @@
     "pattern": "\\bchess\\b|\\bcheckers\\b|\\bgo (board|game)\\b|\\bgnugo\\b",
     "category": "Board & Cards",
     "reason": "Standalone chess/checkers/go mentions — engines and front-ends for classic board games (Stockfish GUIs, gnugo). Verified live."
+  },
+  {
+    "pattern": "\\bflight sim(ulator)?\\b",
+    "category": "Simulation",
+    "reason": "Flight simulators (GeoFS). Verified on the games \"To Classify\" bucket: every match a flight simulator."
   }
 ]

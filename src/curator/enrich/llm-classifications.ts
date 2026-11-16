@@ -1,7 +1,12 @@
 import { fileURLToPath } from "node:url";
 import { z } from "zod";
 import { readJson } from "../_shared/json";
-import { AppCategoryLabelSchema, GameCategoryLabelSchema, type LlmType } from "./category";
+import {
+  currentAppCategoryLabel,
+  GameCategoryLabelSchema,
+  StoredAppCategoryLabelSchema,
+  type LlmType,
+} from "./category";
 
 const LLM_CLASSIFICATIONS_PATH = fileURLToPath(
   new URL("../../../config/llm-classifications.json", import.meta.url),
@@ -42,7 +47,9 @@ const entryBase = z.object({
 const LlmClassificationEntrySchema = z.discriminatedUnion("type", [
   entryBase.extend({
     type: z.literal("app"),
-    category: AppCategoryLabelSchema.describe("One of the app categories."),
+    category: StoredAppCategoryLabelSchema.describe(
+      "One of the app categories, or a legacy label from an earlier taxonomy (category.ts's LEGACY_APP_CATEGORY_LABELS), translated when applied.",
+    ),
   }),
   entryBase.extend({
     type: z.literal("game"),
@@ -89,11 +96,13 @@ export function loadLlmClassifications(): LlmClassificationEntry[] {
   return readJson(LLM_CLASSIFICATIONS_PATH, LlmClassificationsListSchema);
 }
 
-/** What an applied (not low-confidence) LLM entry says about an app — `category` only for `app`/`game`. */
+/** What an applied (not low-confidence) LLM entry says about an app — `category` only for `app`/`game`, always a current label. */
 export interface LlmClassification {
   type: LlmType;
   category?: string;
   confidence: "high" | "medium";
+  /** The model's own few-word reason, which category refinements also read. */
+  reason: string;
 }
 
 /** A fast id → classification lookup built once per enrich pass, so the per-app lookup is O(1). Skips low-confidence entries — see `UNAPPLIED_CONFIDENCE`. */
@@ -105,8 +114,14 @@ export function llmClassificationMap(
     if (entry.confidence === UNAPPLIED_CONFIDENCE) continue;
     map.set(entry.id, {
       type: entry.type,
-      category: "category" in entry ? entry.category : undefined,
+      category:
+        entry.type === "app"
+          ? currentAppCategoryLabel(entry.category)
+          : "category" in entry
+            ? entry.category
+            : undefined,
       confidence: entry.confidence,
+      reason: entry.reason,
     });
   }
   return map;

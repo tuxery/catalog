@@ -11,7 +11,7 @@ describe("pickCategory — apps", () => {
   it("maps a single recognized category to its display label", () => {
     expect(pickCategory(["Development"], "app")).toBe("Developer Tools");
     expect(pickCategory(["Office"], "app")).toBe("Productivity");
-    expect(pickCategory(["Network"], "app")).toBe("Internet & Communication");
+    expect(pickCategory(["Network"], "app")).toBe("Networking");
   });
 
   it("routes specific Audio/Video/Photography tags to Music & Audio or Photo & Video, not the generic AudioVideo catch-all", () => {
@@ -59,9 +59,22 @@ describe("pickCategory — games", () => {
     expect(pickCategory(["Game", "RolePlaying"], "game")).toBe("Role-Playing");
   });
 
-  it("folds Shooter into Action, same real-store genre family Steam itself uses", () => {
-    expect(pickCategory(["Game", "Shooter"], "game")).toBe("Action");
+  it("gives Shooter its own genre, ahead of the broader ActionGame", () => {
+    expect(pickCategory(["Game", "ActionGame", "Shooter"], "game")).toBe("Shooter");
     expect(pickCategory(["Game", "ActionGame"], "game")).toBe("Action");
+  });
+
+  it("reads the X- extension keys sources emit for genres freedesktop lacks", () => {
+    expect(pickCategory(["Game", "SportsGame", "X-Racing"], "game")).toBe("Racing");
+    expect(pickCategory(["Game", "AdventureGame", "X-VisualNovel"], "game")).toBe("Visual Novel");
+    expect(pickCategory(["Game", "X-Rhythm"], "game")).toBe("Music & Rhythm");
+  });
+
+  it("splits the communication keys by what the app is for", () => {
+    expect(pickCategory(["Network", "WebBrowser"], "app")).toBe("Web Browsers");
+    expect(pickCategory(["Network", "InstantMessaging"], "app")).toBe("Messaging & Calls");
+    expect(pickCategory(["Network", "Email"], "app")).toBe("Email");
+    expect(pickCategory(["Network", "P2P"], "app")).toBe("File Sharing & Downloads");
   });
 
   it("folds BlocksGame/LogicGame into Puzzle", () => {

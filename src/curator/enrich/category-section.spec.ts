@@ -29,7 +29,7 @@ describe("categoryFromDebianSection", () => {
     expect(categoryFromDebianSection(pkg({ name: "Qalculate", section: "math" }))).toBe("Science");
     expect(categoryFromDebianSection(pkg({ name: "Jmol", section: "science" }))).toBe("Science");
     expect(categoryFromDebianSection(pkg({ name: "CubicSDR", section: "hamradio" }))).toBe(
-      "Internet & Communication",
+      "Networking",
     );
     expect(categoryFromDebianSection(pkg({ name: "universal-ctags", section: "editors" }))).toBe(
       "Utilities",
@@ -52,17 +52,11 @@ describe("categoryFromDebianSection", () => {
 
   it("maps the CLI-flavored sections beyond the GUI-predictive set (second wave)", () => {
     expect(categoryFromDebianSection(pkg({ name: "atuin", section: "utils" }))).toBe("Utilities");
-    expect(categoryFromDebianSection(pkg({ name: "mosh", section: "net" }))).toBe(
-      "Internet & Communication",
-    );
-    expect(categoryFromDebianSection(pkg({ name: "neomutt", section: "mail" }))).toBe(
-      "Internet & Communication",
-    );
-    expect(categoryFromDebianSection(pkg({ name: "acmetool", section: "web" }))).toBe(
-      "Internet & Communication",
-    );
+    expect(categoryFromDebianSection(pkg({ name: "mosh", section: "net" }))).toBe("Networking");
+    expect(categoryFromDebianSection(pkg({ name: "neomutt", section: "mail" }))).toBe("Email");
+    expect(categoryFromDebianSection(pkg({ name: "acmetool", section: "web" }))).toBe("Networking");
     expect(categoryFromDebianSection(pkg({ name: "asterisk", section: "comm" }))).toBe(
-      "Internet & Communication",
+      "Networking",
     );
     expect(categoryFromDebianSection(pkg({ name: "keepalived", section: "admin" }))).toBe(
       "System Tools",
@@ -161,7 +155,7 @@ describe("categoryFromGentooSection", () => {
       categoryFromGentooSection(
         pkg({ source: "ebuild-gentoo", name: "hydroxide", section: "net-mail" }),
       ),
-    ).toBe("Internet & Communication");
+    ).toBe("Email");
     expect(
       categoryFromGentooSection(
         pkg({ source: "ebuild-gentoo", name: "ufw", section: "net-firewall" }),
@@ -189,12 +183,12 @@ describe("categoryFromGentooSection", () => {
       categoryFromGentooSection(
         pkg({ source: "ebuild-gentoo", name: "mosh", section: "net-misc" }),
       ),
-    ).toBe("Internet & Communication");
+    ).toBe("Networking");
     expect(
       categoryFromGentooSection(
         pkg({ source: "ebuild-gentoo", name: "qutebrowser", section: "www-client" }),
       ),
-    ).toBe("Internet & Communication");
+    ).toBe("Web Browsers");
     expect(
       categoryFromGentooSection(
         pkg({ source: "ebuild-gentoo", name: "atuin", section: "app-shells" }),
@@ -219,7 +213,7 @@ describe("categoryFromGentooSection", () => {
       categoryFromGentooSection(
         pkg({ source: "ebuild-gentoo", name: "eureka", section: "games-util" }),
       ),
-    ).toBe("System Tools");
+    ).toBe("Gaming Tools");
     expect(
       categoryFromGentooSection(
         pkg({ source: "ebuild-gentoo", name: "kalk", section: "kde-apps" }),
@@ -229,7 +223,7 @@ describe("categoryFromGentooSection", () => {
       categoryFromGentooSection(
         pkg({ source: "ebuild-gentoo", name: "dosbox", section: "games-emulation" }),
       ),
-    ).toBe("System Tools");
+    ).toBe("Gaming Tools");
   });
 
   it("keeps the dev-gap/dev-tex exceptions over the dev- prefix", () => {
@@ -482,7 +476,7 @@ describe("categoryFromOpenSuseGroup", () => {
       categoryFromOpenSuseGroup(
         pkg({ source: "rpm-opensuse", name: "chrony", section: "Productivity/Networking/Other" }),
       ),
-    ).toBe("Internet & Communication");
+    ).toBe("Networking");
     expect(
       categoryFromOpenSuseGroup(
         pkg({
@@ -591,7 +585,7 @@ describe("categoryFromSlackwareSeries", () => {
     ).toBe("Books & Reference");
     expect(
       categoryFromSlackwareSeries(pkg({ source: "slackware", name: "mosh", section: "n" })),
-    ).toBe("Internet & Communication");
+    ).toBe("Networking");
     expect(
       categoryFromSlackwareSeries(pkg({ source: "slackware", name: "texinfo", section: "t" })),
     ).toBe("Productivity");
@@ -668,7 +662,7 @@ describe("categoryFromNixScope", () => {
     ).toBe("System Tools");
     expect(
       categoryFromNixScope(pkg({ source: "nix-nixpkgs", name: "sts", section: "nginxModules" })),
-    ).toBe("Internet & Communication");
+    ).toBe("Networking");
     expect(
       categoryFromNixScope(
         pkg({

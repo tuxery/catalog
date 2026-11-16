@@ -291,72 +291,72 @@
   },
   {
     "pattern": "\\bweb browser\\b",
-    "category": "Internet & Communication",
+    "category": "Web Browsers",
     "reason": "Description explicitly identifies it as a web browser."
   },
   {
     "pattern": "\\bemail client\\b",
-    "category": "Internet & Communication",
+    "category": "Email",
     "reason": "Description explicitly identifies it as an email client."
   },
   {
     "pattern": "\\bchat client\\b",
-    "category": "Internet & Communication",
+    "category": "Messaging & Calls",
     "reason": "Description explicitly identifies it as a chat client."
   },
   {
     "pattern": "\\bmessaging app\\b",
-    "category": "Internet & Communication",
+    "category": "Messaging & Calls",
     "reason": "Description explicitly identifies it as a messaging app."
   },
   {
     "pattern": "\\bvideo conferenc",
-    "category": "Internet & Communication",
+    "category": "Messaging & Calls",
     "reason": "Description explicitly identifies it as video-conferencing software."
   },
   {
     "pattern": "\\birc client\\b",
-    "category": "Internet & Communication",
+    "category": "Messaging & Calls",
     "reason": "Description explicitly identifies it as an IRC client."
   },
   {
     "pattern": "\\bftp client\\b",
-    "category": "Internet & Communication",
+    "category": "File Sharing & Downloads",
     "reason": "Description explicitly identifies it as an FTP client."
   },
   {
     "pattern": "\\btorrent client\\b",
-    "category": "Internet & Communication",
+    "category": "File Sharing & Downloads",
     "reason": "Description explicitly identifies it as a torrent client."
   },
   {
     "pattern": "\\brss (feed )?reader\\b",
-    "category": "Internet & Communication",
+    "category": "News & Weather",
     "reason": "Description explicitly identifies it as an RSS reader."
   },
   {
     "pattern": "\\binstant messaging\\b",
-    "category": "Internet & Communication",
+    "category": "Messaging & Calls",
     "reason": "Description explicitly identifies it as instant-messaging software."
   },
   {
     "pattern": "\\bvoip\\b",
-    "category": "Internet & Communication",
+    "category": "Messaging & Calls",
     "reason": "Description explicitly identifies it as VoIP software."
   },
   {
     "pattern": "\\bxmpp client\\b",
-    "category": "Internet & Communication",
+    "category": "Messaging & Calls",
     "reason": "Description explicitly identifies it as an XMPP client."
   },
   {
     "pattern": "\\bmatrix client\\b",
-    "category": "Internet & Communication",
+    "category": "Messaging & Calls",
     "reason": "Description explicitly identifies it as a Matrix client."
   },
   {
     "pattern": "\\busenet\\b",
-    "category": "Internet & Communication",
+    "category": "Networking",
     "reason": "Description explicitly identifies it as Usenet-related software."
   },
   {
@@ -766,12 +766,12 @@
   },
   {
     "pattern": "\\bfile sync(hronization)?\\b",
-    "category": "Internet & Communication",
-    "reason": "Description explicitly identifies it as a file-synchronization client -- matches config/categories-apps.json's own \"FileTransfer\" -> Internet & Communication freedesktop mapping. Verified live: 20 real matches, zero unrelated collisions."
+    "category": "File Sharing & Downloads",
+    "reason": "Description explicitly identifies it as a file-synchronization client -- matches config/categories-apps.json's own \"FileTransfer\" -> File Sharing & Downloads freedesktop mapping. Verified live: 20 real matches, zero unrelated collisions."
   },
   {
     "pattern": "\\bcloud storage\\b",
-    "category": "Internet & Communication",
+    "category": "File Sharing & Downloads",
     "reason": "Description explicitly identifies it as a cloud-storage client -- same reasoning as file sync above. Verified live: 44 real matches, zero unrelated collisions."
   },
   {
@@ -896,17 +896,17 @@
   },
   {
     "pattern": "\\bbrowser extension\\b",
-    "category": "Internet & Communication",
+    "category": "Web Browsers",
     "reason": "Description explicitly identifies it as a web-browser extension. Verified live: 22 real matches, zero unrelated collisions."
   },
   {
     "pattern": "\\bscreen (sharing|share)\\b",
-    "category": "Internet & Communication",
+    "category": "Messaging & Calls",
     "reason": "Description explicitly identifies it as screen-sharing/remote-collaboration software. Verified live: 21 real matches, zero unrelated collisions."
   },
   {
     "pattern": "\\bfile transfer\\b",
-    "category": "Internet & Communication",
+    "category": "File Sharing & Downloads",
     "reason": "Description explicitly identifies it as file-transfer software -- matches config/categories-apps.json's own \"FileTransfer\" freedesktop mapping. Verified live: 61 real matches, zero unrelated collisions."
   },
   {
@@ -1011,7 +1011,7 @@
   },
   {
     "pattern": "\\bdownload manager\\b",
-    "category": "Internet & Communication",
+    "category": "File Sharing & Downloads",
     "reason": "Description explicitly identifies it as a download manager. Verified live: 47 real matches, zero unrelated collisions."
   },
   {
@@ -1061,7 +1061,7 @@
   },
   {
     "pattern": "\\bchatbot\\b",
-    "category": "Internet & Communication",
+    "category": "Messaging & Calls",
     "reason": "Description explicitly identifies it as a chatbot -- messaging-platform-adjacent software. Verified live: 11 real matches, zero unrelated collisions."
   },
   {
@@ -1141,27 +1141,27 @@
   },
   {
     "pattern": "\\bmail client\\b",
-    "category": "Internet & Communication",
+    "category": "Email",
     "reason": "Description explicitly identifies it as a mail client -- catches real matches the existing \"email client\" entry misses (different word). Verified live: 24 real matches, zero unrelated collisions."
   },
   {
     "pattern": "\\bsftp client\\b",
-    "category": "Internet & Communication",
+    "category": "File Sharing & Downloads",
     "reason": "Description explicitly identifies it as an SFTP client -- same reasoning as the existing FTP client entry. Verified live: 11 real matches, zero unrelated collisions."
   },
   {
     "pattern": "\\btwitter client\\b",
-    "category": "Internet & Communication",
+    "category": "Social Media",
     "reason": "Description explicitly identifies it as a Twitter client. Verified live: 10 real matches, zero unrelated collisions."
   },
   {
     "pattern": "\\bbittorrent client\\b",
-    "category": "Internet & Communication",
+    "category": "File Sharing & Downloads",
     "reason": "Description explicitly identifies it as a BitTorrent client -- catches real matches the existing \"torrent client\" entry misses (different word). Verified live: 39 real matches, zero unrelated collisions."
   },
   {
     "pattern": "\\bdiscord client\\b",
-    "category": "Internet & Communication",
+    "category": "Messaging & Calls",
     "reason": "Description explicitly identifies it as a Discord client. Verified live: 20 real matches, zero unrelated collisions."
   },
   {
@@ -1241,7 +1241,7 @@
   },
   {
     "pattern": "\\birc server\\b",
-    "category": "Internet & Communication",
+    "category": "Messaging & Calls",
     "reason": "Description explicitly identifies it as an IRC server -- same reasoning as the existing IRC client entry. Verified live: 10 real matches, zero unrelated collisions."
   },
   {
@@ -1361,13 +1361,13 @@
   },
   {
     "pattern": "\\bchat (application|tool)\\b",
-    "category": "Internet & Communication",
+    "category": "Messaging & Calls",
     "reason": "Description explicitly identifies it as a chat application -- broader wording than the existing \"chat client\" entry. Verified live: 10 real matches, zero unrelated collisions."
   },
   {
     "pattern": "\\bwallpapers?\\b",
     "category": "Settings",
-    "reason": "Discovered via a data-driven pass: found by checking which words are disproportionately common in already-classified apps' own descriptions, then verified live against the still-unclassified matches (271) \u2014 overwhelmingly wallpaper collections/managers/downloaders, same desktop-theming reasoning as the existing wallpaper manager/changer/daemon entries."
+    "reason": "Discovered via a data-driven pass: found by checking which words are disproportionately common in already-classified apps' own descriptions, then verified live against the still-unclassified matches (271) — overwhelmingly wallpaper collections/managers/downloaders, same desktop-theming reasoning as the existing wallpaper manager/changer/daemon entries."
   },
   {
     "pattern": "\\bxfce\\b",
@@ -1476,7 +1476,7 @@
   },
   {
     "pattern": "\\bbittorrent\\b",
-    "category": "Internet & Communication",
+    "category": "File Sharing & Downloads",
     "reason": "Same data-driven discovery as firmware above -- broader wording than the existing bittorrent client entry. Verified live: 46 real matches, zero unrelated collisions."
   },
   {
@@ -1536,7 +1536,7 @@
   },
   {
     "pattern": "\\bweechat\\b",
-    "category": "Internet & Communication",
+    "category": "Messaging & Calls",
     "reason": "Same data-driven discovery as uefi above -- WeeChat IRC-client web frontends. Verified live: 10 real matches, zero unrelated collisions."
   },
   {
@@ -1601,17 +1601,17 @@
   },
   {
     "pattern": "\\bsoapysdr\\b",
-    "category": "Internet & Communication",
+    "category": "Networking",
     "reason": "SoapySDR software-defined-radio tooling. Verified live: 15 matches, zero unrelated collisions."
   },
   {
     "pattern": "\\bfediverse\\b",
-    "category": "Internet & Communication",
+    "category": "Social Media",
     "reason": "Fediverse (Mastodon/Lemmy/etc.) clients and tooling. Verified live: 10 matches, zero unrelated collisions."
   },
   {
     "pattern": "\\btransceiver\\b",
-    "category": "Internet & Communication",
+    "category": "Networking",
     "reason": "Radio transceiver control/programming tooling. Verified live: 16 matches, zero unrelated collisions."
   },
   {
@@ -1676,22 +1676,22 @@
   },
   {
     "pattern": "\\bnextcloud\\b",
-    "category": "Internet & Communication",
+    "category": "File Sharing & Downloads",
     "reason": "Nextcloud server distributions and sync tooling. Verified live: 20 matches, zero unrelated collisions."
   },
   {
     "pattern": "\\bthunderbird\\b",
-    "category": "Internet & Communication",
+    "category": "Email",
     "reason": "Thunderbird email client and forks. Verified live: 18 matches, zero unrelated collisions."
   },
   {
     "pattern": "\\bconferencing\\b",
-    "category": "Internet & Communication",
+    "category": "Messaging & Calls",
     "reason": "Video/audio conferencing tooling. Verified live: 12 matches, zero unrelated collisions."
   },
   {
     "pattern": "\\bmailboxes\\b",
-    "category": "Internet & Communication",
+    "category": "Email",
     "reason": "Mailbox/email management tooling. Verified live: 14 matches, zero unrelated collisions."
   },
   {
@@ -1771,13 +1771,13 @@
   },
   {
     "pattern": "\\bblocker\\b",
-    "category": "Internet & Communication",
+    "category": "Networking",
     "reason": "Ad/content/domain blocker tooling. Verified live: 23 matches, zero unrelated collisions."
   },
   {
     "pattern": "^(?!.*\\b(?:vst3?|lv2|clap)\\b).*\\bemulat",
     "category": "System Tools",
-    "reason": "Console/computer/CPU emulators (bsnes-hd, vita3k-bin, mupen64-rr-lua-bin, ...) \u2014 surfaced fixing looksLikeGamePackage's over-broad games-emulation/games.emulator carve-out, which had been permanently stranding every one of these in a genre-less \"game\" bucket. The negative lookahead excludes chip/circuit emulators packaged as VST/VST3/LV2/CLAP audio plugins (a-sid, sid-git, sn76489-vst-git, ...), which are Music & Audio, not System Tools. Verified live: 578 real matches after the exclusion, zero remaining unrelated collisions."
+    "reason": "Console/computer/CPU emulators (bsnes-hd, vita3k-bin, mupen64-rr-lua-bin, ...) — surfaced fixing looksLikeGamePackage's over-broad games-emulation/games.emulator carve-out, which had been permanently stranding every one of these in a genre-less \"game\" bucket. The negative lookahead excludes chip/circuit emulators packaged as VST/VST3/LV2/CLAP audio plugins (a-sid, sid-git, sn76489-vst-git, ...), which are Music & Audio, not System Tools. Verified live: 578 real matches after the exclusion, zero remaining unrelated collisions."
   },
   {
     "pattern": "\\bminecraft\\b.*\\blaunch|\\blaunch\\w*\\b.*\\bminecraft\\b",
@@ -1901,13 +1901,13 @@
   },
   {
     "pattern": "\\b(mastodon|fediverse|matrix|xmpp) (client|app|server|messaging|chat)\\b|\\btelegram (client|desktop|messenger)\\b|\\bdiscord (client|app|messenger)\\b",
-    "category": "Internet & Communication",
-    "reason": "Chat-protocol clients/servers (Vesktop's Discord App, Matrix messaging apps, XMPP clients). Deliberately narrower than bare \"matrix\"/\"telegram\"/\"discord\" \u2014 those also match barcode SDKs (\"Data Matrix\") and proxy tooling. Verified live."
+    "category": "Messaging & Calls",
+    "reason": "Chat-protocol clients/servers (Vesktop's Discord App, Matrix messaging apps, XMPP clients). Deliberately narrower than bare \"matrix\"/\"telegram\"/\"discord\" — those also match barcode SDKs (\"Data Matrix\") and proxy tooling. Verified live."
   },
   {
     "pattern": "\\bfont (browser|viewer|editor|manager|design)\\b",
     "category": "Graphics & Design",
-    "reason": "Font-browsing/design tools (gucharmap, Glyphr Studio). Deliberately narrower than bare \"font\" \u2014 negations (\"Assets ... except fonts\") and unrelated mentions (\"generate AppImage files\") break the broad form. Verified live."
+    "reason": "Font-browsing/design tools (gucharmap, Glyphr Studio). Deliberately narrower than bare \"font\" — negations (\"Assets ... except fonts\") and unrelated mentions (\"generate AppImage files\") break the broad form. Verified live."
   },
   {
     "pattern": "\\bthemes?\\b",
@@ -1937,7 +1937,7 @@
   {
     "pattern": "\\bpassword (vault|safe|store|keeper)\\b",
     "category": "Security",
-    "reason": "Password vaults/stores (buttercup, keeper, passwordmanager) \u2014 broader than the existing password-manager rule, same Security family. Verified live: 14 real matches, all credential stores."
+    "reason": "Password vaults/stores (buttercup, keeper, passwordmanager) — broader than the existing password-manager rule, same Security family. Verified live: 14 real matches, all credential stores."
   },
   {
     "pattern": "\\bclipboard\\b",
@@ -1962,12 +1962,12 @@
   {
     "pattern": "\\btranslat(e|ion|or|ing)s?\\b",
     "category": "Books & Reference",
-    "reason": "Translation software (argos-translate, Voxis) \u2014 matches freedesktop's own Translation key, already mapped to Books & Reference. Verified live; a small accepted minority are data-translation tools."
+    "reason": "Translation software (argos-translate, Voxis) — matches freedesktop's own Translation key, already mapped to Books & Reference. Verified live; a small accepted minority are data-translation tools."
   },
   {
     "pattern": "\\bdictionar",
     "category": "Books & Reference",
-    "reason": "Dictionary software/data (websters1913, aard2, aspell language dictionaries) \u2014 matches freedesktop's own Dictionary key. Verified live: 143 real matches."
+    "reason": "Dictionary software/data (websters1913, aard2, aspell language dictionaries) — matches freedesktop's own Dictionary key. Verified live: 143 real matches."
   },
   {
     "pattern": "\\be-?books?\\b|\\bepub\\b",
@@ -1992,32 +1992,32 @@
   {
     "pattern": "\\bscann(er|ing)\\b",
     "category": "System Tools",
-    "reason": "Scanner/hardware-scan tools \u2014 placed after the existing network-scanner rule, which wins Security first. Verified live."
+    "reason": "Scanner/hardware-scan tools — placed after the existing network-scanner rule, which wins Security first. Verified live."
   },
   {
     "pattern": "\\bprint(er|ing)\\b",
     "category": "System Tools",
-    "reason": "Printing tooling (hplip-printer-app, xprinter1) \u2014 same family as the freedesktop Printer key. Checked after the 3D-modeling phrases so FreeCAD resolves to Graphics & Design first. Verified live."
+    "reason": "Printing tooling (hplip-printer-app, xprinter1) — same family as the freedesktop Printer key. Checked after the 3D-modeling phrases so FreeCAD resolves to Graphics & Design first. Verified live."
   },
   {
     "pattern": "\\btorrents?\\b",
-    "category": "Internet & Communication",
-    "reason": "Torrent clients/automation (addmag, autobrr, autoremove-torrents) \u2014 broader than the existing torrent-client rule. Verified live: 75 real matches."
+    "category": "File Sharing & Downloads",
+    "reason": "Torrent clients/automation (addmag, autobrr, autoremove-torrents) — broader than the existing torrent-client rule. Verified live: 75 real matches."
   },
   {
     "pattern": "\\be-?mails?\\b|\\bsmtp\\b|\\bimap\\b",
-    "category": "Internet & Communication",
+    "category": "Email",
     "reason": "Email clients/servers/verification tools (Eppie, Newton, tomba, tricepmail). Verified live: 167 real matches."
   },
   {
     "pattern": "\\bvpn\\b|\\bproxy\\b",
     "category": "Security",
-    "reason": "VPN/proxy tooling (IVPN, Husarnet, ClashCross, LocalXpose) \u2014 broader than the existing vpn-client/vpn-server/proxy-server rules. Verified live: 535 real matches, overwhelmingly privacy/network tooling."
+    "reason": "VPN/proxy tooling (IVPN, Husarnet, ClashCross, LocalXpose) — broader than the existing vpn-client/vpn-server/proxy-server rules. Verified live: 535 real matches, overwhelmingly privacy/network tooling."
   },
   {
     "pattern": "\\bbackups?\\b",
     "category": "System Tools",
-    "reason": "Backup tools/scripts (vmbackup, auto-rsync-backups, backer, acts) \u2014 broader than the existing backup-tool rule. Verified live: 55 real matches, one accepted exception (an authenticator viewer mentioning backups)."
+    "reason": "Backup tools/scripts (vmbackup, auto-rsync-backups, backer, acts) — broader than the existing backup-tool rule. Verified live: 55 real matches, one accepted exception (an authenticator viewer mentioning backups)."
   },
   {
     "pattern": "\\bdrawing\\b|\\bsketch(ing)?\\b|\\bpainting\\b",
@@ -2041,8 +2041,8 @@
   },
   {
     "pattern": "\\birc\\b",
-    "category": "Internet & Communication",
-    "reason": "IRC clients/daemons \u2014 broader than the existing irc-client rule. Verified live: 62 real matches."
+    "category": "Messaging & Calls",
+    "reason": "IRC clients/daemons — broader than the existing irc-client rule. Verified live: 62 real matches."
   },
   {
     "pattern": "\\bnews (reader|aggregator|feed)\\b",
@@ -2052,32 +2052,32 @@
   {
     "pattern": "\\bcalculator\\b",
     "category": "Utilities",
-    "reason": "Calculators \u2014 broader than the existing calculator-app rule (RPN CLI calculators, tape calculators). Verified live: 204 real matches."
+    "reason": "Calculators — broader than the existing calculator-app rule (RPN CLI calculators, tape calculators). Verified live: 204 real matches."
   },
   {
     "pattern": "\\blaunchers?\\b",
     "category": "System Tools",
-    "reason": "Launchers of every kind (game launchers, app launchers, server launchers \u2014 NoRisk Client Launcher, Recube Launcher, Viper). Sampled live: 354 matches, launcher tooling throughout; game launchers in particular are game-adjacent tools, not games."
+    "reason": "Launchers of every kind (game launchers, app launchers, server launchers — NoRisk Client Launcher, Recube Launcher, Viper). Sampled live: 354 matches, launcher tooling throughout; game launchers in particular are game-adjacent tools, not games."
   },
   {
     "pattern": "\\bmod (manager|launcher|loader)\\b|\\bmodpacks?\\b",
     "category": "System Tools",
-    "reason": "Game mod/modpack managers (Outer Wilds Mod Manager, FTB Electron App) \u2014 the app-side counterpart to the game-adjacent-tool rules, for packages that never got game-flagged in the first place. Verified live."
+    "reason": "Game mod/modpack managers (Outer Wilds Mod Manager, FTB Electron App) — the app-side counterpart to the game-adjacent-tool rules, for packages that never got game-flagged in the first place. Verified live."
   },
   {
     "pattern": "\\baur helper\\b|\\bpacman wrapper\\b",
     "category": "System Tools",
-    "reason": "AUR helpers / pacman wrappers (apac, auh, aurget, arts) \u2014 PackageManager reasoning, same family as the apt-* name rules. Verified live against the apps \"To Classify\" pool (2026-09-03): 81 real matches, all AUR helpers."
+    "reason": "AUR helpers / pacman wrappers (apac, auh, aurget, arts) — PackageManager reasoning, same family as the apt-* name rules. Verified live against the apps \"To Classify\" pool (2026-09-03): 81 real matches, all AUR helpers."
   },
   {
     "pattern": "\\bsystem information\\b",
     "category": "System Tools",
-    "reason": "System-information fetch tools (archey3, betterfetch, customfetch \u2014 the fastfetch/neofetch family). Verified live: 57 real matches, all system-info tools."
+    "reason": "System-information fetch tools (archey3, betterfetch, customfetch — the fastfetch/neofetch family). Verified live: 57 real matches, all system-info tools."
   },
   {
     "pattern": "\\bham radio\\b",
-    "category": "Internet & Communication",
-    "reason": "Amateur-radio tooling (adif log converters, chirp, cqrlog) \u2014 same hamradio/Telephony reasoning as Debian's own hamradio section mapping. Verified live: 51 real matches, all radio tooling."
+    "category": "Networking",
+    "reason": "Amateur-radio tooling (adif log converters, chirp, cqrlog) — same hamradio/Telephony reasoning as Debian's own hamradio section mapping. Verified live: 51 real matches, all radio tooling."
   },
   {
     "pattern": "\\bkernel modules?\\b",
@@ -2087,17 +2087,17 @@
   {
     "pattern": "\\bcryptocurrenc|\\bdigital currency\\b|\\bcrypto (coin|wallet)\\b",
     "category": "Finance",
-    "reason": "Cryptocurrency wallets/nodes/CLI toolkits (Blackcoin More, BYTZ, coinevo-core, ioncoin) \u2014 same Finance reasoning as the existing personal-finance rules. Verified live: 111 real matches, all crypto software."
+    "reason": "Cryptocurrency wallets/nodes/CLI toolkits (Blackcoin More, BYTZ, coinevo-core, ioncoin) — same Finance reasoning as the existing personal-finance rules. Verified live: 111 real matches, all crypto software."
   },
   {
     "pattern": "\\bgame engines?\\b",
     "category": "Developer Tools",
-    "reason": "Game-development engines (Solar2D, Godot, arcan, anura) \u2014 tools for MAKING games, a developer resource, not a game; deliberately not a game genre. Verified live: 73 real matches, all engines."
+    "reason": "Game-development engines (Solar2D, Godot, arcan, anura) — tools for MAKING games, a developer resource, not a game; deliberately not a game genre. Verified live: 73 real matches, all engines."
   },
   {
     "pattern": "\\bengine for games?\\b",
     "category": "Developer Tools",
-    "reason": "Reversed-order counterpart to the \\bgame engines?\\b rule above (Box2D: \"A 2D Physics Engine for Games\", soloud: \"portable audio engine for games\") \u2014 same tools-for-making-games reasoning, kept as a separate entry since the two word orders never overlap. Added alongside index.ts's matching isGameAdjacentToolDescription pattern (2026-09-04) so these resolve to a real category the moment isGame flips false. Verified live: 2 real matches, zero unrelated collisions."
+    "reason": "Reversed-order counterpart to the \\bgame engines?\\b rule above (Box2D: \"A 2D Physics Engine for Games\", soloud: \"portable audio engine for games\") — same tools-for-making-games reasoning, kept as a separate entry since the two word orders never overlap. Added alongside index.ts's matching isGameAdjacentToolDescription pattern (2026-09-04) so these resolve to a real category the moment isGame flips false. Verified live: 2 real matches, zero unrelated collisions."
   },
   {
     "pattern": "\\bdevelopment environment\\b|\\bide\\b",
@@ -2107,7 +2107,7 @@
   {
     "pattern": "\\bpackage managers?\\b",
     "category": "System Tools",
-    "reason": "Multi-package-manager frontends (meta-package-manager, pacapt, gpk) \u2014 broader than the existing language-package-manager rule, same PackageManager reasoning. Verified live: 11 real matches."
+    "reason": "Multi-package-manager frontends (meta-package-manager, pacapt, gpk) — broader than the existing language-package-manager rule, same PackageManager reasoning. Verified live: 11 real matches."
   },
   {
     "pattern": "\\bjetbrains\\b",

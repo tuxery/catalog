@@ -40,34 +40,34 @@ version and download size.
 
 ## Source tiers
 
-| Tier             | Sources                                                                  | Why this rank                                                                   |
-| ---------------- | ------------------------------------------------------------------------ | ------------------------------------------------------------------------------- |
-| Upstream stores  | Flathub, AppCenter                                                       | Metainfo the developers write and keep current themselves                       |
-| Distro AppStream | openSUSE, Debian, Ubuntu, Fedora, Arch AppStream feeds                   | The same upstream metainfo, as each distro ships it, often for an older release |
-| Stores           | Snap, AppImage, GOG, Lutris, vendor repos, GitHub releases               | Written by whoever publishes the listing, sometimes not the developer           |
-| Distro packages  | Fedora, openSUSE, Arch, Alpine, Nix, Gentoo, Void, Solus, AUR, Debian... | Written by packagers: reliable for licenses, silent on the rest                 |
+| Tier             | Sources                                                                            | Why this rank                                                                   |
+| ---------------- | ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| Upstream stores  | Flathub, AppCenter                                                                 | Metainfo the developers write and keep current themselves                       |
+| Distro AppStream | openSUSE, Debian, Ubuntu, Fedora, Arch AppStream feeds                             | The same upstream metainfo, as each distro ships it, often for an older release |
+| Stores           | Snap, AppImage, GOG, Lutris, vendor repos, GitHub releases                         | Written by whoever publishes the listing, sometimes not the developer           |
+| Distro packages  | Fedora, openSUSE, Arch, Alpine, Nix, Gentoo, Void, Solus, Homebrew, AUR, Debian... | Written by packagers: reliable for licenses, silent on the rest                 |
 
 ## Per field
 
-| Field                    | Sources, best first                                                                                                                                                     | Notes                                                               |
-| ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `iconUrl`                | Upstream stores, distro AppStream, Snap, AppImage, vendor repos, GOG, Lutris, AppImageHub                                                                               |                                                                     |
-| `screenshots`            | Upstream stores, distro AppStream, Snap, AppImage, GOG, AppImageHub                                                                                                     | One source's whole set                                              |
-| `videos`                 | Upstream stores, distro AppStream, Snap, GOG                                                                                                                            | One MP4/WebM per screenshot; Snap's API carries none                |
-| `longDescription`        | Upstream stores, distro AppStream, Snap, GOG, Lutris, AppImage, Nix, AppImageHub                                                                                        | Nix's `meta.longDescription`, then AppImageHub's: last              |
-| `license`                | Upstream stores, distro AppStream, then packagers: Fedora, openSUSE, RPM Fusion, Arch, Alpine, Nix, Gentoo, Void, Solus, then vendor repos, GitHub, Snap, AppImage, AUR | See [License](#license)                                             |
-| `developer`              | Upstream stores, distro AppStream, GOG, AppImage                                                                                                                        | Never a store account, never a packager or maintainer               |
-| `publisher`              | Snap, GOG                                                                                                                                                               | The account publishing the listing, see [Publisher](#publisher)     |
-| `languages`              | Upstream stores, distro AppStream                                                                                                                                       | The longest list wins, see below                                    |
-| `links`                  | Upstream stores, distro AppStream, Snap, AppImage, GitHub releases                                                                                                      | Each link type picked on its own                                    |
-| `releases` + `changelog` | Upstream stores, distro AppStream                                                                                                                                       | AppStream `<releases>` only, see below                              |
-| `lastUpdated`            | Every package's upstream release date                                                                                                                                   | Newest among default builds, see below                              |
-| `approxSizeBytes`        | Flathub                                                                                                                                                                 | A Flatpak download. Installed sizes stay per package                |
-| `ageRating`              | Upstream stores, distro AppStream, GOG                                                                                                                                  | OARS and GOG's PEGI/ESRB, see [Age rating](#age-rating)             |
-| `requirements`           | Upstream stores, distro AppStream                                                                                                                                       | AppStream `<requires>`/`<recommends>`/`<supports>`, one line        |
-| `brandColors`            | Upstream stores, distro AppStream                                                                                                                                       | AppStream `<branding>`, see [Brand colors](#brand-colors-and-kudos) |
-| `kudos`                  | Upstream stores, distro AppStream                                                                                                                                       | AppStream `<kudos>`, as stated                                      |
-| `permissions`            | Flathub                                                                                                                                                                 | The Flatpak's own sandbox. Partial, see [Permissions](#permissions) |
+| Field                    | Sources, best first                                                                                                                                                               | Notes                                                               |
+| ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `iconUrl`                | Upstream stores, distro AppStream, Snap, AppImage, vendor repos, GOG, Lutris, AppImageHub                                                                                         |                                                                     |
+| `screenshots`            | Upstream stores, distro AppStream, Snap, AppImage, GOG, AppImageHub                                                                                                               | One source's whole set                                              |
+| `videos`                 | Upstream stores, distro AppStream, Snap, GOG                                                                                                                                      | One MP4/WebM per screenshot; Snap's API carries none                |
+| `longDescription`        | Upstream stores, distro AppStream, Snap, GOG, Lutris, AppImage, Nix, AppImageHub                                                                                                  | Nix's `meta.longDescription`, then AppImageHub's: last              |
+| `license`                | Upstream stores, distro AppStream, then packagers: Fedora, openSUSE, RPM Fusion, Arch, Alpine, Nix, Gentoo, Void, Solus, Homebrew, then vendor repos, GitHub, Snap, AppImage, AUR | See [License](#license)                                             |
+| `developer`              | Upstream stores, distro AppStream, GOG, AppImage                                                                                                                                  | Never a store account, never a packager or maintainer               |
+| `publisher`              | Snap, GOG                                                                                                                                                                         | The account publishing the listing, see [Publisher](#publisher)     |
+| `languages`              | Upstream stores, distro AppStream                                                                                                                                                 | The longest list wins, see below                                    |
+| `links`                  | Upstream stores, distro AppStream, Snap, AppImage, GitHub releases                                                                                                                | Each link type picked on its own                                    |
+| `releases` + `changelog` | Upstream stores, distro AppStream                                                                                                                                                 | AppStream `<releases>` only, see below                              |
+| `lastUpdated`            | Every package's upstream release date                                                                                                                                             | Newest among default builds, see below                              |
+| `approxSizeBytes`        | Flathub                                                                                                                                                                           | A Flatpak download. Installed sizes stay per package                |
+| `ageRating`              | Upstream stores, distro AppStream, GOG                                                                                                                                            | OARS and GOG's PEGI/ESRB, see [Age rating](#age-rating)             |
+| `requirements`           | Upstream stores, distro AppStream                                                                                                                                                 | AppStream `<requires>`/`<recommends>`/`<supports>`, one line        |
+| `brandColors`            | Upstream stores, distro AppStream                                                                                                                                                 | AppStream `<branding>`, see [Brand colors](#brand-colors-and-kudos) |
+| `kudos`                  | Upstream stores, distro AppStream                                                                                                                                                 | AppStream `<kudos>`, as stated                                      |
+| `permissions`            | Flathub                                                                                                                                                                           | The Flatpak's own sandbox. Partial, see [Permissions](#permissions) |
 
 Not in this table: name, short description and homepage come from the
 group's representative (`SOURCE_PRIORITY` in `enrich/index.ts`);
@@ -80,7 +80,10 @@ package instead of picking one.
 Upstream's own declaration (`<project_license>`) beats the packagers',
 then the packagers rank by how much their license field is reviewed:
 Fedora and openSUSE check SPDX expressions at package review, AUR
-doesn't check anything. A store's field comes after the distros':
+doesn't check anything. Homebrew's formulae carry SPDX expressions
+(its casks state no license); its own `LicenseRef-Homebrew-*`
+identifiers are never borrowed as another source's SPDX form. A
+store's field comes after the distros':
 Snap's is often `Other`.
 
 `licenseSpdx` comes from the winning license when it converts to SPDX.

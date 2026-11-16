@@ -58,7 +58,7 @@ jobs:
       # tuxery/source-cache with Contents + Pull requests: write.
       - name: Mint a read-only token for the private source caches
         id: pushinator-read
-        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0 @ 2026-10-02
+        uses: actions/create-github-app-token@64ab729a6294000f5aa4a4bc0b73d1f32bc45510 # v3.2.0 @ 2026-10-02
         with:
           client-id: ${{ vars.PUSHINATOR_ID || secrets.PUSHINATOR_ID }}
           private-key: ${{ secrets.PUSHINATOR_KEY }}
@@ -164,7 +164,7 @@ jobs:
 
       - name: Mint a token from the Pushinator GitHub App for the PRs
         id: pushinator
-        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0 @ 2026-10-02
+        uses: actions/create-github-app-token@64ab729a6294000f5aa4a4bc0b73d1f32bc45510 # v3.2.0 @ 2026-10-02
         with:
           client-id: ${{ vars.PUSHINATOR_ID || secrets.PUSHINATOR_ID }}
           private-key: ${{ secrets.PUSHINATOR_KEY }}
@@ -178,7 +178,7 @@ jobs:
       # bypass that isn't actually configured. Authored as the Pushinator
       # app; unlike a PR opened with GITHUB_TOKEN, that also triggers CI.
       - name: Open a PR with the updated caches
-        uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1 @ 2026-04-10
+        uses: peter-evans/create-pull-request@3ffccacd46053766916f087ce41d627c0b8cf2d1 # v8.1.1 @ 2026-04-10
         with:
           token: ${{ steps.pushinator.outputs.token }}
           commit-message: "chore(sources): 🔧 scheduled source cache refresh"
@@ -192,7 +192,7 @@ jobs:
 
       # Same weekly PR, in the private repository, for its caches.
       - name: Open a PR with the updated private caches
-        uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1 @ 2026-04-10
+        uses: peter-evans/create-pull-request@3ffccacd46053766916f087ce41d627c0b8cf2d1 # v8.1.1 @ 2026-04-10
         with:
           token: ${{ steps.pushinator.outputs.token }}
           path: source-cache-private

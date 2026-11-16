@@ -26,9 +26,10 @@ jobs:
     runs-on: ubuntu-latest
     # 30 was too tight: all 3 scheduled runs of 2026-09-05/12/19 were killed
     # at ~30min, then mostly in snap-snapcraft's old sweep (replaced on
-    # 2026-11-09, see docs/sources.md). Not lowered since, for lack of a
-    # measured run.
-    timeout-minutes: 60
+    # 2026-11-09, see docs/sources.md). Runs of 2026-10-24 to 2026-11-14
+    # took 25 to 47 minutes, before github-stars' ~15 (its per-run query
+    # budget, MAX_QUERIES_PER_RUN in src/sources/github-stars/fetch.ts).
+    timeout-minutes: 75
     # The default GITHUB_TOKEN only reads here: this org forbids it from
     # creating pull requests ("GitHub Actions is not permitted to create or
     # approve pull requests", every scheduled run since 2026-09-05), and the
@@ -87,6 +88,10 @@ jobs:
           # source's own search+lookup both use this — 5000 req/hr vs. 60
           # unauthenticated (see docs/sources.md's AppImage/GitHub Releases
           # notes); skipped gracefully, not a hard failure, when unset.
+          # github-stars needs it (GraphQL refuses anonymous requests) and
+          # spends its own budget there: 1,000 points an hour for this
+          # token, one per 100 repositories. Past that it stops and keeps
+          # the previous stars of the repositories it didn't reach.
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           # Through the environment, never interpolated into the script.
           SOURCE_INPUT: ${{ github.event.inputs.source }}

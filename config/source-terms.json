@@ -70,6 +70,36 @@
       ],
       "note": "Private cache in tuxery/source-cache."
     },
+    "brew-homebrew": {
+      "verdict": "clear",
+      "automatedFetch": "allowed",
+      "publicStorage": "allowed",
+      "attribution": "Keep the BSD-2-Clause notices of homebrew-core and homebrew-cask with any copy (src/sources/cache/LICENSES/, since 2026-11-16).",
+      "fieldLicense": "BSD-2-Clause on homebrew-core (formulae) and homebrew-cask (casks), descriptions included. The install analytics state no license: only a percentile derived from them is kept.",
+      "evidence": [
+        {
+          "url": "https://formulae.brew.sh/docs/api/",
+          "read": true,
+          "finding": "Read 2026-11-15. Documents formula.json (\"List the brew info --json output for all current Homebrew/homebrew-core formulae or Homebrew/homebrew-cask casks\") and the analytics files as public JSON endpoints (`curl https://formulae.brew.sh/api/formula.json`). No terms of use, rate limit or license stated on the page."
+        },
+        {
+          "url": "https://formulae.brew.sh/robots.txt",
+          "read": true,
+          "finding": "Read 2026-11-15. One line, \"Sitemap: https://formulae.brew.sh/sitemap.xml\": no Disallow, no Crawl-delay."
+        },
+        {
+          "url": "https://github.com/Homebrew/homebrew-core/blob/HEAD/LICENSE.txt",
+          "read": true,
+          "finding": "Read 2026-11-15 (raw.githubusercontent.com). \"BSD 2-Clause License. Copyright (c) 2009-present, Homebrew contributors\": redistribution permitted if the notice is kept."
+        },
+        {
+          "url": "https://github.com/Homebrew/homebrew-cask/blob/HEAD/LICENSE",
+          "read": true,
+          "finding": "Read 2026-11-15 (raw.githubusercontent.com). \"BSD 2-Clause License. Copyright (c) 2013-present, Homebrew contributors\": redistribution permitted if the notice is kept."
+        }
+      ],
+      "note": "Three requests a week: formula.json, cask.json and install-on-request/homebrew-core/30d.json, through the shared User-Agent. The analytics count installs on every OS Homebrew runs on, mostly macOS."
+    },
     "deb-debian": {
       "verdict": "low-risk-no-terms",
       "automatedFetch": "public-mirror-no-terms",

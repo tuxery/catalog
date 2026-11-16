@@ -4,7 +4,8 @@ version: 2
 # GitHub Actions together (a multi-ecosystem group). Titles and commits use
 # the `deps` scope from scopes.json for every kind of dependency
 # (Dependabot's own `include: scope` would write `deps-dev`, not a scope
-# here).
+# here). `commit-message` sits on the group: Dependabot rejects it on an
+# update that belongs to a multi-ecosystem group.
 multi-ecosystem-groups:
   dependencies:
     schedule:
@@ -12,6 +13,9 @@ multi-ecosystem-groups:
       day: monday
     labels:
       - dependencies
+    commit-message:
+      prefix: "chore(deps)"
+      prefix-development: "chore(deps)"
 
 updates:
   - package-ecosystem: npm
@@ -19,14 +23,9 @@ updates:
     patterns:
       - "*"
     multi-ecosystem-group: dependencies
-    commit-message:
-      prefix: "chore(deps)"
-      prefix-development: "chore(deps)"
 
   - package-ecosystem: github-actions
     directory: /
     patterns:
       - "*"
     multi-ecosystem-group: dependencies
-    commit-message:
-      prefix: "chore(deps)"

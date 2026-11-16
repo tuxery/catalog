@@ -4223,5 +4223,278 @@
       }
     ],
     "reason": "Same game (the 3D Pinball for Windows – Space Cadet reverse engineering, k4zmu2a/SpaceCadetPinball): ubuntu.retro-os.live repackages it as its own snap. Both are titled \"Space Cadet Pinball\" on the Snap Store, which makes the title store-generic (see group.ts storeGenericNames), so the name no longer joins them."
+  },
+  {
+    "destination": {
+      "source": "deb-debian",
+      "appId": "twm"
+    },
+    "sources": [
+      {
+        "source": "pacman-arch",
+        "appId": "xorg-twm"
+      }
+    ],
+    "reason": "twm, the X.Org Tab Window Manager: Arch packages it as xorg-twm, the others as twm. Wikidata Q292990 links both; same freedesktop.org project."
+  },
+  {
+    "destination": {
+      "source": "rpm-fedora",
+      "appId": "xz"
+    },
+    "sources": [
+      {
+        "source": "deb-debian",
+        "appId": "xz-utils"
+      }
+    ],
+    "reason": "XZ Utils: Debian, Ubuntu and Gentoo package it as xz-utils, the others as xz. Wikidata Q539460 links both; same homepage, tukaani.org/xz."
+  },
+  {
+    "destination": {
+      "source": "deb-debian",
+      "appId": "xinit"
+    },
+    "sources": [
+      {
+        "source": "pacman-arch",
+        "appId": "xorg-xinit"
+      }
+    ],
+    "reason": "xinit, the X.Org initialisation program: Arch packages it as xorg-xinit. Wikidata Q609281 links both."
+  },
+  {
+    "destination": {
+      "source": "pacman-arch",
+      "appId": "tesseract"
+    },
+    "sources": [
+      {
+        "source": "deb-debian",
+        "appId": "tesseract-ocr"
+      }
+    ],
+    "reason": "Tesseract OCR: Debian, Ubuntu and openSUSE package it as tesseract-ocr, the others as tesseract. Wikidata Q945242 links both; same github.com/tesseract-ocr project."
+  },
+  {
+    "destination": {
+      "source": "deb-debian",
+      "appId": "rabbitmq-server"
+    },
+    "sources": [
+      {
+        "source": "pacman-arch",
+        "appId": "rabbitmq"
+      }
+    ],
+    "reason": "RabbitMQ: Arch and Homebrew package it as rabbitmq, the others as rabbitmq-server. Wikidata Q2081413 links both; same homepage, rabbitmq.com."
+  },
+  {
+    "destination": {
+      "source": "pacman-arch",
+      "appId": "enblend-enfuse"
+    },
+    "sources": [
+      {
+        "source": "deb-debian",
+        "appId": "enblend"
+      }
+    ],
+    "reason": "Enblend/Enfuse: Arch, openSUSE and others package it as enblend-enfuse, Debian, Ubuntu, Gentoo and Fedora as enblend. Wikidata Q4038045 links both; same homepage, enblend.sourceforge.net."
+  },
+  {
+    "destination": {
+      "source": "deb-debian",
+      "appId": "xdm"
+    },
+    "sources": [
+      {
+        "source": "pacman-arch",
+        "appId": "xorg-xdm"
+      }
+    ],
+    "reason": "XDM, the X.Org display manager: Arch packages it as xorg-xdm. Wikidata Q30339330 links both."
+  },
+  {
+    "destination": {
+      "source": "deb-debian",
+      "appId": "maildir-utils"
+    },
+    "sources": [
+      {
+        "source": "ebuild-gentoo",
+        "appId": "net-mail/mu"
+      }
+    ],
+    "reason": "mu, the maildir indexer with the mu4e Emacs client: Debian, Ubuntu, Fedora, openSUSE and Snap call it maildir-utils, the others mu. Wikidata Q63064965 links both; same github.com/djcb/mu project."
+  },
+  {
+    "destination": {
+      "source": "deb-ubuntu",
+      "appId": "gprolog"
+    },
+    "sources": [
+      {
+        "source": "brew-homebrew",
+        "appId": "gnu-prolog"
+      }
+    ],
+    "reason": "GNU Prolog: Homebrew's formula is gnu-prolog, every distribution's gprolog. Wikidata Q2351180 links both; same homepage, gprolog.org."
+  },
+  {
+    "destination": {
+      "source": "pacman-arch",
+      "appId": "freeradius"
+    },
+    "sources": [
+      {
+        "source": "brew-homebrew",
+        "appId": "freeradius-server"
+      }
+    ],
+    "reason": "FreeRADIUS: Homebrew, openSUSE and Snap call it freeradius-server, the distributions freeradius. Wikidata Q2424806 links both."
+  },
+  {
+    "destination": {
+      "source": "rpm-fedora",
+      "appId": "gdm"
+    },
+    "sources": [
+      {
+        "source": "deb-debian",
+        "appId": "gdm3"
+      }
+    ],
+    "reason": "GDM, the GNOME Display Manager: Debian and Ubuntu package it as gdm3, the others as gdm. Wikidata Q1460961 links both; same GNOME project."
+  },
+  {
+    "destination": {
+      "source": "deb-debian",
+      "appId": "2ping"
+    },
+    "sources": [
+      {
+        "source": "brew-homebrew",
+        "appId": "twoping"
+      }
+    ],
+    "reason": "2ping: Homebrew's formula is twoping (a formula name can't start with a digit). Wikidata Q62845403 links both; same homepage, finnie.org/software/2ping."
+  },
+  {
+    "destination": {
+      "source": "deb-debian",
+      "appId": "apktool"
+    },
+    "sources": [
+      {
+        "source": "pacman-aur",
+        "appId": "android-apktool"
+      }
+    ],
+    "reason": "Apktool: the AUR package is android-apktool. Wikidata Q97579605 links both; same github.com/iBotPeaches/Apktool project."
+  },
+  {
+    "destination": {
+      "source": "rpm-fedora",
+      "appId": "firebird"
+    },
+    "sources": [
+      {
+        "source": "deb-debian",
+        "appId": "firebird3.0-server"
+      }
+    ],
+    "reason": "Firebird SQL server: Debian and Ubuntu package it as firebird3.0-server. Wikidata Q261744 links both; same homepage, firebirdsql.org."
+  },
+  {
+    "destination": {
+      "source": "pacman-arch",
+      "appId": "uutils-coreutils"
+    },
+    "sources": [
+      {
+        "source": "deb-debian",
+        "appId": "rust-coreutils"
+      }
+    ],
+    "reason": "uutils coreutils, the Rust rewrite of the GNU coreutils: Debian and Ubuntu package it as rust-coreutils. Wikidata Q137886466 links both; same github.com/uutils/coreutils project."
+  },
+  {
+    "destination": {
+      "source": "pacman-arch",
+      "appId": "xf86-video-nouveau"
+    },
+    "sources": [
+      {
+        "source": "deb-debian",
+        "appId": "xserver-xorg-video-nouveau"
+      }
+    ],
+    "reason": "The Nouveau X.Org driver: Debian and Ubuntu name it xserver-xorg-video-nouveau, the others xf86-video-nouveau. Wikidata Q310474 links both."
+  },
+  {
+    "destination": {
+      "source": "flatpak-flathub",
+      "appId": "org.armagetronad.ArmagetronAdvanced"
+    },
+    "sources": [
+      {
+        "source": "rpm-fedora",
+        "appId": "armacycles-ad"
+      }
+    ],
+    "reason": "Armagetron Advanced: Fedora ships it renamed armacycles-ad (homepage armagetronad.sf.net). Wikidata Q676587 links both."
+  },
+  {
+    "destination": {
+      "source": "deb-ubuntu",
+      "appId": "passenger"
+    },
+    "sources": [
+      {
+        "source": "rpm-opensuse",
+        "appId": "rubygem-passenger"
+      }
+    ],
+    "reason": "Phusion Passenger: openSUSE packages it as the rubygem-passenger gem. Wikidata Q334824 links both; same homepage, phusionpassenger.com."
+  },
+  {
+    "destination": {
+      "source": "nix-nixpkgs",
+      "appId": "uucp"
+    },
+    "sources": [
+      {
+        "source": "ebuild-gentoo",
+        "appId": "net-misc/taylor-uucp"
+      }
+    ],
+    "reason": "Taylor UUCP: what most distributions package as uucp, Gentoo as net-misc/taylor-uucp. Wikidata Q135983630 links both; same homepage, airs.com/ian/uucp.html."
+  },
+  {
+    "destination": {
+      "source": "pacman-arch",
+      "appId": "hyperkitty"
+    },
+    "sources": [
+      {
+        "source": "deb-debian",
+        "appId": "python3-django-hyperkitty"
+      }
+    ],
+    "reason": "HyperKitty, GNU Mailman 3's archive web interface: Debian and Ubuntu package it as python3-django-hyperkitty. Wikidata Q105650484 links both; same gitlab.com/mailman/hyperkitty project."
+  },
+  {
+    "destination": {
+      "source": "pacman-arch",
+      "appId": "ninja"
+    },
+    "sources": [
+      {
+        "source": "deb-debian",
+        "appId": "ninja-build"
+      }
+    ],
+    "reason": "The Ninja build system: Debian, Ubuntu, Fedora and Alpine package it as ninja-build, the others as ninja. Wikidata Q28975257 links both."
   }
 ]

@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [main, "integration/**"]
 
+# The reusable workflow only reads the repository.
+permissions:
+  contents: read
+
 jobs:
   ci:
     uses: tuxery/.github/.github/workflows/ci-web.yml@d31579f042cf78a25d34c729966ddf91f59c38be # main @ 2026-08-13

@@ -50,6 +50,11 @@ on:
         type: boolean
         default: false
 
+# Only `main` publishes to prod: a dispatch from another branch skips that
+# job (preview stays open to any branch, to try a PR's dataset). The check
+# lives in this file, so a branch that edits it could drop it; the real
+# guard is moving the PROD_* secrets into the `prod` Environment with a
+# `main`-only deployment rule (the note above).
 permissions:
   contents: read
 
@@ -62,6 +67,8 @@ jobs:
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
 
       - uses: helpers4/action/setup-pnpm@6fddd178620e7325d446a246c38a44f979569fc4 # main @ 2026-07-29
         with:
@@ -84,6 +91,7 @@ jobs:
           repository: tuxery/source-cache
           token: ${{ steps.pushinator.outputs.token }}
           path: source-cache-private
+          persist-credentials: false
 
       - name: Seed Turso preview
         env:
@@ -93,13 +101,15 @@ jobs:
         run: pnpm seed --preview ${{ inputs.full && '--full' || '' }}
 
   publish-prod:
-    if: github.event.inputs.target == 'prod'
+    if: github.event.inputs.target == 'prod' && github.ref == 'refs/heads/main'
     name: Publish to Turso prod
     runs-on: ubuntu-latest
     environment: prod
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
 
       - uses: helpers4/action/setup-pnpm@6fddd178620e7325d446a246c38a44f979569fc4 # main @ 2026-07-29
         with:
@@ -122,6 +132,7 @@ jobs:
           repository: tuxery/source-cache
           token: ${{ steps.pushinator.outputs.token }}
           path: source-cache-private
+          persist-credentials: false
 
       - name: Seed Turso prod
         env:

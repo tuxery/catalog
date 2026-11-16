@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { NOTHING_TO_RUN_SECTION } from "../../sources/brew-homebrew/normalize";
 import {
   looksLikeGamePackage,
   looksLikeGuiPackage,
@@ -619,6 +620,11 @@ describe("looksLikeSupportSection", () => {
     expect(looksLikeSupportSection("programming")).toBe(false);
     expect(looksLikeSupportSection("system.base")).toBe(false);
     expect(looksLikeSupportSection("desktop.kde")).toBe(false);
+  });
+
+  it("flags Homebrew's nothing-to-run mark, and no other value from Homebrew", () => {
+    expect(looksLikeSupportSection(NOTHING_TO_RUN_SECTION)).toBe(true);
+    expect(looksLikeSupportSection("brew/something-else")).toBe(false);
   });
 
   it("flags Gentoo's acct-group/acct-user/virtual categories", () => {

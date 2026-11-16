@@ -146,6 +146,24 @@ describe("pickLicense", () => {
     expect(pickLicense(packages).licenseSpdx).toBeUndefined();
   });
 
+  it("ranks Homebrew's license after the distributions' and before the AUR's", () => {
+    const packages = [
+      pkg({ source: "pacman-aur", license: "GPL" }),
+      pkg({ source: "brew-homebrew", license: "GPL-3.0-or-later" }),
+      pkg({ source: "eopkg-solus", license: "GPL-3.0-only" }),
+    ];
+    expect(pickLicense(packages).license).toBe("GPL-3.0-only");
+    expect(pickLicense(packages.slice(0, 2)).license).toBe("GPL-3.0-or-later");
+  });
+
+  it("doesn't borrow Homebrew's own LicenseRef identifiers as the SPDX form", () => {
+    const packages = [
+      pkg({ source: "flatpak-flathub", license: "Public Domain" }),
+      pkg({ source: "brew-homebrew", license: "LicenseRef-Homebrew-public-domain" }),
+    ];
+    expect(pickLicense(packages).licenseSpdx).toBeUndefined();
+  });
+
   it("keeps a custom or LicenseRef license: it says something", () => {
     const packages = [
       pkg({

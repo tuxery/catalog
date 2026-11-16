@@ -680,6 +680,26 @@ describe("groupPackages — product families", () => {
     expect(groups.find((group) => group.packages.length === 2)?.id).toBe("xbps-void:3proxy");
   });
 
+  it("folds Homebrew's versioned formulae into the product they are an older line of", () => {
+    const brew = (name: string, track?: string) =>
+      pkg({ source: "brew-homebrew", name, appId: name, ...(track ? { track } : {}) });
+    const groups = groupPackages(
+      [
+        pkg({ source: "deb-debian", name: "nodejs", appId: "nodejs" }),
+        pkg({ source: "pacman-arch", name: "node", appId: "node" }),
+        brew("node"),
+        brew("node@22", "22"),
+        brew("openssl@3.0", "3.0"),
+      ],
+      NO_OVERRIDES,
+    );
+
+    const node = groups.find((group) => group.packages.some((p) => p.name === "node@22"));
+    expect(node?.packages.map((p) => p.name).toSorted()).toEqual(["node", "node", "node@22"]);
+    expect(node?.id).toBe("pacman-arch:node");
+    expect(groups.find((group) => group.id === "brew-homebrew:openssl@3.0")).toBeDefined();
+  });
+
   it("merges a distribution's AppStream entry with the Flathub app of the same id, never through a package describing several apps", () => {
     const groups = groupPackages(
       [

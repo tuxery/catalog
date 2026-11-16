@@ -36,8 +36,17 @@ jobs:
     # org-wide setting (which would also let any workflow *approve* PRs).
     permissions:
       contents: read
+    # Every step between the checkouts and the PRs runs connectors and
+    # dependencies on data anyone can publish to (an AUR package, a snap, a
+    # GitHub release). None of them can reach a token that writes: the
+    # checkouts keep no credentials, the read token that fetches the
+    # private caches can't push, and the write token is minted only for
+    # the two PR steps at the end (it lives an hour, which a slow refresh
+    # would outlast if it were minted first).
     steps:
       - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
 
       # First, before the ~30-minute refresh: a missing/misconfigured app
       # (secrets not set, app not installed on this repo) should fail in
@@ -45,20 +54,16 @@ jobs:
       # Needs PUSHINATOR_ID (the app's Client ID, from its settings page;
       # not actually secret, so it may be an org variable rather than a
       # secret: both are read) and the secret PUSHINATOR_KEY (a generated
-      # private key, full PEM), and the app installed on this repo with
-      # Contents + Pull requests: write.
-      - name: Mint a token from the Pushinator GitHub App
-        id: pushinator
+      # private key, full PEM), and the app installed on this repo and on
+      # tuxery/source-cache with Contents + Pull requests: write.
+      - name: Mint a read-only token for the private source caches
+        id: pushinator-read
         uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0 @ 2026-10-02
         with:
           client-id: ${{ vars.PUSHINATOR_ID || secrets.PUSHINATOR_ID }}
           private-key: ${{ secrets.PUSHINATOR_KEY }}
-          permission-contents: write
-          permission-pull-requests: write
-          # tuxery/source-cache holds the caches that must not be public
-          # (src/sources/_shared/cache-path.ts): the app needs to be
-          # installed there too, with the same permissions.
-          repositories: catalog,source-cache
+          permission-contents: read
+          repositories: source-cache
 
       # The private caches, checked out inside the workspace but committed
       # to their own repository (last step). Never print their content:
@@ -67,8 +72,9 @@ jobs:
         uses: actions/checkout@v7
         with:
           repository: tuxery/source-cache
-          token: ${{ steps.pushinator.outputs.token }}
+          token: ${{ steps.pushinator-read.outputs.token }}
           path: source-cache-private
+          persist-credentials: false
 
       - uses: helpers4/action/setup-pnpm@6fddd178620e7325d446a246c38a44f979569fc4 # main @ 2026-07-29
         with:
@@ -82,13 +88,20 @@ jobs:
           # unauthenticated (see docs/sources.md's AppImage/GitHub Releases
           # notes); skipped gracefully, not a hard failure, when unset.
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Through the environment, never interpolated into the script.
+          SOURCE_INPUT: ${{ github.event.inputs.source }}
         run: |
           set -uo pipefail
 
-          if [ -n "${{ github.event.inputs.source }}" ]; then
-            sources="${{ github.event.inputs.source }}"
+          known=$(pnpm exec tsx src/sources/refresh.ts --list)
+          if [ -n "$SOURCE_INPUT" ]; then
+            if ! printf '%s\n' $known | grep -qxF -- "$SOURCE_INPUT"; then
+              echo "::error::Unknown source: $SOURCE_INPUT"
+              exit 1
+            fi
+            sources="$SOURCE_INPUT"
           else
-            sources=$(pnpm exec tsx src/sources/refresh.ts --list)
+            sources="$known"
           fi
 
           failed=""
@@ -148,6 +161,16 @@ jobs:
             echo
             cat classify-summary.md 2>/dev/null || echo "LLM classification skipped or failed, see the run log."
           } > pr-body.md
+
+      - name: Mint a token from the Pushinator GitHub App for the PRs
+        id: pushinator
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0 @ 2026-10-02
+        with:
+          client-id: ${{ vars.PUSHINATOR_ID || secrets.PUSHINATOR_ID }}
+          private-key: ${{ secrets.PUSHINATOR_KEY }}
+          permission-contents: write
+          permission-pull-requests: write
+          repositories: catalog,source-cache
 
       # main is branch-protected (PR + rebase only, org-wide since the
       # PoC exit) -- a scheduled bot can't push straight to it, so this

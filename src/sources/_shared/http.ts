@@ -46,6 +46,15 @@ export async function fetchText(url: string, label: string, init?: RequestInit):
 }
 
 /**
+ * The most a compressed index may expand to: a little under the longest
+ * string V8 can hold (2^29 - 24 characters), so the text always fits in
+ * one string, and a hostile or broken archive (a few kilobytes expanding
+ * to gigabytes) fails with ERR_BUFFER_TOO_LARGE instead of exhausting the
+ * runner's memory. The largest real index is far below it.
+ */
+const MAX_DECOMPRESSED_BYTES = 512 * 1024 * 1024 - 1024;
+
+/**
  * Fetches a gzip-compressed URL and returns the decompressed text —
  * every Debian-family (deb822) and Flatpak-family (AppStream) source
  * publishes its repodata this way. Node's built-in zlib handles the
@@ -58,7 +67,7 @@ export async function fetchGunzippedText(
 ): Promise<string> {
   const response = await fetchOrThrow(url, label, init);
   const compressed = Buffer.from(await response.arrayBuffer());
-  return gunzipSync(compressed).toString("utf8");
+  return gunzipSync(compressed, { maxOutputLength: MAX_DECOMPRESSED_BYTES }).toString("utf8");
 }
 
 /**
@@ -74,7 +83,9 @@ export async function fetchZstdText(
 ): Promise<string> {
   const response = await fetchOrThrow(url, label, init);
   const compressed = Buffer.from(await response.arrayBuffer());
-  return zstdDecompressSync(compressed).toString("utf8");
+  return zstdDecompressSync(compressed, { maxOutputLength: MAX_DECOMPRESSED_BYTES }).toString(
+    "utf8",
+  );
 }
 
 /** The HTTP status of a failed fetch, from `fetchOrThrow`'s error or its `HttpError` cause. */

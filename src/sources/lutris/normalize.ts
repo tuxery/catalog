@@ -7,13 +7,14 @@ import type { LutrisCacheEntry } from "./types";
 // Category key — the same vocabulary every other source's genre signal
 // already feeds through `pickCategory`, and the same mapping discipline as
 // GOG's own genre-slug table (`gog/normalize.ts`). Deliberately NOT mapped,
-// checked against IGDB's own vocabulary: "Indie"/"Music" (not a genre /
-// no Music genre in the 10-value taxonomy), "Racing" (a real genre with no
-// home in the taxonomy — see `enrich/category.ts`'s own comment on
-// Casino/Casual/Music/Racing/Trivia/Word), and "Sandbox" (a theme, not a
-// genre). "FPS"/"Shooter" fold into "Shooter" (→ Action, like GOG);
-// "Metroidvania" folds into "ActionGame" (same as GOG); "Construction"/
-// "Management" fold into "Simulation" (building/management sims).
+// checked against IGDB's own vocabulary: "Indie" (not a genre), "Casual"
+// (an audience, not a genre: see `docs/categories.md`) and "Sandbox" (a
+// theme). "FPS"/"Shooter" fold into "Shooter" (like GOG); "Metroidvania"
+// folds into "ActionGame" (same as GOG); "Construction"/"Management" fold
+// into "Simulation" (building/management sims). Racing, rhythm games and
+// visual novels have no freedesktop key: they map to the `X-` extension
+// keys `categories-games.json` reads for its Racing, Music & Rhythm and
+// Visual Novel genres.
 const IGDB_GENRE_TO_CATEGORY: Record<string, string> = {
   action: "ActionGame",
   fighting: "ActionGame",
@@ -26,7 +27,7 @@ const IGDB_GENRE_TO_CATEGORY: Record<string, string> = {
   pinball: "ArcadeGame",
   adventure: "AdventureGame",
   "point-and-click": "AdventureGame",
-  "visual novel": "AdventureGame",
+  "visual novel": "X-VisualNovel",
   puzzle: "LogicGame",
   "quiz/trivia": "LogicGame",
   "role-playing (rpg)": "RolePlaying",
@@ -42,6 +43,10 @@ const IGDB_GENRE_TO_CATEGORY: Record<string, string> = {
   tactical: "StrategyGame",
   moba: "StrategyGame",
   sport: "SportsGame",
+  sports: "SportsGame",
+  racing: "X-Racing",
+  rally: "X-Racing",
+  rhythm: "X-Rhythm",
   "card & board game": "BoardGame",
 };
 

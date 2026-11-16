@@ -90,7 +90,7 @@ rebuild.
 
 **Exception, private caches.** A source whose terms or maintainers rule out
 public redistribution, or that we hold back ourselves (`appimagehub`,
-`flatpak-flathub`, `gog`: `RESTRICTED_SOURCES` in
+`flatpak-flathub`, `gog`, `snap-snapcraft`: `RESTRICTED_SOURCES` in
 `src/sources/_shared/cache-path.ts`, with the reason for each) keeps its cache in the private
 `tuxery/source-cache` repository instead, read from a checkout next to this
 one (the dev container clones it) or `TUXERY_PRIVATE_CACHE_DIR`. Without it

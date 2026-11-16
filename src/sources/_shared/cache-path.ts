@@ -19,6 +19,9 @@ import { fileURLToPath } from "node:url";
  *   welcome (2026-11-10) and pointed to the appstream file we now read alone;
  *   whether a public copy of it is fine was left unanswered, and their site
  *   terms forbid copying "any portion of the Service".
+ * - `snap-snapcraft`: our decision (2026-11-15). The store's robots.txt
+ *   disallows everything, its API is undocumented, Canonical hasn't
+ *   answered yet, and the cache holds publishers' own text.
  *
  * Without a checkout of that repository (an outside contributor) these
  * sources read as empty and the pipeline builds without them.
@@ -27,6 +30,7 @@ export const RESTRICTED_SOURCES: ReadonlySet<string> = new Set([
   "appimagehub",
   "flatpak-flathub",
   "gog",
+  "snap-snapcraft",
 ]);
 
 /**

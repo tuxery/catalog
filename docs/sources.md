@@ -91,7 +91,11 @@ because a paragraph per cell made the table unreadable.
    majority of published apps.
 3. **Snapcraft** — `api.snapcraft.io`, undocumented, and its robots.txt
    disallows everything, so requests are kept low on purpose. Since 2026-11-09,
-   about 3,700 requests a week (`src/sources/snap-snapcraft/fetch.ts`):
+   about 3,700 requests a week (`src/sources/snap-snapcraft/fetch.ts`).
+   **Private cache since 2026-11-16**, our own precaution like GOG's and
+   Flathub's while Canonical hasn't answered (config/source-terms.json): the
+   cache lives in `tuxery/source-cache`; earlier copies remain in this
+   repository's git history.
 
    - **The list, about 48 requests.** `api/v1/snaps/search?scope=wide&
 confinement=strict,classic`, unlike v2's `find`, is paged: 47 pages of 250

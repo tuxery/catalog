@@ -1,0 +1,32 @@
+version: 2
+
+# One Dependabot pull request a week for the whole repository: npm and the
+# GitHub Actions together (a multi-ecosystem group). Titles and commits use
+# the `deps` scope from scopes.json for every kind of dependency
+# (Dependabot's own `include: scope` would write `deps-dev`, not a scope
+# here).
+multi-ecosystem-groups:
+  dependencies:
+    schedule:
+      interval: weekly
+      day: monday
+    labels:
+      - dependencies
+
+updates:
+  - package-ecosystem: npm
+    directory: /
+    patterns:
+      - "*"
+    multi-ecosystem-group: dependencies
+    commit-message:
+      prefix: "chore(deps)"
+      prefix-development: "chore(deps)"
+
+  - package-ecosystem: github-actions
+    directory: /
+    patterns:
+      - "*"
+    multi-ecosystem-group: dependencies
+    commit-message:
+      prefix: "chore(deps)"

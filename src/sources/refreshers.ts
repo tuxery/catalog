@@ -13,6 +13,7 @@ import { fetchFedora } from "./rpm-fedora/fetch";
 import { fetchFlathub } from "./flatpak-flathub/fetch";
 import { fetchGentoo } from "./ebuild-gentoo/fetch";
 import { fetchGithubReleases } from "./github-releases/fetch";
+import { fetchHomebrew } from "./brew-homebrew/fetch";
 import { fetchLutris } from "./lutris/fetch";
 import { fetchMint } from "./deb-mint/fetch";
 import { fetchMxLinux } from "./deb-mxlinux/fetch";
@@ -93,4 +94,5 @@ export const REFRESHERS: Record<string, (cachePath: string) => Promise<number>> 
   lutris: fetchLutris,
   "github-releases": fetchGithubReleases,
   "vendor-repos": fetchVendorRepos,
+  "brew-homebrew": fetchHomebrew,
 };

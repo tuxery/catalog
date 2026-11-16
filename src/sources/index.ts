@@ -41,4 +41,5 @@ export { searchUbuntuAppstream } from "./deb-ubuntu-appstream";
 export { searchGog } from "./gog";
 export { searchLutris } from "./lutris";
 export { searchGithubReleases } from "./github-releases";
+export { searchHomebrew } from "./brew-homebrew";
 export { searchAllSources } from "./search";

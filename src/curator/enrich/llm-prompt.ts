@@ -35,7 +35,8 @@ export const TAXONOMY: Taxonomy = {
 // game genre "Educational", emulators between System Tools and Gaming Tools). Typed as
 // Records over the label unions, so a new category can't ship without one.
 const APP_GLOSS: Record<AppCategoryLabel, string> = {
-  "Developer Tools": "IDEs, compilers, debuggers, build/VCS tools, CLI tools for programmers",
+  "Developer Tools":
+    "IDEs, compilers, debuggers, build/VCS tools, CLI tools for programmers, AI coding agents",
   Science: "science, engineering, maths, astronomy, GIS",
   Education: "software for learning: languages, typing tutors, quizzes, school tools",
   Security: "passwords, encryption, VPN, antivirus, pentesting",
@@ -50,6 +51,7 @@ const APP_GLOSS: Record<AppCategoryLabel, string> = {
   "File Sharing & Downloads": "torrents, download managers, FTP, file transfer, cloud sync",
   Networking: "network tools and servers, DNS, proxies, remote connections, amateur radio",
   "Gaming Tools": "console emulators, game launchers, mod managers, Proton/Wine for games",
+  AI: "AI assistants and chatbots, LLM chat clients, local model runners (Ollama, llama.cpp), AI image generators; not an app that only adds an AI feature",
   Productivity: "office suites, notes, to-do, PDF, calendars",
   Business: "ERP, CRM, invoicing, point of sale",
   "News & Weather": "feeds, news readers, weather",

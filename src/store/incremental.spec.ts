@@ -88,6 +88,16 @@ async function fullPublishOf(dataset: TursoDataset) {
   return snapshot(db);
 }
 
+/** `count` apps with one source each: several `meta` rows per app. */
+function manySources(count: number): TursoDataset {
+  return {
+    generatedAt: "2026-01-01T00:00:00.000Z",
+    apps: Array.from({ length: count }, (_, i) =>
+      app(`m${i}`, { packages: [{ source: `source-${i}`, name: `m${i}` }] }),
+    ),
+  };
+}
+
 describe("incremental publish", () => {
   it("leaves the store exactly as a full publish of the new dataset would, deletions included", async () => {
     const db = memoryDb();
@@ -147,6 +157,18 @@ describe("incremental publish", () => {
       unchanged: 2,
     });
     expect(await snapshot(db)).toEqual(await fullPublishOf(branded));
+  });
+
+  it("compares meta page by page, so a table larger than one response is still diffed whole", async () => {
+    const db = memoryDb();
+    const client = createTursoClient({ url: "file::memory:" }, db);
+    // One source per app: several hundred `meta` rows, pages of 100.
+    await client.publish(manySources(150));
+    expect((await db.execute(`SELECT COUNT(*) AS n FROM meta`)).rows[0]?.n).toBeGreaterThan(300);
+
+    const fewer = manySources(120);
+    expect((await client.publish(fewer)).mode).toBe("incremental");
+    expect(await snapshot(db)).toEqual(await fullPublishOf(fewer));
   });
 
   it("falls back to a full publish for a missing required column", async () => {

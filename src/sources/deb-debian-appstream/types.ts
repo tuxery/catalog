@@ -48,6 +48,8 @@ export interface DebianAppstreamCacheEntry {
 export interface DebianAppstreamFetchMetadata extends FetchMetadata {
   /** Suite fetched, e.g. "stable" — one DEP-11 file per suite/component/arch. */
   suite: string;
+  /** That suite's codename when fetched ("trixie"), which names appstream.debian.org's data folder. */
+  codename: string;
   component: string;
   arch: string;
 }

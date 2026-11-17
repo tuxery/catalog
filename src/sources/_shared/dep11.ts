@@ -112,6 +112,18 @@ function nextTopLevelKeyIndex(lines: string[], from: number): number {
 }
 
 /**
+ * Whether a browser can show the image at `url`. Debian's generator
+ * re-encodes part of its media as JPEG XL (`.jxl`: 222 of 1,374 icons and
+ * 197 screenshots in trixie's main, measured 2026-11-17), with no PNG
+ * beside it, and browsers don't all decode JPEG XL (Firefox doesn't by
+ * default): such an icon would be a broken image on a card, so it is
+ * dropped and another source's icon wins.
+ */
+function isWebImage(url: string): boolean {
+  return !/\.jxl(?:[?#]|$)/i.test(url);
+}
+
+/**
  * Resolves a relative icon/screenshot url against the document's
  * `MediaBaseUrl`. Absolute urls pass through untouched; `undefined` when
  * there's no base to resolve against — same positive-evidence-only
@@ -119,7 +131,7 @@ function nextTopLevelKeyIndex(lines: string[], from: number): number {
  */
 function resolveMediaUrl(url: string, mediaBaseUrl: string | undefined): string | undefined {
   const trimmed = url.trim();
-  if (!trimmed) return undefined;
+  if (!trimmed || !isWebImage(trimmed)) return undefined;
   if (/^https?:\/\//.test(trimmed)) return trimmed;
   if (!mediaBaseUrl) return undefined;
   return `${mediaBaseUrl.replace(/\/$/, "")}/${trimmed}`;
@@ -357,7 +369,7 @@ export function parseDep11Yaml(yaml: string): Dep11Document {
           const remoteItem = inRemote ? /^ {2}- url: (.*)$/.exec(blockLine) : undefined;
           if (remoteItem) {
             current.iconUrl ??= resolveMediaUrl(remoteItem[1] ?? "", mediaBaseUrl);
-            break;
+            if (current.iconUrl) break;
           }
         }
         index = end;
@@ -489,5 +501,69 @@ export function parseDep11Yaml(yaml: string): Dep11Document {
   }
   pushCurrent();
 
-  return { mediaBaseUrl, components };
+  return { mediaBaseUrl, components: mainComponentsFirst(components) };
+}
+
+/** A package name reduced for comparison with `comparableId`: no `-`, `_` or `.`, lower case. */
+function comparablePackage(name: string): string {
+  return name.replaceAll(/[-_.]/g, "").toLowerCase();
+}
+
+/** An AppStream id reduced for comparison: its last dotted segment (no `.desktop`), no `-`/`_`, lower case. */
+function comparableId(id: string): string {
+  const base = id.replace(/\.desktop$/i, "");
+  return (base.slice(base.lastIndexOf(".") + 1) || base).replaceAll(/[-_]/g, "").toLowerCase();
+}
+
+/**
+ * Reorders the components of each package so the one that stands for the
+ * package comes first, packages staying in document order: a package
+ * shipping several launchers (eric: its IDE, its web browser, its
+ * MicroPython tool) lends the first one's name, summary and categories to
+ * the app. The generator's own order is arbitrary and changed between two
+ * builds of trixie's file (61 of 98 such packages, 2026-11-17), filing
+ * eric's IDE under Web Browsers as "eric7 Web Browser". First the
+ * component named after the package (`luckybackup` before
+ * `luckybackup-su`), then one whose name starts with it (`kmail2` before
+ * `ktnef` in kmail), then one whose name the package's contains
+ * (`Switcher` in openswitcher), then the rest, a manual or help launcher
+ * last (`eyes17-doc`); the shortest name first within each (`eric7_ide`
+ * before `eric7_browser`), then by id. Pure.
+ */
+export function mainComponentsFirst(components: Dep11Component[]): Dep11Component[] {
+  const byPackage = new Map<string, Dep11Component[]>();
+  for (const component of components) {
+    const key = component.pkgname ?? `\0${component.id}`;
+    const list = byPackage.get(key);
+    if (list) list.push(component);
+    else byPackage.set(key, [component]);
+  }
+  const rank = (component: Dep11Component, pkg: string): [number, number] => {
+    const name = comparableId(component.id);
+    const tier = /(docs?|manual|help)$/.test(name)
+      ? 4
+      : name === pkg
+        ? 0
+        : name.startsWith(pkg)
+          ? 1
+          : name.length >= 4 && pkg.includes(name)
+            ? 2
+            : 3;
+    return [tier, name.length];
+  };
+  return [...byPackage.values()].flatMap((list) => {
+    if (list.length === 1) return list;
+    const pkg = comparablePackage(list[0]?.pkgname ?? "");
+    const ranked = list.map((component) => ({ component, rank: rank(component, pkg) }));
+    // A fresh array from map(): sorting it in place is safe, and
+    // toSorted() needs ES2023 (this repo targets ES2022).
+    // eslint-disable-next-line unicorn/no-array-sort
+    ranked.sort(
+      (a, b) =>
+        a.rank[0] - b.rank[0] ||
+        a.rank[1] - b.rank[1] ||
+        (a.component.id < b.component.id ? -1 : a.component.id > b.component.id ? 1 : 0),
+    );
+    return ranked.map(({ component }) => component);
+  });
 }

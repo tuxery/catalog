@@ -1,5 +1,5 @@
 import { parseDep11Yaml, type Dep11Document } from "../_shared/dep11";
-import { fetchGunzippedText } from "../_shared/http";
+import { fetchGunzippedText, fetchText } from "../_shared/http";
 import { writeMetadata } from "../_shared/metadata";
 import { writeNdjson } from "../_shared/ndjson";
 import type { DebianAppstreamCacheEntry, DebianAppstreamFetchMetadata } from "./types";
@@ -14,8 +14,36 @@ const COMPONENTS = ["main", "contrib", "non-free"] as const;
 type DebianComponent = (typeof COMPONENTS)[number];
 const ARCH = "amd64";
 
-function dep11Url(component: DebianComponent): string {
-  return `https://deb.debian.org/debian/dists/${SUITE}/${component}/dep11/Components-${ARCH}.yml.gz`;
+const RELEASE_URL = `https://deb.debian.org/debian/dists/${SUITE}/Release`;
+
+/**
+ * The `Codename:` of a Debian `Release` file (`trixie` for stable in
+ * 2026), or `undefined` when it has none. Pure.
+ */
+export function parseReleaseCodename(release: string): string | undefined {
+  return /^Codename:[ \t]*(\S+)[ \t]*$/m.exec(release)?.[1];
+}
+
+async function fetchCodename(): Promise<string> {
+  const codename = parseReleaseCodename(
+    await fetchText(RELEASE_URL, `Debian ${SUITE} Release file`),
+  );
+  if (!codename) throw new Error(`No Codename in ${RELEASE_URL}`);
+  return codename;
+}
+
+/**
+ * The DEP-11 file appstream.debian.org's generator publishes for
+ * `codename`, not the copy in the archive's `dists/<suite>/.../dep11/`:
+ * the archive's stable copy is the one of the release day (trixie's still
+ * said `Time: 20250808` on 2026-11-17), while the generator keeps
+ * rebuilding its media for later uploads and deletes the old media
+ * folders. Every icon and screenshot url of the archive's copy pointed at
+ * a deleted folder: 119 of 119 sampled icon urls were 404 (2026-11-17).
+ * appstream.debian.org's own copy names the folders it serves.
+ */
+function dep11Url(codename: string, component: DebianComponent): string {
+  return `https://appstream.debian.org/data/${codename}/${component}/Components-${ARCH}.yml.gz`;
 }
 
 /**
@@ -49,9 +77,12 @@ export function toCacheEntries(
   }));
 }
 
-async function fetchComponent(component: DebianComponent): Promise<DebianAppstreamCacheEntry[]> {
+async function fetchComponent(
+  codename: string,
+  component: DebianComponent,
+): Promise<DebianAppstreamCacheEntry[]> {
   const yaml = await fetchGunzippedText(
-    dep11Url(component),
+    dep11Url(codename, component),
     `Debian component "${component}" DEP-11`,
   );
   return toCacheEntries(parseDep11Yaml(yaml), component);
@@ -63,16 +94,20 @@ async function fetchComponent(component: DebianComponent): Promise<DebianAppstre
  * writes the merged entries to `cachePath` as NDJSON. See docs/sources.md.
  */
 export async function fetchDebianAppstream(cachePath: string): Promise<number> {
-  const entriesByComponent = await Promise.all(COMPONENTS.map(fetchComponent));
+  const codename = await fetchCodename();
+  const entriesByComponent = await Promise.all(
+    COMPONENTS.map((component) => fetchComponent(codename, component)),
+  );
   const entries = entriesByComponent.flat();
 
   writeNdjson(cachePath, entries);
   writeMetadata<DebianAppstreamFetchMetadata>(cachePath, {
     source: "deb-debian-appstream",
     fetchedAt: new Date().toISOString(),
-    url: COMPONENTS.map(dep11Url).join(", "),
+    url: COMPONENTS.map((component) => dep11Url(codename, component)).join(", "),
     entryCount: entries.length,
     suite: SUITE,
+    codename,
     component: COMPONENTS.join("+"),
     arch: ARCH,
   });

@@ -593,7 +593,14 @@ as a second AppImage source` card was investigated and rejected for
     path produces. `Icon: remote:`/`source-image:` urls resolve against
     the document's own `MediaBaseUrl`; `cached`/`stock` icons and
     screenshot thumbnails are theme/filename data with no fetchable URL
-    and are ignored. Components join the catalog by binary package name
+    and are ignored, and so are JPEG XL (`.jxl`) icons and screenshots,
+    which not every browser shows. The file is read from
+    appstream.debian.org's own `data/<codename>/<component>/` (codename
+    from `dists/stable/Release`), not the archive's `dists/stable/.../dep11/`
+    copy: that copy is the release day's, while the generator rebuilds its
+    media for later uploads and deletes the old folders, so every icon url
+    it named had become a 404 (119 of 119 sampled, 2026-11-17).
+    Components join the catalog by binary package name
     (`Package:`) via the exact-appId tier — enrichment, never a standalone
     listing. Verified live against the real files before wiring in:
     2,109 components, 1,338 with a usable icon url, 817 with screenshots,

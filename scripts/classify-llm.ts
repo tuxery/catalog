@@ -9,11 +9,20 @@ import {
 } from "../src/curator/enrich/llm-classifications";
 import { buildDataset } from "../src/pipeline";
 import { hasRestrictedPackage } from "../src/sources/_shared/cache-path";
+import {
+  fetchGithubAbout,
+  GITHUB_ABOUT_PATH,
+  readGithubAbout,
+  writeGithubAbout,
+  type GithubAbout,
+} from "../src/sources/github-stars/about";
 import { loadLlmModels, type LlmModel } from "../src/curator/enrich/llm-models";
 import {
   buildSystemPrompt,
   buildUserPrompt,
   checkBatchResults,
+  describeWithRepository,
+  isGenericReason,
   parseResults,
   TAXONOMY,
   type BatchItem,
@@ -70,6 +79,21 @@ const includeUpstream = hasFlag("--include-upstream");
 // `--report`: no API call — compares the stored entries with the purely
 // deterministic result and prints where they disagree (see `report`).
 const reportOnly = hasFlag("--report");
+// `--github-about`: re-asks the apps the deterministic signals leave in
+// "To Classify" (their earlier verdicts were `low`, or there are none) that
+// have a GitHub repository, now with the repository's own description and
+// topics in the prompt: new input, not the same thin name asked again. The
+// description and topics are fetched into a gitignored local file
+// (`.cache/github-about.ndjson`, see `sources/github-stars/about.ts`),
+// never committed. Only a verdict the model is sure enough of (`medium` or
+// `high`) and whose reason names real content is kept: "Desktop
+// application" is the model guessing from nothing. A `library` or `other`
+// verdict, which would hide the app, isn't kept either: a repository's
+// one-line blurb hid real apps (a shell plugin manager, a game editor, a
+// crowdfunding app) in 4 of the 21 cases of the first run, 2026-11-17.
+const githubAboutMode = hasFlag("--github-about");
+// The repository's description and topics make a longer line than a store's one-liner.
+const GITHUB_ABOUT_MAX_DESCRIPTION = 300;
 const dryRun = hasFlag("--dry-run");
 // `--sample [N]` (default 5): real API calls on just N still-unclassified
 // apps, to test the whole chain end to end (network, schema, parsing) —
@@ -111,17 +135,59 @@ interface Group {
 function classifyNextBatch(group: Group) {
   return rotation.next(group.items, group.cursor, (batch) => ({
     system: SYSTEM_PROMPT,
-    user: buildUserPrompt(batch),
+    user: buildUserPrompt(batch, githubAboutMode ? GITHUB_ABOUT_MAX_DESCRIPTION : undefined),
     parse: (text) => parseResults(text, TAXONOMY),
   }));
 }
 
-function toItems(list: { id: string; name: string; shortDescription: string }[]): BatchItem[] {
+function toItems(list: CatalogApp[], about?: ReadonlyMap<string, GithubAbout>): BatchItem[] {
   return list.map((app) => ({
     id: app.id,
     name: app.name,
-    description: app.shortDescription,
+    description: about
+      ? describeWithRepository(
+          app.name,
+          app.shortDescription,
+          app.githubStars ? about.get(app.githubStars.repo) : undefined,
+        )
+      : app.shortDescription,
   }));
+}
+
+/**
+ * Whether an app may be asked about at all. Names and descriptions go to
+ * the LLM, to this run's public log and, through `reason`, to a public
+ * file: never a restricted source's.
+ */
+function eligible(app: CatalogApp): boolean {
+  return (
+    !hasRestrictedPackage(app.packages) &&
+    (sourceFilter === undefined || app.packages.some((pkg) => pkg.source === sourceFilter))
+  );
+}
+
+/** Whether a fetched repository row says anything (a description or topics). */
+function hasAbout(row: GithubAbout | undefined): boolean {
+  return Boolean(row?.description || row?.topics?.length);
+}
+
+/**
+ * The description and topics of the GitHub repository of every app in
+ * `apps`: the local file's, plus a fetch of the repositories it doesn't
+ * hold yet (none in a dry run), saved back to it.
+ */
+async function loadGithubAbout(apps: CatalogApp[]): Promise<Map<string, GithubAbout>> {
+  const about = readGithubAbout();
+  const missing = [
+    ...new Set(apps.flatMap((app) => (app.githubStars ? [app.githubStars.repo] : []))),
+  ].filter((repo) => !about.has(repo));
+  if (missing.length > 0 && !dryRun) {
+    console.log(`Fetching the description and topics of ${missing.length} GitHub repositories...`);
+    for (const row of await fetchGithubAbout(missing)) about.set(row.repo, row);
+    writeGithubAbout(about.values());
+    console.log(`Saved ${about.size} repositories to ${GITHUB_ABOUT_PATH} (gitignored).`);
+  }
+  return about;
 }
 
 function writeConfig(entries: Map<string, LlmClassificationEntry>): void {
@@ -270,20 +336,26 @@ async function main(): Promise<void> {
   const existing = new Map(stored.map((entry) => [entry.id, entry]));
   // `--retry-low` also re-asks the entries a previous run left at "low".
   const retryLow = hasFlag("--retry-low");
-  const groups = queueGroups(
-    dataset.apps,
-    (app) =>
-      // Names and descriptions go to the LLM, to this run's public log and,
-      // through `reason`, to a public file: never a restricted source's.
-      !hasRestrictedPackage(app.packages) &&
-      (sourceFilter === undefined || app.packages.some((pkg) => pkg.source === sourceFilter)) &&
-      (!existing.has(app.id) || (retryLow && existing.get(app.id)?.confidence === "low")),
+  // `--github-about` asks about the apps the published dataset leaves in "To
+  // Classify": no applied (medium or high) verdict, a GitHub repository.
+  const unclassifiedWithRepository = (app: CatalogApp) =>
+    app.category === TO_CLASSIFY &&
+    app.githubStars !== undefined &&
+    eligible(app) &&
+    existing.get(app.id)?.confidence !== "high" &&
+    existing.get(app.id)?.confidence !== "medium";
+  const about = githubAboutMode
+    ? await loadGithubAbout(dataset.apps.filter(unclassifiedWithRepository))
+    : undefined;
+  const groups = queueGroups(dataset.apps, (app) =>
+    about
+      ? unclassifiedWithRepository(app) && hasAbout(about.get(app.githubStars?.repo ?? ""))
+      : eligible(app) &&
+        (!existing.has(app.id) || (retryLow && existing.get(app.id)?.confidence === "low")),
   );
-  const toClassify = [
-    ...groups.toClassify,
-    ...groups.heuristicOnly,
-    ...(includeUpstream ? groups.upstream : []),
-  ];
+  const toClassify = about
+    ? groups.toClassify
+    : [...groups.toClassify, ...groups.heuristicOnly, ...(includeUpstream ? groups.upstream : [])];
   console.log(
     `Queue: ${groups.toClassify.length} To Classify > ${groups.heuristicOnly.length} heuristics-only > ${groups.upstream.length} upstream${includeUpstream ? "" : " (skipped, --include-upstream)"}`,
   );
@@ -297,6 +369,7 @@ async function main(): Promise<void> {
   const persist = !dryRun && sample === undefined;
   const results = new Map(existing);
   let newEntries = 0;
+  let unsure = 0;
 
   async function runGroup(group: Group): Promise<void> {
     if (group.cursor >= group.items.length) return;
@@ -319,6 +392,16 @@ async function main(): Promise<void> {
     for (const result of checkBatchResults(batchResults, batch.length)) {
       const item = batch[result.n - 1];
       if (!item) continue;
+      if (
+        about &&
+        (result.confidence === "low" ||
+          isGenericReason(result.reason) ||
+          result.type === "library" ||
+          result.type === "other")
+      ) {
+        unsure += 1;
+        continue;
+      }
       results.set(item.id, {
         id: item.id,
         type: result.type,
@@ -337,7 +420,7 @@ async function main(): Promise<void> {
   }
 
   try {
-    await runGroup({ items: toItems(todo), cursor: 0 });
+    await runGroup({ items: toItems(todo, about), cursor: 0 });
   } catch (error) {
     if (!(error instanceof StopRun)) throw error;
     console.warn(
@@ -384,6 +467,11 @@ async function main(): Promise<void> {
     acc[entry.confidence] = (acc[entry.confidence] ?? 0) + 1;
     return acc;
   }, {});
+  if (about) {
+    console.log(
+      `${unsure} answers left out (low confidence, a reason naming no content, or library/other): their earlier entry stays.`,
+    );
+  }
   console.log(
     `Done. ${newEntries} new entries (${rotation.requestsMade()} requests); ${results.size} total in config/llm-classifications.json — ${JSON.stringify(byConfidence)}.`,
   );

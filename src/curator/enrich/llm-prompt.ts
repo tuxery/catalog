@@ -128,14 +128,107 @@ function cleanField(text: string): string {
   return text.replaceAll("|", "/").replaceAll(/\s+/g, " ").trim();
 }
 
-/** One "n|name|desc" line per app. */
-export function buildUserPrompt(items: BatchItem[]): string {
+/** How much of a description goes into the prompt by default: enough for a store's one-liner. */
+export const MAX_PROMPT_DESCRIPTION = 160;
+
+/** One "n|name|desc" line per app, each description cut to `maxDescription` characters. */
+export function buildUserPrompt(
+  items: BatchItem[],
+  maxDescription: number = MAX_PROMPT_DESCRIPTION,
+): string {
   return items
     .map(
       (item, i) =>
-        `${i + 1}|${cleanField(item.name)}|${cleanField((item.description || "").slice(0, 160))}`,
+        `${i + 1}|${cleanField(item.name)}|${cleanField((item.description || "").slice(0, maxDescription))}`,
     )
     .join("\n");
+}
+
+/** What a GitHub repository says about itself (see `sources/github-stars/about.ts`). */
+export interface RepositoryAbout {
+  description?: string;
+  topics?: string[];
+}
+
+/** Two texts that only differ in case and surrounding spaces. */
+function sameText(a: string, b: string): boolean {
+  return a.trim().toLowerCase() === b.trim().toLowerCase();
+}
+
+/**
+ * An app's description for the prompt, with what its GitHub repository
+ * says about itself added: the app's own description unless it only
+ * repeats the name, the repository's description unless it repeats the
+ * app's, then its topics. Pure.
+ */
+export function describeWithRepository(
+  name: string,
+  description: string,
+  about: RepositoryAbout | undefined,
+): string {
+  const own = description.trim() && !sameText(description, name) ? description.trim() : "";
+  const repository =
+    about?.description && !sameText(about.description, own) && !sameText(about.description, name)
+      ? about.description.trim()
+      : "";
+  const topics = about?.topics?.length ? `topics: ${about.topics.join(", ")}` : "";
+  return [own, repository, topics].filter(Boolean).join(" / ");
+}
+
+// Words that say what kind of file or interface a package is, never what it is for.
+const GENERIC_REASON_WORDS = new Set([
+  "a",
+  "an",
+  "the",
+  "linux",
+  "desktop",
+  "gui",
+  "cli",
+  "tui",
+  "terminal",
+  "command-line",
+  "command",
+  "line",
+  "electron",
+  "tauri",
+  "web",
+  "cross-platform",
+  "native",
+  "simple",
+  "small",
+  "generic",
+  "general",
+  "unknown",
+  "unclear",
+  "software",
+  "application",
+  "applications",
+  "app",
+  "apps",
+  "tool",
+  "tools",
+  "utility",
+  "utilities",
+  "program",
+  "client",
+  "package",
+  "binary",
+  "appimage",
+  "snap",
+  "wrapper",
+]);
+
+/**
+ * Whether a verdict's reason names no content at all ("Desktop
+ * application", "CLI tool"): the model had nothing to go on, so its
+ * category is a guess, whatever confidence it claims. Pure.
+ */
+export function isGenericReason(reason: string): boolean {
+  const words = reason
+    .toLowerCase()
+    .split(/[^a-z-]+/)
+    .filter(Boolean);
+  return words.every((word) => GENERIC_REASON_WORDS.has(word));
 }
 
 export type Confidence = "high" | "medium" | "low";

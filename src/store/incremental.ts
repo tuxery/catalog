@@ -104,6 +104,32 @@ export async function deleteStaleMeta(
   return stale.length;
 }
 
+/**
+ * Rows per page of `readLiveMeta`: a listing row weighs up to ~45 KB, and
+ * one response must stay under sqld's 10 MB (`RESPONSE_TOO_LARGE`), which
+ * the whole table (~12 MB on 2026-11-16) no longer did.
+ */
+const META_READ_PAGE_SIZE = 100;
+
+/** Every `meta` row but the row hashes, key to value, read in pages along the primary key. */
+async function readLiveMeta(db: Client): Promise<Map<string, string>> {
+  const values = new Map<string, string>();
+  let after = "";
+  for (;;) {
+    // Sequential: each page starts after the previous one's last key.
+    // eslint-disable-next-line no-await-in-loop
+    const page = await db.execute({
+      sql: `SELECT key, value FROM meta WHERE key > ? AND key NOT LIKE ?
+            ORDER BY key LIMIT ${META_READ_PAGE_SIZE}`,
+      args: [after, `${ROW_HASHES_PREFIX}%`],
+    });
+    for (const row of page.rows) values.set(String(row.key), String(row.value));
+    const last = page.rows.at(-1);
+    if (!last || page.rows.length < META_READ_PAGE_SIZE) return values;
+    after = String(last.key);
+  }
+}
+
 /** What a publish did — printed by `pnpm seed`, and what tests check. */
 export interface PublishReport {
   mode: "full" | "incremental";
@@ -461,11 +487,7 @@ export async function publishIncremental(
 
   // `meta`: rewrite what changed, delete what the new dataset no longer
   // produces.
-  const liveMeta = await db.execute({
-    sql: `SELECT key, value FROM meta WHERE key NOT LIKE ?`,
-    args: [`${ROW_HASHES_PREFIX}%`],
-  });
-  const liveValues = new Map(liveMeta.rows.map((row) => [String(row.key), String(row.value)]));
+  const liveValues = await readLiveMeta(db);
   const toWrite = input.meta.filter(([key, value]) => liveValues.get(key) !== value);
   await upsertMetaInBatches(db, toWrite);
   report.metaWritten = toWrite.length;

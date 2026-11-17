@@ -94,7 +94,37 @@ describe("config/category-refinements.json", () => {
     expect(refine("app", "Networking", "Manage your router from your web browser")).toBe(
       "Networking",
     );
-    expect(refine("app", "Networking", "Chat with local LLMs")).toBe("Networking");
+    expect(refine("app", "Networking", "Chat with local LLMs")).toBe("AI");
+    expect(refine("app", "Messaging & Calls", "A simple AI chat client")).toBe("AI");
+  });
+
+  it("files AI assistants, LLM front ends, model runners and image generators under AI", () => {
+    expect(refine("app", "Networking", "A desktop client for OpenAI's ChatGPT")).toBe("AI");
+    expect(refine("app", "Productivity", "Private offline AI assistant")).toBe("AI");
+    expect(refine("app", "Settings", "Kirigami client for Ollama")).toBe("AI");
+    expect(refine("app", "Developer Tools", "Run AI models, locally and privately")).toBe("AI");
+    expect(refine("app", "Productivity", "Local AI with Gemma 4 inference snap")).toBe("AI");
+    expect(refine("app", "Graphics & Design", "GTK+ frontend for Stable Diffusion")).toBe("AI");
+  });
+
+  it("leaves an app with an AI feature, a coding agent or a transcriber where it is", () => {
+    expect(refine("app", "Networking", "Open-source desktop SSH client with an AI assistant")).toBe(
+      "Networking",
+    );
+    expect(
+      refine("app", "Utilities", "Terminal emulator with private, local AI powered by Ollama"),
+    ).toBe("Utilities");
+    expect(refine("app", "Developer Tools", "Open source AI coding agent")).toBe("Developer Tools");
+    expect(refine("app", "Developer Tools", "CLI client for the OpenAI API")).toBe(
+      "Developer Tools",
+    );
+    expect(refine("app", "Utilities", "Speech-to-text using local Whisper AI models")).toBe(
+      "Utilities",
+    );
+    expect(refine("app", "Books & Reference", "Translate your slides using Ollama")).toBe(
+      "Books & Reference",
+    );
+    expect(refine("app", "Networking", "Browse Gemini pages")).not.toBe("AI");
   });
 
   it("files console emulators and game launchers under Gaming Tools, not QEMU", () => {

@@ -39,6 +39,7 @@ export const APP_CATEGORY_LABEL_VALUES = [
   "File Sharing & Downloads",
   "Networking",
   "Gaming Tools",
+  "AI",
   "Productivity",
   "Business",
   "News & Weather",

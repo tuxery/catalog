@@ -215,6 +215,15 @@ Published dataset (`pnpm start`, private caches present), 106,709 apps.
   PackageManager (Prism Launcher, MultiMC) is now an app, not an Action
   game. 34 of the 36 moves are right; the misses are a cross-compiler
   for DOSBox and an Unreal asset manager for the Epic store.
+- **Gaming Tools**, engines: a second rule for the engines that play a
+  named classic game (Quakespasm, DarkPlaces, Quake3e, Xash3D,
+  D2X-Rebirth, OpenJK, Commander Genius, the Sonic decompilations), their
+  launchers and server browsers (Doom Runner, Doomseeker) and interactive
+  fiction interpreters (Frotz, Glulxe): 55 apps, from System Tools 36,
+  Developer Tools 11 and Utilities 8, all right on a hand check. Engines
+  for making games (Godot, Unity, Unreal Engine 4) and anything that
+  edits, builds or extracts for one (TrenchBroom, Ultimate Doom Builder)
+  stay developer tools.
 - **Education** from the tools made for children found under Kids above
   (Scratch, BASIC-256, Little Wizard, Kitten, StoryMaps, TupiTube), plus
   Scratux, xLogo, UCBLogo, Tupi, Greenfoot and KuMir: 12 apps, from

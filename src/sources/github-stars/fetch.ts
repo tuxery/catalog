@@ -46,6 +46,9 @@ interface RepositoryNode {
   stargazerCount: number;
 }
 
+/** The repository fields the stars refresh asks for. */
+const STARS_SELECTION = "nameWithOwner stargazerCount";
+
 interface GraphqlBody {
   data?: Record<string, unknown> | null;
   errors?: { type?: string; path?: (string | number)[]; message?: string }[];
@@ -64,8 +67,8 @@ export interface GraphqlResponse {
 export type PostQuery = (query: string) => Promise<GraphqlResponse>;
 
 /** What one batch tells: each repository GitHub serves, which it doesn't, and which it failed to answer for. */
-export interface BatchResult {
-  found: Map<string, RepositoryNode>;
+export interface BatchResult<Node = RepositoryNode> {
+  found: Map<string, Node>;
   missing: string[];
   /** Repositories GitHub kept failing on (gateway errors): they keep their previous row. */
   unanswered: string[];
@@ -83,12 +86,13 @@ export class RateLimitedError extends Error {
 /**
  * One GraphQL query asking for every repository of `repos` (`owner/repo`,
  * as `repo-url.ts` validates them: no character needs escaping beyond
- * what `JSON.stringify` does), aliased `r0`, `r1`... in order. Pure.
+ * what `JSON.stringify` does), aliased `r0`, `r1`... in order, each for
+ * the fields of `selection` (the star count by default). Pure.
  */
-export function buildQuery(repos: readonly string[]): string {
+export function buildQuery(repos: readonly string[], selection: string = STARS_SELECTION): string {
   const fields = repos.map((repo, index) => {
     const [owner = "", name = ""] = repo.split("/");
-    return `r${index}: repository(owner: ${JSON.stringify(owner)}, name: ${JSON.stringify(name)}) { nameWithOwner stargazerCount }`;
+    return `r${index}: repository(owner: ${JSON.stringify(owner)}, name: ${JSON.stringify(name)}) { ${selection} }`;
   });
   return `query { rateLimit { remaining } ${fields.join(" ")} }`;
 }
@@ -103,7 +107,10 @@ const REPOSITORY_ERRORS = new Set(["NOT_FOUND", "FORBIDDEN"]);
  * any other error fails the batch rather than reading as missing, so a
  * broken query never empties the cache. Pure.
  */
-export function parseBatch(repos: readonly string[], body: GraphqlBody | undefined): BatchResult {
+export function parseBatch<Node = RepositoryNode>(
+  repos: readonly string[],
+  body: GraphqlBody | undefined,
+): BatchResult<Node> {
   const data = body?.data;
   const otherErrors = (body?.errors ?? []).filter(
     (error) => !REPOSITORY_ERRORS.has(error.type ?? "") || error.path?.length !== 1,
@@ -113,11 +120,11 @@ export function parseBatch(repos: readonly string[], body: GraphqlBody | undefin
     throw new Error(`GitHub GraphQL: ${message}`);
   }
 
-  const found = new Map<string, RepositoryNode>();
+  const found = new Map<string, Node>();
   const missing: string[] = [];
   repos.forEach((repo, index) => {
-    const node = data[`r${index}`] as RepositoryNode | null | undefined;
-    if (node && typeof node.stargazerCount === "number") found.set(repo, node);
+    const node = data[`r${index}`] as Node | null | undefined;
+    if (node && typeof node === "object") found.set(repo, node);
     else missing.push(repo);
   });
   const rateLimit = data.rateLimit as { remaining?: number } | null | undefined;
@@ -129,15 +136,17 @@ export function parseBatch(repos: readonly string[], body: GraphqlBody | undefin
  * now and then takes GitHub too long) splits the batch in two and asks
  * again, down to a single repository, which then stays unanswered; a
  * secondary rate limit waits and retries, longer each time, then throws
- * `RateLimitedError`. Anything else throws.
+ * `RateLimitedError`. Anything else throws. `selection` is the fields
+ * asked for each repository (see `buildQuery`).
  */
-export async function queryBatch(
+export async function queryBatch<Node = RepositoryNode>(
   repos: readonly string[],
   post: PostQuery,
   wait: (ms: number) => Promise<unknown> = sleep,
   attempt = 0,
-): Promise<BatchResult> {
-  const response = await post(buildQuery(repos));
+  selection: string = STARS_SELECTION,
+): Promise<BatchResult<Node>> {
+  const response = await post(buildQuery(repos, selection));
 
   if (response.status === 403 || response.status === 429) {
     if (attempt >= MAX_RATE_LIMITED_RETRIES)
@@ -149,14 +158,14 @@ export async function queryBatch(
       `github-stars: rate limited (${response.status} ${response.errorText ?? ""}), waiting ${ms / 1000} s`,
     );
     await wait(ms);
-    return queryBatch(repos, post, wait, attempt + 1);
+    return queryBatch<Node>(repos, post, wait, attempt + 1, selection);
   }
 
   if (response.status >= 500) {
     if (repos.length === 1) return { found: new Map(), missing: [], unanswered: [...repos] };
     const half = Math.ceil(repos.length / 2);
-    const left = await queryBatch(repos.slice(0, half), post, wait);
-    const right = await queryBatch(repos.slice(half), post, wait);
+    const left = await queryBatch<Node>(repos.slice(0, half), post, wait, 0, selection);
+    const right = await queryBatch<Node>(repos.slice(half), post, wait, 0, selection);
     return {
       found: new Map([...left.found, ...right.found]),
       missing: [...left.missing, ...right.missing],
@@ -166,10 +175,11 @@ export async function queryBatch(
   }
 
   if (response.status !== 200) throw new Error(`GitHub GraphQL: HTTP ${response.status}`);
-  return parseBatch(repos, response.body);
+  return parseBatch<Node>(repos, response.body);
 }
 
-async function postQuery(query: string): Promise<GraphqlResponse> {
+/** Posts one query to GitHub's GraphQL endpoint with the token of the environment. */
+export async function postQuery(query: string): Promise<GraphqlResponse> {
   if (!GITHUB_TOKEN) {
     throw new Error("GitHub GraphQL needs a token: set GITHUB_TOKEN (CI) or GH_TOKEN (local).");
   }

@@ -450,7 +450,7 @@
           "finding": "\"Scraping does not refer to the collection of information through our API.\" Section 6 also says not to reproduce or copy \"any portion of the Service\"; D.8 of the terms above is what covers public repositories' contents."
         }
       ],
-      "note": "Same API and terms as github-releases: one GraphQL query per 100 repositories, the ones other sources' packages link to. The cache holds only repository names and star counts."
+      "note": "Same API and terms as github-releases: one GraphQL query per 100 repositories, the ones other sources' packages link to. The cache holds only repository names and star counts. Descriptions and topics (owner-written) are fetched only for `classify-llm --github-about`, into a gitignored local file: D.5 licenses them to other users for use through GitHub, not for a public copy, so only the resulting LLM verdicts are committed."
     },
     "gog": {
       "verdict": "owner-review",

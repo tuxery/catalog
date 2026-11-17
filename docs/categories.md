@@ -215,6 +215,11 @@ Published dataset (`pnpm start`, private caches present), 106,709 apps.
   PackageManager (Prism Launcher, MultiMC) is now an app, not an Action
   game. 34 of the 36 moves are right; the misses are a cross-compiler
   for DOSBox and an Unreal asset manager for the Epic store.
+- **Education** from the tools made for children found under Kids above
+  (Scratch, BASIC-256, Little Wizard, Kitten, StoryMaps, TupiTube), plus
+  Scratux, xLogo, UCBLogo, Tupi, Greenfoot and KuMir: 12 apps, from
+  Developer Tools 8, Graphics & Design 2, System Tools 1 and Utilities 1,
+  all right on a hand check.
 - **System Tools** from Utilities: system and hardware monitors,
   firmware and driver tools, container and VM tools, terminal
   emulators: 269 apps. 58 of 60 sampled are right (an X-Face viewer

@@ -4178,9 +4178,13 @@
       {
         "source": "ebuild-gentoo",
         "appId": "games-emulation/dolphin"
+      },
+      {
+        "source": "appimagehub",
+        "appId": "2089388"
       }
     ],
-    "reason": "Gentoo packages the Dolphin GameCube/Wii emulator as games-emulation/dolphin, a bare name shared with KDE's file manager (kept apart in match-apart.json)."
+    "reason": "Gentoo packages the Dolphin GameCube/Wii emulator as games-emulation/dolphin, and AppImageHub lists one of its builds as 2089388 under the plain name \"Dolphin\" (its Emulation section): bare names shared with KDE's file manager (kept apart in match-apart.json)."
   },
   {
     "destination": {

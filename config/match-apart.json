@@ -4,6 +4,10 @@
       {
         "source": "ebuild-gentoo",
         "appId": "games-emulation/dolphin"
+      },
+      {
+        "source": "appimagehub",
+        "appId": "2089388"
       }
     ],
     "b": [
@@ -52,7 +56,7 @@
         "appId": "org.kde.dolphin.desktop"
       }
     ],
-    "reason": "Gentoo's games-emulation/dolphin is the Dolphin GameCube/Wii emulator (its own product: org.DolphinEmu.dolphin-emu, see match-force.json); every other package named dolphin is KDE's file manager. Found by the 2026-10-11 app/game audit."
+    "reason": "Gentoo's games-emulation/dolphin and AppImageHub's 2089388 (\"Dolphin\", in its Emulation section) are the Dolphin GameCube/Wii emulator (its own product: org.DolphinEmu.dolphin-emu, see match-force.json); every other package named dolphin is KDE's file manager. Found by the 2026-10-11 app/game audit."
   },
   {
     "a": [

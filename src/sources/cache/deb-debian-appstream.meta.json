@@ -1,9 +1,10 @@
 {
   "source": "deb-debian-appstream",
-  "fetchedAt": "2026-11-14T11:17:05.300Z",
-  "url": "https://deb.debian.org/debian/dists/stable/main/dep11/Components-amd64.yml.gz, https://deb.debian.org/debian/dists/stable/contrib/dep11/Components-amd64.yml.gz, https://deb.debian.org/debian/dists/stable/non-free/dep11/Components-amd64.yml.gz",
-  "entryCount": 2109,
+  "fetchedAt": "2026-11-17T23:26:25.070Z",
+  "url": "https://appstream.debian.org/data/trixie/main/Components-amd64.yml.gz, https://appstream.debian.org/data/trixie/contrib/Components-amd64.yml.gz, https://appstream.debian.org/data/trixie/non-free/Components-amd64.yml.gz",
+  "entryCount": 2095,
   "suite": "stable",
+  "codename": "trixie",
   "component": "main+contrib+non-free",
   "arch": "amd64"
 }

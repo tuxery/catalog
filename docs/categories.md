@@ -19,6 +19,7 @@ to `/browse/?category=<label>`.
 | File Sharing & Downloads | torrents, P2P, download managers, FTP, file transfer, cloud sync       | `FileTransfer`, `P2P`, Gentoo `net-p2p`/`net-ftp`, refinements                                 |
 | Networking               | network tools and servers, DNS, proxies, remote connections, radio     | `Network`, Debian `net`/`web`/`comm`/`hamradio`, Gentoo `net-*`/`www-*`                        |
 | Gaming Tools             | emulators of game systems, game launchers, mod managers, Proton/Steam  | `GameTool`, Gentoo `games-util`/`games-emulation`, `proton*`/`steam*` names, refinements       |
+| AI                       | AI assistants, LLM chat clients, local model runners, image generators | refinements only (no freedesktop key exists)                                                   |
 | Developer Tools          | IDEs, compilers, debuggers, build and VCS tools                        | `Development`, Debian `devel`, Gentoo `dev-*`                                                  |
 | System Tools             | monitoring, disks, drivers, terminals, package managers, backups       | `System`, Debian `admin`, Gentoo `sys-*`                                                       |
 | Settings                 | configuration panels, desktop tweaks                                   | `Settings`, `DesktopSettings`                                                                  |
@@ -40,6 +41,34 @@ Thunderbird, Discord, qBittorrent and Wireshark sat side by side.
 Flathub ("Networking" with subcategories), GNOME Software ("Socialize"
 apart from "Work") and the mobile stores (Google Play's "Communication"
 and "Social", Apple's "Social Networking") all draw these lines.
+
+The AI category holds apps that are AI first: assistants and chatbots,
+chat clients and front ends for ChatGPT, Claude, DeepSeek, Ollama and
+the like, local model runners and inference servers (llama.cpp, LM
+Studio, the inference snaps), and AI image and video generators (Stable
+Diffusion, ComfyUI). The label is "AI", the owner's own word for it,
+short in a URL (`?category=AI`) and as broad as what it holds, which
+"AI Assistants" or "AI Tools" would not be. Freedesktop has no key for
+it (`ArtificialIntelligence` is a Science subcategory, carried by
+machine-learning workbenches such as Orange, and stays Science), so two
+refinements file these apps, out of whatever broad category they landed
+in (Networking, Productivity, Utilities, System Tools, Messaging &
+Calls, Developer Tools...). What stays where it is:
+
+- an app with an AI feature: "an SSH client with an AI assistant", "a
+  video editor with local AI", a markdown editor powered by Ollama;
+- speech and translation tools (a Whisper transcriber is an audio tool,
+  an LLM translator a reference one), add-ons of another program (a Vim
+  or Thunderbird plugin, an MCP server);
+- anything built around AI coding agents (Claude Code, Codex, their
+  GUIs, sandboxes and kanban boards), and, in Developer Tools, anything
+  that names code, an API, an SDK, a library or an integration: a coding
+  agent is a developer tool, as a code editor with an AI feature is a
+  code editor.
+
+AUR keywords (`ai`, `llm`, `ollama`, `chatgpt`) were sampled as a signal
+and left out: a clipboard manager, a note-taking app and a network
+tunnel tool carry them for an optional feature.
 
 ## Game genres
 
@@ -124,3 +153,14 @@ of 80 random apps and games in the new categories found 71 right (89%,
 67 of 72 outside Networking); the misses were mostly apps Networking keeps
 as the catch-all (AI chat clients, an anime tracker), which the old
 category had misfiled too.
+
+## Measured 2026-11-17: AI
+
+Published dataset (`pnpm start`, private caches present), 106,709 apps:
+AI 0 → 450, from Developer Tools 195, Networking 83, Productivity 63,
+Utilities 33, System Tools 29, Messaging & Calls 19, Graphics & Design
+15, Education 3, Settings 3, Photo & Video 2, Science 2, Security 2 and
+Web Browsers 1. A hand check of 60 random apps of the new category found
+59 right (98%); the miss, an AI agent framework, belongs in Developer
+Tools. Roughly 600 AI coding tools (coding agents, AI code review, AI
+commit message writers) stay in Developer Tools on purpose.

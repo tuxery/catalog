@@ -1,6 +1,7 @@
 import type { ProjectLinks, ReleaseEntry, SourcedPackage, StoreCollectionTag } from "../../sources";
 import type { HiddenType } from "./category";
 import type { Companion, CompanionKind, Relation } from "../family/types";
+import type { AgeBracket } from "./age-bracket";
 import type { DataConfidence } from "./data-confidence";
 
 /**
@@ -212,6 +213,8 @@ export interface CatalogApp {
   permissions?: string[];
   /** The unified age rating: `{ system: "min-age", value }` with the strictest minimum age, in years, among the packages' own ratings (`SourcedPackage.ageRating`) — see `pickAgeRating`. */
   ageRating?: { system: string; value: string };
+  /** `ageRating`'s minimum age rounded up to a PEGI bracket (3 = all ages, 7, 12, 16, 18), what the site filters and labels by — see `ageBracket` and docs/age-ratings.md. `undefined` when no package has a rating: unrated, not all ages. */
+  ageBracket?: AgeBracket;
   /** The app's brand colors per color scheme (`#rrggbb`) — AppStream's `<branding>`, see `SourcedPackage.brandColors`. Used as a border on the app page, and the site checks their format first. */
   brandColors?: { light?: string; dark?: string };
   /** AppStream's `<kudos>` as the developer states them (`HiDpiIcon`, `HighContrast`, `ModernToolkit`...) — see `SourcedPackage.kudos`. The page turns the accessibility ones into hints. */

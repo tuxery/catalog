@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { flattenHtmlDescription, parseDep11Yaml } from "./dep11";
+import { flattenHtmlDescription, mainComponentsFirst, parseDep11Yaml } from "./dep11";
 
 const FIXTURE = `---
 File: DEP-11
@@ -236,6 +236,100 @@ Name:
 ${extra}`;
 
 const parse = (extra: string) => parseDep11Yaml(yamlWith(extra)).components[0];
+
+const component = (id: string, pkgname: string) => ({
+  type: "desktop-application",
+  id,
+  pkgname,
+  name: id,
+  categories: [],
+  screenshots: [],
+});
+const ids = (components: { id: string }[]) => components.map(({ id }) => id);
+
+describe("mainComponentsFirst", () => {
+  it("puts the component named after its package first, packages in document order", () => {
+    expect(
+      ids(
+        mainComponentsFirst([
+          component("luckybackup-su.desktop", "luckybackup"),
+          component("gitg.desktop", "gitg"),
+          component("luckybackup.desktop", "luckybackup"),
+          component("org.bleachbit.BleachBit", "bleachbit"),
+          component("bleachbit-root.desktop", "bleachbit"),
+        ]),
+      ),
+    ).toEqual([
+      "luckybackup.desktop",
+      "luckybackup-su.desktop",
+      "gitg.desktop",
+      "org.bleachbit.BleachBit",
+      "bleachbit-root.desktop",
+    ]);
+  });
+
+  it("then one starting with the package name, then the shortest, then by id", () => {
+    expect(
+      ids(
+        mainComponentsFirst([
+          component("org.kde.ktnef", "kmail"),
+          component("org.kde.kmail2.desktop", "kmail"),
+        ]),
+      ),
+    ).toEqual(["org.kde.kmail2.desktop", "org.kde.ktnef"]);
+    expect(
+      ids(
+        mainComponentsFirst([
+          component("eric7_browser.desktop", "eric"),
+          component("eric7_mpy.desktop", "eric"),
+          component("eric7_ide.desktop", "eric"),
+        ]),
+      ),
+    ).toEqual(["eric7_ide.desktop", "eric7_mpy.desktop", "eric7_browser.desktop"]);
+  });
+
+  it("prefers a name the package's contains, and puts a manual last", () => {
+    expect(
+      ids(
+        mainComponentsFirst([
+          component("nl.brixit.Setup", "openswitcher"),
+          component("nl.brixit.Switcher", "openswitcher"),
+        ]),
+      ),
+    ).toEqual(["nl.brixit.Switcher", "nl.brixit.Setup"]);
+    expect(
+      ids(
+        mainComponentsFirst([
+          component("eyes17-doc.desktop", "eyes17"),
+          component("expeyes-17.desktop", "eyes17"),
+        ]),
+      ),
+    ).toEqual(["expeyes-17.desktop", "eyes17-doc.desktop"]);
+  });
+});
+
+describe("parseDep11Yaml: media browsers can't show", () => {
+  it("drops a JPEG XL icon and screenshot, keeping the PNG ones", () => {
+    const app = parse(
+      "Icon:\n  remote:\n  - url: e/ex/example/h/icons/128x128/example.jxl\n    width: 128\n" +
+        "  - url: e/ex/example/h/icons/64x64/example.png\n    width: 64\n" +
+        "Screenshots:\n- default: true\n  source-image:\n    url: e/ex/example/h/screenshots/image-1_orig.jxl\n" +
+        "- caption:\n    C: Second\n  source-image:\n    url: e/ex/example/h/screenshots/image-2_orig.png\n",
+    );
+    expect(app?.iconUrl).toBe(
+      "https://appstream.debian.org/media/trixie/e/ex/example/h/icons/64x64/example.png",
+    );
+    expect(app?.screenshots).toEqual([
+      "https://appstream.debian.org/media/trixie/e/ex/example/h/screenshots/image-2_orig.png",
+    ]);
+  });
+
+  it("leaves no icon when the only one is JPEG XL", () => {
+    expect(
+      parse("Icon:\n  remote:\n  - url: e/ex/example/h/icons/128x128/example.jxl\n")?.iconUrl,
+    ).toBeUndefined();
+  });
+});
 
 describe("parseDep11Yaml: content rating and requirements", () => {
   it("summarizes ContentRating as its strongest intensity, empty meaning none", () => {

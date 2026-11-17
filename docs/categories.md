@@ -110,6 +110,23 @@ for (2,877 apps rated "0+"). A "For kids" collection (a tag shown as its
 own row and filter) would sit on top of the categories rather than
 replace one.
 
+Decided 2026-11-17: no Kids category, and no collection for now. The age
+rating is the dimension instead, a bracket per product and a "Suitable
+for" filter on `/browse` ([`age-ratings.md`](age-ratings.md)). A For kids
+category may come later, only for kid-oriented products neither the
+categories (Education, Educational) nor the age filter find. Measured
+2026-11-17 with the signals above plus "kids"/"children" keywords: 88
+products, 63 of them found already (Education or Educational: 39; rated
+7 or under: 24 more). Of the 25 left, a hand check finds 13 really made
+for children: 5 learning tools filed as Developer Tools or Utilities
+(Scratch, rated 16+ for its chat; BASIC-256, Little Wizard, Kitten,
+StoryMaps), TupiTube (animation, Graphics & Design), Sukhi Play (a kiosk
+browser for toddlers), and unrated games in their genre (lmemory, Pigs
+and Cows, listed twice, pacman1, Hex-a-hop, Toontown Rewritten). The other 12 are
+parental tools or false positives (Minitube, BombSquad, Roblox's
+launcher). The learning tools are a category fix (Education), not a
+reason for a new category.
+
 ## Measured 2026-11-16
 
 Published dataset (`pnpm start`, private caches present), before → after

@@ -12,6 +12,9 @@ rather than as a comment scattered across packages.
   the curator decides it.
 - [`categories.md`](categories.md) — the app categories and game
   genres, the signals behind each and the order they are read in.
+- [`age-ratings.md`](age-ratings.md) — where products' age ratings
+  come from, how they become one age and one bracket, and the
+  "Suitable for" filter's store keys.
 - [`rich-fields.md`](rich-fields.md) — which sources fill each rich
   field (icon, license, screenshots, ...), which one wins when they
   disagree, and how to add a source to a field.

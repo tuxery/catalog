@@ -145,6 +145,9 @@ GOG), so they are put on one scale: the **minimum age in years**.
   **strictest** age among the packages: a source that rated higher saw
   something the others may have missed. This is the one field picked
   across packages rather than from one (rule 3), like `rating`.
+- `CatalogApp.ageBracket` rounds that age up to 3 (all ages), 7, 12, 16
+  or 18, what the site labels and filters by: see
+  [`age-ratings.md`](age-ratings.md).
 
 The scale describes how much mature content an app declares, not how
 safe it is. The website explains it in its glossary and shows the

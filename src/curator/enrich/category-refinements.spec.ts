@@ -115,6 +115,8 @@ describe("config/category-refinements.json", () => {
       refine("app", "Utilities", "Terminal emulator with private, local AI powered by Ollama"),
     ).toBe("System Tools");
     expect(refine("app", "Developer Tools", "Open source AI coding agent")).toBe("Developer Tools");
+    expect(refine("app", "AI", "Native desktop coding agent")).toBe("Developer Tools");
+    expect(refine("app", "AI", "Private offline AI assistant")).toBe("AI");
     expect(refine("app", "Developer Tools", "CLI client for the OpenAI API")).toBe(
       "Developer Tools",
     );

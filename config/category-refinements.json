@@ -28,6 +28,13 @@
   },
   {
     "type": "app",
+    "from": ["AI"],
+    "to": "Developer Tools",
+    "pattern": "\\b(coding (agents?|assistants?|partner|cli)|ai[- ]coding|code (editor|review\\w*|generat\\w*|assistant)|ides?|claude code|codex|vibe[- ]coding|for (developers|programmers|coding)|agents? frameworks?|framework for building)\\b",
+    "reason": "An LLM verdict files AI coding agents, their GUIs and dashboards, and AI agent frameworks under AI; like the two rules above, they stay developer tools."
+  },
+  {
+    "type": "app",
     "from": ["Networking"],
     "to": "Messaging & Calls",
     "pattern": "^(?!.*\\b(llms?|ai|gpt|chatgpt|ollama|openai|language models?|assistant)\\b).*\\b(chat|chats|chatting|chatroom|group ?chat|messengers?|messaging|instant messag\\w*|irc|ircd|xmpp|jabber|matrix (client|protocol|homeserver|server|bridge|bot)|mautrix|telegram|discord|signal (messenger|desktop|app|client)|signal-cli|whatsapp|slack|mattermost|rocket\\.?chat|zulip|microsoft teams|teamspeak|mumble|murmur|ventrilo|voip|sip (client|phone|server|proxy|user agent|stack)|softphone|pbx|video ?(calls?|chat|conferenc\\w*|meetings?)|voice (calls?|chat)|online meetings?|jitsi|skype|tox (client|messenger)|briar|simplex|wechat|viber|icq|pidgin|libpurple|delta ?chat|chatmail|chatroulette|sms|mms gateway)\\b",

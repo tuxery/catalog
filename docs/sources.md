@@ -797,7 +797,11 @@ homebrew-core/30d.json` for popularity: three GETs a week, no
     (`cursor` in the metadata): every repository about every two and a
     half weeks, ~15 minutes a run. Same terms as GitHub Releases
     (`config/source-terms.json`); the cache holds only repository names
-    and star counts.
+    and star counts. The same query also serves `pnpm classify-llm
+    --github-about` (`github-stars/about.ts`): the description and topics
+    of the repositories of apps left in "To Classify", fetched into a
+    gitignored local file and never committed (owner-written text, see
+    `docs/categories.md`).
     The curator gives each published app one repository
     (`curator/enrich/github-stars.ts`): never a store's packaging
     repository (`flathub/*`, `snapcrafters/*`, `*-snap`, `*-flatpak`,

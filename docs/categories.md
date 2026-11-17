@@ -66,6 +66,11 @@ Calls, Developer Tools...). What stays where it is:
   agent is a developer tool, as a code editor with an AI feature is a
   code editor.
 
+A third refinement moves an LLM verdict of AI back to Developer Tools
+when the app is a coding agent, its GUI or dashboard, or an agent
+framework: the model files some there although the prompt says
+otherwise.
+
 AUR keywords (`ai`, `llm`, `ollama`, `chatgpt`) were sampled as a signal
 and left out: a clipboard manager, a note-taking app and a network
 tunnel tool carry them for an optional feature.
@@ -117,6 +122,24 @@ In order, the first one that answers wins (`enrichApps` in
 
 Anything still without an answer is "To Classify".
 
+### New input for "To Classify"
+
+Most apps left in "To Classify" carry a name and nothing else, and the
+LLM answered them `low` (never applied). About half of them name a
+GitHub repository (`CatalogApp.githubStars`), whose own description and
+topics do say what the app is: `pnpm classify-llm --github-about` fetches
+those (GraphQL, 100 repositories per query, into the gitignored
+`.cache/github-about.ndjson`) and asks again with them in the prompt. The
+repository's text is its owner's, licensed by GitHub's terms to other
+users on GitHub, not for a public copy: it is never committed, only the
+resulting verdicts, in the model's own few words. A verdict is kept only
+at `medium` or `high` confidence, with a reason that names real content
+(`isGenericReason`: "Desktop application" is a guess from nothing), and
+only as `app` or `game`: in the first run a repository blurb called 4 of
+21 real apps a library or "other", which would have hidden them. Apps
+with a package from a restricted source are never sent, as in every
+`classify-llm` run.
+
 ### Labels of an earlier taxonomy
 
 `config/llm-classifications.json` is the models' raw output and is never
@@ -154,13 +177,36 @@ of 80 random apps and games in the new categories found 71 right (89%,
 as the catch-all (AI chat clients, an anime tracker), which the old
 category had misfiled too.
 
-## Measured 2026-11-17: AI
+## Measured 2026-11-17
 
-Published dataset (`pnpm start`, private caches present), 106,709 apps:
-AI 0 → 450, from Developer Tools 195, Networking 83, Productivity 63,
-Utilities 33, System Tools 29, Messaging & Calls 19, Graphics & Design
-15, Education 3, Settings 3, Photo & Video 2, Science 2, Security 2 and
-Web Browsers 1. A hand check of 60 random apps of the new category found
-59 right (98%); the miss, an AI agent framework, belongs in Developer
-Tools. Roughly 600 AI coding tools (coding agents, AI code review, AI
-commit message writers) stay in Developer Tools on purpose.
+Published dataset (`pnpm start`, private caches present), 106,709 apps.
+
+- **AI**, refinements alone: 0 → 450, from Developer Tools 195,
+  Networking 83, Productivity 63, Utilities 33, System Tools 29,
+  Messaging & Calls 19, Graphics & Design 15, Education 3, Settings 3,
+  Photo & Video 2, Science 2, Security 2 and Web Browsers 1. A hand
+  check of 60 random apps found 59 right (98%); the miss, an AI agent
+  framework, belongs in Developer Tools (the third refinement now sends
+  such a framework back when an LLM verdict files it under AI). Roughly
+  600 AI coding tools (coding agents, AI code review, AI commit message
+  writers) stay in Developer Tools on purpose.
+- **Gaming Tools**: the refinement now reads consoles separated by
+  slashes ("GameCube / Wii / Triforce Emulator", Dolphin), DOSBox and
+  its front ends, Doom and Quake source ports, Steam and the Epic, GOG
+  and Amazon launchers (Heroic): 34 apps move, 27 of them from System
+  Tools. A Minecraft launcher Flathub tags with game genres and
+  PackageManager (Prism Launcher, MultiMC) is now an app, not an Action
+  game. 34 of the 36 moves are right; the misses are a cross-compiler
+  for DOSBox and an Unreal asset manager for the Epic store.
+- **System Tools** from Utilities: system and hardware monitors,
+  firmware and driver tools, container and VM tools, terminal
+  emulators: 269 apps. 58 of 60 sampled are right (an X-Face viewer
+  and a terminal colorscheme converter are not).
+- **To Classify**: 1,353 (apps 1,270, games 83) → 957 (878, 79).
+  `classify-llm --github-about`: 487 repositories fetched (5 GraphQL
+  queries), 441 with a description or topics, 3 Gemini requests
+  (gemini-3.1-flash-lite, free tier), 401 verdicts kept (40 left out:
+  low confidence or a reason naming no content, and 21 library/other).
+  A hand check of 60 random kept verdicts found 49 right (82%), against
+  91% for the same model on store descriptions (`config/llm-models.json`):
+  a repository blurb is thinner than a store listing. Then AI 492.

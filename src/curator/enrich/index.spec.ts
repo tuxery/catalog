@@ -235,7 +235,7 @@ describe("enrichApps", () => {
 
     const app = enrichApps(matched)[0];
     expect(app?.contentType).toBeUndefined();
-    expect(app?.category).toBe("System Tools");
+    expect(app?.category).toBe("Gaming Tools");
   });
 
   it("does not override contentType when Game co-occurs with a real game-genre category", () => {
@@ -1228,5 +1228,43 @@ describe("enrichApps", () => {
     ];
 
     expect(enrichApps(matched)[0]?.suite).toBeUndefined();
+  });
+});
+
+describe("game launchers carrying game genres", () => {
+  it("files Prism Launcher, tagged with genres and PackageManager, as a Gaming Tools app", () => {
+    const [app] = enrichApps([
+      {
+        id: "org.prismlauncher.PrismLauncher",
+        packages: [
+          pkg({
+            name: "Prism Launcher",
+            description:
+              "Custom Minecraft Launcher to easily manage multiple Minecraft installations at once",
+            categories: ["Game", "ActionGame", "AdventureGame", "Simulation", "PackageManager"],
+            hasGameCategory: true,
+          }),
+        ],
+      },
+    ]);
+    expect(app?.contentType).toBeUndefined();
+    expect(app?.category).toBe("Gaming Tools");
+  });
+
+  it("keeps a game whose own launcher it is", () => {
+    const [app] = enrichApps([
+      {
+        id: "openrsc",
+        packages: [
+          pkg({
+            name: "OpenRSC",
+            description: "Launcher for OpenRSC Servers",
+            categories: ["Game", "RolePlaying"],
+            hasGameCategory: true,
+          }),
+        ],
+      },
+    ]);
+    expect(app?.contentType).toBe("game");
   });
 });

@@ -142,6 +142,23 @@ describe("config/category-refinements.json", () => {
     );
   });
 
+  it("reads consoles separated by slashes, and files DOSBox, Steam and store launchers under Gaming Tools", () => {
+    expect(refine("app", "System Tools", "GameCube / Wii / Triforce Emulator")).toBe(
+      "Gaming Tools",
+    );
+    expect(refine("app", "System Tools", "Play Epic, GOG and Amazon Games")).toBe("Gaming Tools");
+    expect(refine("app", "System Tools", "Doom Source Port")).toBe("Gaming Tools");
+    expect(
+      refineCategory(
+        "app",
+        "System Tools",
+        { name: "Steam", shortDescription: "Launcher for the Steam software distribution service" },
+        configured,
+      ),
+    ).toBe("Gaming Tools");
+    expect(refine("app", "System Tools", "An open source port of libfoo")).toBe("System Tools");
+  });
+
   it("gives racing, shooter, rhythm and visual novel games their own genre", () => {
     expect(refine("game", "Arcade", "High speed arctic racing game")).toBe("Racing");
     expect(refine("game", "Action", "Tactical first person shooter")).toBe("Shooter");

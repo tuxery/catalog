@@ -22,6 +22,7 @@ import {
   type ContentType,
   type HiddenType,
 } from "./category";
+import { ageBracket } from "./age-bracket";
 import { computeDataConfidence, forceMatchedKeys } from "./data-confidence";
 import {
   pickAgeRating,
@@ -891,6 +892,7 @@ export function enrichApps(
       categoryRefinements,
     );
 
+    const ageRating = pickAgeRating(app.packages);
     return {
       id: app.id,
       name: representative.name,
@@ -912,7 +914,8 @@ export function enrichApps(
       longDescription: pickRichField("longDescription", app.packages, (pkg) => pkg.longDescription),
       screenshots: pickRichField("screenshots", app.packages, (pkg) => pkg.screenshots),
       videos: pickRichField("videos", app.packages, (pkg) => pkg.videos),
-      ageRating: pickAgeRating(app.packages),
+      ageRating,
+      ageBracket: ageBracket(ageRating?.value),
       brandColors: pickRichField("brandColors", app.packages, (pkg) => pkg.brandColors),
       kudos: pickRichField("kudos", app.packages, (pkg) => pkg.kudos),
       requirements: pickRichField("requirements", app.packages, (pkg) => pkg.requirements),

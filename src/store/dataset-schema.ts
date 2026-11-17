@@ -18,6 +18,8 @@ const AppRecordSchema = z.looseObject({
   contentType: z.literal("game").optional(),
   category: z.string().optional(),
   licenseKind: z.enum(["free", "proprietary"]).optional(),
+  // The brackets `/browse` filters on (store-contract.json's `ageBrackets`).
+  ageBracket: z.literal([3, 7, 12, 16, 18]).optional(),
   lastUpdated: z.string().optional(),
   rating: z.object({ average: z.number(), count: z.number().nonnegative() }).optional(),
   popularity: z.number().min(0).max(1).optional(),

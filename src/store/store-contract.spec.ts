@@ -1,7 +1,7 @@
 import { createClient } from "@libsql/client";
 import { describe, expect, it } from "vitest";
 import contract from "./store-contract.json";
-import { createTursoClient, type AppRecord } from "./turso-client";
+import { AGE_FILTERS, createTursoClient, type AppRecord } from "./turso-client";
 
 // Pins what publish() writes to store-contract.json, the file `app`'s
 // catalog.ts is pinned to on its side (CI keeps the two copies equal).
@@ -30,17 +30,23 @@ const APPS: AppRecord[] = Array.from({ length: contract.listingSizes.trending + 
   kind: "gui",
   category: "Utilities",
   licenseKind: "free",
+  // Every bracket, and unrated apps.
+  ageBracket: contract.ageBrackets.values[i % (contract.ageBrackets.values.length + 1)],
   dataConfidence: { score: 0, signals: [] },
   packages: [{ source: "aur", name: `app-${i}` }],
 }));
 
-async function publishedMeta(): Promise<Map<string, string>> {
+async function publish() {
   const db = createClient({ url: "file::memory:" });
   await createTursoClient({ url: "file::memory:" }, db).publish({
     generatedAt: GENERATED_AT,
     apps: APPS,
   });
-  const rows = await db.execute("SELECT key, value FROM meta");
+  return db;
+}
+
+async function publishedMeta(): Promise<Map<string, string>> {
+  const rows = await (await publish()).execute("SELECT key, value FROM meta");
   return new Map(rows.rows.map((row) => [String(row.key), String(row.value)]));
 }
 
@@ -60,8 +66,36 @@ describe("store contract (store-contract.json)", () => {
       metaKey("count", { ...counts, source: "aur", category: "Utilities" }),
       metaKey("count", { ...counts, source: unset, category: unset }),
       metaKey("countFree", { ...counts, source: "aur", category: unset }),
+      ...contract.ageBrackets.filters.flatMap((age) => [
+        metaKey("countAge", {
+          ...counts,
+          age: String(age),
+          license: unset,
+          source: unset,
+          category: unset,
+        }),
+        metaKey("countAge", {
+          ...counts,
+          age: String(age),
+          license: "free",
+          source: "aur",
+          category: unset,
+        }),
+        metaKey("countAge", {
+          ...counts,
+          age: String(age),
+          license: "free",
+          source: unset,
+          category: "Utilities",
+        }),
+      ]),
       metaKey("sourceIds", { generation: GENERATION, source: "aur", chunk: "0" }),
       metaKey("categoryIds", { generation: GENERATION, chunk: "0", category: "Utilities" }),
+      ...contract.ageBrackets.filters.flatMap((age) =>
+        ["all", "app"].map((type) =>
+          metaKey("ageIds", { generation: GENERATION, age: String(age), type, chunk: "0" }),
+        ),
+      ),
     ];
     expect(keys.filter((key) => !meta.has(key))).toEqual([]);
   });
@@ -77,5 +111,38 @@ describe("store contract (store-contract.json)", () => {
     expect(listing("categoryPreview:Utilities")).toHaveLength(
       contract.listingSizes.categoryPreview,
     );
+  });
+
+  it("writes each app's age bracket to the contract's column, out of its values, and counts each filter age", async () => {
+    const db = await publish();
+    const { column, values, filters } = contract.ageBrackets;
+    const rows = await db.execute(
+      `SELECT ${column} AS bracket, COUNT(*) AS n FROM apps GROUP BY 1`,
+    );
+    const brackets = rows.rows.map((row) => row.bracket);
+    expect(brackets).toContain(null);
+    expect(
+      brackets.filter((bracket) => bracket !== null).toSorted((a, b) => Number(a) - Number(b)),
+    ).toEqual(values);
+
+    expect([...AGE_FILTERS]).toEqual(filters);
+    const meta = await publishedMeta();
+    const live = await Promise.all(
+      filters.map((age) =>
+        db.execute({ sql: `SELECT COUNT(*) AS n FROM apps WHERE ${column} <= ?`, args: [age] }),
+      ),
+    );
+    filters.forEach((age, i) => {
+      const key = metaKey("countAge", {
+        generation: GENERATION,
+        age: String(age),
+        license: contract.unsetFilter,
+        interface: "all",
+        type: "all",
+        source: contract.unsetFilter,
+        category: contract.unsetFilter,
+      });
+      expect(Number(meta.get(key))).toBe(Number(live[i]?.rows[0]?.n));
+    });
   });
 });

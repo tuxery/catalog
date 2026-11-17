@@ -489,6 +489,34 @@ function isGameAdjacentToolDescription(shortDescription: string, names: string[]
   );
 }
 
+// A launcher that installs and manages many instances of a game (Minecraft's
+// Prism Launcher and MultiMC), or that a store packages as a package
+// manager, is a tool even when it carries the genres of the game it
+// launches: Flathub gives Prism Launcher ActionGame, AdventureGame and
+// Simulation next to PackageManager. Deliberately not the bare
+// "launcher" of `GAME_ADJACENT_TOOL_DESCRIPTION_PATTERNS`: a game's own
+// launcher ("Launcher for OpenRSC Servers", the Doom and ScummVM launcher
+// scripts of game data packages, "RuneScape Game Client") is that game.
+// Measured 2026-11-17: these two signals match 2 of the 5,946 games
+// (Prism Launcher, MultiMC).
+const GAME_LAUNCHER_CATEGORIES = new Set(["PackageManager", "LauncherStore"]);
+const GAME_LAUNCHER_DESCRIPTION =
+  /\b(custom|alternative|third[- ]party|multi[- ]instance)\b[\w ]{0,20}\blaunchers?\b[\w ]{0,10}\bminecraft\b|\b(custom|alternative|third[- ]party|multi[- ]instance) minecraft launchers?\b/i;
+
+/** True when a package carrying game genres is a launcher for a game rather than the game (see above). Pure. */
+export function isGameLauncherDespiteGenre(
+  categories: string[],
+  shortDescription: string,
+  packages: readonly SourcedPackage[],
+): boolean {
+  if (categories.includes("Game") && categories.some((c) => GAME_LAUNCHER_CATEGORIES.has(c))) {
+    return true;
+  }
+  return [shortDescription, ...packages.map((pkg) => pkg.name)].some((text) =>
+    GAME_LAUNCHER_DESCRIPTION.test(text),
+  );
+}
+
 /**
  * Picks a category label via `pickField`, then maps it through
  * `pickCategory`'s type-scoped taxonomy. When no member package has any
@@ -856,6 +884,7 @@ export function enrichApps(
           app.packages.map((pkg) => pkg.name),
         )) &&
       !isGameAdjacentToolCategory(categories) &&
+      !isGameLauncherDespiteGenre(categories, shortDescription, app.packages) &&
       (hasKnownGameGenre ||
         !isGameAdjacentToolDescription(
           shortDescription,

@@ -113,7 +113,7 @@ describe("config/category-refinements.json", () => {
     );
     expect(
       refine("app", "Utilities", "Terminal emulator with private, local AI powered by Ollama"),
-    ).toBe("Utilities");
+    ).toBe("System Tools");
     expect(refine("app", "Developer Tools", "Open source AI coding agent")).toBe("Developer Tools");
     expect(refine("app", "Developer Tools", "CLI client for the OpenAI API")).toBe(
       "Developer Tools",
@@ -157,6 +157,19 @@ describe("config/category-refinements.json", () => {
       ),
     ).toBe("Gaming Tools");
     expect(refine("app", "System Tools", "An open source port of libfoo")).toBe("System Tools");
+  });
+
+  it("files monitors, firmware tools, containers and terminal emulators under System Tools", () => {
+    expect(refine("app", "Utilities", "Interactive processes viewer")).toBe("System Tools");
+    expect(refine("app", "Utilities", "Update device firmware on Linux")).toBe("System Tools");
+    expect(refine("app", "Utilities", "Manage Flatpak permissions")).toBe("System Tools");
+    expect(refine("app", "Utilities", "Manage Distrobox containers")).toBe("System Tools");
+    expect(refine("app", "Utilities", "A beautiful GTK 4 terminal")).toBe("System Tools");
+    expect(refine("app", "Utilities", "Fast GPU-accelerated terminal emulator")).toBe(
+      "System Tools",
+    );
+    expect(refine("app", "Utilities", "A minimal terminal countdown timer")).toBe("Utilities");
+    expect(refine("app", "Utilities", "A minimalist terminal-based focus timer")).toBe("Utilities");
   });
 
   it("gives racing, shooter, rhythm and visual novel games their own genre", () => {

@@ -53,6 +53,8 @@ export interface AppRecord {
   inAppPurchases?: boolean;
   gdprCompliant?: boolean;
   ageRating?: { system: string; value: string };
+  /** See `CatalogApp.ageBracket`: 3, 7, 12, 16 or 18, absent when unrated. */
+  ageBracket?: number;
   languages?: string[];
   screenshots?: string[];
   /** See `CatalogApp.links`. */
@@ -197,6 +199,7 @@ const INSERT_COLUMNS = [
   // publish (see incremental.ts), which needs it after the existing ones.
   "brand_colors_json",
   "kudos_json",
+  "age_bracket",
 ];
 
 function appsTableSql(tableName: string): string {
@@ -249,7 +252,8 @@ function appsTableSql(tableName: string): string {
       companion_counts_json TEXT,
       relations_json TEXT,
       brand_colors_json TEXT,
-      kudos_json TEXT
+      kudos_json TEXT,
+      age_bracket INTEGER
     )
   `;
 }
@@ -717,6 +721,37 @@ function freeCountKey(
   return `countFree:${generation}:${interfaceFilter}:${typeFilter}:${source}:${category}`;
 }
 
+/**
+ * The "suitable for" ages `/browse` filters by: an app counts toward every
+ * one at or above its `ageBracket` (`age_bracket <= ?` in `app`'s SQL). 18
+ * isn't one, "suitable for adults" being every rated app. Pinned by
+ * store-contract.json's `ageBrackets.filters`.
+ */
+export const AGE_FILTERS = [3, 7, 12, 16] as const;
+
+/**
+ * Same combination as `countKey` under a "suitable for" age (`AGE_FILTERS`),
+ * all apps or free software only (`license`: `*` or `free`) — `/browse`'s
+ * age filter, on its own or with "free software only". Unrated apps never
+ * count: no rating isn't all ages. Written only when the source or the
+ * category is unset: with both set, ~31k more keys (34.7k instead of 3.8k
+ * on 2026-11-17's dataset) for a combination nobody links to, which `app`
+ * counts live instead (one category's rows at most, through
+ * `idx_apps_category`). `browseKeys.ageFilter` tells `app` these exist.
+ * Format pinned by store-contract.json, like `app`'s `browse-keys.ts`.
+ */
+function ageCountKey(
+  generation: string,
+  age: number,
+  license: "*" | "free",
+  interfaceFilter: InterfaceFilterValue,
+  typeFilter: ListingTypeFilter,
+  source: string,
+  category: string,
+): string {
+  return `countAge:${generation}:${age}:${license}:${interfaceFilter}:${typeFilter}:${source}:${category}`;
+}
+
 function sourcesOf(app: AppRecord): string[] {
   const sources = new Set<string>();
   for (const pkg of app.packages) {
@@ -734,7 +769,9 @@ function sourcesOf(app: AppRecord): string[] {
  * (1 + its sources) combinations it belongs to. ~4.1k keys on today's
  * 174k apps. `kind` is only ever "gui" or unset, so "cli" is "not gui"
  * (same equivalence `app`'s SQL relies on); an app without a category
- * only counts toward category-less combinations.
+ * only counts toward category-less combinations. A rated app also bumps
+ * the same combinations under each "suitable for" age it meets
+ * (`ageCountKey`), twice when it is free software.
  */
 function computeBrowseCounts(apps: AppRecord[], generation: string): Map<string, number> {
   const counts = new Map<string, number>();
@@ -744,13 +781,33 @@ function computeBrowseCounts(apps: AppRecord[], generation: string): Map<string,
     const sources = ["*", ...sourcesOf(app)];
     const categories = app.category === undefined ? ["*"] : ["*", app.category];
     const keyFns = app.licenseKind === "free" ? [countKey, freeCountKey] : [countKey];
+    const licenses: Array<"*" | "free"> = app.licenseKind === "free" ? ["*", "free"] : ["*"];
+    const bracket = app.ageBracket;
+    const ages = bracket === undefined ? [] : AGE_FILTERS.filter((age) => bracket <= age);
+    const bump = (key: string) => counts.set(key, (counts.get(key) ?? 0) + 1);
     for (const interfaceFilter of interfaces) {
       for (const typeFilter of types) {
         for (const source of sources) {
           for (const category of categories) {
             for (const keyFn of keyFns) {
-              const key = keyFn(generation, interfaceFilter, typeFilter, source, category);
-              counts.set(key, (counts.get(key) ?? 0) + 1);
+              bump(keyFn(generation, interfaceFilter, typeFilter, source, category));
+            }
+            // A source and a category together: counted live (see `ageCountKey`).
+            const ageKeyed = source === "*" || category === "*";
+            for (const age of ageKeyed ? ages : []) {
+              for (const license of licenses) {
+                bump(
+                  ageCountKey(
+                    generation,
+                    age,
+                    license,
+                    interfaceFilter,
+                    typeFilter,
+                    source,
+                    category,
+                  ),
+                );
+              }
             }
           }
         }
@@ -797,6 +854,56 @@ function computeSourceIdChunks(apps: AppRecord[], generation: string): Map<strin
   for (const [source, ids] of idsBySource) {
     chunk(ids, SOURCE_IDS_CHUNK_SIZE).forEach((part, index) => {
       chunks.set(`sourceIds:${generation}:${source}:${index}`, part);
+    });
+  }
+  return chunks;
+}
+
+/** Format pinned by store-contract.json, like `app`'s `browse-keys.ts`. */
+function ageIdsChunkKey(
+  generation: string,
+  age: number,
+  typeFilter: ListingTypeFilter,
+  index: number,
+): string {
+  return `ageIds:${generation}:${age}:${typeFilter}:${index}`;
+}
+
+/**
+ * For each "suitable for" age (`AGE_FILTERS`), all types, games and
+ * apps, the ids of the rated apps that meet it, in `name ASC` order and
+ * chunked like `sourceIds:` (`ageIdsChunkKey`): `/browse/?age=7`, with
+ * or without a type, reads its page from here. Live, that page walks
+ * `idx_apps_name` skipping the ~97% unrated apps (7,052 rows read for
+ * page 50, 2026-11-17), or sorts every game for a games page (6,324),
+ * and an `age_bracket` index would force a full publish. ~28k ids, ~60
+ * rows.
+ */
+function computeAgeIdChunks(apps: AppRecord[], generation: string): Map<string, string[]> {
+  const sorted = apps
+    .filter((app) => app.ageBracket !== undefined)
+    .map((app) => ({ id: app.id, name: Buffer.from(app.name), app }));
+  // eslint-disable-next-line unicorn/no-array-sort
+  sorted.sort(byNameAscThenId);
+
+  const lists = new Map<string, { age: number; typeFilter: ListingTypeFilter; ids: string[] }>();
+  for (const { id, app } of sorted) {
+    const bracket = app.ageBracket ?? Infinity;
+    const types: ListingTypeFilter[] = ["all", app.contentType === "game" ? "game" : "app"];
+    for (const age of AGE_FILTERS.filter((filter) => bracket <= filter)) {
+      for (const typeFilter of types) {
+        const listKey = `${age}:${typeFilter}`;
+        const list = lists.get(listKey);
+        if (list) list.ids.push(id);
+        else lists.set(listKey, { age, typeFilter, ids: [id] });
+      }
+    }
+  }
+
+  const chunks = new Map<string, string[]>();
+  for (const { age, typeFilter, ids } of lists.values()) {
+    chunk(ids, SOURCE_IDS_CHUNK_SIZE).forEach((part, index) => {
+      chunks.set(ageIdsChunkKey(generation, age, typeFilter, index), part);
     });
   }
   return chunks;
@@ -947,6 +1054,7 @@ function toRow(app: AppRecord): unknown[] {
     toJsonColumn(app.relations),
     toJsonColumn(app.brandColors),
     toJsonColumn(app.kudos),
+    app.ageBracket ?? null,
   ];
 }
 
@@ -1126,6 +1234,7 @@ function computeMeta(
   const browseCounts = computeBrowseCounts(dataset.apps, generation);
   const sourceIdChunks = computeSourceIdChunks(dataset.apps, generation);
   const categoryIdChunks = computeCategoryIdChunks(dataset.apps, generation);
+  const ageIdChunks = computeAgeIdChunks(dataset.apps, generation);
 
   // A dynamic key/value list rather than a hand-written VALUES(?, ?, ...)
   // literal — ~60 precomputed listing keys (3 typeFilter variants x 3
@@ -1139,6 +1248,7 @@ function computeMeta(
       ...[...browseCounts].map(([key, count]): [string, string] => [key, String(count)]),
       ...[...sourceIdChunks].map(([key, ids]): [string, string] => [key, JSON.stringify(ids)]),
       ...[...categoryIdChunks].map(([key, ids]): [string, string] => [key, JSON.stringify(ids)]),
+      ...[...ageIdChunks].map(([key, ids]): [string, string] => [key, JSON.stringify(ids)]),
     ],
     swap: [
       ["generatedAt", dataset.generatedAt],
@@ -1160,6 +1270,8 @@ function computeMeta(
           freeCounts: true,
           // `categoryIdsChunkKey` rows exist, chunked like `sourceIds:`.
           categoryIds: true,
+          // `apps` has `age_bracket`, and `ageCountKey`/`ageIdsChunkKey` rows exist.
+          ageFilter: true,
         }),
       ],
       ...Object.entries(listingIds).map(([key, ids]): [string, string] => [

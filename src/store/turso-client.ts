@@ -115,6 +115,12 @@ export interface TursoDataset {
   buildInfo?: BuildInfo;
   /** Written to `meta.sourceTerms` as JSON: `config/source-terms.json`, rendered by `app`'s per-source pages. */
   sourceTerms?: unknown;
+  /**
+   * The homepage's must-have apps in display order
+   * (`config/home-must-have.json`), published as the `MUST_HAVE_LISTING`
+   * listing; ids the dataset doesn't list are left out.
+   */
+  mustHaveIds?: readonly string[];
   apps: AppRecord[];
 }
 
@@ -389,6 +395,9 @@ function countByCategory(apps: AppRecord[]): CategoryCount[] {
 const TRENDING_PAGE_SIZE = 60;
 const CATEGORY_PREVIEW_SIZE = 12;
 
+/** The homepage's hand-picked row (`TursoDataset.mustHaveIds`), `app`'s `MUST_HAVE`: pinned to store-contract.json's `mustHaveListing`. */
+export const MUST_HAVE_LISTING = "mustHave";
+
 type ListingTypeFilter = "all" | "game" | "app";
 
 // icon_url only, not screenshots too — real bug in `app`'s side (the
@@ -513,9 +522,10 @@ function byCategoryPreviewOrder(a: AppRecord, b: AppRecord): number {
  * Precomputes every bounded "listing" query `app`'s catalog.ts used to run
  * live at request time — trending/new/download-trending (3 `typeFilter`
  * variants each), per-category previews (one per real category, ~27
- * today), and per-source trending and recently updated (one each per
+ * today), per-source trending and recently updated (one each per
  * source actually present in this dataset, ~25 today, see
- * `sourceUpdatedAt`). Each has a small, closed parameter space that
+ * `sourceUpdatedAt`), and the homepage's hand-picked must-haves
+ * (`mustHaveIds`, in their own order, icon or not). Each has a small, closed parameter space that
  * only changes when this dataset republishes (manual, infrequent) — the
  * same "precompute once here instead of aggregating live on every
  * request" fix as `countByCategory` above, extended to the rest of the
@@ -533,9 +543,15 @@ function byCategoryPreviewOrder(a: AppRecord, b: AppRecord): number {
  * (...)` — a PK lookup, already cheap regardless of table size, same as
  * the existing `getAppsByIds`.
  */
-function computeListingIds(apps: AppRecord[]): Record<string, string[]> {
+function computeListingIds(
+  apps: AppRecord[],
+  mustHaveIds: readonly string[] = [],
+): Record<string, string[]> {
   const typeFilters: ListingTypeFilter[] = ["all", "game", "app"];
   const ids: Record<string, string[]> = {};
+
+  const listed = new Set(apps.map((app) => app.id));
+  ids[MUST_HAVE_LISTING] = [...new Set(mustHaveIds)].filter((id) => listed.has(id));
 
   for (const typeFilter of typeFilters) {
     ids[`trending:${typeFilter}`] = topIds(
@@ -1230,7 +1246,7 @@ function computeMeta(
   const categoryCountsApp = countByCategory(
     dataset.apps.filter((app) => app.contentType !== "game"),
   );
-  const listingIds = computeListingIds(dataset.apps);
+  const listingIds = computeListingIds(dataset.apps, dataset.mustHaveIds);
   const browseCounts = computeBrowseCounts(dataset.apps, generation);
   const sourceIdChunks = computeSourceIdChunks(dataset.apps, generation);
   const categoryIdChunks = computeCategoryIdChunks(dataset.apps, generation);

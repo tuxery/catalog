@@ -8,6 +8,7 @@ import { refreshSources } from "./_refresh-sources";
 import { hasCacheFile, RESTRICTED_SOURCES } from "../src/sources/_shared/cache-path";
 import { readSqldStats, startSqld, waitForSqld } from "./_sqld";
 import { readSourceTerms } from "../src/pipeline/source-terms";
+import { readHomeMustHave } from "../src/pipeline/home-must-have";
 import { tursoCredentials } from "./_turso-env";
 
 const DATASET_PATH = fileURLToPath(new URL("../dist/dataset.json", import.meta.url));
@@ -84,10 +85,21 @@ const dataset = {
     minApps: remote ? MIN_REMOTE_APPS : 0,
   }),
   // Read at publish time, not baked into dist/dataset.json: an edit to the
-  // terms reaches app's per-source pages with the next publish, rebuilt
-  // dataset or not.
+  // terms, or to the homepage's must-haves, reaches app with the next
+  // publish, rebuilt dataset or not.
   sourceTerms: readSourceTerms(),
+  mustHaveIds: readHomeMustHave(),
 };
+
+// An id the dataset doesn't list (an app whose id changed, or that left
+// the catalog) silently drops a card from the homepage's row: say so.
+const listedIds = new Set(dataset.apps.map((app) => app.id));
+const unlistedMustHaves = dataset.mustHaveIds.filter((id) => !listedIds.has(id));
+if (unlistedMustHaves.length > 0) {
+  console.warn(
+    `config/home-must-have.json: not in this dataset, left out of the homepage row: ${unlistedMustHaves.join(", ")}`,
+  );
+}
 
 if (measure) {
   // What one publish costs in Turso's billed counters, without spending any

@@ -36,11 +36,15 @@ const APPS: AppRecord[] = Array.from({ length: contract.listingSizes.trending + 
   packages: [{ source: "aur", name: `app-${i}` }],
 }));
 
+// Out of order, with an id no app has: the listing keeps this order and drops it.
+const MUST_HAVE_IDS = ["app-3", "no-such-app", "app-1"];
+
 async function publish() {
   const db = createClient({ url: "file::memory:" });
   await createTursoClient({ url: "file::memory:" }, db).publish({
     generatedAt: GENERATED_AT,
     apps: APPS,
+    mustHaveIds: MUST_HAVE_IDS,
   });
   return db;
 }
@@ -111,6 +115,15 @@ describe("store contract (store-contract.json)", () => {
     expect(listing("categoryPreview:Utilities")).toHaveLength(
       contract.listingSizes.categoryPreview,
     );
+  });
+
+  it("writes the must-have listing in the given order, with the summary columns", async () => {
+    const meta = await publishedMeta();
+    const rows = JSON.parse(
+      meta.get(metaKey("listingRows", { listing: contract.mustHaveListing })) ?? "[]",
+    ) as Record<string, unknown>[];
+    expect(rows.map((row) => row.id)).toEqual(["app-3", "app-1"]);
+    for (const row of rows) expect(Object.keys(row)).toEqual(contract.summaryColumns);
   });
 
   it("writes each app's age bracket to the contract's column, out of its values, and counts each filter age", async () => {

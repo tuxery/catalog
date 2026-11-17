@@ -41,6 +41,10 @@
       "url": "./src/pipeline/audit-llm-suggestions.schema.json"
     },
     {
+      "fileMatch": ["/config/home-must-have.json"],
+      "url": "./src/pipeline/home-must-have.schema.json"
+    },
+    {
       "fileMatch": ["/config/enrich-compat-warnings.json"],
       "url": "./src/curator/enrich/enrich-compat-warnings.schema.json"
     },

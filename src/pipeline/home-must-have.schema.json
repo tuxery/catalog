@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "maxItems": 16,
+  "type": "array",
+  "items": {
+    "type": "string",
+    "minLength": 1,
+    "description": "A published app's id (`CatalogApp.id`, the last part of its /app/<id>/ url), e.g. `firefox` or `app.zen_browser.zen`."
+  },
+  "title": "Store: the homepage's must-have apps",
+  "description": "The apps of the homepage's hand-picked 'Must-have apps' row, in display order: editorial, as no field of the dataset says what is a must-have. Published as the `listingRows:mustHave` meta row; an id the dataset doesn't list is left out of the row (`pnpm seed` names it)."
+}

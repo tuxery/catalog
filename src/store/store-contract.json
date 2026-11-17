@@ -16,6 +16,7 @@
     "trending": 60,
     "categoryPreview": 12
   },
+  "mustHaveListing": "mustHave",
   "browseKeys": {
     "metaKey": "browseKeys",
     "fields": ["generation", "sourceIdsChunkSize", "freeCounts", "categoryIds", "ageFilter"]

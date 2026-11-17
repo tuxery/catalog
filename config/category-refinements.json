@@ -78,6 +78,20 @@
   {
     "type": "app",
     "from": [
+      "Developer Tools",
+      "Utilities",
+      "System Tools",
+      "Graphics & Design",
+      "Photo & Video",
+      "Productivity"
+    ],
+    "to": "Education",
+    "pattern": "^(?!.*\\b(parental|parents?|screen ?time|time limits?|safety|safe ?search|filter\\w*|(ad|content|site|web)[- ]?block\\w*|block(s|ing)? (sites|websites|content|apps)|protect\\w*|monitor\\w*|kiosk|child (process|processes|frames?|nodes?|windows?))\\b).*(\\b(for|to|at|teach(es|ing)?) (young |small )?(children|kids|pupils)\\b|\\bchildren['’]?s (programming|coding|drawing|painting|paint|animation|story|stories|writing|creativity)\\b|\\beducational (\\w+ ){0,2}(programming|ide|development environment)\\b|^(scratch( \\d(\\.\\d)?| desktop)?|scratux|basic-?256|tupi(tube)?\\b[^|]*|tux ?paint) \\|)",
+    "reason": "Programming and creative tools made for children (Scratch, Scratux, BASIC-256, Little Wizard, Kitten, xLogo, UCBLogo, StoryMaps, TupiTube) and educational programming environments (Greenfoot, KuMir): their Development or Graphics key files them as developer or design tools, while the people looking for them browse Education, where GNOME Software and KDE's Discover put KTurtle and ScratchJr. Read from a short description naming children, kids or pupils as the audience (\"for children\", \"to teach programming to children\"), or from the name of the few whose description doesn't (Scratch, BASIC-256, Tupi, Tux Paint). Parental controls, content filters and \"child process\" utilities are left out. Measured 2026-11-17: 12 apps moved, every one checked by hand."
+  },
+  {
+    "type": "app",
+    "from": [
       "System Tools",
       "Utilities",
       "Developer Tools",

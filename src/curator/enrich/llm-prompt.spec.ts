@@ -4,6 +4,8 @@ import {
   buildSystemPrompt,
   buildUserPrompt,
   checkBatchResults,
+  describeWithRepository,
+  isGenericReason,
   MAX_REASON_LENGTH,
   parseResults,
 } from "./llm-prompt";
@@ -118,5 +120,47 @@ describe("checkBatchResults", () => {
   it("cuts a long reason", () => {
     const [kept] = checkBatchResults([batchResult(1, "y".repeat(500))], 1);
     expect(kept?.reason).toHaveLength(MAX_REASON_LENGTH);
+  });
+});
+
+describe("buildUserPrompt", () => {
+  it("cuts each description to the given length", () => {
+    const items = [{ id: "a", name: "foo", description: "x".repeat(400) }];
+    expect(buildUserPrompt(items)).toBe(`1|foo|${"x".repeat(160)}`);
+    expect(buildUserPrompt(items, 300)).toBe(`1|foo|${"x".repeat(300)}`);
+  });
+});
+
+describe("describeWithRepository", () => {
+  it("adds the repository's description and topics to the app's own", () => {
+    expect(
+      describeWithRepository("ollie", "Desktop client", {
+        description: "Chat with local LLMs through Ollama",
+        topics: ["ollama", "llm"],
+      }),
+    ).toBe("Desktop client / Chat with local LLMs through Ollama / topics: ollama, llm");
+  });
+
+  it("drops a description that only repeats the name, or the app's own", () => {
+    expect(describeWithRepository("Foo", "foo", { description: "A foo editor" })).toBe(
+      "A foo editor",
+    );
+    expect(describeWithRepository("bar", "A bar tool", { description: "a bar tool " })).toBe(
+      "A bar tool",
+    );
+    expect(describeWithRepository("baz", "", undefined)).toBe("");
+  });
+});
+
+describe("isGenericReason", () => {
+  it("flags a reason that names no content", () => {
+    expect(isGenericReason("Desktop application")).toBe(true);
+    expect(isGenericReason("Electron desktop app")).toBe(true);
+    expect(isGenericReason("CLI tool")).toBe(true);
+  });
+
+  it("keeps a reason that says what the app is for", () => {
+    expect(isGenericReason("Ollama desktop client")).toBe(false);
+    expect(isGenericReason("Pixel art editor")).toBe(false);
   });
 });

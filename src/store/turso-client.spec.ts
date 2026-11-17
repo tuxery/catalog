@@ -88,7 +88,7 @@ describe("createTursoClient", () => {
     );
   });
 
-  it("writes companions, their counts, relations, brand colors and kudos as JSON columns", async () => {
+  it("writes companions, their counts, relations, brand colors and kudos as JSON columns, then the age bracket", async () => {
     const { batch, client } = fakeClient(false);
     const tursoClient = createTursoClient({ url: "file::memory:" }, client);
     const companions = [{ name: "vlc-plugin-x", kind: "plugin", description: "", packages: [] }];
@@ -107,18 +107,20 @@ describe("createTursoClient", () => {
           relations,
           brandColors,
           kudos: ["HiDpiIcon"],
+          ageBracket: 7,
         },
       ],
     });
 
     const insertBatch = batch.mock.calls[0]?.[0] as { args: unknown[] }[];
     const args = insertBatch[0]?.args;
-    expect(args?.slice(-5)).toEqual([
+    expect(args?.slice(-6)).toEqual([
       JSON.stringify(companions),
       JSON.stringify({ plugin: 1 }),
       JSON.stringify(relations),
       JSON.stringify(brandColors),
       JSON.stringify(["HiDpiIcon"]),
+      7,
     ]);
   });
 
@@ -548,6 +550,7 @@ describe("precomputed browse keys", () => {
           kind: "gui",
           category: "Utilities",
           licenseKind: "free",
+          ageBracket: 3,
           packages: [
             { source: "flathub", name: "a" },
             { source: "snap", name: "a" },
@@ -558,6 +561,7 @@ describe("precomputed browse keys", () => {
           id: "b",
           contentType: "game",
           category: "Action",
+          ageBracket: 16,
           packages: [{ source: "flathub", name: "b" }],
         },
         { ...APP, id: "c", packages: [{ source: "aur", name: "c" }] },
@@ -589,6 +593,22 @@ describe("precomputed browse keys", () => {
     expect(freeCount("all:all:*:*")).toBe(1);
     expect(freeCount("gui:app:snap:Utilities")).toBe(1);
     expect(freeCount("all:game:*:*")).toBeUndefined();
+    // "Suitable for" counts: "a" (all ages) meets every age, "b" (16+)
+    // only 16, "c" is unrated and meets none.
+    const ageCount = (key: string): number | undefined =>
+      meta.has(`countAge:${GEN}:${key}`) ? Number(meta.get(`countAge:${GEN}:${key}`)) : undefined;
+    expect(ageCount("3:*:all:all:*:*")).toBe(1);
+    expect(ageCount("12:*:all:all:*:*")).toBe(1);
+    expect(ageCount("16:*:all:all:*:*")).toBe(2);
+    expect(ageCount("16:*:cli:game:flathub:*")).toBe(1);
+    expect(ageCount("16:*:cli:game:*:Action")).toBe(1);
+    expect(ageCount("7:free:gui:app:snap:*")).toBe(1);
+    expect(ageCount("7:free:gui:app:*:Utilities")).toBe(1);
+    // A source and a category together is counted live, never keyed.
+    expect(ageCount("16:*:cli:game:flathub:Action")).toBeUndefined();
+    expect(ageCount("16:free:all:game:*:*")).toBeUndefined();
+    expect(ageCount("18:*:all:all:*:*")).toBeUndefined();
+    expect(ageCount("16:*:all:all:aur:*")).toBeUndefined();
     expect(
       [...meta.keys()].some((key) => key.startsWith(`count:${GEN}:`) && key.endsWith(":")),
     ).toBe(false);
@@ -601,6 +621,7 @@ describe("precomputed browse keys", () => {
       sourceIdsChunkSize: 500,
       freeCounts: true,
       categoryIds: true,
+      ageFilter: true,
     });
     expect(meta.has("browseKeys")).toBe(false);
   });
@@ -671,6 +692,61 @@ describe("precomputed browse keys", () => {
     expect(Number(total.rows[0]?.value)).toBe(1208);
   });
 
+  it("lists each age filter's rated apps in name order, per type, matching SQL's own answer", async () => {
+    const db = createClient({ url: "file::memory:" });
+    const tursoClient = createTursoClient({ url: "file::memory:" }, db);
+    const brackets = [3, 7, 12, 16, 18, undefined];
+    const apps: AppRecord[] = Array.from({ length: 1300 }, (_, i) =>
+      appWith({
+        id: `aur:age-${String(i).padStart(4, "0")}`,
+        name: `age-${(i * 7919) % 1300}`,
+        contentType: i % 3 === 0 ? "game" : undefined,
+        ageBracket: brackets[i % brackets.length],
+        packages: [{ source: "aur", name: "x" }],
+      }),
+    );
+
+    await tursoClient.publish({ generatedAt: "2026-01-01T00:00:00.000Z", apps });
+
+    const listed = async (age: number, type: string) => {
+      const rows = await db.execute(
+        `SELECT key, value FROM meta WHERE key LIKE 'ageIds:${GEN}:${age}:${type}:%'`,
+      );
+      return rows.rows
+        .map((row) => ({
+          index: Number(String(row.key).split(":").at(-1)),
+          ids: JSON.parse(String(row.value)) as string[],
+        }))
+        .toSorted((a, b) => a.index - b.index)
+        .flatMap((part) => part.ids);
+    };
+    const fromSql = async (age: number, where: string) =>
+      (
+        await db.execute({
+          sql: `SELECT id FROM apps WHERE age_bracket <= ? ${where} ORDER BY name ASC, id ASC`,
+          args: [age],
+        })
+      ).rows.map((row) => String(row.id));
+
+    const filters = [3, 7, 12, 16].flatMap((age) => [
+      [age, "all", ""] as const,
+      [age, "game", "AND content_type = 'game'"] as const,
+      [age, "app", "AND content_type IS NULL"] as const,
+    ]);
+    const compared = await Promise.all(
+      filters.map(async ([age, type, where]) => [
+        await listed(age, type),
+        await fromSql(age, where),
+      ]),
+    );
+    for (const [fromMeta, expected] of compared) expect(fromMeta).toEqual(expected);
+    // Chunked at 500, like the source lists: 4 of 6 brackets meet 12.
+    expect(
+      (await db.execute(`SELECT key FROM meta WHERE key LIKE 'ageIds:${GEN}:12:all:%'`)).rows,
+    ).toHaveLength(2);
+    expect(await listed(18, "all")).toEqual([]);
+  });
+
   it("replaces a previous generation instead of leaving its counts behind (a combination that dropped to zero must not keep its old count)", async () => {
     const db = createClient({ url: "file::memory:" });
     const tursoClient = createTursoClient({ url: "file::memory:" }, db);
@@ -729,6 +805,7 @@ describe("precomputed browse keys", () => {
       sourceIdsChunkSize: 500,
       freeCounts: true,
       categoryIds: true,
+      ageFilter: true,
     });
   });
 });

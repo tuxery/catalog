@@ -18,14 +18,21 @@
   },
   "browseKeys": {
     "metaKey": "browseKeys",
-    "fields": ["generation", "sourceIdsChunkSize", "freeCounts", "categoryIds"]
+    "fields": ["generation", "sourceIdsChunkSize", "freeCounts", "categoryIds", "ageFilter"]
+  },
+  "ageBrackets": {
+    "column": "age_bracket",
+    "values": [3, 7, 12, 16, 18],
+    "filters": [3, 7, 12, 16]
   },
   "unsetFilter": "*",
   "metaKeyFormats": {
     "count": "count:{generation}:{interface}:{type}:{source}:{category}",
     "countFree": "countFree:{generation}:{interface}:{type}:{source}:{category}",
+    "countAge": "countAge:{generation}:{age}:{license}:{interface}:{type}:{source}:{category}",
     "sourceIds": "sourceIds:{generation}:{source}:{chunk}",
     "categoryIds": "categoryIds:{generation}:{chunk}:{category}",
+    "ageIds": "ageIds:{generation}:{age}:{type}:{chunk}",
     "listingRows": "listingRows:{listing}"
   }
 }

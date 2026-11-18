@@ -224,6 +224,18 @@ Published dataset (`pnpm start`, private caches present), 106,709 apps.
   for making games (Godot, Unity, Unreal Engine 4) and anything that
   edits, builds or extracts for one (TrenchBroom, Ultimate Doom Builder)
   stay developer tools.
+- **Tools that game keys kept as games**: an emulator or interpreter its
+  store tags Emulator (MAME, Supermodel, ScummVM, TIC-80, PokeMMO), an
+  editor, server or modpack installer "for the X game" (Freeciv's, Exult
+  Studio), whatever genre keys they also carry; and a product whose only
+  game evidence is a Debian `game::toys`/`game::typing` debtag while its
+  AppStream keys name no game (XaoS, KTouch, Klavaro). 16 products leave
+  the games, to Gaming Tools when their own keys only say System Tools,
+  Utilities or nothing. Found by the homepage's all-ages games row, which
+  MAME, ScummVM, XaoS and "Freeciv ruleset editor" topped: the Freeciv
+  game's card carried that name because openSUSE's `freeciv` AppStream
+  lists only the editor and the server (match config now groups it with
+  the editor).
 - **Education** from the tools made for children found under Kids above
   (Scratch, BASIC-256, Little Wizard, Kitten, StoryMaps, TupiTube), plus
   Scratux, xLogo, UCBLogo, Tupi, Greenfoot and KuMir: 12 apps, from

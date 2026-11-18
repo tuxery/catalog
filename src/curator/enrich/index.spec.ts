@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import type { SourcedPackage } from "../../sources";
 import type { MatchedApp } from "../match/group";
 import { TO_CLASSIFY } from "./category";
-import { aggregatePopularity, enrichApps } from "./index";
+import { aggregatePopularity, enrichApps, isGameToolDespiteGenre } from "./index";
 import type { LlmClassificationEntry } from "./llm-classifications";
 
 function pkg(overrides: Partial<SourcedPackage>): SourcedPackage {
@@ -1266,5 +1266,41 @@ describe("game launchers carrying game genres", () => {
       },
     ]);
     expect(app?.contentType).toBe("game");
+  });
+});
+
+const withKeys = (...categories: string[]) => [pkg({ categories }), pkg({})];
+
+describe("isGameToolDespiteGenre", () => {
+  it("takes an emulator its store tags Emulator out of the games, whatever member carries the key", () => {
+    expect(
+      isGameToolDespiteGenre(
+        withKeys("Game", "ArcadeGame", "Emulator"),
+        "MAME is a multi-purpose emulation framework.",
+      ),
+    ).toBe(true);
+    expect(
+      isGameToolDespiteGenre(
+        withKeys("Game", "Emulator"),
+        "Interpreter for numerous adventure games",
+      ),
+    ).toBe(true);
+  });
+
+  it("keeps a game that only carries a stray Emulator key", () => {
+    expect(
+      isGameToolDespiteGenre(
+        withKeys("Game", "Simulation", "Emulator"),
+        "Open source simulation game based upon Transport Tycoon Deluxe",
+      ),
+    ).toBe(false);
+  });
+
+  it("takes an editor or a server for a game out, not a game's installer", () => {
+    expect(isGameToolDespiteGenre([pkg({})], "Ruleset editor for the Freeciv game")).toBe(true);
+    expect(isGameToolDespiteGenre([pkg({})], "Server component for the Freeciv game")).toBe(true);
+    expect(isGameToolDespiteGenre([pkg({})], "An installer for the GOG version of the game.")).toBe(
+      false,
+    );
   });
 });

@@ -2996,5 +2996,56 @@
       }
     ],
     "reason": "Homebrew's ki formula (\"Kotlin Language Interactive Shell\", github.com/Kotlin/kotlin-interactive-shell) is not ki (\"Version control for Anki collections\", github.com/langfield/ki): they only share a name. Found reviewing the Homebrew connector's merges (2026-11-16)."
+  },
+  {
+    "a": [
+      {
+        "source": "rpm-opensuse-appstream",
+        "appId": "freeciv"
+      }
+    ],
+    "b": [
+      {
+        "source": "pacman-aur",
+        "appId": "freeciv-git"
+      },
+      {
+        "source": "deb-debian",
+        "appId": "freeciv"
+      },
+      {
+        "source": "deb-ubuntu",
+        "appId": "freeciv"
+      },
+      {
+        "source": "nix-nixpkgs",
+        "appId": "freeciv"
+      },
+      {
+        "source": "rpm-opensuse",
+        "appId": "freeciv"
+      },
+      {
+        "source": "apk-alpine",
+        "appId": "freeciv"
+      },
+      {
+        "source": "xbps-void",
+        "appId": "freeciv"
+      },
+      {
+        "source": "eopkg-solus",
+        "appId": "freeciv"
+      },
+      {
+        "source": "ebuild-gentoo",
+        "appId": "games-strategy/freeciv"
+      },
+      {
+        "source": "brew-homebrew",
+        "appId": "freeciv"
+      }
+    ],
+    "reason": "openSUSE's freeciv AppStream lists only Freeciv's ruleset editor and server (grouped with the ruleset editor in match-force.json), not the game the other freeciv packages install. Found by the homepage's all-ages games row (2026-11-17), where the game showed as \"Freeciv ruleset editor\"."
   }
 ]

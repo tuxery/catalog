@@ -148,6 +148,20 @@ only as `app` or `game`: in the first run a repository blurb called 4 of
 with a package from a restricted source are never sent, as in every
 `classify-llm` run.
 
+`pnpm classify-llm --homepage-about` does the same with the app's
+homepage, for the To Classify apps that have one: the page's title and
+meta description, or, for a GitHub repository, the opening of its README
+(its description and topics are often empty). Fetched one page at a time
+into the gitignored `.cache/homepage-about.ndjson`, never committed. A
+page says nothing when its description is the site's own (Lutris's "Play
+all your games on Linux" on every game page, GitLab's "GitLab.com") or it
+names little beyond the app (`saysMoreThanName`): those apps aren't asked.
+Only `high` verdicts are kept here. Checked by hand on the first run
+(2026-11-18, gemini-3.8-flash, one request): 92 of the 93 `high` verdicts
+were right, against about half of the 16 `medium` ones, which mostly
+guessed from the name (a cycling trainer called "MaximumTrainer" filed
+as a game trainer).
+
 ### Labels of an earlier taxonomy
 
 `config/llm-classifications.json` is the models' raw output and is never
@@ -302,6 +316,13 @@ Published dataset (`pnpm start`, private caches present), 106,687 apps.
   found too vague. An app's long description is not used for its
   category: on the To Classify apps its first sentence named the right
   one only about two times in three.
+- **To Classify with homepages** (`classify-llm --homepage-about`): 837 → 744. 199 homepages fetched, 141 said enough to ask, 93 `high` verdicts
+  kept (1 wrong: parchives, whose homepage is its desktop environment's).
+  What is left: 450 Snap, 29 AppImageHub and 4 Flathub apps, never sent
+  to an LLM; about 195 others with no description and no homepage worth
+  reading; 66 whose short description is too vague (re-asked with
+  gemini-3.8-flash in a sample, they came back mostly as `medium`
+  guesses from the name, so they weren't).
 - **Publish cost**: one incremental publish from `main`'s dataset
   (`pnpm seed --measure`): 112,891 rows written (70,900 apps updated,
   8,657 meta rows), 196,658 read, no full publish.

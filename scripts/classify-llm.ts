@@ -16,6 +16,15 @@ import {
   writeGithubAbout,
   type GithubAbout,
 } from "../src/sources/github-stars/about";
+import {
+  dropSharedDescriptions,
+  fetchHomepageAbout,
+  HOMEPAGE_ABOUT_PATH,
+  readHomepageAbout,
+  saysMoreThanName,
+  writeHomepageAbout,
+  type HomepageAbout,
+} from "../src/pipeline/homepage-about";
 import { loadLlmModels, type LlmModel } from "../src/curator/enrich/llm-models";
 import {
   buildSystemPrompt,
@@ -92,6 +101,18 @@ const reportOnly = hasFlag("--report");
 // one-line blurb hid real apps (a shell plugin manager, a game editor, a
 // crowdfunding app) in 4 of the 21 cases of the first run, 2026-11-17.
 const githubAboutMode = hasFlag("--github-about");
+// `--homepage-about`: the same re-ask for the To Classify apps that have a
+// homepage, with what it says about the app: a page's title and meta
+// description, or the opening of a GitHub repository's README (where
+// `--github-about`'s description and topics are often empty). Fetched
+// into a gitignored local file (`.cache/homepage-about.ndjson`, see
+// `pipeline/homepage-about.ts`), never committed. Kept as for
+// `--github-about`, but `high` only (see below), and only for a page that
+// says more than the app's name (`saysMoreThanName`).
+const homepageAboutMode = hasFlag("--homepage-about");
+if (githubAboutMode && homepageAboutMode) {
+  throw new Error("--github-about and --homepage-about are two separate runs.");
+}
 // The repository's description and topics make a longer line than a store's one-liner.
 const GITHUB_ABOUT_MAX_DESCRIPTION = 300;
 const dryRun = hasFlag("--dry-run");
@@ -135,23 +156,56 @@ interface Group {
 function classifyNextBatch(group: Group) {
   return rotation.next(group.items, group.cursor, (batch) => ({
     system: SYSTEM_PROMPT,
-    user: buildUserPrompt(batch, githubAboutMode ? GITHUB_ABOUT_MAX_DESCRIPTION : undefined),
+    user: buildUserPrompt(
+      batch,
+      githubAboutMode || homepageAboutMode ? GITHUB_ABOUT_MAX_DESCRIPTION : undefined,
+    ),
     parse: (text) => parseResults(text, TAXONOMY),
   }));
 }
 
-function toItems(list: CatalogApp[], about?: ReadonlyMap<string, GithubAbout>): BatchItem[] {
-  return list.map((app) => ({
-    id: app.id,
-    name: app.name,
-    description: about
-      ? describeWithRepository(
-          app.name,
-          app.shortDescription,
-          app.githubStars ? about.get(app.githubStars.repo) : undefined,
-        )
-      : app.shortDescription,
-  }));
+function toItems(
+  list: CatalogApp[],
+  about?: ReadonlyMap<string, GithubAbout>,
+  homepageAbout?: ReadonlyMap<string, HomepageAbout>,
+): BatchItem[] {
+  return list.map((app) => {
+    const homepageText = app.homepage ? homepageAbout?.get(app.homepage)?.text : undefined;
+    let description = app.shortDescription;
+    if (about) {
+      description = describeWithRepository(
+        app.name,
+        app.shortDescription,
+        app.githubStars ? about.get(app.githubStars.repo) : undefined,
+      );
+    } else if (homepageAbout) {
+      description = describeWithRepository(
+        app.name,
+        app.shortDescription,
+        homepageText ? { description: homepageText } : undefined,
+      );
+    }
+    return { id: app.id, name: app.name, description };
+  });
+}
+
+/**
+ * What the homepage of every app in `apps` says: the local file's rows,
+ * plus a fetch of the homepages it doesn't hold yet (none in a dry run),
+ * saved back to it.
+ */
+async function loadHomepageAbout(apps: CatalogApp[]): Promise<Map<string, HomepageAbout>> {
+  const rows = readHomepageAbout();
+  const missing = [...new Set(apps.flatMap((app) => (app.homepage ? [app.homepage] : [])))].filter(
+    (url) => !rows.has(url),
+  );
+  if (missing.length > 0 && !dryRun) {
+    console.log(`Fetching what ${missing.length} homepages say...`);
+    for (const row of await fetchHomepageAbout(missing)) rows.set(row.url, row);
+    writeHomepageAbout(rows.values());
+    console.log(`Saved ${rows.size} homepages to ${HOMEPAGE_ABOUT_PATH} (gitignored).`);
+  }
+  return new Map(dropSharedDescriptions([...rows.values()]).map((row) => [row.url, row]));
 }
 
 /**
@@ -347,13 +401,33 @@ async function main(): Promise<void> {
   const about = githubAboutMode
     ? await loadGithubAbout(dataset.apps.filter(unclassifiedWithRepository))
     : undefined;
-  const groups = queueGroups(dataset.apps, (app) =>
-    about
-      ? unclassifiedWithRepository(app) && hasAbout(about.get(app.githubStars?.repo ?? ""))
-      : eligible(app) &&
-        (!existing.has(app.id) || (retryLow && existing.get(app.id)?.confidence === "low")),
-  );
-  const toClassify = about
+  // `--homepage-about`: the same apps, by their homepage instead.
+  const unclassifiedWithHomepage = (app: CatalogApp) =>
+    app.category === TO_CLASSIFY &&
+    app.homepage !== undefined &&
+    eligible(app) &&
+    existing.get(app.id)?.confidence !== "high" &&
+    existing.get(app.id)?.confidence !== "medium";
+  const homepageAbout = homepageAboutMode
+    ? await loadHomepageAbout(dataset.apps.filter(unclassifiedWithHomepage))
+    : undefined;
+  const groups = queueGroups(dataset.apps, (app) => {
+    if (about) {
+      return unclassifiedWithRepository(app) && hasAbout(about.get(app.githubStars?.repo ?? ""));
+    }
+    if (homepageAbout) {
+      const text = homepageAbout.get(app.homepage ?? "")?.text;
+      return (
+        unclassifiedWithHomepage(app) && text !== undefined && saysMoreThanName(text, app.name)
+      );
+    }
+    return (
+      eligible(app) &&
+      (!existing.has(app.id) || (retryLow && existing.get(app.id)?.confidence === "low"))
+    );
+  });
+  const reasking = about !== undefined || homepageAbout !== undefined;
+  const toClassify = reasking
     ? groups.toClassify
     : [...groups.toClassify, ...groups.heuristicOnly, ...(includeUpstream ? groups.upstream : [])];
   console.log(
@@ -393,8 +467,13 @@ async function main(): Promise<void> {
       const item = batch[result.n - 1];
       if (!item) continue;
       if (
-        about &&
+        reasking &&
         (result.confidence === "low" ||
+          // A homepage often says little (a bare title, a company's front
+          // page): checked by hand on 2026-11-18, its `medium` verdicts
+          // were guesses from the name about half the time, its `high`
+          // ones right 90 times in 92.
+          (homepageAbout !== undefined && result.confidence === "medium") ||
           isGenericReason(result.reason) ||
           result.type === "library" ||
           result.type === "other")
@@ -420,7 +499,7 @@ async function main(): Promise<void> {
   }
 
   try {
-    await runGroup({ items: toItems(todo, about), cursor: 0 });
+    await runGroup({ items: toItems(todo, about, homepageAbout), cursor: 0 });
   } catch (error) {
     if (!(error instanceof StopRun)) throw error;
     console.warn(
@@ -467,7 +546,7 @@ async function main(): Promise<void> {
     acc[entry.confidence] = (acc[entry.confidence] ?? 0) + 1;
     return acc;
   }, {});
-  if (about) {
+  if (reasking) {
     console.log(
       `${unsure} answers left out (low confidence, a reason naming no content, or library/other): their earlier entry stays.`,
     );

@@ -110,8 +110,16 @@ const githubAboutMode = hasFlag("--github-about");
 // `--github-about`, but `high` only (see below), and only for a page that
 // says more than the app's name (`saysMoreThanName`).
 const homepageAboutMode = hasFlag("--homepage-about");
-if (githubAboutMode && homepageAboutMode) {
-  throw new Error("--github-about and --homepage-about are two separate runs.");
+// `--restricted-category`: the To Classify apps that do have a text
+// (description or the start of a long description) but carry a package
+// from a restricted source, which every other mode keeps from the LLM.
+// Approved by the owner on 2026-11-18 for classification only: the text
+// goes to the model, and only the app's type and category come back into
+// this public repository, never the model's reason (it could paraphrase
+// the text). Kept as for `--homepage-about`: `high`, an app or a game.
+const restrictedMode = hasFlag("--restricted-category");
+if ([githubAboutMode, homepageAboutMode, restrictedMode].filter(Boolean).length > 1) {
+  throw new Error("--github-about, --homepage-about and --restricted-category are separate runs.");
 }
 // The repository's description and topics make a longer line than a store's one-liner.
 const GITHUB_ABOUT_MAX_DESCRIPTION = 300;
@@ -158,7 +166,9 @@ function classifyNextBatch(group: Group) {
     system: SYSTEM_PROMPT,
     user: buildUserPrompt(
       batch,
-      githubAboutMode || homepageAboutMode ? GITHUB_ABOUT_MAX_DESCRIPTION : undefined,
+      githubAboutMode || homepageAboutMode || restrictedMode
+        ? GITHUB_ABOUT_MAX_DESCRIPTION
+        : undefined,
     ),
     parse: (text) => parseResults(text, TAXONOMY),
   }));
@@ -184,9 +194,25 @@ function toItems(
         app.shortDescription,
         homepageText ? { description: homepageText } : undefined,
       );
+    } else if (restrictedMode) {
+      description = ownText(app);
     }
     return { id: app.id, name: app.name, description };
   });
+}
+
+/**
+ * What an app says about itself: its short description, or the start of
+ * its long one when the short one is empty or only repeats the name.
+ */
+function ownText(app: CatalogApp): string {
+  const short = app.shortDescription.trim();
+  if (short && saysMoreThanName(short, app.name)) return short;
+  const long = (app.longDescription ?? "")
+    .replaceAll(/<[^>]+>/g, " ")
+    .replaceAll(/\s+/g, " ")
+    .trim();
+  return [short, long].filter(Boolean).join(" / ");
 }
 
 /**
@@ -411,7 +437,16 @@ async function main(): Promise<void> {
   const homepageAbout = homepageAboutMode
     ? await loadHomepageAbout(dataset.apps.filter(unclassifiedWithHomepage))
     : undefined;
+  const unclassifiedRestricted = (app: CatalogApp) =>
+    app.category === TO_CLASSIFY &&
+    hasRestrictedPackage(app.packages) &&
+    (sourceFilter === undefined || app.packages.some((pkg) => pkg.source === sourceFilter)) &&
+    existing.get(app.id)?.confidence !== "high" &&
+    existing.get(app.id)?.confidence !== "medium";
   const groups = queueGroups(dataset.apps, (app) => {
+    if (restrictedMode) {
+      return unclassifiedRestricted(app) && saysMoreThanName(ownText(app), app.name);
+    }
     if (about) {
       return unclassifiedWithRepository(app) && hasAbout(about.get(app.githubStars?.repo ?? ""));
     }
@@ -426,7 +461,7 @@ async function main(): Promise<void> {
       (!existing.has(app.id) || (retryLow && existing.get(app.id)?.confidence === "low"))
     );
   });
-  const reasking = about !== undefined || homepageAbout !== undefined;
+  const reasking = about !== undefined || homepageAbout !== undefined || restrictedMode;
   const toClassify = reasking
     ? groups.toClassify
     : [...groups.toClassify, ...groups.heuristicOnly, ...(includeUpstream ? groups.upstream : [])];
@@ -473,7 +508,7 @@ async function main(): Promise<void> {
           // page): checked by hand on 2026-11-18, its `medium` verdicts
           // were guesses from the name about half the time, its `high`
           // ones right 90 times in 92.
-          (homepageAbout !== undefined && result.confidence === "medium") ||
+          ((homepageAbout !== undefined || restrictedMode) && result.confidence === "medium") ||
           isGenericReason(result.reason) ||
           result.type === "library" ||
           result.type === "other")
@@ -486,7 +521,8 @@ async function main(): Promise<void> {
         type: result.type,
         ...("category" in result ? { category: result.category } : {}),
         confidence: result.confidence,
-        reason: result.reason,
+        // A restricted source's verdict keeps no reason (see `restrictedMode`).
+        reason: restrictedMode ? "" : result.reason,
         model: model.id,
       } as LlmClassificationEntry);
       newEntries += 1;

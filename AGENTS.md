@@ -26,7 +26,7 @@ boundary exists.
 - `config/` — hand-edited tuning data, no TypeScript knowledge required to
   change. See [`config/README.md`](config/README.md) for what lives here
   and, just as important, what deliberately doesn't (some of `filter/
-rules.ts`'s heuristics carry research context a bare JSON list can't
+  rules.ts`'s heuristics carry research context a bare JSON list can't
   hold).
 - `docs/` — wiki-style reference docs (one Markdown file per topic), e.g.
   [`docs/sources.md`](docs/sources.md)'s exhaustive source support matrix.
@@ -98,7 +98,10 @@ the source reads as empty and everything still builds; a remote publish
 refuses to run without each source's file. Never copy such a cache into `src/sources/cache/`, print it
 in a workflow log (they are public), upload it as an artifact or send it to
 an outside service (`scripts/classify-llm.ts` and `scripts/triage-llm.ts` skip any app carrying
-such a package, `hasRestrictedPackage`, and `pnpm sample` leaves it out). Moving
+such a package, `hasRestrictedPackage`, and `pnpm sample` leaves it out). One
+exception, approved by the owner on 2026-11-18: `pnpm classify-llm
+--restricted-category` sends a To Classify app's name and description to the
+LLM to get its type and category, and keeps nothing else (no `reason`). Moving
 a source doesn't clean what is already public: its file stays in this
 repository's git history, and hand-written `config/` reasons may quote it.
 
@@ -128,7 +131,7 @@ dev DB was retired 2026-09-03 in favor of this):
    effects beyond that file. Three tiers, cheapest first: reuse
    `dist/dataset.json` if it already exists; else rebuild it from the
    git-committed source caches (`pnpm start`, no network); `pnpm seed
---force` skips both and re-fetches every source fresh first.
+   --force` skips both and re-fetches every source fresh first.
 2. `pnpm serve` (this repo) runs libSQL's `sqld` server (shipped with
    the Turso CLI in `~/.turso`, what `turso dev` wraps) in front of that
    file on :8080 — foreground, blocking, its own terminal. A Workers

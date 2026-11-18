@@ -3243,5 +3243,30 @@
     "pattern": "zatacka*",
     "category": "Arcade",
     "reason": "Zatacka X, a real-time multiplayer remake of the classic Achtung, die Kurve! (Curve Fever) reflex/lightcycle game -- Arcade, matching this catalog's genre for similar fast-paced multiplayer arcade titles (isGame already true via hasGameCategory; only missing a genre, since \"a modern free remake of\" has no genre-word-in-apposition match)."
+  },
+  {
+    "pattern": "birtty",
+    "category": "Arcade",
+    "reason": "Checked by hand on 2026-11-18 (To Classify review): A Flappy Bird-style game in the terminal."
+  },
+  {
+    "pattern": "bsdgames",
+    "category": "Arcade",
+    "reason": "Checked by hand on 2026-11-18 (To Classify review): The classic BSD collection of text-mode games."
+  },
+  {
+    "pattern": "Perfect World",
+    "category": "Role-Playing",
+    "reason": "Checked by hand on 2026-11-18 (To Classify review): Perfect World International, an online role-playing game (MMORPG)."
+  },
+  {
+    "pattern": "Crunch Time!",
+    "category": "Board & Cards",
+    "reason": "Checked by hand on 2026-11-18 (To Classify review): A card game about video game development."
+  },
+  {
+    "pattern": "Perfection.",
+    "category": "Puzzle",
+    "reason": "Checked by hand on 2026-11-18 (To Classify review): A puzzle game about cutting shapes to fit outlines."
   }
 ]

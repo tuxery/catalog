@@ -162,6 +162,20 @@ were right, against about half of the 16 `medium` ones, which mostly
 guessed from the name (a cycling trainer called "MaximumTrainer" filed
 as a game trainer).
 
+`pnpm classify-llm --restricted-category` asks about the To Classify apps
+that carry a package from a restricted source (Snap, Flathub,
+AppImageHub), which every other run keeps from the LLM: their own short
+description, or the start of their long one when the short one only
+repeats the name. Approved by the owner on 2026-11-18 for classification
+only: the verdict keeps the type and category and an empty `reason`, so
+nothing of the source's text is written to this public repository (the
+subcategory rules then read no LLM reason for these apps). `high` only, as
+above. First run, 2026-11-18 (gemini-3.1-flash-lite, two requests; the
+Flash models timed out): 339 asked, 211 `high` verdicts, about 9 in 10
+right on a full hand check (misses: GURPS Character Sheet as Productivity,
+a pixel fireplace as an arcade game). 13 more were test uploads
+("vtest3", "vtest9"...) describing themselves as a forum app: left out.
+
 ### Labels of an earlier taxonomy
 
 `config/llm-classifications.json` is the models' raw output and is never
@@ -323,6 +337,15 @@ Published dataset (`pnpm start`, private caches present), 106,687 apps.
   reading; 66 whose short description is too vague (re-asked with
   gemini-3.8-flash in a sample, they came back mostly as `medium`
   guesses from the name, so they weren't).
+- **To Classify, restricted sources and by hand** (same day): 744 → 524 on
+  `main`'s dataset. 198 verdicts for apps from Snap, Flathub and AppImageHub
+  (`--restricted-category`), about 190 of which file the app; 29 apps and games filed by hand in
+  `category-rules.json` and `game-category-rules.json` (DeDop Studio,
+  ESA's altimetry processor, as Science; Perfect World as Role-Playing),
+  from their description, homepage and what is known of the project. Of
+  the 524 left, about 280 have no description and no homepage worth
+  reading (the owner chose to keep them in To Classify for now); the
+  others have a text the model wasn't sure about.
 - **Publish cost**: one incremental publish from `main`'s dataset
   (`pnpm seed --measure`): 112,891 rows written (70,900 apps updated,
   8,657 meta rows), 196,658 read, no full publish.

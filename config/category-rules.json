@@ -4478,5 +4478,125 @@
     "pattern": "carapace*",
     "category": "Utilities",
     "reason": "Carapace, the shell-completion engine, and its per-tool bridges (carapace-aws/az/gcloud/...) -- verified live: every carapace-* name is the completion tool."
+  },
+  {
+    "pattern": "DeDop-studio",
+    "category": "Science",
+    "reason": "Checked by hand on 2026-11-18 (To Classify review): ESA's DeDop Studio, a processor for delay-Doppler radar altimetry data (Earth observation)."
+  },
+  {
+    "pattern": "TotoroNext-Avalonia",
+    "category": "Photo & Video",
+    "reason": "Checked by hand on 2026-11-18 (To Classify review): An anime streaming and tracking client."
+  },
+  {
+    "pattern": "mini-qml",
+    "category": "Developer Tools",
+    "reason": "Checked by hand on 2026-11-18 (To Classify review): A minimal QML application example for Qt developers."
+  },
+  {
+    "pattern": "ablescript",
+    "category": "Developer Tools",
+    "reason": "Checked by hand on 2026-11-18 (To Classify review): An esoteric programming language and its interpreter."
+  },
+  {
+    "pattern": "aikadm-frontend-git",
+    "category": "Desktop & Settings",
+    "reason": "Checked by hand on 2026-11-18 (To Classify review): A login screen front end for the html-greet greeter."
+  },
+  {
+    "pattern": "aml1",
+    "category": "Developer Tools",
+    "reason": "Checked by hand on 2026-11-18 (To Classify review): Another Main Loop, an event loop for C programs."
+  },
+  {
+    "pattern": "amlite",
+    "category": "Science",
+    "reason": "Checked by hand on 2026-11-18 (To Classify review): AmScope's capture software for its microscope cameras."
+  },
+  {
+    "pattern": "appstart",
+    "category": "System Tools",
+    "reason": "Checked by hand on 2026-11-18 (To Classify review): Starts a batch of applications at once."
+  },
+  {
+    "pattern": "archibold",
+    "category": "System Tools",
+    "reason": "Checked by hand on 2026-11-18 (To Classify review): Scripts that install and set up Arch Linux."
+  },
+  {
+    "pattern": "avt",
+    "category": "Photo & Video",
+    "reason": "Checked by hand on 2026-11-18 (To Classify review): A command-line video tool."
+  },
+  {
+    "pattern": "candyvim-git",
+    "category": "Utilities",
+    "reason": "Checked by hand on 2026-11-18 (To Classify review): A Neovim configuration."
+  },
+  {
+    "pattern": "contemporary-sounds",
+    "category": "Desktop & Settings",
+    "reason": "Checked by hand on 2026-11-18 (To Classify review): A desktop sound theme from the theSuite project."
+  },
+  {
+    "pattern": "emposium",
+    "category": "Photo & Video",
+    "reason": "Checked by hand on 2026-11-18 (To Classify review): An anime streaming client with manga reading and a community."
+  },
+  {
+    "pattern": "gamerworld",
+    "category": "Gaming Tools",
+    "reason": "Checked by hand on 2026-11-18 (To Classify review): A launcher for the GamerWorld games."
+  },
+  {
+    "pattern": "harakit-git",
+    "category": "System Tools",
+    "reason": "Checked by hand on 2026-11-18 (To Classify review): A set of core command-line utilities, an alternative to coreutils."
+  },
+  {
+    "pattern": "material-companion",
+    "category": "Gaming Tools",
+    "reason": "Checked by hand on 2026-11-18 (To Classify review): Companion app linking Stream Deck hardware to the Foundry tabletop RPG software (Material Foundry)."
+  },
+  {
+    "pattern": "objstor",
+    "category": "File Sharing & Downloads",
+    "reason": "Checked by hand on 2026-11-18 (To Classify review): A self-hosted storage server for files and data."
+  },
+  {
+    "pattern": "nona-win",
+    "category": "Science",
+    "reason": "Checked by hand on 2026-11-18 (To Classify review): Nona, a phylogenetic analysis program (parsimony), by P. Goloboff."
+  },
+  {
+    "pattern": "xpiwe",
+    "category": "Science",
+    "reason": "Checked by hand on 2026-11-18 (To Classify review): Pee-Wee with floating point weights, a phylogenetic analysis program, by P. Goloboff."
+  },
+  {
+    "pattern": "prosystem-highscore-git",
+    "category": "Gaming Tools",
+    "reason": "Checked by hand on 2026-11-18 (To Classify review): The ProSystem Atari 7800 emulator, ported to the Highscore frontend."
+  },
+  {
+    "pattern": "toolora-bin",
+    "category": "Utilities",
+    "reason": "Checked by hand on 2026-11-18 (To Classify review): A collection of everyday tools in one app."
+  },
+  {
+    "pattern": "wcs",
+    "category": "Utilities",
+    "reason": "Checked by hand on 2026-11-18 (To Classify review): Measures the throughput of a data stream, like pv."
+  },
+  {
+    "pattern": "wowzers",
+    "category": "Utilities",
+    "reason": "Checked by hand on 2026-11-18 (To Classify review): A small animated character for the terminal."
+  },
+  {
+    "pattern": "hyper-cmd-utils",
+    "category": "Developer Tools",
+    "reason": "Checked by hand on 2026-11-18 (To Classify review): Command-line utilities for Holepunch's Hyper peer-to-peer stack."
   }
 ]

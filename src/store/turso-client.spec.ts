@@ -93,7 +93,7 @@ describe("createTursoClient", () => {
     );
   });
 
-  it("writes companions, their counts, relations, brand colors and kudos as JSON columns, then the age bracket", async () => {
+  it("writes companions, their counts, relations, brand colors and kudos as JSON columns, then the age bracket and the subcategory", async () => {
     const { batch, client } = fakeClient(false);
     const tursoClient = createTursoClient({ url: "file::memory:" }, client);
     const companions = [{ name: "vlc-plugin-x", kind: "plugin", description: "", packages: [] }];
@@ -113,19 +113,21 @@ describe("createTursoClient", () => {
           brandColors,
           kudos: ["HiDpiIcon"],
           ageBracket: 7,
+          subcategory: "Calculators & Converters",
         },
       ],
     });
 
     const insertBatch = batch.mock.calls[0]?.[0] as { args: unknown[] }[];
     const args = insertBatch[0]?.args;
-    expect(args?.slice(-6)).toEqual([
+    expect(args?.slice(-7)).toEqual([
       JSON.stringify(companions),
       JSON.stringify({ plugin: 1 }),
       JSON.stringify(relations),
       JSON.stringify(brandColors),
       JSON.stringify(["HiDpiIcon"]),
       7,
+      "Calculators & Converters",
     ]);
   });
 
@@ -659,6 +661,7 @@ describe("precomputed browse keys", () => {
       freeCounts: true,
       categoryIds: true,
       ageFilter: true,
+      subcategories: true,
     });
     expect(meta.has("browseKeys")).toBe(false);
   });
@@ -843,6 +846,7 @@ describe("precomputed browse keys", () => {
       freeCounts: true,
       categoryIds: true,
       ageFilter: true,
+      subcategories: true,
     });
   });
 });

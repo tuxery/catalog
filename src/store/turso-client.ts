@@ -33,6 +33,8 @@ export interface AppRecord {
   /** `true` for known app-store/package-manager frontends (GNOME Software, KDE Discover, ...) — see `CatalogApp.appStoreFrontend`'s doc comment. */
   appStoreFrontend?: boolean;
   category?: string;
+  /** See `CatalogApp.subcategory`. Never contains ":" (it ends a meta key). */
+  subcategory?: string;
   developer?: string;
   publisher?: string;
   license?: string;
@@ -206,6 +208,7 @@ const INSERT_COLUMNS = [
   "brand_colors_json",
   "kudos_json",
   "age_bracket",
+  "subcategory",
 ];
 
 function appsTableSql(tableName: string): string {
@@ -259,7 +262,8 @@ function appsTableSql(tableName: string): string {
       relations_json TEXT,
       brand_colors_json TEXT,
       kudos_json TEXT,
-      age_bracket INTEGER
+      age_bracket INTEGER,
+      subcategory TEXT
     )
   `;
 }
@@ -938,6 +942,145 @@ function computeAgeIdChunks(apps: AppRecord[], generation: string): Map<string, 
   return chunks;
 }
 
+interface SubcategoryCount {
+  category: string;
+  subcategory: string;
+  count: number;
+}
+
+/**
+ * Apps per subcategory, grouped by category (in `countByCategory`'s
+ * order, largest first) and largest first inside each: the chips a
+ * category page shows and the lists `/categories` links to. Apps with no
+ * subcategory aren't counted here; their category's own count has them.
+ */
+function countBySubcategory(apps: AppRecord[]): SubcategoryCount[] {
+  const categoryOrder = new Map(
+    countByCategory(apps).map(({ category }, index) => [category, index]),
+  );
+  const counts = new Map<string, SubcategoryCount>();
+  for (const app of apps) {
+    if (app.category === undefined || app.subcategory === undefined) continue;
+    const key = `${app.category}:${app.subcategory}`;
+    const entry = counts.get(key);
+    if (entry) entry.count++;
+    else counts.set(key, { category: app.category, subcategory: app.subcategory, count: 1 });
+  }
+  const result = [...counts.values()];
+  // eslint-disable-next-line unicorn/no-array-sort
+  result.sort(
+    (a, b) =>
+      (categoryOrder.get(a.category) ?? 0) - (categoryOrder.get(b.category) ?? 0) ||
+      b.count - a.count ||
+      a.subcategory.localeCompare(b.subcategory),
+  );
+  return result;
+}
+
+/**
+ * Format pinned by store-contract.json, like `app`'s `browse-keys.ts`:
+ * the result count of a subcategory under the other `/browse` filters
+ * but source (`*` when unset). Labels never contain ":", so the category
+ * and the subcategory can both close the key.
+ */
+export function subcategoryCountKey(
+  generation: string,
+  interfaceFilter: InterfaceFilterValue,
+  typeFilter: ListingTypeFilter,
+  license: "*" | "free",
+  age: number | "*",
+  category: string,
+  subcategory: string,
+): string {
+  return `countSub:${generation}:${interfaceFilter}:${typeFilter}:${license}:${age}:${category}:${subcategory}`;
+}
+
+/**
+ * Every `subcategoryCountKey` with a non-zero count. A source filter
+ * together with a subcategory is counted live in `app` (one category's
+ * rows at most), as an age filter with a source and a category is: per
+ * source it would be ~45k more keys for links nobody follows. ~9k keys
+ * on the 2026-11-18 dataset.
+ */
+function computeSubcategoryCounts(apps: AppRecord[], generation: string): Map<string, number> {
+  const counts = new Map<string, number>();
+  const bump = (key: string) => counts.set(key, (counts.get(key) ?? 0) + 1);
+  for (const app of apps) {
+    if (app.category === undefined || app.subcategory === undefined) continue;
+    const interfaces: InterfaceFilterValue[] = ["all", app.kind === "gui" ? "gui" : "cli"];
+    const types: ListingTypeFilter[] = ["all", app.contentType === "game" ? "game" : "app"];
+    const licenses: Array<"*" | "free"> = app.licenseKind === "free" ? ["*", "free"] : ["*"];
+    const bracket = app.ageBracket;
+    const ages: Array<number | "*"> = [
+      "*",
+      ...(bracket === undefined ? [] : AGE_FILTERS.filter((age) => bracket <= age)),
+    ];
+    for (const interfaceFilter of interfaces) {
+      for (const typeFilter of types) {
+        for (const license of licenses) {
+          for (const age of ages) {
+            bump(
+              subcategoryCountKey(
+                generation,
+                interfaceFilter,
+                typeFilter,
+                license,
+                age,
+                app.category,
+                app.subcategory,
+              ),
+            );
+          }
+        }
+      }
+    }
+  }
+  return counts;
+}
+
+/** Format pinned by store-contract.json, like `app`'s `browse-keys.ts`. */
+export function subcategoryIdsChunkKey(
+  generation: string,
+  index: number,
+  category: string,
+  subcategory: string,
+): string {
+  return `subcategoryIds:${generation}:${index}:${category}:${subcategory}`;
+}
+
+/**
+ * For each subcategory, the ids of its apps in `byPopularFirst` order,
+ * chunked like `categoryIds:` (`subcategoryIdsChunkKey`): a subcategory
+ * page with no other filter reads its page from here. `apps` has no
+ * subcategory index (adding one would force a full publish), so this is
+ * what keeps that page from walking its whole category.
+ */
+function computeSubcategoryIdChunks(apps: AppRecord[], generation: string): Map<string, string[]> {
+  const sorted = apps
+    .filter((app) => app.category !== undefined && app.subcategory !== undefined)
+    .map((app) => ({ id: app.id, name: Buffer.from(app.name), app }));
+  // eslint-disable-next-line unicorn/no-array-sort
+  sorted.sort(byPopularFirst);
+
+  const lists = new Map<string, { category: string; subcategory: string; ids: string[] }>();
+  for (const { id, app } of sorted) {
+    const category = app.category as string;
+    const subcategory = app.subcategory as string;
+    const listKey = `${category}:${subcategory}`;
+    const list = lists.get(listKey);
+    if (list) list.ids.push(id);
+    else lists.set(listKey, { category, subcategory, ids: [id] });
+  }
+
+  const chunks = new Map<string, string[]>();
+  for (const { category, subcategory, ids } of lists.values()) {
+    chunk(ids, SOURCE_IDS_CHUNK_SIZE).forEach((part, index) => {
+      chunks.set(subcategoryIdsChunkKey(generation, index, category, subcategory), part);
+    });
+  }
+  return chunks;
+}
+
 /**
  * The default ("popular first") order of a category page, as tiers: apps
  * with an icon and a popularity score first (most popular first), then
@@ -1084,6 +1227,7 @@ function toRow(app: AppRecord): unknown[] {
     toJsonColumn(app.brandColors),
     toJsonColumn(app.kudos),
     app.ageBracket ?? null,
+    app.subcategory ?? null,
   ];
 }
 
@@ -1264,6 +1408,8 @@ function computeMeta(
   const sourceIdChunks = computeSourceIdChunks(dataset.apps, generation);
   const categoryIdChunks = computeCategoryIdChunks(dataset.apps, generation);
   const ageIdChunks = computeAgeIdChunks(dataset.apps, generation);
+  const subcategoryCounts = computeSubcategoryCounts(dataset.apps, generation);
+  const subcategoryIdChunks = computeSubcategoryIdChunks(dataset.apps, generation);
 
   // A dynamic key/value list rather than a hand-written VALUES(?, ?, ...)
   // literal — ~60 precomputed listing keys (3 typeFilter variants x 3
@@ -1278,6 +1424,11 @@ function computeMeta(
       ...[...sourceIdChunks].map(([key, ids]): [string, string] => [key, JSON.stringify(ids)]),
       ...[...categoryIdChunks].map(([key, ids]): [string, string] => [key, JSON.stringify(ids)]),
       ...[...ageIdChunks].map(([key, ids]): [string, string] => [key, JSON.stringify(ids)]),
+      ...[...subcategoryCounts].map(([key, count]): [string, string] => [key, String(count)]),
+      ...[...subcategoryIdChunks].map(([key, ids]): [string, string] => [
+        key,
+        JSON.stringify(ids),
+      ]),
     ],
     swap: [
       ["generatedAt", dataset.generatedAt],
@@ -1291,6 +1442,15 @@ function computeMeta(
       ["categoryCounts:all", JSON.stringify(categoryCountsAll)],
       ["categoryCounts:game", JSON.stringify(categoryCountsGame)],
       ["categoryCounts:app", JSON.stringify(categoryCountsApp)],
+      ["subcategoryCounts:all", JSON.stringify(countBySubcategory(dataset.apps))],
+      [
+        "subcategoryCounts:game",
+        JSON.stringify(countBySubcategory(dataset.apps.filter((app) => app.contentType === "game"))),
+      ],
+      [
+        "subcategoryCounts:app",
+        JSON.stringify(countBySubcategory(dataset.apps.filter((app) => app.contentType !== "game"))),
+      ],
       [
         BROWSE_KEYS_META_KEY,
         JSON.stringify({
@@ -1301,6 +1461,8 @@ function computeMeta(
           categoryIds: true,
           // `apps` has `age_bracket`, and `ageCountKey`/`ageIdsChunkKey` rows exist.
           ageFilter: true,
+          // `apps` has `subcategory`, and `subcategoryCountKey`/`subcategoryIdsChunkKey` rows exist.
+          subcategories: true,
         }),
       ],
       ...Object.entries(listingIds).map(([key, ids]): [string, string] => [

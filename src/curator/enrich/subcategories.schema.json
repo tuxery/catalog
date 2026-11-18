@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "propertyNames": {
+    "type": "string"
+  },
+  "additionalProperties": {
+    "type": "object",
+    "properties": {
+      "type": {
+        "type": "string",
+        "enum": ["app", "game"],
+        "description": "Whether the category is an app category or a game genre."
+      },
+      "subcategories": {
+        "minItems": 2,
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "subcategory": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[^:]+$",
+              "description": "The subcategory label, also its id in `/browse/?category=…&sub=…`."
+            },
+            "names": {
+              "description": "Checked first: a regular expression matched case-insensitively against the display name and every package name. For names that say it all (`gcc-14-mips-linux-gnu` is a cross-compiler).",
+              "type": "string"
+            },
+            "keys": {
+              "description": "freedesktop Main or Additional Categories (on any package) that mean this subcategory. Checked second.",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "sections": {
+              "description": "Distro sections that mean this subcategory, as `<source id>:<section>` globs (`ebuild-gentoo:dev-vcs`, `deb-*:vcs`, `rpm-opensuse:Productivity/Databases/*`). Checked third.",
+              "type": "array",
+              "items": {
+                "type": "string",
+                "pattern": "^[^:]+:.+$"
+              }
+            },
+            "pattern": {
+              "description": "A JavaScript regular expression source string, matched case-insensitively against the display name, the short description and the LLM verdict's reason (for games also AUR keywords and the start of the long description). Checked fourth, in rule order.",
+              "type": "string"
+            },
+            "weakKeys": {
+              "description": "freedesktop keys too broad to beat the text (`Viewer`, `Office`, `BoardGame`): checked fifth, after every rule's pattern.",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "weakSections": {
+              "description": "Distro sections too broad to beat the text (`deb-*:x11`, `deb-*:admin`): checked fifth, after every rule's pattern.",
+              "type": "array",
+              "items": {
+                "type": "string",
+                "pattern": "^[^:]+:.+$"
+              }
+            },
+            "fallbackNames": {
+              "description": "Checked last, when nothing else matched: a regular expression on the display and package names (`python3-*` modules).",
+              "type": "string"
+            },
+            "fallbackSections": {
+              "description": "Checked last, with `fallbackNames`.",
+              "type": "array",
+              "items": {
+                "type": "string",
+                "pattern": "^[^:]+:.+$"
+              }
+            }
+          },
+          "required": ["subcategory"],
+          "additionalProperties": false
+        }
+      }
+    },
+    "required": ["type", "subcategories"],
+    "additionalProperties": false
+  },
+  "title": "Enrich: subcategories",
+  "description": "The second level of the category tree: for each category that has one, its subcategories and the signals that file an app there. A category missing here has no subcategories. Within a category the first rule that matches wins, in passes: `names`, then `keys`, then `sections`, then `pattern`, then `weakKeys`/`weakSections`, then `fallbackNames`/`fallbackSections`. An app nothing matches has no subcategory and is listed under its category only. See docs/categories.md."
+}

@@ -30,6 +30,12 @@ const CategoryRefinementEntrySchema = z
         "The broad categories this rule narrows: it only ever moves an app whose category, after every other signal, is one of these.",
       ),
     to: AnyCategoryLabelSchema.describe("The finer category the app moves to."),
+    keys: z
+      .array(z.string())
+      .optional()
+      .describe(
+        "freedesktop Main or Additional Categories (on any of the app's packages) that move it too, pattern or not: a file manager's `FileManager` key says what it is even when its description doesn't.",
+      ),
     pattern: z
       .string()
       .describe(
@@ -75,6 +81,8 @@ export interface RefinementText {
   shortDescription: string;
   /** The applied LLM verdict's own reason, when one applies. */
   llmReason?: string;
+  /** Every freedesktop category key the app's packages carry, for rules with `keys`. */
+  keys?: readonly string[];
 }
 
 /**
@@ -91,6 +99,7 @@ export function refineCategory(
   const haystack = [text.name, text.shortDescription, text.llmReason ?? ""].join(" | ");
   for (const rule of rules) {
     if (rule.type !== type || !(rule.from as string[]).includes(category)) continue;
+    if (rule.keys?.some((key) => text.keys?.includes(key))) return rule.to;
     if (compilePattern(rule.pattern).test(haystack)) return rule.to;
   }
   return category;

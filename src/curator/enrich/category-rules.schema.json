@@ -33,7 +33,7 @@
           "Travel & Navigation",
           "Books & Reference",
           "System Tools",
-          "Settings",
+          "Desktop & Settings",
           "Utilities"
         ],
         "description": "One of config/categories-apps.json's own display labels (not a freedesktop key) — this is a last-resort signal for apps with no upstream category at all, so it writes the label directly. Never a categories-games.json genre — games have their own equivalent file, config/game-category-rules.json (see game-category-rules.ts), since the two taxonomies are disjoint closed enums."

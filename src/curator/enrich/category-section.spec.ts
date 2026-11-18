@@ -95,8 +95,12 @@ describe("categoryFromDebianSection", () => {
     expect(categoryFromDebianSection(pkg({ name: "bibtex2html", section: "tex" }))).toBe(
       "Productivity",
     );
-    expect(categoryFromDebianSection(pkg({ name: "zenity", section: "gnome" }))).toBe("Settings");
-    expect(categoryFromDebianSection(pkg({ name: "kalk", section: "kde" }))).toBe("Settings");
+    expect(categoryFromDebianSection(pkg({ name: "zenity", section: "gnome" }))).toBe(
+      "Desktop & Settings",
+    );
+    expect(categoryFromDebianSection(pkg({ name: "kalk", section: "kde" }))).toBe(
+      "Desktop & Settings",
+    );
     expect(categoryFromDebianSection(pkg({ name: "cconv", section: "text" }))).toBe("Utilities");
     expect(categoryFromDebianSection(pkg({ name: "tex-gyre", section: "fonts" }))).toBe(
       "Graphics & Design",
@@ -218,7 +222,7 @@ describe("categoryFromGentooSection", () => {
       categoryFromGentooSection(
         pkg({ source: "ebuild-gentoo", name: "kalk", section: "kde-apps" }),
       ),
-    ).toBe("Settings");
+    ).toBe("Desktop & Settings");
     expect(
       categoryFromGentooSection(
         pkg({ source: "ebuild-gentoo", name: "dosbox", section: "games-emulation" }),
@@ -495,7 +499,7 @@ describe("categoryFromOpenSuseGroup", () => {
       categoryFromOpenSuseGroup(
         pkg({ source: "rpm-opensuse", name: "autoyast2", section: "System/YaST" }),
       ),
-    ).toBe("Settings");
+    ).toBe("Desktop & Settings");
     expect(
       categoryFromOpenSuseGroup(
         pkg({ source: "rpm-opensuse", name: "phoronix-test-suite", section: "System/Benchmark" }),
@@ -597,7 +601,7 @@ describe("categoryFromSlackwareSeries", () => {
     ).toBe("System Tools");
     expect(
       categoryFromSlackwareSeries(pkg({ source: "slackware", name: "kalk", section: "kde" })),
-    ).toBe("Settings");
+    ).toBe("Desktop & Settings");
   });
 
   it("returns undefined for the deliberately unmapped series (xap — too mixed, y — game detection's job)", () => {
@@ -628,7 +632,7 @@ describe("categoryFromNixScope", () => {
   it("maps nixpkgs' attribute-path scopes to their app-taxonomy category", () => {
     expect(
       categoryFromNixScope(pkg({ source: "nix-nixpkgs", name: "kalk", section: "kdePackages" })),
-    ).toBe("Settings");
+    ).toBe("Desktop & Settings");
     expect(
       categoryFromNixScope(pkg({ source: "nix-nixpkgs", name: "wordnet", section: "nltk-data" })),
     ).toBe("Science");

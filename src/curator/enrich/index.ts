@@ -38,6 +38,7 @@ import {
   refineCategory,
   type CategoryRefinementEntry,
 } from "./category-refinements";
+import { loadSubcategories, pickSubcategory, type Subcategories } from "./subcategory";
 import {
   loadGameCategoryRules,
   matchGameCategoryRule,
@@ -598,7 +599,13 @@ function hasDebtagOnlyGameEvidence(pkg: SourcedPackage): boolean {
  *   (see `description-game-category-rules.ts` — the game-genre mirror of
  *   `descriptionCategoryRules` below, for games whose description names
  *   its own genre but whose title isn't well-known enough for a dedicated
- *   `gameCategoryRules` entry).
+ *   `gameCategoryRules` entry), first on its short description, then on
+ *   the first sentence of its long one: many games (itch.io and Snap
+ *   uploads) carry only a title as their short description, and a game's
+ *   opening sentence says its genre ("Griddle is a picture logic puzzle
+ *   game"). Apps don't get that second try: hand-checked on the "To
+ *   Classify" apps (2026-11-18), an opening sentence named the right
+ *   category only about two times in three.
  * - For an app, falls back in order to `categoryRules` (see
  *   `category-rules.ts` — a name-pattern signal for well-known product
  *   families no upstream source classifies, e.g. Wine/Proton compatibility
@@ -617,6 +624,12 @@ function hasDebtagOnlyGameEvidence(pkg: SourcedPackage): boolean {
  *   before giving up).
  * Either path finally gives up to `TO_CLASSIFY`.
  */
+/** The first sentence of `text` (up to 300 characters), empty when there is none. */
+function firstSentence(text: string | undefined): string {
+  if (!text) return "";
+  return (text.trim().split(/(?<=[.!?])\s|\n/, 1)[0] ?? "").slice(0, 300);
+}
+
 function pickCategoryLabel(
   packages: SourcedPackage[],
   type: ContentType,
@@ -625,6 +638,7 @@ function pickCategoryLabel(
   descriptionCategoryRules: DescriptionCategoryRuleEntry[],
   descriptionGameCategoryRules: DescriptionGameCategoryRuleEntry[],
   shortDescription: string,
+  longDescription?: string,
 ): string {
   const categories = pickField(packages, (pkg) =>
     pkg.categories && pkg.categories.length > 0 ? pkg.categories : undefined,
@@ -646,6 +660,10 @@ function pickCategoryLabel(
     if (nameGenre) return nameGenre;
     return (
       matchDescriptionGameCategoryRule(shortDescription, descriptionGameCategoryRules) ??
+      matchDescriptionGameCategoryRule(
+        firstSentence(longDescription),
+        descriptionGameCategoryRules,
+      ) ??
       TO_CLASSIFY
     );
   }
@@ -932,6 +950,7 @@ export function enrichApps(
   llmClassifications: LlmClassificationEntry[] = loadLlmClassifications(),
   matchOverrides: MatchOverrides = loadMatchOverrides(),
   categoryRefinements: CategoryRefinementEntry[] = loadCategoryRefinements(),
+  subcategories: Subcategories = loadSubcategories(),
 ): CatalogApp[] {
   const llmByAppId = llmClassificationMap(llmClassifications);
   const forceKeys = forceMatchedKeys(matchOverrides);
@@ -939,6 +958,11 @@ export function enrichApps(
   const apps: CatalogApp[] = matched.map((app) => {
     const representative = pickByPriority(app.packages);
     const shortDescription = pickDescription(app.packages);
+    const longDescription = pickRichField(
+      "longDescription",
+      app.packages,
+      (pkg) => pkg.longDescription,
+    );
     const warnings = getCompatWarnings(app.packages, compatWarnings);
     const categories = pickCategories(app.packages);
     const hasKnownGameGenre = pickCategory(categories, "game") !== TO_CLASSIFY;
@@ -973,6 +997,7 @@ export function enrichApps(
         descriptionCategoryRules,
         descriptionGameCategoryRules,
         shortDescription,
+        longDescription,
       );
     const deterministicCategory = pickLabel(heuristicType);
     const verdict = classificationFor(app, llmByAppId);
@@ -988,11 +1013,28 @@ export function enrichApps(
     const refined = refineCategory(
       type,
       classified.category,
-      { name: representative.name, shortDescription, llmReason: verdict?.llm.reason },
+      {
+        name: representative.name,
+        shortDescription,
+        llmReason: verdict?.llm.reason,
+        keys: app.packages.flatMap((pkg) => pkg.categories ?? []),
+      },
       categoryRefinements,
     );
     const category =
       type === "app" && gameTool && GENERIC_TOOL_CATEGORIES.has(refined) ? "Gaming Tools" : refined;
+    const subcategory = pickSubcategory(
+      {
+        type,
+        category,
+        name: representative.name,
+        shortDescription,
+        longDescription,
+        llmReason: verdict?.llm.reason,
+        packages: app.packages,
+      },
+      subcategories,
+    );
 
     const ageRating = pickAgeRating(app.packages);
     return {
@@ -1008,12 +1050,13 @@ export function enrichApps(
       excluded,
       appStoreFrontend: isAppStoreFrontend(app.packages, appStoreFrontends) ? true : undefined,
       category,
+      subcategory,
       iconUrl: pickRichField("iconUrl", app.packages, (pkg) => pkg.iconUrl),
       approxSizeBytes: pickRichField("approxSizeBytes", app.packages, (pkg) => pkg.approxSizeBytes),
       ...pickLicense(app.packages),
       developer: pickRichField("developer", app.packages, (pkg) => pkg.developer),
       publisher: pickRichField("publisher", app.packages, (pkg) => pkg.publisher),
-      longDescription: pickRichField("longDescription", app.packages, (pkg) => pkg.longDescription),
+      longDescription,
       screenshots: pickRichField("screenshots", app.packages, (pkg) => pkg.screenshots),
       videos: pickRichField("videos", app.packages, (pkg) => pkg.videos),
       ageRating,

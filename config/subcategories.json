@@ -1,0 +1,902 @@
+{
+  "Developer Tools": {
+    "type": "app",
+    "subcategories": [
+      {
+        "subcategory": "Language Modules & Cross-Compilers",
+        "names": "(^|[-_ ])(aarch64|arm|armhf|armel|i[3-6]86|x86[-_]64|mips\\w*|powerpc\\w*|ppc\\w*|riscv\\w*|s390x?|sparc\\w*|alpha|hppa|m68k|sh4|loongarch\\w*|avr|xtensa|or1k|arc)[-_](\\w+[-_])?(linux|elf|none|w64|mingw|gnu)|mingw|cross[- ]?(compil|toolchain|binutils)|multilib|-linux-gnu",
+        "pattern": "cross[- ]?compil|cross[- ]toolchain",
+        "fallbackNames": "^(python[23]?\\d*|py\\d+|perl|ruby\\d*|rubygem|node|nodejs|php\\d*|lua\\d*|golang|haskell|ocaml|r|elixir|erlang|julia|raku|tcl|guile|racket|coq|rocq|octave|emacs|vim|neovim|nvim|texlive|ghc|cl|sbcl|dotnet|java|kotlin|scala|crystal|nim|dart|deno|bun|cpan|gem|npm|pecl|pear)[-_]",
+        "fallbackSections": [
+          "ebuild-gentoo:dev-python",
+          "ebuild-gentoo:dev-perl",
+          "ebuild-gentoo:dev-ruby",
+          "ebuild-gentoo:dev-lua",
+          "ebuild-gentoo:dev-haskell",
+          "ebuild-gentoo:dev-ml",
+          "ebuild-gentoo:dev-php",
+          "ebuild-gentoo:dev-java",
+          "ebuild-gentoo:dev-go",
+          "ebuild-gentoo:dev-node",
+          "ebuild-gentoo:dev-R",
+          "ebuild-gentoo:dev-tex",
+          "ebuild-gentoo:dev-lisp",
+          "ebuild-gentoo:dev-erlang",
+          "ebuild-gentoo:dev-elixir",
+          "ebuild-gentoo:dev-raku",
+          "ebuild-gentoo:dev-scheme",
+          "nix-nixpkgs:python*Packages*",
+          "nix-nixpkgs:perl*Packages*",
+          "nix-nixpkgs:haskellPackages*",
+          "nix-nixpkgs:nodePackages*",
+          "nix-nixpkgs:ruby*Packages*",
+          "nix-nixpkgs:lua*Packages*",
+          "nix-nixpkgs:ocaml*Packages*",
+          "nix-nixpkgs:rPackages*",
+          "nix-nixpkgs:emacsPackages*",
+          "nix-nixpkgs:vimPackages*",
+          "nix-nixpkgs:beam*Packages*",
+          "nix-nixpkgs:php*Packages*",
+          "nix-nixpkgs:coqPackages*",
+          "nix-nixpkgs:rocqPackages*",
+          "nix-nixpkgs:juliaPackages*",
+          "nix-nixpkgs:texlivePackages*",
+          "nix-nixpkgs:lispPackages*",
+          "nix-nixpkgs:sbclPackages*",
+          "nix-nixpkgs:chickenPackages*",
+          "nix-nixpkgs:idrisPackages*",
+          "nix-nixpkgs:dotnetPackages*",
+          "nix-nixpkgs:akkuPackages*",
+          "nix-nixpkgs:elmPackages*",
+          "nix-nixpkgs:purescriptPackages*",
+          "nix-nixpkgs:dartPackages*",
+          "nix-nixpkgs:crystalPackages*",
+          "nix-nixpkgs:nimPackages*",
+          "nix-nixpkgs:goPackages*",
+          "nix-nixpkgs:rustPackages*",
+          "nix-nixpkgs:cargoPackages*",
+          "nix-nixpkgs:octavePackages*",
+          "nix-nixpkgs:tclPackages*",
+          "deb-*:python",
+          "deb-*:perl",
+          "deb-*:ruby",
+          "deb-*:php",
+          "deb-*:haskell",
+          "deb-*:ocaml",
+          "deb-*:javascript",
+          "deb-*:golang",
+          "deb-*:rust",
+          "deb-*:lisp",
+          "deb-*:java",
+          "deb-*:gnu-r"
+        ]
+      },
+      {
+        "subcategory": "AI Coding Tools",
+        "pattern": "coding (agent|assistant)|\\bai\\b.*(cod|commit|review|program|developer|agent|pair)|\\b(llm|mcp)\\b|copilot|claude|codex|gemini cli|cursor (ai|ide|editor)|agentic|ai[- ]powered (code|dev)"
+      },
+      {
+        "subcategory": "IDEs & Code Editors",
+        "keys": ["IDE", "GUIDesigner", "TextEditor"],
+        "sections": ["eopkg-solus:programming.ide", "nix-nixpkgs:eclipses"],
+        "pattern": "\\bide\\b|integrated development|code editor|language server|\\blsp\\b|vs ?code|vscodium|jetbrains|intellij|pycharm|eclipse|qt creator|zed\\b|sublime|notepad|lapce|kakoune|helix"
+      },
+      {
+        "subcategory": "Version Control",
+        "keys": ["RevisionControl"],
+        "sections": [
+          "ebuild-gentoo:dev-vcs",
+          "deb-*:vcs",
+          "rpm-opensuse:Development/Tools/Version Control"
+        ],
+        "pattern": "compare (and merge )?(your )?(files|folders|directories|text)|\\bmerge\\b|\\bgit\\b(?! version| snapshot|\\))|\\bgit[- ](client|gui|tool|extension|hook|helper|repo|repositor|commit|branch|diff|log|worktree|ui|tui|annex|lfs|flow)|\\bgit[a-z]*\\b(?=.*(repo|commit|branch))|mercurial|\\bhg\\b|subversion|\\bsvn\\b|version control|\\bvcs\\b|github|gitlab|gitea|forgejo|codeberg|bitbucket|pull request|merge tool|diff (tool|viewer)|\\b(git|quilt|stacked) patch(es)?\\b"
+      },
+      {
+        "subcategory": "Debugging & Testing",
+        "keys": ["Debugger", "Profiling"],
+        "sections": ["rpm-opensuse:Development/Tools/Debuggers", "ebuild-gentoo:app-benchmarks"],
+        "pattern": "debugg|profil(er|ing)|\\blint(er|ing)?\\b|formatter|static analy|fuzz|\\btest(s|ing)?\\b|unit test|code coverage|decompil|disassembl|reverse[- ]engineer|benchmark|memory leak|tracing|tracer|\\bmock|sanitiz|code (quality|review|search|analysis)|hex editor|valgrind|gdb\\b"
+      },
+      {
+        "subcategory": "Databases",
+        "keys": ["Database"],
+        "sections": [
+          "deb-*:database",
+          "ebuild-gentoo:dev-db",
+          "rpm-opensuse:Productivity/Databases*",
+          "eopkg-solus:database"
+        ],
+        "pattern": "database|\\bsql\\b|sqlite|postgres|mysql|mariadb|redis|mongo|valkey|clickhouse|duckdb|cassandra|key[- ]value store|\\bdbms\\b|\\borm\\b|query"
+      },
+      {
+        "subcategory": "Containers, Cloud & DevOps",
+        "sections": ["ebuild-gentoo:app-containers", "ebuild-gentoo:sys-cluster"],
+        "pattern": "docker|container|podman|kubernetes|\\bk8s\\b|kubectl|\\bhelm\\b|terraform|opentofu|ansible|puppet|\\bchef\\b|saltstack|\\bcloud\\b|\\baws\\b|amazon web|azure|\\bgcp\\b|google cloud|digitalocean|hetzner|openstack|devops|deploy|infrastructure|serverless|\\bci\\b|ci/cd|continuous (integration|delivery)|pipeline|github actions|nomad|consul|vault"
+      },
+      {
+        "subcategory": "Web & API Development",
+        "keys": ["WebDevelopment"],
+        "sections": ["ebuild-gentoo:www-apps"],
+        "pattern": "http client|\\brest\\b|graphql|\\bapi\\b|openapi|swagger|grpc|postman|insomnia|static site|site generator|\\bssg\\b|web (framework|develop|server|app)|\\bcms\\b|frontend (framework|build|tool\\w*)|(javascript|typescript|css|html|js) (framework|bundler|compiler|minifier|runtime|library|template)s?|webassembly|wasm"
+      },
+      {
+        "subcategory": "Hardware & Embedded",
+        "keys": ["Electronics"],
+        "sections": ["ebuild-gentoo:dev-embedded"],
+        "pattern": "arduino|esp32|esp8266|esp-idf|microcontroller|\\bavr\\b|stm32|\\bfpga\\b|verilog|vhdl|embedded|firmware|\\bjtag\\b|\\bswd\\b|\\badb\\b|fastboot|android|device[- ]tree|bootloader|raspberry|pico\\b|\\bmcu\\b|\\bplc\\b|\\buart\\b|serial port|\\bi2c\\b|\\bspi\\b|logic analy",
+        "weakSections": ["deb-*:electronics"]
+      },
+      {
+        "subcategory": "Game Development",
+        "sections": ["ebuild-gentoo:games-engines"],
+        "pattern": "game engine|level editor|map editor|godot|\\bunity( hub| engine)?\\b|love2d|\\blöve\\b|sprite|tile ?map|game (dev|development|maker|framework)|raylib|\\bsdl\\b.*game"
+      },
+      {
+        "subcategory": "Languages & Runtimes",
+        "sections": ["ebuild-gentoo:dev-lang", "deb-*:interpreters"],
+        "pattern": "compiler|interpreter|programming language|\\\\blanguage\\\\b|runtime|\\\\bjdk\\\\b|\\\\bjre\\\\b|\\\\bsdk\\\\b|\\\\brepl\\\\b|toolchain|transpil|jupyter|notebook|assembler|\\\\bllvm\\\\b|\\\\bgcc\\\\b|clang|rustup|version manager for|^(python|node\\\\.?js|nodejs|ruby|perl|lua|luajit|php|go|rust|java|openjdk|kotlin|scala|haskell|ghc|ocaml|erlang|elixir|julia|racket|guile|sbcl|clojure|zig|nim|crystal|dart|deno|bun|swift|dotnet|mono|tcl|gforth|gnat|fpc|lazarus)\\\\b"
+      },
+      {
+        "subcategory": "Build & Packaging",
+        "keys": ["Building"],
+        "sections": ["ebuild-gentoo:dev-build", "rpm-opensuse:Development/Tools/Building"],
+        "pattern": "version manag|build (system|tool|automation)|builds? (packages|projects|software|artifacts|images)|\\bbuild (server|runner|cache|farm)|makefile|cmake|meson|ninja|bazel|gradle|maven|\\bant\\b|package manager|version manager|\\bnpm\\b|\\bpnpm\\b|\\byarn\\b|\\bpip\\b|\\bcargo\\b|\\bgem\\b|composer|\\bnuget\\b|packaging|package (builder|build|format|creation|maintenance|maintainer|publish|registry|version)|bundler|compiler cache|ccache|\\bpkgbuild\\b|\\bebuild\\b|\\brpm (spec|build)|\\.deb\\b|debian packag|\\baur\\b|flatpak|snapcraft|appimage|release"
+      },
+      {
+        "subcategory": "Documentation & Localization",
+        "keys": ["Translation", "Documentation"],
+        "pattern": "documentation|\\bdocs?\\b|doc(s)? generator|doxygen|sphinx|man ?pages?|api reference|translation (editor|tool|management|platform|files?)|translat(e|ing) (apps|software|strings|ui|po files)|locali[sz]|i18n|gettext|\\bpo\\b files|changelog|readme"
+      }
+    ]
+  },
+  "System Tools": {
+    "type": "app",
+    "subcategories": [
+      {
+        "subcategory": "Terminals & Shells",
+        "keys": ["TerminalEmulator", "Shell"],
+        "sections": [
+          "ebuild-gentoo:x11-terms",
+          "ebuild-gentoo:app-shells",
+          "eopkg-solus:system.shell"
+        ],
+        "pattern": "terminal emulator|terminal multiplexer|\\btmux\\b|screen multiplexer|\\b(zsh|bash|fish|nushell|xonsh|elvish|tcsh|ksh|mksh|ion) (shell|plugin|prompt|theme|completion|framework|history)|\\b(unix|posix|command|interactive|login|command-line|programmable) shell\\b|\\bshell (prompt|plugin|framework|theme|history|completion|interpreter|language)s?\\b|\\bprompt (theme|generator|engine)|console emulator|xterm|\\bvte\\b|^(zsh|fish|nushell|xonsh|bash|dash|tcsh|ksh|elvish)\\b"
+      },
+      {
+        "subcategory": "Monitoring & System Info",
+        "keys": ["Monitor"],
+        "sections": [
+          "rpm-opensuse:System/Monitoring",
+          "ebuild-gentoo:app-metrics",
+          "ebuild-gentoo:sys-process"
+        ],
+        "pattern": "process(es)? (viewer|(?<!wireless sniffer and )monitor|explorer)|(?<!wireless sniffer and )monitor|system info|hardware info|sensor|\\bfetch\\b|neofetch|fastfetch|log (viewer|analy)|\\blogs?\\b|process (viewer|manager|explorer)|task manager|\\btop\\b|htop|btop|resource usage|cpu usage|memory usage|uptime|metrics|prometheus|grafana|zabbix|nagios|icinga|exporter|telemetry|alerting|statistics"
+      },
+      {
+        "subcategory": "Disks, Storage & Backup",
+        "keys": ["Filesystem"],
+        "sections": [
+          "ebuild-gentoo:sys-fs",
+          "ebuild-gentoo:sys-block",
+          "ebuild-gentoo:app-backup",
+          "deb-*:otherosfs",
+          "rpm-opensuse:System/Filesystems"
+        ],
+        "pattern": "system restore|restore point|\\bdisk|partition|file ?system|\\bfuse\\b|btrfs|\\bzfs\\b|\\blvm\\b|\\braid\\b|\\bext[234]\\b|\\bxfs\\b|\\bntfs\\b|exfat|backup|snapshot|\\bmount|usb (writer|creator|stick)|iso (writer|image)|bootable usb|\\bnas\\b|storage|\\bssd\\b|\\bnvme\\b|smart(ctl)?\\b|\\bdedup|data recovery|undelete|\\bdd\\b|imaging|clone|\\bswap\\b|ramdisk|encrypted volume|luks"
+      },
+      {
+        "subcategory": "Package Management",
+        "keys": ["PackageManager", "LauncherStore"],
+        "sections": ["ebuild-gentoo:app-portage", "rpm-opensuse:System/Packages"],
+        "pattern": "^(?!.*\\bfirmware\\b).*(package (manager|management|helper|installer|search|cache|updater)|\\baur helper|\\baur\\b|pacman|\\bapt\\b|dnf|zypper|portage|\\bxbps|\\bnix\\b|flatpak|snap (store|package)s?|appimage|mirror|repositor|software (center|store|update)|(system|software|package) updat(e|er|es|ing)|update (manager|notifier|checker)|install(er|ing) (apps|software|packages))"
+      },
+      {
+        "subcategory": "Virtualization & Containers",
+        "sections": [
+          "ebuild-gentoo:app-emulation",
+          "rpm-opensuse:System/Emulators/PC",
+          "eopkg-solus:virt"
+        ],
+        "pattern": "virtual machine|\\bvm\\b|\\bvms\\b|qemu|\\bkvm\\b|virtualbox|vmware|libvirt|hypervisor|xen\\b|\\bwine\\b|proton|sandbox|(system|linux|lxc|oci|docker) containers?|container (manager|runtime|engine|image)s?|docker|podman|lxc|lxd|incus|distrobox|toolbox|chroot|firecracker|emulat(or|ion) of (pc|x86)|\\bwsl\\b|waydroid|anbox"
+      },
+      {
+        "subcategory": "Printers & Scanners",
+        "sections": ["ebuild-gentoo:net-print", "rpm-opensuse:Hardware/Printing"],
+        "pattern": "(?<!pretty )printer|(?<!pretty[- ])printing|\\bcups\\b|\\bppd\\b|ghostscript|(document|image|flatbed|network) scanners?|scanner drivers?|scan(ning)? (driver|software|access)|scanner access|\\bsane\\b|\\\\bbrother\\\\b|epson|\\\\bcanon\\\\b|lexmark|ricoh|kyocera|\\bhp ?lip|label print|thermal print|foomatic",
+        "weakSections": ["deb-*:non-free/utils"]
+      },
+      {
+        "subcategory": "Hardware & Drivers",
+        "keys": ["HardwareSettings"],
+        "sections": [
+          "deb-*:kernel",
+          "ebuild-gentoo:sys-kernel",
+          "ebuild-gentoo:sys-power",
+          "ebuild-gentoo:sys-firmware",
+          "rpm-opensuse:Hardware*",
+          "ebuild-gentoo:app-laptop"
+        ],
+        "pattern": "driver|firmware|kernel|\\bdkms\\b|module|nvidia|\\bamd\\b|\\bgpu\\b|graphics card|radeon|intel|\\bfan\\b|\\brgb\\b|\\bled\\b|battery|power (management|profile|saving)|\\bcpu (freq|governor)|undervolt|overclock|bluetooth|\\busb\\b|\\bpci|udev|\\bacpi\\b|laptop|thinkpad|asus|lenovo|dell|razer|logitech|steelseries|corsair|mouse|keyboard|touchpad|joystick|gamepad|controller|webcam|tablet|wacom|display|monitor brightness|backlight|ddc|\\bbios\\b|uefi|hardware|device|peripheral|sound card|audio interface|\\balsa\\b|thermal"
+      },
+      {
+        "subcategory": "Services, Boot & Remote Admin",
+        "sections": [
+          "ebuild-gentoo:sys-boot",
+          "rpm-opensuse:System/Daemons",
+          "rpm-opensuse:System/Boot"
+        ],
+        "pattern": "daemon|\\bservice|systemd|\\binit\\b|openrc|runit|s6\\b|cron|scheduler|\\bboot|grub|bootloader|initramfs|dracut|\\bssh\\b|remote (admin|management|execution)|ansible|configuration management|\\buser(s)? (management|account)|sudo|\\bpam\\b|\\bldap\\b|sysadmin|administration|server|cluster|\\bjob\\b|\\bqueue\\b|syslog|journal|logrotate|\\btime ?sync|\\bntp\\b|locale|timezone|\\bmail\\b|mta\\b|\\bsnmp\\b|ipmi|\\bhpc\\b|\\bslurm\\b",
+        "weakSections": ["rpm-opensuse:System/Base", "ebuild-gentoo:app-admin", "deb-*:admin"]
+      }
+    ]
+  },
+  "Utilities": {
+    "type": "app",
+    "subcategories": [
+      {
+        "subcategory": "Editor Plugins",
+        "pattern": "^(vim|neovim|nvim|emacs|elpa|vscode|sublime|kak|micro|nano)[-_.]|[-_.]n?vim$|\\.nvim\\b|\\b(vim|neovim|emacs|vscode|sublime text|kakoune|helix) (plugin|extension|mode|package|theme|colou?r ?scheme|syntax)|(plugin|extension|mode|package|syntax|theme) for (vim|neovim|emacs|vs ?code|sublime)|\\b(major|minor) mode\\b|\\bvim script\\b|\\bfor (the )?(vim|neovim|emacs|kakoune)\\b|\\b(vim|neovim|emacs) (addons?|add-ons?|plugin manager|lisp)\\b|\\bemacs (interface|mode|package)\\b|org-mode"
+      },
+      {
+        "subcategory": "Text Editors",
+        "keys": ["TextEditor"],
+        "sections": [
+          "ebuild-gentoo:app-editors",
+          "deb-*:editors",
+          "rpm-opensuse:Productivity/Text/Editors",
+          "eopkg-solus:editor"
+        ],
+        "pattern": "^(?!.*\\b(for (vim|emacs|neovim)|plugin)\\b).*(text editor|(code|plain[- ]?text|markdown|hex|terminal|modal|console) editor|^(vim|neovim|nvim|gvim|emacs|nano|micro|kakoune|helix|vi|nvi|ed|joe|mg|jed|ne)\\b|notepad)"
+      },
+      {
+        "subcategory": "Files & Archives",
+        "keys": ["FileManager", "FileTools", "Archiving", "Compression"],
+        "sections": ["ebuild-gentoo:app-arch", "rpm-opensuse:Productivity/Archiving*"],
+        "pattern": "file manager|file browser|\\barchiv|\\bzip\\b|\\bunzip|\\btar\\b|\\b7z|7-zip|\\brar\\b|\\bunrar|compress|decompress|gzip|bzip|\\bxz\\b|zstd|\\blz4|file (search|finder|renam|organi[sz]|sync|synchroni[sz]|copy|transfer|compar|type|viewer)|duplicate (file|finder)|find (files|duplicates)|\\brenam(e|er|ing) files|\\bsync\\b|\\brsync|large files|files? (finder|renamer|organi[sz]er|browser)"
+      },
+      {
+        "subcategory": "Clipboard, Screenshots & Desktop Helpers",
+        "pattern": "clipboard|screenshot|screen ?capture|screen ?shot|colou?r ?picker|eyedropper|launcher|app(lication)? (launcher|switcher|menu)|keep[- ]awake|caffeine|inhibit|\\bmacro|autoclick|auto[- ]?clicker|automat(e|ion)|key(board)? (shortcut|binding|hotkey)|hotkey|notification|tray|\\bwidget|desktop (helper|tool|utility)|window (switch|manag|tool|position|snap)|\\bdock\\b|wallpaper|magnifier|on[- ]screen|\\bocr\\b.*screen"
+      },
+      {
+        "subcategory": "Calculators & Converters",
+        "keys": ["Calculator"],
+        "pattern": "calculator|\\bcalc\\b|unit conver|currency|conver(ter|sion) (of )?(units|unit|currenc)|\\bqr\\b|qr ?code|barcode|checksum|\\bhash(es|ing)?\\b|base64|\\bencod|\\bdecod|\\bmath\\b|arithmetic|\\bbc\\b"
+      },
+      {
+        "subcategory": "Clocks & Timers",
+        "keys": ["Clock"],
+        "pattern": "\\bclock|timer|pomodoro|\\balarm|stopwatch|countdown|time ?zone|world clock|\\bbreaks?\\b.*remind|remind(s|er)? .*\\bbreaks?\\b"
+      },
+      {
+        "subcategory": "Keyboard & Input Methods",
+        "sections": [
+          "ebuild-gentoo:app-i18n",
+          "nix-nixpkgs:ibus-engines",
+          "rpm-opensuse:System/I18n*"
+        ],
+        "pattern": "^(?!.*\\bdictionary\\b).*(input method|\\bibus\\b|fcitx|\\brime\\b|\\bime\\b|pinyin|hangul|anthy|mozc|emoji (picker|chooser|selector|keyboard)|\\bemoji\\b|keyboard (layout|remap|mapping)|key ?remap|remap|on[- ]screen keyboard|virtual keyboard|\\bkeymap)",
+        "weakSections": ["deb-*:localization"]
+      },
+      {
+        "subcategory": "Text & Documents",
+        "keys": ["TextTools", "OCR"],
+        "sections": ["rpm-opensuse:Productivity/Text/*"],
+        "pattern": "^(?!.*\\b(speech|e-?book reader|dictionary)\\b).*(markdown|\\bpdf\\b|\\bocr\\b(?!.*\\bspeech\\b)|text (processing|conversion|converter|replacement|filter|search|tool|utilit\\w*|manipulation)|plain text|spell|dictionary|ascii[- ]art|figlet|\\bpager\\b|word count|\\bregex|\\bcsv\\b|\\bjson\\b|\\byaml\\b|\\btoml\\b|\\bxml\\b|document|\\bdiff\\b|\\bgrep\\b|search (text|files)|\\bsed\\b|\\bawk\\b|unicode|charset|encoding|\\btldr\\b|\\bman\\b|cheat ?sheet)",
+        "weakSections": ["deb-*:text", "ebuild-gentoo:app-text"]
+      }
+    ]
+  },
+  "Desktop & Settings": {
+    "type": "app",
+    "subcategories": [
+      {
+        "subcategory": "Themes & Wallpapers",
+        "pattern": "theme|icon (set|pack|theme)|cursor|wallpaper|background|colou?r ?scheme|\\bgtk\\b.*(theme|style)|kvantum|\\bqss\\b|(gtk|qt|kvantum|plasma|window|application|desktop) style|styler|font|\\brice\\b|dotfiles|look and feel|appearance"
+      },
+      {
+        "subcategory": "Panels, Bars & Widgets",
+        "pattern": "\\bpanels?\\b(?! (for|of) )|status ?bar|top bar|task ?bar|waybar|polybar|\\beww\\b|\\bags\\b|\\bdock\\b|(panel|desktop|tray|gnome|mate|xfce|budgie|cinnamon|plasma|kde|lxqt|wingpanel|cosmic) applets?|plasmoids?|widgets?|desktop extension|shell extension|gnome extension|indicators?|system tray|\\btray\\b|conky|(app|application|start|launcher|program|dmenu|rofi|wofi) (menu|launcher)|notification (daemon|center|centre|popups?)|\\bosd\\b|desklets?"
+      },
+      {
+        "subcategory": "Window Managers & Desktops",
+        "sections": ["ebuild-gentoo:x11-wm", "ebuild-gentoo:gui-wm"],
+        "pattern": "window manager|\\bwm\\b|tiling|compositor|desktop environment|desktop shell|session|display manager|login manager|greeter|\\bsddm\\b|lightdm|\\bgdm\\b|lock ?screen|screen ?lock|screensaver|hyprland|sway\\b|\\bi3\\b|niri|wayfire|labwc|openbox|bspwm|lomiri|plasma|\\bkwin|gnome shell|mutter|xfwm|wayland|\\bx11\\b|portal|xdg",
+        "weakSections": ["ebuild-gentoo:kde-plasma", "eopkg-solus:desktop*"]
+      },
+      {
+        "subcategory": "Input Devices",
+        "keys": ["HardwareSettings"],
+        "pattern": "mouse|keyboard|touchpad|gesture|tablet|wacom|gamepad|controller|joystick|input (remap|device)|key ?remap|layout|\\bkeymap|razer|logitech|steelseries|corsair|\\brgb\\b|\\bled\\b"
+      },
+      {
+        "subcategory": "Display, Sound & Power",
+        "pattern": "display (settings|configuration|layout|manager tool)|monitor (setup|layout|configuration|brightness|profiles?)|multi-?monitor|screen (resolution|brightness|layout|rotation)|brightness|backlight|resolution|night ?light|gamma|redshift|colou?r temperature|\\bdpi\\b|display scaling|xrandr|kanshi|volume (control|mixer)|audio (settings|configuration|output)|sound (settings|configuration)|bluetooth (manager|settings|applet)|power (management|profiles?|settings|saving)|battery|\\bfan\\b|suspend|idle (daemon|inhibit)|wi-?fi (menu|manager|applet)|network (applet|indicator|menu)"
+      },
+      {
+        "subcategory": "System Settings",
+        "sections": ["rpm-opensuse:System/YaST"],
+        "pattern": "settings|config(uration|urator|ure)?|control (panel|center)|preferences|tweak|\\byast|settings manager|configuration manager|default app|mime|autostart|startup",
+        "weakKeys": ["Settings", "DesktopSettings"]
+      }
+    ]
+  },
+  "Networking": {
+    "type": "app",
+    "subcategories": [
+      {
+        "subcategory": "Ham Radio & SDR",
+        "keys": ["HamRadio"],
+        "sections": [
+          "deb-*:hamradio",
+          "ebuild-gentoo:media-radio",
+          "rpm-opensuse:Productivity/Hamradio*"
+        ],
+        "pattern": "ham radio|amateur radio|\\bsdr\\b|software[- ]defined radio|\\baprs\\b|morse|\\bcw\\b|\\bft8\\b|wsjt|rtl[- ]?sdr|hackrf|transceiver|antenna|\\bradio\\b|\\bham\\b|meshtastic|lora"
+      },
+      {
+        "subcategory": "Remote Access",
+        "keys": ["RemoteAccess"],
+        "pattern": "remote desktop|\\bvnc\\b|\\brdp\\b|\\bssh\\b|\\bsftp\\b|mosh|telnet|remote (access|control|shell|session|connection)|teamviewer|anydesk|rustdesk|spice|x2go|nomachine|serial (console|terminal)|minicom|\\bconsole\\b"
+      },
+      {
+        "subcategory": "Network Analysis",
+        "sections": [
+          "ebuild-gentoo:net-analyzer",
+          "rpm-opensuse:Productivity/Networking/Diagnostic"
+        ],
+        "pattern": "(?<!packet-switched )(?<!gprs )packet|ip (info|location|lookup|address info)|geo-?ip|whois|sniff|wireshark|pcap|network (scanner|monitor|analy|diagnos|discovery|traffic|test|map)|\\bping\\b|traceroute|\\bmtr\\b|bandwidth|speed ?test|throughput|latency|port scan|\\bnmap\\b|iperf|netstat|\\bdig\\b|whois|\\bdns (lookup|query|tool)|\\bnetflow|\\bsnmp\\b|monitor(ing)?"
+      },
+      {
+        "subcategory": "Servers & Proxies",
+        "sections": [
+          "ebuild-gentoo:www-servers",
+          "ebuild-gentoo:net-proxy",
+          "ebuild-gentoo:net-dns",
+          "rpm-opensuse:Productivity/Networking/Web/Servers",
+          "rpm-opensuse:Productivity/Networking/DNS/*",
+          "rpm-opensuse:Productivity/Networking/Web/Proxy",
+          "nix-nixpkgs:nginxModules"
+        ],
+        "pattern": "web server|http server|\\bserver\\b|proxy|reverse proxy|\\bdns\\b|\\bdhcp\\b|load balanc|nginx|apache|caddy|haproxy|traefik|squid|\\bmqtt\\b|broker|\\bsmb\\b|samba|\\bnfs\\b|webdav|self[- ]host|tunnel|ngrok|cloudflared|\\bvpn\\b|wireguard|openvpn|zerotier|tailscale|tor\\b|\\bi2p\\b|socks"
+      },
+      {
+        "subcategory": "Network Configuration",
+        "sections": [
+          "ebuild-gentoo:net-wireless",
+          "ebuild-gentoo:net-dialup",
+          "ebuild-gentoo:net-firewall",
+          "rpm-opensuse:Productivity/Networking/System"
+        ],
+        "pattern": "network ?manager|connman|\\bwifi\\b|wi-fi|wireless|\\bwlan|\\biwd\\b|wpa_supplicant|ethernet|routing (daemon|table|protocol)|\\brouters?\\b|firewall|iptables|nftables|network bridge|\\bvlan|network interfaces?|dial[- ]?up|\\bmodems?\\b|\\bppp\\b|mobile broadband|hotspot|network (config\\w*|setup|settings)|dhcp client"
+      },
+      {
+        "subcategory": "Web & Download Tools",
+        "sections": ["ebuild-gentoo:www-client"],
+        "pattern": "\\bhttp (client|server|tool|request)s?|\\bcurl\\b|\\bwget\\b|\\burls?\\b|web (scrap\\w*|crawl\\w*|archiv\\w*|download\\w*|page|site)s?|scrap(e|er|ing)\\b|crawler|download|bookmarks?|webhooks?|website (copier|mirror|checker)|link checker",
+        "weakSections": ["deb-*:web"]
+      }
+    ]
+  },
+  "Security": {
+    "type": "app",
+    "subcategories": [
+      {
+        "subcategory": "Passwords & Authentication",
+        "sections": ["ebuild-gentoo:sys-auth"],
+        "pattern": "password|passphrase|keepass|\\bpass\\b|bitwarden|vaultwarden|1password|lastpass|\\b2fa\\b|\\bmfa\\b|\\botp\\b|totp|authenticat|secret(s)? (manager|store|service)|keyring|\\byubikey|fido|webauthn|passkey|\\bsso\\b|\\bpam\\b|login|credential|vault"
+      },
+      {
+        "subcategory": "Encryption & Signing",
+        "sections": ["ebuild-gentoo:app-crypt", "eopkg-solus:security.crypto"],
+        "pattern": "encrypt|decrypt|\\bgpg\\b|\\bpgp\\b|gnupg|openpgp|\\bage\\b|\\bcrypt|cipher|sign(ing|ature|s)?\\b|certificate|\\btls\\b|\\bssl\\b|\\bx\\.?509|\\bpki\\b|\\bkeys?\\b|\\bhash|checksum|steganograph|secure (delete|erase|wipe)|shred|veracrypt|luks|cryptsetup|minisign|sops"
+      },
+      {
+        "subcategory": "VPN & Privacy",
+        "sections": ["ebuild-gentoo:net-vpn"],
+        "pattern": "\\bvpn\\b|wireguard|openvpn|\\btor\\b|\\bi2p\\b|anonym|privacy|private|tracker block|ad[- ]?block|\\bproxy\\b|mihomo|clash|v2ray|xray|shadowsocks|sing-box|censorship|obfusc"
+      },
+      {
+        "subcategory": "Firewall & Antivirus",
+        "sections": ["ebuild-gentoo:net-firewall", "ebuild-gentoo:app-antivirus"],
+        "pattern": "firewall|iptables|nftables|\\bufw\\b|antivirus|anti-virus|malware|virus|rootkit|clamav|intrusion|\\bids\\b|\\bips\\b|fail2ban|hardening|harden|\\baudit|apparmor|selinux|sandbox|firejail|bubblewrap|integrity|\\bsiem\\b|threat|vulnerability scan|security scan|cve\\b|compliance"
+      },
+      {
+        "subcategory": "Penetration Testing & Forensics",
+        "sections": ["ebuild-gentoo:app-forensics", "ebuild-gentoo:net-analyzer"],
+        "pattern": "pentest|penetration|exploit|vulnerab|\\bscanner\\b|\\bscan\\b|fuzz|brute|crack|recon|subdomain|osint|forensic|reverse[- ]engineer|\\bctf\\b|wordlist|payload|red team|hacking|hacker|attack|phishing|sniff|spoof|wifi (audit|crack)|deauth|metasploit|burp|injection|\\bxss\\b|\\bsqli|enumerat|bug bounty|c2\\b|command and control|binary analysis|disassembl|decompil|radare|ghidra"
+      }
+    ]
+  },
+  "Science": {
+    "type": "app",
+    "subcategories": [
+      {
+        "subcategory": "Astronomy",
+        "keys": ["Astronomy"],
+        "sections": ["ebuild-gentoo:sci-astronomy", "nix-nixpkgs:indi-3rdparty"],
+        "pattern": "astronom|astrophotograph|telescope|planetarium|\\bstars?\\b|\\bsky\\b|celestial|satellite|\\bindi\\b|ephemer|astro|cosmolog|galax|solar system"
+      },
+      {
+        "subcategory": "Biology & Medicine",
+        "keys": ["Biology", "MedicalSoftware"],
+        "sections": ["ebuild-gentoo:sci-biology", "deb-*:med"],
+        "pattern": "bioinformat|biolog|genom|\\bdna\\b|\\brna\\b|protein|sequenc|phylogen|molecul(ar)? biolog|medical|medicine|dicom|neuro|\\bbrain|\\beeg\\b|\\bmri\\b|clinical|health|patient|anatom|ecolog|species|microscop|cell\\b|gene\\b|\\bngs\\b|\\bfastq|\\bbam\\b|\\bvcf\\b"
+      },
+      {
+        "subcategory": "Chemistry",
+        "keys": ["Chemistry"],
+        "sections": [
+          "ebuild-gentoo:sci-chemistry",
+          "rpm-opensuse:Productivity/Scientific/Chemistry"
+        ],
+        "pattern": "chemi|molecul|\\batom|quantum chem|crystal|periodic table|\\bdft\\b|molecular dynamics|spectroscop|reaction"
+      },
+      {
+        "subcategory": "Physics",
+        "keys": ["Physics"],
+        "sections": ["ebuild-gentoo:sci-physics", "rpm-opensuse:Productivity/Scientific/Physics"],
+        "pattern": "physic|particle|quantum|optic|\\blaser|plasma physics|nuclear|\\bhep\\b|\\bcern\\b|\\broot\\b|relativ|mechanics|fluid dynamics|\\bcfd\\b|monte carlo"
+      },
+      {
+        "subcategory": "Earth, Maps & GIS",
+        "keys": ["Geoscience", "Geography", "Maps", "Geology", "Meteorology"],
+        "sections": ["ebuild-gentoo:sci-geosciences"],
+        "pattern": "\\bgis\\b|geospatial|geograph|\\bmaps?\\b|mapping|geolog|seismic|earthquake|climate|meteorolog|weather|ocean|hydrolog|\\bgps\\b|\\bgnss\\b|cartograph|openstreetmap|\\bosm\\b|\\blidar\\b|remote sensing|terrain|elevation"
+      },
+      {
+        "subcategory": "Electronics & Engineering",
+        "keys": ["Electronics", "Engineering", "Robotics", "Construction"],
+        "sections": [
+          "ebuild-gentoo:sci-electronics",
+          "rpm-opensuse:Productivity/Scientific/Electronics"
+        ],
+        "pattern": "electronic|circuit|\\bpcb\\b|spice|\\beda\\b|schematic|\\bcad\\b|\\bcam\\b|\\bcnc\\b|3d print|slicer|gcode|g-code|finite element|\\bfem\\b|\\bfea\\b|engineering|robot|\\bros\\b|control system|signal processing|\\bdsp\\b|oscilloscope|logic analy|programmer|flash(ing|er)?\\b|\\bavr\\b|microcontroller|\\bfpga\\b|verilog|vhdl|\\bmesh\\b|structural",
+        "weakSections": ["deb-*:electronics"]
+      },
+      {
+        "subcategory": "Mathematics & Statistics",
+        "keys": ["Math", "NumericalAnalysis", "ComputerScience"],
+        "sections": [
+          "deb-*:math",
+          "ebuild-gentoo:sci-mathematics",
+          "rpm-opensuse:Productivity/Scientific/Math",
+          "nix-nixpkgs:coqPackages",
+          "nix-nixpkgs:rocqPackages",
+          "nix-nixpkgs:octavePackages"
+        ],
+        "pattern": "math|algebra|calculus|geometr|theorem|proof|\\bsat\\b|\\bsmt\\b|solver|statistic|numeric|equation|matrix|linear|optimi[sz]|\\bcas\\b|symbolic|octave|matlab|\\br\\b|probability|graph theory|logic|formal (verification|method)|\\bcoq\\b|\\brocq\\b|lean\\b|isabelle|agda|\\bfortran|\\bblas\\b|\\blapack\\b"
+      },
+      {
+        "subcategory": "Data Analysis & Visualization",
+        "keys": ["DataVisualization", "ArtificialIntelligence", "Chart"],
+        "sections": ["ebuild-gentoo:sci-visualization"],
+        "pattern": "plot|visuali|chart|graph(s|ing)?\\b|data (analysis|science|processing|acquisition)|machine learning|neural|deep learning|jupyter|notebook|dataset|\\bhdf5\\b|netcdf|\\bfits\\b|scientific (computing|data|workflow)|simulation|model(l)?ing"
+      }
+    ]
+  },
+  "Music & Audio": {
+    "type": "app",
+    "subcategories": [
+      {
+        "subcategory": "Speech",
+        "pattern": "speech|text[- ]to[- ]speech|\\btts\\b|voice|espeak|festival|whisper|transcri|dictation|speech recognition|speech synth\\w*|synthetic voice|reads? aloud|festival"
+      },
+      {
+        "subcategory": "Audio Plugins & Synths",
+        "sections": ["nix-nixpkgs:magnetophonDSP", "nix-nixpkgs:open-music-kontrollers"],
+        "pattern": "\\blv2\\b|\\bvst3?\\b|\\bladspa\\b|\\bclap\\b|plugin|(?<!speech )\\bsynth(?!etic)|sampler|drum machine|instrument|soundfont|\\bsfz\\b|effect|reverb|delay|compressor|distortion|amp sim|faust"
+      },
+      {
+        "subcategory": "Players & Streaming",
+        "keys": ["Player"],
+        "sections": [
+          "rpm-opensuse:Productivity/Multimedia/Sound/Players",
+          "nix-nixpkgs:mopidyPackages"
+        ],
+        "pattern": "player|\\bmpd\\b|mpris|playlist|music (library|client|streaming)|radio|podcast|spotify|soundcloud|tidal|deezer|bandcamp|youtube music|subsonic|navidrome|jellyfin|plex|streaming|scrobbl|last\\.fm|audiobook|internet radio|\\bplay(s|ing)?\\b (music|audio)|jukebox|visuali[sz]er|cava"
+      },
+      {
+        "subcategory": "Recording & Production",
+        "keys": ["AudioVideoEditing", "Sequencer", "Recorder", "Midi"],
+        "sections": [
+          "rpm-opensuse:Productivity/Multimedia/Sound/Editors and Convertors",
+          "rpm-opensuse:Productivity/Multimedia/Sound/Midi"
+        ],
+        "pattern": "\\bdaw\\b|digital audio workstation|audio editor|sound editor|wave(form)? editor|tracker|sequencer|\\bmidi\\b|record(er|ing)|multitrack|loop|beat|production|mastering|\\bjack\\b|\\bdj\\b|mixing|music (production|creation|making|composition)|\\blive coding"
+      },
+      {
+        "subcategory": "Notation & Learning",
+        "pattern": "notation|sheet music|score|tablature|\\btabs?\\b|guitar|piano|tuner|metronome|chord|ear training|music theory|practice|lyrics|karaoke"
+      },
+      {
+        "subcategory": "Sound System & Mixers",
+        "keys": ["Mixer"],
+        "sections": ["rpm-opensuse:System/Sound Daemons"],
+        "pattern": "volume|mixer|pulseaudio|pipewire|\\bjack\\b|\\balsa\\b|equali[sz]er|sound server|bluetooth (audio|headphone)|audio (device|routing|server|output|input|control|system|effects)|noise (suppression|cancel)|soundcard|headphone|speaker|microphone"
+      },
+      {
+        "subcategory": "Tags, Rippers & Converters",
+        "keys": ["DiscBurning"],
+        "sections": ["rpm-opensuse:Productivity/Multimedia/CD*"],
+        "pattern": "\\btag(s|ger|ging)?\\b|metadata|id3|\\bcd\\b|ripp|grabber|burn|convert|encod|decod|transcod|\\bmp3\\b|\\bflac\\b|\\bogg\\b|\\bopus\\b|\\baac\\b|\\bwav\\b|codec|lame|loudness|replaygain|normali[sz]"
+      }
+    ]
+  },
+  "Photo & Video": {
+    "type": "app",
+    "subcategories": [
+      {
+        "subcategory": "Converters & Downloaders",
+        "sections": ["ebuild-gentoo:media-video"],
+        "pattern": "convert|transcod|encod|\\bffmpeg\\b|codec|compress|downloader|download|yt-dlp|youtube-dl|\\bdvd\\b|\\bblu-?ray|\\bmkv\\b|\\bmp4\\b|remux|\\bav1\\b|hevc|x26[45]|\\bgif\\b"
+      },
+      {
+        "subcategory": "Video Players & Media Centers",
+        "keys": ["TV"],
+        "pattern": "video player|media player|\\bplayer\\b|\\bmpv\\b|\\bvlc\\b|media (center|centre|server|library)|kodi|jellyfin|plex|emby|iptv|\\btv\\b|television|\\bdvb\\b|stream(ing)? (client|video)|twitch|subtitle download"
+      },
+      {
+        "subcategory": "Video Editing",
+        "pattern": "^(?!.*\\b(image viewer|screenshot)\\b).*(video edit\\w*|(video|movie|film) (editor|cutter|trimmer|splitter|joiner)|non-linear|\\bnle\\b|subtitles? edit\\w*|motion graphics?|compositing|\\bvfx\\b|colou?r grading|slideshow)"
+      },
+      {
+        "subcategory": "Recording & Streaming",
+        "keys": ["Recorder"],
+        "pattern": "^(?!.*\\b(build service|source service)\\b).*(screen ?record|screencast|record(er|ing)|capture|\\bobs\\b(?![- ]service)|webcam|camera|stream(ing|er)?\\b|broadcast|v4l|virtual camera|gif recorder)"
+      },
+      {
+        "subcategory": "Photo Viewers & Editors",
+        "pattern": "image viewer|photo (viewer|manager|organi[sz]er|gallery|library|management)|\\bviewer\\b|gallery|organi[sz]|slideshow|\\bexif\\b|metadata|digikam|shotwell|geeqie|duplicate (photo|image)|\\braw\\b|photo (edit|retouch|process)|darktable|rawtherapee|\\bhdr\\b|panorama|denoise|retouch|lightroom|develop(ing|er)? (raw|photo)|\\bfilter|tether",
+        "weakKeys": ["Viewer"]
+      }
+    ]
+  },
+  "Graphics & Design": {
+    "type": "app",
+    "subcategories": [
+      {
+        "subcategory": "3D Modeling & Rendering",
+        "keys": ["3DGraphics"],
+        "pattern": "\\b3d\\b|blender|model(l)?ing|render(er|ing)?|ray ?trac|\\bmesh|sculpt|voxel|\\bcad\\b|freecad|openscad|\\bstl\\b|\\bobj\\b|gltf|animation"
+      },
+      {
+        "subcategory": "Drawing & Painting",
+        "pattern": "paint|drawing|draw\\b|sketch|pixel ?art|illustrat|digital art|brush|canvas|krita|\\bgimp\\b|mypaint|whiteboard|comic (creator|maker|drawing|editor)|animation|sprite",
+        "weakKeys": ["RasterGraphics"]
+      },
+      {
+        "subcategory": "Vector, Diagrams & Layout",
+        "keys": ["VectorGraphics", "Publishing"],
+        "pattern": "vector|\\bsvg\\b|inkscape|diagram|flowchart|\\buml\\b|mind ?map|graphviz|desktop publishing|layout|scribus|poster|flyer|label|\\bdesign tool|ui design|wireframe|mockup|prototype|presentation"
+      },
+      {
+        "subcategory": "Image Viewers & Tools",
+        "pattern": "image|picture|photo|viewer|resize|crop|compress|optimi[sz]|imagemagick|\\bpng\\b|\\bjpe?g\\b|\\bwebp\\b|\\bavif\\b|\\bheic\\b|\\bgif\\b|icon (editor|maker|generator|creator)s?|thumbnail|screenshot|wallpaper|background remov|upscal",
+        "weakKeys": ["Viewer", "2DGraphics"]
+      },
+      {
+        "subcategory": "Colors & Fonts",
+        "pattern": "colou?r|palette|swatch|\\bfont|typeface|glyph|typograph"
+      }
+    ]
+  },
+  "Productivity": {
+    "type": "app",
+    "subcategories": [
+      {
+        "subcategory": "Office & Writing",
+        "keys": ["WordProcessor", "Spreadsheet", "Presentation", "Publishing"],
+        "sections": [
+          "deb-*:tex",
+          "ebuild-gentoo:dev-tex",
+          "ebuild-gentoo:app-office",
+          "rpm-opensuse:Productivity/Publishing*",
+          "eopkg-solus:office"
+        ],
+        "pattern": "office suite|word processor|spreadsheet|presentation|slides|libreoffice|onlyoffice|\\blatex\\b|\\btex\\b|typst|bibtex|bibliograph|citation|zotero|writing|writer|novel|screenplay|manuscript|document (editor|processor)|\\bdocx?\\b|\\bodt\\b|\\bxlsx?\\b|typeset"
+      },
+      {
+        "subcategory": "Notes & Knowledge",
+        "sections": ["eopkg-solus:office.notes"],
+        "pattern": "\\bnotes?\\b|note[- ]taking|notebook|wiki|knowledge|journal|diary|outliner|zettel|obsidian|logseq|joplin|\\bmemo|second brain|bookmarks?|snippets?|clipping|read later|\\bmarkdown\\b|personal information|mind ?map|diagram|flowchart|whiteboard|brainstorm|concept map|\\buml\\b"
+      },
+      {
+        "subcategory": "Tasks & Projects",
+        "keys": ["ProjectManagement"],
+        "pattern": "to-?do|\\btasks?\\b|project management|kanban|\\bgtd\\b|getting things done|time ?track|habit|planner|productivity timer|pomodoro|issue track|scrum|agile|gantt|checklist|\\bgoals?\\b|focus"
+      },
+      {
+        "subcategory": "Calendar & Contacts",
+        "keys": ["Calendar", "ContactManagement"],
+        "sections": ["rpm-opensuse:Productivity/Office/Organizers"],
+        "pattern": "calendar|contacts?\\b|address book|schedul|caldav|carddav|agenda|appointment|groupware|\\bpim\\b"
+      },
+      {
+        "subcategory": "PDF & Documents",
+        "keys": ["OCR", "Scanning"],
+        "pattern": "\\bpdfs?\\b|\\bocr\\b|document (viewer|reader|manag\\w*|scanner|scanning|conver\\w*)|\\bdjvu\\b|\\bepub\\b|e-?book reader|\\bpostscript\\b|\\bfax\\b|digital signatures?|sign (pdfs?|documents?)|\\bforms? (filler|editor)|scan (documents?|paper)",
+        "weakKeys": ["Viewer"],
+        "weakSections": ["ebuild-gentoo:app-text", "deb-*:text"]
+      }
+    ]
+  },
+  "Finance": {
+    "type": "app",
+    "subcategories": [
+      {
+        "subcategory": "Cryptocurrency",
+        "pattern": "crypto|bitcoin|\\bbtc\\b|ethereum|\\beth\\b|wallet|blockchain|monero|litecoin|dogecoin|solana|cardano|lightning|\\bdefi\\b|\\bnft\\b|mining|miner|\\bnode\\b|ledger (live|nano)|trezor|electrum|token|web3|staking|validator"
+      },
+      {
+        "subcategory": "Trading & Markets",
+        "pattern": "mobius|stock(?! management)|trading|trader|market|portfolio|exchange|forex|invest|ticker|broker|options|\\bquotes?\\b|price"
+      },
+      {
+        "subcategory": "Accounting & Budgeting",
+        "pattern": "accounting|budget|expense|financ|money|invoice|ledger|bookkeep|\\btax|bank|payroll|spending|\\bbills?\\b|personal finance|gnucash|homebank|kmymoney|beancount|hledger|\\bcurrency"
+      }
+    ]
+  },
+  "Messaging & Calls": {
+    "type": "app",
+    "subcategories": [
+      {
+        "subcategory": "IRC",
+        "keys": ["IRCClient"],
+        "sections": ["ebuild-gentoo:net-irc"],
+        "pattern": "\\birc\\b|weechat|hexchat|irssi|\\bznc\\b|bouncer"
+      },
+      {
+        "subcategory": "Matrix & XMPP",
+        "pattern": "matrix|\\bxmpp\\b|jabber|element\\b|fractal|nheko|gajim|dino\\b|prosody|ejabberd|conversations"
+      },
+      {
+        "subcategory": "Calls & Video Meetings",
+        "keys": ["Telephony", "VideoConference"],
+        "pattern": "\\bvoip\\b|\\bsip\\b|call|phone|telephon|video (call|chat|conferenc|meeting)|conferenc|meeting|zoom|jitsi|webex|mumble|teamspeak|\\bvoice\\b|intercom|walkie|softphone|linphone|baresip|asterisk|freeswitch|webrtc"
+      },
+      {
+        "subcategory": "Team Chat",
+        "pattern": "slack|mattermost|microsoft teams|\\bteams\\b|rocket\\.?chat|zulip|\\bteam (chat|messag|collaboration)|workplace|ferdium|franz|rambox|all[- ]in[- ]one messag"
+      },
+      {
+        "subcategory": "Messengers",
+        "sections": ["ebuild-gentoo:net-im"],
+        "pattern": "messeng|\\bchat\\b|telegram|signal|whatsapp|discord|wechat|\\bqq\\b|line\\b|viber|threema|session\\b|simplex|briar|tox\\b|instant messag|\\bim\\b|\\bsms\\b|text messag|kik|skype",
+        "weakKeys": ["InstantMessaging", "Chat"]
+      }
+    ]
+  },
+  "Email": {
+    "type": "app",
+    "subcategories": [
+      {
+        "subcategory": "Mail Servers & Tools",
+        "sections": [
+          "ebuild-gentoo:mail-mta",
+          "ebuild-gentoo:mail-filter",
+          "ebuild-gentoo:net-mail",
+          "deb-*:mail"
+        ],
+        "pattern": "\\bserver\\b|\\bmta\\b|\\bsmtp\\b|\\bimap\\b|\\bpop3?\\b|postfix|dovecot|sendmail|exim|\\bspam|filter|\\bdkim|\\bspf\\b|dmarc|relay|mailing list|newsletter|\\bsync|fetchmail|mbsync|offlineimap|backup|\\bmaildir|\\bmbox|notmuch|\\bindex"
+      },
+      {
+        "subcategory": "Email Clients",
+        "keys": ["Email"],
+        "pattern": "(e-?mail|mail) (client|reader|app|program|user agent)|\\bmua\\b|thunderbird|evolution|geary|mutt|neomutt|aerc|kmail|claws|betterbird|mailspring|webmail|inbox"
+      }
+    ]
+  },
+  "File Sharing & Downloads": {
+    "type": "app",
+    "subcategories": [
+      {
+        "subcategory": "Torrents & P2P",
+        "keys": ["P2P"],
+        "sections": ["ebuild-gentoo:net-p2p"],
+        "pattern": "torrent|bittorrent|\\bp2p\\b|peer[- ]to[- ]peer|magnet|\\bed2k\\b|emule|soulseek|nicotine|\\bipfs\\b|gnutella|\\bdc\\+\\+|direct connect|seed(ing|box)"
+      },
+      {
+        "subcategory": "Cloud Storage & Sync",
+        "pattern": "cloud|sync|nextcloud|owncloud|dropbox|google drive|onedrive|\\bmega\\b|pcloud|syncthing|rclone|seafile|\\bs3\\b|\\bwebdav\\b|backup|storage"
+      },
+      {
+        "subcategory": "File Transfer",
+        "keys": ["FileTransfer"],
+        "sections": ["ebuild-gentoo:net-ftp"],
+        "pattern": "\\bftp\\b|\\bsftp\\b|\\bscp\\b|file transfer|send files|share files|file sharing|localsend|warpinator|airdrop|croc\\b|magic[- ]wormhole|lan|nearby|kde ?connect|gsconnect|bluetooth|\\bsmb\\b|samba|\\bnfs\\b"
+      },
+      {
+        "subcategory": "Download Managers",
+        "pattern": "download|downloader|\\bwget\\b|\\bcurl\\b|aria2|\\byt-dlp\\b|youtube-dl|video download|\\busenet\\b|\\bnzb\\b|sabnzbd|grabber|\\bhttp\\b|accelerat"
+      }
+    ]
+  },
+  "Gaming Tools": {
+    "type": "app",
+    "subcategories": [
+      {
+        "subcategory": "Emulators",
+        "keys": ["Emulator"],
+        "sections": ["ebuild-gentoo:games-emulation", "rpm-opensuse:System/Emulators/Other"],
+        "pattern": "emulat|\\bnes\\b|\\bsnes\\b|game ?boy|\\bgba\\b|\\bnds\\b|\\b3ds\\b|n64|gamecube|\\bwii\\b|\\bswitch\\b|playstation|\\bps[1-5p]\\b|\\bpsx\\b|\\bpsp\\b|vita|sega|genesis|mega ?drive|dreamcast|saturn|\\batari|amiga|commodore|\\bc64\\b|\\bmsx\\b|zx spectrum|amstrad|\\bmame\\b|arcade machine|retroarch|libretro|libretro core|emulator core|dosbox|scummvm|xbox|neo ?geo|pc ?engine|turbografx|colecovision|intellivision|vectrex|\\bcps[123]\\b"
+      },
+      {
+        "subcategory": "Launchers & Stores",
+        "keys": ["LauncherStore", "PackageManager"],
+        "pattern": "launcher|\\bstore\\b|steam\\b|lutris|heroic|\\bgog\\b|\\bepic\\b|itch\\.io|\\bitch\\b|bottles|minecraft|game library|play .* on linux|client for"
+      },
+      {
+        "subcategory": "Wine, Proton & Compatibility",
+        "pattern": "\\bwine\\b|\\bproton\\b(?![- ]?(vpn|mail|meet|drive|pass|calendar|wallet|authenticator))|\\bdxvk\\b|vkd3d|luxtorpeda|\\bge-proton|winetricks|protontricks|steam ?tinker|wine prefix"
+      },
+      {
+        "subcategory": "Mods, Overlays & Game Utilities",
+        "sections": ["ebuild-gentoo:games-util"],
+        "pattern": "overlay|mangohud|gamemode|fps (counter|limit)|performance|benchmark|vkbasalt|reshade|controller|gamepad|joystick|\\bjoy|steering wheel|input|mapping|antimicro|vibration|\\bhid\\b|streaming|moonlight|sunshine|parsec|remote play|record|\\bmods?\\b|modding|mod (manager|loader|tool)|save (editor|game|manager)|savegame|cheat|trainer|map (editor|viewer)|level editor|patch|unpack|extract|asset|\\bwad\\b|source port|server|companion|tracker|calculator|planner|wiki|helper|tool"
+      }
+    ]
+  },
+  "AI": {
+    "type": "app",
+    "subcategories": [
+      {
+        "subcategory": "Image & Media Generation",
+        "pattern": "image gen|stable diffusion|diffusion|comfy|text[- ]to[- ](image|video|speech|music)|\\bimage\\b|\\bvideo\\b|\\bart\\b|upscal|\\bvoice\\b|\\bspeech\\b|\\bmusic\\b|\\baudio\\b|\\btts\\b|whisper"
+      },
+      {
+        "subcategory": "Local Models & Servers",
+        "pattern": "local (llm|model|ai|inference)|inference|llama|ollama|\\bgguf\\b|run (llm|model)|model (runner|server|manager)|\\bserver\\b|\\bsnap\\b|openvino|\\bonnx|\\bcuda\\b|\\brocm\\b|vllm|\\bmlc\\b|lm studio|localai|self[- ]host|offline"
+      },
+      {
+        "subcategory": "Assistants & Chat Clients",
+        "pattern": "assistant|chat|chatbot|\\bchatgpt|\\bclaude\\b|gemini|deepseek|copilot|\\bgpt\\b|\\bllm\\b|\\bai\\b|agent|client|front ?end|\\bui\\b"
+      }
+    ]
+  },
+  "Books & Reference": {
+    "type": "app",
+    "subcategories": [
+      {
+        "subcategory": "Religion & Spirituality",
+        "keys": ["Spirituality"],
+        "pattern": "bible|scripture|quran|qur'an|koran|torah|religio|church|prayer|christian|islam|catholic|buddh|hindu|spiritual|sermon|hymn|devotional|tarot|astrolog"
+      },
+      {
+        "subcategory": "E-book & Comic Readers",
+        "pattern": "e-?book|\\bepub\\b|\\bmobi\\b|\\bfb2\\b|\\bcbz\\b|\\bcbr\\b|comic|manga|reader|reading|book library|calibre|kindle|kobo|audiobook|novel|book"
+      },
+      {
+        "subcategory": "Dictionaries & Translation",
+        "keys": ["Dictionary", "Translation"],
+        "pattern": "(?<!radius )dictionar(y|ies)|thesaurus|glossary|\\bdict\\b|wordnet|stardict|goldendict|word lookup|look ?up words|translat(e|es|ion|or|ing)\\b(?! files)(?!.*\\b(header|module|code|source))|language translation|machine translation",
+        "weakSections": ["deb-*:localization"]
+      },
+      {
+        "subcategory": "Documentation & Manuals",
+        "keys": ["Documentation"],
+        "sections": ["deb-*:doc", "rpm-opensuse:Documentation*"],
+        "pattern": "documentation|\\bdocs?\\b|manual|man ?pages?|\\bhandbook|\\bguide\\b|cheat ?sheet|\\btldr\\b|tutorial|reference|offline (docs|documentation)|\\bdevdocs|zeal|dash|\\bwiki|encyclopedia|wikipedia|kiwix"
+      }
+    ]
+  },
+  "Shooter": {
+    "type": "game",
+    "subcategories": [
+      {
+        "subcategory": "First-Person Shooters",
+        "sections": ["ebuild-gentoo:games-fps", "rpm-opensuse:Amusements/Games/3D/Shoot"],
+        "pattern": "first[- ]person|\\bfps\\b|doom|quake|wolfenstein|heretic|hexen|duke nukem|serious sam|unreal|counter[- ]strike|half[- ]life|arena shooter|\\bbuild engine|\\bgzdoom|zandronum|\\bboom\\b|ioquake|xonotic|openarena|red eclipse|tremulous|warsow|urban terror|\\bcube\\b|sauerbraten|assaultcube"
+      },
+      {
+        "subcategory": "Shoot 'em Ups",
+        "pattern": "shoot ?'?em ?up|shmup|bullet hell|scrolling shooter|space shooter|vertical shooter|horizontal shooter|twin[- ]stick|arcade shooter|asteroids|galaga|invaders|danmaku|touhou"
+      }
+    ]
+  },
+  "Puzzle": {
+    "type": "game",
+    "subcategories": [
+      {
+        "subcategory": "Falling Blocks & Match-3",
+        "keys": ["BlocksGame"],
+        "pattern": "tetris|falling block|block[- ]stack|tetromino|match[- ]?3|match three|bejeweled|columns|puyo|bubble shoot|same ?game|jewel|gem"
+      },
+      {
+        "subcategory": "Word & Trivia",
+        "pattern": "\\bword|crossword|scrabble|anagram|hangman|boggle|wordle|spelling|trivia|quiz"
+      },
+      {
+        "subcategory": "Logic & Number Puzzles",
+        "keys": ["LogicGame"],
+        "pattern": "sudoku|nonogram|picross|minesweeper|mines\\b|logic|kakuro|\\b2048\\b|number|lights out|nurikabe|slitherlink|mastermind|tangram|sliding|15[- ]puzzle|hanoi|sokoban|block[- ]pushing|maze|labyrinth|lemmings|physics puzzle|brain"
+      }
+    ]
+  },
+  "Board & Cards": {
+    "type": "game",
+    "subcategories": [
+      {
+        "subcategory": "Chess & Go",
+        "pattern": "chess|\\bgo\\b|baduk|weiqi|shogi|xiangqi|checkers|draughts|othello|reversi|\\buci\\b|\\bxboard\\b|\\bsgf\\b|gnugo|stockfish"
+      },
+      {
+        "subcategory": "Cards, Solitaire & Casino",
+        "pattern": "\\bcards?\\b|solitaire|patience|klondike|freecell|spider|poker|blackjack|hearts|bridge|tarot|rummy|uno\\b|belote|skat|spades|euchre|cribbage|deck|\\bccg\\b|\\btcg\\b|magic: the gathering|hand of|casino|slot machine|roulette|\\bdice\\b|yahtzee|craps|\\bslots\\b|lottery|bingo|keno",
+        "weakKeys": ["CardGame"]
+      },
+      {
+        "subcategory": "Board Games",
+        "pattern": "board ?game|backgammon|monopoly|risk\\b|ludo|catan|tabletop|dice|\\bmills?\\b|nine men|connect four|tic[- ]tac[- ]toe|mancala|abalone|\\bhex\\b|blokus|carcassonne|mahjong|majong|domino|tile",
+        "weakKeys": ["BoardGame"],
+        "weakSections": ["ebuild-gentoo:games-board"]
+      }
+    ]
+  },
+  "Role-Playing": {
+    "type": "game",
+    "subcategories": [
+      {
+        "subcategory": "Roguelikes",
+        "sections": ["ebuild-gentoo:games-roguelike"],
+        "pattern": "rogue[- ]?like|rogue[- ]?lite|\\brogue\\b|nethack|angband|dungeon crawl|\\bdcss\\b|cataclysm|tome\\b|\\bbrogue|dwarf fortress|permadeath|procedural(ly)? generated dungeon"
+      },
+      {
+        "subcategory": "MMORPGs & Online",
+        "pattern": "\\bmmo|massively|online rpg|\\bmud\\b|multiplayer rpg|private server|server emulat"
+      },
+      {
+        "subcategory": "Classic & Party RPGs",
+        "pattern": "\\bjrpg\\b|turn[- ]based|party|tactical rpg|\\bcrpg\\b|classic rpg|old[- ]school|\\bd&d\\b|dungeons (and|&) dragons|baldur|ultima|final fantasy|dragon quest|story|campaign"
+      }
+    ]
+  },
+  "Adventure": {
+    "type": "game",
+    "subcategories": [
+      {
+        "subcategory": "Point & Click",
+        "pattern": "point[- ](and|&|'?n'?)[- ]click|graphic adventure|scummvm|\\bscumm\\b|sierra|lucasarts|\\bags\\b|adventure game studio"
+      },
+      {
+        "subcategory": "Interactive Fiction",
+        "pattern": "interactive fiction|text[- ]adventure|text[- ]based adventure|\\bif\\b|z-?machine|\\bzork|inform\\b|\\btads\\b|frotz|gamebook|choose your own|\\btwine\\b|text game"
+      },
+      {
+        "subcategory": "Exploration & Story",
+        "pattern": "explor|story|narrative|walking sim|mystery|detective|puzzle adventure|escape"
+      }
+    ]
+  },
+  "Strategy": {
+    "type": "game",
+    "subcategories": [
+      {
+        "subcategory": "Real-Time Strategy",
+        "pattern": "real[- ]time strategy|\\brts\\b|real[- ]time|command (&|and) conquer|starcraft|warcraft|age of empires|0 ?a\\.?d\\.?|openra|spring ?rts|beyond all reason|warzone|zero-k"
+      },
+      {
+        "subcategory": "Turn-Based & 4X",
+        "pattern": "turn[- ]based|\\b4x\\b|civilization|freeciv|wesnoth|grand strategy|empire|conquest|hex|colonization|master of orion|tactics|wargame|\\bunciv|hearts of iron"
+      }
+    ]
+  },
+  "Simulation": {
+    "type": "game",
+    "subcategories": [
+      {
+        "subcategory": "Flight & Space",
+        "pattern": "flight|aircraft|airplane|plane|pilot|helicopter|space ?(sim|ship|flight)|spacecraft|orbit|elite|oolite|flightgear|\\bksp\\b|kerbal|starship|space trad"
+      },
+      {
+        "subcategory": "Vehicles & Trains",
+        "pattern": "train|railway|rail|truck|bus\\b|driving|vehicle|tractor|ship\\b|boat|sailing|submarine|tank"
+      },
+      {
+        "subcategory": "Building & Management",
+        "pattern": "tycoon|management|city[- ]build|build|construction|factory|automation|colony|business|economy|hospital|zoo|theme park|transport|sandbox|god game"
+      }
+    ]
+  }
+}

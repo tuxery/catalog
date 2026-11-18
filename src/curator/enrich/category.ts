@@ -46,7 +46,7 @@ export const APP_CATEGORY_LABEL_VALUES = [
   "Travel & Navigation",
   "Books & Reference",
   "System Tools",
-  "Settings",
+  "Desktop & Settings",
   "Utilities",
 ] as const;
 
@@ -78,6 +78,7 @@ export const GAME_CATEGORY_LABEL_VALUES = [
  */
 export const LEGACY_APP_CATEGORY_LABELS = {
   "Internet & Communication": "Networking",
+  Settings: "Desktop & Settings",
 } as const satisfies Record<string, AppCategoryLabel>;
 
 /**

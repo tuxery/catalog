@@ -73,8 +73,8 @@ const DEBIAN_UNGATED_SECTION_TO_APP_CATEGORY: Partial<Record<string, AppCategory
   database: "Developer Tools",
   electronics: "Science",
   tex: "Productivity",
-  gnome: "Settings",
-  kde: "Settings",
+  gnome: "Desktop & Settings",
+  kde: "Desktop & Settings",
   fonts: "Graphics & Design",
   doc: "Books & Reference",
 };
@@ -230,13 +230,13 @@ const GENTOO_SECTION_TO_APP_CATEGORY: Partial<Record<string, AppCategoryLabel>> 
   "app-office": "Productivity",
   "dev-gap": "Science",
   "dev-tex": "Productivity",
-  "app-accessibility": "Settings",
-  "kde-apps": "Settings",
-  "kde-plasma": "Settings",
-  "kde-misc": "Settings",
-  "gnome-base": "Settings",
-  "gnome-extra": "Settings",
-  "lxde-base": "Settings",
+  "app-accessibility": "Desktop & Settings",
+  "kde-apps": "Desktop & Settings",
+  "kde-plasma": "Desktop & Settings",
+  "kde-misc": "Desktop & Settings",
+  "gnome-base": "Desktop & Settings",
+  "gnome-extra": "Desktop & Settings",
+  "lxde-base": "Desktop & Settings",
 };
 
 // Everything else in Portage's own taxonomy resolves coherently by
@@ -260,11 +260,11 @@ const GENTOO_SECTION_PREFIX_TO_APP_CATEGORY: [prefix: string, category: AppCateg
   ["net-", "Networking"],
   ["www-", "Networking"],
   ["mail-", "Email"],
-  ["kde-", "Settings"],
-  ["gnome-", "Settings"],
-  ["mate-", "Settings"],
-  ["xfce-", "Settings"],
-  ["lxde-", "Settings"],
+  ["kde-", "Desktop & Settings"],
+  ["gnome-", "Desktop & Settings"],
+  ["mate-", "Desktop & Settings"],
+  ["xfce-", "Desktop & Settings"],
+  ["lxde-", "Desktop & Settings"],
 ];
 
 /** A category inferred from a Gentoo package's own top-level category — see `GENTOO_SECTION_TO_APP_CATEGORY` and `GENTOO_SECTION_PREFIX_TO_APP_CATEGORY` above for the live-data research behind each mapping. `sci-*` still wins over everything, then exact entries, then family prefixes. */
@@ -373,8 +373,8 @@ const OPENSUSE_GROUP_TO_APP_CATEGORY: Partial<Record<string, AppCategoryLabel>> 
   // "benchmark" family description-category-rules already resolves to
   // Developer Tools) -> Developer Tools; Productivity/Other (clinfo/
   // abook/cheat/gmrun — general utilities) -> Utilities.
-  "System/YaST": "Settings",
-  "System/GUI/GNOME": "Settings",
+  "System/YaST": "Desktop & Settings",
+  "System/GUI/GNOME": "Desktop & Settings",
   "System/Benchmark": "Developer Tools",
   "Productivity/Other": "Utilities",
 };
@@ -404,7 +404,7 @@ const OPENSUSE_GROUP_PREFIX_TO_APP_CATEGORY: [prefix: string, category: AppCateg
   // Productivity/Multimedia/Video/* -> Photo & Video (same Video-key
   // reasoning as categories-apps.json).
   ["Development/", "Developer Tools"],
-  ["System/GUI/", "Settings"],
+  ["System/GUI/", "Desktop & Settings"],
   ["System/", "System Tools"],
   ["Hardware/", "System Tools"],
   ["Productivity/Networking/Email/", "Email"],
@@ -498,11 +498,11 @@ const SOLUS_PARTOF_TO_APP_CATEGORY: Partial<Record<string, AppCategoryLabel>> = 
   "network.irc": "Messaging & Calls",
   "network.web.browser": "Web Browsers",
   "network.download": "File Sharing & Downloads",
-  "desktop.kde": "Settings",
-  "desktop.kde.core": "Settings",
-  "desktop.gnome": "Settings",
-  "desktop.gnome.core": "Settings",
-  "desktop.hyprland": "Settings",
+  "desktop.kde": "Desktop & Settings",
+  "desktop.kde.core": "Desktop & Settings",
+  "desktop.gnome": "Desktop & Settings",
+  "desktop.gnome.core": "Desktop & Settings",
+  "desktop.hyprland": "Desktop & Settings",
   "office.notes": "Productivity",
   "security.library": "Security",
   database: "Developer Tools",
@@ -590,8 +590,8 @@ const SLACKWARE_SERIES_TO_APP_CATEGORY: Partial<Record<string, AppCategoryLabel>
   d: "Developer Tools",
   e: "Utilities",
   f: "Books & Reference",
-  kde: "Settings",
-  kdei: "Settings",
+  kde: "Desktop & Settings",
+  kdei: "Desktop & Settings",
   l: "System Tools",
   n: "Networking",
   t: "Productivity",
@@ -645,7 +645,7 @@ export function categoryFromSlackwareSeries(pkg: SourcedPackage): AppCategoryLab
 //   (bat-extras, octodns-providers, arrayUtilities, gawkextlib,
 //   magnetophonDSP).
 const NIX_SCOPE_TO_APP_CATEGORY: Partial<Record<string, AppCategoryLabel>> = {
-  kdePackages: "Settings",
+  kdePackages: "Desktop & Settings",
   "nltk-data": "Science",
   coqPackages: "Science",
   rocqPackages: "Science",
@@ -671,8 +671,8 @@ const NIX_SCOPE_TO_APP_CATEGORY: Partial<Record<string, AppCategoryLabel>> = {
   apacheHttpdPackages_2_4: "Networking",
   ankiAddons: "Education",
   eclipses: "Developer Tools",
-  lomiri: "Settings",
-  "lomiri-qt6": "Settings",
+  lomiri: "Desktop & Settings",
+  "lomiri-qt6": "Desktop & Settings",
   "open-music-kontrollers": "Music & Audio",
   // Small leftover scopes, sampled live (2026-09-03): gawkextlib (GNU awk
   // extension libraries), octodns-providers (DNS-automation provider
@@ -693,7 +693,7 @@ export function categoryFromNixScope(pkg: SourcedPackage): AppCategoryLabel | un
   const exact = NIX_SCOPE_TO_APP_CATEGORY[pkg.section];
   if (exact) return exact;
   if (pkg.section.startsWith("home-assistant-")) return "System Tools";
-  if (pkg.section.startsWith("lomiri")) return "Settings";
+  if (pkg.section.startsWith("lomiri")) return "Desktop & Settings";
   // Game-content package sets (OpenRA mods) are game domain, not
   // developer resources — carved out before the generic rule below.
   if (pkg.section.startsWith("openraPackages")) return undefined;

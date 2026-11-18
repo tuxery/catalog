@@ -37,7 +37,7 @@
             "Travel & Navigation",
             "Books & Reference",
             "System Tools",
-            "Settings",
+            "Desktop & Settings",
             "Utilities",
             "Action",
             "Shooter",
@@ -82,7 +82,7 @@
           "Travel & Navigation",
           "Books & Reference",
           "System Tools",
-          "Settings",
+          "Desktop & Settings",
           "Utilities",
           "Action",
           "Shooter",
@@ -100,6 +100,13 @@
           "Strategy"
         ],
         "description": "The finer category the app moves to."
+      },
+      "keys": {
+        "description": "freedesktop Main or Additional Categories (on any of the app's packages) that move it too, pattern or not: a file manager's `FileManager` key says what it is even when its description doesn't.",
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
       },
       "pattern": {
         "type": "string",

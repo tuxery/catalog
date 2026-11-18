@@ -398,6 +398,12 @@ const CATEGORY_PREVIEW_SIZE = 12;
 /** The homepage's hand-picked row (`TursoDataset.mustHaveIds`), `app`'s `MUST_HAVE`: pinned to store-contract.json's `mustHaveListing`. */
 export const MUST_HAVE_LISTING = "mustHave";
 
+/** The homepage's "Games for the whole family" row: pinned to store-contract.json's `familyGamesListing`. */
+export const FAMILY_GAMES_LISTING = "familyGames";
+
+/** Its length: the 16 cards the homepage row shows, and a few to spare. */
+const FAMILY_GAMES_SIZE = 24;
+
 type ListingTypeFilter = "all" | "game" | "app";
 
 // icon_url only, not screenshots too — real bug in `app`'s side (the
@@ -524,8 +530,9 @@ function byCategoryPreviewOrder(a: AppRecord, b: AppRecord): number {
  * variants each), per-category previews (one per real category, ~27
  * today), per-source trending and recently updated (one each per
  * source actually present in this dataset, ~25 today, see
- * `sourceUpdatedAt`), and the homepage's hand-picked must-haves
- * (`mustHaveIds`, in their own order, icon or not). Each has a small, closed parameter space that
+ * `sourceUpdatedAt`), the homepage's hand-picked must-haves
+ * (`mustHaveIds`, in their own order, icon or not), and its games rated
+ * for all ages (bracket 3, docs/age-ratings.md), most popular first. Each has a small, closed parameter space that
  * only changes when this dataset republishes (manual, infrequent) — the
  * same "precompute once here instead of aggregating live on every
  * request" fix as `countByCategory` above, extended to the rest of the
@@ -552,6 +559,12 @@ function computeListingIds(
 
   const listed = new Set(apps.map((app) => app.id));
   ids[MUST_HAVE_LISTING] = [...new Set(mustHaveIds)].filter((id) => listed.has(id));
+  ids[FAMILY_GAMES_LISTING] = topIds(
+    apps,
+    (app) => app.contentType === "game" && app.ageBracket === 3 && hasVisualAsset(app),
+    byCategoryPreviewOrder,
+    FAMILY_GAMES_SIZE,
+  );
 
   for (const typeFilter of typeFilters) {
     ids[`trending:${typeFilter}`] = topIds(

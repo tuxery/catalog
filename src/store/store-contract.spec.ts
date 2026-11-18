@@ -117,6 +117,11 @@ describe("store contract (store-contract.json)", () => {
     );
   });
 
+  it("writes the all-ages games listing under the contract's name", async () => {
+    const meta = await publishedMeta();
+    expect(meta.has(metaKey("listingRows", { listing: contract.familyGamesListing }))).toBe(true);
+  });
+
   it("writes the must-have listing in the given order, with the summary columns", async () => {
     const meta = await publishedMeta();
     const rows = JSON.parse(

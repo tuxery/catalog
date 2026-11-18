@@ -80,6 +80,10 @@ checked: unrated. Both are read the same way by every AppStream parser
   97% of unrated products (7,052 rows read for page 50 of "all ages",
   6,324 for any page of "games for all ages", measured on a local
   `sqld`).
+- `listingRows:familyGames` (and its id list, `familyGames`): the
+  homepage's "Games for the whole family" row, the 24 most popular games
+  in the all-ages bracket that have an icon, unscored ones last. Its name
+  is pinned in `store-contract.json` (`familyGamesListing`).
 - `browseKeys.ageFilter`: these rows and the column exist. `app` hides
   the filter on a dataset without it.
 

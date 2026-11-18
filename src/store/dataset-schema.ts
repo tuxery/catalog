@@ -17,6 +17,8 @@ const AppRecordSchema = z.looseObject({
   kind: z.literal("gui").optional(),
   contentType: z.literal("game").optional(),
   category: z.string().optional(),
+  // Ends `countSub:`/`subcategoryIds:` meta keys, after the category.
+  subcategory: z.string().regex(/^[^:]+$/).optional(),
   licenseKind: z.enum(["free", "proprietary"]).optional(),
   // The brackets `/browse` filters on (store-contract.json's `ageBrackets`).
   ageBracket: z.literal([3, 7, 12, 16, 18]).optional(),

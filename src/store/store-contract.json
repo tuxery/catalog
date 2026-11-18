@@ -20,7 +20,14 @@
   "familyGamesListing": "familyGames",
   "browseKeys": {
     "metaKey": "browseKeys",
-    "fields": ["generation", "sourceIdsChunkSize", "freeCounts", "categoryIds", "ageFilter"]
+    "fields": [
+      "generation",
+      "sourceIdsChunkSize",
+      "freeCounts",
+      "categoryIds",
+      "ageFilter",
+      "subcategories"
+    ]
   },
   "ageBrackets": {
     "column": "age_bracket",
@@ -35,6 +42,9 @@
     "sourceIds": "sourceIds:{generation}:{source}:{chunk}",
     "categoryIds": "categoryIds:{generation}:{chunk}:{category}",
     "ageIds": "ageIds:{generation}:{age}:{type}:{chunk}",
-    "listingRows": "listingRows:{listing}"
+    "listingRows": "listingRows:{listing}",
+    "countSub": "countSub:{generation}:{interface}:{type}:{license}:{age}:{category}:{subcategory}",
+    "subcategoryIds": "subcategoryIds:{generation}:{chunk}:{category}:{subcategory}",
+    "subcategoryCounts": "subcategoryCounts:{type}"
   }
 }

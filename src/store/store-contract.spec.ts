@@ -29,6 +29,7 @@ const APPS: AppRecord[] = Array.from({ length: contract.listingSizes.trending + 
   popularity: i,
   kind: "gui",
   category: "Utilities",
+  subcategory: "Calculators & Converters",
   licenseKind: "free",
   // Every bracket, and unrated apps.
   ageBracket: contract.ageBrackets.values[i % (contract.ageBrackets.values.length + 1)],
@@ -95,6 +96,31 @@ describe("store contract (store-contract.json)", () => {
       ]),
       metaKey("sourceIds", { generation: GENERATION, source: "aur", chunk: "0" }),
       metaKey("categoryIds", { generation: GENERATION, chunk: "0", category: "Utilities" }),
+      ...["*", ...contract.ageBrackets.filters.map(String)].map((age) =>
+        metaKey("countSub", {
+          ...counts,
+          license: "free",
+          age,
+          category: "Utilities",
+          subcategory: "Calculators & Converters",
+        }),
+      ),
+      metaKey("countSub", {
+        generation: GENERATION,
+        interface: "all",
+        type: "all",
+        license: unset,
+        age: unset,
+        category: "Utilities",
+        subcategory: "Calculators & Converters",
+      }),
+      metaKey("subcategoryIds", {
+        generation: GENERATION,
+        chunk: "0",
+        category: "Utilities",
+        subcategory: "Calculators & Converters",
+      }),
+      ...["all", "app", "game"].map((type) => metaKey("subcategoryCounts", { type })),
       ...contract.ageBrackets.filters.flatMap((age) =>
         ["all", "app"].map((type) =>
           metaKey("ageIds", { generation: GENERATION, age: String(age), type, chunk: "0" }),

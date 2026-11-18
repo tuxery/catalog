@@ -8,6 +8,12 @@ says what it is. Apps and games use two separate closed lists
 together with its type. The label is also the category's id: `app` links
 to `/browse/?category=<label>`.
 
+Most categories also have a second level, the subcategory
+(`CatalogApp.subcategory`, see [Subcategories](#subcategories)): Developer
+Tools > Version Control, Board & Cards > Chess & Go. It is set only when a
+rule recognizes the app; the others are listed under their category
+alone.
+
 ## App categories
 
 | Category                 | What goes there                                                        | Main signals                                                                                   |
@@ -22,7 +28,7 @@ to `/browse/?category=<label>`.
 | AI                       | AI assistants, LLM chat clients, local model runners, image generators | refinements only (no freedesktop key exists)                                                   |
 | Developer Tools          | IDEs, compilers, debuggers, build and VCS tools                        | `Development`, Debian `devel`, Gentoo `dev-*`                                                  |
 | System Tools             | monitoring, disks, drivers, terminals, package managers, backups       | `System`, Debian `admin`, Gentoo `sys-*`                                                       |
-| Settings                 | configuration panels, desktop tweaks                                   | `Settings`, `DesktopSettings`                                                                  |
+| Desktop & Settings       | window managers, panels and bars, launchers, themes, settings panels   | `Settings`, `DesktopSettings`, desktop sections, refinements                                   |
 | Security                 | passwords, encryption, VPN, antivirus, pentesting                      | `Security`, Gentoo `app-crypt`/`net-vpn`                                                       |
 | Utilities                | small helpers that fit nowhere else                                    | `Utility`, Debian `utils`                                                                      |
 | Productivity             | office suites, notes, to-do, PDF, calendars                            | `Office`, `Calendar`                                                                           |
@@ -118,7 +124,9 @@ In order, the first one that answers wins (`enrichApps` in
    game about karts to Racing, a Game Boy emulator filed under System
    Tools to Gaming Tools. Each rule names the categories it may move an
    app out of, so a precise signal (Firefox's `WebBrowser` key) is never
-   second-guessed by a phrase.
+   second-guessed by a phrase. A rule can also list freedesktop `keys`
+   that move an app whatever its text: a `FileManager` key moves GNOME
+   Files out of System Tools.
 
 Anything still without an answer is "To Classify".
 
@@ -146,9 +154,78 @@ with a package from a restricted source are never sent, as in every
 rewritten by hand, so it keeps the labels it was written with.
 `LEGACY_APP_CATEGORY_LABELS` (`category.ts`) maps each retired label to
 the catch-all of what it was split into ("Internet & Communication" →
-Networking), and the refinements then read the verdict's own reason
+Networking) or its new name (Settings → Desktop & Settings), and the refinements then read the verdict's own reason
 ("IRC client", "Torrent client") to move it further. `app` keeps old
 links working the same way (its category aliases).
+
+## Subcategories
+
+Decided 2026-11-18: every category big enough gets a second level,
+rather than more top-level categories. Flathub, KDE Discover, Steam,
+Apple's games and Microsoft's developer tools all add a second level
+where a category is big, and none has more than about 30 flat
+categories. Splitting Developer Tools, System Tools and Utilities into
+top-level categories would have made about 50, still left about 18,500
+apps in "other developer/system tools" catch-alls, and broken the three
+most visited category links. A second level breaks no link: the
+subcategory is an extra filter, `/browse/?category=X&sub=Y`.
+
+`config/subcategories.json` lists, per category, its subcategories and
+the signals that file an app there (`enrich/subcategory.ts`). Within a
+category the first rule that matches wins, in passes:
+
+1. `names`: the display and package names (`gcc-14-mips-linux-gnu` is a
+   cross-compiler, whatever else it says);
+2. `keys`: freedesktop keys (`RevisionControl`, `TerminalEmulator`);
+3. `sections`: distro sections, as `<source id>:<section>` globs
+   (`ebuild-gentoo:dev-vcs`, `deb-*:vcs`);
+4. `pattern`: the display name (an AUR suffix such as `-git` dropped:
+   `corange-git` is a game engine, not a git tool), the short
+   description and the LLM verdict's reason, as the refinements read
+   them. For a game also its AUR keywords and the opening of its long
+   description, where a game says its genre;
+5. `weakKeys`/`weakSections`: signals too broad to beat the text
+   (`Viewer`, `BoardGame`, Debian's `x11` and `admin`);
+6. `fallbackNames`/`fallbackSections`: the language-module catch-all
+   below.
+
+Structured signals decide few apps: most of these buckets are AUR or Nix
+packages with no section, and the LLM reason (on about 9 in 10 of them)
+does most of the work, as for the refinements.
+
+A category has subcategories only when they hold: at least two, of about
+40 apps or more each, and at least half the category in one. Left flat:
+Business, Social Media, Travel & Navigation, News & Weather and Web
+Browsers (small, or one dominant kind), and Action, Arcade and Education,
+where fewer than half the apps said which kind they are. The small game
+genres stay flat too.
+
+**What isn't a store app gets its own subcategory, not a filter.**
+Cross-compilers and language modules (`gfortran-14-mips64el-linux-gnuabi64`,
+`python3-…`, Gentoo's `dev-python`, Nix's `python3Packages`) go to
+Developer Tools > Language Modules & Cross-Compilers (6,000 apps, about
+40 with an icon), printer drivers to System Tools > Printers & Scanners,
+Vim and Emacs plugins to Utilities > Editor Plugins. Search still finds
+them; the other subcategories don't list them.
+
+**Category fixes that came with it** (`category-refinements.json`, run
+before the subcategories): window managers, bars, launchers, lock
+screens and themes move from System Tools to Desktop & Settings (the
+former Settings, renamed as it now holds them: about 1,300 apps); file
+managers, archivers and duplicate finders from System Tools and
+Developer Tools to Utilities; terminal emulators, multiplexers and
+shells from Utilities and Developer Tools to System Tools; input
+methods from System Tools to Utilities.
+
+**Published** (`src/store/turso-client.ts`, pinned by
+`store-contract.json`): a `subcategory` column on `apps` (nullable,
+added in place by an incremental publish); `subcategoryCounts:<type>`,
+the chips of a category page; `countSub:` counts under every `/browse`
+filter but source (a source and a subcategory together are counted live,
+one category's rows at most); and `subcategoryIds:` lists in
+"popular first" order, so a subcategory page doesn't walk its whole
+category (`apps` has no subcategory index: one would force a full
+publish). `browseKeys.subcategories` tells `app` these exist.
 
 ## Kids
 
@@ -193,6 +270,41 @@ of 80 random apps and games in the new categories found 71 right (89%,
 67 of 72 outside Networking); the misses were mostly apps Networking keeps
 as the catch-all (AI chat clients, an anime tracker), which the old
 category had misfiled too.
+
+## Measured 2026-11-18
+
+Published dataset (`pnpm start`, private caches present), 106,687 apps.
+
+- **Subcategories**: 69,873 apps have one. Biggest categories: Developer
+  Tools 20,700 of 28,200 (Language Modules & Cross-Compilers 6,400,
+  Languages & Runtimes 2,400, Debugging & Testing 2,200, Version Control
+  1,500, Containers, Cloud & DevOps 1,500, Web & API 1,300, Build &
+  Packaging 1,300, Databases 1,200, AI Coding Tools 1,100, IDEs & Code
+  Editors 1,100), System Tools 14,900 of 22,500, Utilities 4,600 of
+  10,100, Desktop & Settings 3,700 of 4,700. Games: Board & Cards 398 of
+  445, Shooter 294 of 432, Puzzle 552 of 870.
+- **Precision**: a hand check of 5 random apps in each subcategory (600
+  in all) found 518 right; a second check of 10 apps in each of the nine
+  weakest found 69 of 90 after a first round of fixes. Most misses are an app the
+  category itself misfiles (a music tagger in Photo & Video lands in its
+  nearest subcategory) or a broad phrase ("API", "server"). Weakest:
+  Developer Tools > Web & API Development and Networking > Servers &
+  Proxies (about 7 in 10); best: Finance, Board & Cards, Databases,
+  Emulators, Terminals & Shells (all right).
+- **To Classify**: 957 → 837 (apps 767, games 70). 110 Mobius Trader
+  snaps (a white-label trading terminal, one per broker, no description)
+  now are Finance by name (`* mobius`); 9 games whose short description
+  is only their title are filed from their long description's first
+  sentence; Epic Games Launcher by its description. Of the 837 left, 323
+  have no description at all, 407 come from a source never sent to an
+  LLM (Snap, Flathub, AppImageHub) with only a long description the
+  rules don't recognize, and about 100 have a description the models
+  found too vague. An app's long description is not used for its
+  category: on the To Classify apps its first sentence named the right
+  one only about two times in three.
+- **Publish cost**: one incremental publish from `main`'s dataset
+  (`pnpm seed --measure`): 112,891 rows written (70,900 apps updated,
+  8,657 meta rows), 196,658 read, no full publish.
 
 ## Measured 2026-11-17
 

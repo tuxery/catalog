@@ -97,10 +97,10 @@
   "RemoteAccess": "System Tools",
   "ConsoleOnly": "System Tools",
 
-  "Settings": "Settings",
-  "DesktopSettings": "Settings",
-  "HardwareSettings": "Settings",
-  "Accessibility": "Settings",
+  "Settings": "Desktop & Settings",
+  "DesktopSettings": "Desktop & Settings",
+  "HardwareSettings": "Desktop & Settings",
+  "Accessibility": "Desktop & Settings",
 
   "TextEditor": "Utilities",
   "TextTools": "Utilities",

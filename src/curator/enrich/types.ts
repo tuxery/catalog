@@ -121,6 +121,13 @@ export interface CatalogApp {
    * `pickCategoryLabel`.
    */
   category: string;
+  /**
+   * The second level of the category tree, when `category` has
+   * subcategories (`config/subcategories.json`) and a rule there matches
+   * the app; otherwise unset, and the app is listed under its category
+   * only. See `enrich/subcategory.ts` and docs/categories.md.
+   */
+  subcategory?: string;
   /** Who makes the app — never a distro packager nor a store account (that's `publisher`). See `SourcedPackage.developer`. */
   developer?: string;
   /** The store account publishing the listing (a snap's publisher, a GOG publisher) when it isn't the developer's own. Snap's today (`SourcedPackage.publisherVerified` says whether the store verified it). */

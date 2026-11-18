@@ -1,5 +1,10 @@
 [
   {
+    "pattern": "* mobius",
+    "category": "Finance",
+    "reason": "White-label builds of the Mobius Trader trading terminal, one snap per broker (\"YUS Mobius\", \"QETrade Mobius\", ...), all published by Mobius Soft: 227 snaps, 110 of them with no description at all, so nothing else could file them. Checked 2026-11-18: every one is the same trading terminal under a broker's name."
+  },
+  {
     "pattern": "wine*",
     "category": "Utilities",
     "reason": "Windows-compatibility-layer tooling (Wine itself and its many real forks/variants — wine-cachyos, wine-asahi-git, WineZGUI, ...) — verified live: no upstream category source ever covers these, but the family is coherent and unambiguous by name."
@@ -41,7 +46,7 @@
   },
   {
     "pattern": "yast2-*",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "openSUSE YaST2's own per-subsystem configuration modules (yast2-bootloader, yast2-auth-client, yast2-apparmor, ...) — verified live: each one a real, distinct configurable subsystem reachable from the YaST control center, same \"system configuration\" concept as DesktopSettings/HardwareSettings already map to. yast2-trans-<lang> translation packages are excluded separately (filter/rules.ts), not classified."
   },
   {
@@ -356,72 +361,72 @@
   },
   {
     "pattern": "gnome-*",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "GNOME desktop's own theme/extension/applet ecosystem (gnome-shell-theme-elegance-orange-git, gnome-tuner-tweaks, ...), plus real standalone GNOME apps that also share the prefix — matches the yast2-* -> Settings precedent for desktop-environment configuration/customization."
   },
   {
     "pattern": "kde-*",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "KDE desktop's own ecosystem, same reasoning as gnome-*."
   },
   {
     "pattern": "kf5-*",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "KDE Frameworks 5's own component ecosystem, same reasoning as gnome-*/kde-*."
   },
   {
     "pattern": "plasma-*",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "KDE Plasma's own widget/applet ecosystem, same reasoning as gnome-*/kde-*."
   },
   {
     "pattern": "plasma6-*",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "KDE Plasma 6's own widget/applet ecosystem, same reasoning as plasma-*."
   },
   {
     "pattern": "xfce4-*",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Xfce desktop's own panel-plugin ecosystem, same reasoning as gnome-*/kde-*."
   },
   {
     "pattern": "mate-*",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "MATE desktop's own ecosystem, same reasoning as gnome-*/kde-*."
   },
   {
     "pattern": "budgie-*",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Budgie desktop's own applet ecosystem, same reasoning as gnome-*/kde-*."
   },
   {
     "pattern": "cosmic-*",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "System76's COSMIC desktop's own app/applet/settings ecosystem, same reasoning as gnome-*/kde-*."
   },
   {
     "pattern": "lomiri-*",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Ubuntu Touch's Lomiri desktop's own component ecosystem, same reasoning as gnome-*/kde-*."
   },
   {
     "pattern": "lxqt-*",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "LXQt desktop's own component ecosystem, same reasoning as gnome-*/kde-*."
   },
   {
     "pattern": "sddm-*",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "SDDM display-manager's own theme/config ecosystem, same desktop-configuration reasoning as gnome-*/kde-*."
   },
   {
     "pattern": "lightdm-*",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "LightDM display-manager's own greeter/theme ecosystem, same reasoning as sddm-*."
   },
   {
     "pattern": "gtk2-*",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "GTK2 theme/engine ecosystem (gtk2-metatheme-bluebird, gtk2-engines-aurora, ...) — desktop visual customization, same reasoning as gnome-*/kde-*."
   },
   {
@@ -626,17 +631,17 @@
   },
   {
     "pattern": "i3-*",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "The i3 tiling window manager's own config/utility ecosystem, same desktop-configuration reasoning as gnome-*/kde-*."
   },
   {
     "pattern": "sway-*",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "The Sway tiling compositor's own config ecosystem, same reasoning as i3-*."
   },
   {
     "pattern": "hyprland-*",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "The Hyprland compositor's own plugin/config ecosystem, same reasoning as i3-*/sway-*."
   },
   {
@@ -691,7 +696,7 @@
   },
   {
     "pattern": "xcursor-*",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Cursor-theme packages (xcursor-osx-elcap, xcursor-hackneyed-light, ...) — desktop visual customization, same reasoning as gtk2-*."
   },
   {
@@ -721,7 +726,7 @@
   },
   {
     "pattern": "plank-*",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Plank (a real desktop dock app)'s own theme/docklet ecosystem, same desktop-customization reasoning as gtk2-*/xcursor-*."
   },
   {
@@ -741,7 +746,7 @@
   },
   {
     "pattern": "plymouth-*",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Plymouth's own boot-splash theme ecosystem — desktop/boot visual customization, same reasoning as gtk2-*/xcursor-*."
   },
   {
@@ -751,7 +756,7 @@
   },
   {
     "pattern": "gtk-*",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "GTK's own theme/tooling ecosystem (gtk-theme-solarc-git, gtk-doc-tools, ...) — predominantly desktop theming, same reasoning as gtk2-*."
   },
   {
@@ -886,7 +891,7 @@
   },
   {
     "pattern": "catppuccin-*",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "The Catppuccin theme project's own per-app theme ecosystem — desktop visual customization, same reasoning as gtk2-*/plymouth-*."
   },
   {
@@ -901,12 +906,12 @@
   },
   {
     "pattern": "xdg-*",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "The xdg-desktop-portal's own per-desktop-environment backend ecosystem — desktop integration infrastructure, same family as gnome-*/kde-*."
   },
   {
     "pattern": "bumblebee-*",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "bumblebee-status (a real i3/Sway statusbar generator)'s own widget-module ecosystem, same reasoning as i3-*/sway-*."
   },
   {
@@ -921,27 +926,27 @@
   },
   {
     "pattern": "unity-*",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Unity desktop's own lens/control-panel ecosystem, same desktop-configuration reasoning as gnome-*/kde-*."
   },
   {
     "pattern": "pantheon-*",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "elementary OS's Pantheon desktop's own component ecosystem, same reasoning as unity-*."
   },
   {
     "pattern": "elementary-*",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "elementary OS's own app/settings-daemon ecosystem, same reasoning as pantheon-*."
   },
   {
     "pattern": "cinnamon-*",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Cinnamon desktop's own applet/theme ecosystem, same reasoning as gnome-*/kde-*."
   },
   {
     "pattern": "caja-*",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Caja (MATE's file manager)'s own extension ecosystem, same reasoning as nautilus-*."
   },
   {
@@ -1046,7 +1051,7 @@
   },
   {
     "pattern": "kwin-*",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "KWin compositor's own plugin/script ecosystem, same desktop-configuration reasoning as i3-*/sway-*/hyprland-*."
   },
   {
@@ -1066,12 +1071,12 @@
   },
   {
     "pattern": "ukui-*",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "UKUI desktop's own component ecosystem, same reasoning as gnome-*/kde-*."
   },
   {
     "pattern": "dde-*",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Deepin Desktop Environment's own component ecosystem, same reasoning as ukui-*."
   },
   {
@@ -1101,12 +1106,12 @@
   },
   {
     "pattern": "breeze-*",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "The Breeze theme's own cursor/GTK/icon-theme ecosystem — desktop visual customization, same reasoning as gtk2-*/xcursor-*."
   },
   {
     "pattern": "gtk3-*",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "GTK3's own theme ecosystem (gtk3-metatheme-numix, gtk3-metatheme-breeze6, ...), same reasoning as gtk2-*."
   },
   {
@@ -1156,7 +1161,7 @@
   },
   {
     "pattern": "graphite-*",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "The Graphite GTK theme's own variant ecosystem — desktop visual customization, same reasoning as gtk2-*/breeze-*."
   },
   {
@@ -1176,12 +1181,12 @@
   },
   {
     "pattern": "faenza-*",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "The Faenza icon theme's own variant ecosystem, same reasoning as gtk2-*/breeze-*."
   },
   {
     "pattern": "nemo-*",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Nemo (Cinnamon's file manager)'s own extension ecosystem, same reasoning as nautilus-*/caja-*."
   },
   {
@@ -1201,7 +1206,7 @@
   },
   {
     "pattern": "waybar-*",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Waybar (a real Wayland statusbar)'s own module ecosystem, same reasoning as bumblebee-*/i3-*."
   },
   {
@@ -1291,7 +1296,7 @@
   },
   {
     "pattern": "ubuntustudio-*",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Ubuntu Studio's own meta-package/wallpaper/settings ecosystem — desktop customization, same reasoning as gnome-*/kde-*."
   },
   {
@@ -1306,7 +1311,7 @@
   },
   {
     "pattern": "niri-*",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Niri (a real scrollable-tiling Wayland compositor)'s own tooling ecosystem, same reasoning as sway-*/hyprland-*/i3-*."
   },
   {
@@ -1336,7 +1341,7 @@
   },
   {
     "pattern": "greetd-*",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "greetd's own greeter ecosystem, same reasoning as sddm-*/lightdm-*."
   },
   {
@@ -1376,7 +1381,7 @@
   },
   {
     "pattern": "compiz-*",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Compiz compositor's own plugin ecosystem, same reasoning as kwin-*."
   },
   {
@@ -1396,42 +1401,42 @@
   },
   {
     "pattern": "ubuntu-*",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Ubuntu's own wallpaper/default-settings/desktop-metapackage ecosystem — desktop branding/customization, same reasoning as ubuntustudio-*/gnome-*."
   },
   {
     "pattern": "deepin-*",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Deepin's own desktop-environment component ecosystem (deepin-deb-installer, deepin-font-manager, deepin-default-settings, ...), same reasoning as ukui-*/dde-*."
   },
   {
     "pattern": "fedora-*",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Fedora's own release-identity/spin/background ecosystem — desktop branding, same reasoning as ubuntu-*."
   },
   {
     "pattern": "arch-*",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Arch Linux's own branding/utility ecosystem (arch-backup, arch-chroot, arch-update-full, ...), same reasoning as ubuntu-*/fedora-*."
   },
   {
     "pattern": "mx-*",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "MX Linux's own tooling/branding ecosystem (mx-viewer, mx-cleanup, mx-boot-repair, ...), same reasoning as ubuntu-*/deepin-*."
   },
   {
     "pattern": "mint-*",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Linux Mint's own wallpaper/metapackage ecosystem, same reasoning as ubuntu-*."
   },
   {
     "pattern": "opensuse-*",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "openSUSE's own repo/release/icon-theme ecosystem — desktop branding, same reasoning as ubuntu-*/fedora-* (matches case-insensitively, so it also covers the project's own \"openSUSE-\" capitalization)."
   },
   {
     "pattern": "debian-*",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Debian's own installer/branding/tooling ecosystem, same reasoning as ubuntu-*/fedora-*."
   },
   {
@@ -1461,7 +1466,7 @@
   },
   {
     "pattern": "kvantum-*",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Kvantum (a real Qt5/Qt6/KDE/LXQt theme engine)'s own theme ecosystem, same reasoning as gtk2-*/breeze-*."
   },
   {
@@ -1486,7 +1491,7 @@
   },
   {
     "pattern": "awesome-*",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "The Awesome window manager's own widget/config ecosystem, same reasoning as i3-*/sway-*/hyprland-*."
   },
   {
@@ -1511,7 +1516,7 @@
   },
   {
     "pattern": "numix-*",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "The Numix icon/GTK-theme project's own theme ecosystem, same reasoning as gtk2-*/breeze-*."
   },
   {
@@ -1551,7 +1556,7 @@
   },
   {
     "pattern": "omarchy-*",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Omarchy (an Arch-based desktop distribution/config framework)'s own theme/widget/command ecosystem — desktop customization, same reasoning as gnome-*/kde-*."
   },
   {
@@ -1636,17 +1641,17 @@
   },
   {
     "pattern": "switchboard*",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "elementary OS's own Switchboard system-settings app (\"The Pantheon Control Center\") and its plug ecosystem (switchboard-plug-bluetooth, switchboard-plug-network, ...) — verified live: 30 real matches, all Switchboard itself or one of its settings plugs, no upstream category source covers any of them."
   },
   {
     "pattern": "yaru*",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Ubuntu Community's own Yaru theme family (yaru-gtk-theme, yaru-icon-theme, yaru-sound-theme, its Colors/Remix forks, ...) — a coherent, unambiguous desktop-theming product family, verified live: 28 real matches, all Yaru itself or a Yaru-derived theme."
   },
   {
     "pattern": "adwaita*",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "GNOME's own Adwaita GTK/icon/cursor theme family and its Qt-bending styles (adwaita-icon-theme, adwaita-qt5/6, adwaita-dark, ...) — same desktop-theming reasoning as yaru*. Verified live: 29 real matches, all theme/style packages; the separate adwaita-fonts typeface family is excluded before filtering ever reaches this stage (see filter/rules.ts)."
   },
   {
@@ -1661,7 +1666,7 @@
   },
   {
     "pattern": "tela*",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "The Tela icon theme family (tela-icon-theme, its Circle variant's many color builds, ...) — same desktop-theming reasoning as yaru*/adwaita*. Verified live: 21 real matches, all Tela itself or a Tela-derived icon theme."
   },
   {
@@ -1816,12 +1821,12 @@
   },
   {
     "pattern": "papirus*",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "The Papirus icon theme family (papirus-folder-icons, its per-app theme variants for Claws Mail/FileZilla, its KDE color-scheme port, ...) — same desktop-theming reasoning as yaru*/adwaita*/tela*. Verified live: 23 real matches, all Papirus itself or a Papirus-derived theme."
   },
   {
     "pattern": "oxygen*",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "KDE's own Oxygen style/icon/cursor/sound theme family (oxygen-icon-theme, oxygen-gtk+3, oxygen6-decoration, ...) — same desktop-theming reasoning as yaru*/adwaita*/tela*/papirus*. Verified live: 25 real matches, all Oxygen theme components; the separate oxygen-fonts typeface family is excluded before filtering ever reaches this stage (see filter/rules.ts)."
   },
   {
@@ -1831,7 +1836,7 @@
   },
   {
     "pattern": "wingpanel*",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "elementary OS's own Wingpanel top-panel app and its indicator ecosystem (wingpanel-indicator-bluetooth, wingpanel-indicator-datetime, ...) — same \"Pantheon system UI\" family as switchboard*. Verified live: 20 real matches, zero unrelated collisions."
   },
   {
@@ -2011,7 +2016,7 @@
   },
   {
     "pattern": "arc-*",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "The Arc GTK/icon/KDE theme family and its many per-app skins (arc-theme, arc-icon-theme, arc-kde-konsole, arc-gotham-gtk-theme-git, ...) — same desktop-theming reasoning as yaru*/adwaita*/tela*/papirus*/oxygen*. Verified live: 22 real matches after the four genuine unrelated collisions above are carved out."
   },
   {
@@ -2076,7 +2081,7 @@
   },
   {
     "pattern": "*-icons",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Icon-theme packages named <theme>-icons (antudark-icons, awoken-icons, contemporary-icons, ...) — same desktop-theming family as this file's other icon-theme entries (adwaita*/oxygen*/yaru*/...), just for one-off themes with no shared vendor prefix. Verified live: 35 real matches; two accepted false positives (generate-app-icons, an icon-generation CLI, and ls-icons, a coreutils ls fork that prints icons — neither is itself an icon theme)."
   },
   {
@@ -2096,7 +2101,7 @@
   },
   {
     "pattern": "*-backgrounds*",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Wallpaper/background packs named <distro-release/project>-backgrounds (Fedora's own per-release f21-backgrounds.../beefy-miracle-backgrounds, vanilla-backgrounds, gradience-backgrounds, ...) — desktop-personalization assets, same Settings bucket as this file's other theme/icon entries. Widened from a bare `*-backgrounds` suffix (2026-09-04, mining Fedora's own \"To Classify\" pool): Fedora ships each release's pack as several per-desktop/per-image subpackages (f21-backgrounds-base/-xfce/-extras-base/-animated, leonidas-backgrounds-common/-kdm/-lion, ...) and Ubuntu/elementary OS ship per-codename variants (precise-backgrounds-artful, freya-backgrounds, ...) that the bare suffix never matched. Verified whole-catalog: 526 name matches (up from 32), every one a wallpaper-pack subpackage by suffix (-base/-single/-animated/-extras*/-gnome/-kde/-xfce/-mate/-budgie/-wallpapers/-common/-kdm/-lion*/-stripes*/-retro, or a distro-codename/OS-version suffix), zero unrelated collisions."
   },
   {
@@ -2391,7 +2396,7 @@
   },
   {
     "pattern": "celtic-magic-button",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Budgie desktop panel applet providing a shutdown/session-control button."
   },
   {
@@ -2446,7 +2451,7 @@
   },
   {
     "pattern": "gradience",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "GTK/Adwaita theming and color-scheme customization tool."
   },
   {
@@ -2661,12 +2666,12 @@
   },
   {
     "pattern": "mintdesktop",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Linux Mint's desktop-configuration tool."
   },
   {
     "pattern": "mintdrivers",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Linux Mint's Driver Manager."
   },
   {
@@ -2686,7 +2691,7 @@
   },
   {
     "pattern": "mintupdate",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "The Linux Mint Update Manager."
   },
   {
@@ -2701,7 +2706,7 @@
   },
   {
     "pattern": "mintwelcome",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Welcome screen shown on first login in Linux Mint, same family as other distro welcome screens classified Settings."
   },
   {
@@ -2716,7 +2721,7 @@
   },
   {
     "pattern": "dde",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Deepin Desktop Environment core package, same dde-*/deepin-* component family already classified Settings."
   },
   {
@@ -2736,7 +2741,7 @@
   },
   {
     "pattern": "mxfb-styles",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Extra visual styles/themes for MX Linux's Fluxbox edition."
   },
   {
@@ -2831,12 +2836,12 @@
   },
   {
     "pattern": "system76-keyboard-configurator-git",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "GUI to configure keymap and backlight on System76 keyboards -- hardware settings tool."
   },
   {
     "pattern": "system76-keyboard-configurator",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "GUI to configure keymap and backlight on System76 keyboards -- hardware settings tool."
   },
   {
@@ -2931,7 +2936,7 @@
   },
   {
     "pattern": "mintlocale",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Language and locale selection tool for Linux Mint."
   },
   {
@@ -2946,12 +2951,12 @@
   },
   {
     "pattern": "mouse-actions-gui-bin",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Configures mouse gestures, hot corners and modifier-key actions -- input/device configuration, same family as hotkey-daemon entries already mapped to Settings."
   },
   {
     "pattern": "mouse-actions-gui",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Configures mouse gestures, hot corners and modifier-key actions -- input/device configuration, same family as hotkey-daemon entries already mapped to Settings."
   },
   {
@@ -3021,7 +3026,7 @@
   },
   {
     "pattern": "roccat-tools-kiro",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Configuration utility for ROCCAT Kiro peripheral devices -- hardware settings."
   },
   {
@@ -3031,12 +3036,12 @@
   },
   {
     "pattern": "sidewinderd",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Driver/daemon for configuring Microsoft SideWinder and Logitech gaming keyboards/mice -- hardware settings."
   },
   {
     "pattern": "sidewinderd-git",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Driver/daemon for configuring Microsoft SideWinder and Logitech gaming keyboards/mice -- hardware settings."
   },
   {
@@ -3096,7 +3101,7 @@
   },
   {
     "pattern": "system76-oled",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Controls brightness on System76 OLED displays -- hardware settings."
   },
   {
@@ -3111,12 +3116,12 @@
   },
   {
     "pattern": "systempreferences",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "GNUstep application for managing system/desktop-environment settings."
   },
   {
     "pattern": "system-preferences",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "GNUstep application for managing system/desktop-environment settings."
   },
   {

@@ -1,6 +1,10 @@
 {
   "json.schemas": [
     {
+      "fileMatch": ["/config/subcategories.json"],
+      "url": "./src/curator/enrich/subcategories.schema.json"
+    },
+    {
       "fileMatch": ["/config/filter-keep.json"],
       "url": "./src/curator/filter/filter-keep.schema.json"
     },

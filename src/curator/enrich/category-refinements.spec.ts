@@ -43,6 +43,42 @@ describe("refineCategory", () => {
     );
   });
 
+  it("moves an app whose freedesktop keys a rule lists, whatever its text", () => {
+    const keyed: CategoryRefinementEntry[] = [
+      {
+        type: "app",
+        from: ["System Tools"],
+        to: "Utilities",
+        keys: ["FileManager"],
+        pattern: "\\bfile manager\\b",
+        reason: "test",
+      },
+    ];
+    expect(
+      refineCategory(
+        "app",
+        "System Tools",
+        { ...text("Browse your files"), keys: ["FileManager"] },
+        keyed,
+      ),
+    ).toBe("Utilities");
+    expect(refineCategory("app", "System Tools", text("Browse your files"), keyed)).toBe(
+      "System Tools",
+    );
+  });
+
+  it.each([
+    ["System Tools", "File manager for the GNOME desktop", ["System", "FileManager"], "Utilities"],
+    ["System Tools", "Highly customizable Wayland bar for Sway", [], "Desktop & Settings"],
+    ["System Tools", "Input Method", [], "Utilities"],
+    ["Utilities", "A fast, feature-rich terminal emulator", ["TerminalEmulator"], "System Tools"],
+    ["Developer Tools", "The terminal multiplexer", [], "System Tools"],
+  ])("files a %s app (%s) where the config says", (from, description, keys, to) => {
+    expect(
+      refineCategory("app", from, { ...text(description), keys }, loadCategoryRefinements()),
+    ).toBe(to);
+  });
+
   it("keeps each rule to its own type", () => {
     expect(refineCategory("app", "Sports", text("A kart game"), rules)).toBe("Sports");
     expect(refineCategory("game", "Arcade", text("A kart game"), rules)).toBe("Racing");
@@ -101,7 +137,7 @@ describe("config/category-refinements.json", () => {
   it("files AI assistants, LLM front ends, model runners and image generators under AI", () => {
     expect(refine("app", "Networking", "A desktop client for OpenAI's ChatGPT")).toBe("AI");
     expect(refine("app", "Productivity", "Private offline AI assistant")).toBe("AI");
-    expect(refine("app", "Settings", "Kirigami client for Ollama")).toBe("AI");
+    expect(refine("app", "Desktop & Settings", "Kirigami client for Ollama")).toBe("AI");
     expect(refine("app", "Developer Tools", "Run AI models, locally and privately")).toBe("AI");
     expect(refine("app", "Productivity", "Local AI with Gemma 4 inference snap")).toBe("AI");
     expect(refine("app", "Graphics & Design", "GTK+ frontend for Stable Diffusion")).toBe("AI");

@@ -87,7 +87,9 @@ describe("llmClassificationMap", () => {
   it("translates a legacy app category to the label it became", () => {
     const map = llmClassificationMap([
       { id: "a:1", type: "app", category: "Internet & Communication", ...base },
+      { id: "a:2", type: "app", category: "Settings", ...base },
     ]);
     expect(map.get("a:1")?.category).toBe("Networking");
+    expect(map.get("a:2")?.category).toBe("Desktop & Settings");
   });
 });

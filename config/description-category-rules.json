@@ -531,17 +531,17 @@
   },
   {
     "pattern": "\\btheme manager\\b",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Description explicitly identifies it as a theme manager."
   },
   {
     "pattern": "\\bwallpaper (manager|changer)\\b",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Description explicitly identifies it as a wallpaper manager."
   },
   {
     "pattern": "\\bsystem settings (panel|app)\\b",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Description explicitly identifies it as a system-settings panel."
   },
   {
@@ -721,22 +721,22 @@
   },
   {
     "pattern": "\\bgtk theme\\b",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Description explicitly identifies it as a GTK theme -- same desktop-theming reasoning as category-rules.json's yaru*/adwaita*/tela*/papirus*/oxygen*/arc* entries, here for the many individually-named themes that pattern-matching by name can't reach. Verified live: 77 real matches, zero unrelated collisions."
   },
   {
     "pattern": "\\bicon theme\\b",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Description explicitly identifies it as an icon theme -- same reasoning as gtk theme above. Verified live: 148 real matches, zero unrelated collisions."
   },
   {
     "pattern": "\\bscreen locker\\b",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Description explicitly identifies it as a screen locker -- verified live: 33 real matches, zero unrelated collisions."
   },
   {
     "pattern": "\\block screen\\b",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Description explicitly identifies it as lock-screen software -- same reasoning as screen locker above. Verified live: 15 real matches, zero unrelated collisions."
   },
   {
@@ -751,17 +751,17 @@
   },
   {
     "pattern": "\\bscreensaver\\b",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Description explicitly identifies it as a screensaver -- desktop-appearance/idle-behavior configuration. Verified live: 49 real matches, zero unrelated collisions."
   },
   {
     "pattern": "\\bkeyboard layout\\b",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Description explicitly identifies it as keyboard-layout software -- matches config/categories-apps.json's own \"HardwareSettings\" -> Settings freedesktop mapping. Verified live: 53 real matches, zero unrelated collisions."
   },
   {
     "pattern": "\\binput method\\b",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Description explicitly identifies it as an input method (IME) -- same hardware/input-configuration reasoning as keyboard layout above. Verified live: 108 real matches, zero unrelated collisions."
   },
   {
@@ -816,7 +816,7 @@
   },
   {
     "pattern": "\\bfont manager\\b",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Description explicitly identifies it as a font manager -- same hardware/appearance-configuration reasoning as keyboard layout above. Verified live: 3 real matches, zero unrelated collisions."
   },
   {
@@ -831,22 +831,22 @@
   },
   {
     "pattern": "\\bpower management\\b",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Description explicitly identifies it as power-management software -- most real matches are GUI control panels (e.g. a GTK4/Libadwaita interface for cpupower) rather than bare background daemons. Verified live: 37 real matches, zero unrelated collisions."
   },
   {
     "pattern": "\\bbrightness (control|manager)\\b",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Description explicitly identifies it as brightness-control software -- same hardware-settings reasoning as keyboard layout above. Verified live: 7 real matches, zero unrelated collisions."
   },
   {
     "pattern": "\\b(volume|audio) control\\b",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Description explicitly identifies it as system volume/audio-device control (not music playback) -- same hardware-settings reasoning as keyboard layout above. Verified live: 24 real matches, zero unrelated collisions."
   },
   {
     "pattern": "\\bbluetooth manager\\b",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Description explicitly identifies it as a Bluetooth manager -- same hardware-settings reasoning as keyboard layout above. Verified live: 9 real matches, zero unrelated collisions."
   },
   {
@@ -996,7 +996,7 @@
   },
   {
     "pattern": "\\bscreen magnifier\\b",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Description explicitly identifies it as a screen magnifier -- matches config/categories-apps.json's own \"Accessibility\" -> Settings freedesktop mapping. Verified live: 5 real matches, zero unrelated collisions."
   },
   {
@@ -1051,7 +1051,7 @@
   },
   {
     "pattern": "\\bhotkey (manager|daemon)\\b",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Description explicitly identifies it as a global-hotkey daemon -- same hardware/input-configuration reasoning as keyboard layout above. Verified live: 9 real matches, zero unrelated collisions."
   },
   {
@@ -1251,7 +1251,7 @@
   },
   {
     "pattern": "\\bwallpaper daemon\\b",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Description explicitly identifies it as a wallpaper daemon -- same desktop-theming reasoning as the existing wallpaper manager/changer entry. Verified live: 18 real matches, zero unrelated collisions."
   },
   {
@@ -1366,22 +1366,22 @@
   },
   {
     "pattern": "\\bwallpapers?\\b",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Discovered via a data-driven pass: found by checking which words are disproportionately common in already-classified apps' own descriptions, then verified live against the still-unclassified matches (271) — overwhelmingly wallpaper collections/managers/downloaders, same desktop-theming reasoning as the existing wallpaper manager/changer/daemon entries."
   },
   {
     "pattern": "\\bxfce\\b",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Same data-driven discovery as wallpapers above. Verified live: 105 real matches, overwhelmingly XFCE theme/appearance packages."
   },
   {
     "pattern": "\\bmate\\b",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Same data-driven discovery as wallpapers above. Verified live: 98 real matches, overwhelmingly MATE desktop theme packages."
   },
   {
     "pattern": "\\bcinnamon\\b",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Same data-driven discovery as wallpapers above. Verified live: 89 real matches, overwhelmingly Cinnamon desktop theme packages."
   },
   {
@@ -1416,7 +1416,7 @@
   },
   {
     "pattern": "\\basus\\b",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Same data-driven discovery as wallpapers above -- ASUS laptop hardware control tools, same HardwareSettings reasoning as the existing keyboard layout/brightness control entries. Verified live: 35 real matches, zero unrelated collisions."
   },
   {
@@ -1481,12 +1481,12 @@
   },
   {
     "pattern": "\\bwaybar\\b",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Same data-driven discovery as firmware above -- the Waybar Wayland status-bar ecosystem, same reasoning as the existing status bar entry. Verified live: 34 real matches, zero unrelated collisions."
   },
   {
     "pattern": "\\bmetacity\\b",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Same data-driven discovery as firmware above -- the Metacity window-manager theme family. Verified live: 31 real matches, zero unrelated collisions."
   },
   {
@@ -1506,12 +1506,12 @@
   },
   {
     "pattern": "\\bkwin\\b",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Same data-driven discovery as uefi above -- KWin (KDE's compositor) effects/scripts/theme plugins, same desktop-theming reasoning as the existing yaru*/adwaita*/arc*/etc. category-rules.json entries. Verified live: 25 real matches, zero unrelated collisions."
   },
   {
     "pattern": "\\bapplet\\b",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Same data-driven discovery as uefi above -- desktop-panel applets/indicators, same status-bar/theming family. Verified live: 64 real matches, zero unrelated collisions."
   },
   {
@@ -1541,17 +1541,17 @@
   },
   {
     "pattern": "\\btheme\\b",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Same data-driven word-frequency discovery as the earlier batches (see wallpapers' reason for the method) -- by far the single biggest find this round. Verified live: 746 real matches, zero unrelated collisions -- GTK/icon/cursor theme packages of every kind, same desktop-theming family as the many category-rules.json product entries this session already added."
   },
   {
     "pattern": "\\bcursors\\b",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Same data-driven discovery as theme above -- cursor theme packages. Verified live: 50 real matches, zero unrelated collisions."
   },
   {
     "pattern": "\\bsddm\\b",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Same data-driven discovery as theme above -- SDDM login-screen theme family. Verified live: 29 real matches, zero unrelated collisions."
   },
   {
@@ -1761,7 +1761,7 @@
   },
   {
     "pattern": "\\bartwork\\b",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Distro/desktop artwork and branding packages. Verified live: 25 matches, zero unrelated collisions."
   },
   {
@@ -1788,6 +1788,11 @@
     "pattern": "\\bgame launcher\\b",
     "category": "System Tools",
     "reason": "General (non-Minecraft-specific) game launcher/library-manager utilities (forager, opengamepadui-bin, paradox-launcher, ...). Verified live: 24 real matches, zero unrelated collisions."
+  },
+  {
+    "pattern": "\\b(download|install|launch)\\w*,? (and |or )?(install\\w*,? )?(and |or )?play (your )?games\\b|\\bplay (your )?games from\\b",
+    "category": "Gaming Tools",
+    "reason": "A store client or launcher that says what it does without the word \"launcher\" (Epic Games Launcher on Flathub: \"Download, install, and play games from the Epic Games Store\"). Checked 2026-11-18 on the published dataset: the phrase only matches game launchers and store clients."
   },
   {
     "pattern": "\\bmod (launcher|manager)\\b",
@@ -1831,12 +1836,12 @@
   },
   {
     "pattern": "\\bopenbox\\b",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Openbox window-manager theme/config tooling (bunsen-themes-git, hotbox-git, labwc-menu-generator-git, ...). Verified live: 36 real matches, zero unrelated collisions."
   },
   {
     "pattern": "\\blocker\\b",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "Screen/session locker utilities (light-locker-git, lumalock, gllock-git, ...). Verified live: 17 real matches, zero unrelated collisions."
   },
   {
@@ -1876,7 +1881,7 @@
   },
   {
     "pattern": "\\bplasma\\b",
-    "category": "Settings",
+    "category": "Desktop & Settings",
     "reason": "KDE Plasma desktop-integration tooling (4ztexdock-git, adguard-tray, aerothemeplasma-desktop-git, ...). Verified live: 148 real matches; a small accepted minority use \"plasma\" in the physics sense (e.g. SciQLOP's spacecraft plasma data)."
   },
   {

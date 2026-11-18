@@ -52,9 +52,10 @@
               "Travel & Navigation",
               "Books & Reference",
               "System Tools",
-              "Settings",
+              "Desktop & Settings",
               "Utilities",
-              "Internet & Communication"
+              "Internet & Communication",
+              "Settings"
             ],
             "description": "One of the app categories, or a legacy label from an earlier taxonomy (category.ts's LEGACY_APP_CATEGORY_LABELS), translated when applied."
           }

@@ -7,7 +7,7 @@
       "Productivity",
       "Utilities",
       "System Tools",
-      "Settings",
+      "Desktop & Settings",
       "Education",
       "Science",
       "Security",
@@ -95,7 +95,7 @@
       "System Tools",
       "Utilities",
       "Developer Tools",
-      "Settings",
+      "Desktop & Settings",
       "Networking",
       "Photo & Video"
     ],
@@ -109,13 +109,44 @@
       "System Tools",
       "Utilities",
       "Developer Tools",
-      "Settings",
+      "Desktop & Settings",
       "Networking",
       "Photo & Video"
     ],
     "to": "Gaming Tools",
     "pattern": "^(?!.*\\b(level editors?|map editors?|editors?|editing|node builders?|level makers?|random levels?|compil\\w*|wad (editors?|extract\\w*)|extract\\w*|for building|development|developers?|assets?|save files|locali[sz]\\w*|sdk)\\b).*(\\b(doom\\w*|quake\\w*|heretic|hexen|strife|duke nukem( 3d)?|wolfenstein( 3d)?|half[- ]life( [12])?|gold ?source|xash3d|descent( [12])?|serious sam( classic)?|original unreal|unreal engine 1|unreal tournament|jedi knight|jedi outcast|jedi academy|dark forces( ii)?|commander keen|cave story|flashback|sonic( cd| [12])|retro engine|darkplaces|id ?tech ?\\d?|tomb raider|adventure game studio|ags games)['’]?s?( [\\w'’-]+){0,3}( game)? engines?\\b|\\b(doom\\w*|quake\\w*|heretic|hexen|strife|duke nukem( 3d)?|wolfenstein( 3d)?|half[- ]life( [12])?|gold ?source|xash3d|descent( [12])?|serious sam( classic)?|original unreal|unreal engine 1|unreal tournament|jedi knight|jedi outcast|jedi academy|dark forces( ii)?|commander keen|cave story|flashback|sonic( cd| [12])|retro engine|darkplaces|id ?tech ?\\d?|tomb raider|adventure game studio|ags games)( [\\w'’-]+){0,3} (source )?(ports?|re-?implementation|recreation|remake|decompilation|mods?)\\b|\\b(ports?|re-?implementation|recreation|rewrite|remake|decompilation|fork|build) of (the |an? )?[\\\"“']?[^|]{0,25}?\\b(doom\\w*|quake\\w*|heretic|hexen|strife|duke nukem( 3d)?|wolfenstein( 3d)?|half[- ]life( [12])?|gold ?source|xash3d|descent( [12])?|serious sam( classic)?|original unreal|unreal engine 1|unreal tournament|jedi knight|jedi outcast|jedi academy|dark forces( ii)?|commander keen|cave story|flashback|sonic( cd| [12])|retro engine|darkplaces|id ?tech ?\\d?|tomb raider|adventure game studio|ags games)\\b|\\bengines? [^|]{0,30}?\\b(for|of) (the )?[\\\"“']?(classic |original )?(doom\\w*|quake\\w*|heretic|hexen|strife|duke nukem( 3d)?|wolfenstein( 3d)?|half[- ]life( [12])?|gold ?source|xash3d|descent( [12])?|serious sam( classic)?|original unreal|unreal engine 1|unreal tournament|jedi knight|jedi outcast|jedi academy|dark forces( ii)?|commander keen|cave story|flashback|sonic( cd| [12])|retro engine|darkplaces|id ?tech ?\\d?|tomb raider|adventure game studio|ags games)\\b|\\b(launch\\w*|front-?ends?|manag\\w*) [^|]{0,30}?\\b(doom\\w*|quake\\w*|heretic|hexen|strife|duke nukem( 3d)?|wolfenstein( 3d)?|half[- ]life( [12])?|gold ?source|xash3d|descent( [12])?|serious sam( classic)?|original unreal|unreal engine 1|unreal tournament|jedi knight|jedi outcast|jedi academy|dark forces( ii)?|commander keen|cave story|flashback|sonic( cd| [12])|retro engine|darkplaces|id ?tech ?\\d?|tomb raider|adventure game studio|ags games)\\b[^|]{0,15}?\\b(engines?|ports?|wads?|mods|levels)\\b|\\b(doom\\w*|quake\\w*|heretic|hexen|strife|duke nukem( 3d)?|wolfenstein( 3d)?|half[- ]life( [12])?|gold ?source|xash3d|descent( [12])?|serious sam( classic)?|original unreal|unreal engine 1|unreal tournament|jedi knight|jedi outcast|jedi academy|dark forces( ii)?|commander keen|cave story|flashback|sonic( cd| [12])|retro engine|darkplaces|id ?tech ?\\d?|tomb raider|adventure game studio|ags games)( [\\w-]+){0,2} (server browser|servers?)\\b|\\binterpreters? (for|of) [^|]{0,25}?\\b(glulx|z-?machine|z-?code|infocom|tads|interactive fiction|text adventures?)\\b|\\b(glulx|z-?machine|infocom|tads[ 23&]*)( vm)?( reference)? interpreters?\\b)",
     "reason": "Engines that play a classic game rather than make a new one, and the tools that run them: source ports and reimplementations (Quakespasm, DarkPlaces, Quake3e, Xash3D, D2X-Rebirth, OpenJKDF2, doukutsu-rs, Commander Genius, Serious Engine, the Sonic decompilations), their launchers and server browsers (Doom Runner, Doomseeker), and interactive fiction interpreters (Frotz, Glulxe, fizmo, Level 9). A Development, System or Utility key filed them next to compilers and disk tools; the rule above catches only those whose description says \"source port\". The game must be named (Doom, Quake, Half-Life, Descent, Jedi Knight, ...): a general-purpose engine for making games (Godot, Unity, Unreal Engine 4) stays a developer tool, and so does anything that edits, builds, compiles or extracts for one (TrenchBroom, GtkRadiant, Ultimate Doom Builder, Oblige, WadExt, AGS's tools). Measured 2026-11-17: 55 apps moved, every one checked by hand."
+  },
+  {
+    "type": "app",
+    "from": ["Utilities", "Developer Tools"],
+    "to": "System Tools",
+    "keys": ["TerminalEmulator"],
+    "pattern": "\\b(terminal emulator|terminal multiplexer)s?\\b|^(tmux|zellij|screen|alacritty|kitty|wezterm|ghostty|foot|cool-retro-term|black box|tilix|terminator|powershell|xonsh|nushell)\\b",
+    "reason": "Terminal emulators, multiplexers and shells are System Tools (its Terminals & Shells subcategory), wherever a Utility or Development key filed them: Ghostty, cool-retro-term and Black Box sat in Utilities, tmux, alacritty, zellij and PowerShell in Developer Tools."
+  },
+  {
+    "type": "app",
+    "from": ["System Tools"],
+    "to": "Utilities",
+    "pattern": "\\b(input methods?|fcitx\\d*|ibus|emoji (picker|chooser|selector)|on[- ]screen keyboard|virtual keyboard)\\b",
+    "reason": "Input methods and emoji pickers: the IBus and Rime engines sat in Utilities and Fcitx 5 in System Tools; they now share Utilities' Keyboard & Input Methods subcategory."
+  },
+  {
+    "type": "app",
+    "from": ["System Tools", "Developer Tools"],
+    "to": "Utilities",
+    "keys": ["FileManager", "Archiving", "Compression"],
+    "pattern": "\\b(file (managers?|browsers?|explorers?)|archive (managers?|tools?|utilit\\w*)|archivers?|duplicate (files?|file finders?|finders?)|find duplicates|empty folders)\\b",
+    "reason": "File managers, archivers and duplicate finders are Utilities (Files & Archives), as on Flathub: GNOME Files, Ark, Xarchiver, PCManFM and Czkawka sat in System Tools through a System key or a desktop section."
+  },
+  {
+    "type": "app",
+    "from": ["System Tools"],
+    "to": "Desktop & Settings",
+    "keys": ["DesktopSettings", "Settings"],
+    "pattern": "^(?!.*\\b(terminal emulator|file manager|input method|fcitx|ibus)\\b).*\\b(dconf|gsettings|tweaks?|window managers?|wm|tiling|compositors?|desktop (environments?|shells?|sessions?)|display managers?|login managers?|greeters?|lock ?screens?|screen ?lock(er)?s?|screensavers?|wallpapers?|status ?bars?|waybar|polybar|panels?|docks?|app(lication)? launchers?|rofi|dmenu|wofi|fuzzel|notification (daemons?|centers?)|widgets?|applets?|conky|hyprland|sway|i3|bspwm|openbox|fluxbox|niri|labwc|wayfire|icon themes?|cursor themes?|gtk themes?|plasma|gnome shell)\\b",
+    "reason": "Desktop & Settings holds what makes up and customizes a desktop: window managers and compositors, bars and panels, launchers, lock screens, themes and wallpapers, and settings tools (dconf). About 1,300 of these sat in System Tools, filed by a System key or a desktop section, next to disk and driver tools."
   },
   {
     "type": "app",

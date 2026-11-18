@@ -31,7 +31,7 @@ export const TAXONOMY: Taxonomy = {
 };
 
 // One-line glosses for the categories models confuse (measured on sampled
-// answers: Utilities / System Tools / Settings overlap, "Education" vs the
+// answers: Utilities / System Tools / Desktop & Settings overlap, "Education" vs the
 // game genre "Educational", emulators between System Tools and Gaming Tools). Typed as
 // Records over the label unions, so a new category can't ship without one.
 const APP_GLOSS: Record<AppCategoryLabel, string> = {
@@ -58,7 +58,8 @@ const APP_GLOSS: Record<AppCategoryLabel, string> = {
   "Travel & Navigation": "maps, GPS, route planning",
   "Books & Reference": "e-book readers, dictionaries, encyclopedias",
   "System Tools": "monitoring, disks, drivers, terminals, package managers, backups, daemons",
-  Settings: "configuration panels and desktop tweak tools",
+  "Desktop & Settings":
+    "window managers, panels and bars, launchers, themes and wallpapers, configuration panels, desktop tweak tools",
   Utilities: "small general-purpose helpers that fit nowhere else (last resort)",
 };
 

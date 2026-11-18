@@ -33,7 +33,7 @@
           "Travel & Navigation",
           "Books & Reference",
           "System Tools",
-          "Settings",
+          "Desktop & Settings",
           "Utilities"
         ],
         "description": "One of config/categories-apps.json's own display labels — this is the last-resort signal for apps with no upstream category, no category-rules.json name match, and no Debian/Gentoo/openSUSE section match either."

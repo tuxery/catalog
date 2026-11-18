@@ -14,6 +14,7 @@ import { CategoryRulesListSchema } from "../src/curator/enrich/category-rules";
 import { GameCategoryRulesListSchema } from "../src/curator/enrich/game-category-rules";
 import { DescriptionCategoryRulesListSchema } from "../src/curator/enrich/description-category-rules";
 import { CategoryRefinementsListSchema } from "../src/curator/enrich/category-refinements";
+import { SubcategoriesSchema } from "../src/curator/enrich/subcategory";
 import { CompatWarningsListSchema } from "../src/curator/enrich/compat-warnings";
 import { EnrichSuitesListSchema } from "../src/curator/enrich/suite";
 import { LlmClassificationsListSchema } from "../src/curator/enrich/llm-classifications";
@@ -85,6 +86,7 @@ const SCHEMAS: { schema: z.ZodType; outFile: string }[] = [
     schema: CategoryRefinementsListSchema,
     outFile: "../src/curator/enrich/category-refinements.schema.json",
   },
+  { schema: SubcategoriesSchema, outFile: "../src/curator/enrich/subcategories.schema.json" },
   { schema: CategoriesAppsSchema, outFile: "../src/curator/enrich/categories-apps.schema.json" },
   { schema: CategoriesGamesSchema, outFile: "../src/curator/enrich/categories-games.schema.json" },
   {

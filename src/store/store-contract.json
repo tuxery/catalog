@@ -17,6 +17,7 @@
     "categoryPreview": 12
   },
   "mustHaveListing": "mustHave",
+  "familyGamesListing": "familyGames",
   "browseKeys": {
     "metaKey": "browseKeys",
     "fields": ["generation", "sourceIdsChunkSize", "freeCounts", "categoryIds", "ageFilter"]

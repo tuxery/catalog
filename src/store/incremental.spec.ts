@@ -126,7 +126,8 @@ describe("incremental publish", () => {
     await client.publish(AFTER);
 
     const keys = (await db.execute(`SELECT key FROM meta`)).rows.map((row) => String(row.key));
-    expect(keys.filter((key) => key.includes(":gog:") || key.includes("Games"))).toEqual([]);
+    // The "Games" category's keys end with it (`categoryPreview:Games`, `count:...:Games`).
+    expect(keys.filter((key) => key.includes(":gog:") || key.endsWith(":Games"))).toEqual([]);
     expect(keys.some((key) => key.includes(":game:"))).toBe(false);
   });
 

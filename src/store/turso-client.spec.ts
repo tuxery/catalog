@@ -1,6 +1,11 @@
 import { createClient, type Client } from "@libsql/client";
 import { describe, expect, it, vi } from "vitest";
-import { byPopularFirst, createTursoClient, type AppRecord } from "./turso-client";
+import {
+  byPopularFirst,
+  createTursoClient,
+  FAMILY_GAMES_LISTING,
+  type AppRecord,
+} from "./turso-client";
 
 const APP: AppRecord = {
   id: "flathub:org.videolan.VLC",
@@ -351,6 +356,38 @@ describe("createTursoClient", () => {
     expect(idsFor("categoryPreview:Utilities")).toEqual(["other-source", "scored", "unscored"]);
     expect(idsFor("trendingBySource:flathub")).toEqual(["scored"]);
     expect(idsFor("trendingBySource:snap")).toEqual(["other-source"]);
+  });
+
+  it("precomputes the all-ages games, most popular first, icon required", async () => {
+    const { batch, client } = fakeClient(false);
+    const tursoClient = createTursoClient({ url: "file::memory:" }, client);
+    const game = (id: string, extra: Partial<AppRecord>): AppRecord => ({
+      ...APP,
+      id,
+      contentType: "game",
+      iconUrl: "icon.png",
+      ageBracket: 3,
+      ...extra,
+    });
+    const apps: AppRecord[] = [
+      game("popular", { popularity: 0.9 }),
+      game("less-popular", { popularity: 0.2 }),
+      game("unscored", {}),
+      game("rated-7", { popularity: 0.95, ageBracket: 7 }),
+      game("unrated", { popularity: 0.95, ageBracket: undefined }),
+      game("no-icon", { popularity: 0.95, iconUrl: undefined }),
+      { ...APP, id: "an-app", iconUrl: "icon.png", ageBracket: 3, popularity: 0.99 },
+    ];
+
+    await tursoClient.publish({ generatedAt: "2026-01-01T00:00:00.000Z", apps });
+
+    const swapBatch = batch.mock.calls[1]?.[0] as { sql: string; args?: unknown[] }[];
+    const args = swapBatch.find((s) => s.sql.includes("INSERT INTO meta"))?.args as unknown[];
+    expect(JSON.parse(metaValue(args, FAMILY_GAMES_LISTING) ?? "[]")).toEqual([
+      "popular",
+      "less-popular",
+      "unscored",
+    ]);
   });
 
   it("lists each source's recently updated apps by that source's own newest date", async () => {

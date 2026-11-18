@@ -4500,5 +4500,18 @@
       }
     ],
     "reason": "The Ninja build system: Debian, Ubuntu, Fedora and Alpine package it as ninja-build, the others as ninja. Wikidata Q28975257 links both."
+  },
+  {
+    "destination": {
+      "source": "deb-debian",
+      "appId": "freeciv-ruleset-tools"
+    },
+    "sources": [
+      {
+        "source": "rpm-opensuse-appstream",
+        "appId": "freeciv"
+      }
+    ],
+    "reason": "openSUSE's freeciv package holds Freeciv's server and ruleset editor, and its AppStream lists only those two (the ruleset editor first, \"Ruleset editor for the Freeciv game\"); the game's clients are its freeciv-gtk3/gtk4/qt/sdl packages. Grouped by package name with the Freeciv game, it named the game's card \"Freeciv ruleset editor\" and gave it the editor's all-ages rating: it belongs with the ruleset editor (kept apart from the game in match-apart.json)."
   }
 ]

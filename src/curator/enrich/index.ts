@@ -517,6 +517,72 @@ export function isGameLauncherDespiteGenre(
   );
 }
 
+// Two more kinds of tool that carry the genres of the games they serve,
+// which the genre would otherwise keep a game:
+// - an emulator or game interpreter, when its store says so twice: the
+//   freedesktop Emulator key and a description that emulates or
+//   interprets (MAME "multi-purpose emulation framework", Supermodel,
+//   ScummVM "Interpreter for numerous adventure games", TIC-80 "Fantasy
+//   computer"). The key alone isn't enough: OpenTTD carries it too.
+// - a description that names itself an editor, a server or a modpack
+//   installer for a game ("Ruleset editor for the Freeciv game", "Server
+//   component for the Freeciv game", "Editor for the Ultima VII game
+//   engine Exult"). Not a bare "installer": Lutris's install scripts
+//   ("An installer for the GOG version of the game") are the game.
+// Measured 2026-11-17: 6 games by the first (MAME, Supermodel, ScummVM,
+// TIC-80, PokeMMO and its installer), 13 by the second (the Freeciv
+// editor, server and modpack installers, Exult Studio, dedicated servers
+// for Project Zomboid, Palworld, Freeminer, CheckiO's and Hex's clients).
+const EMULATOR_DESCRIPTION = /\bemulat\w*|\binterpreter\b|\bfantasy (computer|console)\b/i;
+const GAME_TOOL_DESCRIPTION =
+  /^\s*(an? |the )?([\w+.-]+ ){0,3}(ruleset |level |map |scenario |save |mod |modpack |dedicated )?(editors?|servers?|server component|modpack installers?|tools?|utilit(y|ies))\b( and [\w ]{1,20})?\s+(for|of) (the |a |an )?([\w:.' +-]{1,30} )?(game|games|engine)\b/i;
+
+/**
+ * True when a product carrying game genres is an emulator, an editor or a
+ * server for games rather than a game (see above). The Emulator key is
+ * looked for on every member: ScummVM's Flathub metainfo, the one whose
+ * keys win, leaves it out where Arch's and Fedora's carry it. Pure.
+ */
+export function isGameToolDespiteGenre(
+  packages: readonly SourcedPackage[],
+  shortDescription: string,
+): boolean {
+  if (
+    packages.some((pkg) => pkg.categories?.includes("Emulator")) &&
+    EMULATOR_DESCRIPTION.test(shortDescription)
+  ) {
+    return true;
+  }
+  return GAME_TOOL_DESCRIPTION.test(shortDescription);
+}
+
+/**
+ * Where a tool `isGameToolDespiteGenre` took out of the games lands when
+ * its own keys only give it a generic category: with the gaming tools,
+ * where Flathub and GNOME Software list emulators (MAME's Emulator key
+ * alone reads System Tools, Freeciv's server and ruleset editor have no
+ * app key at all).
+ */
+const GENERIC_TOOL_CATEGORIES = new Set(["System Tools", "Utilities", TO_CLASSIFY]);
+
+// Debian's Debtags file a few non-games under its `game::` facet:
+// `game::toys` holds XaoS, a fractal zoomer, and `game::typing` the touch
+// typing tutors (KTouch, Klavaro). When that tag is a product's only game
+// evidence and the AppStream keys its store gave it name no game at all
+// (XaoS: Education, Science, Math, Graphics), the keys win. Measured
+// 2026-11-17: exactly those 3 products.
+const GAME_KEY = /^Game$|Game$|^(Shooter|RolePlaying|Simulation|Emulator)$|^X-/;
+
+/** True when `pkg`'s only game evidence is Debian's or Ubuntu's `game::` debtag. Pure. */
+function hasDebtagOnlyGameEvidence(pkg: SourcedPackage): boolean {
+  return (
+    (pkg.source === "deb-debian" || pkg.source === "deb-ubuntu") &&
+    pkg.hasGameCategory === true &&
+    !hasAurKeywordGameEvidence(pkg) &&
+    !looksLikeGamePackage(pkg.source, pkg.section, pkg.name)
+  );
+}
+
 /**
  * Picks a category label via `pickField`, then maps it through
  * `pickCategory`'s type-scoped taxonomy. When no member package has any
@@ -876,8 +942,12 @@ export function enrichApps(
     const warnings = getCompatWarnings(app.packages, compatWarnings);
     const categories = pickCategories(app.packages);
     const hasKnownGameGenre = pickCategory(categories, "game") !== TO_CLASSIFY;
-    const heuristicType: ContentType =
-      (app.packages.some(hasGameEvidence) ||
+    const debtagIsNotEnough =
+      categories.length > 0 && !categories.some((category) => GAME_KEY.test(category));
+    const gameBeforeTools =
+      (app.packages.some(
+        (pkg) => hasGameEvidence(pkg) && !(debtagIsNotEnough && hasDebtagOnlyGameEvidence(pkg)),
+      ) ||
         app.packages.some(hasGameNameEvidence) ||
         looksLikeGameDescription(
           shortDescription,
@@ -889,9 +959,10 @@ export function enrichApps(
         !isGameAdjacentToolDescription(
           shortDescription,
           app.packages.map((pkg) => pkg.name),
-        ))
-        ? "game"
-        : "app";
+        ));
+    // A game by every other signal, but an emulator, editor or server for games.
+    const gameTool = gameBeforeTools && isGameToolDespiteGenre(app.packages, shortDescription);
+    const heuristicType: ContentType = gameBeforeTools && !gameTool ? "game" : "app";
 
     const pickLabel = (type: ContentType): string =>
       pickCategoryLabel(
@@ -914,12 +985,14 @@ export function enrichApps(
       pickLabel,
     );
     const { type, excluded } = classified;
-    const category = refineCategory(
+    const refined = refineCategory(
       type,
       classified.category,
       { name: representative.name, shortDescription, llmReason: verdict?.llm.reason },
       categoryRefinements,
     );
+    const category =
+      type === "app" && gameTool && GENERIC_TOOL_CATEGORIES.has(refined) ? "Gaming Tools" : refined;
 
     const ageRating = pickAgeRating(app.packages);
     return {

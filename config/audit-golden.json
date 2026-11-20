@@ -360,7 +360,7 @@
     ]
   },
   {
-    "product": "GNU Image Manipulation Program",
+    "product": "GIMP",
     "anchors": [
       {
         "source": "flatpak-flathub",

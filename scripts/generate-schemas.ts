@@ -17,6 +17,7 @@ import { CategoryRefinementsListSchema } from "../src/curator/enrich/category-re
 import { SubcategoriesSchema } from "../src/curator/enrich/subcategory";
 import { CompatWarningsListSchema } from "../src/curator/enrich/compat-warnings";
 import { EnrichSuitesListSchema } from "../src/curator/enrich/suite";
+import { DisplayNamesListSchema } from "../src/curator/enrich/display-name";
 import { LlmClassificationsListSchema } from "../src/curator/enrich/llm-classifications";
 import { LlmModelsListSchema } from "../src/curator/enrich/llm-models";
 import { FamilyCompanionsListSchema, FamilyRelationsListSchema } from "../src/curator/family/types";
@@ -70,6 +71,10 @@ const SCHEMAS: { schema: z.ZodType; outFile: string }[] = [
     outFile: "../src/curator/enrich/enrich-compat-warnings.schema.json",
   },
   { schema: EnrichSuitesListSchema, outFile: "../src/curator/enrich/enrich-suites.schema.json" },
+  {
+    schema: DisplayNamesListSchema,
+    outFile: "../src/curator/enrich/enrich-display-names.schema.json",
+  },
   {
     schema: CategoryRulesListSchema,
     outFile: "../src/curator/enrich/category-rules.schema.json",

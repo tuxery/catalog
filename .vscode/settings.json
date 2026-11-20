@@ -53,6 +53,10 @@
       "url": "./src/curator/enrich/enrich-compat-warnings.schema.json"
     },
     {
+      "fileMatch": ["/config/enrich-display-names.json"],
+      "url": "./src/curator/enrich/enrich-display-names.schema.json"
+    },
+    {
       "fileMatch": ["/config/enrich-suites.json"],
       "url": "./src/curator/enrich/enrich-suites.schema.json"
     },

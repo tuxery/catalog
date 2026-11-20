@@ -6,6 +6,7 @@ import {
   groupPackages,
   type CatalogApp,
 } from "../curator";
+import { applyDisplayNames, loadDisplayNames } from "../curator/enrich/display-name";
 import type { LlmClassificationEntry } from "../curator/enrich/llm-classifications";
 import {
   readGithubStars,
@@ -71,6 +72,8 @@ export async function buildDataset(options: BuildDatasetOptions = {}): Promise<D
     undefined,
     options.llmClassifications,
   );
+  // Before families: companion and relation signals read the product's name.
+  applyDisplayNames(enriched, loadDisplayNames());
   const families = attachFamilies(enriched, [...addons, ...filteredOut]);
   const visible = families.filter((app) => !app.excluded && !app.companionOf);
   // Only published apps get stars; everything else pointing to the same

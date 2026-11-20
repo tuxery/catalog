@@ -1,0 +1,7 @@
+[
+  {
+    "appId": "gimp",
+    "name": "GIMP",
+    "reason": "Flathub and Snapcraft list it as \"GNU Image Manipulation Program\", the expansion of its acronym; the project itself, its website (gimp.org) and AppImageHub all call it GIMP."
+  }
+]

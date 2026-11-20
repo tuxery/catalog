@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "appId": {
+        "type": "string",
+        "description": "The app's catalog id, as in its page URL, e.g. \"gimp\"."
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "description": "The name to show instead, e.g. \"GIMP\"."
+      },
+      "reason": {
+        "type": "string",
+        "description": "Why the store's name is wrong and where the right one comes from — required so the rename is auditable later."
+      }
+    },
+    "required": ["appId", "name", "reason"],
+    "additionalProperties": false
+  },
+  "title": "Enrich: display names",
+  "description": "Replaces the name the best source gives an app when that name is not the one people know it by (Flathub calls GIMP \"GNU Image Manipulation Program\"). Curated by hand, never inferred from acronyms: \"Eye of GNOME\" or \"Universal Radio Hacker\" are rightly shown in full."
+}

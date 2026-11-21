@@ -1,9 +1,10 @@
 {
   "source": "github-stars",
-  "fetchedAt": "2026-11-16T23:42:24.852Z",
+  "fetchedAt": "2026-11-21T12:39:34.583Z",
   "url": "https://api.github.com/graphql",
-  "entryCount": 100789,
-  "repositoriesReferenced": 102329,
-  "repositoriesQueried": 102329,
-  "repositoriesMissing": 1540
+  "entryCount": 101434,
+  "repositoriesReferenced": 103015,
+  "repositoriesQueried": 40000,
+  "repositoriesMissing": 1581,
+  "cursor": "hrsh7th/cmp-nvim-lua"
 }

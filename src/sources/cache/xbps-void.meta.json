@@ -1,8 +1,8 @@
 {
   "source": "xbps-void",
-  "fetchedAt": "2026-11-14T11:16:22.484Z",
+  "fetchedAt": "2026-11-21T12:04:56.946Z",
   "url": "https://repo-default.voidlinux.org/current/x86_64-repodata, https://repo-default.voidlinux.org/current/nonfree/x86_64-repodata, https://repo-default.voidlinux.org/current/multilib/x86_64-repodata",
-  "entryCount": 20649,
+  "entryCount": 20584,
   "reposFetched": [
     "main",
     "nonfree",

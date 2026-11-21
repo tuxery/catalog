@@ -1,14 +1,14 @@
 {
   "source": "brew-homebrew",
-  "fetchedAt": "2026-11-15T23:30:13.944Z",
+  "fetchedAt": "2026-11-21T12:12:17.959Z",
   "url": "https://formulae.brew.sh/api/formula.json, https://formulae.brew.sh/api/cask.json",
-  "entryCount": 8747,
-  "formulaeTotal": 8731,
-  "formulaeKept": 8401,
-  "casksTotal": 7834,
-  "casksOnLinux": 2956,
-  "casksKept": 346,
+  "entryCount": 8756,
+  "formulaeTotal": 8735,
+  "formulaeKept": 8404,
+  "casksTotal": 7844,
+  "casksOnLinux": 2964,
+  "casksKept": 352,
   "analyticsUrl": "https://formulae.brew.sh/api/analytics/install-on-request/homebrew-core/30d.json",
-  "analyticsStart": "2026-10-16",
-  "analyticsEnd": "2026-11-15"
+  "analyticsStart": "2026-10-22",
+  "analyticsEnd": "2026-11-21"
 }

@@ -28,7 +28,7 @@
     "@libsql/client": "^0.18.0",
     "fast-xml-parser": "^5.12.1",
     "helpers4": "^3.1.12",
-    "plist": "^5.1.1",
+    "plist": "^5.1.2",
     "spdx-expression-parse": "^5.0.0",
     "spdx-license-ids": "^3.0.24",
     "tar": "^7.5.23",
@@ -38,11 +38,11 @@
   "devDependencies": {
     "@types/node": "26.6.6",
     "@types/spdx-expression-parse": "^4.0.0",
-    "oxfmt": "^0.78.0",
-    "oxlint": "^1.93.0",
+    "oxfmt": "^0.79.0",
+    "oxlint": "^1.94.0",
     "tsx": "^4.23.15",
     "typescript": "7.0.2",
-    "vitest": "5.1.0"
+    "vitest": "5.1.1"
   },
   "engines": {
     "node": ">=26.0.0"

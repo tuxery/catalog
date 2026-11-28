@@ -1,6 +1,6 @@
 {
   "source": "deb-debian-appstream",
-  "fetchedAt": "2026-11-21T12:05:49.106Z",
+  "fetchedAt": "2026-11-28T12:44:41.473Z",
   "url": "https://appstream.debian.org/data/trixie/main/Components-amd64.yml.gz, https://appstream.debian.org/data/trixie/contrib/Components-amd64.yml.gz, https://appstream.debian.org/data/trixie/non-free/Components-amd64.yml.gz",
   "entryCount": 2095,
   "suite": "stable",

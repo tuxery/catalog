@@ -1,10 +1,10 @@
 {
   "source": "github-stars",
-  "fetchedAt": "2026-11-21T12:39:34.583Z",
+  "fetchedAt": "2026-11-28T13:19:06.164Z",
   "url": "https://api.github.com/graphql",
-  "entryCount": 101434,
-  "repositoriesReferenced": 103015,
+  "entryCount": 103303,
+  "repositoriesReferenced": 104917,
   "repositoriesQueried": 40000,
-  "repositoriesMissing": 1581,
-  "cursor": "hrsh7th/cmp-nvim-lua"
+  "repositoriesMissing": 1614,
+  "cursor": "qiskit/qiskit-aer"
 }

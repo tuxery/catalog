@@ -1,8 +1,8 @@
 {
   "source": "wikidata",
-  "fetchedAt": "2026-11-21T12:14:14.398Z",
+  "fetchedAt": "2026-11-28T12:52:35.016Z",
   "url": "https://query.wikidata.org/sparql",
-  "entryCount": 9883,
+  "entryCount": 9889,
   "queries": {
     "packages": "SELECT ?item ?property ?value WHERE {\n  VALUES ?property { wdt:P4655 wdt:P4435 wdt:P4162 wdt:P3454 wdt:P3442 wdt:P3473 wdt:P3463 wdt:P7788 wdt:P3499 wdt:P9045 wdt:P12433 wdt:P8443 }\n  ?item ?property ?value .\n}",
     "label": "SELECT DISTINCT ?item ?value WHERE {\n  VALUES ?property { wdt:P4655 wdt:P4435 wdt:P4162 wdt:P3454 wdt:P3442 wdt:P3473 wdt:P3463 wdt:P7788 wdt:P3499 wdt:P9045 wdt:P12433 wdt:P8443 }\n  ?item ?property [] .\n  ?item rdfs:label ?value . FILTER(LANG(?value) = \"en\")\n}",
@@ -11,17 +11,17 @@
     "logos": "SELECT DISTINCT ?item ?value WHERE {\n  VALUES ?property { wdt:P4655 wdt:P4435 wdt:P4162 wdt:P3454 wdt:P3442 wdt:P3473 wdt:P3463 wdt:P7788 wdt:P3499 wdt:P9045 wdt:P12433 wdt:P8443 }\n  ?item ?property [] .\n  ?item wdt:P154 ?value .\n}"
   },
   "statements": {
-    "P4655": 918,
+    "P4655": 920,
     "P4435": 389,
-    "P4162": 7131,
-    "P3454": 4335,
-    "P3442": 4443,
+    "P4162": 7132,
+    "P3454": 4336,
+    "P3442": 4445,
     "P3473": 2744,
-    "P3463": 1560,
-    "P7788": 3498,
-    "P3499": 4496,
-    "P9045": 616,
-    "P12433": 375,
-    "P8443": 1877
+    "P3463": 1561,
+    "P7788": 3499,
+    "P3499": 4497,
+    "P9045": 619,
+    "P12433": 377,
+    "P8443": 1879
   }
 }

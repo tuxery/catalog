@@ -1,6 +1,6 @@
 {
   "source": "nix-nixpkgs",
-  "fetchedAt": "2026-11-21T12:03:04.750Z",
+  "fetchedAt": "2026-11-28T12:42:53.749Z",
   "url": "https://channels.nixos.org/nixos-unstable/packages.json.br, https://channels.nixos.org/nixos-26.05/packages.json.br",
-  "entryCount": 260661
+  "entryCount": 261334
 }
